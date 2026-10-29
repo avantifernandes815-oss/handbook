@@ -36,13 +36,14 @@
 .tr-kill div{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:13px}
 .tr-kill b{display:block;color:#9b2c1f;font-size:14px}.tr-kill small{display:block;color:var(--sub);margin:4px 0 6px}
 .tr-stat{display:flex;gap:16px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 20px}
+.tr-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .tr-stat .big{font-family:Nunito,Arial,sans-serif;font-size:30px;color:var(--purple);font-weight:800}
 .tr-app{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:6px 20px}
 .tr-row{display:grid;grid-template-columns:190px minmax(0,1fr);gap:16px;padding:16px 0;border-top:1px solid var(--line)}
 .tr-row:first-child{border-top:0}
 .tr-row small{display:block;color:var(--sub);font-size:12px;margin-top:6px;line-height:1.4}
 .tr-done{background:#eef8f2;border:1px solid #9bd3b5;border-radius:14px;padding:14px 18px;font-size:14px;color:#1f5c3c;margin-bottom:18px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
-@media (max-width:760px){.tr-slots{grid-template-columns:1fr 1fr}.tr-kill{grid-template-columns:1fr}.tr-row{grid-template-columns:1fr;gap:8px}}
+@media (max-width:760px){.tr-stats{grid-template-columns:1fr}.tr-slots{grid-template-columns:1fr 1fr}.tr-kill{grid-template-columns:1fr}.tr-row{grid-template-columns:1fr;gap:8px}}
 </style>
 </head>
 <body>
@@ -63,6 +64,10 @@ async function api(path, body) {
   return data;
 }
 let S = null, openers = [], timer = null;
+const DEFAULT_FIELDS = [{key: 'business', label: 'Business', kind: 'input', required: true}, {key: 'note', label: 'SDR Additional Note', kind: 'input', required: true}, {key: 'opener', label: 'Your four-part opener', kind: 'textarea', placeholder: 'Their name, who you are, why them, a question back.', required: true}];
+const fieldsOf = a => (a && a.fields) || DEFAULT_FIELDS;
+function entryOk(a, o) { return fieldsOf(a).every(f => !f.required || (o[f.key] || '').trim().length >= (f.kind === 'textarea' ? (a.textMin || 20) : 1)); }
+function appStatus(a) { const n = openers.filter(o => entryOk(a, o)).length, distinctOk = !a.distinct || new Set(openers.map(o => o[a.distinct]).filter(Boolean)).size >= (a.distinctMin || openers.length); return {n, ready: n === a.slots.length && distinctOk, distinctOk}; }
 const build = {placed: [], bad: [], msg: null}, pick = {i: 0, chosen: null}, shown = {};
 
 async function load() {
@@ -70,7 +75,7 @@ async function load() {
   catch (e) { app.innerHTML = '<div class="card narrow" style="margin:0 auto"><h1>Not open yet</h1><p class="lead">' + esc(e.message) + '</p><a class="btn ghost" href="/#page=certifications">Back to my certifications</a></div>'; return; }
   document.getElementById('htitle').textContent = S.cert.id + ' · Training';
   const app0 = S.def.sections.find(x => x.type === 'application');
-  openers = (app0?.slots || []).map((slot, i) => ({type: slot.type, business: S.content.openers?.[i]?.business || '', note: S.content.openers?.[i]?.note || '', opener: S.content.openers?.[i]?.opener || ''}));
+  openers = (app0?.slots || []).map((slot, i) => { const o = {type: slot.type}; for (const f of fieldsOf(app0)) o[f.key] = S.content.openers?.[i]?.[f.key] || ''; return o; });
   render();
 }
 function stepper() {
@@ -87,10 +92,10 @@ function buildBox(sec) {
   const pool = [...sec.parts.map((t, i) => ({t, i})), ...sec.decoys.map((d, j) => ({t: d.text, d: j}))];
   const order = [3, 5, 0, 2, 4, 1].map(k => pool[k]).filter(Boolean);
   const done = build.placed.length === sec.parts.length;
-  return '<div class="tr-int" id="buildbox"><div class="k">TRY IT · BUILD THE OPENER</div><div style="font-size:13px;margin-top:6px">' + esc(sec.prompt) + ' Tap the cards in order.</div>' +
+  return '<div class="tr-int" id="buildbox"><div class="k">' + esc(sec.label) + '</div><div style="font-size:13px;margin-top:6px">' + esc(sec.prompt) + ' Tap the cards in order.</div>' +
     '<div class="tr-slots">' + sec.parts.map((_, i) => '<div class="tr-slot' + (build.placed[i] != null ? ' filled' : '') + '"><b>' + (i + 1) + '</b><br>' + (build.placed[i] != null ? esc(sec.parts[build.placed[i]]) : 'Tap a card') + '</div>').join('') + '</div>' +
     '<div>' + order.filter(x => x.i == null || !build.placed.includes(x.i)).map(x => x.d != null ? '<button type="button" class="tr-card' + (build.bad.includes(x.d) ? ' bad' : '') + '" data-decoy="' + x.d + '"' + (build.bad.includes(x.d) ? ' disabled' : '') + '>' + esc(x.t) + '</button>' : '<button type="button" class="tr-card" data-part="' + x.i + '">' + esc(x.t) + '</button>').join('') + '</div>' +
-    (done ? '<div class="tr-fb ok">That’s the opener: name, who you are, why them, a question back. Under fifteen seconds.</div>' : build.msg ? '<div class="tr-fb no">' + esc(build.msg) + '</div>' : '') +
+    (done ? '<div class="tr-fb ok">' + esc(sec.done || 'That’s the opener: name, who you are, why them, a question back. Under fifteen seconds.') + '</div>' : build.msg ? '<div class="tr-fb no">' + esc(build.msg) + '</div>' : '') +
     (done || build.placed.length ? '<p style="margin:10px 0 0"><button type="button" class="tr-pick" id="buildreset" style="margin:0">Start over</button></p>' : '') + '</div>';
 }
 function pickBox(sec) {
@@ -101,20 +106,31 @@ function pickBox(sec) {
     (ch ? '<div class="tr-fb ' + (ch === c.answer ? 'ok">Right. ' : 'no">Not quite. ') + esc(c.why) + '</div><p style="margin:10px 0 0"><button type="button" class="tr-pick" id="picknext" style="margin:0">' + (pick.i < sec.cards.length - 1 ? 'Next card →' : 'Start over') + '</button></p>' : '') + '</div>';
 }
 function writeBox(sec) {
-  return '<div class="tr-int"><div class="k">TRY IT · WRITE PART 3</div><div style="font-size:13px;margin-top:6px">Write a part 3 for each note. Not graded.</div>' +
-    sec.notes.map((n, i) => '<div class="tr-quote" style="margin-top:12px"><div class="sub" style="font-size:11px;letter-spacing:.6px;font-weight:700">SDR ADDITIONAL NOTE</div><div style="font-size:13px;margin:4px 0 10px">' + esc(n.note) + '</div><label class="fld" for="w' + i + '">Your part 3</label><textarea class="in" rows="2" id="w' + i + '"></textarea>' +
+  return '<div class="tr-int"><div class="k">' + esc(sec.tryLabel || 'TRY IT · WRITE PART 3') + '</div><div style="font-size:13px;margin-top:6px">' + esc(sec.tryLabel ? 'Write it for each card. Not graded.' : 'Write a part 3 for each note. Not graded.') + '</div>' +
+    sec.notes.map((n, i) => '<div class="tr-quote" style="margin-top:12px"><div class="sub" style="font-size:11px;letter-spacing:.6px;font-weight:700">' + esc(sec.noteLabel || 'SDR ADDITIONAL NOTE') + '</div><div style="font-size:13px;margin:4px 0 10px">' + esc(n.note) + '</div><label class="fld" for="w' + i + '">' + esc(sec.writeLabel || 'Your part 3') + '</label><textarea class="in" rows="2" id="w' + i + '"></textarea>' +
       (shown[i] ? '<div class="tr-fb ok">A strong example: ' + esc(n.example) + '</div>' : '<p style="margin:8px 0 0"><button type="button" class="tr-pick" data-show="' + i + '" style="margin:0">Show a strong example</button></p>') + '</div>').join('') + '</div>';
 }
+function fieldHtml(f, i, val) {
+  const id = 'a' + f.key + i, attrs = ' id="' + id + '" data-i="' + i + '" data-f="' + f.key + '"';
+  if (f.kind === 'select') return '<div><label class="fld" for="' + id + '">' + esc(f.label) + '</label><select class="in"' + attrs + '><option value="">Pick one</option>' + f.options.map(o => '<option' + (o === val ? ' selected' : '') + '>' + esc(o) + '</option>').join('') + '</select></div>';
+  if (f.kind === 'textarea') return '<div style="grid-column:1/-1"><label class="fld" for="' + id + '">' + esc(f.label) + '</label><textarea class="in" rows="2"' + attrs + ' maxlength="1200" placeholder="' + esc(f.placeholder || '') + '">' + esc(val) + '</textarea></div>';
+  return '<div><label class="fld" for="' + id + '">' + esc(f.label) + '</label><input class="in"' + attrs + ' maxlength="600" value="' + esc(val) + '"></div>';
+}
+function appNote(sec) {
+  const st = appStatus(sec);
+  if (S.completedAt) return 'Saved. These come with you to the roleplay.';
+  return 'Saved as you type · ' + st.n + ' of ' + sec.slots.length + ' written' + (sec.distinct && st.n === sec.slots.length && !st.distinctOk ? ' · pick ' + sec.distinctMin + ' different ' + sec.distinct + 's' : '');
+}
 function appBox(sec) {
-  const ok = o => o.business.trim() && o.opener.trim().length >= 20;
-  const n = openers.filter(ok).length, done = !!S.completedAt;
-  return '<div class="tr-app">' + sec.slots.map((slot, i) => '<div class="tr-row"><div><span class="chip go">' + esc(slot.type) + '</span><small>' + esc(slot.hint) + '</small></div><div><div class="grid2"><div><label class="fld" for="ab' + i + '">Business</label><input class="in" id="ab' + i + '" data-i="' + i + '" data-f="business" maxlength="200" value="' + esc(openers[i].business) + '"></div><div><label class="fld" for="an' + i + '">SDR Additional Note</label><input class="in" id="an' + i + '" data-i="' + i + '" data-f="note" maxlength="600" value="' + esc(openers[i].note) + '"></div></div><label class="fld" for="ao' + i + '">Your four-part opener</label><textarea class="in" rows="2" id="ao' + i + '" data-i="' + i + '" data-f="opener" maxlength="1200" placeholder="Their name, who you are, why them, a question back.">' + esc(openers[i].opener) + '</textarea></div></div>').join('') + '</div>' +
-    '<section class="bar-foot" style="margin-top:16px"><div class="note" id="appnote">' + (done ? 'Saved. These come with you to the roleplay.' : 'Saved as you type · ' + n + ' of ' + sec.slots.length + ' written') + '</div><div>' + nextBtn(n === sec.slots.length) + '</div></section><p class="err" id="err" role="alert"></p>';
+  const fields = fieldsOf(sec);
+  return '<div class="tr-app">' + sec.slots.map((slot, i) => '<div class="tr-row"><div><span class="chip go">' + esc(slot.type) + '</span><small>' + esc(slot.hint) + '</small></div><div class="grid2">' + fields.map(f => fieldHtml(f, i, openers[i][f.key] || '')).join('') + '</div></div>').join('') + '</div>' +
+    '<section class="bar-foot" style="margin-top:16px"><div class="note" id="appnote">' + esc(appNote(sec)) + '</div><div>' + nextBtn(appStatus(sec).ready) + '</div></section><p class="err" id="err" role="alert"></p>';
 }
 function nextBtn(ready) {
   const c = S.progress.components;
   if (S.completedAt) return c.quiz === 'passed' ? '<a class="btn inline" href="/roleplay/' + cert + '">Go to your roleplay</a>' : '<a class="btn inline" href="/quiz/' + cert + '">Go to the ' + esc(cert) + ' quiz</a>';
-  return ready ? '<button class="btn inline" id="finish">Finish training &amp; start the quiz</button>' : '<span class="locked-btn">Write all three openers to unlock the quiz</span>';
+  const a = sec('application'), what = a && a.fields ? 'pitches' : 'openers';
+  return ready ? '<button class="btn inline" id="finish">Finish training &amp; start the quiz</button>' : '<span class="locked-btn">Write all ' + (a ? a.slots.length : 3) + ' ' + what + ' to unlock the quiz</span>';
 }
 function render() {
   const preview = S.missingPrereqs.length && S.canPreview;
@@ -128,6 +144,7 @@ function render() {
   if (S.completedAt) html += '<div class="tr-done"><span><b>Training done.</b> You can come back to it any time.</span>' + nextBtn(true) + '</div>';
   for (const sec of S.def.sections) {
     if (sec.type === 'why') html += '<section class="tr-sec">' + head(sec) + '<div class="tr-stat"><div class="big">' + esc(sec.stat.big) + '</div><div style="font-size:14px"><b>' + esc(sec.stat.line) + '</b><br><span class="sub" style="font-size:12px">' + esc(sec.stat.sub) + '</span></div></div></section>';
+    else if (sec.type === 'stats') html += '<section class="tr-sec">' + head(sec) + '<div class="tr-stats">' + sec.stats.map(x => '<div class="tr-stat"><div class="big">' + esc(x.big) + '</div><div style="font-size:14px"><b>' + esc(x.line) + '</b><br><span class="sub" style="font-size:12px">' + esc(x.sub) + '</span></div></div>').join('') + '</div></section>';
     else if (sec.type === 'table') html += '<section class="tr-sec">' + head(sec) + table(sec) + (sec.after ? '<p style="font-size:13px;color:var(--body);margin:10px 0 0">' + esc(sec.after) + '</p>' : '') + '</section>';
     else if (sec.type === 'build') html += '<section class="tr-sec" style="margin-top:-12px">' + buildBox(sec) + '</section>';
     else if (sec.type === 'pickup') html += '<section class="tr-sec" style="margin-top:-12px">' + pickBox(sec) + '</section>';
@@ -155,17 +172,16 @@ function wire() {
   app.querySelectorAll('[data-pick]').forEach(x => x.onclick = () => { pick.chosen = x.dataset.pick; rerender('pickbox', () => pickBox(p)); });
   const pn = document.getElementById('picknext'); if (pn) pn.onclick = () => { pick.i = (pick.i + 1) % p.cards.length; pick.chosen = null; rerender('pickbox', () => pickBox(p)); };
   app.querySelectorAll('[data-show]').forEach(x => x.onclick = () => { shown[x.dataset.show] = true; render(); });
-  app.querySelectorAll('[data-f]').forEach(el => el.oninput = () => {
+  app.querySelectorAll('[data-f]').forEach(el => el[el.tagName === 'SELECT' ? 'onchange' : 'oninput'] = () => {
     openers[+el.dataset.i][el.dataset.f] = el.value;
-    const n = openers.filter(o => o.business.trim() && o.opener.trim().length >= 20).length;
-    const note = document.getElementById('appnote'); if (note && !S.completedAt) note.textContent = 'Saving… · ' + n + ' of ' + a.slots.length + ' written';
-    const box = note?.parentElement?.lastElementChild; if (box && !S.completedAt) { box.innerHTML = nextBtn(n === a.slots.length); const f = document.getElementById('finish'); if (f) f.onclick = finish; }
+    const note = document.getElementById('appnote'); if (note && !S.completedAt) note.textContent = 'Saving… · ' + appNote(a).replace(/^Saved as you type · /, '');
+    const box = note?.parentElement?.lastElementChild; if (box && !S.completedAt) { box.innerHTML = nextBtn(appStatus(a).ready); const f = document.getElementById('finish'); if (f) f.onclick = finish; }
     clearTimeout(timer); timer = setTimeout(save, 800);
   });
   const f = document.getElementById('finish'); if (f) f.onclick = finish;
 }
 async function save() {
-  try { const r = await api('/api/training/' + cert, {content: {openers}}); S.completedAt = r.completedAt; saved.textContent = 'Saved'; const n = openers.filter(o => o.business.trim() && o.opener.trim().length >= 20).length; const note = document.getElementById('appnote'); if (note && !S.completedAt) note.textContent = 'Saved as you type · ' + n + ' of ' + openers.length + ' written'; }
+  try { const r = await api('/api/training/' + cert, {content: {openers}}); S.completedAt = r.completedAt; saved.textContent = 'Saved'; const note = document.getElementById('appnote'); if (note && !S.completedAt) note.textContent = appNote(sec('application')); }
   catch (e) { saved.textContent = 'Not saved: ' + e.message; }
 }
 async function finish() {

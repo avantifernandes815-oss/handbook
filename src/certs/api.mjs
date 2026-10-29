@@ -8,13 +8,19 @@ import bankF4 from './bank-f4.json' with {type: 'json'};
 import {PIPER_F4, F4_ROLEPLAY} from './f4-content.mjs';
 import bankCC1 from './bank-cc1.json' with {type: 'json'};
 import {CC1_TRAINING, CC1_ROLEPLAY} from './cc1-content.mjs';
+import bankCC2 from './bank-cc2.json' with {type: 'json'};
+import {CC2_TRAINING, CC2_ROLEPLAY} from './cc2-content.mjs';
 
-const BANKS = {F1: bankF1, F2: bankF2, F3: bankF3, F4: bankF4, CC1: bankCC1};
-export const TRAININGS = {CC1: CC1_TRAINING};
+const BANKS = {F1: bankF1, F2: bankF2, F3: bankF3, F4: bankF4, CC1: bankCC1, CC2: bankCC2};
+export const TRAININGS = {CC1: CC1_TRAINING, CC2: CC2_TRAINING};
+// Default entry fields for training applications and rapid roleplays (CC1 shape).
+const DEFAULT_FIELDS = [{key: 'business', label: 'Business', kind: 'input', required: true}, {key: 'note', label: 'SDR Additional Note', kind: 'input', required: true}, {key: 'opener', label: 'Your opener', kind: 'textarea', required: true, optionalFor: ['Cold']}];
+const cleanEntry = (fields, raw, type) => { const o = {type}; for (const f of fields) { let v = clip(raw?.[f.key], f.kind === 'textarea' ? 1200 : 600).trim(); if (f.kind === 'select' && v && !f.options.includes(v)) v = ''; o[f.key] = v; } return o; };
+const entryMissing = (fields, e, minText) => fields.filter(f => f.required && !(f.optionalFor || []).includes(e.type)).find(f => !e[f.key] || (f.kind === 'textarea' && e[f.key].length < (minText || 20)));
 const GRACE_MS = 4000;          // network slack on top of each question's time limit
 const LOCK_HOURS = 24;          // lockout after a second tab-leave
 const MAX_ATTEMPTS = 3;         // failed attempts before a performance conversation
-const REVIEW_LABELS = {'day-1': 'Day 1 · The SDR Job', 'day-2': 'Day 2 · Who We Sell To & Why', 'day-3': 'Day 3 · Owning Your Book of Business', 'day-4': 'Day 4 · Pre-Vetting Workshop', 'day-5': 'Day 5 · Cold Calling Fundamentals', 'day-6': 'Day 6 · Controlling the Conversation', 'day-7': 'Day 7 · Working Smarter at Scale', 'day-8': 'Day 8 · From Yes to Meeting Held', 'meetings': 'Meetings & AE Handoff', 'sal': 'Qualification & SALs', 'book': 'Book of Business', 'statuses': 'Lead Statuses & CRM', '/training/CC1': 'CC1 · Openers training'};
+const REVIEW_LABELS = {'day-1': 'Day 1 · The SDR Job', 'day-2': 'Day 2 · Who We Sell To & Why', 'day-3': 'Day 3 · Owning Your Book of Business', 'day-4': 'Day 4 · Pre-Vetting Workshop', 'day-5': 'Day 5 · Cold Calling Fundamentals', 'day-6': 'Day 6 · Controlling the Conversation', 'day-7': 'Day 7 · Working Smarter at Scale', 'day-8': 'Day 8 · From Yes to Meeting Held', 'meetings': 'Meetings & AE Handoff', 'sal': 'Qualification & SALs', 'book': 'Book of Business', 'statuses': 'Lead Statuses & CRM', '/training/CC1': 'CC1 · Openers training', '/training/CC2': 'CC2 · Elevator Pitch training'};
 // Foundation certs allow three attempts; the self-paced tracks have no limit (a retake opens after coaching).
 const maxFor = (cert) => (cert?.track || 'foundation') === 'foundation' ? MAX_ATTEMPTS : 999;
 
@@ -43,6 +49,7 @@ const pracComponent = (def) => def.component || 'practical';
 export const ROLEPLAYS = {
   F4: F4_ROLEPLAY,
   CC1: CC1_ROLEPLAY,
+  CC2: CC2_ROLEPLAY,
   F3: {
     mode: 'lead',
     criteria: [
@@ -476,7 +483,7 @@ async function roleplayState(env, email, certId, forManager) {
   return {
     cert: {id: cert.id, name: cert.name, day: cert.onboarding_day},
     rep: {email, name: user?.name || email.split('@')[0], codePrefix: codePrefix(email)},
-    def: {mode: def.mode || 'lead', business: def.business || null, setup: def.setup || null, slots: def.slots || null, criteria: def.criteria, musts: def.musts},
+    def: {mode: def.mode || 'lead', business: def.business || null, setup: def.setup || null, slots: def.slots || null, leadFields: def.mode === 'rapid' ? (def.leadFields || DEFAULT_FIELDS) : null, prepNote: def.prepNote || null, distinct: def.distinct || null, distinctMin: def.distinctMin || null, criteria: def.criteria, musts: def.musts},
     progress: {status: p.status, components: parse(p.components, {})},
     quiz: quiz ? {status: quiz.status, score: quiz.score} : null,
     current: view(cur), history: leads.slice(1).map(view),
@@ -547,13 +554,15 @@ async function saveTraining(env, me, certId, body) {
   if (st.missingPrereqs.length) return fail('prerequisite', `Pass ${st.missingPrereqs.join(', ')} first.`, 409);
   const app = st.def.sections.find(x => x.type === 'application');
   const raw = Array.isArray(body.content?.openers) ? body.content.openers : [];
-  const openers = (app?.slots || []).map((slot, i) => ({type: slot.type, business: clip(raw[i]?.business, 200).trim(), note: clip(raw[i]?.note, 600).trim(), opener: clip(raw[i]?.opener, 1200).trim()}));
+  const fields = app?.fields || DEFAULT_FIELDS;
+  const openers = (app?.slots || []).map((slot, i) => cleanEntry(fields, raw[i], slot.type));
   const content = {openers};
   const t = nowIso();
   const complete = !!body.complete;
   if (complete) {
-    const bad = openers.findIndex(o => !o.business || o.opener.length < 20);
-    if (bad >= 0) return json({error: 'incomplete', message: `Finish opener ${bad + 1}: add the business and a full opener.`, index: bad}, 400);
+    const bad = openers.findIndex(o => entryMissing(fields, o, app?.textMin));
+    if (bad >= 0) { const f = entryMissing(fields, openers[bad], app?.textMin); return json({error: 'incomplete', message: `Finish ${app?.fields ? 'lead' : 'opener'} ${bad + 1}: ${f.kind === 'textarea' ? 'write the full ' + f.label.replace(/^Your /, '').toLowerCase() : 'add the ' + f.label.toLowerCase()}.`, index: bad}, 400); }
+    if (app?.distinct) { const n = new Set(openers.map(o => o[app.distinct])).size; if (n < (app.distinctMin || openers.length)) return json({error: 'distinct', message: `Pick ${app.distinctMin} different ${app.distinct === 'vertical' ? 'verticals' : app.distinct + 's'}.`}, 400); }
   }
   const done = st.completedAt || (complete ? t : null);
   const stmts = [env.DB.prepare("INSERT INTO training_progress (user_email, cert_id, content, completed_at, updated_at) VALUES (?,?,?,?,?) ON CONFLICT(user_email, cert_id) DO UPDATE SET content=excluded.content, completed_at=COALESCE(training_progress.completed_at, excluded.completed_at), updated_at=excluded.updated_at").bind(me.email, certId, JSON.stringify(content), done, t)];
@@ -571,9 +580,11 @@ async function submitRapid(env, me, cert, body) {
   const p = await getProgress(env, me.email, cert.id);
   if (parse(p.components, {}).quiz !== 'passed') return fail('quiz', 'Pass the quiz before you book your roleplay.', 409);
   const raw = Array.isArray(body.leads) ? body.leads : [];
-  const leads = def.slots.map((type, i) => ({type, business: clip(raw[i]?.business, 200).trim(), note: clip(raw[i]?.note, 600).trim(), opener: type === 'Cold' ? '' : clip(raw[i]?.opener, 1200).trim()}));
-  const miss = leads.findIndex(l => !l.business || !l.note || (l.type !== 'Cold' && l.opener.length < 20));
-  if (miss >= 0) return json({error: 'leads', message: `Lead ${miss + 1} (${leads[miss].type}) needs the business, its note${leads[miss].type === 'Cold' ? '' : ' and your opener'}.`, index: miss}, 400);
+  const fields = def.leadFields || DEFAULT_FIELDS;
+  const leads = def.slots.map((type, i) => { const e = cleanEntry(fields, raw[i], type); if (type === 'Cold') e.opener = ''; return e; });
+  const miss = leads.findIndex(l => entryMissing(fields, l));
+  if (miss >= 0) { const f = entryMissing(fields, leads[miss]); return json({error: 'leads', message: `${/^Lead \d$/.test(leads[miss].type) ? leads[miss].type : 'Lead ' + (miss + 1) + ' (' + leads[miss].type + ')'} needs ${f.kind === 'textarea' ? 'your ' + f.label.replace(/^Your /, '').toLowerCase() : 'the ' + f.label.toLowerCase()}.`, index: miss}, 400); }
+  if (def.distinct && new Set(leads.map(l => l[def.distinct])).size < (def.distinctMin || leads.length)) return json({error: 'distinct', message: `Your four leads need at least ${def.distinctMin} different ${def.distinct === 'vertical' ? 'verticals' : def.distinct + 's'}.`}, 400);
   const b = body.booking || {};
   const manager = await env.DB.prepare("SELECT email, name FROM users WHERE email=? AND role IN ('manager','admin') AND active=1").bind(String(b.manager || '').toLowerCase()).first();
   if (!manager) return fail('booking', 'Pick the manager you booked with.');

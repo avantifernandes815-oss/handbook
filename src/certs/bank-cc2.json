@@ -1,0 +1,876 @@
+{
+ "cert": "CC2",
+ "version": 1,
+ "questions": [
+  {
+   "id": "CC2-A1",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "The four parts",
+   "prompt": "What are the four parts of the pitch, in order?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Their problem, who we help, value, pricing"
+    },
+    {
+     "id": "B",
+     "text": "Who we help, their problem, one relevant value, a reason to continue"
+    },
+    {
+     "id": "C",
+     "text": "Who we help, the features, pricing, a reason to continue"
+    },
+    {
+     "id": "D",
+     "text": "One value, their problem, who we help, the ask"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-A2",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "What stays fixed",
+   "prompt": "Which two parts barely change from call to call?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Their problem and the relevant value"
+    },
+    {
+     "id": "B",
+     "text": "The relevant value and the reason to continue"
+    },
+    {
+     "id": "C",
+     "text": "Who we help and their problem"
+    },
+    {
+     "id": "D",
+     "text": "Who we help and the reason to continue"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Parts 2 and 3 change every time. That's where your pre-vetting and listening show up.",
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-A3",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Length",
+   "prompt": "How long should the pitch run?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Under twenty seconds"
+    },
+    {
+     "id": "B",
+     "text": "About a minute"
+    },
+    {
+     "id": "C",
+     "text": "Two to three minutes"
+    },
+    {
+     "id": "D",
+     "text": "As long as they stay engaged"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-A4",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "What's missing",
+   "prompt": "A rep's pitch: “Momence is an all-in-one platform with bookings, payments, marketing, an app and 24/7 support.” What's missing?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A clear line on who Momence actually helps"
+    },
+    {
+     "id": "B",
+     "text": "Pricing, so they can judge if it's worth it"
+    },
+    {
+     "id": "C",
+     "text": "Their problem, and one value that fits it"
+    },
+    {
+     "id": "D",
+     "text": "A longer list, so at least something lands"
+    }
+   ],
+   "correct": "C",
+   "reveal": "That's reciting, not responding. Nothing in it is about the person on the phone.",
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-A5",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "A strong part 4",
+   "prompt": "Which line is a strong part 4?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Do you have time this week so we can show you how that would work for you?”"
+    },
+    {
+     "id": "B",
+     "text": "“Can I send you some information about everything we offer?”"
+    },
+    {
+     "id": "C",
+     "text": "“Would you like to hear a quick rundown of our pricing tiers?”"
+    },
+    {
+     "id": "D",
+     "text": "“Does that all make sense to you so far, or not really?”"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-A6",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "No hook",
+   "prompt": "Pre-vetting gave you no specific hook for parts 2 and 3. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Skip parts 2 and 3 and go straight to the ask"
+    },
+    {
+     "id": "B",
+     "text": "Run the full feature list until something lands"
+    },
+    {
+     "id": "C",
+     "text": "Ask them to walk you through their whole business"
+    },
+    {
+     "id": "D",
+     "text": "Use what's true of their industry or their software"
+    }
+   ],
+   "correct": "D",
+   "reveal": "A relevant generalization beats a generic pitch.",
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-B1",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "The four themes",
+   "prompt": "Which four themes does Momence's value sit under?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Price, features, support, integrations"
+    },
+    {
+     "id": "B",
+     "text": "Growth, retention, time and admin, client experience"
+    },
+    {
+     "id": "C",
+     "text": "Scheduling, payments, marketing, reporting"
+    },
+    {
+     "id": "D",
+     "text": "Speed, cost, ease of use, security"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-B2",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Never come back",
+   "prompt": "She says, “People come once and we never see them again.” Which theme?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Retention"
+    },
+    {
+     "id": "B",
+     "text": "Growth"
+    },
+    {
+     "id": "C",
+     "text": "Time and admin"
+    },
+    {
+     "id": "D",
+     "text": "Client experience"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-B3",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Sunday nights",
+   "prompt": "“I spend Sunday nights matching payments to bookings.” Which theme?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Growth"
+    },
+    {
+     "id": "B",
+     "text": "Retention"
+    },
+    {
+     "id": "C",
+     "text": "Client experience"
+    },
+    {
+     "id": "D",
+     "text": "Time and admin"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-B4",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Missed texts",
+   "prompt": "“Clients say booking is clunky, and we miss half their texts.” Which theme?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Retention"
+    },
+    {
+     "id": "B",
+     "text": "Time and admin"
+    },
+    {
+     "id": "C",
+     "text": "Client experience"
+    },
+    {
+     "id": "D",
+     "text": "Growth"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-B5",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Runs through me",
+   "prompt": "“I can't add classes because everything runs through me.” Which theme?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Retention"
+    },
+    {
+     "id": "B",
+     "text": "Growth"
+    },
+    {
+     "id": "C",
+     "text": "Client experience"
+    },
+    {
+     "id": "D",
+     "text": "Time and admin"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Growth is capped by whatever the owner can personally handle. That's a growth problem, not an admin one.",
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-B6",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Retention tools",
+   "prompt": "A prospect has a retention problem. Which Momence tools answer it?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Two-way SMS, email and in-app messaging"
+    },
+    {
+     "id": "B",
+     "text": "Memberships, packs and point of sale"
+    },
+    {
+     "id": "C",
+     "text": "Automated sequences, on-demand content, community posts"
+    },
+    {
+     "id": "D",
+     "text": "Scheduling, staff management and reporting"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-C1",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Pilates on MindBody",
+   "prompt": "Pilates studio, two locations on MindBody. The front desk spends hours chasing class-pack renewals. Lead with…",
+   "options": [
+    {
+     "id": "A",
+     "text": "“We have the best reporting dashboards in the industry.”"
+    },
+    {
+     "id": "B",
+     "text": "“Our app is the most downloaded in the wellness space.”"
+    },
+    {
+     "id": "C",
+     "text": "“We're cheaper than every other booking platform out there.”"
+    },
+    {
+     "id": "D",
+     "text": "“Automating the reminders and renewals your front desk chases by hand.”"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-C2",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Two tools",
+   "prompt": "Wellness practice, 4 practitioners, scheduling and client messages in separate tools. Lead with…",
+   "options": [
+    {
+     "id": "A",
+     "text": "“We replace your scheduling tool for a lot less money.”"
+    },
+    {
+     "id": "B",
+     "text": "“One place for scheduling and client messaging, instead of two.”"
+    },
+    {
+     "id": "C",
+     "text": "“We have a huge library of on-demand content for clients.”"
+    },
+    {
+     "id": "D",
+     "text": "“Most practices like yours switch over to us within a week.”"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-C3",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "First-timers drift",
+   "prompt": "Fitness studio: plenty of first visits, but clients stop showing after a few weeks. Lead with…",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Automated follow-up so new clients don't quietly disappear.”"
+    },
+    {
+     "id": "B",
+     "text": "“Payments and point of sale, all in one simple system.”"
+    },
+    {
+     "id": "C",
+     "text": "“A fully branded mobile app with your logo on it.”"
+    },
+    {
+     "id": "D",
+     "text": "“Staff scheduling with payroll exports built right in.”"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-C4",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Drop-in dance",
+   "prompt": "Drop-in dance studio on a basic booking tool, with class packs tracked in a spreadsheet. Lead with…",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Our loyalty program keeps dancers coming back every week.”"
+    },
+    {
+     "id": "B",
+     "text": "“We're the leading platform for every kind of studio there is.”"
+    },
+    {
+     "id": "C",
+     "text": "“Drop-ins, packs and memberships, all in one system.”"
+    },
+    {
+     "id": "D",
+     "text": "“Are you happy with the booking tool you're using right now?”"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-C5",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Swapped lines",
+   "prompt": "Three true lead-with lines are written for a Pilates studio, a wellness practice and a fitness studio. Swap them between the three and every call fails. Why?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The product is different in each one"
+    },
+    {
+     "id": "B",
+     "text": "The value no longer matches what was noticed"
+    },
+    {
+     "id": "C",
+     "text": "The persona is wrong in every one"
+    },
+    {
+     "id": "D",
+     "text": "The statements are no longer true"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Same product, same true statements. Relevance is what breaks.",
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-C6",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Three locations",
+   "prompt": "Yoga studio with three locations. What's most worth leading with?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“We have the best pricing for multi-location studios.”"
+    },
+    {
+     "id": "B",
+     "text": "“Our app gets the highest ratings in the wellness space.”"
+    },
+    {
+     "id": "C",
+     "text": "“We can migrate all three of your sites over a weekend.”"
+    },
+    {
+     "id": "D",
+     "text": "“Running three schedules without three times the admin.”"
+    }
+   ],
+   "correct": "D",
+   "reveal": "The other three are claims you can't back up on a cold call.",
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-D1",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "The founder",
+   "prompt": "You're talking to the founder. What usually lands?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Growth, and getting time back to run the business"
+    },
+    {
+     "id": "B",
+     "text": "Every detail of how staff scheduling works"
+    },
+    {
+     "id": "C",
+     "text": "How the front desk handles incoming messages"
+    },
+    {
+     "id": "D",
+     "text": "The technical specs of each integration"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-D2",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "The studio manager",
+   "prompt": "The studio manager owns the schedule but not the software decision. Your pitch should…",
+   "options": [
+    {
+     "id": "A",
+     "text": "Skip the pitch and just ask for the owner"
+    },
+    {
+     "id": "B",
+     "text": "Promise a price only the owner can approve"
+    },
+    {
+     "id": "C",
+     "text": "Speak to the schedule and admin they live in"
+    },
+    {
+     "id": "D",
+     "text": "Give the full owner-level growth pitch anyway"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-D3",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "Qualifying titles",
+   "prompt": "Which titles can a meeting qualify with?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Owner, instructor, front desk, director"
+    },
+    {
+     "id": "B",
+     "text": "Owner, founder, director, studio or operations manager"
+    },
+    {
+     "id": "C",
+     "text": "Any staff member who agrees to the time"
+    },
+    {
+     "id": "D",
+     "text": "Only the owner or the founder"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-D4",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Covering classes",
+   "prompt": "Operations manager: “Our biggest headache is getting staff to cover classes.” Which value fits?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A branded mobile app for clients"
+    },
+    {
+     "id": "B",
+     "text": "Memberships and class packs"
+    },
+    {
+     "id": "C",
+     "text": "On-demand content and community posts"
+    },
+    {
+     "id": "D",
+     "text": "Staff management and scheduling in one place"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-D5",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Front desk with a pain",
+   "prompt": "The front desk says they answer forty texts a day, but they don't touch the software decision. Best move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Note the pain and ask who handles the software"
+    },
+    {
+     "id": "B",
+     "text": "Give them the full pitch so they pass it on"
+    },
+    {
+     "id": "C",
+     "text": "Book the meeting with them; they feel it most"
+    },
+    {
+     "id": "D",
+     "text": "Thank them and mark the lead Unqualified"
+    }
+   ],
+   "correct": "A",
+   "reveal": "A meeting booked with front desk or instructors doesn't qualify. Their pain is your opener for the owner.",
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-D6",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "Persona",
+   "prompt": "How much does persona count toward qualification?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A formality once the business is a fit"
+    },
+    {
+     "id": "B",
+     "text": "Half the qualification"
+    },
+    {
+     "id": "C",
+     "text": "Something the AE checks after the demo"
+    },
+    {
+     "id": "D",
+     "text": "Only relevant for multi-location studios"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-E1",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "When to pitch",
+   "prompt": "When does the pitch belong in a cold call?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Right after your opener, before any questions"
+    },
+    {
+     "id": "B",
+     "text": "At the very end, after you ask for the meeting"
+    },
+    {
+     "id": "C",
+     "text": "Once they've told you something isn't working"
+    },
+    {
+     "id": "D",
+     "text": "Only if they ask what Momence does"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-E2",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "No-shows",
+   "prompt": "She says, “No-shows are killing us.” Best pitch line?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“You said no-shows are the thing. That's usually where we help most. Worth showing you?”"
+    },
+    {
+     "id": "B",
+     "text": "“We have reminders, waitlists, payments, an app, marketing and two-way texting.”"
+    },
+    {
+     "id": "C",
+     "text": "“Most studios have no-shows. Honestly, it's just part of running a business.”"
+    },
+    {
+     "id": "D",
+     "text": "“What software are you using right now, and how long have you been on it?”"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-E3",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "After the pitch",
+   "prompt": "You finish a strong fifteen-second pitch. Then what?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Keep going with a few more features"
+    },
+    {
+     "id": "B",
+     "text": "Go quiet and wait for them to fill it"
+    },
+    {
+     "id": "C",
+     "text": "Ask what their monthly budget is"
+    },
+    {
+     "id": "D",
+     "text": "Hand it back with a question or the ask"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-E4",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Happy with WellnessLiving",
+   "prompt": "She says she's happy with WellnessLiving. Your next line?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“WellnessLiving has a lot of gaps that we fix for studios.”"
+    },
+    {
+     "id": "B",
+     "text": "“Good to hear. If you could change one thing about it, what would it be?”"
+    },
+    {
+     "id": "C",
+     "text": "“Most of our clients came to us from WellnessLiving, actually.”"
+    },
+    {
+     "id": "D",
+     "text": "“No problem. I'll send some info in case that ever changes.”"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Don't knock what they chose. Ask what they'd change, then pitch to that.",
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-E5",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Responding",
+   "prompt": "Which describes responding, not reciting?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The same words on every call"
+    },
+    {
+     "id": "B",
+     "text": "Mostly about Momence's features"
+    },
+    {
+     "id": "C",
+     "text": "Built from what they just said"
+    },
+    {
+     "id": "D",
+     "text": "Waiting for your turn to speak"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  },
+  {
+   "id": "CC2-E6",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Relevant, not just personal",
+   "prompt": "Which line is relevant, not just personalized?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Saw you added a second Saturday class. Congrats on the growth!”"
+    },
+    {
+     "id": "B",
+     "text": "“Saw the second Saturday class. Is the rescheduling around it landing on you?”"
+    },
+    {
+     "id": "C",
+     "text": "“Love your studio's photos. The new space looks amazing.”"
+    },
+    {
+     "id": "D",
+     "text": "“Saw your five-star reviews. Your clients clearly love you.”"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "/training/CC2",
+   "source": "CC2 training"
+  }
+ ]
+}
