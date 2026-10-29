@@ -1,0 +1,934 @@
+{
+ "cert": "F4",
+ "version": 1,
+ "questions": [
+  {
+   "id": "F4-A1",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "The wrap-up checklist",
+   "prompt": "What's on our call wrap-up checklist?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Quote pricing, recap features, book the AE, send the contract"
+    },
+    {
+     "id": "B",
+     "text": "Confirm budget, decision maker, timeline and the need again"
+    },
+    {
+     "id": "C",
+     "text": "Send the link, end the call quickly, log it, move on to the next"
+    },
+    {
+     "id": "D",
+     "text": "Ask for acceptance, recap the time, set follow-up, name the topic"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "day-8",
+   "source": "Day 8, \"Finish the call strong\""
+  },
+  {
+   "id": "F4-A2",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Book it close",
+   "prompt": "How far out should you aim to book a demo?",
+   "options": [
+    {
+     "id": "A",
+     "text": "About a week out"
+    },
+    {
+     "id": "B",
+     "text": "Within two weeks"
+    },
+    {
+     "id": "C",
+     "text": "0–3 days out"
+    },
+    {
+     "id": "D",
+     "text": "Whatever they pick first"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "day-8",
+   "source": "Day 8, \"Book it close\""
+  },
+  {
+   "id": "F4-A3",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "A soft yes",
+   "prompt": "The owner says: \"Sure, send me something.\" Is that a confirmed meeting?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Yes: send the invite and it counts as booked"
+    },
+    {
+     "id": "B",
+     "text": "No: it needs a named time and an accepted invite"
+    },
+    {
+     "id": "C",
+     "text": "Yes, as long as you log it as a Meeting Set"
+    },
+    {
+     "id": "D",
+     "text": "No: you need her budget first before it counts"
+    }
+   ],
+   "correct": "B",
+   "reveal": "A calendar invite is a record of an intention. A confirmed meeting is a time they named and an invite they accepted.",
+   "review": "day-8",
+   "source": "Day 8, \"Make it real while you still have them\""
+  },
+  {
+   "id": "F4-A4",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Right after yes",
+   "prompt": "You just got the yes. What do you do first?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Say back why she agreed, in her words"
+    },
+    {
+     "id": "B",
+     "text": "Thank her and get off the call quickly"
+    },
+    {
+     "id": "C",
+     "text": "Pitch two more features while she's warm"
+    },
+    {
+     "id": "D",
+     "text": "Ask whether she's talked to other vendors"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "day-8",
+   "source": "Day 8, \"Finish the call strong\""
+  },
+  {
+   "id": "F4-A5",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Booked far out",
+   "prompt": "She can only meet in ten days. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Refuse, since past three days it won't hold"
+    },
+    {
+     "id": "B",
+     "text": "Book it, and skip reminders until it's close"
+    },
+    {
+     "id": "C",
+     "text": "Tell her to call you when her schedule clears"
+    },
+    {
+     "id": "D",
+     "text": "Book it, and plan extra protection for it"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Book what they'll take, but treat it as a meeting that needs more protection. Interest, context and memory all fade while you wait.",
+   "review": "day-8",
+   "source": "Day 8, \"Book it close\" (facilitator note)"
+  },
+  {
+   "id": "F4-A6",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Asking for the acceptance",
+   "prompt": "Which line asks for the acceptance the way Day 8 teaches?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Accept it whenever you get a chance, there's honestly no rush at all."
+    },
+    {
+     "id": "B",
+     "text": "You'll get an invite from us at some point, so keep an eye out."
+    },
+    {
+     "id": "C",
+     "text": "I just sent the invite. Can you click Yes so it's on your calendar?"
+    },
+    {
+     "id": "D",
+     "text": "I'll just assume you're coming unless I hear otherwise from you."
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "day-8",
+   "source": "Day 8, \"Make it real while you still have them\""
+  },
+  {
+   "id": "F4-A7",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Who's on the invite",
+   "prompt": "Besides the AE and the prospect, who must be on the invite?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Your manager, just in case"
+    },
+    {
+     "id": "B",
+     "text": "You, the SDR who booked it"
+    },
+    {
+     "id": "C",
+     "text": "The AE's team lead, for cover"
+    },
+    {
+     "id": "D",
+     "text": "No one else needs to be on it"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "meetings",
+   "source": "Handbook, Book & Confirm a Demo in HubSpot"
+  },
+  {
+   "id": "F4-A8",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Naming a deadline",
+   "prompt": "Why say \"If it's not accepted by 3, I'll give you a call\" on the booking call?",
+   "options": [
+    {
+     "id": "A",
+     "text": "It gives you a non-pushy reason to call back"
+    },
+    {
+     "id": "B",
+     "text": "It puts pressure on her to decide on the spot"
+    },
+    {
+     "id": "C",
+     "text": "It's required for the meeting to count at all"
+    },
+    {
+     "id": "D",
+     "text": "It means you can skip the day-before call"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "day-8",
+   "source": "Day 8, \"Make it real while you still have them\" (facilitator note)"
+  },
+  {
+   "id": "F4-B1",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Where the notes live",
+   "prompt": "Where do your SDR Meeting Set Notes go?",
+   "options": [
+    {
+     "id": "A",
+     "text": "In SDR Additional Notes on the contact record"
+    },
+    {
+     "id": "B",
+     "text": "In the description of the calendar invite"
+    },
+    {
+     "id": "C",
+     "text": "In a direct Slack message sent to the AE"
+    },
+    {
+     "id": "D",
+     "text": "Logged via the Playbook, pinned to the company"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "day-8",
+   "source": "Day 8, \"The AE should not walk in blind\"; handbook, Book & Confirm"
+  },
+  {
+   "id": "F4-B2",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "A note the AE can use",
+   "prompt": "Which handoff note gives the AE the most to work with?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Interested in Momence and wants a demo. Seemed like a strong fit overall. Very friendly on the phone, so should go well."
+    },
+    {
+     "id": "B",
+     "text": "Owner was really excited and said yes right away. Loves the idea of switching. Wants to see everything Momence can do."
+    },
+    {
+     "id": "C",
+     "text": "Two-location Pilates studio. Owner books and bills herself; client texts eat her evenings. Wants booking and messaging together."
+    },
+    {
+     "id": "D",
+     "text": "Pilates studio on MindBody. Asked about pricing. Wants a demo. Call back after if she goes quiet on the AE."
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "day-8",
+   "source": "Day 8, \"What makes it strong\""
+  },
+  {
+   "id": "F4-B3",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "The four questions",
+   "prompt": "Which four questions should a handoff answer?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Budget, authority, need and timeline for the purchase"
+    },
+    {
+     "id": "B",
+     "text": "Who they are, why they agreed, what matters, relevant context"
+    },
+    {
+     "id": "C",
+     "text": "Their software, their contract, their price, their renewal"
+    },
+    {
+     "id": "D",
+     "text": "Their name, their title, their email, their phone number"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "day-8",
+   "source": "Day 8, \"What makes it strong\""
+  },
+  {
+   "id": "F4-B4",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "What matters",
+   "prompt": "She asked about payroll, but her pain was chasing late payments. What goes under \"what matters\"?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The problem in her words: chasing late payments"
+    },
+    {
+     "id": "B",
+     "text": "Payroll, since that's what she asked about"
+    },
+    {
+     "id": "C",
+     "text": "Both, listed as features she wants to see"
+    },
+    {
+     "id": "D",
+     "text": "Neither, since the AE will find out in discovery"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "day-8",
+   "source": "Day 8, \"What makes it strong\""
+  },
+  {
+   "id": "F4-B5",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Your role on the demo",
+   "prompt": "You join the demo you booked. What's your role once the prospect is on?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Run the first part of discovery yourself, then hand it over"
+    },
+    {
+     "id": "B",
+     "text": "Stay on mute and watch the whole demo from start to finish"
+    },
+    {
+     "id": "C",
+     "text": "Re-pitch why Momence is a fit before the AE starts"
+    },
+    {
+     "id": "D",
+     "text": "Introduce her, give a 30–60 second handoff, then let the AE lead"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "meetings",
+   "source": "Handbook, Prepare & Deliver the Demo Handoff; SDR & AE Demo Handoff SOP"
+  },
+  {
+   "id": "F4-B6",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "She hasn't joined",
+   "prompt": "A few minutes in, the prospect hasn't joined. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Wait the full 30 minutes in case she's just late"
+    },
+    {
+     "id": "B",
+     "text": "Leave the call and let the AE deal with her"
+    },
+    {
+     "id": "C",
+     "text": "Call and help her into the meeting already running"
+    },
+    {
+     "id": "D",
+     "text": "Email her a link to reschedule for next week"
+    }
+   ],
+   "correct": "C",
+   "reveal": "If you're on the call, you know right away. The goal is to turn a no-show into a live conversation while it's still fresh.",
+   "review": "meetings",
+   "source": "Handbook, Prepare & Deliver the Demo Handoff; SDR & AE Demo Handoff SOP"
+  },
+  {
+   "id": "F4-B7",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "The intro email",
+   "prompt": "Besides confirming the time, what does the intro email do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Shares pricing so there are no surprises on the call"
+    },
+    {
+     "id": "B",
+     "text": "Introduces the AE by name and puts them on the thread"
+    },
+    {
+     "id": "C",
+     "text": "Lists every feature the AE is planning to show"
+    },
+    {
+     "id": "D",
+     "text": "Asks the prospect to fill in a short survey first"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "day-8",
+   "source": "Day 8, \"The AE should not walk in blind\" (facilitator note)"
+  },
+  {
+   "id": "F4-B8",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Fixing a Piper draft",
+   "prompt": "Piper's note says the prospect is \"excited and ready to switch.\" On the call she said she's \"just looking.\" What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Change it to match what she actually said"
+    },
+    {
+     "id": "B",
+     "text": "Leave it, since it helps the AE get ready"
+    },
+    {
+     "id": "C",
+     "text": "Delete the whole note and write it from scratch"
+    },
+    {
+     "id": "D",
+     "text": "Add that she'll probably switch after the demo"
+    }
+   ],
+   "correct": "A",
+   "reveal": "The AE plans the demo around your note. Make the prospect sound exactly as interested as she was, no more.",
+   "review": "day-8",
+   "source": "Day 8, \"What makes it strong\"; Piper's evidence-first rule"
+  },
+  {
+   "id": "F4-C1",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "An accepted invite",
+   "prompt": "What does an accepted invite tell you?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The meeting is certain, so you can stop"
+    },
+    {
+     "id": "B",
+     "text": "She's already decided to buy Momence"
+    },
+    {
+     "id": "C",
+     "text": "Nothing, since most people accept by reflex"
+    },
+    {
+     "id": "D",
+     "text": "She engaged with it, but it's not a guarantee"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "day-8",
+   "source": "Day 8, \"The calendar invite tells you something\""
+  },
+  {
+   "id": "F4-C2",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Not accepted, day before",
+   "prompt": "It's the day before and the invite still isn't accepted. What's your first move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Cancel it and book a new time instead"
+    },
+    {
+     "id": "B",
+     "text": "Leave it, since acceptance isn't required"
+    },
+    {
+     "id": "C",
+     "text": "Call to check it arrived, then text or email"
+    },
+    {
+     "id": "D",
+     "text": "Ask the AE to follow up with her directly"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "day-8",
+   "source": "Day 8, \"Follow-up should reduce friction\"; handbook, Protect the Meeting"
+  },
+  {
+   "id": "F4-C3",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "The day-before touch",
+   "prompt": "If the invite is still unaccepted the day before, what does our cadence call for?",
+   "options": [
+    {
+     "id": "A",
+     "text": "One short email the morning of the demo, and nothing else"
+    },
+    {
+     "id": "B",
+     "text": "Two or three calls, a final message, then a text or email"
+    },
+    {
+     "id": "C",
+     "text": "Five calls in a row until she finally picks up"
+    },
+    {
+     "id": "D",
+     "text": "A text every couple of hours until she replies"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "day-8",
+   "source": "Day 8, \"Follow-up should reduce friction\""
+  },
+  {
+   "id": "F4-C4",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Morning of",
+   "prompt": "It's the morning of the demo and she picks up. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Confirm, text the Zoom link and suggest a laptop"
+    },
+    {
+     "id": "B",
+     "text": "Ask whether she'd rather move it to another day"
+    },
+    {
+     "id": "C",
+     "text": "Re-pitch why the demo is worth her time today"
+    },
+    {
+     "id": "D",
+     "text": "Remind her that she promised she'd show up"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "day-8",
+   "source": "Day 8, \"Follow-up should reduce friction\""
+  },
+  {
+   "id": "F4-C5",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Assumptive, not aggressive",
+   "prompt": "Which line is assumptive, not aggressive?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Just checking you're still okay to meet, or should we move it?"
+    },
+    {
+     "id": "B",
+     "text": "You committed to this, so I'll expect you there at 10 sharp."
+    },
+    {
+     "id": "C",
+     "text": "No pressure at all if today doesn't really work anymore."
+    },
+    {
+     "id": "D",
+     "text": "Looking forward to 10 today. I'll text you the Zoom link now."
+    }
+   ],
+   "correct": "D",
+   "reveal": "Talk as though the meeting is happening and don't volunteer a reschedule. Still leave the door open for them to tell you if something changed.",
+   "review": "day-8",
+   "source": "Day 8, \"Follow-up should reduce friction\""
+  },
+  {
+   "id": "F4-C6",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "It feels like bothering them",
+   "prompt": "A teammate says confirmation calls feel like bothering people. What's the best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Then skip them for prospects who sounded keen on the call."
+    },
+    {
+     "id": "B",
+     "text": "Only follow up when the AE asks you to confirm the demo."
+    },
+    {
+     "id": "C",
+     "text": "You said you'd check in on the call. This is keeping your word."
+    },
+    {
+     "id": "D",
+     "text": "Send emails instead, since they're less intrusive than calls."
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "day-8",
+   "source": "Day 8, \"Your job doesn't end at the calendar event\""
+  },
+  {
+   "id": "F4-C7",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Who owns it",
+   "prompt": "Who owns making sure a booked demo actually happens?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The AE running the demo"
+    },
+    {
+     "id": "B",
+     "text": "The SDR who booked it"
+    },
+    {
+     "id": "C",
+     "text": "Marketing's reminder emails"
+    },
+    {
+     "id": "D",
+     "text": "The prospect, once she accepts"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "day-8",
+   "source": "Day 8, \"Your job doesn't end at the calendar event\""
+  },
+  {
+   "id": "F4-C8",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Out of office",
+   "prompt": "You'll be on PTO the day before two of your demos. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Arrange a teammate to cover your confirmations"
+    },
+    {
+     "id": "B",
+     "text": "Let both run without any confirmation calls"
+    },
+    {
+     "id": "C",
+     "text": "Reschedule both for after you're back"
+    },
+    {
+     "id": "D",
+     "text": "Ask the AEs to confirm their own demos"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "meetings",
+   "source": "Handbook, Protect the Meeting Before It Starts (During PTO)"
+  },
+  {
+   "id": "F4-D1",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "A no-show",
+   "prompt": "A prospect no-shows. When do you start re-engaging?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The next morning, once she's had time to explain"
+    },
+    {
+     "id": "B",
+     "text": "After the AE has tried to reach her first"
+    },
+    {
+     "id": "C",
+     "text": "At the end of the week, with one email"
+    },
+    {
+     "id": "D",
+     "text": "Right away: call and text, then the No Show Sequence"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "day-8",
+   "source": "Day 8, \"Match the response to what actually happened\""
+  },
+  {
+   "id": "F4-D2",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "How long to chase",
+   "prompt": "How long does daily no-show follow-up continue, at minimum?",
+   "options": [
+    {
+     "id": "A",
+     "text": "At least two days"
+    },
+    {
+     "id": "B",
+     "text": "Until the AE says stop"
+    },
+    {
+     "id": "C",
+     "text": "At least two weeks"
+    },
+    {
+     "id": "D",
+     "text": "Until she replies once"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "meetings",
+   "source": "Handbook, Prepare & Deliver the Demo Handoff"
+  },
+  {
+   "id": "F4-D3",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "A short-term cancel",
+   "prompt": "She cancels: \"Something came up this week.\" What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Set a task to call her next month"
+    },
+    {
+     "id": "B",
+     "text": "Reschedule fast, while it's still fresh"
+    },
+    {
+     "id": "C",
+     "text": "Log Not Interested and let it cool off"
+    },
+    {
+     "id": "D",
+     "text": "Wait for her to reach back out to you"
+    }
+   ],
+   "correct": "B",
+   "reveal": "A short-term timing cancel isn't a lost meeting. The longer it drifts, the less likely you get it back.",
+   "review": "day-8",
+   "source": "Day 8, \"Match the response to what actually happened\""
+  },
+  {
+   "id": "F4-D4",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Leave me alone",
+   "prompt": "She cancels: \"Honestly, I just said yes to get off the phone.\" What's the right move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Call, not email, to find out the real reason"
+    },
+    {
+     "id": "B",
+     "text": "Email her a link to pick a new time"
+    },
+    {
+     "id": "C",
+     "text": "Log it Dead and move on right away"
+    },
+    {
+     "id": "D",
+     "text": "Send the AE's calendar so she can choose"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "day-8",
+   "source": "Day 8, \"Match the response to what actually happened\""
+  },
+  {
+   "id": "F4-D5",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "A long-term cancel",
+   "prompt": "She says: \"Talk to me in two months, we're opening a second location.\" What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Book a demo two months out right now, just in case"
+    },
+    {
+     "id": "B",
+     "text": "Keep calling weekly so she doesn't forget about you"
+    },
+    {
+     "id": "C",
+     "text": "Mark it Dead until she gets back in touch"
+    },
+    {
+     "id": "D",
+     "text": "Check it's real, then log the timing and set a task"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Make sure it isn't a smoke screen first. A documented callback request with a task also protects your ownership during the gap.",
+   "review": "meetings",
+   "source": "Day 8, \"Match the response to what actually happened\"; handbook, Handle a Cancelled Demo"
+  },
+  {
+   "id": "F4-D6",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Low show rate",
+   "prompt": "Your show rate is low. Most of your demos are booked a week or more out. Where do you look first?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Your opener and the first ten seconds"
+    },
+    {
+     "id": "B",
+     "text": "Your list sizes and how you segment"
+    },
+    {
+     "id": "C",
+     "text": "Time to meeting: book closer to the call"
+    },
+    {
+     "id": "D",
+     "text": "How many dials you're making each day"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "day-8",
+   "source": "Day 8, \"Low show rate: where should I look?\""
+  },
+  {
+   "id": "F4-D7",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "No-show vs cancel",
+   "prompt": "Daily outreach and the two-week minimum apply to which situation?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Cancellations, not no-shows"
+    },
+    {
+     "id": "B",
+     "text": "No-shows, not cancellations"
+    },
+    {
+     "id": "C",
+     "text": "Both, in exactly the same way"
+    },
+    {
+     "id": "D",
+     "text": "Neither, it's up to the SDR"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "meetings",
+   "source": "Handbook, Handle a Cancelled Demo"
+  },
+  {
+   "id": "F4-D8",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "The coaching question",
+   "prompt": "After a \"leave me alone\" cancel, what's the question to ask yourself?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Was the booking call really a yes?"
+    },
+    {
+     "id": "B",
+     "text": "Did I send enough reminder emails?"
+    },
+    {
+     "id": "C",
+     "text": "Was the AE the right fit for her?"
+    },
+    {
+     "id": "D",
+     "text": "Should I have offered her a discount?"
+    }
+   ],
+   "correct": "A",
+   "reveal": "A soft yes taken on the cold call shows up later as a cancel or a no-show. The fix is on the booking call, not in the follow-up.",
+   "review": "day-8",
+   "source": "Day 8, \"Low show rate: where should I look?\" (facilitator note)"
+  }
+ ]
+}
