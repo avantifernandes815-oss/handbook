@@ -55,7 +55,7 @@ h1{font-size:30px;line-height:1.15;margin:0 0 8px}
 .stack{display:flex;flex-direction:column;gap:18px}
 .panel{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px 24px}
 .panel h2{font-size:18px;margin:0 0 4px}.panel .sub{margin:0 0 14px;font-size:12px;color:var(--sub)}
-.reveal{background:var(--ok-bg);border-radius:12px;padding:14px 16px}.reveal b{display:block;font-size:12px;color:#1f5c3c;margin-bottom:4px}.reveal div{font-size:13px;line-height:1.6;color:var(--ok-ink)}
+.reveal{background:var(--ok-bg);border-radius:12px;padding:14px 16px}.reveal b{display:block;font-size:12px;color:#1f5c3c;margin-bottom:4px}.reveal div{font-size:13px;line-height:1.6;color:var(--ok-ink)}.reveal .rq{font-size:13px;line-height:1.5;color:#3d3b52;font-style:italic;padding:0 0 10px;margin-bottom:10px;border-bottom:1px solid rgba(31,92,60,.15)}
 .topic{display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border-radius:11px;background:var(--page);text-decoration:none;color:var(--ink);font-size:13px}.topic span:last-child{color:var(--purple);font-weight:700;white-space:nowrap}
 ol{margin:0;padding-left:20px;font-size:13px;line-height:1.8}
 .center{text-align:center;color:var(--sub);font-size:14px;padding:60px 0}
@@ -201,7 +201,7 @@ async function finish(data) {
   app.innerHTML = '<div class="stack narrow" style="margin:0 auto">' +
     '<section class="card hero '+(pass?'ok':'no')+'"><div class="badge">'+(pass ? svg.check.replace(/18/g,'40') : svg.book)+'</div><div class="k">'+(pass ? r.certId + ' PASSED' : 'NOT QUITE YET')+'</div><h1>'+r.correct+' of '+r.total+' · '+pct+'%</h1><p class="lead" style="margin:0">Pass mark '+Math.round(r.passMark*100)+'% · Attempt '+r.attemptNo+'</p></section>' +
     (pass ? '' : '<section class="panel"><h2>What happens next</h2><ol><li>Your manager will set up a quick coaching session with you.</li><li>After that, they’ll unlock your retake.</li></ol></section>') +
-    (r.reveals.length ? '<section class="panel"><h2>Worth remembering</h2><p class="sub">Extra context from questions you got right.</p><div class="stack" style="gap:10px">' + r.reveals.map(x => '<div class="reveal"><b>'+esc(x.topic)+'</b><div>'+esc(x.text)+'</div></div>').join('') + '</div></section>' : '') +
+    (r.reveals.length ? '<section class="panel"><h2>Worth remembering</h2><p class="sub">Extra context from questions you got right.</p><div class="stack" style="gap:10px">' + r.reveals.map(x => '<div class="reveal"><b>'+esc(x.topic)+'</b>'+(x.question?'<p class="rq">'+esc(x.question)+'</p>':'')+'<div>'+esc(x.text)+'</div></div>').join('') + '</div></section>' : '') +
     (r.review.length ? '<section class="panel"><h2>Topics to review</h2><p class="sub">Here are resources for the questions you missed.</p><div class="stack" style="gap:8px">' + r.review.map(x => '<a class="topic" href="/#page='+encodeURIComponent(x.review)+'"><span>'+esc(x.topic)+'</span><span>'+esc(x.label)+' →</span></a>').join('') + '</div></section>' : '') +
     '<a class="btn" href="/#page=certifications">Back to my certifications</a></div>';
 }

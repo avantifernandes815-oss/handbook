@@ -216,7 +216,7 @@ async function startQuiz(env, me, certId) {
 }
 
 async function result(env, attempt) {
-  const answers = (await env.DB.prepare("SELECT a.position, a.is_correct, q.topic, q.reveal, q.review_link FROM quiz_answers a JOIN questions q ON q.id=a.question_id AND q.version=a.question_version WHERE a.attempt_id=? ORDER BY a.position").bind(attempt.id).all()).results;
+  const answers = (await env.DB.prepare("SELECT a.position, a.is_correct, q.topic, q.prompt, q.reveal, q.review_link FROM quiz_answers a JOIN questions q ON q.id=a.question_id AND q.version=a.question_version WHERE a.attempt_id=? ORDER BY a.position").bind(attempt.id).all()).results;
   const cert = await env.DB.prepare("SELECT name, pass_mark FROM certifications WHERE id=?").bind(attempt.cert_id).first();
   const p = await env.DB.prepare("SELECT attempts_used FROM cert_progress WHERE user_email=? AND cert_id=?").bind(attempt.user_email, attempt.cert_id).first();
   const missed = new Map();
@@ -224,7 +224,7 @@ async function result(env, attempt) {
   return {
     certId: attempt.cert_id, certName: cert.name, status: attempt.status, attemptNo: attempt.attempt_no, attemptsUsed: p?.attempts_used || 0, maxAttempts: MAX_ATTEMPTS,
     correct: attempt.correct_count, total: answers.length, score: attempt.score, passMark: cert.pass_mark,
-    reveals: answers.filter(a => a.is_correct && a.reveal).map(a => ({topic: a.topic, text: a.reveal})),
+    reveals: answers.filter(a => a.is_correct && a.reveal).map(a => ({topic: a.topic, question: a.prompt, text: a.reveal})),
     review: [...missed.values()]
   };
 }
