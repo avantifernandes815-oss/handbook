@@ -10,9 +10,11 @@ import bankCC1 from './bank-cc1.json' with {type: 'json'};
 import {CC1_TRAINING, CC1_ROLEPLAY} from './cc1-content.mjs';
 import bankCC2 from './bank-cc2.json' with {type: 'json'};
 import {CC2_TRAINING, CC2_ROLEPLAY} from './cc2-content.mjs';
+import bankCC3 from './bank-cc3.json' with {type: 'json'};
+import {CC3_TRAINING, CC3_ROLEPLAY} from './cc3-content.mjs';
 
-const BANKS = {F1: bankF1, F2: bankF2, F3: bankF3, F4: bankF4, CC1: bankCC1, CC2: bankCC2};
-export const TRAININGS = {CC1: CC1_TRAINING, CC2: CC2_TRAINING};
+const BANKS = {F1: bankF1, F2: bankF2, F3: bankF3, F4: bankF4, CC1: bankCC1, CC2: bankCC2, CC3: bankCC3};
+export const TRAININGS = {CC1: CC1_TRAINING, CC2: CC2_TRAINING, CC3: CC3_TRAINING};
 // Default entry fields for training applications and rapid roleplays (CC1 shape).
 const DEFAULT_FIELDS = [{key: 'business', label: 'Business', kind: 'input', required: true}, {key: 'note', label: 'SDR Additional Note', kind: 'input', required: true}, {key: 'opener', label: 'Your opener', kind: 'textarea', required: true, optionalFor: ['Cold']}];
 const cleanEntry = (fields, raw, type) => { const o = {type}; for (const f of fields) { let v = clip(raw?.[f.key], f.kind === 'textarea' ? 1200 : 600).trim(); if (f.kind === 'select' && v && !f.options.includes(v)) v = ''; o[f.key] = v; } return o; };
@@ -20,6 +22,7 @@ const entryMissing = (fields, e, minText) => fields.filter(f => f.required && !(
 const GRACE_MS = 4000;          // network slack on top of each question's time limit
 const LOCK_HOURS = 24;          // lockout after a second tab-leave
 const MAX_ATTEMPTS = 3;         // failed attempts before a performance conversation
+const NUM = {2: 'two', 3: 'three', 4: 'four', 5: 'five'};
 const REVIEW_LABELS = {'day-1': 'Day 1 · The SDR Job', 'day-2': 'Day 2 · Who We Sell To & Why', 'day-3': 'Day 3 · Owning Your Book of Business', 'day-4': 'Day 4 · Pre-Vetting Workshop', 'day-5': 'Day 5 · Cold Calling Fundamentals', 'day-6': 'Day 6 · Controlling the Conversation', 'day-7': 'Day 7 · Working Smarter at Scale', 'day-8': 'Day 8 · From Yes to Meeting Held', 'meetings': 'Meetings & AE Handoff', 'sal': 'Qualification & SALs', 'book': 'Book of Business', 'statuses': 'Lead Statuses & CRM', '/training/CC1': 'CC1 · Openers training', '/training/CC2': 'CC2 · Elevator Pitch training'};
 // Foundation certs allow three attempts; the self-paced tracks have no limit (a retake opens after coaching).
 const maxFor = (cert) => (cert?.track || 'foundation') === 'foundation' ? MAX_ATTEMPTS : 999;
@@ -50,6 +53,7 @@ export const ROLEPLAYS = {
   F4: F4_ROLEPLAY,
   CC1: CC1_ROLEPLAY,
   CC2: CC2_ROLEPLAY,
+  CC3: CC3_ROLEPLAY,
   F3: {
     mode: 'lead',
     criteria: [
@@ -474,7 +478,7 @@ async function roleplayState(env, email, certId, forManager) {
     attemptNo: l.attempt_no, status: l.status, business: l.business, link: l.link, code: l.code, leadStatus: l.lead_status, note: l.note,
     submittedAt: l.submitted_at, startedAt: l.started_at,
     ...(def.mode === 'rapid' ? (() => { const c = parse(l.content, {}); const draws = c.draws || def.slots.map(() => null); return {
-      leads: c.leads || [], booking: c.booking || null, drawn: draws.filter(Boolean).length,
+      leads: c.leads || [], booking: c.booking || null, drawn: draws.filter(Boolean).length, calls: forManager ? (c.calls || def.slots.map(() => null)) : null,
       draws: forManager ? draws.map(id => id ? def.cards.find(x => x.id === id) || null : null) : null}; })() : {}),
     card: forManager && l.card_id ? def.cards.find(c => c.id === l.card_id) || null : null,
     brief: def.mode === 'situation' && l.card_id ? (def.cards.find(c => c.id === l.card_id) || {}).brief || null : null,
@@ -483,7 +487,7 @@ async function roleplayState(env, email, certId, forManager) {
   return {
     cert: {id: cert.id, name: cert.name, day: cert.onboarding_day},
     rep: {email, name: user?.name || email.split('@')[0], codePrefix: codePrefix(email)},
-    def: {mode: def.mode || 'lead', business: def.business || null, setup: def.setup || null, slots: def.slots || null, leadFields: def.mode === 'rapid' ? (def.leadFields || DEFAULT_FIELDS) : null, prepNote: def.prepNote || null, distinct: def.distinct || null, distinctMin: def.distinctMin || null, criteria: def.criteria, musts: def.musts},
+    def: {mode: def.mode || 'lead', business: def.business || null, setup: def.setup || null, slots: def.slots || null, leadFields: def.mode === 'rapid' ? (def.leadFields || DEFAULT_FIELDS) : null, prepNote: def.prepNote || null, distinct: def.distinct || null, distinctMin: def.distinctMin || null, callMust: def.callMust || null, maxDq: def.maxDq ?? null, criteria: def.criteria, musts: def.musts},
     progress: {status: p.status, components: parse(p.components, {})},
     quiz: quiz ? {status: quiz.status, score: quiz.score} : null,
     current: view(cur), history: leads.slice(1).map(view),
@@ -584,7 +588,7 @@ async function submitRapid(env, me, cert, body) {
   const leads = def.slots.map((type, i) => { const e = cleanEntry(fields, raw[i], type); if (type === 'Cold') e.opener = ''; return e; });
   const miss = leads.findIndex(l => entryMissing(fields, l));
   if (miss >= 0) { const f = entryMissing(fields, leads[miss]); return json({error: 'leads', message: `${/^Lead \d$/.test(leads[miss].type) ? leads[miss].type : 'Lead ' + (miss + 1) + ' (' + leads[miss].type + ')'} needs ${f.kind === 'textarea' ? 'your ' + f.label.replace(/^Your /, '').toLowerCase() : 'the ' + f.label.toLowerCase()}.`, index: miss}, 400); }
-  if (def.distinct && new Set(leads.map(l => l[def.distinct])).size < (def.distinctMin || leads.length)) return json({error: 'distinct', message: `Your four leads need at least ${def.distinctMin} different ${def.distinct === 'vertical' ? 'verticals' : def.distinct + 's'}.`}, 400);
+  if (def.distinct && new Set(leads.map(l => l[def.distinct])).size < (def.distinctMin || leads.length)) return json({error: 'distinct', message: `Your ${NUM[def.slots.length] || def.slots.length} leads need at least ${def.distinctMin} different ${def.distinct === 'vertical' ? 'verticals' : def.distinct + 's'}.`}, 400);
   const b = body.booking || {};
   const manager = await env.DB.prepare("SELECT email, name FROM users WHERE email=? AND role IN ('manager','admin') AND active=1").bind(String(b.manager || '').toLowerCase()).first();
   if (!manager) return fail('booking', 'Pick the manager you booked with.');
@@ -639,13 +643,24 @@ async function runRoleplay(env, me, certId, email, body) {
     const i = Number(body.index);
     if (!Number.isInteger(i) || i < 0 || i >= def.slots.length) return fail('bad_request', 'Pick a lead.');
     if (draws[i]) return fail('drawn', 'That lead already has a card.', 409);
-    const pool = def.cards.filter(x => !draws.includes(x.id));
+    const dqUsed = draws.filter(id => def.cards.find(x => x.id === id)?.dq).length;
+    const pool = def.cards.filter(x => !draws.includes(x.id) && !(def.maxDq != null && x.dq && dqUsed >= def.maxDq));
     const pick = pool[crypto.getRandomValues(new Uint32Array(1))[0] % pool.length];
     draws[i] = pick.id;
     const stmts = [env.DB.prepare("UPDATE roleplay_leads SET status='started', content=?, manager_email=COALESCE(manager_email, ?), started_at=COALESCE(started_at, ?), updated_at=? WHERE id=?").bind(JSON.stringify({...c, draws}), me.email, t, t, cur.id)];
     if (cur.status === 'submitted') { const prog = await getProgress(env, email, certId); stmts.push(componentUpdate(env, cert, prog, email, {roleplay: 'started'}, t)); }
     await env.DB.batch(stmts);
     await audit(env, me.email, 'draw_card', `${email}:${certId}`, {attempt: cur.attempt_no, lead: i, card: pick.id});
+    return json(await roleplayState(env, email, certId, true));
+  }
+  if (body.action === 'call' && def.mode === 'rapid' && def.callMust) {
+    if (!cur || cur.status !== 'started') return fail('not_started', 'Draw a card before recording their call.', 409);
+    const c = parse(cur.content, {}); const draws = c.draws || [];
+    const i = Number(body.index);
+    if (!Number.isInteger(i) || i < 0 || i >= def.slots.length || !draws[i]) return fail('bad_request', 'Draw a card for that lead first.');
+    if (!['book', 'nobook'].includes(body.value)) return fail('bad_request', 'Pick booked or didn’t book.');
+    const calls = c.calls || def.slots.map(() => null); calls[i] = body.value;
+    await env.DB.prepare("UPDATE roleplay_leads SET content=?, updated_at=? WHERE id=?").bind(JSON.stringify({...c, calls}), t, cur.id).run();
     return json(await roleplayState(env, email, certId, true));
   }
   if (body.action === 'start') {
@@ -667,7 +682,13 @@ async function runRoleplay(env, me, certId, email, body) {
       scores[c.id] = v;
     }
     const musts = {};
+    if (def.callMust) {
+      const c = parse(cur.content, {}), calls = c.calls || [];
+      if (def.slots.some((_, i) => !calls[i])) return fail('calls', 'Record their call for every lead before scoring.', 409);
+      musts[def.callMust] = (c.draws || []).every((id, i) => (def.cards.find(x => x.id === id) || {}).call === calls[i]);
+    }
     for (const m of def.musts) {
+      if (m.auto) continue;
       if (typeof body.musts?.[m.id] !== 'boolean') return fail('musts', 'Answer every must-pass.');
       musts[m.id] = body.musts[m.id];
     }
@@ -797,7 +818,7 @@ async function certContent(env, certId) {
   const sections = [...new Set(questions.map(q => q.section))].sort();
   const pd = PRACTICALS[certId], rp = ROLEPLAYS[certId];
   const practical = !pd ? null : {kind: pd.kind || 'lists', component: pracComponent(pd), title: pd.title, brief: pd.brief || null, jobs: pd.jobs || null, criteria: pd.criteria, must: pd.must, key: pd.key || null};
-  const roleplay = !rp ? null : {mode: rp.mode || 'lead', business: rp.business || null, setup: rp.setup || null, slots: rp.slots || null, criteria: rp.criteria, musts: rp.musts, cards: rp.cards};
+  const roleplay = !rp ? null : {title: rp.title || null, maxDq: rp.maxDq ?? null, mode: rp.mode || 'lead', business: rp.business || null, setup: rp.setup || null, slots: rp.slots || null, criteria: rp.criteria, musts: rp.musts, cards: rp.cards};
   const training = TRAININGS[certId] || null;
   return {cert: c, questions, sections, practical, roleplay, training, maxAttempts: maxFor(c), lockHours: LOCK_HOURS};
 }

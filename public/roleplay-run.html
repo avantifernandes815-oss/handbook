@@ -82,14 +82,25 @@ function rapidPanel() {
   const rows = cur.leads.map((l, i) => {
     const c = draws[i];
     const word = ((S.def.leadFields || []).find(f => f.key === 'opener')?.label || 'Your opener').replace(/^Your /, '');
-    return '<div class="rr-row' + (i === sel ? ' on' : '') + '" data-sel="' + i + '"><span class="rr-n' + (c ? ' done' : '') + '">' + (c ? '✓' : i + 1) + '</span><div style="flex:1;min-width:0"><b>' + esc(l.business) + '</b> <span class="chip off">' + esc(l.vertical ? l.vertical + ' · ' + l.persona : l.type) + '</span><small>' + esc(l.note) + '</small>' + (l.opener ? '<small style="color:var(--ink)">Their ' + esc(word) + ': “' + esc(l.opener) + '”</small>' : '') + '</div><div>' + (c ? '<span class="sub" style="font-size:12px">' + esc(c.title) + '</span>' : '<button class="small-btn" data-draw="' + i + '">Draw a card</button>') + '</div></div>';
+    return '<div class="rr-row' + (i === sel ? ' on' : '') + '" data-sel="' + i + '"><span class="rr-n' + (c ? ' done' : '') + '">' + (c ? '✓' : i + 1) + '</span><div style="flex:1;min-width:0"><b>' + esc(l.business) + '</b> <span class="chip off">' + esc(l.vertical ? l.vertical + ' · ' + l.persona : l.type) + '</span><small>' + esc(l.note) + '</small>' + (l.opener ? '<small style="color:var(--ink)">Their ' + esc(word) + ': “' + esc(l.opener) + '”</small>' : '') + '</div><div>' + (c ? '<span class="sub" style="font-size:12px">' + esc(c.title) + '</span>' + (S.def.callMust ? '<br><span class="sub" style="font-size:11px">' + (callOk(i) == null ? 'Call not recorded' : callOk(i) ? '✓ Right call' : '✗ Wrong call') + '</span>' : '') : '<button class="small-btn" data-draw="' + i + '">Draw a card</button>') + '</div></div>';
   }).join('');
   const c = draws[sel];
-  const box = c ? '<div class="card-box" style="margin-top:14px"><div style="display:flex;justify-content:space-between;gap:10px"><div class="k">HIDDEN · THE REP CAN’T SEE THIS</div><span class="sub" style="font-size:12px">Lead ' + (sel + 1) + ' · ' + esc(cur.leads[sel].business) + (cur.leads[sel].persona ? ' · play the ' + esc(cur.leads[sel].persona.toLowerCase()) : '') + '</span></div><div style="font-size:16px;font-weight:700;margin:6px 0 4px">' + esc(c.title) + '</div><dl><dt>You say</dt><dd>' + esc(c.answer) + '</dd>' + (c.next ? '<dt>Then</dt><dd>' + esc(c.next) + '</dd>' : '') + '<dt>A 3+ looks like</dt><dd>' + esc(c.yes) + '</dd></dl></div>'
+  const box = c ? '<div class="card-box" style="margin-top:14px"><div style="display:flex;justify-content:space-between;gap:10px"><div class="k">HIDDEN · THE REP CAN’T SEE THIS</div><span class="sub" style="font-size:12px">Lead ' + (sel + 1) + ' · ' + esc(cur.leads[sel].business) + (cur.leads[sel].persona ? ' · play the ' + esc(cur.leads[sel].persona.toLowerCase()) : '') + '</span></div><div style="font-size:16px;font-weight:700;margin:6px 0 4px">' + esc(c.title) + '</div>' + (c.rows ? '<dl>' + c.rows.map(r => '<dt>' + esc(r[0]) + '</dt><dd>' + esc(r[1]) + '</dd>').join('') + (c.call ? '<dt>Right call</dt><dd><span class="chip ' + (c.call === 'book' ? 'ok">Book it' : 'bad">Don’t book') + '</span>' + (c.call === 'book' ? '' : ' Close politely.') + '</dd>' : '') + '</dl>' : '<dl><dt>You say</dt><dd>' + esc(c.answer) + '</dd>' + (c.next ? '<dt>Then</dt><dd>' + esc(c.next) + '</dd>' : '') + '<dt>A 3+ looks like</dt><dd>' + esc(c.yes) + '</dd></dl>') + '</div>' + callBox(c)
     : '<div class="card-box" style="margin-top:14px"><div class="k">HIDDEN CARD</div><p style="font-size:14px;line-height:1.6;margin:8px 0 0">Draw a card for lead ' + (sel + 1) + ' when you’re ready to play it. Each card is used once per attempt.</p></div>';
   return '<section class="panel" style="margin-bottom:18px"><p class="sub" style="margin:0 0 6px">' + esc(S.def.setup) + '</p>' + rows + box + '</section>';
 }
+const callOk = i => { const c = (S.current.draws || [])[i], v = (S.current.calls || [])[i]; return c && v ? c.call === v : null; };
+function callBox(c) {
+  if (!S.def.callMust || !c) return '';
+  const v = (S.current.calls || [])[sel], ok = callOk(sel);
+  return '<div class="card-box" style="margin-top:12px;background:var(--paper)"><div class="k">THEIR CALL · LEAD ' + (sel + 1) + '</div><p class="sub" style="margin:6px 0 10px">When the round ends, did they ask for the meeting or close it out?</p><div class="seg" role="group" aria-label="Their call"><button type="button" data-call="book" aria-pressed="' + (v === 'book') + '">Booked it</button><button type="button" data-call="nobook" aria-pressed="' + (v === 'nobook') + '">Didn’t book it</button></div>' + (ok == null ? '' : '<span style="display:inline-block;margin-top:10px" class="chip ' + (ok ? 'ok">Matches the card' : 'bad">Doesn’t match the card') + '</span>') + '</div>';
+}
 function wireRapid() {
+  app.querySelectorAll('[data-call]').forEach(b => b.onclick = async () => {
+    b.disabled = true;
+    try { S = await api('/api/roleplay-run/' + cert, {email: rep, action: 'call', index: sel, value: b.dataset.call}); document.getElementById('rapid').innerHTML = rapidPanel(); wireRapid(); renderAutoMusts(); update(); }
+    catch (e) { b.disabled = false; document.getElementById('err').textContent = e.message; }
+  });
   app.querySelectorAll('[data-sel]').forEach(r => r.onclick = e => { if (e.target.closest('[data-draw]')) return; sel = +r.dataset.sel; document.getElementById('rapid').innerHTML = rapidPanel(); wireRapid(); });
   app.querySelectorAll('[data-draw]').forEach(b => b.onclick = async () => {
     b.disabled = true; b.textContent = 'Drawing…'; sel = +b.dataset.draw;
@@ -132,16 +143,25 @@ function renderScoring() {
     '<section class="panel" style="margin-bottom:18px"><div class="sec-h"><h2 style="font-size:18px">Score each moment, 1–4</h2><span>1 missed · 2 developing · 3 solid · 4 strong</span></div><p class="sub">Judge what each moment achieved, not whether every framework step was used.</p>' +
       S.def.criteria.map(c => '<div class="crit"><div style="flex:1 1 300px;min-width:0"><b>' + esc(c.name) + '</b><small>' + esc(c.hint) + '</small></div><div class="nums" role="group" aria-label="' + esc(c.name) + '">' + [1,2,3,4].map(n => '<button type="button" data-c="' + c.id + '" data-n="' + n + '" aria-pressed="' + (scores[c.id] === n) + '">' + n + '</button>').join('') + '</div></div>').join('') + '</section>' +
     '<section class="panel" style="margin-bottom:18px"><h2 style="font-size:18px">Must-pass</h2><p class="sub">Any “no” is a fail, whatever the average.</p><div style="display:flex;flex-direction:column;gap:8px">' +
-      S.def.musts.map(m => '<div class="mustrow"><div id="m-' + m.id + '">' + esc(m.name) + '</div><div class="seg yn" role="group" aria-labelledby="m-' + m.id + '"><button type="button" class="yes" data-m="' + m.id + '" data-v="1" aria-pressed="' + (musts[m.id] === true) + '">Yes, met</button><button type="button" class="no" data-m="' + m.id + '" data-v="0" aria-pressed="' + (musts[m.id] === false) + '">No, not met</button></div></div>').join('') + '</div></section>' +
+      S.def.musts.map(m => m.auto ? '<div class="mustrow"><div>' + esc(m.name) + '<small style="display:block;color:var(--sub);font-size:12px">Set from their calls above</small></div><div id="auto-' + m.id + '"></div></div>' : '<div class="mustrow"><div id="m-' + m.id + '">' + esc(m.name) + '</div><div class="seg yn" role="group" aria-labelledby="m-' + m.id + '"><button type="button" class="yes" data-m="' + m.id + '" data-v="1" aria-pressed="' + (musts[m.id] === true) + '">Yes, met</button><button type="button" class="no" data-m="' + m.id + '" data-v="0" aria-pressed="' + (musts[m.id] === false) + '">No, not met</button></div></div>').join('') + '</div></section>' +
     '<section class="panel" style="margin-bottom:18px"><label for="notes" style="display:flex;align-items:center;gap:10px;font-family:Nunito,Arial,sans-serif;font-size:18px;font-weight:800;margin-bottom:4px">Coaching notes <span class="chip warn">Required</span></label><p class="sub">' + esc(S.rep.name) + ' sees the full scorecard and these notes as soon as you submit.</p><textarea class="in" id="notes" rows="4" maxlength="4000" placeholder="What to keep doing, and what to change before the next attempt.">' + esc(notes) + '</textarea></section>' +
     '<section class="result pend" id="result"></section><p class="err" id="err" role="alert"></p>';
   if (rapid()) wireRapid();
+  renderAutoMusts();
   const tog = () => { const b = document.getElementById('tog'); if (b) b.onclick = () => { cardOpen = !cardOpen; const two = document.getElementById('two'); two.innerHTML = pair(); tog(); }; };
   tog();
   app.querySelectorAll('[data-c]').forEach(b => b.onclick = () => { scores[b.dataset.c] = +b.dataset.n; b.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); update(); });
   app.querySelectorAll('[data-m]').forEach(b => b.onclick = () => { musts[b.dataset.m] = b.dataset.v === '1'; b.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); update(); });
   document.getElementById('notes').oninput = e => { notes = e.target.value; update(); };
   update();
+}
+function autoVal() { const n = S.def.slots.length, calls = S.current.calls || []; if ([...Array(n).keys()].some(i => !calls[i])) return null; return [...Array(n).keys()].every(i => callOk(i)); }
+function renderAutoMusts() {
+  for (const m of S.def.musts.filter(m => m.auto)) {
+    const el = document.getElementById('auto-' + m.id); if (!el) continue;
+    const v = autoVal(); if (v == null) delete musts[m.id]; else musts[m.id] = v;
+    el.innerHTML = v == null ? '<span class="chip off">Waiting on calls</span>' : '<span class="chip ' + (v ? 'ok">Met' : 'bad">Not met') + '</span>';
+  }
 }
 function update() {
   const ids = S.def.criteria.map(c => c.id), scored = ids.filter(id => scores[id]).length, all = scored === ids.length;
@@ -153,9 +173,9 @@ function update() {
   else if (!decided) { verdict = 'Answer every must-pass'; why = 'Average ' + avg.toFixed(1) + ' so far. Needs 3.0 or higher and every must-pass met.'; }
   else if (pass) { cls = 'ok'; verdict = 'Pass'; why = 'Average ' + avg.toFixed(1) + ' and every must-pass met.'; }
   else { cls = 'no'; verdict = rapid() ? 'Not yet · retake after coaching' : 'Not yet · retake on the Foundation schedule'; why = (anyNo ? 'A must-pass was not met' : 'Average ' + avg.toFixed(1) + ' is under 3.0') + (rapid() ? '. Mark coaching done on Team Progress and they can book a retake.' : '. The retake is Day 10, then Monday, with a new card.'); }
-  const allDrawn = !rapid() || (S.current.draws || []).every(Boolean);
+  const allDrawn = !rapid() || ((S.current.draws || []).every(Boolean) && (!S.def.callMust || S.def.slots.every((_, i) => (S.current.calls || [])[i])));
   const ready = all && decided && hasNotes && allDrawn;
-  const btn = !ready ? '<span class="locked-btn">' + (!allDrawn ? 'Draw a card for every lead to submit' : !all ? 'Score every moment to submit' : !decided ? 'Answer every must-pass to submit' : 'Add coaching notes to submit') + '</span>'
+  const btn = !ready ? '<span class="locked-btn">' + (!allDrawn ? (S.def.callMust ? 'Draw a card and record the call for every lead to submit' : 'Draw a card for every lead to submit') : !all ? 'Score every moment to submit' : !decided ? 'Answer every must-pass to submit' : 'Add coaching notes to submit') + '</span>'
     : pass ? '<button class="btn inline" id="go">Submit pass &amp; share with ' + esc(S.rep.name) + '</button>' : '<button class="btn inline danger" id="go">Submit &amp; schedule retake</button>';
   const box = document.getElementById('result'); box.className = 'result ' + cls;
   box.innerHTML = '<div style="flex:1 1 320px;min-width:0"><div class="k">RESULT</div><div class="v">' + esc(verdict) + '</div><div class="w">' + esc(why) + '</div></div><div>' + btn + '</div>';

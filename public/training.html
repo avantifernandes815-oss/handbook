@@ -68,7 +68,8 @@ const DEFAULT_FIELDS = [{key: 'business', label: 'Business', kind: 'input', requ
 const fieldsOf = a => (a && a.fields) || DEFAULT_FIELDS;
 function entryOk(a, o) { return fieldsOf(a).every(f => !f.required || (o[f.key] || '').trim().length >= (f.kind === 'textarea' ? (a.textMin || 20) : 1)); }
 function appStatus(a) { const n = openers.filter(o => entryOk(a, o)).length, distinctOk = !a.distinct || new Set(openers.map(o => o[a.distinct]).filter(Boolean)).size >= (a.distinctMin || openers.length); return {n, ready: n === a.slots.length && distinctOk, distinctOk}; }
-const build = {placed: [], bad: [], msg: null}, pick = {i: 0, chosen: null}, shown = {};
+const build = {placed: [], bad: [], msg: null}, picks = {}, shown = {}, noteVals = {}, noteShown = {};
+const pickOf = k => picks[k] || (picks[k] = {i: 0, chosen: null});
 
 async function load() {
   try { S = await api('/api/training/' + cert); }
@@ -98,17 +99,26 @@ function buildBox(sec) {
     (done ? '<div class="tr-fb ok">' + esc(sec.done || 'That’s the opener: name, who you are, why them, a question back. Under fifteen seconds.') + '</div>' : build.msg ? '<div class="tr-fb no">' + esc(build.msg) + '</div>' : '') +
     (done || build.placed.length ? '<p style="margin:10px 0 0"><button type="button" class="tr-pick" id="buildreset" style="margin:0">Start over</button></p>' : '') + '</div>';
 }
-function pickBox(sec) {
-  const c = sec.cards[pick.i], ch = pick.chosen;
-  return '<div class="tr-int" id="pickbox"><div style="display:flex;justify-content:space-between"><div class="k">' + esc(sec.label) + '</div><span class="sub" style="font-size:12px">Card ' + (pick.i + 1) + ' of ' + sec.cards.length + '</span></div>' +
-    '<div class="tr-quote"><div class="sub" style="font-size:12px">' + esc(c.setup) + '</div><div class="q">' + esc(c.line) + '</div></div>' +
-    sec.options.map(o => '<button type="button" class="tr-pick' + (ch ? (o === c.answer ? ' right' : o === ch ? ' wrong' : '') : '') + '" data-pick="' + esc(o) + '"' + (ch ? ' disabled' : '') + '>' + esc(o) + (ch && o === c.answer ? ' ✓' : '') + '</button>').join('') +
-    (ch ? '<div class="tr-fb ' + (ch === c.answer ? 'ok">Right. ' : 'no">Not quite. ') + esc(c.why) + '</div><p style="margin:10px 0 0"><button type="button" class="tr-pick" id="picknext" style="margin:0">' + (pick.i < sec.cards.length - 1 ? 'Next card →' : 'Start over') + '</button></p>' : '') + '</div>';
+function pickBox(sec, k) {
+  const pick = pickOf(k), c = sec.cards[pick.i], ch = pick.chosen, opts = c.options || sec.options;
+  return '<div class="tr-int" id="pickbox' + k + '"><div style="display:flex;justify-content:space-between"><div class="k">' + esc(sec.tryLabel || sec.label) + '</div><span class="sub" style="font-size:12px">Card ' + (pick.i + 1) + ' of ' + sec.cards.length + '</span></div>' +
+    '<div class="tr-quote">' + (c.setup ? '<div class="sub" style="font-size:12px">' + esc(c.setup) + '</div>' : '') + '<div class="q">' + esc(c.line) + '</div></div>' + (c.options ? '<div style="display:grid;gap:8px">' : '') +
+    opts.map(o => '<button type="button" class="tr-pick' + (ch ? (o === c.answer ? ' right' : o === ch ? ' wrong' : '') : '') + '" data-pick="' + esc(o) + '" data-pk="' + k + '"' + (ch ? ' disabled' : '') + '>' + esc(o) + (ch && o === c.answer ? ' ✓' : '') + '</button>').join('') + (c.options ? '</div>' : '') +
+    (ch ? '<div class="tr-fb ' + (ch === c.answer ? 'ok">Right. ' : 'no">Not quite. ') + esc(c.why) + '</div>' + (c.layer ? '<div class="tr-fb ok" style="background:var(--paper)"><b>Next layer:</b> ' + esc(c.layer) + '</div>' : '') + '<p style="margin:10px 0 0"><button type="button" class="tr-pick" data-picknext="' + k + '" style="margin:0">' + (pick.i < sec.cards.length - 1 ? 'Next card →' : 'Start over') + '</button></p>' : '') + '</div>';
 }
 function writeBox(sec) {
   return '<div class="tr-int"><div class="k">' + esc(sec.tryLabel || 'TRY IT · WRITE PART 3') + '</div><div style="font-size:13px;margin-top:6px">' + esc(sec.tryLabel ? 'Write it for each card. Not graded.' : 'Write a part 3 for each note. Not graded.') + '</div>' +
     sec.notes.map((n, i) => '<div class="tr-quote" style="margin-top:12px"><div class="sub" style="font-size:11px;letter-spacing:.6px;font-weight:700">' + esc(sec.noteLabel || 'SDR ADDITIONAL NOTE') + '</div><div style="font-size:13px;margin:4px 0 10px">' + esc(n.note) + '</div><label class="fld" for="w' + i + '">' + esc(sec.writeLabel || 'Your part 3') + '</label><textarea class="in" rows="2" id="w' + i + '"></textarea>' +
       (shown[i] ? '<div class="tr-fb ok">A strong example: ' + esc(n.example) + '</div>' : '<p style="margin:8px 0 0"><button type="button" class="tr-pick" data-show="' + i + '" style="margin:0">Show a strong example</button></p>') + '</div>').join('') + '</div>';
+}
+function noteBox(sec, k) {
+  const v = noteVals[k] || (noteVals[k] = sec.fields.map(() => '')), ready = v.every(x => x.trim().length >= (sec.min || 40));
+  return '<div class="tr-int"><div class="k">' + esc(sec.tryLabel || 'TRY IT') + '</div><div class="tr-quote"><div class="sub" style="font-size:12px">' + esc(sec.setup) + '</div><div style="font-size:14px;line-height:1.6;margin-top:4px">' + esc(sec.excerpt) + '</div></div><div class="grid2">' +
+    sec.fields.map((f, i) => '<div><label class="fld" for="nt' + k + '_' + i + '">' + esc(f.label) + '</label><textarea class="in" rows="3" id="nt' + k + '_' + i + '" data-nk="' + k + '" data-ni="' + i + '" maxlength="600">' + esc(v[i]) + '</textarea>' + (noteShown[k] ? '<div class="tr-fb ok" style="margin-top:6px"><b>Model:</b> ' + esc(f.model) + '</div>' : '') + '</div>').join('') + '</div>' +
+    '<p style="margin:12px 0 0;display:flex;gap:10px;align-items:center;flex-wrap:wrap" id="ntbar' + k + '">' + noteBar(sec, k, ready) + '</p></div>';
+}
+function noteBar(sec, k, ready) {
+  return noteShown[k] ? '<span class="sub" style="font-size:12px">Model note shown under each field.</span>' : ready ? '<button type="button" class="tr-pick" data-ntshow="' + k + '" style="margin:0">Compare with a model note</button>' : '<span class="sub" style="font-size:12px">Write ' + (sec.min || 40) + '+ characters in each field to compare with a model note.</span>';
 }
 function fieldHtml(f, i, val) {
   const id = 'a' + f.key + i, attrs = ' id="' + id + '" data-i="' + i + '" data-f="' + f.key + '"';
@@ -119,7 +129,7 @@ function fieldHtml(f, i, val) {
 function appNote(sec) {
   const st = appStatus(sec);
   if (S.completedAt) return 'Saved. These come with you to the roleplay.';
-  return 'Saved as you type · ' + st.n + ' of ' + sec.slots.length + ' written' + (sec.distinct && st.n === sec.slots.length && !st.distinctOk ? ' · pick ' + sec.distinctMin + ' different ' + sec.distinct + 's' : '');
+  return 'Saved as you type · ' + st.n + ' of ' + sec.slots.length + ' ' + (sec.doneWord || 'written') + (sec.distinct && st.n === sec.slots.length && !st.distinctOk ? ' · pick ' + sec.distinctMin + ' different ' + sec.distinct + 's' : '');
 }
 function appBox(sec) {
   const fields = fieldsOf(sec);
@@ -129,8 +139,8 @@ function appBox(sec) {
 function nextBtn(ready) {
   const c = S.progress.components;
   if (S.completedAt) return c.quiz === 'passed' ? '<a class="btn inline" href="/roleplay/' + cert + '">Go to your roleplay</a>' : '<a class="btn inline" href="/quiz/' + cert + '">Go to the ' + esc(cert) + ' quiz</a>';
-  const a = sec('application'), what = a && a.fields ? 'pitches' : 'openers';
-  return ready ? '<button class="btn inline" id="finish">Finish training &amp; start the quiz</button>' : '<span class="locked-btn">Write all ' + (a ? a.slots.length : 3) + ' ' + what + ' to unlock the quiz</span>';
+  const a = sec('application'), what = a && a.unit ? a.unit : a && a.fields ? 'pitches' : 'openers';
+  return ready ? '<button class="btn inline" id="finish">Finish training &amp; start the quiz</button>' : '<span class="locked-btn">' + (a && a.unitVerb || 'Write') + ' all ' + (a ? a.slots.length : 3) + ' ' + what + ' to unlock the quiz</span>';
 }
 function render() {
   const preview = S.missingPrereqs.length && S.canPreview;
@@ -142,17 +152,20 @@ function render() {
   let html = '<a class="crumb" href="/#page=certifications">← Your path</a><div class="eyebrow" style="margin-top:14px">' + label + ' · ' + esc(S.cert.id) + '</div><h1>' + esc(S.def.title) + '</h1><p class="intro">' + esc(S.def.summary) + '</p>' + stepper();
   if (preview) html += '<div class="tr-done" style="background:#fff8e6;border-color:#f3dfa8;color:#5c4400"><span><b>Manager preview.</b> This is the page as a rep sees it. Your own path hasn’t unlocked it, so nothing here saves.</span></div>';
   if (S.completedAt) html += '<div class="tr-done"><span><b>Training done.</b> You can come back to it any time.</span>' + nextBtn(true) + '</div>';
-  for (const sec of S.def.sections) {
-    if (sec.type === 'why') html += '<section class="tr-sec">' + head(sec) + '<div class="tr-stat"><div class="big">' + esc(sec.stat.big) + '</div><div style="font-size:14px"><b>' + esc(sec.stat.line) + '</b><br><span class="sub" style="font-size:12px">' + esc(sec.stat.sub) + '</span></div></div></section>';
+  S.def.sections.forEach((sec, si) => {
+    if (sec.type === 'why' && sec.quote) html += '<section class="tr-sec">' + head(sec) + '<div class="tr-stat" style="border-left:4px solid var(--purple);font-size:15px;font-weight:700">' + esc(sec.quote) + '</div></section>';
+    else if (sec.type === 'why') html += '<section class="tr-sec">' + head(sec) + '<div class="tr-stat"><div class="big">' + esc(sec.stat.big) + '</div><div style="font-size:14px"><b>' + esc(sec.stat.line) + '</b><br><span class="sub" style="font-size:12px">' + esc(sec.stat.sub) + '</span></div></div></section>';
     else if (sec.type === 'stats') html += '<section class="tr-sec">' + head(sec) + '<div class="tr-stats">' + sec.stats.map(x => '<div class="tr-stat"><div class="big">' + esc(x.big) + '</div><div style="font-size:14px"><b>' + esc(x.line) + '</b><br><span class="sub" style="font-size:12px">' + esc(x.sub) + '</span></div></div>').join('') + '</div></section>';
     else if (sec.type === 'table') html += '<section class="tr-sec">' + head(sec) + table(sec) + (sec.after ? '<p style="font-size:13px;color:var(--body);margin:10px 0 0">' + esc(sec.after) + '</p>' : '') + '</section>';
     else if (sec.type === 'build') html += '<section class="tr-sec" style="margin-top:-12px">' + buildBox(sec) + '</section>';
-    else if (sec.type === 'pickup') html += '<section class="tr-sec" style="margin-top:-12px">' + pickBox(sec) + '</section>';
+    else if (sec.type === 'pickup') html += '<section class="tr-sec"' + (sec.title ? '>' + head(sec) : ' style="margin-top:-12px">') + pickBox(sec, si) + '</section>';
+    else if (sec.type === 'cards') html += '<section class="tr-sec">' + head(sec) + '<div class="tr-kill">' + sec.items.map(k => '<div><b style="color:var(--ink)">' + esc(k.title) + '</b><small>' + esc(k.sub) + '</small><span>' + esc(k.quote) + '</span></div>').join('') + '</div>' + (sec.after ? '<div class="tr-int" style="padding:12px 16px;font-size:13px"><b>' + esc(sec.after.split(':')[0]) + ':</b>' + esc(sec.after.slice(sec.after.indexOf(':') + 1)) + '</div>' : '') + '</section>';
+    else if (sec.type === 'note') html += '<section class="tr-sec">' + head(sec) + noteBox(sec, si) + '</section>';
     else if (sec.type === 'write') html += '<section class="tr-sec">' + head(sec) + table(sec) + writeBox(sec) + '</section>';
     else if (sec.type === 'killers') html += '<section class="tr-sec">' + head(sec) + '<div class="tr-kill">' + sec.items.map(k => '<div><b>' + esc(k[0]) + '</b><small>' + esc(k[1]) + '</small><span><b style="display:inline;color:var(--ink);font-size:13px">Instead:</b> ' + esc(k[2]) + '</span></div>').join('') + '</div></section>';
     else if (sec.type === 'text') html += '<section class="tr-sec">' + head(sec) + '</section>';
     else if (sec.type === 'application') html += '<section class="tr-sec" id="appsec">' + head(sec) + (preview ? '<div class="tr-app" style="padding:16px 20px">' + sec.slots.map(sl => '<p style="margin:6px 0;font-size:13px"><span class="chip go">' + esc(sl.type) + '</span> ' + esc(sl.hint) + '</p>').join('') + '</div>' : appBox(sec)) + '</section>';
-  }
+  });
   const writes = [...app.querySelectorAll('[id^="w"]')].map(t => t.value);
   app.innerHTML = html;
   writes.forEach((v, i) => { const t = document.getElementById('w' + i); if (t) t.value = v; });
@@ -161,7 +174,7 @@ function render() {
 function sec(type) { return S.def.sections.find(x => x.type === type); }
 function rerender(id, fn) { const el = document.getElementById(id); if (el) { el.outerHTML = fn(); wire(); } }
 function wire() {
-  const b = sec('build'), p = sec('pickup'), a = sec('application');
+  const b = sec('build'), a = sec('application');
   app.querySelectorAll('[data-part]').forEach(x => x.onclick = () => {
     const i = +x.dataset.part, next = build.placed.length;
     if (i === next) { build.placed.push(i); build.msg = null; } else build.msg = 'Not yet. What has to come before that?';
@@ -169,8 +182,10 @@ function wire() {
   });
   app.querySelectorAll('[data-decoy]').forEach(x => x.onclick = () => { const j = +x.dataset.decoy; build.bad.push(j); build.msg = b.decoys[j].text + ' doesn’t belong: ' + b.decoys[j].why.charAt(0).toLowerCase() + b.decoys[j].why.slice(1); rerender('buildbox', () => buildBox(b)); });
   const br = document.getElementById('buildreset'); if (br) br.onclick = () => { build.placed = []; build.bad = []; build.msg = null; rerender('buildbox', () => buildBox(b)); };
-  app.querySelectorAll('[data-pick]').forEach(x => x.onclick = () => { pick.chosen = x.dataset.pick; rerender('pickbox', () => pickBox(p)); });
-  const pn = document.getElementById('picknext'); if (pn) pn.onclick = () => { pick.i = (pick.i + 1) % p.cards.length; pick.chosen = null; rerender('pickbox', () => pickBox(p)); };
+  app.querySelectorAll('[data-pick]').forEach(x => x.onclick = () => { const k = +x.dataset.pk; pickOf(k).chosen = x.dataset.pick; rerender('pickbox' + k, () => pickBox(S.def.sections[k], k)); });
+  app.querySelectorAll('[data-picknext]').forEach(x => x.onclick = () => { const k = +x.dataset.picknext, ps = S.def.sections[k], pk = pickOf(k); pk.i = (pk.i + 1) % ps.cards.length; pk.chosen = null; rerender('pickbox' + k, () => pickBox(ps, k)); });
+  app.querySelectorAll('[data-nk]').forEach(el => el.oninput = () => { const k = +el.dataset.nk, ns = S.def.sections[k]; noteVals[k][+el.dataset.ni] = el.value; const bar = document.getElementById('ntbar' + k); bar.innerHTML = noteBar(ns, k, noteVals[k].every(x => x.trim().length >= (ns.min || 40))); wire(); });
+  app.querySelectorAll('[data-ntshow]').forEach(x => x.onclick = () => { noteShown[x.dataset.ntshow] = true; render(); });
   app.querySelectorAll('[data-show]').forEach(x => x.onclick = () => { shown[x.dataset.show] = true; render(); });
   app.querySelectorAll('[data-f]').forEach(el => el[el.tagName === 'SELECT' ? 'onchange' : 'oninput'] = () => {
     openers[+el.dataset.i][el.dataset.f] = el.value;

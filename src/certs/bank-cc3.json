@@ -1,0 +1,876 @@
+{
+ "cert": "CC3",
+ "version": 1,
+ "questions": [
+  {
+   "id": "CC3-A1",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Open questions",
+   "prompt": "Which of these is an open question?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Are you happy with Mindbody?”"
+    },
+    {
+     "id": "B",
+     "text": "“Do clients use your app?”"
+    },
+    {
+     "id": "C",
+     "text": "“How’s the setup working now that you’re at six locations?”"
+    },
+    {
+     "id": "D",
+     "text": "“Is the owner the one who decides?”"
+    }
+   ],
+   "correct": "C",
+   "reveal": "It can’t be answered with yes or no, and the prospect picks the direction.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-A2",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Past “pretty set”",
+   "prompt": "The owner of a three-location yoga studio says “We’re pretty set.” Best next line?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“If you could change one thing about your setup, what would it be?”"
+    },
+    {
+     "id": "B",
+     "text": "“Totally, I’ll let you go.”"
+    },
+    {
+     "id": "C",
+     "text": "“We’re cheaper than what you have.”"
+    },
+    {
+     "id": "D",
+     "text": "“How many locations do you have?”"
+    }
+   ],
+   "correct": "A",
+   "reveal": "“Pretty set” is a surface answer. A what-would-you-change question gets under it without arguing.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-A3",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "The ladder",
+   "prompt": "Which rung of the question ladder puts a cost on the problem?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Open"
+    },
+    {
+     "id": "B",
+     "text": "Confirm"
+    },
+    {
+     "id": "C",
+     "text": "Qualify"
+    },
+    {
+     "id": "D",
+     "text": "Impact"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Impact questions turn “annoying” into hours, money or members lost.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-A4",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Leading questions",
+   "prompt": "Which is a leading question?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“What does your front desk spend most of its day on?”"
+    },
+    {
+     "id": "B",
+     "text": "“Wouldn’t it be easier if clients could book themselves?”"
+    },
+    {
+     "id": "C",
+     "text": "“How do clients book today?”"
+    },
+    {
+     "id": "D",
+     "text": "“Who handles reporting?”"
+    }
+   ],
+   "correct": "B",
+   "reveal": "It’s a pitch with a question mark. The prospect can only agree or push back.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-A5",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Short answers",
+   "prompt": "Two questions in, the prospect has talked for about 15 seconds total. What’s the likeliest cause?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Your questions are closed, so the answers are short"
+    },
+    {
+     "id": "B",
+     "text": "They’re not a fit"
+    },
+    {
+     "id": "C",
+     "text": "It’s time to pitch"
+    },
+    {
+     "id": "D",
+     "text": "You should wrap up"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Short answers usually mean yes/no questions. Open it up before you judge the prospect.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-A6",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Who talks more",
+   "prompt": "On a good discovery call, who talks more?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The rep, to keep control"
+    },
+    {
+     "id": "B",
+     "text": "Both about equally"
+    },
+    {
+     "id": "C",
+     "text": "The prospect, with each question coming from what they just said"
+    },
+    {
+     "id": "D",
+     "text": "Whoever asked the last question"
+    }
+   ],
+   "correct": "C",
+   "reveal": "If you’re talking more, you’re pitching, not discovering.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-B1",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Pull their words",
+   "prompt": "A Pilates group’s director says “Reporting across the studios is a bit of a mess.” Best next question?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Our reporting is really strong.”"
+    },
+    {
+     "id": "B",
+     "text": "“What does ‘a mess’ look like week to week?”"
+    },
+    {
+     "id": "C",
+     "text": "“How many studios do you have?”"
+    },
+    {
+     "id": "D",
+     "text": "“When’s your contract up?”"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Pull on their exact words. The detail under “a mess” is what the AE needs.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-B2",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Spot the pain",
+   "prompt": "“Members can’t see waitlist spots, so they email us and we add them by hand.” What is this?",
+   "options": [
+    {
+     "id": "A",
+     "text": "An objection"
+    },
+    {
+     "id": "B",
+     "text": "A qualification fact"
+    },
+    {
+     "id": "C",
+     "text": "A surface answer"
+    },
+    {
+     "id": "D",
+     "text": "The pain itself"
+    }
+   ],
+   "correct": "D",
+   "reveal": "It’s specific, it costs staff time, and it came from them.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-B3",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Which word",
+   "prompt": "A prospect says “It’s fine. The app’s a bit clunky.” Which word do you pull on?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Clunky”"
+    },
+    {
+     "id": "B",
+     "text": "“Fine”"
+    },
+    {
+     "id": "C",
+     "text": "Neither, move on to qualifying"
+    },
+    {
+     "id": "D",
+     "text": "Both in one question"
+    }
+   ],
+   "correct": "A",
+   "reveal": "“Fine” is the polite surface. “Clunky” is the crack.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-B4",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "After the first pain",
+   "prompt": "The prospect names their first real pain. What do you usually do next?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Pitch the feature that fixes it"
+    },
+    {
+     "id": "B",
+     "text": "Ask for the meeting right away"
+    },
+    {
+     "id": "C",
+     "text": "Ask one more question to see what it costs them"
+    },
+    {
+     "id": "D",
+     "text": "Change topic to their contract"
+    }
+   ],
+   "correct": "C",
+   "reveal": "One more layer turns a complaint into a reason to meet.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-B5",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Impact questions",
+   "prompt": "What is an impact question for?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Confirming the decision-maker"
+    },
+    {
+     "id": "B",
+     "text": "Putting a cost on the problem so it matters"
+    },
+    {
+     "id": "C",
+     "text": "Checking the contract date"
+    },
+    {
+     "id": "D",
+     "text": "Opening the call"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Cost is what makes a busy owner give up 30 minutes for a demo.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-B6",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Best impact question",
+   "prompt": "A wellness practice’s operations manager says “Our providers spend a lot of time on the phone rescheduling.” Best impact question?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Do you use online booking?”"
+    },
+    {
+     "id": "B",
+     "text": "“Would an app help with that?”"
+    },
+    {
+     "id": "C",
+     "text": "“Is that a big deal?”"
+    },
+    {
+     "id": "D",
+     "text": "“Roughly how many hours a week does that take across the team?”"
+    }
+   ],
+   "correct": "D",
+   "reveal": "It asks for a number they can feel, without suggesting the answer.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-C1",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Before the call",
+   "prompt": "Which of these is checked before the call, not on it?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Weekly class count"
+    },
+    {
+     "id": "B",
+     "text": "Contract timing"
+    },
+    {
+     "id": "C",
+     "text": "Working website and physical location"
+    },
+    {
+     "id": "D",
+     "text": "Who else is involved in the decision"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Pre-vetting covers the website and location, so the call is spent on things you can’t see.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-C2",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Size",
+   "prompt": "What size does an account need to qualify?",
+   "options": [
+    {
+     "id": "A",
+     "text": "8+ weekly classes or 2+ bookable staff"
+    },
+    {
+     "id": "B",
+     "text": "20+ weekly classes"
+    },
+    {
+     "id": "C",
+     "text": "5+ staff"
+    },
+    {
+     "id": "D",
+     "text": "2+ locations"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Either one is enough.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-C3",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Decision-maker",
+   "prompt": "What’s the most natural way to confirm you’re talking to a decision-maker?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Are you the owner?”"
+    },
+    {
+     "id": "B",
+     "text": "“Who else would want to be in the room when you look at options?”"
+    },
+    {
+     "id": "C",
+     "text": "“Do you have authority to buy?”"
+    },
+    {
+     "id": "D",
+     "text": "“Can I speak to your boss?”"
+    }
+   ],
+   "correct": "B",
+   "reveal": "It confirms the title and maps the decision without putting them on the spot.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-C4",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Contract timing",
+   "prompt": "When is the best moment to ask about contract timing?",
+   "options": [
+    {
+     "id": "A",
+     "text": "As your first question"
+    },
+    {
+     "id": "B",
+     "text": "Right after the opener"
+    },
+    {
+     "id": "C",
+     "text": "Never, the AE handles it"
+    },
+    {
+     "id": "D",
+     "text": "When they talk about switching or what they’d change"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Tied to something they said, it reads as interest, not a checklist.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-C5",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Software that doesn’t qualify",
+   "prompt": "Midway through, the prospect mentions they run on Mariana Tek. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Thank them, close the call politely and don’t book it"
+    },
+    {
+     "id": "B",
+     "text": "Book it anyway and let the AE sort it out"
+    },
+    {
+     "id": "C",
+     "text": "Ask about their contract"
+    },
+    {
+     "id": "D",
+     "text": "Keep pitching"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Mariana Tek, Gymmaster and ClubReady accounts don’t qualify. Booking one wastes the AE’s slot.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-C6",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Confirm, don’t ask",
+   "prompt": "Their website shows three locations. Best way to cover it?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“How many locations do you have?”"
+    },
+    {
+     "id": "B",
+     "text": "“I saw you’ve got three locations. Is that right?”"
+    },
+    {
+     "id": "C",
+     "text": "Skip it entirely"
+    },
+    {
+     "id": "D",
+     "text": "“Is it just the one studio?”"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Confirm what you already know. Asking it cold tells them you didn’t look.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-D1",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Before the ask",
+   "prompt": "What should you do right before you ask for the meeting?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Play back their words and check you got it right"
+    },
+    {
+     "id": "B",
+     "text": "Run through the main features"
+    },
+    {
+     "id": "C",
+     "text": "Ask about the contract"
+    },
+    {
+     "id": "D",
+     "text": "Mention pricing"
+    }
+   ],
+   "correct": "A",
+   "reveal": "The playback makes the ask about their problem, not your calendar.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-D2",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "The playback",
+   "prompt": "The prospect named manual reporting and double-bookings. Best playback?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“So you need Momence.”"
+    },
+    {
+     "id": "B",
+     "text": "“Great, let’s get you booked.”"
+    },
+    {
+     "id": "C",
+     "text": "“So it’s the manual reporting and the double-bookings. Did I get that right?”"
+    },
+    {
+     "id": "D",
+     "text": "“Lots of studios have that.”"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Their words, then a check. They say yes to the summary before they say yes to the meeting.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-D3",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Price mid-call",
+   "prompt": "Mid-discovery, the prospect asks “How much is it?” Best move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Give a number"
+    },
+    {
+     "id": "B",
+     "text": "Ignore it and change the subject"
+    },
+    {
+     "id": "C",
+     "text": "Say “it depends” and stop"
+    },
+    {
+     "id": "D",
+     "text": "Say it depends on their setup, the AE will walk through it, then ask a question back"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Answer honestly, keep pricing with the AE, and keep the conversation moving.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-D4",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "Discovery killers",
+   "prompt": "Which of these is a discovery killer?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Asking one question, then listening"
+    },
+    {
+     "id": "B",
+     "text": "Confirming what the website says"
+    },
+    {
+     "id": "C",
+     "text": "Pitching the first pain they mention"
+    },
+    {
+     "id": "D",
+     "text": "Playing back their words"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Pitching early ends discovery before you’ve found the real reason to meet.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-D5",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Earned the ask",
+   "prompt": "A studio manager has described a real pain and confirmed it’s costing the team hours. What now?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Ask three more qualifying questions"
+    },
+    {
+     "id": "B",
+     "text": "Play it back and ask for the meeting"
+    },
+    {
+     "id": "C",
+     "text": "Pitch every feature"
+    },
+    {
+     "id": "D",
+     "text": "Offer to send an email"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Pain named and confirmed is the signal you’ve earned the ask.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-D6",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "“Send me some info”",
+   "prompt": "After naming a clear pain, the prospect says “Just send me some info.” Best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Send it and hang up"
+    },
+    {
+     "id": "B",
+     "text": "Ask them to sign up today"
+    },
+    {
+     "id": "C",
+     "text": "Ask for the meeting three more times"
+    },
+    {
+     "id": "D",
+     "text": "Tie it back to the pain they named and ask for a short call with the AE"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Info gets skimmed. Their own problem is the reason the meeting is worth it.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-E1",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Why they took the call",
+   "prompt": "What goes in “Why specifically are they taking the call?”",
+   "options": [
+    {
+     "id": "A",
+     "text": "Their reason, in their words"
+    },
+    {
+     "id": "B",
+     "text": "“Interested”"
+    },
+    {
+     "id": "C",
+     "text": "Your pitch"
+    },
+    {
+     "id": "D",
+     "text": "Pricing they asked about"
+    }
+   ],
+   "correct": "A",
+   "reveal": "The AE opens the demo with this line.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-E2",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "A useful pain note",
+   "prompt": "Which pain-point note helps the AE most?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Reporting issues”"
+    },
+    {
+     "id": "B",
+     "text": "“Pulls numbers from six locations into a spreadsheet every Monday, about 3 hours”"
+    },
+    {
+     "id": "C",
+     "text": "“Not happy”"
+    },
+    {
+     "id": "D",
+     "text": "“Wants new software”"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Specific and quantified. The AE can build the demo around it.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-E3",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Tech stack",
+   "prompt": "What belongs in the tech stack field?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Only their booking software"
+    },
+    {
+     "id": "B",
+     "text": "Leave it blank unless they bring it up"
+    },
+    {
+     "id": "C",
+     "text": "Every tool they mentioned: booking, payments, marketing, website"
+    },
+    {
+     "id": "D",
+     "text": "The products we’d sell them"
+    }
+   ],
+   "correct": "C",
+   "reveal": "The AE needs the full picture to plan the switch.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-E4",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Growth plans",
+   "prompt": "The prospect mentions they’re opening a fourth location in the spring. Where does it go?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Leave it out"
+    },
+    {
+     "id": "B",
+     "text": "Pain points"
+    },
+    {
+     "id": "C",
+     "text": "Tech stack"
+    },
+    {
+     "id": "D",
+     "text": "General notes, because it shapes the demo"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Growth plans change what the AE shows.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-E5",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "When to write it",
+   "prompt": "Why write the note right after the call?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Details fade fast and the AE needs their exact words"
+    },
+    {
+     "id": "B",
+     "text": "The system locks after an hour"
+    },
+    {
+     "id": "C",
+     "text": "Your manager checks the timestamp"
+    },
+    {
+     "id": "D",
+     "text": "It doesn’t matter when"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Exact words are the first thing to go.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  },
+  {
+   "id": "CC3-E6",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "A thin note",
+   "prompt": "A note reads “Owner. Good call. Interested.” What’s missing?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Nothing, it’s fine"
+    },
+    {
+     "id": "B",
+     "text": "The pain, why they took the call, and the tech stack"
+    },
+    {
+     "id": "C",
+     "text": "A price"
+    },
+    {
+     "id": "D",
+     "text": "Their contract end date only"
+    }
+   ],
+   "correct": "B",
+   "reveal": "The AE would walk in blind.",
+   "review": "/training/CC3",
+   "source": "CC3 training"
+  }
+ ]
+}
