@@ -1,0 +1,21 @@
+// LIVE SDR Handbook (momence-sdr-handbook). Deployed only from the `live` branch.
+// Publish = merge main into live after it has been checked on the test copy.
+{
+  "name": "momence-sdr-handbook",
+  "main": "src/worker.mjs",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "d1_databases": [
+    {"binding": "DB", "database_name": "sdr-certifications", "database_id": "46a2f357-bf0c-44aa-9009-f04496ecd242", "migrations_dir": "migrations"}
+  ],
+  "vars": {
+    "ACCESS_TEAM_DOMAIN": "https://fancy-grass-2946.cloudflareaccess.com",
+    "ACCESS_AUD": "1c6bfacdefa611670d864fc60403df22851157f3133542135cfa4db6d48678bc",
+    "HANDBOOK_OWNER_EMAIL": "avanti.fernandes1@gmail.com"
+  },
+  "observability": {"enabled": true}
+}
