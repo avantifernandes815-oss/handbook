@@ -1,0 +1,369 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>SDR Earnings Calculator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: single centered column — role bar, step 1 activity sheet, meetings readout, step 2 show rate sheet, earnings results */
+:root{
+  --bg:#ffffff; --surface:#ffffff; --surface-2:#f5f2ff; --fg:#1b1530; --muted:#625a7a; --faint:#9a93b0;
+  --line:#e6e1f5; --accent:#6c3cf5; --accent-ink:#5326d9; --accent-soft:#efe9ff; --good:#1f8a5b; --warn:#a15c00; --warn-soft:#fdf0db; --danger:#c0263a;
+  --display:"Bricolage Grotesque", "Manrope", system-ui, sans-serif;
+  --body:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --r:12px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:28px 48px}
+.wrap{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.word{font-family:var(--display);font-weight:700;font-size:26px;letter-spacing:-.02em;color:var(--accent)}
+.word-sub{font-family:var(--display);font-weight:500;font-size:20px;letter-spacing:-.01em}
+.role{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+select,input{font-family:var(--body);font-size:15px;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:8px;height:40px;padding:0 10px}
+select{padding-right:28px;font-weight:600;cursor:pointer}
+select:focus-visible,input:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+input.bad{border-color:var(--danger)}
+.plan{display:flex;flex-wrap:wrap;gap:8px;font-size:13px}
+.chip{background:var(--surface-2);color:var(--muted);border-radius:999px;padding:4px 12px;font-variant-numeric:tabular-nums}
+.chip b{color:var(--fg);font-weight:600}
+.sheet{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px 18px 14px;display:flex;flex-direction:column;gap:14px}
+.step-head{display:flex;align-items:center;gap:10px}
+.num{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex:none}
+.step-head h2{margin:0}
+.grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr);gap:10px 12px;align-items:center}
+.h{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);font-weight:600;padding-bottom:2px}
+.h.wi{color:var(--accent-ink)}
+.m{font-weight:600;font-size:14px;min-width:0}
+.m small{display:block;font-weight:500;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.f{position:relative;min-width:0}
+.f input{width:100%;font-variant-numeric:tabular-nums}
+.f.pct input{padding-right:26px}
+.f.pct::after{content:"%";position:absolute;right:10px;top:50%;transform:translateY(-50%);color:var(--faint);font-size:14px;pointer-events:none}
+.f.wi input{border-color:color-mix(in srgb,var(--accent) 35%,var(--line))}
+.f.wi input:not(:placeholder-shown){background:var(--accent-soft);border-color:var(--accent)}
+.row-sep{grid-column:1/-1;height:1px;background:var(--line);margin:2px 0}
+.foot{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted)}
+.foot .btns{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.err{color:var(--danger);font-size:13px;font-weight:600}
+button{font-family:var(--body);font-size:13px;font-weight:600;height:36px;padding:0 16px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+button:hover{border-color:var(--faint)}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+button.primary:hover{background:var(--accent-ink)}
+.readout{background:var(--surface-2);border-radius:var(--r);padding:18px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+.readout p{margin:0;font-size:15px;max-width:46ch}
+.readout .big{font-family:var(--display);font-size:30px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.readout .big .arrow{color:var(--faint);font-weight:500;padding:0 6px}
+.readout .big .wi{color:var(--accent-ink)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.tile{background:var(--surface-2);border-radius:var(--r);padding:16px 18px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.tile .l{font-size:12px;color:var(--muted);font-weight:600}
+.tile .v{font-family:var(--display);font-size:26px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.15}
+.tile .v .arrow{color:var(--faint);font-weight:500;padding:0 4px}
+.tile.hero{background:var(--accent);color:#fff}
+.tile.hero .l,.tile.hero .s{color:rgba(255,255,255,.88)}
+.tile .s{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+h2{font-family:var(--display);font-size:18px;font-weight:700;letter-spacing:-.01em;margin:0 0 10px;text-wrap:balance}
+.results{display:flex;flex-direction:column;gap:22px}
+.ledger{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums;min-width:440px}
+th,td{padding:10px 14px;text-align:right;border-bottom:1px solid var(--line)}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);font-weight:600}
+th:first-child,td:first-child{text-align:left}
+tr:last-child td{border-bottom:none}
+tr.money td{font-weight:700}
+.up{color:var(--good);font-weight:600}
+.down{color:var(--danger);font-weight:600}
+.zero{color:var(--faint)}
+.levers{display:flex;flex-direction:column;gap:8px}
+.lever{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px}
+.lever .n{font-weight:600}
+.lever .d{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.lever .amt{font-family:var(--display);font-weight:700;font-size:18px;text-align:right;font-variant-numeric:tabular-nums}
+.lever .amt small{display:block;font-family:var(--body);font-size:12px;font-weight:500;color:var(--muted)}
+.lever.total{background:var(--accent-soft);border-color:color-mix(in srgb,var(--accent) 40%,var(--line))}
+.lever.total .n,.lever.total .amt{color:var(--accent-ink)}
+.note{font-size:12px;color:var(--muted)}
+.basement{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;background:var(--warn-soft);color:var(--warn);margin-left:6px;vertical-align:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:520px){
+  .grid{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr);gap:10px 8px}
+  .sheet{padding:14px 12px 12px}
+  select,input{font-size:14px;padding:0 8px}
+  .f.pct input{padding-right:22px}
+  .f.pct::after{right:8px}
+  .tile .v{font-size:22px}
+  .readout .big{font-size:26px}
+}
+@media (prefers-reduced-motion:no-preference){.reveal{animation:rise .25s ease-out}}
+@keyframes rise{from{transform:translateY(6px)}to{transform:none}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><span class="word">momence</span><span class="word-sub">SDR earnings calculator</span></div>
+    <label class="role" for="role">Role
+      <select id="role">
+        <option value="sdr">SDR</option>
+        <option value="senior">Senior SDR</option>
+      </select>
+    </label>
+  </header>
+
+  <div class="plan" id="plan"></div><label class="role">Your full monthly variable ($)<input id="monthly_variable" type="number" min="0" step="0.01" value="2000" aria-label="Your full monthly variable"></label><p class="note" id="plan_scope">Fully ramped base-commission estimate. Enter your actual monthly variable; the starting amount is an example.</p>
+
+  <section class="sheet" aria-labelledby="s1">
+    <div class="step-head"><span class="num" aria-hidden="true">1</span><h2 id="s1">Calling activity</h2></div>
+    <div class="grid">
+      <div class="h">Metric</div><div class="h">Current</div><div class="h wi">What if</div>
+
+      <div class="m">Average dials per day<small id="dpd">Business days shown here</small></div>
+      <div class="f"><label class="sr" for="c_dials">Current average dials per day</label><input id="c_dials" type="number" inputmode="numeric" min="0" step="any"></div>
+      <div class="f wi"><label class="sr" for="w_dials">What-if average dials per day</label><input id="w_dials" type="number" inputmode="numeric" min="0" step="any"></div>
+      <div class="row-sep"></div>
+
+      <div class="m">Dial-to-connect<small>Right-person connects ÷ dials</small></div>
+      <div class="f pct"><label class="sr" for="c_connect">Current dial-to-connect rate</label><input id="c_connect" type="number" inputmode="decimal" min="0" max="100" step="any"></div>
+      <div class="f pct wi"><label class="sr" for="w_connect">What-if dial-to-connect rate</label><input id="w_connect" type="number" inputmode="decimal" min="0" max="100" step="any"></div>
+      <div class="row-sep"></div>
+
+      <div class="m">C2M<small>Meetings booked ÷ connects</small></div>
+      <div class="f pct"><label class="sr" for="c_c2m">Current conversation to meeting rate</label><input id="c_c2m" type="number" inputmode="decimal" min="0" max="100" step="any"></div>
+      <div class="f pct wi"><label class="sr" for="w_c2m">What-if conversation to meeting rate</label><input id="w_c2m" type="number" inputmode="decimal" min="0" max="100" step="any"></div>
+    </div>
+    <div class="foot">
+      <span>Leave a what-if box blank to keep the current number.</span>
+      <div class="btns">
+        <span class="err" id="err1" role="alert"></span>
+        <button type="button" id="example">Try an example</button>
+        <button type="button" id="clear">Clear</button>
+        <button type="button" class="primary" id="go1">See meetings booked</button>
+      </div>
+    </div>
+  </section>
+
+  <div id="step2" hidden>
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <div class="readout reveal" id="readout"></div>
+
+      <section class="sheet" aria-labelledby="s2">
+        <div class="step-head"><span class="num" aria-hidden="true">2</span><h2 id="s2">Attendance & acceptance</h2></div>
+        <div class="grid">
+          <div class="h">Metric</div><div class="h">Current</div><div class="h wi">What if</div>
+          <div class="m">Show rate<small>Meetings held ÷ booked</small></div>
+          <div class="f pct"><label class="sr" for="c_show">Current show rate</label><input id="c_show" type="number" inputmode="decimal" min="0" max="100" step="any"></div>
+          <div class="f pct wi"><label class="sr" for="w_show">What-if show rate</label><input id="w_show" type="number" inputmode="decimal" min="0" max="100" step="any"></div>
+          <div class="row-sep"></div><div class="m">SAL acceptance rate<small>Accepted qualified meetings ÷ held meetings</small></div>
+          <div class="f pct"><label class="sr" for="c_accept">Current SAL acceptance rate</label><input id="c_accept" type="number" min="0" max="100" value="100" step="any"></div>
+          <div class="f pct wi"><label class="sr" for="w_accept">What-if SAL acceptance rate</label><input id="w_accept" type="number" min="0" max="100" step="any"></div>
+        </div>
+        <div class="foot">
+          <span>Only held meetings that meet qualification parameters and are accepted count as SALs.</span>
+          <div class="btns">
+            <span class="err" id="err2" role="alert"></span>
+            <button type="button" class="primary" id="go2">See earnings</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div id="results" class="results" hidden></div>
+
+  <p class="note">Monthly dials are average dials per day × business days in the current month. Commission is pay per SAL for a fully ramped rep, before accelerators and bonuses. Projected SALs use your show rate and acceptance rate, rounded to whole numbers. Weekdays exclude weekends but not holidays or PTO. Annualized results multiply this month by 12; these are estimates, not guaranteed payouts.</p>
+</div>
+
+<script>
+const PLANS={sdr:{name:"SDR",variable:2000,quota:10},senior:{name:"Senior SDR",variable:2500,quota:12}};
+const LABELS={dials:"Dials per day",connect:"Dial-to-connect",c2m:"C2M",show:"Show rate",accept:"SAL acceptance rate"};
+const $=id=>document.getElementById(id);
+const money=n=>"$"+Math.round(n).toLocaleString("en-US");
+const num1=n=>(Math.round(n*10)/10).toLocaleString("en-US",{minimumFractionDigits:1,maximumFractionDigits:1});
+const int=n=>Math.round(n).toLocaleString("en-US");
+const pct=n=>(Math.round(n*100)/100)+"%";
+const sign=d=>d>=0?"+":"−";
+
+function businessDays(d=new Date()){
+  const y=d.getFullYear(),m=d.getMonth(),last=new Date(y,m+1,0).getDate();let c=0;
+  for(let i=1;i<=last;i++){const w=new Date(y,m,i).getDay();if(w!==0&&w!==6)c++;}
+  return c;
+}
+const BD=businessDays();
+const MONTH=new Date().toLocaleString("en-US",{month:"long"});
+
+function plan(){const p=PLANS[$("role").value];const variable=Number($("monthly_variable").value);return {...p,variable,rate:variable/p.quota,basement:p.quota/2};}
+function payout(sals,p){return sals>=p.basement?sals*p.rate:0;}
+function val(id){const r=$(id).value.trim();return r===""?null:parseFloat(r);}
+function bad(v){return v==null||isNaN(v)||v<0;}
+
+function meetings(v){const dials=v.dials*BD;const connects=dials*v.connect/100;return {dials,connects,meetings:connects*v.c2m/100};}
+function full(v){const m=meetings(v);const held=m.meetings*v.show/100;return {...m,held,sals:Math.round(held*v.accept/100)};}
+
+function renderPlan(){
+  const p=plan();$("plan_scope").textContent=$("role").value==="senior"?"Senior SDR values come from the supplied calculator; no senior compensation plan was provided for verification. Fully ramped estimate only; bonuses excluded.":"Fully ramped SDR estimate. Starting variable is an example; enter your actual amount. Ramp pay and bonuses are excluded.";
+  $("plan").innerHTML=
+    `<span class="chip">Monthly variable <b>${money(p.variable)}</b></span>`+
+    `<span class="chip">SAL quota <b>${p.quota}</b></span>`+
+    `<span class="chip">Pay per SAL <b>$${p.rate.toFixed(2).replace(/\.00$/,"")}</b></span>`+
+    `<span class="chip">No payout under <b>${p.basement} SALs</b></span>`;
+}
+function updateHints(){
+  const d=val("c_dials");
+  $("dpd").textContent=d? `× ${BD} business days in ${MONTH} = ${int(d*BD)} dials` : `${BD} business days in ${MONTH}`;
+  for(const k of ["dials","connect","c2m","show","accept"]){const c=val("c_"+k);$("w_"+k).placeholder=c==null?"":String(c);}
+}
+function diffCell(a,b,fmt){
+  const d=b-a;
+  if(Math.abs(d)<0.0001)return `<td class="zero">—</td>`;
+  return `<td class="${d>0?"up":"down"}">${sign(d)}${fmt(Math.abs(d))}</td>`;
+}
+
+let state=null,lastSummary="";
+
+function readStep1(){
+  const cur={dials:val("c_dials"),connect:val("c_connect"),c2m:val("c_c2m")};
+  const ids={dials:"c_dials",connect:"c_connect",c2m:"c_c2m"};
+  let ok=true;
+  for(const k in cur){const b=bad(cur[k]);$(ids[k]).classList.toggle("bad",b);if(b)ok=false;}
+  if(!ok)return null;
+  const wi={};for(const k in cur){const w=val("w_"+k);wi[k]=bad(w)?cur[k]:w;}
+  return {cur,wi};
+}
+
+function validInputs(){
+ let ok=true;
+ for(const id of ["c_connect","w_connect","c_c2m","w_c2m","c_show","w_show","c_accept","w_accept"]){const v=val(id),invalid=v!==null&&(!Number.isFinite(v)||v<0||v>100);$(id).classList.toggle("bad",invalid);if(invalid)ok=false;}
+ const v=val("monthly_variable");if(v===null||!Number.isFinite(v)||v<0)ok=false;
+ for(const id of ["c_dials","w_dials"]){const v=val(id);if(v!==null&&(!Number.isFinite(v)||v<0))ok=false;}
+ if(!ok)$("err1").textContent="Use rates from 0–100% and non-negative amounts.";
+ return ok;
+}
+function step1(){if(!validInputs())return;
+  const s=readStep1();
+  if(!s){$("err1").textContent="Enter all three current numbers";return;}
+  $("err1").textContent="";
+  state=s;
+  const mc=meetings(s.cur).meetings,mw=meetings(s.wi).meetings;
+  const changed=Object.keys(s.cur).some(k=>s.cur[k]!==s.wi[k]);
+  $("readout").innerHTML=changed
+    ?`<p>At current numbers you'll book <b>${int(mc)} meetings</b> this month. With the what-if numbers, that becomes <b>${int(mw)}</b>.</p><div class="big">${int(mc)}<span class="arrow">→</span><span class="wi">${int(mw)}</span></div>`
+    :`<p>At these numbers you'll book <b>${int(mc)} meetings</b> this month. Add a what-if number above to compare.</p><div class="big">${int(mc)}</div>`;
+  $("step2").hidden=false;
+  $("results").hidden=true;
+  $("readout").classList.remove("reveal");void $("readout").offsetWidth;$("readout").classList.add("reveal");
+  $("c_show").focus({preventScroll:true});
+  $("step2").scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function step2(){if(!validInputs()){ $("err2").textContent="Check your inputs: rates must be 0–100%.";return;}if(val("c_accept")===null){$("err2").textContent="Enter the SAL acceptance rate";return;}
+  const s=readStep1();
+  if(!s){$("step2").hidden=true;$("results").hidden=true;$("err1").textContent="Enter all three current numbers";return;}
+  state=s;
+  const cs=val("c_show");
+  if(bad(cs)){$("c_show").classList.add("bad");$("err2").textContent="Enter the current show rate";return;}
+  $("c_show").classList.remove("bad");$("err2").textContent="";
+  const ws=bad(val("w_show"))?cs:val("w_show");
+  state.cur.show=cs;state.wi.show=ws;state.cur.accept=val("c_accept");state.wi.accept=val("w_accept")==null?state.cur.accept:val("w_accept");
+  renderResults();
+  $("results").hidden=false;
+  $("results").scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function renderResults(){
+  const p=plan(),cur=state.cur,wi=state.wi;
+  const fc=full(cur),fw=full(wi);
+  const pc=payout(fc.sals,p),pw=payout(fw.sals,p),dMonth=pw-pc;
+  const keys=["dials","connect","c2m","show","accept"];
+  const changed=keys.filter(k=>cur[k]!==wi[k]);
+  const tag=s=>s<p.basement?`<span class="basement">Under basement</span>`:"";
+
+  let html=`<section class="tiles reveal" aria-label="Results">
+    <div class="tile"><span class="l">Estimated SALs per month</span><span class="v">${int(fc.sals)}<span class="arrow">→</span>${int(fw.sals)}</span><span class="s">${changed.length?sign(fw.sals-fc.sals)+int(Math.abs(fw.sals-fc.sals))+" SALs":"Add a what-if number to compare"}</span></div>
+    <div class="tile"><span class="l">Estimated monthly commission</span><span class="v">${money(pc)}<span class="arrow">→</span>${money(pw)}</span><span class="s">${changed.length?sign(dMonth)+money(Math.abs(dMonth))+" per month":"Per SAL, before accelerators"}</span></div>
+    <div class="tile hero"><span class="l">Annualized difference</span><span class="v">${sign(dMonth)}${money(Math.abs(dMonth*12))}</span><span class="s">${money(pc*12)} → ${money(pw*12)} a year</span></div>
+  </section>`;
+
+  html+=`<section><h2>Your funnel each month</h2><div class="ledger"><table>
+    <thead><tr><th>Stage</th><th>Current</th><th>What if</th><th>Change</th></tr></thead><tbody>
+    <tr><td>Dials</td><td>${int(fc.dials)}</td><td>${int(fw.dials)}</td>${diffCell(fc.dials,fw.dials,int)}</tr>
+    <tr><td>Connects</td><td>${int(fc.connects)}</td><td>${int(fw.connects)}</td>${diffCell(Math.round(fc.connects),Math.round(fw.connects),int)}</tr>
+    <tr><td>Meetings booked</td><td>${int(fc.meetings)}</td><td>${int(fw.meetings)}</td>${diffCell(Math.round(fc.meetings),Math.round(fw.meetings),int)}</tr>
+    <tr><td>Estimated accepted SALs</td><td>${int(fc.sals)}${tag(fc.sals)}</td><td>${int(fw.sals)}${tag(fw.sals)}</td>${diffCell(fc.sals,fw.sals,int)}</tr>
+    <tr class="money"><td>Commission</td><td>${money(pc)}</td><td>${money(pw)}</td>${diffCell(pc,pw,money)}</tr>
+    </tbody></table></div></section>`;
+
+  const lines=[];
+  if(changed.length){
+    html+=`<section><h2>What each change is worth on its own</h2><div class="levers">`;
+    for(const k of changed){
+      const f=full({...cur,[k]:wi[k]});const d=payout(f.sals,p)-pc,ds=f.sals-fc.sals;
+      const fmt=x=>k==="dials"?int(x):pct(x),from=fmt(cur[k]),to=fmt(wi[k]);
+      html+=`<div class="lever"><div><div class="n">${LABELS[k]} ${from} → ${to}</div><div class="d">${sign(ds)}${int(Math.abs(ds))} SALs · ${int(fc.sals)} → ${int(f.sals)}</div></div>
+        <div class="amt">${sign(d)}${money(Math.abs(d))}<small>per month</small></div></div>`;
+      lines.push(`• ${LABELS[k]} ${from} → ${to}: ${ds>=0?"+":"-"}${int(Math.abs(ds))} SALs, ${d>=0?"+":"-"}${money(Math.abs(d))}/month`);
+    }
+    if(changed.length>1){
+      html+=`<div class="lever total"><div><div class="n">All changes together</div><div class="d">${sign(fw.sals-fc.sals)}${int(Math.abs(fw.sals-fc.sals))} SALs · improvements multiply through the funnel</div></div>
+        <div class="amt">${sign(dMonth)}${money(Math.abs(dMonth))}<small>per month</small></div></div>`;
+    }
+    html+=`</div></section>`;
+  }
+  html+=`<div class="foot"><span></span><div class="btns"><button type="button" class="primary" id="copy">Copy summary</button></div></div>`;
+  $("results").innerHTML=html;
+
+  lastSummary=[
+    `${p.name} earnings what-if`,
+    `Meetings booked/month: ${int(fc.meetings)} → ${int(fw.meetings)}`,
+    `SALs/month: ${int(fc.sals)} → ${int(fw.sals)}`,
+    `Commission/month: ${money(pc)} → ${money(pw)} (${dMonth>=0?"+":"-"}${money(Math.abs(dMonth))})`,
+    `Annualized difference: ${dMonth>=0?"+":"-"}${money(Math.abs(dMonth*12))}`,
+    ...(lines.length?["",...lines]:[]),
+    "","Per-SAL commission only, before accelerators."
+  ].join("\n");
+  $("copy").addEventListener("click",copySummary);
+}
+
+async function copySummary(e){
+  const btn=e.currentTarget;
+  try{await navigator.clipboard.writeText(lastSummary);btn.textContent="Copied";}
+  catch(err){
+    const ta=document.createElement("textarea");ta.value=lastSummary;ta.style.position="absolute";ta.style.left="-9999px";document.body.appendChild(ta);ta.select();
+    try{document.execCommand("copy");btn.textContent="Copied";}catch(_){btn.textContent="Copy failed";}
+    ta.remove();
+  }
+  setTimeout(()=>btn.textContent="Copy summary",1600);
+}
+
+const step1Ids=["c_dials","w_dials","c_connect","w_connect","c_c2m","w_c2m"];
+step1Ids.forEach(id=>$(id).addEventListener("input",()=>{
+  $(id).classList.remove("bad");$("err1").textContent="";
+  updateHints();
+  $("step2").hidden=true;$("results").hidden=true;
+}));
+["c_show","w_show","c_accept","w_accept"].forEach(id=>$(id).addEventListener("input",()=>{
+  $(id).classList.remove("bad");$("err2").textContent="";updateHints();$("results").hidden=true;
+}));
+$("role").addEventListener("change",()=>{$("monthly_variable").value=PLANS[$("role").value].variable;renderPlan();if(!$("results").hidden&&state)renderResults();});
+$("go1").addEventListener("click",step1);
+$("go2").addEventListener("click",step2);
+document.querySelectorAll(".sheet input").forEach(i=>i.addEventListener("keydown",e=>{
+  if(e.key!=="Enter")return;
+  if(["c_show","w_show","c_accept","w_accept"].includes(i.id))step2();else step1();
+}));
+$("example").addEventListener("click",()=>{
+  const ex={c_dials:125,w_dials:"",c_connect:2,w_connect:4,c_c2m:12,w_c2m:"",c_show:"",w_show:"",c_accept:100,w_accept:""};
+  for(const id in ex){$(id).value=ex[id];$(id).classList.remove("bad");}
+  $("err1").textContent="";$("err2").textContent="";
+  updateHints();$("step2").hidden=true;$("results").hidden=true;
+});
+$("clear").addEventListener("click",()=>{
+  document.querySelectorAll(".sheet input").forEach(i=>{i.value="";i.classList.remove("bad");});
+  $("err1").textContent="";$("err2").textContent="";
+  updateHints();$("step2").hidden=true;$("results").hidden=true;
+});
+
+$("monthly_variable").addEventListener("input",()=>{$("results").hidden=true;if(val("monthly_variable")!==null&&val("monthly_variable")>=0)renderPlan();});
+renderPlan();updateHints();
+</script>
+
+</body></html>

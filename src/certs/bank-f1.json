@@ -1,0 +1,1166 @@
+{
+ "cert": "F1",
+ "version": 1,
+ "questions": [
+  {
+   "id": "F1-A1",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Funnel terms",
+   "prompt": "An AE reviews the demo you booked and accepts it against the Demo Qualification Criteria. What is it now?",
+   "options": [
+    {
+     "id": "A",
+     "text": "An SQL"
+    },
+    {
+     "id": "B",
+     "text": "A meeting held"
+    },
+    {
+     "id": "C",
+     "text": "Closed won"
+    },
+    {
+     "id": "D",
+     "text": "A SAL"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "day-1",
+   "source": "Day 1, \"One prospect, four words\""
+  },
+  {
+   "id": "F1-A2",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Reading the funnel",
+   "prompt": "For two weeks you've made 125 dials a day. Connects and conversations look normal, and you're booking more meetings than ever. But SALs went down because AEs rejected several meetings. What's the best place to focus?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Raise your dials so volume covers the meetings that got rejected."
+    },
+    {
+     "id": "B",
+     "text": "Rework your opener so more conversations turn into booked meetings."
+    },
+    {
+     "id": "C",
+     "text": "Check each meeting against the qualification parameters before you book it."
+    },
+    {
+     "id": "D",
+     "text": "Book meetings closer to the call so fewer of them go cold."
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "day-1",
+   "source": "Day 1, revenue engine and \"120 calls is not the job\""
+  },
+  {
+   "id": "F1-A3",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Funnel terms",
+   "prompt": "After the demo, the AE moves the deal to Stage 1, Advanced Talks. What is it now?",
+   "options": [
+    {
+     "id": "A",
+     "text": "An SQL"
+    },
+    {
+     "id": "B",
+     "text": "A SAL"
+    },
+    {
+     "id": "C",
+     "text": "A host"
+    },
+    {
+     "id": "D",
+     "text": "A booked meeting"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "day-1",
+   "source": "Day 1, \"One prospect, four words\""
+  },
+  {
+   "id": "F1-A4",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Who owns what",
+   "prompt": "An AE rejects a demo you booked. Which statement best reflects how the role is set up?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The rejection is the AE's call, so it says little about your own process."
+    },
+    {
+     "id": "B",
+     "text": "Any booked demo should count, since you own everything through the meeting."
+    },
+    {
+     "id": "C",
+     "text": "Rejections only start to matter once you're past ramp and on full quota."
+    },
+    {
+     "id": "D",
+     "text": "The AE decides SAL, so a rejection is a check on the quality of your work."
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "day-1",
+   "source": "Day 1, \"How an SDR creates revenue\""
+  },
+  {
+   "id": "F1-A5",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "What you control",
+   "prompt": "It's Wednesday and you have zero meetings this week. Which plan for your 1:1 best fits how we coach?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Commit to booking two meetings by Friday, whatever it takes."
+    },
+    {
+     "id": "B",
+     "text": "Ask for a fresh batch of leads, since this list isn't converting."
+    },
+    {
+     "id": "C",
+     "text": "Audit your dials, prep, conversations and follow-up to find the gap."
+    },
+    {
+     "id": "D",
+     "text": "Shift time from calls to email until the week turns around."
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "day-1",
+   "source": "Day 1, \"Leading indicators vs. results\""
+  },
+  {
+   "id": "F1-A6",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "The daily floor",
+   "prompt": "What is the daily activity floor for an SDR?",
+   "options": [
+    {
+     "id": "A",
+     "text": "120 activities, including at least 100 dials"
+    },
+    {
+     "id": "B",
+     "text": "140 activities, including at least 120 dials"
+    },
+    {
+     "id": "C",
+     "text": "140 dials, with emails and socials on top"
+    },
+    {
+     "id": "D",
+     "text": "100 dials and two booked meetings"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "day-1",
+   "source": "Day 1, \"How We Work\""
+  },
+  {
+   "id": "F1-A7",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Activity vs. quality",
+   "prompt": "Two reps both make 120 dials a day. Rep A books 8 meetings in a month and 7 become SALs. Rep B books 14 and 6 become SALs. Who had the stronger month?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Rep B, because more booked meetings means more pipeline created."
+    },
+    {
+     "id": "B",
+     "text": "Neither, because both reps hit the same daily activity floor."
+    },
+    {
+     "id": "C",
+     "text": "Rep B, because AE rejections are outside the SDR's control."
+    },
+    {
+     "id": "D",
+     "text": "Rep A, because more of their meetings survived AE review as SALs."
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "day-1",
+   "source": "Day 1, \"120 calls is not the job\" and revenue engine"
+  },
+  {
+   "id": "F1-A8",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Supporting terms",
+   "prompt": "What does \"host\" mean at Momence?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A current Momence customer"
+    },
+    {
+     "id": "B",
+     "text": "A prospect currently in Attempting status"
+    },
+    {
+     "id": "C",
+     "text": "The AE who runs the demo"
+    },
+    {
+     "id": "D",
+     "text": "Any business inside our TAM"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "day-1",
+   "source": "Day 1, \"One prospect, four words\""
+  },
+  {
+   "id": "F1-B1",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Priority verticals",
+   "prompt": "Which group is made up entirely of Priority 1 verticals?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Yoga, Pilates, Dance, Spas"
+    },
+    {
+     "id": "B",
+     "text": "Fitness, Wellness, Gyms, Yoga"
+    },
+    {
+     "id": "C",
+     "text": "Yoga, Pilates, Fitness, Wellness"
+    },
+    {
+     "id": "D",
+     "text": "Pilates, Wellness, Spas, Martial Arts"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "day-2",
+   "source": "Day 2, \"Who we sell to\""
+  },
+  {
+   "id": "F1-B2",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Where dials go",
+   "prompt": "You have an hour to dial. You have a pre-vetted Pilates list and a pre-vetted dance studio list, both good fits. Where do your dials go first?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Dance first, since fewer competitors are calling those studios."
+    },
+    {
+     "id": "B",
+     "text": "Split the hour evenly so you get practice in both verticals."
+    },
+    {
+     "id": "C",
+     "text": "Pilates only, since dance studios aren't a vertical we book."
+    },
+    {
+     "id": "D",
+     "text": "Pilates first, since dance is real business but Priority 2."
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "day-2",
+   "source": "Day 2, \"Who we sell to\""
+  },
+  {
+   "id": "F1-B3",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Activity threshold",
+   "prompt": "What does a class-based business need to clear the activity bar?",
+   "options": [
+    {
+     "id": "A",
+     "text": "8+ weekly classes, livestream included"
+    },
+    {
+     "id": "B",
+     "text": "8+ weekly recurring, in-person classes"
+    },
+    {
+     "id": "C",
+     "text": "5+ weekly classes and a waitlist"
+    },
+    {
+     "id": "D",
+     "text": "10+ weekly classes in any format"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "sal",
+   "source": "Handbook, Demo Qualification Requirements"
+  },
+  {
+   "id": "F1-B4",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Reading a schedule",
+   "prompt": "A yoga studio lists 10 weekly classes: 6 in person and 4 livestream only. It has a storefront, a working website and an owner on LinkedIn. On class count alone, does it clear the bar?",
+   "options": [
+    {
+     "id": "A",
+     "text": "No, only the 6 in-person recurring classes count."
+    },
+    {
+     "id": "B",
+     "text": "Yes, 10 weekly classes is above the 8-class minimum."
+    },
+    {
+     "id": "C",
+     "text": "Yes, livestream counts as long as it runs every week."
+    },
+    {
+     "id": "D",
+     "text": "No, studios that livestream are outside our scope."
+    }
+   ],
+   "correct": "A",
+   "reveal": "It doesn't qualify on class count today. But a storefront, a working website and a findable owner are signs of a real, growing business. Worth a closer look, since they may be adding in-person classes.",
+   "review": "sal",
+   "source": "Handbook, Demo Qualification Requirements"
+  },
+  {
+   "id": "F1-B5",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "The one-staff exception",
+   "prompt": "A wellness practice has one bookable practitioner on its widget and books through Acuity. Everything else checks out. Does it qualify?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Yes, the one-staff exception applies on any booking software."
+    },
+    {
+     "id": "B",
+     "text": "Yes, wellness is Priority 1, so staff count is waived."
+    },
+    {
+     "id": "C",
+     "text": "No, one provider only qualifies on an approved platform."
+    },
+    {
+     "id": "D",
+     "text": "No, appointment businesses need four or more providers."
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "sal",
+   "source": "Handbook, approved one-staff software"
+  },
+  {
+   "id": "F1-B6",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Not yet open",
+   "prompt": "A new Pilates studio opens next month. The website is live with a class schedule, but there's no storefront yet. What decides whether you can book?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Whether they've already chosen booking software"
+    },
+    {
+     "id": "B",
+     "text": "Whether their 8 classes are already running"
+    },
+    {
+     "id": "C",
+     "text": "Whether the owner has run a studio before"
+    },
+    {
+     "id": "D",
+     "text": "Whether a signed lease for the location is known"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "sal",
+   "source": "Handbook, Business Requirements"
+  },
+  {
+   "id": "F1-B7",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Software preference",
+   "prompt": "A studio owner tells you: \"We don't use booking software, and honestly we never want to.\" What's the right call?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Qualified, since having no platform today doesn't disqualify them."
+    },
+    {
+     "id": "B",
+     "text": "Qualified, so book it and let the AE change her mind."
+    },
+    {
+     "id": "C",
+     "text": "Disqualify, since they explicitly don't want booking software."
+    },
+    {
+     "id": "D",
+     "text": "Nurture, and check back once the three months are up."
+    }
+   ],
+   "correct": "C",
+   "reveal": "Before you close it out, find out why. A bad experience with past software is an objection you can work with. A studio that has simply never used it may not know what it's missing.",
+   "review": "sal",
+   "source": "Day 2, \"What makes a meeting qualified?\"; handbook Software Preference"
+  },
+  {
+   "id": "F1-B8",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Do-not-book software",
+   "prompt": "Which current software means you don't book the demo?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Glofox or Arketa"
+    },
+    {
+     "id": "B",
+     "text": "Gymmaster or ClubReady"
+    },
+    {
+     "id": "C",
+     "text": "MindBody or WellnessLiving"
+    },
+    {
+     "id": "D",
+     "text": "Acuity or Vagaro"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "sal",
+   "source": "Handbook, Verticals, Software & Exceptions"
+  },
+  {
+   "id": "F1-B9",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Mariana Tek",
+   "prompt": "While prospecting outbound, you find a studio that clears every check and runs on Mariana Tek. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Work it like any other qualified lead in your Book."
+    },
+    {
+     "id": "B",
+     "text": "Mark it Unqualified and move on to the next account."
+    },
+    {
+     "id": "C",
+     "text": "Book it, but only under the one-bookable-staff exception."
+    },
+    {
+     "id": "D",
+     "text": "Don't pursue it; book only if they say they're unhappy with it."
+    }
+   ],
+   "correct": "D",
+   "reveal": "Look for clear signs of unhappiness while you pre-vet, like reviews complaining about booking or a post about switching. Without clear signs, leave the account alone.",
+   "review": "sal",
+   "source": "Handbook, Mariana Tek policy"
+  },
+  {
+   "id": "F1-B10",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "ICP vs. qualified",
+   "prompt": "What's the difference between ICP and qualified?",
+   "options": [
+    {
+     "id": "A",
+     "text": "ICP means worth pursuing; qualified means it meets the demo parameters."
+    },
+    {
+     "id": "B",
+     "text": "ICP means it meets the demo parameters; qualified means the AE accepted it."
+    },
+    {
+     "id": "C",
+     "text": "ICP covers Priority 1 only; qualified covers Priority 1 and Priority 2."
+    },
+    {
+     "id": "D",
+     "text": "They're the same check, just done at different points in the process."
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "day-2",
+   "source": "Day 2, \"ICP does not mean qualified\""
+  },
+  {
+   "id": "F1-C1",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Qualifying titles",
+   "prompt": "Which list contains only titles a demo can be booked with?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Owner, Founder, Lead Instructor, Front Desk"
+    },
+    {
+     "id": "B",
+     "text": "Director, Head Coach, Founder, Office Admin"
+    },
+    {
+     "id": "C",
+     "text": "Studio Manager, Instructor, Owner, Bookkeeper"
+    },
+    {
+     "id": "D",
+     "text": "Owner, Founder, Director, Studio Manager"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "sal",
+   "source": "Handbook, Eligible Attendees"
+  },
+  {
+   "id": "F1-C2",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "The studio manager",
+   "prompt": "The person who answers says: \"I'm the studio manager. I run the schedule, but the owner makes the call on software.\" She's interested in seeing Momence. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Ask her to transfer you to the owner before you book anything."
+    },
+    {
+     "id": "B",
+     "text": "Don't book. She just told you she isn't the decision maker."
+    },
+    {
+     "id": "C",
+     "text": "Book the demo with her, and ask whether the owner should join it."
+    },
+    {
+     "id": "D",
+     "text": "Book it, but log it as unqualified until the owner confirms."
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "day-2",
+   "source": "Day 2, persona slides; handbook Eligible Attendees"
+  },
+  {
+   "id": "F1-C3",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Using staff as a route",
+   "prompt": "The front desk at a qualified studio says the owner is rarely in and offers to take a message. What's the best outcome to aim for?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Get the owner's name and the best way and time to reach her."
+    },
+    {
+     "id": "B",
+     "text": "Give the front desk a short pitch so they can pass it along."
+    },
+    {
+     "id": "C",
+     "text": "Book the demo with the front desk and add the owner later."
+    },
+    {
+     "id": "D",
+     "text": "Mark the account Dead, since there's no clear route to the owner."
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "day-2",
+   "source": "Day 2, \"Who you're trying to reach\""
+  },
+  {
+   "id": "F1-C4",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "An eager instructor",
+   "prompt": "An instructor at a qualified studio loves what she hears and wants a demo. The owner hasn't returned your calls. What's the right move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Book it with the instructor, since interest is what matters most."
+    },
+    {
+     "id": "B",
+     "text": "Book it with the instructor and add the owner as an optional guest."
+    },
+    {
+     "id": "C",
+     "text": "Mark the studio Unqualified, since the owner can't be reached."
+    },
+    {
+     "id": "D",
+     "text": "Ask the instructor to help you reach the owner or studio manager."
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "day-2",
+   "source": "Day 2, \"Who you're trying to reach\""
+  },
+  {
+   "id": "F1-C5",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "No named contact",
+   "prompt": "A studio clears every business check, but there's no named contact anywhere and no qualifying title you can find. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Keep it out of your call list until a named contact turns up."
+    },
+    {
+     "id": "B",
+     "text": "Call the main line and ask for whoever handles the scheduling software."
+    },
+    {
+     "id": "C",
+     "text": "Book whoever picks up, then fix the attendee before the demo."
+    },
+    {
+     "id": "D",
+     "text": "Mark it Dead so nobody else spends time on the account."
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "day-2",
+   "source": "Day 2 slide 11 (updated); Day 5, gatekeepers"
+  },
+  {
+   "id": "F1-C6",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Will it become a SAL?",
+   "prompt": "The owner asks her head instructor to take the demo for her. You book it, and the instructor attends alone. Is it likely to become a SAL?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Yes, because the owner herself asked the instructor to attend."
+    },
+    {
+     "id": "B",
+     "text": "Yes, as long as the business clears every other qualification check."
+    },
+    {
+     "id": "C",
+     "text": "Unlikely, because an instructor alone doesn't meet the persona rule."
+    },
+    {
+     "id": "D",
+     "text": "Only if the instructor is listed as staff on the studio's website."
+    }
+   ],
+   "correct": "C",
+   "reveal": "If the owner really wants someone else to take the demo, get it in writing or on a recorded call. With that proof, your manager can review the meeting for credit.",
+   "review": "sal",
+   "source": "Handbook, Eligible Attendees"
+  },
+  {
+   "id": "F1-D1",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "The four themes",
+   "prompt": "Which are the four business problems Momence is positioned to solve?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Growth, Pricing, Payments and Billing, Marketing Reach"
+    },
+    {
+     "id": "B",
+     "text": "Growth, Retention, Time and Admin, Client Experience"
+    },
+    {
+     "id": "C",
+     "text": "Retention, Reporting, Staffing and Payroll, Support"
+    },
+    {
+     "id": "D",
+     "text": "Scheduling, Payments, Messaging and Inbox, Reviews"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "day-2",
+   "source": "Day 2, \"What problems are we solving?\""
+  },
+  {
+   "id": "F1-D2",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "What you'll hear",
+   "prompt": "Which client-side problem do we point to on other platforms?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Clients can't book a class from their phone without calling the studio."
+    },
+    {
+     "id": "B",
+     "text": "Booking pages tend to crash during the busiest class times of the week."
+    },
+    {
+     "id": "C",
+     "text": "Booking can run 8+ steps and forces the client to create an account."
+    },
+    {
+     "id": "D",
+     "text": "Clients have to confirm every booking by email before it goes through."
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "day-2",
+   "source": "Day 2, \"Three problems, over and over\""
+  },
+  {
+   "id": "F1-D3",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Choosing the impact",
+   "prompt": "A Pilates studio runs 14 weekly classes and takes every booking through Instagram DMs. Which line works best as the impact?",
+   "options": [
+    {
+     "id": "A",
+     "text": "\"Your clients have to send a DM every time they want to book a class.\""
+    },
+    {
+     "id": "B",
+     "text": "\"Your clients could book straight from your website in just a couple of clicks.\""
+    },
+    {
+     "id": "C",
+     "text": "\"Running every booking through DMs is an outdated way to manage a growing studio.\""
+    },
+    {
+     "id": "D",
+     "text": "\"Someone loses hours sorting DMs, and after-hours requests slip away before they're booked.\""
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "day-2",
+   "source": "Day 2, Problem → Impact → Value"
+  },
+  {
+   "id": "F1-D4",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Matching the value",
+   "prompt": "A studio pays separately for scheduling, email marketing and billing, and moves client lists between them. Which value line fits best?",
+   "options": [
+    {
+     "id": "A",
+     "text": "\"Everything lives in one platform, so you stop paying for and syncing four tools.\""
+    },
+    {
+     "id": "B",
+     "text": "\"Momence has a full marketing suite built right into the same booking platform.\""
+    },
+    {
+     "id": "C",
+     "text": "\"Momence usually costs less than the booking software your studio pays for now.\""
+    },
+    {
+     "id": "D",
+     "text": "\"Momence connects to the marketing and billing tools your studio already pays for.\""
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "day-2",
+   "source": "Day 2, \"They're paying for four tools, not one\""
+  },
+  {
+   "id": "F1-D5",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "The four-part pitch",
+   "prompt": "Which two parts of the pitch change with every prospect?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Who we help, and the reason to continue"
+    },
+    {
+     "id": "B",
+     "text": "Who we help, and the relevant value"
+    },
+    {
+     "id": "C",
+     "text": "The problem or need, and the relevant value"
+    },
+    {
+     "id": "D",
+     "text": "The reason to continue, and the problem or need"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "day-2",
+   "source": "Day 2, \"Building a repeatable framework\""
+  },
+  {
+   "id": "F1-D6",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "What's missing?",
+   "prompt": "A rep pitches: \"Momence is an all-in-one platform designed to simplify operations for wellness businesses. It has class booking, automated sequences, two-way texting and 24/7 support. Do you have time this week?\" What's missing?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Who we help, stated in a way the prospect recognizes"
+    },
+    {
+     "id": "B",
+     "text": "The prospect's own problem and the one value that fits it"
+    },
+    {
+     "id": "C",
+     "text": "A clear reason to continue to a second conversation"
+    },
+    {
+     "id": "D",
+     "text": "Enough detail on what the product can actually do"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "day-2",
+   "source": "Day 2, the four-part pitch and \"What actually separates them\""
+  },
+  {
+   "id": "F1-D7",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "Value on a cold call",
+   "prompt": "In Problem → Impact → Value, what's true of the value step on a cold call?",
+   "options": [
+    {
+     "id": "A",
+     "text": "It's the full list of features that could apply."
+    },
+    {
+     "id": "B",
+     "text": "It's the price difference versus their software."
+    },
+    {
+     "id": "C",
+     "text": "It's the step you can usually skip to save time."
+    },
+    {
+     "id": "D",
+     "text": "It's a hypothesis until the prospect confirms it."
+    }
+   ],
+   "correct": "D",
+   "reveal": "If the prospect isn't biting, don't keep pushing the same value. Ask what's actually costing them time or money, and change the value to match the pain they describe.",
+   "review": "day-2",
+   "source": "Day 2, \"Problem → Impact → Value\""
+  },
+  {
+   "id": "F1-D8",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "When pre-vetting finds nothing",
+   "prompt": "A studio's website shows no schedule, just a contact form. HubSpot says they're on MindBody. What do you build relevance from?",
+   "options": [
+    {
+     "id": "A",
+     "text": "What's usually true for studios on MindBody, like multi-step booking."
+    },
+    {
+     "id": "B",
+     "text": "Momence's full feature list, since there's nothing specific to use."
+    },
+    {
+     "id": "C",
+     "text": "Ask the prospect to walk you through how their business runs."
+    },
+    {
+     "id": "D",
+     "text": "Hold off calling until you can find something specific to them."
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "day-2",
+   "source": "Day 2, \"Building a repeatable framework\" (fallback)"
+  },
+  {
+   "id": "F1-D9",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Coaching the impact",
+   "prompt": "A teammate writes \"it's frustrating for the owner\" as the impact. What's the best coaching?",
+   "options": [
+    {
+     "id": "A",
+     "text": "It works, since emotion is what drives most buying decisions."
+    },
+    {
+     "id": "B",
+     "text": "Turn it into time, money or a client the business is losing."
+    },
+    {
+     "id": "C",
+     "text": "Skip ahead to the value, since the impact is already implied."
+    },
+    {
+     "id": "D",
+     "text": "Replace it with the Momence feature that removes the frustration."
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "day-2",
+   "source": "Day 2, \"You have the problem. Find the rest.\""
+  },
+  {
+   "id": "F1-E1",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "The framework order",
+   "prompt": "In what order do you pre-vet a lead?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Context → business fit → persona fit → decision"
+    },
+    {
+     "id": "B",
+     "text": "Business fit → persona fit → context → decision"
+    },
+    {
+     "id": "C",
+     "text": "Persona fit → business fit → decision → context"
+    },
+    {
+     "id": "D",
+     "text": "Business fit → context → decision → persona fit"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "day-2",
+   "source": "Day 2, \"How to pre-vet a lead\""
+  },
+  {
+   "id": "F1-E2",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Where a lead ends up",
+   "prompt": "Every lead leaves pre-vetting in one of which four states?",
+   "options": [
+    {
+     "id": "A",
+     "text": "New, Attempting, Booked, Dead"
+    },
+    {
+     "id": "B",
+     "text": "Attempting, Recycled, Nurture, Booked"
+    },
+    {
+     "id": "C",
+     "text": "New, Nurture, Unqualified, Customer"
+    },
+    {
+     "id": "D",
+     "text": "Attempting, Nurture, Unqualified, Dead"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "day-2",
+   "source": "Day 2, \"How to pre-vet a lead\""
+  },
+  {
+   "id": "F1-E3",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Do-not-contact",
+   "prompt": "A studio owner asks you never to contact her again. Which status does the lead get?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Dead"
+    },
+    {
+     "id": "B",
+     "text": "Nurture"
+    },
+    {
+     "id": "C",
+     "text": "Unqualified"
+    },
+    {
+     "id": "D",
+     "text": "Attempting"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "day-2",
+   "source": "Day 2, \"How to pre-vet a lead\""
+  },
+  {
+   "id": "F1-E4",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Trusting the record",
+   "prompt": "HubSpot lists a lead as Yoga. The website shows a 24-hour gym with open floor space and no class schedule. What do you go with?",
+   "options": [
+    {
+     "id": "A",
+     "text": "HubSpot, since the vertical was checked when the lead came in."
+    },
+    {
+     "id": "B",
+     "text": "Neither yet; call and ask which vertical they consider themselves."
+    },
+    {
+     "id": "C",
+     "text": "The website, which means it's a gym and not a fit for us."
+    },
+    {
+     "id": "D",
+     "text": "Mark it Nurture until someone confirms the right vertical."
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "day-2",
+   "source": "Day 2, \"So… who should you actually work?\""
+  },
+  {
+   "id": "F1-E5",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "When to stop researching",
+   "prompt": "You've confirmed fit, found the founder, and noted they're on MindBody. Twelve minutes in, you're curious about their Instagram. What now?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Write up the note and move on; more won't change your decision."
+    },
+    {
+     "id": "B",
+     "text": "Keep going, since more context always makes for a better call."
+    },
+    {
+     "id": "C",
+     "text": "Check their reviews too, in case they reveal a pain point."
+    },
+    {
+     "id": "D",
+     "text": "Park it and come back when you have time to finish properly."
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "day-2",
+   "source": "Day 2, \"Minimum viable research\""
+  },
+  {
+   "id": "F1-E6",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Qualified, but not now",
+   "prompt": "A qualified studio's owner says: \"Not interested right now. We're in the middle of opening a second location.\" Where does the lead end up?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Unqualified, since she told you she isn't interested."
+    },
+    {
+     "id": "B",
+     "text": "Nurture, since it qualifies but isn't ready for outreach."
+    },
+    {
+     "id": "C",
+     "text": "Dead, so nobody on the team calls her again by mistake."
+    },
+    {
+     "id": "D",
+     "text": "Attempting, and try her again tomorrow afternoon."
+    }
+   ],
+   "correct": "B",
+   "reveal": "Nurture is where it ends up, not your first move. A second location is a reason to talk now: more schedules, more staff, more clients to manage. Make that case first. If she still says no, then Nurture.",
+   "review": "day-2",
+   "source": "Day 2, \"How to pre-vet a lead\""
+  },
+  {
+   "id": "F1-E7",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "On a competitor",
+   "prompt": "You're pre-vetting a Pilates studio: 11 weekly in-person classes, Founder on LinkedIn, runs on MindBody. A teammate says skip it because they already have software. Who's right?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Your teammate, since studios on a competitor rarely switch."
+    },
+    {
+     "id": "B",
+     "text": "Your teammate, unless the studio has posted about switching."
+    },
+    {
+     "id": "C",
+     "text": "You, since competitor software proves the booking pain exists."
+    },
+    {
+     "id": "D",
+     "text": "You, but only call if you can reach the founder directly."
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "day-2",
+   "source": "Day 2, \"Let's vet one together\""
+  }
+ ]
+}

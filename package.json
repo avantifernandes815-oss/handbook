@@ -1,0 +1,15 @@
+{
+  "name": "momence-sdr-handbook",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "jose": "^6.0.11"
+  },
+  "devDependencies": {
+    "wrangler": "^4.40.0"
+  }
+}

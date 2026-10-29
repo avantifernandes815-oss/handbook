@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Certification Quiz · Momence SDR Handbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&display=swap">
+<style>
+:root{--paper:#fff;--page:#f7f7fb;--ink:#242336;--sub:#676579;--body:#4b4960;--line:#e8e6f0;--soft:#f0ecff;--purple:#6544d9;--purple-d:#4a2fb0;--ok:#1f7a4d;--ok-bg:#e6f4ec;--ok-ink:#23452f;--warn:#8a5610;--warn-bg:#fdf0dc;--bad:#b42318;--bad-bg:#fdecea}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);font-family:Arial,Helvetica,sans-serif;min-height:100vh;display:flex;flex-direction:column}
+a{color:var(--purple)}a:hover{color:var(--purple-d)}
+h1,h2,.display{font-family:Nunito,Arial,sans-serif}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 24px;background:var(--paper);border-bottom:1px solid var(--line);flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:14px}.brand img{height:22px}.brand .div{width:1px;height:22px;background:var(--line)}.brand b{font-size:14px}
+.status{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub)}
+main{flex:1;display:flex;justify-content:center;padding:44px 20px}
+.wrap{width:100%;max-width:720px}.narrow{max-width:640px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:34px}
+.tag{display:inline-block;font-size:11px;letter-spacing:1px;font-weight:700;color:var(--purple);background:var(--soft);padding:6px 10px;border-radius:20px;margin-bottom:14px}
+h1{font-size:30px;line-height:1.15;margin:0 0 8px}
+.lead{margin:0 0 26px;font-size:14px;color:var(--sub);line-height:1.6}
+.rules{display:flex;flex-direction:column;gap:14px;margin-bottom:28px}
+.rule{display:flex;gap:14px;align-items:flex-start}.rule .ic{width:36px;height:36px;border-radius:10px;background:var(--soft);color:var(--purple);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.rule .ic.warn{background:var(--warn-bg);color:var(--warn)}.rule b{display:block;font-size:14px}.rule span{display:block;font-size:13px;color:var(--sub);margin-top:3px;line-height:1.5}
+.ready{display:flex;gap:12px;align-items:center;padding:14px 16px;background:var(--page);border-radius:12px;font-size:13px;margin-bottom:20px;cursor:pointer}
+.ready input{width:20px;height:20px;accent-color:var(--purple)}
+.btn{display:flex;align-items:center;justify-content:center;min-height:52px;width:100%;border-radius:12px;border:0;background:var(--purple);color:#fff;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;font-family:inherit;padding:0 22px}
+.btn:hover{background:var(--purple-d);color:#fff}.btn:disabled{background:var(--line);color:var(--body);cursor:not-allowed}
+.btn.inline{display:inline-flex;width:auto;min-height:48px;font-size:14px}
+.btn.ghost{background:var(--paper);color:var(--ink);border:1px solid var(--line)}.btn.ghost:hover{background:var(--soft);color:var(--ink)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:18px;flex-wrap:wrap}
+.prog{flex:1 1 300px}.prog .lbl{font-size:12px;font-weight:700;color:var(--sub);margin-bottom:8px}
+.bar{height:8px;background:var(--line);border-radius:8px;overflow:hidden}.bar i{display:block;height:100%;background:var(--purple);border-radius:8px;transition:width .3s}
+.timer{display:flex;align-items:center;gap:10px}.timer .t{font-family:Nunito,Arial,sans-serif;font-size:22px;font-weight:800}.timer small{display:block;font-size:11px;color:var(--sub)}
+.timer.low .t{color:var(--bad)}
+.q h1{font-size:22px;line-height:1.35;margin:0 0 20px}
+.opts{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.opt{display:flex;align-items:center;gap:14px;width:100%;min-height:56px;padding:12px 16px;border-radius:13px;font-size:14px;font-family:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);cursor:pointer;text-align:left;line-height:1.45}
+.opt:hover{border-color:#c9bff3}.opt[aria-pressed=true]{background:var(--soft);border:2px solid var(--purple);padding:11px 15px}
+.opt .k{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;font-weight:700;flex:0 0 auto;background:var(--page);color:var(--sub)}
+.opt[aria-pressed=true] .k{background:var(--purple);color:#fff}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}.foot span{font-size:12px;color:var(--sub)}
+.overlay{position:fixed;inset:0;background:rgba(36,35,54,.72);display:flex;align-items:center;justify-content:center;padding:20px;z-index:10}
+.overlay[hidden]{display:none}
+.modal{width:100%;max-width:520px;background:var(--paper);border-radius:22px;padding:34px}
+.modal .ic{width:56px;height:56px;border-radius:16px;background:var(--warn-bg);color:var(--warn);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.modal h1{font-size:26px}.modal p{font-size:14px;color:var(--body);line-height:1.65;margin:0 0 20px}
+.facts{background:var(--page);border-radius:13px;padding:14px 16px;margin-bottom:24px;display:flex;flex-direction:column;gap:8px;font-size:13px}.facts div{display:flex;justify-content:space-between;gap:12px}.facts span{color:var(--sub)}
+.hero{text-align:center}.hero .badge{width:84px;height:84px;margin:0 auto 16px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.hero .k{font-size:11px;letter-spacing:1px;font-weight:700;margin-bottom:8px}
+.ok .badge{background:var(--ok-bg);color:var(--ok)}.ok .k{color:var(--ok)}
+.no .badge{background:var(--soft);color:var(--purple)}.no .k{color:var(--purple)}
+.stack{display:flex;flex-direction:column;gap:18px}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px 24px}
+.panel h2{font-size:18px;margin:0 0 4px}.panel .sub{margin:0 0 14px;font-size:12px;color:var(--sub)}
+.reveal{background:var(--ok-bg);border-radius:12px;padding:14px 16px}.reveal b{display:block;font-size:12px;color:#1f5c3c;margin-bottom:4px}.reveal div{font-size:13px;line-height:1.6;color:var(--ok-ink)}
+.topic{display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border-radius:11px;background:var(--page);text-decoration:none;color:var(--ink);font-size:13px}.topic span:last-child{color:var(--purple);font-weight:700;white-space:nowrap}
+ol{margin:0;padding-left:20px;font-size:13px;line-height:1.8}
+.center{text-align:center;color:var(--sub);font-size:14px;padding:60px 0}
+@media (max-width:600px){.card{padding:24px}main{padding:28px 16px}h1{font-size:24px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><img src="/momence-logo.svg" alt="Momence"><span class="div"></span><b id="htitle">Certification Quiz</b></div>
+  <div class="status" id="hstatus"></div>
+</header>
+<main><div class="wrap" id="app"><p class="center">Loading…</p></div></main>
+<div class="overlay" id="overlay" hidden></div>
+<script>
+(() => {
+const cert = (location.pathname.match(/^\/quiz\/([A-Z0-9]{1,6})$/) || [])[1];
+const app = document.getElementById('app'), overlay = document.getElementById('overlay'), hstatus = document.getElementById('hstatus');
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const svg = {
+  clock:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg>',
+  arrow:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+  warn:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg>',
+  check:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>',
+  lock:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>',
+  book:'<svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M8 7h8M8 11h6"/></svg>'
+};
+const fmtTime = iso => new Date(iso).toLocaleString([], {weekday:'short', hour:'numeric', minute:'2-digit'});
+async function api(path, body) {
+  const r = await fetch(path, body ? {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)} : {});
+  const data = await r.json().catch(() => ({}));
+  if (!r.ok) throw Object.assign(new Error(data.message || 'Something went wrong.'), data);
+  return data;
+}
+let state = null, q = null, timerId = null, deadline = 0, picked = null, busy = false, leaveStart = null, blurTimer = null;
+
+function back(label='Back to my certifications') { return '<a class="btn ghost" href="/#page=certifications">'+esc(label)+'</a>'; }
+
+// ---------- rules screen ----------
+async function rules() {
+  hstatus.innerHTML = '<a href="/#page=certifications" style="font-size:13px;font-weight:700;text-decoration:none">← Back to handbook</a>';
+  try { state = await api('/api/quiz/'+cert+'/state'); } catch (e) { app.innerHTML = '<div class="card narrow"><h1>Quiz not found</h1><p class="lead">'+esc(e.message)+'</p>'+back()+'</div>'; return; }
+  const c = state.cert, p = state.progress;
+  document.getElementById('htitle').textContent = c.id + ' Quiz';
+  let block = '';
+  if (c.status !== 'active') block = 'This certification isn’t open yet.';
+  else if (p.status === 'passed') block = 'You’ve already passed this certification. Nice work.';
+  else if (p.attemptsUsed >= p.maxAttempts) block = 'You’ve used all your attempts. Your manager will talk with you about next steps.';
+  else if (!p.retakeUnlocked) block = 'Your retake opens after a coaching session with your manager. They’ll unlock it for you.';
+  else if (p.lockedUntil && !state.openAttempt) block = 'You left the quiz twice, so your last attempt ended. A fresh attempt opens '+fmtTime(p.lockedUntil)+'.';
+  const attemptLabel = state.openAttempt ? 'IN PROGRESS' : 'ATTEMPT ' + (p.attemptsUsed + 1);
+  app.innerHTML = '<div class="card narrow" style="margin:0 auto"><div class="tag">'+esc(c.id)+' · QUIZ · '+attemptLabel+'</div><h1>'+esc(c.name)+'</h1>' +
+    (block ? '<p class="lead">'+esc(block)+'</p>'+back() :
+    '<p class="lead">'+(state.openAttempt ? 'You have a quiz in progress. The clock kept running while you were away.' : 'Read these before you start. Once the quiz begins, the clock doesn’t stop.')+'</p>' +
+    '<div class="rules">' +
+      '<div class="rule"><div class="ic">'+svg.clock+'</div><div><b>'+c.questions+' questions, '+c.seconds+' seconds each</b><span>If time runs out, the question is marked wrong and the next one loads.</span></div></div>' +
+      '<div class="rule"><div class="ic">'+svg.arrow+'</div><div><b>One question at a time</b><span>Locked answers can’t be changed. You’ll see your results at the end.</span></div></div>' +
+      '<div class="rule"><div class="ic warn">'+svg.warn+'</div><div><b>Stay on this tab</b><span>Leaving once is logged for your manager and you’ll get a warning. Leaving a second time ends the attempt and locks the quiz for 24 hours.</span></div></div>' +
+      '<div class="rule"><div class="ic">'+svg.check+'</div><div><b>Pass mark: '+Math.round(c.passMark*100)+'%</b><span>It’s okay not to pass the first time. You’ll get coaching and another go.</span></div></div>' +
+    '</div>' +
+    '<label class="ready"><input type="checkbox" id="ready"> I’m ready, and I’ve closed anything I might need to switch to.</label>' +
+    '<button class="btn" id="go" disabled>'+(state.openAttempt ? 'Resume quiz in full screen' : 'Start quiz in full screen')+'</button>') + '</div>';
+  const ready = document.getElementById('ready'), go = document.getElementById('go');
+  if (ready) { ready.onchange = () => go.disabled = !ready.checked; go.onclick = start; }
+}
+
+async function start() {
+  if (busy) return; busy = true;
+  try { if (document.documentElement.requestFullscreen) await document.documentElement.requestFullscreen().catch(() => {}); } catch {}
+  try { show(await api('/api/quiz/'+cert+'/start', {})); }
+  catch (e) { busy = false; app.innerHTML = '<div class="card narrow" style="margin:0 auto"><h1>Can’t start right now</h1><p class="lead">'+esc(e.message)+(e.lockedUntil ? ' A fresh attempt opens '+fmtTime(e.lockedUntil)+'.' : '')+'</p>'+back()+'</div>'; }
+  busy = false;
+}
+
+// ---------- question screen ----------
+function show(data) {
+  if (data.done) return finish(data);
+  q = data; picked = null; watchLeaves(true);
+  hstatus.innerHTML = svg.lock + ' Quiz in progress · stay on this tab';
+  deadline = Date.now() + data.secondsLeft * 1000;
+  const letters = 'ABCD';
+  app.innerHTML = '<div class="top"><div class="prog"><div class="lbl">Question '+(data.position+1)+' of '+data.total+'</div><div class="bar"><i style="width:'+Math.round(data.position/data.total*100)+'%"></i></div></div>' +
+    '<div class="timer" id="timer"><svg width="52" height="52" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="22" fill="none" stroke="#e8e6f0" stroke-width="5"/><circle id="ring" cx="26" cy="26" r="22" fill="none" stroke="#6544d9" stroke-width="5" stroke-linecap="round" stroke-dasharray="138.2" stroke-dashoffset="0" transform="rotate(-90 26 26)"/></svg><div><div class="t" id="tleft" role="timer" aria-live="off"></div><small>left</small></div></div></div>' +
+    '<div class="card q"><h1>'+esc(data.question.prompt)+'</h1><div class="opts" role="group" aria-label="Answer options">' +
+    data.question.options.map((o,i) => '<button type="button" class="opt" data-id="'+esc(o.id)+'" aria-pressed="false"><span class="k">'+letters[i]+'</span><span>'+esc(o.text)+'</span></button>').join('') +
+    '</div><div class="foot"><span>You’ll see your results at the end.</span><button type="button" class="btn inline" id="lock" disabled>Lock in answer →</button></div></div>';
+  app.querySelectorAll('.opt').forEach(b => b.onclick = () => { picked = b.dataset.id; app.querySelectorAll('.opt').forEach(x => x.setAttribute('aria-pressed', x === b)); document.getElementById('lock').disabled = false; });
+  document.getElementById('lock').onclick = () => submit(picked);
+  tick(); clearInterval(timerId); timerId = setInterval(tick, 250);
+}
+function tick() {
+  const left = Math.max(0, Math.ceil((deadline - Date.now()) / 1000)), el = document.getElementById('tleft');
+  if (!el) return;
+  el.textContent = Math.floor(left/60) + ':' + String(left%60).padStart(2,'0');
+  document.getElementById('ring').setAttribute('stroke-dashoffset', (138.2 * (1 - left / q.seconds)).toFixed(1));
+  document.getElementById('timer').classList.toggle('low', left <= 10);
+  if (left <= 0 && !busy) submit(null);
+}
+async function submit(choice) {
+  if (busy || !q) return; busy = true; clearInterval(timerId);
+  const btn = document.getElementById('lock'); if (btn) btn.disabled = true;
+  try { const next = await api('/api/attempt/'+q.attemptId+'/answer', {position: q.position, choice}); busy = false; show(next); }
+  catch (e) { busy = false; app.innerHTML = '<div class="card narrow" style="margin:0 auto"><h1>Connection hiccup</h1><p class="lead">Your answers so far are saved. Reload to pick up where you left off.</p><button class="btn" onclick="location.reload()">Reload</button></div>'; }
+}
+
+// ---------- leaving the tab ----------
+function watchLeaves(on) { window.__watch = on; }
+function leftNow() { if (window.__watch && q && leaveStart === null) leaveStart = Date.now(); }
+async function cameBack() {
+  if (leaveStart === null || !q) return;
+  const durationMs = Date.now() - leaveStart; leaveStart = null;
+  let r; try { r = await api('/api/attempt/'+q.attemptId+'/leave', {durationMs, kind:'tab_leave'}); } catch { return; }
+  if (r.status === 'voided') return voided(r.lockedUntil);
+  if (r.status === 'warning') warning(r);
+}
+document.addEventListener('visibilitychange', () => document.hidden ? leftNow() : cameBack());
+window.addEventListener('blur', () => { clearTimeout(blurTimer); blurTimer = setTimeout(() => { if (!document.hasFocus()) leftNow(); }, 1500); });
+window.addEventListener('focus', () => { clearTimeout(blurTimer); if (!document.hidden) cameBack(); });
+
+function warning(r) {
+  const left = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
+  overlay.hidden = false;
+  overlay.innerHTML = '<div class="modal" role="alertdialog" aria-labelledby="wt" aria-describedby="wb"><div class="ic">'+svg.warn.replace(/18/g,'28')+'</div><h1 id="wt">You left the quiz</h1><p id="wb">We’ve noted this for your manager. This is your one warning: <strong style="color:#242336">if you leave again, this attempt ends and the quiz locks for 24 hours.</strong></p>' +
+    '<div class="facts"><div><span>Logged</span><b>Left tab · '+new Date(r.at).toLocaleTimeString([], {hour:'numeric', minute:'2-digit'})+' · '+Math.round((r.durationMs||0)/1000)+' seconds</b></div><div><span>Warnings left</span><b style="color:#8a5610">0 of 1</b></div><div><span>Question '+(q.position+1)+' timer</span><b>'+Math.floor(left/60)+':'+String(left%60).padStart(2,'0')+' left</b></div></div>' +
+    '<button class="btn" id="ret">Return to question '+(q.position+1)+'</button></div>';
+  document.getElementById('ret').onclick = () => { overlay.hidden = true; overlay.innerHTML = ''; };
+}
+function voided(until) {
+  watchLeaves(false); clearInterval(timerId); q = null; overlay.hidden = true;
+  if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+  hstatus.textContent = '';
+  app.innerHTML = '<div class="card narrow" style="margin:0 auto"><div class="tag">ATTEMPT ENDED</div><h1>This attempt has ended</h1><p class="lead">You left the quiz a second time, so this attempt won’t be scored. A fresh attempt opens '+fmtTime(until)+'. Your manager can see what happened, so no need to explain.</p>'+back()+'</div>';
+}
+
+// ---------- results ----------
+async function finish(data) {
+  watchLeaves(false); clearInterval(timerId); q = null;
+  if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+  if (data.status === 'voided') return voided(new Date(Date.now()+864e5).toISOString());
+  hstatus.textContent = '';
+  const r = await api('/api/attempt/'+data.attemptId+'/result');
+  const pass = r.status === 'passed', pct = Math.round(r.score * 100);
+  document.getElementById('htitle').textContent = r.certId + ' Quiz · Result';
+  app.innerHTML = '<div class="stack narrow" style="margin:0 auto">' +
+    '<section class="card hero '+(pass?'ok':'no')+'"><div class="badge">'+(pass ? svg.check.replace(/18/g,'40') : svg.book)+'</div><div class="k">'+(pass ? r.certId + ' PASSED' : 'NOT QUITE YET')+'</div><h1>'+r.correct+' of '+r.total+' · '+pct+'%</h1><p class="lead" style="margin:0">Pass mark '+Math.round(r.passMark*100)+'% · Attempt '+r.attemptNo+'</p></section>' +
+    (pass ? '' : '<section class="panel"><h2>What happens next</h2><ol><li>Your manager will set up a quick coaching session with you.</li><li>After that, they’ll unlock your retake.</li></ol></section>') +
+    (r.reveals.length ? '<section class="panel"><h2>Worth remembering</h2><p class="sub">Extra context from questions you got right.</p><div class="stack" style="gap:10px">' + r.reveals.map(x => '<div class="reveal"><b>'+esc(x.topic)+'</b><div>'+esc(x.text)+'</div></div>').join('') + '</div></section>' : '') +
+    (r.review.length ? '<section class="panel"><h2>Topics to review</h2><p class="sub">Here are resources for the questions you missed.</p><div class="stack" style="gap:8px">' + r.review.map(x => '<a class="topic" href="/#page='+encodeURIComponent(x.review)+'"><span>'+esc(x.topic)+'</span><span>'+esc(x.label)+' →</span></a>').join('') + '</div></section>' : '') +
+    '<a class="btn" href="/#page=certifications">Back to my certifications</a></div>';
+}
+
+if (!cert) app.innerHTML = '<p class="center">Quiz not found.</p>'; else rules();
+})();
+</script>
+</body>
+</html>
