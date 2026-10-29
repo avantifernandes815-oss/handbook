@@ -1,0 +1,1166 @@
+{
+ "cert": "F2",
+ "version": 1,
+ "questions": [
+  {
+   "id": "F2-A1",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Your Book at a glance",
+   "prompt": "How many lead statuses describe everything in your Book?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Four, the ones you actively work each day"
+    },
+    {
+     "id": "B",
+     "text": "Nine, and every lead sits in exactly one"
+    },
+    {
+     "id": "C",
+     "text": "Six, from New through to Customer"
+    },
+    {
+     "id": "D",
+     "text": "Seven, with Unqualified and Dead as tags"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "day-3",
+   "source": "Day 3, \"Understand before you act\""
+  },
+  {
+   "id": "F2-A2",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Recycled",
+   "prompt": "What does a Recycled status tell you about a lead?",
+   "options": [
+    {
+     "id": "A",
+     "text": "It came out of nurture and can be worked again"
+    },
+    {
+     "id": "B",
+     "text": "It was reassigned to you from another SDR's Book"
+    },
+    {
+     "id": "C",
+     "text": "It came back to you after a demo no-show"
+    },
+    {
+     "id": "D",
+     "text": "It was re-imported into HubSpot with fresh data"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "day-3",
+   "source": "Day 3, \"The four statuses you actively work\""
+  },
+  {
+   "id": "F2-A3",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Opportunity",
+   "prompt": "A lead in your Book shows Opportunity. What does that mean?",
+   "options": [
+    {
+     "id": "A",
+     "text": "You had a good call and plan to book this week"
+    },
+    {
+     "id": "B",
+     "text": "A demo is on the calendar but hasn't happened"
+    },
+    {
+     "id": "C",
+     "text": "The prospect asked for pricing, so it's warm"
+    },
+    {
+     "id": "D",
+     "text": "The AE marked it SQL and it's tied to a deal"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "statuses",
+   "source": "Handbook, Lead Statuses & Activity Clock"
+  },
+  {
+   "id": "F2-A4",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Attempting",
+   "prompt": "What puts a lead in Attempting?",
+   "options": [
+    {
+     "id": "A",
+     "text": "It's been pre-vetted and given an AF1 or AF2 code"
+    },
+    {
+     "id": "B",
+     "text": "You connected with someone but haven't booked yet"
+    },
+    {
+     "id": "C",
+     "text": "It has a last contacted date within the last 30 days"
+    },
+    {
+     "id": "D",
+     "text": "It's on a call list you built for this week"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "day-3",
+   "source": "Day 3, \"The four statuses you actively work\""
+  },
+  {
+   "id": "F2-A5",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Read the history",
+   "prompt": "An Attempting account just landed in your Book. The status looks routine. What do you check before you dial?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Their Google reviews, for something to personalize"
+    },
+    {
+     "id": "B",
+     "text": "The activity history, for any past conversations"
+    },
+    {
+     "id": "C",
+     "text": "Their Instagram, to see how active the studio is"
+    },
+    {
+     "id": "D",
+     "text": "The record's create date, to see how old it is"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Someone may have had a real conversation with this account months ago. Calling cold and repeating a pitch they already turned down is how you burn an account.",
+   "review": "day-3",
+   "source": "Day 3, \"Understand before you act\" (question 3)"
+  },
+  {
+   "id": "F2-A6",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Customer accounts",
+   "prompt": "A lead in your Book shows Customer. On an old call, the owner mentioned opening a second location. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Leave it, since customers aren't SDR prospects"
+    },
+    {
+     "id": "B",
+     "text": "Call to book a demo for the new location"
+    },
+    {
+     "id": "C",
+     "text": "Enroll her in a sequence about multi-location"
+    },
+    {
+     "id": "D",
+     "text": "Code it AFH so it sits at the top of tomorrow"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "statuses",
+   "source": "Handbook, Lead Statuses & Activity Clock; Day 3, \"Not every lead deserves attention today\""
+  },
+  {
+   "id": "F2-A7",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "What Nurture means",
+   "prompt": "A teammate says Nurture leads are dead ends, so he never looks at them. What's the best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "He's right, since Nurture means they said no for good"
+    },
+    {
+     "id": "B",
+     "text": "Nurture leads should get a call each month to stay warm"
+    },
+    {
+     "id": "C",
+     "text": "Nurture only matters for leads in Priority 1 verticals"
+    },
+    {
+     "id": "D",
+     "text": "Nurture was \"not now,\" not \"no,\" and it comes back Recycled"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "day-3",
+   "source": "Day 3, \"Needs attention now vs. worked later\""
+  },
+  {
+   "id": "F2-A8",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Your working pool",
+   "prompt": "A rep says: \"I own 2,000 leads, so I need to get through 2,000 dials.\" What's the best coaching?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Right, rotate through every lead before repeating any"
+    },
+    {
+     "id": "B",
+     "text": "Start with Nurture, since those leads already know us"
+    },
+    {
+     "id": "C",
+     "text": "Only New, Recycled and Attempting are live, so start there"
+    },
+    {
+     "id": "D",
+     "text": "Split dials evenly across all nine statuses each week"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "day-3",
+   "source": "Day 3, \"Not every lead deserves attention today\""
+  },
+  {
+   "id": "F2-B1",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "The 30-day clock",
+   "prompt": "An Attempting lead goes 30 days with no qualifying SDR activity. What happens?",
+   "options": [
+    {
+     "id": "A",
+     "text": "It moves to Unqualified"
+    },
+    {
+     "id": "B",
+     "text": "It moves to Nurture"
+    },
+    {
+     "id": "C",
+     "text": "It goes back to New"
+    },
+    {
+     "id": "D",
+     "text": "It's unassigned from you"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "statuses",
+   "source": "Day 3, \"Where every lead ends up\"; handbook, Lead Statuses & Activity Clock"
+  },
+  {
+   "id": "F2-B2",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "What resets the clock",
+   "prompt": "Which of these resets the 30-day activity clock?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A text you sent through HubSpot"
+    },
+    {
+     "id": "B",
+     "text": "A marketing email the owner opened"
+    },
+    {
+     "id": "C",
+     "text": "A LinkedIn profile view you made"
+    },
+    {
+     "id": "D",
+     "text": "A visit from the owner to our website"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "statuses",
+   "source": "Handbook, HubSpot Hygiene (Activity Clock)"
+  },
+  {
+   "id": "F2-B3",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Nurture length",
+   "prompt": "How long does Nurture last before a lead becomes Recycled?",
+   "options": [
+    {
+     "id": "A",
+     "text": "30 days"
+    },
+    {
+     "id": "B",
+     "text": "Six weeks"
+    },
+    {
+     "id": "C",
+     "text": "Six months"
+    },
+    {
+     "id": "D",
+     "text": "Three months"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "day-3",
+   "source": "Day 3, \"Where every lead ends up\""
+  },
+  {
+   "id": "F2-B4",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Dispositions",
+   "prompt": "You log \"Meeting Set\" on a call. What happens to the lead's status?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Nothing until the AE accepts it"
+    },
+    {
+     "id": "B",
+     "text": "It moves straight to Opportunity"
+    },
+    {
+     "id": "C",
+     "text": "It moves to Booked on its own"
+    },
+    {
+     "id": "D",
+     "text": "You change it to Booked by hand"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "day-3",
+   "source": "Day 3, \"Where every lead ends up\""
+  },
+  {
+   "id": "F2-B5",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Self-sourcing",
+   "prompt": "You find a great Pilates studio on Google. You search HubSpot and nobody owns it. What's your next step?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Call today, then log it so the record is yours"
+    },
+    {
+     "id": "B",
+     "text": "Ask your manager to assign it before any outreach"
+    },
+    {
+     "id": "C",
+     "text": "Create the record and enroll it in a sequence"
+    },
+    {
+     "id": "D",
+     "text": "Ask your team in Slack if anyone minds you taking it"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "book",
+   "source": "Handbook, Self-Sourcing & Claiming Unowned Leads"
+  },
+  {
+   "id": "F2-B6",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Someone else's account",
+   "prompt": "You find a studio owned by another SDR. Nobody has touched it in five months. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Leave it, because an inactive owned record isn't unowned"
+    },
+    {
+     "id": "B",
+     "text": "Work it, because five quiet months makes it fair game"
+    },
+    {
+     "id": "C",
+     "text": "Email the owner first, then claim it if she replies"
+    },
+    {
+     "id": "D",
+     "text": "Log one call on it so the record shows it's yours"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Never prospect into another SDR's Book. Inactivity only comes into an ownership decision when a genuine duplicate turns up, and a manager makes that call.",
+   "review": "book",
+   "source": "Handbook, Self-Sourcing and HubSpot Hygiene"
+  },
+  {
+   "id": "F2-B7",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Duplicate, already booked",
+   "prompt": "You booked a demo for Friday. Then you find a duplicate record owned by another SDR. What happens?",
+   "options": [
+    {
+     "id": "A",
+     "text": "You cancel the demo until ownership is settled"
+    },
+    {
+     "id": "B",
+     "text": "You hand the demo over to the other SDR to run"
+    },
+    {
+     "id": "C",
+     "text": "You merge the records yourself so the demo stays yours"
+    },
+    {
+     "id": "D",
+     "text": "You keep the meeting on track while a manager decides"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Outreach pauses on a disputed account, but an already-booked meeting doesn't. The booking SDR keeps it on track, and the manager approves ownership.",
+   "review": "book",
+   "source": "Handbook, HubSpot Hygiene (Duplicate Records)"
+  },
+  {
+   "id": "F2-B8",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "One contact, or the business?",
+   "prompt": "The front desk manager says: \"Take me off your list.\" You haven't spoken to the owner yet. What's right?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Treat the whole business as off-limits from now on"
+    },
+    {
+     "id": "B",
+     "text": "Wait three months, then try the front desk again"
+    },
+    {
+     "id": "C",
+     "text": "Mark that contact; the owner is still workable"
+    },
+    {
+     "id": "D",
+     "text": "Mark the company Dead so nobody calls it again"
+    }
+   ],
+   "correct": "C",
+   "reveal": "A person-specific request applies to that person. Only an explicit request to stop contacting the whole business closes the company, and then you never go around it through someone else.",
+   "review": "book",
+   "source": "Handbook, HubSpot Hygiene (Contact-Level Dead vs Company-Wide Restriction)"
+  },
+  {
+   "id": "F2-C1",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Deciding what comes first",
+   "prompt": "You sit down with a full Book and a dozen things you could do. There's no priority score. What decides what you work first today?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Whichever list booked the most meetings last week"
+    },
+    {
+     "id": "B",
+     "text": "The daily order, then status and code set who's first"
+    },
+    {
+     "id": "C",
+     "text": "The call list your manager sends each morning"
+    },
+    {
+     "id": "D",
+     "text": "The newest leads in your Book, since they're freshest"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Start from the same order every day, then let status and code rank the accounts. A lead about to hit 30 days, or a callback you promised, outranks a fresh lead that can wait a day. Busy isn't the same as important.",
+   "review": "day-3",
+   "source": "Day 3, \"Who do I work first?\""
+  },
+  {
+   "id": "F2-C2",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Replenishing",
+   "prompt": "About how many cleaned leads should you bring into your Book?",
+   "options": [
+    {
+     "id": "A",
+     "text": "About 25 a day, roughly 100 a week"
+    },
+    {
+     "id": "B",
+     "text": "About 10 a day, roughly 50 a week"
+    },
+    {
+     "id": "C",
+     "text": "About 50 a day, roughly 250 a week"
+    },
+    {
+     "id": "D",
+     "text": "Whatever your manager assigns you"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "day-3",
+   "source": "Day 3, \"A Book is never finished\""
+  },
+  {
+   "id": "F2-C3",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Who goes first",
+   "prompt": "Which of these do you dial first today?",
+   "options": [
+    {
+     "id": "A",
+     "text": "AFH, owner asked you to call back next week"
+    },
+    {
+     "id": "B",
+     "text": "AF1, pre-vetted yesterday, never dialed"
+    },
+    {
+     "id": "C",
+     "text": "AF2, Recycled, said they'd just switched last time"
+    },
+    {
+     "id": "D",
+     "text": "Attempting, no code, last touched 28 days ago"
+    }
+   ],
+   "correct": "D",
+   "reveal": "The quiet Attempting lead drops to Nurture in two days. If nobody touches it today, it leaves your working pool for three months. The most urgent account is often the one that feels least exciting.",
+   "review": "day-3",
+   "source": "Day 3, \"What would you work first?\""
+  },
+  {
+   "id": "F2-C4",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "The one to leave",
+   "prompt": "Which of these do you leave alone today?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Recycled AF2, renewed elsewhere last time"
+    },
+    {
+     "id": "B",
+     "text": "Attempting, three no-answers in two weeks"
+    },
+    {
+     "id": "C",
+     "text": "Nurture, said not interested 5 weeks ago"
+    },
+    {
+     "id": "D",
+     "text": "New AF1, pre-vetted, never dialed"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "day-3",
+   "source": "Day 3, \"What would you work first?\""
+  },
+  {
+   "id": "F2-C5",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Prep before the dial",
+   "prompt": "Your next account is Recycled AF2. Notes say the owner said \"we just switched software\" last time. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Dial right away, since Recycled means a fresh start"
+    },
+    {
+     "id": "B",
+     "text": "Plan an opener that acknowledges it, then dial"
+    },
+    {
+     "id": "C",
+     "text": "Skip it, since a past no means another no"
+    },
+    {
+     "id": "D",
+     "text": "Email first so the call doesn't catch her off guard"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "day-3",
+   "source": "Day 3, \"What would you work first?\" (account E)"
+  },
+  {
+   "id": "F2-C6",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "A shrinking Book",
+   "prompt": "Your activity looks great, but your call lists get thinner every week. What's the most likely cause?",
+   "options": [
+    {
+     "id": "A",
+     "text": "You're not replacing the leads that leave your Book"
+    },
+    {
+     "id": "B",
+     "text": "You're dialing at the wrong time of day"
+    },
+    {
+     "id": "C",
+     "text": "Your opener isn't turning connects into meetings"
+    },
+    {
+     "id": "D",
+     "text": "You're spending too long pre-vetting each lead"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "day-3",
+   "source": "Day 3, \"A Book is never finished\""
+  },
+  {
+   "id": "F2-C7",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "One good list",
+   "prompt": "A rep found a Pilates list that converts well and has worked only that list for three weeks. What's the risk?",
+   "options": [
+    {
+     "id": "A",
+     "text": "None, since you work what converts until it stops"
+    },
+    {
+     "id": "B",
+     "text": "The list gets flagged as a duplicate in HubSpot"
+    },
+    {
+     "id": "C",
+     "text": "The AEs end up with too many Pilates demos"
+    },
+    {
+     "id": "D",
+     "text": "New and Recycled go untouched and the Book stalls"
+    }
+   ],
+   "correct": "D",
+   "reveal": "One list always runs dry eventually. While you're working it, New and Recycled sit untouched and Attempting leads slip into Nurture. When the good list stops converting, there's nothing pre-vetted behind it, and your meetings drop for weeks while you rebuild. A diversified pipeline keeps meetings coming in a slow week.",
+   "review": "day-3",
+   "source": "Day 3, \"Not every lead deserves attention today\" and \"A Book is never finished\""
+  },
+  {
+   "id": "F2-C8",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "The half you skipped",
+   "prompt": "You chose \"call first\" this morning and dialed until 2 pm. What do you still owe before the day ends?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Nothing, since you've cleared the dial floor"
+    },
+    {
+     "id": "B",
+     "text": "A written recap of the day for your manager"
+    },
+    {
+     "id": "C",
+     "text": "Pre-vetting, the half you skipped this morning"
+    },
+    {
+     "id": "D",
+     "text": "A new static list ready for tomorrow"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "day-3",
+   "source": "Day 3, \"Who do I work first?\" (step 6)"
+  },
+  {
+   "id": "F2-D1",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "Where codes live",
+   "prompt": "Where do your codes go so HubSpot can pull them into a list?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The Lead Status field"
+    },
+    {
+     "id": "B",
+     "text": "SDR Additional Notes"
+    },
+    {
+     "id": "C",
+     "text": "A task on the record"
+    },
+    {
+     "id": "D",
+     "text": "The activity timeline"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "day-3",
+   "source": "Day 3, \"Why we code\""
+  },
+  {
+   "id": "F2-D2",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "AFH",
+   "prompt": "What makes a lead AFH?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Timing: they're in market or asked for a callback"
+    },
+    {
+     "id": "B",
+     "text": "Fit: they clear every parameter in Priority 1"
+    },
+    {
+     "id": "C",
+     "text": "Size: they run more than 20 weekly classes"
+    },
+    {
+     "id": "D",
+     "text": "Software: they're on a platform we beat easily"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "day-3",
+   "source": "Day 3, \"Choosing the right code\""
+  },
+  {
+   "id": "F2-D3",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "AF1 or AF2?",
+   "prompt": "A dance studio hits every parameter: 10 weekly in-person classes, enough bookable staff, owner on LinkedIn, working website. Which code?",
+   "options": [
+    {
+     "id": "A",
+     "text": "AF1, since it hits every single box"
+    },
+    {
+     "id": "B",
+     "text": "AFH, since it's ready to dial straight away"
+    },
+    {
+     "id": "C",
+     "text": "AFU, since it could be a better fit later on"
+    },
+    {
+     "id": "D",
+     "text": "AF2, since dance is a Priority 2 vertical"
+    }
+   ],
+   "correct": "A",
+   "reveal": "AF1 means the account hits every single box. AF2 means it's slightly off on one, like enough classes but not enough staff. The vertical doesn't change the code.",
+   "review": "day-3",
+   "source": "Day 3, \"Choosing the right code\""
+  },
+  {
+   "id": "F2-D4",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "When to use AFU",
+   "prompt": "A yoga studio opened three months ago and runs 4 weekly classes. The owner posts about adding classes as they grow. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Code it AF2, since it's close enough to dial now"
+    },
+    {
+     "id": "B",
+     "text": "Mark it Dead so it's out of your pool for good"
+    },
+    {
+     "id": "C",
+     "text": "Code it AFU, since it misses now but could fit later"
+    },
+    {
+     "id": "D",
+     "text": "Leave it uncoded, since it doesn't qualify just yet"
+    }
+   ],
+   "correct": "C",
+   "reveal": "AFU isn't a write-off. It marks an account that doesn't hit parameters today but could become a fit down the line, so you can find it again when it does.",
+   "review": "day-3",
+   "source": "Day 3, \"Choosing the right code\" (AFU as updated)"
+  },
+  {
+   "id": "F2-D5",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "Active vs. static",
+   "prompt": "Which kind of list updates itself as records meet or stop meeting its criteria?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A static list"
+    },
+    {
+     "id": "B",
+     "text": "An active list"
+    },
+    {
+     "id": "C",
+     "text": "A sequence"
+    },
+    {
+     "id": "D",
+     "text": "A saved task queue"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "day-3",
+   "source": "Day 3, \"Why we segment\""
+  },
+  {
+   "id": "F2-D6",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "The Monday list",
+   "prompt": "On Monday you build a static list of Attempting leads to work all week. By Wednesday, what's the problem?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Some leads have changed status and no longer belong"
+    },
+    {
+     "id": "B",
+     "text": "It can't be edited, so you can't add new leads"
+    },
+    {
+     "id": "C",
+     "text": "It has doubled in size from new HubSpot imports"
+    },
+    {
+     "id": "D",
+     "text": "Static lists can't be loaded into an Orum session"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Standing views you come back to daily should be active lists. Static lists are for a batch you plan to finish, like today's call list.",
+   "review": "day-3",
+   "source": "Day 3, \"Why we segment\""
+  },
+  {
+   "id": "F2-D7",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "Lists have jobs",
+   "prompt": "You want to clear out accounts that don't belong in your Book. Which filters fit that job?",
+   "options": [
+    {
+     "id": "A",
+     "text": "New and Recycled, filtered by vertical and reviews"
+    },
+    {
+     "id": "B",
+     "text": "Attempting, filtered by your code and last activity"
+    },
+    {
+     "id": "C",
+     "text": "Recycled, filtered by past connects and software"
+    },
+    {
+     "id": "D",
+     "text": "Open statuses, filtered for non-ICP vertical or software"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "day-3",
+   "source": "Day 3, \"From Book of Business to a list you can finish\" (Job 03)"
+  },
+  {
+   "id": "F2-D8",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Half a note",
+   "prompt": "You finish pre-vetting and add AF1 to SDR Additional Notes, and nothing else. What's missing?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Nothing, since the code is what makes it filterable"
+    },
+    {
+     "id": "B",
+     "text": "A task reminding you to dial it tomorrow morning"
+    },
+    {
+     "id": "C",
+     "text": "What you found: who to ask for and what to open with"
+    },
+    {
+     "id": "D",
+     "text": "A static list entry so you can find it again"
+    }
+   ],
+   "correct": "C",
+   "reveal": "The code is how you find the account again. The information is what you say when you get them on the phone, and it pops up in Orum while you dial. A note with one and not the other is half a job.",
+   "review": "day-4",
+   "source": "Day 4, \"The framework you've been using\" (step 5)"
+  },
+  {
+   "id": "F2-E1",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "The four decisions",
+   "prompt": "Good pre-vetting answers four questions. Which set is right?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Is it ICP? Is it Priority 1? Is it open? Is it on MindBody?"
+    },
+    {
+     "id": "B",
+     "text": "Worth calling? Who to call? What to know? How to approach?"
+    },
+    {
+     "id": "C",
+     "text": "What vertical? How many classes? How many staff? What software?"
+    },
+    {
+     "id": "D",
+     "text": "Who owns it? What's revenue? How old is it? Who are competitors?"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "day-4",
+   "source": "Day 4, \"What good pre-vetting looks like\""
+  },
+  {
+   "id": "F2-E2",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "The research filter",
+   "prompt": "What's the one question to ask of any piece of research?",
+   "options": [
+    {
+     "id": "A",
+     "text": "What does this change about how I approach them?"
+    },
+    {
+     "id": "B",
+     "text": "Would the AE want to know this before the demo?"
+    },
+    {
+     "id": "C",
+     "text": "Is this from the business's own website or not?"
+    },
+    {
+     "id": "D",
+     "text": "How long did this take me to find and confirm?"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "day-4",
+   "source": "Day 4, \"Research that actually matters\""
+  },
+  {
+   "id": "F2-E3",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Too much",
+   "prompt": "You've spent 20 minutes on a studio you were always going to call. What's the right move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Keep going until you find the owner's mobile"
+    },
+    {
+     "id": "B",
+     "text": "Park it and come back when you have more time"
+    },
+    {
+     "id": "C",
+     "text": "Ask your manager to double-check your research"
+    },
+    {
+     "id": "D",
+     "text": "Write the note with what you have and move on"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "day-4",
+   "source": "Day 4, \"Accuracy vs. speed\""
+  },
+  {
+   "id": "F2-E4",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Nice to know",
+   "prompt": "While pre-vetting, you find the studio has 12,000 Instagram followers. It doesn't change fit, who you call or your opener. What do you do with it?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Put it at the top of the note so the AE sees it first"
+    },
+    {
+     "id": "B",
+     "text": "Lead with it as your opener when you get the owner"
+    },
+    {
+     "id": "C",
+     "text": "Leave it out, since it changes nothing about your approach"
+    },
+    {
+     "id": "D",
+     "text": "Code the lead AF1, since that reach signals a strong fit"
+    }
+   ],
+   "correct": "C",
+   "reveal": "If it doesn't change whether you pursue them, who you call or how you open, you didn't need to go looking for it. That's the fastest way to cut research time without losing accuracy.",
+   "review": "day-4",
+   "source": "Day 4, \"Research that actually matters\""
+  },
+  {
+   "id": "F2-E5",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Slightly off",
+   "prompt": "A Pilates studio checks every box but one: it's a little short on staff. Everything else is strong. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Mark it Unqualified, since it misses a parameter"
+    },
+    {
+     "id": "B",
+     "text": "Code it AF2 and keep it in your dial rotation"
+    },
+    {
+     "id": "C",
+     "text": "Leave it uncoded until it hires more staff"
+    },
+    {
+     "id": "D",
+     "text": "Pass it to marketing so they can nurture it"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Spend most of your time on the leads that hit every box, but don't sleep on the ones that are slightly off. They still earn dials.",
+   "review": "day-4",
+   "source": "Day 4, \"Where this usually gets sticky\" (filtering too hard); Day 3 codes"
+  },
+  {
+   "id": "F2-E6",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "A past rejection",
+   "prompt": "Notes show the owner told another SDR \"no\" eight months ago. The lead is now Recycled. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Work it, and use that history to shape your opener"
+    },
+    {
+     "id": "B",
+     "text": "Skip it, since she's already turned us down once"
+    },
+    {
+     "id": "C",
+     "text": "Code it AFU so nobody wastes time on it again"
+    },
+    {
+     "id": "D",
+     "text": "Email only, since she clearly didn't want calls"
+    }
+   ],
+   "correct": "A",
+   "reveal": "A past no, to you or to someone else, isn't a reason to give up. The timing may have changed, and now you know what didn't land last time.",
+   "review": "day-4",
+   "source": "Day 4, \"Where this usually gets sticky\" (writing off a past rejection)"
+  },
+  {
+   "id": "F2-E7",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Getting faster",
+   "prompt": "Your manager says your pre-vetting is slow. What's the best change?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Set a five-minute timer per account and move on when it rings"
+    },
+    {
+     "id": "B",
+     "text": "Skip finding the decision maker and ask for them on the call"
+    },
+    {
+     "id": "C",
+     "text": "Pre-vet only Priority 1 verticals until your speed improves"
+    },
+    {
+     "id": "D",
+     "text": "Know what you're looking for, and stop once the four are answered"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "day-4",
+   "source": "Day 4, \"Accuracy vs. speed\" and takeaway"
+  },
+  {
+   "id": "F2-E8",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Too little",
+   "prompt": "A rep dials straight from an unvetted list to save time. What's most likely to go wrong?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Booking more meetings than the AEs can take"
+    },
+    {
+     "id": "B",
+     "text": "Running through the whole list before lunch"
+    },
+    {
+     "id": "C",
+     "text": "Reaching the wrong person with nothing to say"
+    },
+    {
+     "id": "D",
+     "text": "Starting a duplicate ownership dispute by accident"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "day-4",
+   "source": "Day 4, \"Accuracy vs. speed\""
+  }
+ ]
+}
