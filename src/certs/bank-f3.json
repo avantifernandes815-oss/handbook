@@ -1,0 +1,1166 @@
+{
+ "cert": "F3",
+ "version": 1,
+ "questions": [
+  {
+   "id": "F3-A1",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "The goal",
+   "prompt": "What is a cold call actually for?",
+   "options": [
+    {
+     "id": "A",
+     "text": "To explain how Momence works"
+    },
+    {
+     "id": "B",
+     "text": "To find out their full budget"
+    },
+    {
+     "id": "C",
+     "text": "To earn the next conversation"
+    },
+    {
+     "id": "D",
+     "text": "To show we beat their software"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "day-5",
+   "source": "Day 5, \"What a cold call is actually for\""
+  },
+  {
+   "id": "F3-A2",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Earning fifteen minutes",
+   "prompt": "Which three things earn you the fifteen minutes?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Price, timing and authority"
+    },
+    {
+     "id": "B",
+     "text": "Relevance, interest and curiosity"
+    },
+    {
+     "id": "C",
+     "text": "Rapport, urgency and proof"
+    },
+    {
+     "id": "D",
+     "text": "Features, reviews and pricing"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "day-5",
+   "source": "Day 5, \"What a cold call is actually for\""
+  },
+  {
+   "id": "F3-A3",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "The six moments",
+   "prompt": "In the six moments of a call, what comes right after \"create relevance\"?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Discover"
+    },
+    {
+     "id": "B",
+     "text": "Connect value"
+    },
+    {
+     "id": "C",
+     "text": "Ask for the meeting"
+    },
+    {
+     "id": "D",
+     "text": "Earn attention"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "day-5",
+   "source": "Day 5, \"The anatomy of a great cold call\""
+  },
+  {
+   "id": "F3-A4",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Where the call ends",
+   "prompt": "Which of these belongs to Day 8, not to the cold call itself?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Asking for the meeting directly and simply"
+    },
+    {
+     "id": "B",
+     "text": "Connecting one relevant piece of value"
+    },
+    {
+     "id": "C",
+     "text": "Following the thread the prospect gave you"
+    },
+    {
+     "id": "D",
+     "text": "Confirming the time and the calendar invite"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "day-5",
+   "source": "Day 5, \"Ask for the meeting\" and \"The anatomy of a great cold call\""
+  },
+  {
+   "id": "F3-A5",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "You're not the demo",
+   "prompt": "Two minutes in, the owner asks how Momence handles payments. What's the best move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Walk her through payments, memberships and marketing"
+    },
+    {
+     "id": "B",
+     "text": "Tell her that's a question for the AE and move on"
+    },
+    {
+     "id": "C",
+     "text": "Answer briefly, tie it to her, then work toward the meeting"
+    },
+    {
+     "id": "D",
+     "text": "Email her a full feature sheet while you're still talking"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Answering is fine. Answering everything is the AE's job. One relevant thing, then move toward the meeting.",
+   "review": "day-5",
+   "source": "Day 5, \"Connect the problem to value\" and \"Pitch in the conversation, not at them\""
+  },
+  {
+   "id": "F3-A6",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Never leave with nothing",
+   "prompt": "The owner is driving. She says she can't talk but asks you to call Thursday at 3. How did the call go?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A failure, since no meeting was booked today"
+    },
+    {
+     "id": "B",
+     "text": "A real outcome: you left with a callback time"
+    },
+    {
+     "id": "C",
+     "text": "Fine, but you should have pitched while you had her"
+    },
+    {
+     "id": "D",
+     "text": "Wasted, since it never reached discovery"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Some calls end at stage two, and that's a real outcome. A meeting, a name or a callback time, never nothing. And a callback is far more likely to book than a cold dial.",
+   "review": "day-5",
+   "source": "Day 5, \"The full call flow\""
+  },
+  {
+   "id": "F3-A7",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Where am I?",
+   "prompt": "She's described a problem and is now asking how other studios handle it. Where are you, and what's next?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Past value, so ask for the meeting now"
+    },
+    {
+     "id": "B",
+     "text": "Still in discovery, so ask three more questions"
+    },
+    {
+     "id": "C",
+     "text": "Back at the open, so re-introduce yourself"
+    },
+    {
+     "id": "D",
+     "text": "In the pitch, so cover the rest of the platform"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "day-5",
+   "source": "Day 5, \"The full call flow\" and \"When you've earned the ask\""
+  },
+  {
+   "id": "F3-A8",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Selling the wrong thing",
+   "prompt": "A teammate says: \"My calls go great. I explain everything Momence does and they say it sounds cool.\" No meetings. Best coaching?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Explain it faster so there's time left to ask"
+    },
+    {
+     "id": "B",
+     "text": "Add pricing so they can decide while on the call"
+    },
+    {
+     "id": "C",
+     "text": "Send an email first so they know it before you call"
+    },
+    {
+     "id": "D",
+     "text": "Stop selling the product and start selling the meeting"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "day-5",
+   "source": "Day 5, \"You're not selling Momence. You're selling the meeting.\""
+  },
+  {
+   "id": "F3-B1",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "The first ten seconds",
+   "prompt": "Which four things should be true in the first ten seconds?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Say your name, title, company and the price range"
+    },
+    {
+     "id": "B",
+     "text": "Smile, slow down, give the pitch, then ask a question"
+    },
+    {
+     "id": "C",
+     "text": "Sound human, be clear, earn attention, get permission"
+    },
+    {
+     "id": "D",
+     "text": "Build rapport, find pain, show proof, close the call"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "day-5",
+   "source": "Day 5, \"The first ten seconds\""
+  },
+  {
+   "id": "F3-B2",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Reading who answered",
+   "prompt": "The owner picks up sharply: \"Yeah? Who is this?\" Which opener fits?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Friendly: build rapport with small talk first"
+    },
+    {
+     "id": "B",
+     "text": "Permission-based: get to the point fast"
+    },
+    {
+     "id": "C",
+     "text": "Discovery: ask about the whole schedule first"
+    },
+    {
+     "id": "D",
+     "text": "Pitch: lead with the full platform right away"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "day-5",
+   "source": "Day 5, \"The first ten seconds\""
+  },
+  {
+   "id": "F3-B3",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "A relaxed pickup",
+   "prompt": "The person who answers sounds relaxed and happy to chat. Which opener fits?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Friendly: match her energy, then get to why you called"
+    },
+    {
+     "id": "B",
+     "text": "Permission-based: skip the chat and ask for the meeting"
+    },
+    {
+     "id": "C",
+     "text": "Pitch: she's open, so cover the platform while you can"
+    },
+    {
+     "id": "D",
+     "text": "Discovery: run through every question you prepared"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "day-5",
+   "source": "Day 5, \"The first ten seconds\""
+  },
+  {
+   "id": "F3-B4",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "The gatekeeper's job",
+   "prompt": "What's a gatekeeper's job, as Day 5 puts it?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Booking software demos for the owner"
+    },
+    {
+     "id": "B",
+     "text": "Screening out obvious spam calls only"
+    },
+    {
+     "id": "C",
+     "text": "Deciding which software the studio buys"
+    },
+    {
+     "id": "D",
+     "text": "Keeping you away from the decision maker"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "day-5",
+   "source": "Day 5, \"Getting past the gatekeeper\""
+  },
+  {
+   "id": "F3-B5",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "What's this regarding?",
+   "prompt": "The front desk asks: \"What's this regarding?\" What's the best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Give the full pitch so they can pass it along"
+    },
+    {
+     "id": "B",
+     "text": "Say it's a personal call so they put you through"
+    },
+    {
+     "id": "C",
+     "text": "Answer briefly, then ask for the owner by name"
+    },
+    {
+     "id": "D",
+     "text": "Ask them about their pain points to warm them up"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "day-5",
+   "source": "Day 5, \"Getting past the gatekeeper\""
+  },
+  {
+   "id": "F3-B6",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Gatekeeper or owner?",
+   "prompt": "The person asking \"what's this regarding?\" knows the class schedule and current software in detail. What does that tell you?",
+   "options": [
+    {
+     "id": "A",
+     "text": "They're a gatekeeper testing how much you know"
+    },
+    {
+     "id": "B",
+     "text": "You may already be talking to the decision maker"
+    },
+    {
+     "id": "C",
+     "text": "They want you to send an email instead of calling"
+    },
+    {
+     "id": "D",
+     "text": "They're about to end the call, so pitch quickly"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Some decision makers pretend to be gatekeepers. How much they know, and how much they're willing to share, gives it away.",
+   "review": "day-5",
+   "source": "Day 5, \"Getting past the gatekeeper\""
+  },
+  {
+   "id": "F3-B7",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Creating relevance",
+   "prompt": "Your note says: Pilates, 14 weekly classes, one location, on MindBody. Which line creates relevance?",
+   "options": [
+    {
+     "id": "A",
+     "text": "We help a lot of Pilates studios fill classes. Is that on your mind?"
+    },
+    {
+     "id": "B",
+     "text": "Momence is an all-in-one platform for wellness businesses like you."
+    },
+    {
+     "id": "C",
+     "text": "Are you the owner, and do you have five minutes to hear about us?"
+    },
+    {
+     "id": "D",
+     "text": "I see you're on MindBody. Have you ever thought about switching?"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "day-5",
+   "source": "Day 5, \"Where your pre-vetting shows up\""
+  },
+  {
+   "id": "F3-B8",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "When research pays off",
+   "prompt": "According to Day 5, research only becomes valuable when it does what?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Gets written into the AE handoff note in full"
+    },
+    {
+     "id": "B",
+     "text": "Covers every page of the business's website"
+    },
+    {
+     "id": "C",
+     "text": "Confirms the owner's LinkedIn profile is current"
+    },
+    {
+     "id": "D",
+     "text": "Changes what you say in the first thirty seconds"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "day-5",
+   "source": "Day 5, \"Where your pre-vetting shows up\""
+  },
+  {
+   "id": "F3-C1",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Opening up discovery",
+   "prompt": "Which question is designed to get the prospect talking first?",
+   "options": [
+    {
+     "id": "A",
+     "text": "What's frustrating about your software?"
+    },
+    {
+     "id": "B",
+     "text": "How much are you paying each month?"
+    },
+    {
+     "id": "C",
+     "text": "What are two things you love about it?"
+    },
+    {
+     "id": "D",
+     "text": "Who makes the buying decisions there?"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "day-5",
+   "source": "Day 5, \"Discovery, not interrogation\""
+  },
+  {
+   "id": "F3-C2",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Follow the thread",
+   "prompt": "The prospect says: \"Honestly, scheduling's fine. It's the late cancellations that hurt.\" What do you say next?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Great. And how many instructors do you have?"
+    },
+    {
+     "id": "B",
+     "text": "How often does that happen, and what do you do now?"
+    },
+    {
+     "id": "C",
+     "text": "Our scheduling tools would make that even easier."
+    },
+    {
+     "id": "D",
+     "text": "Got it. Can we set up a demo Thursday at 10?"
+    }
+   ],
+   "correct": "B",
+   "reveal": "That's the thread: not scheduling, late cancellations. The answer was the next question. Most reps go to their next planned question and throw it away.",
+   "review": "day-5",
+   "source": "Day 5, \"Listen for the thread\""
+  },
+  {
+   "id": "F3-C3",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Connecting value",
+   "prompt": "The owner says no-shows are killing them. What's the best way to connect value?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Name one thing: reminders that cut no-shows"
+    },
+    {
+     "id": "B",
+     "text": "Run through the platform so she sees all of it"
+    },
+    {
+     "id": "C",
+     "text": "Quote how much revenue studios recover with us"
+    },
+    {
+     "id": "D",
+     "text": "Explain why her current software causes no-shows"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "day-5",
+   "source": "Day 5, \"Connect the problem to value\"; Day 6, no numbers on value"
+  },
+  {
+   "id": "F3-C4",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "What owners care about",
+   "prompt": "Which three things does Day 5 say our owners care about?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Lower price, shorter contracts, faster setup"
+    },
+    {
+     "id": "B",
+     "text": "Better branding, a client app, more integrations"
+    },
+    {
+     "id": "C",
+     "text": "More reviews, more referrals, more awards"
+    },
+    {
+     "id": "D",
+     "text": "Fewer headaches, better retention, more revenue"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "day-5",
+   "source": "Day 5, \"Connect the problem to value\""
+  },
+  {
+   "id": "F3-C5",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Earning the ask",
+   "prompt": "She told you what isn't working and asked how other studios handle it. What else do you need before you ask for the meeting?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Her agreement that Momence is better"
+    },
+    {
+     "id": "B",
+     "text": "A price she's comfortable paying"
+    },
+    {
+     "id": "C",
+     "text": "Nothing more. You've earned it, so ask"
+    },
+    {
+     "id": "D",
+     "text": "Answers to all your discovery questions"
+    }
+   ],
+   "correct": "C",
+   "reveal": "The bar is low on purpose: something isn't working, she engaged, and there's one reason for a second conversation. She doesn't need to be sold or know the price.",
+   "review": "day-5",
+   "source": "Day 5, \"When you've earned the ask\""
+  },
+  {
+   "id": "F3-C6",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "How to ask",
+   "prompt": "Which ask follows Day 5?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Would you maybe want to find some time to chat?"
+    },
+    {
+     "id": "B",
+     "text": "Let's set aside time Thursday at 10. Does that work?"
+    },
+    {
+     "id": "C",
+     "text": "How does your schedule look over the next while?"
+    },
+    {
+     "id": "D",
+     "text": "I'll send a link so you can pick any time you like."
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "day-5",
+   "source": "Day 5, \"Direct. Confident. Simple.\""
+  },
+  {
+   "id": "F3-C7",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Stop selling",
+   "prompt": "The owner says: \"Sure, I'd be open to seeing it.\" What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Lock in a specific time right away"
+    },
+    {
+     "id": "B",
+     "text": "Share two more features so she's sure"
+    },
+    {
+     "id": "C",
+     "text": "Ask a few more discovery questions"
+    },
+    {
+     "id": "D",
+     "text": "Explain pricing so there are no surprises"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "day-5",
+   "source": "Day 5, \"When you've earned the ask\""
+  },
+  {
+   "id": "F3-C8",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Responding, not reciting",
+   "prompt": "A good pitch on a cold call ends by doing what?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Listing the features that fit their business"
+    },
+    {
+     "id": "B",
+     "text": "Giving a price range for a studio their size"
+    },
+    {
+     "id": "C",
+     "text": "Pausing so they have time to think it over"
+    },
+    {
+     "id": "D",
+     "text": "Handing it back to them with a question"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "day-5",
+   "source": "Day 5, \"Pitch in the conversation, not at them\""
+  },
+  {
+   "id": "F3-D1",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "The framework",
+   "prompt": "What's the order of the Momence objection framework?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Disarm, Acknowledge, Ask, Add Value"
+    },
+    {
+     "id": "B",
+     "text": "Acknowledge, Add Value, Disarm, Ask"
+    },
+    {
+     "id": "C",
+     "text": "Acknowledge, Disarm, Add Value, Ask"
+    },
+    {
+     "id": "D",
+     "text": "Ask, Acknowledge, Add Value, Disarm"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "day-6",
+   "source": "Day 6, \"Acknowledge → Disarm → Add Value → Ask\""
+  },
+  {
+   "id": "F3-D2",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "Brush-off or objection?",
+   "prompt": "Which of these is a brush-off rather than a real objection?",
+   "options": [
+    {
+     "id": "A",
+     "text": "\"It's too expensive for us.\""
+    },
+    {
+     "id": "B",
+     "text": "\"Just send me some info for now.\""
+    },
+    {
+     "id": "C",
+     "text": "\"Our last migration was a nightmare.\""
+    },
+    {
+     "id": "D",
+     "text": "\"We don't have the bandwidth to switch.\""
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "day-6",
+   "source": "Day 6, \"Not every \\\"no\\\" is the same\""
+  },
+  {
+   "id": "F3-D3",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Reading a brush-off",
+   "prompt": "The owner says: \"Not a priority right now.\" What is that telling you?",
+   "options": [
+    {
+     "id": "A",
+     "text": "You haven't earned attention yet, so earn it first"
+    },
+    {
+     "id": "B",
+     "text": "She has a real concern, so answer it with features"
+    },
+    {
+     "id": "C",
+     "text": "She means no, so log it as Dead and move on to the next"
+    },
+    {
+     "id": "D",
+     "text": "She wants a callback, so book one for three months out"
+    }
+   ],
+   "correct": "A",
+   "reveal": "A brush-off tells you nothing about the offer, only that you haven't earned attention yet. An objection means answering the thing they raised. They're not the same move.",
+   "review": "day-6",
+   "source": "Day 6, \"Not every \\\"no\\\" is the same\""
+  },
+  {
+   "id": "F3-D4",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "What disarming does",
+   "prompt": "What is the Disarm step for?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Proving their current software is the weaker one"
+    },
+    {
+     "id": "B",
+     "text": "Getting them to commit to a meeting on the spot"
+    },
+    {
+     "id": "C",
+     "text": "Finding out who really makes the buying decision"
+    },
+    {
+     "id": "D",
+     "text": "Lowering the guard they answered the phone with"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "day-6",
+   "source": "Day 6, \"Break the buyer script\""
+  },
+  {
+   "id": "F3-D5",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Happy with what they have",
+   "prompt": "The prospect says: \"We're happy with our current software.\" What's the best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Are you sure? A lot of studios find their software holds them back over time."
+    },
+    {
+     "id": "B",
+     "text": "Okay, no worries at all. I'll send over an email with some info for you."
+    },
+    {
+     "id": "C",
+     "text": "Glad it's working. I'm not here to uproot it. How much admin sits on top of it?"
+    },
+    {
+     "id": "D",
+     "text": "Most studios on that platform end up switching to us, so it's worth a look."
+    }
+   ],
+   "correct": "C",
+   "reveal": "Acknowledge, disarm, add value, ask, in about eight seconds. You're not trying to prove them wrong. You're reopening the conversation.",
+   "review": "day-6",
+   "source": "Day 6, \"How it sounds as one conversation\" and \"Redirect, don't debate\""
+  },
+  {
+   "id": "F3-D6",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Bad timing",
+   "prompt": "The owner says: \"Bad timing. We're slammed this month.\" What's the best move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "No problem at all. I'll set you to Nurture and try you again in a few months."
+    },
+    {
+     "id": "B",
+     "text": "Totally fair. Busy months are when admin bites. Is that where the time goes?"
+    },
+    {
+     "id": "C",
+     "text": "I'll only take two minutes, I promise. Just hear me out on this one thing."
+    },
+    {
+     "id": "D",
+     "text": "That's exactly why you need Momence. Let me explain how it saves you time."
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "day-6",
+   "source": "Day 6, framework steps; \"Redirect, don't debate\""
+  },
+  {
+   "id": "F3-D7",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Don't leave it hanging",
+   "prompt": "You acknowledge, disarm and add value, then stop talking. What usually happens next?",
+   "options": [
+    {
+     "id": "A",
+     "text": "They fill the silence with \"just send me something\""
+    },
+    {
+     "id": "B",
+     "text": "They ask you to set up a meeting with the owner"
+    },
+    {
+     "id": "C",
+     "text": "They ask what Momence costs for a studio like theirs"
+    },
+    {
+     "id": "D",
+     "text": "They hand you over to someone who can decide"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "day-6",
+   "source": "Day 6, \"Give the conversation somewhere to go\""
+  },
+  {
+   "id": "F3-D8",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Keep going or stop?",
+   "prompt": "The owner says: \"We tried switching last year and it fell apart,\" then keeps talking about what went wrong. Keep going or stop?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Stop: a failed switch means she'll never move"
+    },
+    {
+     "id": "B",
+     "text": "Stop: two objections means it's time to move on"
+    },
+    {
+     "id": "C",
+     "text": "Keep going, and push hard for the meeting now"
+    },
+    {
+     "id": "D",
+     "text": "Keep going: she gave a reason, not a refusal"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "day-6",
+   "source": "Day 6, \"Know when to keep going\""
+  },
+  {
+   "id": "F3-D9",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "Two ways to add value",
+   "prompt": "What are the two ways to add value in the framework?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Share a statistic, or tell a story about a similar studio"
+    },
+    {
+     "id": "B",
+     "text": "Offer a discount, or offer a free trial of the software"
+    },
+    {
+     "id": "C",
+     "text": "Ask a question about the value, or give the reason you called"
+    },
+    {
+     "id": "D",
+     "text": "Compare features, or compare the price against theirs"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "day-6",
+   "source": "Day 6, \"Give them a reason to keep going\""
+  },
+  {
+   "id": "F3-D10",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Same objection, different call",
+   "prompt": "\"Our software works just fine.\" Earlier in the call she mentioned she just hired a second instructor. What value do you add?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The admin that sits on top of her class scheduling"
+    },
+    {
+     "id": "B",
+     "text": "Managing more staff and more schedules as she grows"
+    },
+    {
+     "id": "C",
+     "text": "A quick rundown of everything the platform does"
+    },
+    {
+     "id": "D",
+     "text": "How much less she'd pay on Momence each month"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Acknowledge and disarm barely change from call to call. Value and the ask change completely, because that's where your pre-vetting and your listening show up.",
+   "review": "day-6",
+   "source": "Day 6, \"The framework holds. The words don't.\""
+  },
+  {
+   "id": "F3-E1",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Parallel or power",
+   "prompt": "What is parallel dialing for?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Cold, unworked leads only"
+    },
+    {
+     "id": "B",
+     "text": "Warm leads and callbacks"
+    },
+    {
+     "id": "C",
+     "text": "Hot leads who asked for a call"
+    },
+    {
+     "id": "D",
+     "text": "Any lead with a mobile number"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "day-7",
+   "source": "Day 7, \"Let the reason pick the action\""
+  },
+  {
+   "id": "F3-E2",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Few connects",
+   "prompt": "You're making plenty of dials but reaching very few people. What do you look at first?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Your opener and your first ten seconds"
+    },
+    {
+     "id": "B",
+     "text": "Your discovery questions and the thread"
+    },
+    {
+     "id": "C",
+     "text": "How you're asking for the meeting"
+    },
+    {
+     "id": "D",
+     "text": "Contact data, call timing and number type"
+    }
+   ],
+   "correct": "D",
+   "reveal": "The number tells you where to look, never why. Before you add volume, check whether you're reaching the right people, with good data, at the right times.",
+   "review": "day-7",
+   "source": "Day 7, \"Diagnose the conversion point first\""
+  },
+  {
+   "id": "F3-E3",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Quick hang-ups",
+   "prompt": "You connect often, but most people hang up within seconds. Where do you look?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Your contact data and calling times"
+    },
+    {
+     "id": "B",
+     "text": "Your discovery and objection handling"
+    },
+    {
+     "id": "C",
+     "text": "Your opener and your first ten seconds"
+    },
+    {
+     "id": "D",
+     "text": "Your daily dial volume and list size"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "day-7",
+   "source": "Day 7, \"Diagnose the conversion point first\""
+  },
+  {
+   "id": "F3-E4",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Talks, no meetings",
+   "prompt": "You have plenty of conversations, but few become meetings. What do you review?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Contact data, call timing and number type"
+    },
+    {
+     "id": "B",
+     "text": "Relevance, discovery, objections and the ask"
+    },
+    {
+     "id": "C",
+     "text": "Your dial volume and how many lists you run"
+    },
+    {
+     "id": "D",
+     "text": "Which hours of the day you open Orum"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "day-7",
+   "source": "Day 7, \"Diagnose the conversion point first\" and \"Adjust before you add\""
+  },
+  {
+   "id": "F3-E5",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Orum's job",
+   "prompt": "In the daily loop, what is Orum's job?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Executing the strategy you already chose"
+    },
+    {
+     "id": "B",
+     "text": "Choosing which leads you work each day"
+    },
+    {
+     "id": "C",
+     "text": "Building your segments from your Book"
+    },
+    {
+     "id": "D",
+     "text": "Writing your notes after every call"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "day-7",
+   "source": "Day 7, \"Orum executes the strategy. It doesn't create it.\""
+  },
+  {
+   "id": "F3-E6",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "A warm callback",
+   "prompt": "A prospect asked you to call back this afternoon. How should that call go out?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Parallel dial it with your cold list"
+    },
+    {
+     "id": "B",
+     "text": "Add her to an email sequence instead"
+    },
+    {
+     "id": "C",
+     "text": "Wait and let her call you back first"
+    },
+    {
+     "id": "D",
+     "text": "Power dial it, since she's warm"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "day-7",
+   "source": "Day 7, \"Let the reason pick the action\""
+  }
+ ]
+}
