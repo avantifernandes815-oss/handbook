@@ -15,7 +15,7 @@
 .card-box dt{font-weight:700;color:var(--body)}.card-box dd{margin:0}
 .lead-box{background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:18px 20px}
 .lead-box .k{font-size:10px;letter-spacing:1px;font-weight:700;color:var(--sub)}
-.small-btn{min-height:36px;padding:0 12px;border-radius:9px;background:#fff;color:var(--purple);border:1px solid #d9d0fb;font-size:12px;font-weight:700;font-family:inherit;cursor:pointer}
+.small-btn{white-space:nowrap;flex:0 0 auto;min-height:36px;padding:0 12px;border-radius:9px;background:#fff;color:var(--purple);border:1px solid #d9d0fb;font-size:12px;font-weight:700;font-family:inherit;cursor:pointer}
 @media (max-width:700px){.two{grid-template-columns:1fr}}
 </style>
 </head>
@@ -57,7 +57,7 @@ function lead(cur) {
     (cur.link && /^https?:\/\//.test(cur.link) ? '<a href="' + esc(cur.link) + '" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:10px;font-size:13px;font-weight:700;text-decoration:none">Open HubSpot record and note →</a>' : '') + '</div>';
 }
 function card(c, canHide) {
-  return '<div class="card-box"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><div class="k">YOUR HIDDEN CARD · ' + esc(S.rep.name).toUpperCase() + ' CAN’T SEE THIS</div>' + (canHide ? '<button class="small-btn" id="tog" aria-expanded="' + cardOpen + '">' + (cardOpen ? 'Hide card' : 'Show card') + '</button>' : '') + '</div>' +
+  return '<div class="card-box"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><div class="k">YOUR HIDDEN CARD · THE REP CAN’T SEE THIS</div>' + (canHide ? '<button class="small-btn" id="tog" aria-expanded="' + cardOpen + '">' + (cardOpen ? 'Hide card' : 'Show card') + '</button>' : '') + '</div>' +
     '<div style="font-size:16px;font-weight:700;margin:6px 0 4px">' + esc(c.title) + '</div>' +
     (cardOpen || !canHide ? '<dl><dt>You answer</dt><dd>' + esc(c.answer) + '</dd><dt>Brush-off</dt><dd>' + esc(c.brushoff) + '</dd><dt>The thread</dt><dd>' + esc(c.thread) + ' Drop it once, only if asked a real question.</dd><dt>Real objection</dt><dd>' + esc(c.objection) + '</dd><dt>Say yes when</dt><dd>' + esc(c.yes) + '</dd></dl>' : '') + '</div>';
 }
