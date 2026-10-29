@@ -101,13 +101,13 @@ async function rules() {
   document.getElementById('htitle').textContent = c.id + ' Quiz';
   let block = '';
   if (c.status !== 'active') block = 'This certification isn’t open yet.';
-  else if (p.quizPassed || p.status === 'passed') block = p.hasPractical ? 'You’ve already passed this quiz. Next up is the written practical.' : 'You’ve already passed this certification. Nice work.';
+  else if (p.quizPassed || p.status === 'passed') block = p.hasPractical ? 'You’ve already passed this quiz. Next up is ' + (p.next === 'roleplay' ? 'your live roleplay.' : 'the written practical.') : 'You’ve already passed this certification. Nice work.';
   else if (p.attemptsUsed >= p.maxAttempts) block = 'You’ve used all your attempts. Your manager will talk with you about next steps.';
   else if (!p.retakeUnlocked) block = 'Your retake opens after a coaching session with your manager. They’ll unlock it for you.';
   else if (p.lockedUntil && !state.openAttempt) block = 'You left the quiz twice, so your last attempt ended. A fresh attempt opens '+fmtTime(p.lockedUntil)+'.';
   const attemptLabel = state.openAttempt ? 'IN PROGRESS' : 'ATTEMPT ' + (p.attemptsUsed + 1);
   app.innerHTML = '<div class="card narrow" style="margin:0 auto"><div class="tag">'+esc(c.id)+' · QUIZ · '+attemptLabel+'</div><h1>'+esc(c.name)+'</h1>' +
-    (block ? '<p class="lead">'+esc(block)+'</p>'+(p.hasPractical && p.quizPassed ? '<a class="btn" href="/practical/'+cert+'">Go to the written practical</a>' : back()) :
+    (block ? '<p class="lead">'+esc(block)+'</p>'+(p.hasPractical && p.quizPassed ? '<a class="btn" href="/'+p.next+'/'+cert+'">'+(p.next === 'roleplay' ? 'Go to your roleplay' : 'Go to the written practical')+'</a>' : back()) :
     '<p class="lead">'+(state.openAttempt ? 'You have a quiz in progress. The clock kept running while you were away.' : 'Read these before you start. Once the quiz begins, the clock doesn’t stop.')+'</p>' +
     '<div class="rules">' +
       '<div class="rule"><div class="ic">'+svg.clock+'</div><div><b>'+c.questions+' questions, '+c.seconds+' seconds each</b><span>If time runs out, the question is marked wrong and the next one loads.</span></div></div>' +
@@ -200,10 +200,10 @@ async function finish(data) {
   document.getElementById('htitle').textContent = r.certId + ' Quiz · Result';
   app.innerHTML = '<div class="stack narrow" style="margin:0 auto">' +
     '<section class="card hero '+(pass?'ok':'no')+'"><div class="badge">'+(pass ? svg.check.replace(/18/g,'40') : svg.book)+'</div><div class="k">'+(pass ? r.certId + (r.hasPractical ? ' QUIZ PASSED' : ' PASSED') : 'NOT QUITE YET')+'</div><h1>'+r.correct+' of '+r.total+' · '+pct+'%</h1><p class="lead" style="margin:0">Pass mark '+Math.round(r.passMark*100)+'% · Attempt '+r.attemptNo+'</p></section>' +
-    (pass ? (r.hasPractical ? '<section class="panel"><h2>Next: the written practical</h2><p class="sub" style="margin:0">Build three lists from your Book and make the case for one prospect from each. It’s due Day 10, and you’ll walk your manager through it live.</p></section>' : '') : '<section class="panel"><h2>What happens next</h2><ol><li>Your manager will set up a quick coaching session with you.</li><li>After that, they’ll unlock your retake.</li></ol></section>') +
+    (pass ? (r.hasPractical ? (r.next === 'roleplay' ? '<section class="panel"><h2>Next: your live roleplay</h2><p class="sub" style="margin:0">Pick a lead you pre-vetted and send it to your manager by the end of Day 7. You’ll cold call it live on Day 8.</p></section>' : '<section class="panel"><h2>Next: the written practical</h2><p class="sub" style="margin:0">Build three lists from your Book and make the case for one prospect from each. It’s due Day 10, and you’ll walk your manager through it live.</p></section>') : '') : '<section class="panel"><h2>What happens next</h2><ol><li>Your manager will set up a quick coaching session with you.</li><li>After that, they’ll unlock your retake.</li></ol></section>') +
     (r.reveals.length ? '<section class="panel"><h2>Worth remembering</h2><p class="sub">Extra context from questions you got right.</p><div class="stack" style="gap:10px">' + r.reveals.map(x => '<div class="reveal"><b>'+esc(x.topic)+'</b>'+(x.question?'<p class="rq">'+esc(x.question)+'</p>':'')+'<div>'+esc(x.text)+'</div></div>').join('') + '</div></section>' : '') +
     (r.review.length ? '<section class="panel"><h2>Topics to review</h2><p class="sub">Here are resources for the questions you missed.</p><div class="stack" style="gap:8px">' + r.review.map(x => '<a class="topic" href="/#page='+encodeURIComponent(x.review)+'"><span>'+esc(x.topic)+'</span><span>'+esc(x.label)+' →</span></a>').join('') + '</div></section>' : '') +
-    (r.hasPractical ? '<a class="btn" href="/practical/'+esc(r.certId)+'">'+(pass ? 'Go to the written practical' : 'Back to '+esc(r.certId))+'</a>' : '<a class="btn" href="/#page=certifications">Back to my certifications</a>') + '</div>';
+    (r.hasPractical ? '<a class="btn" href="/'+esc(r.next)+'/'+esc(r.certId)+'">'+(pass ? (r.next === 'roleplay' ? 'Go to your roleplay' : 'Go to the written practical') : 'Back to '+esc(r.certId))+'</a>' : '<a class="btn" href="/#page=certifications">Back to my certifications</a>') + '</div>';
 }
 
 if (!cert) app.innerHTML = '<p class="center">Quiz not found.</p>'; else rules();

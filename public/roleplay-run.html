@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Run a Roleplay · Momence SDR Handbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&display=swap">
+<link rel="stylesheet" href="/cert-pages.css">
+<style>
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:18px}
+.card-box{background:var(--soft);border-radius:15px;padding:18px 20px}
+.card-box .k{font-size:10px;letter-spacing:1px;font-weight:700;color:var(--purple)}
+.card-box dl{margin:10px 0 0;display:grid;grid-template-columns:110px 1fr;gap:6px 12px;font-size:13px;line-height:1.5}
+.card-box dt{font-weight:700;color:var(--body)}.card-box dd{margin:0}
+.lead-box{background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:18px 20px}
+.lead-box .k{font-size:10px;letter-spacing:1px;font-weight:700;color:var(--sub)}
+.small-btn{min-height:36px;padding:0 12px;border-radius:9px;background:#fff;color:var(--purple);border:1px solid #d9d0fb;font-size:12px;font-weight:700;font-family:inherit;cursor:pointer}
+@media (max-width:700px){.two{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><img src="/momence-logo.svg" alt="Momence"><span class="div"></span><b id="htitle">Run a Roleplay</b></div>
+  <div class="status"><span class="chip go">MANAGER</span><a class="crumb" href="/#page=team">← Team progress</a></div>
+</header>
+<main><div class="wrap wide" id="app"><p class="center">Loading…</p></div></main>
+<script>
+(() => {
+const cert = (location.pathname.match(/^\/roleplay-run\/([A-Z0-9]{1,6})$/) || [])[1];
+const rep = new URLSearchParams(location.search).get('rep') || '';
+const app = document.getElementById('app');
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function api(path, body) {
+  const r = await fetch(path, body ? {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)} : {});
+  const data = await r.json().catch(() => ({}));
+  if (!r.ok) throw Object.assign(new Error(data.message || 'Something went wrong.'), data);
+  return data;
+}
+const WORDS = {1:'1 · Missed', 2:'2 · Developing', 3:'3 · Solid', 4:'4 · Strong'}, WCHIP = {1:'bad', 2:'warn', 3:'ok', 4:'go'};
+let S = null, scores = {}, musts = {}, notes = '', cardOpen = true, busy = false;
+
+async function load() {
+  try { S = await api('/api/roleplay-run/' + cert + '?rep=' + encodeURIComponent(rep)); }
+  catch (e) { app.innerHTML = '<div class="card narrow" style="margin:0 auto"><h1>Can’t open this roleplay</h1><p class="lead">' + esc(e.message) + '</p><a class="btn ghost" href="/#page=team">Back to team progress</a></div>'; return; }
+  document.getElementById('htitle').textContent = S.cert.id + ' · Run a Roleplay';
+  render();
+}
+function top() {
+  const cur = S.current, q = S.quiz;
+  return '<div class="eyebrow">' + esc(S.cert.id + ' · ' + S.cert.name).toUpperCase() + ' · ROLEPLAY</div><h1>' + esc(S.rep.name) + (cur ? ' · Attempt ' + cur.attemptNo : '') + '</h1>' +
+    '<p class="intro">' + (q ? 'Quiz ' + (q.status === 'passed' ? 'passed' : 'not passed yet') + ' at ' + Math.round(q.score * 100) + '%' : 'Quiz not taken yet') + '</p>';
+}
+function lead(cur) {
+  return '<div class="lead-box"><div class="k">THEIR LEAD · SENT ' + new Date(cur.submittedAt).toLocaleDateString([], {weekday:'short', month:'short', day:'numeric'}).toUpperCase() + '</div><div style="font-size:16px;font-weight:700;margin:6px 0 4px">' + esc(cur.business) + '</div><div style="font-size:13px;color:var(--body)">' + esc(cur.code) + ' · ' + esc(cur.leadStatus) + ' · in ' + esc(S.rep.name) + '’s Book</div>' +
+    (cur.note ? '<p style="font-size:13px;color:var(--body);margin:10px 0 0">“' + esc(cur.note) + '”</p>' : '') +
+    (cur.link && /^https?:\/\//.test(cur.link) ? '<a href="' + esc(cur.link) + '" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:10px;font-size:13px;font-weight:700;text-decoration:none">Open HubSpot record and note →</a>' : '') + '</div>';
+}
+function card(c, canHide) {
+  return '<div class="card-box"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><div class="k">YOUR HIDDEN CARD · ' + esc(S.rep.name).toUpperCase() + ' CAN’T SEE THIS</div>' + (canHide ? '<button class="small-btn" id="tog" aria-expanded="' + cardOpen + '">' + (cardOpen ? 'Hide card' : 'Show card') + '</button>' : '') + '</div>' +
+    '<div style="font-size:16px;font-weight:700;margin:6px 0 4px">' + esc(c.title) + '</div>' +
+    (cardOpen || !canHide ? '<dl><dt>You answer</dt><dd>' + esc(c.answer) + '</dd><dt>Brush-off</dt><dd>' + esc(c.brushoff) + '</dd><dt>The thread</dt><dd>' + esc(c.thread) + ' Drop it once, only if asked a real question.</dd><dt>Real objection</dt><dd>' + esc(c.objection) + '</dd><dt>Say yes when</dt><dd>' + esc(c.yes) + '</dd></dl>' : '') + '</div>';
+}
+function render() {
+  const cur = S.current, st = cur?.status;
+  if (!cur) { app.innerHTML = top() + '<div class="panel"><h2>No lead yet</h2><p class="sub">' + esc(S.rep.name) + ' hasn’t sent a roleplay lead.</p></div>'; return; }
+  if (st === 'submitted') {
+    app.innerHTML = top() + '<div class="two">' + lead(cur) + '<div class="card-box"><div class="k">YOUR HIDDEN CARD</div><p style="font-size:14px;line-height:1.6;margin:8px 0 14px">Read their lead first. When you’re ready to call, start the roleplay: the handbook picks a card at random' + (cur.attemptNo > 1 ? ', different from their last one' : '') + ', and their lead locks.</p><button class="btn inline" id="start">Start roleplay &amp; reveal card</button></div></div><p class="err" id="err" role="alert"></p>' +
+      '<section class="panel"><h2 style="font-size:18px">Before you call</h2><p class="sub" style="margin:0;line-height:1.6">Play whoever answers, using the lead’s real details plus the card. One run, about 10 minutes, no restarts. Be realistic, not cruel, and don’t hang up in the first minute.</p></section>';
+    document.getElementById('start').onclick = start;
+    return;
+  }
+  if (st === 'started') return renderScoring();
+  renderDone();
+}
+async function start() {
+  const b = document.getElementById('start'); b.disabled = true; b.textContent = 'Picking a card…';
+  try { S = await api('/api/roleplay-run/' + cert, {email: rep, action: 'start'}); render(); }
+  catch (e) { b.disabled = false; b.textContent = 'Start roleplay & reveal card'; document.getElementById('err').textContent = e.message; }
+}
+function renderScoring() {
+  const cur = S.current;
+  app.innerHTML = top() + '<div class="two" id="two">' + lead(cur) + card(cur.card, true) + '</div>' +
+    '<section class="panel" style="margin-bottom:18px"><div class="sec-h"><h2 style="font-size:18px">Score each moment, 1–4</h2><span>1 missed · 2 developing · 3 solid · 4 strong</span></div><p class="sub">Judge what each moment achieved, not whether every framework step was used.</p>' +
+      S.def.criteria.map(c => '<div class="crit"><div style="flex:1 1 300px;min-width:0"><b>' + esc(c.name) + '</b><small>' + esc(c.hint) + '</small></div><div class="nums" role="group" aria-label="' + esc(c.name) + '">' + [1,2,3,4].map(n => '<button type="button" data-c="' + c.id + '" data-n="' + n + '" aria-pressed="' + (scores[c.id] === n) + '">' + n + '</button>').join('') + '</div></div>').join('') + '</section>' +
+    '<section class="panel" style="margin-bottom:18px"><h2 style="font-size:18px">Must-pass</h2><p class="sub">Any “no” is a fail, whatever the average.</p><div style="display:flex;flex-direction:column;gap:8px">' +
+      S.def.musts.map(m => '<div class="mustrow"><div id="m-' + m.id + '">' + esc(m.name) + '</div><div class="seg yn" role="group" aria-labelledby="m-' + m.id + '"><button type="button" class="yes" data-m="' + m.id + '" data-v="1" aria-pressed="' + (musts[m.id] === true) + '">Yes, met</button><button type="button" class="no" data-m="' + m.id + '" data-v="0" aria-pressed="' + (musts[m.id] === false) + '">No, not met</button></div></div>').join('') + '</div></section>' +
+    '<section class="panel" style="margin-bottom:18px"><label for="notes" style="display:flex;align-items:center;gap:10px;font-family:Nunito,Arial,sans-serif;font-size:18px;font-weight:800;margin-bottom:4px">Coaching notes <span class="chip warn">Required</span></label><p class="sub">' + esc(S.rep.name) + ' sees the full scorecard and these notes as soon as you submit.</p><textarea class="in" id="notes" rows="4" maxlength="4000" placeholder="What to keep doing, and what to change before the next attempt.">' + esc(notes) + '</textarea></section>' +
+    '<section class="result pend" id="result"></section><p class="err" id="err" role="alert"></p>';
+  const tog = () => { const b = document.getElementById('tog'); if (b) b.onclick = () => { cardOpen = !cardOpen; const two = document.getElementById('two'); two.innerHTML = lead(cur) + card(cur.card, true); tog(); }; };
+  tog();
+  app.querySelectorAll('[data-c]').forEach(b => b.onclick = () => { scores[b.dataset.c] = +b.dataset.n; b.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); update(); });
+  app.querySelectorAll('[data-m]').forEach(b => b.onclick = () => { musts[b.dataset.m] = b.dataset.v === '1'; b.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); update(); });
+  document.getElementById('notes').oninput = e => { notes = e.target.value; update(); };
+  update();
+}
+function update() {
+  const ids = S.def.criteria.map(c => c.id), scored = ids.filter(id => scores[id]).length, all = scored === ids.length;
+  const mids = S.def.musts.map(m => m.id), decided = mids.every(id => typeof musts[id] === 'boolean'), anyNo = mids.some(id => musts[id] === false);
+  const avg = scored ? ids.reduce((a, id) => a + (scores[id] || 0), 0) / scored : 0;
+  const pass = all && decided && !anyNo && avg >= 3, hasNotes = notes.trim().length > 0;
+  let cls = 'pend', verdict, why;
+  if (!all) { verdict = 'Score every moment'; why = scored + ' of ' + ids.length + ' scored'; }
+  else if (!decided) { verdict = 'Answer every must-pass'; why = 'Average ' + avg.toFixed(1) + ' so far. Needs 3.0 or higher and every must-pass met.'; }
+  else if (pass) { cls = 'ok'; verdict = 'Pass'; why = 'Average ' + avg.toFixed(1) + ' and every must-pass met.'; }
+  else { cls = 'no'; verdict = 'Not yet · retake on the Foundation schedule'; why = (anyNo ? 'A must-pass was not met' : 'Average ' + avg.toFixed(1) + ' is under 3.0') + '. The retake is Day 10, then Monday, with a new card.'; }
+  const ready = all && decided && hasNotes;
+  const btn = !ready ? '<span class="locked-btn">' + (!all ? 'Score every moment to submit' : !decided ? 'Answer every must-pass to submit' : 'Add coaching notes to submit') + '</span>'
+    : pass ? '<button class="btn inline" id="go">Submit pass &amp; share with ' + esc(S.rep.name) + '</button>' : '<button class="btn inline danger" id="go">Submit &amp; schedule retake</button>';
+  const box = document.getElementById('result'); box.className = 'result ' + cls;
+  box.innerHTML = '<div style="flex:1 1 320px;min-width:0"><div class="k">RESULT</div><div class="v">' + esc(verdict) + '</div><div class="w">' + esc(why) + '</div></div><div>' + btn + '</div>';
+  const go = document.getElementById('go'); if (go) go.onclick = send;
+}
+async function send() {
+  if (busy) return; busy = true;
+  const go = document.getElementById('go'); go.disabled = true; go.textContent = 'Submitting…';
+  try { S = await api('/api/roleplay-run/' + cert, {email: rep, action: 'score', scores, musts, notes}); window.scrollTo(0, 0); render(); }
+  catch (e) { document.getElementById('err').textContent = e.message; go.disabled = false; update(); }
+  busy = false;
+}
+function renderDone() {
+  const cur = S.current, sc = cur.score, pass = cur.status === 'passed';
+  app.innerHTML = top() +
+    '<section class="result ' + (pass ? 'ok' : 'no') + '" style="margin-bottom:18px"><div><div class="k">RESULT · SHARED WITH ' + esc(S.rep.name).toUpperCase() + '</div><div class="v">' + (pass ? 'Pass' : 'Not yet · retake on the Foundation schedule') + '</div><div class="w">Average ' + Number(sc.average).toFixed(1) + ' · ' + esc(cur.card ? cur.card.title : '') + ' · ' + esc(cur.business) + '</div></div></section>' +
+    '<section class="panel" style="margin-bottom:18px"><h2 style="font-size:18px">Scorecard</h2>' + S.def.criteria.map(c => '<div class="score-row"><div><b>' + esc(c.name) + '</b><small>' + esc(c.hint) + '</small></div><span class="chip ' + WCHIP[sc.criteria[c.id]] + '">' + WORDS[sc.criteria[c.id]] + '</span></div>').join('') +
+      S.def.musts.map(m => '<div class="score-row"><div><b>Must-pass: ' + esc(m.name) + '</b></div><span class="chip ' + (sc.musts[m.id] ? 'ok">Met' : 'bad">Not met') + '</span></div>').join('') + '</section>' +
+    '<section class="notes" style="margin-bottom:18px"><div class="k">YOUR COACHING NOTES</div><p>' + esc(sc.notes) + '</p></section>' +
+    '<p><a class="btn ghost inline" href="/#page=team">Back to team progress</a></p>';
+}
+if (!cert || !rep) app.innerHTML = '<p class="center">Pick a rep from Team progress.</p>'; else load();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Live Roleplay · Momence SDR Handbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&display=swap">
+<link rel="stylesheet" href="/cert-pages.css">
+</head>
+<body>
+<header>
+  <div class="brand"><img src="/momence-logo.svg" alt="Momence"><span class="div"></span><b id="htitle">Live Roleplay</b></div>
+  <div class="status"><a class="crumb" href="/#page=certifications">← Back to handbook</a></div>
+</header>
+<main><div class="wrap wide" id="app"><p class="center">Loading…</p></div></main>
+<script>
+(() => {
+const cert = (location.pathname.match(/^\/roleplay\/([A-Z0-9]{1,6})$/) || [])[1];
+const app = document.getElementById('app');
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function api(path, body) {
+  const r = await fetch(path, body ? {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)} : {});
+  const data = await r.json().catch(() => ({}));
+  if (!r.ok) throw Object.assign(new Error(data.message || 'Something went wrong.'), data);
+  return data;
+}
+const WORDS = {1:'1 · Missed', 2:'2 · Developing', 3:'3 · Solid', 4:'4 · Strong'}, WCHIP = {1:'bad', 2:'warn', 3:'ok', 4:'go'};
+let S = null, editing = false, form = null;
+
+async function load() {
+  try { S = await api('/api/roleplay/' + cert); }
+  catch (e) { app.innerHTML = '<div class="card narrow" style="margin:0 auto"><h1>Not open yet</h1><p class="lead">' + esc(e.message) + '</p><a class="btn ghost" href="/#page=certifications">Back to my certifications</a></div>'; return; }
+  document.getElementById('htitle').textContent = S.cert.id + ' · Live Roleplay';
+  render();
+}
+function strip() {
+  const comps = S.progress.components, q = S.quiz, cur = S.current, st = cur?.status;
+  let quizCell;
+  if (comps.quiz === 'passed') quizCell = '<span class="chip ok">Passed' + (q ? ' · ' + Math.round(q.score * 100) + '%' : '') + '</span>';
+  else if (comps.quiz === 'failed') quizCell = '<a class="crumb" href="/quiz/' + cert + '">Not passed yet · see next steps →</a>';
+  else quizCell = '<a class="btn inline" style="min-height:40px;font-size:13px" href="/quiz/' + cert + '">Start quiz</a>';
+  const leadCell = !cur || (st === 'failed' && editing) ? '<span class="chip go">Due end of Day 7</span>' : '<span class="chip ok">Sent</span>';
+  const rp = st === 'passed' ? '<span class="chip ok">Passed</span>' : st === 'failed' ? '<span class="chip warn">Not yet · retake</span>' : st === 'started' ? 'In progress with your manager' : st === 'submitted' ? 'Day ' + (S.cert.day || 8) + ' with your manager' : 'Opens once your lead is in';
+  const leadOn = !cur || editing;
+  return '<section class="strip"><div><div class="lbl">QUIZ</div><div class="val">' + quizCell + '</div></div><div' + (leadOn ? ' class="on"' : '') + '><div class="lbl">YOUR LEAD</div><div class="val">' + leadCell + '</div></div><div' + (!leadOn ? ' class="on"' : '') + '><div class="lbl">ROLEPLAY</div><div class="val">' + rp + '</div></div></section>';
+}
+function head() {
+  return '<div class="eyebrow">' + esc(S.cert.id + ' · ' + S.cert.name).toUpperCase() + '</div><h1>Live roleplay</h1><p class="intro">You’ll cold call a lead you pre-vetted yourself, and your manager plays whoever picks up. They know something about the business that you don’t. Run the call the way you would for real.</p>';
+}
+function scoring() {
+  return '<section class="notes" style="margin-top:18px"><div class="k">HOW YOU’RE SCORED</div><p>' + S.def.criteria.map((c, i) => (i + 1) + ' · ' + esc(c.name)).join('<br>') + '</p><p style="margin-top:10px;font-size:13px;color:#4b4960">Each scored 1–4. You pass with an average of 3 or higher, as long as you ask for the meeting, make no inaccurate claims and never argue.</p></section>';
+}
+function render() {
+  const cur = S.current, st = cur?.status;
+  if ((st === 'passed' || st === 'failed') && !editing) return renderResult();
+  if (st === 'started') return renderLocked();
+  if (st === 'submitted' && !editing) return renderSent();
+  renderForm();
+}
+function renderForm() {
+  const cur = S.current, keep = cur && cur.status === 'submitted';
+  form = form || {business: keep ? cur.business : '', link: keep ? (cur.link || '') : '', num: keep ? cur.code.slice(-1) : '', leadStatus: keep ? cur.leadStatus : '', note: keep ? (cur.note || '') : '', own: false};
+  const px = S.rep.codePrefix;
+  const seg = (name, vals, cur) => vals.map(v => '<button type="button" data-' + name + '="' + esc(v[0]) + '" aria-pressed="' + (cur === v[0]) + '">' + esc(v[1]) + '</button>').join('');
+  app.innerHTML = head() + strip() +
+    '<section class="panel" style="margin-bottom:18px"><div class="sec-h"><h2 style="font-size:20px">Pick your lead</h2><span>Due end of Day 7</span></div>' +
+    '<p class="sub" style="font-size:13px;color:var(--body);line-height:1.6">One lead you pre-vetted and coded with your 1 or 2. It has to be in your live pool (New, Recycled or Attempting) and in your own Book.</p>' +
+    '<div class="grid2"><div><label class="fld" for="biz">Business name</label><input class="in" id="biz" maxlength="200" value="' + esc(form.business) + '"></div><div><label class="fld" for="hs">HubSpot record link</label><input class="in" id="hs" maxlength="500" value="' + esc(form.link) + '"></div></div>' +
+    '<div class="fld" id="codeL">Your code <small>· your initials plus 1 or 2, as it appears in SDR Additional Notes</small></div><div class="seg" role="group" aria-labelledby="codeL">' + seg('num', [['1', px + '1'], ['2', px + '2']], form.num) + '</div>' +
+    '<div class="fld" id="stL">Lead status</div><div class="seg" role="group" aria-labelledby="stL">' + seg('st', [['New','New'],['Recycled','Recycled'],['Attempting','Attempting']], form.leadStatus) + '</div>' +
+    '<label class="fld" for="note">Anything your manager should know <small>· optional. Your SDR Additional Notes are enough on their own.</small></label><textarea class="in" id="note" rows="2" maxlength="1000">' + esc(form.note) + '</textarea>' +
+    '<label class="ready" style="margin:16px 0 0"><input type="checkbox" id="own"' + (form.own ? ' checked' : '') + '> This lead is in my own Book, and I haven’t called it yet for this roleplay.</label>' +
+    '<div style="display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap;margin-top:16px">' + (keep ? '<button class="btn ghost inline" id="cancel">Cancel</button>' : '') + '<span id="sendbox"></span></div><p class="err" id="err" role="alert"></p></section>' + scoring();
+  const upd = () => {
+    const ok = form.business.trim() && form.num && form.leadStatus && form.own;
+    document.getElementById('sendbox').innerHTML = ok ? '<button class="btn inline" id="send">Send to my manager</button>' : '<span class="locked-btn">Add the business, pick a code and status, and confirm it’s yours</span>';
+    const b = document.getElementById('send'); if (b) b.onclick = send;
+  };
+  document.getElementById('biz').oninput = e => { form.business = e.target.value; upd(); };
+  document.getElementById('hs').oninput = e => { form.link = e.target.value; };
+  document.getElementById('note').oninput = e => { form.note = e.target.value; };
+  document.getElementById('own').onchange = e => { form.own = e.target.checked; upd(); };
+  app.querySelectorAll('[data-num]').forEach(b => b.onclick = () => { form.num = b.dataset.num; b.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); upd(); });
+  app.querySelectorAll('[data-st]').forEach(b => b.onclick = () => { form.leadStatus = b.dataset.st; b.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); upd(); });
+  const c = document.getElementById('cancel'); if (c) c.onclick = () => { editing = false; form = null; render(); };
+  upd();
+}
+async function send() {
+  const b = document.getElementById('send'); b.disabled = true; b.textContent = 'Sending…';
+  try { S = await api('/api/roleplay/' + cert, {business: form.business, link: form.link, codeNum: form.num, leadStatus: form.leadStatus, note: form.note, own: form.own}); editing = false; form = null; window.scrollTo(0, 0); render(); }
+  catch (e) { b.disabled = false; b.textContent = 'Send to my manager'; document.getElementById('err').textContent = e.message; }
+}
+function leadBox(cur, tag) {
+  return '<div style="font-size:11px;letter-spacing:1px;font-weight:700;color:var(--purple)">' + tag + '</div><h2 style="font-size:20px;margin:6px 0 4px">' + esc(cur.business) + '</h2><div style="font-size:13px;color:var(--body)">' + esc(cur.code) + ' · ' + esc(cur.leadStatus) + ' · in your Book</div>';
+}
+function renderSent() {
+  const cur = S.current;
+  app.innerHTML = head() + strip() +
+    '<section class="panel" style="border:2px solid var(--purple);margin-bottom:18px"><div class="sec-h" style="align-items:center"><div>' + leadBox(cur, 'SENT TO YOUR MANAGER') + '</div><button class="btn ghost inline" id="change">Change lead</button></div>' +
+    '<p style="margin:14px 0 0;font-size:13px;color:var(--body);line-height:1.6">You can change it until your manager starts the roleplay. Before the call: reread your note, know why you’re calling this business, and have one question ready.</p></section>' + scoring();
+  document.getElementById('change').onclick = () => { editing = true; form = null; render(); };
+}
+function renderLocked() {
+  app.innerHTML = head() + strip() + '<section class="panel" style="margin-bottom:18px">' + leadBox(S.current, 'ROLEPLAY IN PROGRESS') + '<p style="margin:14px 0 0;font-size:13px;color:var(--body)">Your manager has started the roleplay, so this lead is locked. Your scorecard shows up here as soon as they submit it.</p></section>' + scoring();
+}
+function renderResult() {
+  const cur = S.current, sc = cur.score, pass = cur.status === 'passed';
+  const left = S.maxAttempts - S.attemptsUsed, fully = S.progress.status === 'passed', quizPassed = S.progress.components.quiz === 'passed';
+  const headline = pass ? (fully ? S.cert.id + ' passed' : 'Roleplay passed') : 'Not yet. Let’s get you there.';
+  const sub = pass ? (fully ? 'Quiz and roleplay both done. Your ' + S.cert.id + ' badge is on your path.' : 'Nice work. Pass the ' + S.cert.id + ' quiz to finish the certification.')
+    : left > 0 ? 'Work through the notes below, then pick a lead for your retake. It follows the Foundation schedule (Day 10, then Monday), and your manager will play a different card.' : 'You’ve used all your attempts. Your manager will talk with you about next steps.';
+  const rows = sc ? S.def.criteria.map(c => '<div class="score-row"><div><b>' + esc(c.name) + '</b><small>' + esc(c.hint) + '</small></div><span class="chip ' + WCHIP[sc.criteria[c.id]] + '">' + WORDS[sc.criteria[c.id]] + '</span></div>').join('') +
+    S.def.musts.map(m => '<div class="score-row"><div><b>Must-pass: ' + esc(m.name) + '</b></div><span class="chip ' + (sc.musts[m.id] ? 'ok">Met' : 'bad">Not met') + '</span></div>').join('') : '';
+  app.innerHTML = '<div class="eyebrow">' + esc(S.cert.id + ' · ' + S.cert.name).toUpperCase() + '</div>' +
+    '<section class="result ' + (pass ? 'ok' : 'soft') + '" style="margin:6px 0 18px"><div><h1 style="margin:0 0 6px">' + esc(headline) + '</h1><p style="margin:0;font-size:14px;line-height:1.6">' + esc(sub) + '</p></div></section>' + strip() +
+    '<section class="panel" style="margin-bottom:18px"><div class="sec-h"><h2 style="font-size:18px">Your scorecard</h2><span>Average ' + Number(sc?.average || 0).toFixed(1) + ' of 4 · ' + esc(cur.business) + ' · attempt ' + cur.attemptNo + '</span></div>' + rows + '</section>' +
+    '<section class="notes" style="margin-bottom:18px"><div class="k">COACHING NOTES FROM YOUR MANAGER</div><p>' + esc(sc?.notes) + '</p></section>' +
+    '<section class="bar-foot"><div class="note">' + (pass ? (quizPassed ? 'Up next: the next Foundation certification on your path.' : 'Up next: the ' + S.cert.id + ' quiz.') : left > 0 ? left + (left === 1 ? ' attempt' : ' attempts') + ' left' : 'Talk to your manager') + '</div><div style="display:flex;gap:10px;flex-wrap:wrap">' +
+      (!pass && left > 0 ? '<button class="btn inline" id="retake">Pick a lead for your retake</button>' : '') +
+      (pass && !quizPassed ? '<a class="btn inline" href="/quiz/' + cert + '">Go to the quiz</a>' : '<a class="btn ghost inline" href="/#page=certifications">Back to your path</a>') + '</div></section>';
+  const r = document.getElementById('retake'); if (r) r.onclick = () => { editing = true; form = null; window.scrollTo(0, 0); render(); };
+}
+if (!cert) app.innerHTML = '<p class="center">Not found.</p>'; else load();
+})();
+</script>
+</body>
+</html>

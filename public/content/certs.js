@@ -15,8 +15,9 @@
   };
   const pct = s => s == null ? '' : ' · ' + Math.round(s * 100) + '%';
   const quizUrl = id => '/quiz/' + encodeURIComponent(id);
-  const pracUrl = id => '/practical/' + encodeURIComponent(id);
-  const hasPractical = c => (c.components || []).includes('practical');
+  const second = c => (c.components || []).find(x => x === 'practical' || x === 'roleplay');
+  const pracUrl = (id, c) => '/' + (c ? second(c) : 'practical') + '/' + encodeURIComponent(id);
+  const hasPractical = c => !!second(c);
   let data = null, me = null, myPage = null;
 
   async function load() { data = await api('/api/certs'); me = data.me; return data; }
@@ -60,8 +61,14 @@
       return {key: 'soon', chip: 'off', label: 'Coming soon', ico: 'off'};
     }
     if (!prereqOk) return {key: 'locked', chip: 'off', label: 'Locked · pass the one before', ico: 'off', locked: true};
-    if (hasPractical(c) && (p.components || {}).quiz === 'passed') {
-      const pr = p.practical, u = pracUrl(c.id);
+    if (second(c) === 'roleplay' && (p.components || {}).quiz === 'passed') {
+      const rp = p.roleplay, u = pracUrl(c.id, c);
+      if (!rp) return {key: 'lead', chip: 'go', label: 'Quiz passed · send your roleplay lead', ico: 'go', action: 'Pick your lead', url: u};
+      if (rp.status === 'submitted' || rp.status === 'started') return {key: 'rp', chip: 'go', label: 'Lead sent · roleplay Day ' + (c.day || 8), ico: 'go', action: 'View roleplay', url: u};
+      if (rp.status === 'failed') return {key: 'rpretake', chip: 'warn', label: 'Roleplay retake', ico: 'go', action: 'Open roleplay', url: u};
+    }
+    if (second(c) === 'practical' && (p.components || {}).quiz === 'passed') {
+      const pr = p.practical, u = pracUrl(c.id, c);
       if (!pr || pr.status === 'draft') return {key: 'practical', chip: 'go', label: 'Quiz passed · practical due Day 10', ico: 'go', action: 'Open practical', url: u};
       if (pr.status === 'submitted') return {key: 'submitted', chip: 'go', label: 'Practical submitted · live review next', ico: 'go', action: 'View practical', url: u};
       if (pr.status === 'failed') return {key: 'pretake', chip: 'warn', label: 'Practical retake', ico: 'go', action: 'Open practical', url: u};
@@ -73,7 +80,7 @@
       return {key: 'retake', chip: 'go', label: 'Retake ready', ico: 'go', action: 'Start retake'};
     }
     if (p.lockedUntil) return {key: 'lock', chip: 'warn', label: 'Opens ' + new Date(p.lockedUntil).toLocaleString([], {weekday: 'short', hour: 'numeric', minute: '2-digit'}), ico: 'go'};
-    if (hasPractical(c)) return {key: 'ready', chip: 'go', label: 'Ready to start', ico: 'go', action: 'Start ' + c.id, url: pracUrl(c.id)};
+    if (hasPractical(c)) return {key: 'ready', chip: 'go', label: 'Ready to start', ico: 'go', action: 'Start ' + c.id, url: pracUrl(c.id, c)};
     return {key: 'ready', chip: 'go', label: 'Ready to start', ico: 'go', action: 'Start quiz'};
   }
   const formatOf = c => {
@@ -95,7 +102,7 @@
       return '<div class="cx-row' + (s.action ? ' focus' : c.status !== 'active' ? ' muted' : '') + '"><div class="cx-ico ' + (s.key === 'passed' ? 'ok' : s.ico) + '">' + iconHtml + '</div><div class="cx-body"><b>' + esc(c.id + ' · ' + c.name) + '</b><small>' + esc(c.status === 'active' ? formatOf(c) : 'Not open yet') + '</small></div>' + right + '</div>';
     }).join('');
     const intro = label.parentElement.querySelector('h1 + p') || label.nextElementSibling;
-    const html = '<section class="cx-card cx-day" aria-labelledby="cx-today"><div class="cx-head"><div><div class="cx-tag">CERTIFICATION DAY</div><h2 id="cx-today">Today’s certifications</h2><p>Take these after the session. Quizzes pass at 80%.' + (certs.some(hasPractical) ? ' Written practicals are due Day 10.' : '') + '</p></div><button class="cx-link" data-cert-page="certifications">View my progress →</button></div><div class="cx-rows">' + rows + '</div></section>';
+    const html = '<section class="cx-card cx-day" aria-labelledby="cx-today"><div class="cx-head"><div><div class="cx-tag">CERTIFICATION DAY</div><h2 id="cx-today">Today’s certifications</h2><p>Take these after the session. Quizzes pass at 80%.' + (certs.some(c => second(c) === 'practical') ? ' Written practicals are due Day 10.' : '') + (certs.some(c => second(c) === 'roleplay') ? ' Your roleplay is live with your manager.' : '') + '</p></div><button class="cx-link" data-cert-page="certifications">View my progress →</button></div><div class="cx-rows">' + rows + '</div></section>';
     (intro || label).insertAdjacentHTML('afterend', html);
     icons();
   }
@@ -138,10 +145,11 @@
     const mark = {p: '✓', i: '•', f: '✕', n: '–'}, word = {p: 'Passed', i: 'In progress', f: 'Not passed yet', n: 'Not started'};
     const att = t.attention.map(a => '<div class="cx-att' + (a.kind === 'leave' ? ' leave' : '') + '"><span><strong>' + esc(a.name) + '</strong> ' + esc(a.text) + '</span>' +
       (a.kind === 'coach' ? '<button class="cx-btn ghost" data-cx-unlock="' + esc(a.email) + '" data-cert="' + esc(a.cert) + '">Mark coached &amp; unlock</button>' : '') +
-      (a.kind === 'review' ? '<a class="cx-btn" href="/review/' + encodeURIComponent(a.cert) + '?rep=' + encodeURIComponent(a.email) + '" target="_top">Start live review</a>' : '') + '</div>').join('');
+      (a.kind === 'review' ? '<a class="cx-btn" href="/review/' + encodeURIComponent(a.cert) + '?rep=' + encodeURIComponent(a.email) + '" target="_top">Start live review</a>' : '') +
+      (a.kind === 'roleplay' ? '<a class="cx-btn" href="/roleplay-run/' + encodeURIComponent(a.cert) + '?rep=' + encodeURIComponent(a.email) + '" target="_top">Run roleplay</a>' : '') + '</div>').join('');
     main.innerHTML = '<div class="label">MANAGER VIEW</div><h1>Team progress</h1><p>' + t.totals.reps + (t.totals.reps === 1 ? ' rep' : ' reps') + ' · updated live from certification results</p>' +
       '<div class="cx-tiles4">' +
-        '<div class="cx-stat"><span>Practicals to review</span><b>' + t.tiles.reviews + '</b></div>' +
+        '<div class="cx-stat"><span>Practicals &amp; roleplays to run</span><b>' + t.tiles.reviews + '</b></div>' +
         '<div class="cx-stat"><span>Retakes waiting on coaching</span><b>' + t.tiles.coaching + '</b></div>' +
         '<div class="cx-stat"><span>Left-tab flags this week</span><b style="color:#8a5610">' + t.tiles.leaves + '</b></div>' +
         '<div class="cx-stat"><span>Eligible for Senior SDR review</span><b>' + t.tiles.eligible + '</b></div></div>' +
