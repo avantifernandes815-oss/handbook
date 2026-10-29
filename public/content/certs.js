@@ -25,7 +25,10 @@
   // ---------- navigation ----------
   function addNav() {
     const btn = (page, iconName, label, extra = '') => '<button class="navitem" data-cert-page="' + page + '"><i data-lucide="' + iconName + '" aria-hidden="true"></i>' + label + extra + '</button>';
-    side.insertAdjacentHTML('beforeend', btn('certifications', 'award', 'Certifications', '<span class="cx-new">New</span>'));
+    // Sits under Onboarding, above Book of Business.
+    const book = side.querySelector('[data-page="book"]');
+    if (book) book.insertAdjacentHTML('beforebegin', btn('certifications', 'award', 'Certifications'));
+    else side.insertAdjacentHTML('beforeend', btn('certifications', 'award', 'Certifications'));
     if (me.role === 'manager' || me.role === 'admin')
       side.insertAdjacentHTML('beforeend', '<div class="label cx-nav-label">Managers</div>' + btn('team', 'users-round', 'Team Progress'));
     icons();
