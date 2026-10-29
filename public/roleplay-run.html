@@ -17,6 +17,11 @@
 .lead-box .k{font-size:10px;letter-spacing:1px;font-weight:700;color:var(--sub)}
 .small-btn{white-space:nowrap;flex:0 0 auto;min-height:36px;padding:0 12px;border-radius:9px;background:#fff;color:var(--purple);border:1px solid #d9d0fb;font-size:12px;font-weight:700;font-family:inherit;cursor:pointer}
 @media (max-width:700px){.two{grid-template-columns:1fr}}
+.rr-row{display:flex;gap:14px;align-items:center;padding:12px 10px;border-top:1px solid var(--line);border-radius:10px;cursor:pointer}
+.rr-row:first-of-type{border-top:0}.rr-row.on{background:var(--soft)}
+.rr-row b{font-size:14px}.rr-row small{display:block;font-size:12px;color:var(--sub);margin-top:3px}
+.rr-n{width:30px;height:30px;border-radius:9px;background:#f2f1f6;color:var(--sub);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;flex:0 0 auto}
+.rr-n.done{background:var(--ok-bg);color:var(--ok)}
 </style>
 </head>
 <body>
@@ -38,7 +43,10 @@ async function api(path, body) {
   return data;
 }
 const WORDS = {1:'1 · Missed', 2:'2 · Developing', 3:'3 · Solid', 4:'4 · Strong'}, WCHIP = {1:'bad', 2:'warn', 3:'ok', 4:'go'};
-let S = null, scores = {}, musts = {}, notes = '', cardOpen = true, busy = false;
+let S = null, scores = {}, musts = {}, notes = '', cardOpen = true, busy = false, sel = 0;
+const rapid = () => S.def.mode === 'rapid';
+const fmtDate = d => { if (!d) return ''; const x = new Date(d + 'T12:00:00Z'); return x.toLocaleDateString('en-US', {weekday: 'short', month: 'short', day: 'numeric', timeZone: 'UTC'}); };
+const fmtTime = hm => { if (!hm) return ''; const [h, m] = hm.split(':').map(Number); return ((h + 11) % 12 + 1) + ':' + String(m).padStart(2, '0') + ' ' + (h < 12 ? 'AM' : 'PM'); };
 
 async function load() {
   try { S = await api('/api/roleplay-run/' + cert + '?rep=' + encodeURIComponent(rep)); }
@@ -48,7 +56,8 @@ async function load() {
 }
 function top() {
   const cur = S.current, q = S.quiz;
-  return '<div class="eyebrow">' + esc(S.cert.id + ' · ' + S.cert.name).toUpperCase() + ' · ROLEPLAY</div><h1>' + esc(S.rep.name) + (cur ? ' · Attempt ' + cur.attemptNo : '') + '</h1>' +
+  const bk = rapid() && cur?.booking ? '<span class="chip go" style="float:right;margin-top:10px">Booked ' + esc(fmtDate(cur.booking.date) + ' · ' + fmtTime(cur.booking.time)) + '</span>' : '';
+  return '<div class="eyebrow">' + esc(S.cert.id + ' · ' + S.cert.name).toUpperCase() + ' · ' + (rapid() ? 'LIVE ROLEPLAY' : 'ROLEPLAY') + '</div>' + bk + '<h1>' + esc(S.rep.name) + (cur ? ' · Attempt ' + cur.attemptNo : '') + '</h1>' +
     '<p class="intro">' + (q ? 'Quiz ' + (q.status === 'passed' ? 'passed' : 'not passed yet') + ' at ' + Math.round(q.score * 100) + '%' : 'Quiz not taken yet') + '</p>';
 }
 function lead(cur) {
@@ -68,8 +77,32 @@ function situationCard(c) {
   return '<div class="card-box"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><div class="k">HIDDEN REACTION · THE REP CAN’T SEE THIS</div><button class="small-btn" id="tog" aria-expanded="' + cardOpen + '">' + (cardOpen ? 'Hide' : 'Show') + '</button></div><div style="font-size:16px;font-weight:700;margin:6px 0 4px">' + esc(c.title) + '</div>' +
     (cardOpen ? '<dl><dt>You play</dt><dd>' + esc(c.answer) + '</dd><dt>Right outcome</dt><dd>' + esc(c.yes) + '</dd></dl>' : '') + '</div>';
 }
+function rapidPanel() {
+  const cur = S.current, draws = cur.draws || [];
+  const rows = cur.leads.map((l, i) => {
+    const c = draws[i];
+    return '<div class="rr-row' + (i === sel ? ' on' : '') + '" data-sel="' + i + '"><span class="rr-n' + (c ? ' done' : '') + '">' + (c ? '✓' : i + 1) + '</span><div style="flex:1;min-width:0"><b>' + esc(l.business) + '</b> <span class="chip off">' + esc(l.type) + '</span><small>' + esc(l.note) + '</small>' + (l.opener ? '<small style="color:var(--ink)">Their opener: “' + esc(l.opener) + '”</small>' : '') + '</div><div>' + (c ? '<span class="sub" style="font-size:12px">' + esc(c.title) + '</span>' : '<button class="small-btn" data-draw="' + i + '">Draw a card</button>') + '</div></div>';
+  }).join('');
+  const c = draws[sel];
+  const box = c ? '<div class="card-box" style="margin-top:14px"><div style="display:flex;justify-content:space-between;gap:10px"><div class="k">HIDDEN · THE REP CAN’T SEE THIS</div><span class="sub" style="font-size:12px">Lead ' + (sel + 1) + ' · ' + esc(cur.leads[sel].business) + '</span></div><div style="font-size:16px;font-weight:700;margin:6px 0 4px">' + esc(c.title) + '</div><dl><dt>You say</dt><dd>' + esc(c.answer) + '</dd><dt>Then</dt><dd>' + esc(c.next) + '</dd><dt>A 3+ looks like</dt><dd>' + esc(c.yes) + '</dd></dl></div>'
+    : '<div class="card-box" style="margin-top:14px"><div class="k">HIDDEN CARD</div><p style="font-size:14px;line-height:1.6;margin:8px 0 0">Draw a card for lead ' + (sel + 1) + ' when you’re ready to play it. Each card is used once per attempt.</p></div>';
+  return '<section class="panel" style="margin-bottom:18px"><p class="sub" style="margin:0 0 6px">' + esc(S.def.setup) + '</p>' + rows + box + '</section>';
+}
+function wireRapid() {
+  app.querySelectorAll('[data-sel]').forEach(r => r.onclick = e => { if (e.target.closest('[data-draw]')) return; sel = +r.dataset.sel; document.getElementById('rapid').innerHTML = rapidPanel(); wireRapid(); });
+  app.querySelectorAll('[data-draw]').forEach(b => b.onclick = async () => {
+    b.disabled = true; b.textContent = 'Drawing…'; sel = +b.dataset.draw;
+    try { S = await api('/api/roleplay-run/' + cert, {email: rep, action: 'draw', index: sel}); document.getElementById('rapid').innerHTML = rapidPanel(); wireRapid(); update(); }
+    catch (e) { b.disabled = false; b.textContent = 'Draw a card'; document.getElementById('err').textContent = e.message; }
+  });
+}
 function render() {
   const cur = S.current, st = cur?.status;
+  if (S.def.mode === 'rapid') {
+    if (!cur) { app.innerHTML = top() + '<div class="panel"><h2>Not booked yet</h2><p class="sub">' + esc(S.rep.name) + ' hasn’t booked their ' + esc(S.cert.id) + ' roleplay. Once they finish the training and quiz, they’ll book time with you and send four leads.</p></div>'; return; }
+    if (st === 'submitted' || st === 'started') { const d = cur.draws || []; sel = Math.max(0, d.findIndex(x => !x)); if (d.every(Boolean)) sel = d.length - 1; return renderScoring(); }
+    return renderDone();
+  }
   if (S.def.mode === 'situation' && (!cur || (st === 'failed' && S.attemptsUsed < S.maxAttempts))) {
     app.innerHTML = top() + (cur ? '<section class="result no" style="margin-bottom:18px"><div><div class="k">LAST ATTEMPT</div><div class="v">Not yet</div><div class="w">Average ' + Number(cur.score?.average || 0).toFixed(1) + ' · ' + esc(cur.card ? cur.card.title : '') + '</div></div></section>' : '') +
       '<section class="panel" style="margin-bottom:18px"><h2 style="font-size:18px">Start the confirmation roleplay</h2><p class="sub" style="line-height:1.6;margin:6px 0 14px">The handbook picks one of six situations at random' + (cur ? ', different from their last one' : '') + '. You’ll see what to read to the rep and how to play the prospect. One run, about 5 minutes.</p><button class="btn inline" id="start">Start roleplay &amp; pick a situation</button></section><p class="err" id="err" role="alert"></p>';
@@ -94,13 +127,14 @@ async function start() {
 function renderScoring() {
   const cur = S.current, sit = S.def.mode === 'situation';
   const pair = () => sit ? situationBrief(cur) + situationCard(cur.card) : lead(cur) + card(cur.card, true);
-  app.innerHTML = top() + '<div class="two" id="two">' + pair() + '</div>' +
+  app.innerHTML = top() + (rapid() ? '<div id="rapid">' + rapidPanel() + '</div><p class="err" id="err0" role="alert"></p>' : '<div class="two" id="two">' + pair() + '</div>') +
     '<section class="panel" style="margin-bottom:18px"><div class="sec-h"><h2 style="font-size:18px">Score each moment, 1–4</h2><span>1 missed · 2 developing · 3 solid · 4 strong</span></div><p class="sub">Judge what each moment achieved, not whether every framework step was used.</p>' +
       S.def.criteria.map(c => '<div class="crit"><div style="flex:1 1 300px;min-width:0"><b>' + esc(c.name) + '</b><small>' + esc(c.hint) + '</small></div><div class="nums" role="group" aria-label="' + esc(c.name) + '">' + [1,2,3,4].map(n => '<button type="button" data-c="' + c.id + '" data-n="' + n + '" aria-pressed="' + (scores[c.id] === n) + '">' + n + '</button>').join('') + '</div></div>').join('') + '</section>' +
     '<section class="panel" style="margin-bottom:18px"><h2 style="font-size:18px">Must-pass</h2><p class="sub">Any “no” is a fail, whatever the average.</p><div style="display:flex;flex-direction:column;gap:8px">' +
       S.def.musts.map(m => '<div class="mustrow"><div id="m-' + m.id + '">' + esc(m.name) + '</div><div class="seg yn" role="group" aria-labelledby="m-' + m.id + '"><button type="button" class="yes" data-m="' + m.id + '" data-v="1" aria-pressed="' + (musts[m.id] === true) + '">Yes, met</button><button type="button" class="no" data-m="' + m.id + '" data-v="0" aria-pressed="' + (musts[m.id] === false) + '">No, not met</button></div></div>').join('') + '</div></section>' +
     '<section class="panel" style="margin-bottom:18px"><label for="notes" style="display:flex;align-items:center;gap:10px;font-family:Nunito,Arial,sans-serif;font-size:18px;font-weight:800;margin-bottom:4px">Coaching notes <span class="chip warn">Required</span></label><p class="sub">' + esc(S.rep.name) + ' sees the full scorecard and these notes as soon as you submit.</p><textarea class="in" id="notes" rows="4" maxlength="4000" placeholder="What to keep doing, and what to change before the next attempt.">' + esc(notes) + '</textarea></section>' +
     '<section class="result pend" id="result"></section><p class="err" id="err" role="alert"></p>';
+  if (rapid()) wireRapid();
   const tog = () => { const b = document.getElementById('tog'); if (b) b.onclick = () => { cardOpen = !cardOpen; const two = document.getElementById('two'); two.innerHTML = pair(); tog(); }; };
   tog();
   app.querySelectorAll('[data-c]').forEach(b => b.onclick = () => { scores[b.dataset.c] = +b.dataset.n; b.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); update(); });
@@ -117,9 +151,10 @@ function update() {
   if (!all) { verdict = 'Score every moment'; why = scored + ' of ' + ids.length + ' scored'; }
   else if (!decided) { verdict = 'Answer every must-pass'; why = 'Average ' + avg.toFixed(1) + ' so far. Needs 3.0 or higher and every must-pass met.'; }
   else if (pass) { cls = 'ok'; verdict = 'Pass'; why = 'Average ' + avg.toFixed(1) + ' and every must-pass met.'; }
-  else { cls = 'no'; verdict = 'Not yet · retake on the Foundation schedule'; why = (anyNo ? 'A must-pass was not met' : 'Average ' + avg.toFixed(1) + ' is under 3.0') + '. The retake is Day 10, then Monday, with a new card.'; }
-  const ready = all && decided && hasNotes;
-  const btn = !ready ? '<span class="locked-btn">' + (!all ? 'Score every moment to submit' : !decided ? 'Answer every must-pass to submit' : 'Add coaching notes to submit') + '</span>'
+  else { cls = 'no'; verdict = rapid() ? 'Not yet · retake after coaching' : 'Not yet · retake on the Foundation schedule'; why = (anyNo ? 'A must-pass was not met' : 'Average ' + avg.toFixed(1) + ' is under 3.0') + (rapid() ? '. Mark coaching done on Team Progress and they can book a retake.' : '. The retake is Day 10, then Monday, with a new card.'); }
+  const allDrawn = !rapid() || (S.current.draws || []).every(Boolean);
+  const ready = all && decided && hasNotes && allDrawn;
+  const btn = !ready ? '<span class="locked-btn">' + (!allDrawn ? 'Draw a card for every lead to submit' : !all ? 'Score every moment to submit' : !decided ? 'Answer every must-pass to submit' : 'Add coaching notes to submit') + '</span>'
     : pass ? '<button class="btn inline" id="go">Submit pass &amp; share with ' + esc(S.rep.name) + '</button>' : '<button class="btn inline danger" id="go">Submit &amp; schedule retake</button>';
   const box = document.getElementById('result'); box.className = 'result ' + cls;
   box.innerHTML = '<div style="flex:1 1 320px;min-width:0"><div class="k">RESULT</div><div class="v">' + esc(verdict) + '</div><div class="w">' + esc(why) + '</div></div><div>' + btn + '</div>';
@@ -135,7 +170,7 @@ async function send() {
 function renderDone() {
   const cur = S.current, sc = cur.score, pass = cur.status === 'passed';
   app.innerHTML = top() +
-    '<section class="result ' + (pass ? 'ok' : 'no') + '" style="margin-bottom:18px"><div><div class="k">RESULT · SHARED WITH ' + esc(S.rep.name).toUpperCase() + '</div><div class="v">' + (pass ? 'Pass' : 'Not yet · retake on the Foundation schedule') + '</div><div class="w">Average ' + Number(sc.average).toFixed(1) + ' · ' + esc(cur.card ? cur.card.title : '') + ' · ' + esc(cur.business) + '</div></div></section>' +
+    '<section class="result ' + (pass ? 'ok' : 'no') + '" style="margin-bottom:18px"><div><div class="k">RESULT · SHARED WITH ' + esc(S.rep.name).toUpperCase() + '</div><div class="v">' + (pass ? 'Pass' : rapid() ? 'Not yet · retake after coaching' : 'Not yet · retake on the Foundation schedule') + '</div><div class="w">Average ' + Number(sc.average).toFixed(1) + ' · ' + (rapid() ? 'four openers' : esc(cur.card ? cur.card.title : '') + ' · ' + esc(cur.business)) + '</div></div></section>' +
     '<section class="panel" style="margin-bottom:18px"><h2 style="font-size:18px">Scorecard</h2>' + S.def.criteria.map(c => '<div class="score-row"><div><b>' + esc(c.name) + '</b><small>' + esc(c.hint) + '</small></div><span class="chip ' + WCHIP[sc.criteria[c.id]] + '">' + WORDS[sc.criteria[c.id]] + '</span></div>').join('') +
       S.def.musts.map(m => '<div class="score-row"><div><b>Must-pass: ' + esc(m.name) + '</b></div><span class="chip ' + (sc.musts[m.id] ? 'ok">Met' : 'bad">Not met') + '</span></div>').join('') + '</section>' +
     '<section class="notes" style="margin-bottom:18px"><div class="k">YOUR COACHING NOTES</div><p>' + esc(sc.notes) + '</p></section>' +

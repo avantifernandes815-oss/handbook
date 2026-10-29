@@ -6,12 +6,17 @@ import bankF2 from './bank-f2.json' with {type: 'json'};
 import bankF3 from './bank-f3.json' with {type: 'json'};
 import bankF4 from './bank-f4.json' with {type: 'json'};
 import {PIPER_F4, F4_ROLEPLAY} from './f4-content.mjs';
+import bankCC1 from './bank-cc1.json' with {type: 'json'};
+import {CC1_TRAINING, CC1_ROLEPLAY} from './cc1-content.mjs';
 
-const BANKS = {F1: bankF1, F2: bankF2, F3: bankF3, F4: bankF4};
+const BANKS = {F1: bankF1, F2: bankF2, F3: bankF3, F4: bankF4, CC1: bankCC1};
+export const TRAININGS = {CC1: CC1_TRAINING};
 const GRACE_MS = 4000;          // network slack on top of each question's time limit
 const LOCK_HOURS = 24;          // lockout after a second tab-leave
 const MAX_ATTEMPTS = 3;         // failed attempts before a performance conversation
-const REVIEW_LABELS = {'day-1': 'Day 1 · The SDR Job', 'day-2': 'Day 2 · Who We Sell To & Why', 'day-3': 'Day 3 · Owning Your Book of Business', 'day-4': 'Day 4 · Pre-Vetting Workshop', 'day-5': 'Day 5 · Cold Calling Fundamentals', 'day-6': 'Day 6 · Controlling the Conversation', 'day-7': 'Day 7 · Working Smarter at Scale', 'day-8': 'Day 8 · From Yes to Meeting Held', 'meetings': 'Meetings & AE Handoff', 'sal': 'Qualification & SALs', 'book': 'Book of Business', 'statuses': 'Lead Statuses & CRM'};
+const REVIEW_LABELS = {'day-1': 'Day 1 · The SDR Job', 'day-2': 'Day 2 · Who We Sell To & Why', 'day-3': 'Day 3 · Owning Your Book of Business', 'day-4': 'Day 4 · Pre-Vetting Workshop', 'day-5': 'Day 5 · Cold Calling Fundamentals', 'day-6': 'Day 6 · Controlling the Conversation', 'day-7': 'Day 7 · Working Smarter at Scale', 'day-8': 'Day 8 · From Yes to Meeting Held', 'meetings': 'Meetings & AE Handoff', 'sal': 'Qualification & SALs', 'book': 'Book of Business', 'statuses': 'Lead Statuses & CRM', '/training/CC1': 'CC1 · Openers training'};
+// Foundation certs allow three attempts; the self-paced tracks have no limit (a retake opens after coaching).
+const maxFor = (cert) => (cert?.track || 'foundation') === 'foundation' ? MAX_ATTEMPTS : 999;
 
 // Written practicals. Scored live by a manager, 1–4 per area; pass = average 3+ and the must-pass met.
 export const PRACTICALS = {
@@ -37,6 +42,7 @@ const pracComponent = (def) => def.component || 'practical';
 // Live roleplays. The rep brings their own pre-vetted lead; the manager plays it with a hidden card.
 export const ROLEPLAYS = {
   F4: F4_ROLEPLAY,
+  CC1: CC1_ROLEPLAY,
   F3: {
     mode: 'lead',
     criteria: [
@@ -184,7 +190,8 @@ async function myCerts(env, me) {
   const last = (await env.DB.prepare("SELECT cert_id, score, status, finished_at FROM quiz_attempts WHERE user_email=? AND status IN ('passed','failed') ORDER BY finished_at DESC").bind(me.email).all()).results;
   const locks = (await env.DB.prepare("SELECT cert_id, MAX(locked_until) l FROM quiz_attempts WHERE user_email=? AND status='voided' GROUP BY cert_id").bind(me.email).all()).results;
   const pracs = (await env.DB.prepare("SELECT cert_id, attempt_no, status FROM practical_submissions WHERE user_email=? ORDER BY attempt_no DESC").bind(me.email).all()).results;
-  const rps = (await env.DB.prepare("SELECT cert_id, attempt_no, status FROM roleplay_leads WHERE user_email=? ORDER BY attempt_no DESC").bind(me.email).all()).results;
+  const rps = (await env.DB.prepare("SELECT cert_id, attempt_no, status, content FROM roleplay_leads WHERE user_email=? ORDER BY attempt_no DESC").bind(me.email).all()).results;
+  const trains = (await env.DB.prepare("SELECT cert_id, completed_at FROM training_progress WHERE user_email=?").bind(me.email).all()).results;
   const progress = {};
   for (const c of certs) {
     const p = rows.find(r => r.cert_id === c.id);
@@ -193,10 +200,11 @@ async function myCerts(env, me) {
     progress[c.id] = {
       status: p?.status || 'not_started', attemptsUsed: p?.attempts_used || 0, retakeUnlocked: p ? !!p.retake_unlocked : true,
       passedAt: p?.passed_at || null, lastScore: l ? l.score : null, inProgress: !!open.find(o => o.cert_id === c.id),
-      lockedUntil: lock?.l && lock.l > nowIso() ? lock.l : null, maxAttempts: MAX_ATTEMPTS,
+      lockedUntil: lock?.l && lock.l > nowIso() ? lock.l : null, maxAttempts: maxFor(c),
+      training: (() => { const x = trains.find(r => r.cert_id === c.id); return x ? {completed: !!x.completed_at} : null; })(),
       components: parse(p?.components, {}),
       practical: (() => { const x = pracs.find(r => r.cert_id === c.id); return x ? {status: x.status, attemptNo: x.attempt_no} : null; })(),
-      roleplay: (() => { const x = rps.find(r => r.cert_id === c.id); return x ? {status: x.status, attemptNo: x.attempt_no} : null; })()
+      roleplay: (() => { const x = rps.find(r => r.cert_id === c.id); return x ? {status: x.status, attemptNo: x.attempt_no, booking: parse(x.content, {}).booking || null} : null; })()
     };
   }
   return {me: {email: me.email, name: me.name, role: me.role}, certs, progress};
@@ -277,7 +285,8 @@ async function startQuiz(env, me, certId) {
   }
   const p = await getProgress(env, me.email, certId);
   if (parse(p.components, {}).quiz === 'passed' || p.status === 'passed') return fail('passed', 'You’ve already passed this quiz.', 409);
-  if (p.attempts_used >= MAX_ATTEMPTS) return fail('max_attempts', 'Talk to your manager about next steps for this certification.', 409);
+  if (parse(cert.components, []).includes('training') && parse(p.components, {}).training !== 'passed') return fail('training', 'Finish the training page first.', 409);
+  if (p.attempts_used >= maxFor(cert)) return fail('max_attempts', 'Talk to your manager about next steps for this certification.', 409);
   if (!p.retake_unlocked) return fail('needs_coaching', 'Your retake opens after a coaching session with your manager.', 409);
   const lock = await lockedUntil(env, me.email, certId);
   if (lock) return json({error: 'locked', message: 'This quiz is locked after leaving the tab twice.', lockedUntil: lock}, 409);
@@ -297,12 +306,12 @@ async function startQuiz(env, me, certId) {
 
 async function result(env, attempt) {
   const answers = (await env.DB.prepare("SELECT a.position, a.is_correct, q.topic, q.prompt, q.reveal, q.review_link FROM quiz_answers a JOIN questions q ON q.id=a.question_id AND q.version=a.question_version WHERE a.attempt_id=? ORDER BY a.position").bind(attempt.id).all()).results;
-  const cert = await env.DB.prepare("SELECT name, pass_mark, components FROM certifications WHERE id=?").bind(attempt.cert_id).first();
+  const cert = await env.DB.prepare("SELECT name, pass_mark, components, track FROM certifications WHERE id=?").bind(attempt.cert_id).first();
   const p = await env.DB.prepare("SELECT attempts_used FROM cert_progress WHERE user_email=? AND cert_id=?").bind(attempt.user_email, attempt.cert_id).first();
   const missed = new Map();
   for (const a of answers.filter(a => !a.is_correct)) if (!missed.has(a.topic)) missed.set(a.topic, {topic: a.topic, review: a.review_link, label: REVIEW_LABELS[a.review_link] || a.review_link});
   return {
-    certId: attempt.cert_id, certName: cert.name, status: attempt.status, hasPractical: !!secondComponent(parse(cert.components, [])), next: secondComponent(parse(cert.components, [])), attemptNo: attempt.attempt_no, attemptsUsed: p?.attempts_used || 0, maxAttempts: MAX_ATTEMPTS,
+    certId: attempt.cert_id, certName: cert.name, status: attempt.status, hasPractical: !!secondComponent(parse(cert.components, [])), next: secondComponent(parse(cert.components, [])), mode: ROLEPLAYS[attempt.cert_id]?.mode || null, attemptNo: attempt.attempt_no, attemptsUsed: p?.attempts_used || 0, maxAttempts: maxFor(cert),
     correct: attempt.correct_count, total: answers.length, score: attempt.score, passMark: cert.pass_mark,
     reveals: answers.filter(a => a.is_correct && a.reveal).map(a => ({topic: a.topic, question: a.prompt, text: a.reveal})),
     review: [...missed.values()]
@@ -457,6 +466,9 @@ async function roleplayState(env, email, certId, forManager) {
   const view = (l) => !l ? null : {
     attemptNo: l.attempt_no, status: l.status, business: l.business, link: l.link, code: l.code, leadStatus: l.lead_status, note: l.note,
     submittedAt: l.submitted_at, startedAt: l.started_at,
+    ...(def.mode === 'rapid' ? (() => { const c = parse(l.content, {}); const draws = c.draws || def.slots.map(() => null); return {
+      leads: c.leads || [], booking: c.booking || null, drawn: draws.filter(Boolean).length,
+      draws: forManager ? draws.map(id => id ? def.cards.find(x => x.id === id) || null : null) : null}; })() : {}),
     card: forManager && l.card_id ? def.cards.find(c => c.id === l.card_id) || null : null,
     brief: def.mode === 'situation' && l.card_id ? (def.cards.find(c => c.id === l.card_id) || {}).brief || null : null,
     score: rpScoreView(scores.find(x => x.attempt_no === l.attempt_no))
@@ -464,16 +476,22 @@ async function roleplayState(env, email, certId, forManager) {
   return {
     cert: {id: cert.id, name: cert.name, day: cert.onboarding_day},
     rep: {email, name: user?.name || email.split('@')[0], codePrefix: codePrefix(email)},
-    def: {mode: def.mode || 'lead', business: def.business || null, setup: def.setup || null, criteria: def.criteria, musts: def.musts},
+    def: {mode: def.mode || 'lead', business: def.business || null, setup: def.setup || null, slots: def.slots || null, criteria: def.criteria, musts: def.musts},
     progress: {status: p.status, components: parse(p.components, {})},
     quiz: quiz ? {status: quiz.status, score: quiz.score} : null,
     current: view(cur), history: leads.slice(1).map(view),
-    attemptsUsed: leads.filter(l => ['passed', 'failed'].includes(l.status)).length, maxAttempts: MAX_ATTEMPTS
+    attemptsUsed: leads.filter(l => ['passed', 'failed'].includes(l.status)).length, maxAttempts: maxFor(cert),
+    retakeUnlocked: !!p.retake_unlocked,
+    ...(def.mode === 'rapid' ? {
+      managers: (await env.DB.prepare("SELECT email, name FROM users WHERE active=1 AND role IN ('manager','admin') ORDER BY COALESCE(name, email)").all()).results.map(u => ({email: u.email, name: u.name || u.email.split('@')[0]})),
+      openers: parse((await env.DB.prepare("SELECT content FROM training_progress WHERE user_email=? AND cert_id=?").bind(email, certId).first())?.content, {}).openers || []
+    } : {})
   };
 }
 async function submitRoleplayLead(env, me, certId, body) {
   const cert = await env.DB.prepare("SELECT * FROM certifications WHERE id=?").bind(certId).first();
   if (!cert || !ROLEPLAYS[certId] || cert.status !== 'active') return fail('not_available', 'This roleplay isn’t open yet.', 404);
+  if (ROLEPLAYS[certId].mode === 'rapid') return submitRapid(env, me, cert, body);
   if (ROLEPLAYS[certId].mode === 'situation') return fail('no_lead', 'There’s nothing to submit for this roleplay. Your manager starts it with you.', 409);
   const business = String(body.business || '').trim().slice(0, 200);
   const link = String(body.link || '').trim().slice(0, 500);
@@ -504,6 +522,82 @@ async function submitRoleplayLead(env, me, certId, body) {
   }
   return json(await roleplayState(env, me.email, certId, false));
 }
+// ---------- training pages (self-paced tracks) ----------
+const fmtTime = (hm) => { const [h, mi] = String(hm).split(':').map(Number); if (!Number.isFinite(h)) return hm; return ((h + 11) % 12 + 1) + ':' + String(mi || 0).padStart(2, '0') + ' ' + (h < 12 ? 'AM' : 'PM'); };
+async function trainingState(env, email, certId) {
+  const cert = await env.DB.prepare("SELECT * FROM certifications WHERE id=?").bind(certId).first();
+  const def = TRAININGS[certId];
+  if (!cert || !def || cert.status !== 'active') return null;
+  const row = await env.DB.prepare("SELECT * FROM training_progress WHERE user_email=? AND cert_id=?").bind(email, certId).first();
+  const p = await getProgress(env, email, certId);
+  const prereqs = [];
+  for (const pre of parse(cert.prerequisites, [])) {
+    const x = await env.DB.prepare("SELECT status FROM cert_progress WHERE user_email=? AND cert_id=?").bind(email, pre).first();
+    if (x?.status !== 'passed') prereqs.push(pre);
+  }
+  return {
+    cert: {id: cert.id, name: cert.name, track: cert.track, components: parse(cert.components, [])}, def,
+    content: parse(row?.content, {}), completedAt: row?.completed_at || null, missingPrereqs: prereqs,
+    progress: {status: p.status, components: parse(p.components, {}), retakeUnlocked: !!p.retake_unlocked}
+  };
+}
+async function saveTraining(env, me, certId, body) {
+  const st = await trainingState(env, me.email, certId);
+  if (!st) return fail('not_available', 'This training isn’t open yet.', 404);
+  if (st.missingPrereqs.length) return fail('prerequisite', `Pass ${st.missingPrereqs.join(', ')} first.`, 409);
+  const app = st.def.sections.find(x => x.type === 'application');
+  const raw = Array.isArray(body.content?.openers) ? body.content.openers : [];
+  const openers = (app?.slots || []).map((slot, i) => ({type: slot.type, business: clip(raw[i]?.business, 200).trim(), note: clip(raw[i]?.note, 600).trim(), opener: clip(raw[i]?.opener, 1200).trim()}));
+  const content = {openers};
+  const t = nowIso();
+  const complete = !!body.complete;
+  if (complete) {
+    const bad = openers.findIndex(o => !o.business || o.opener.length < 20);
+    if (bad >= 0) return json({error: 'incomplete', message: `Finish opener ${bad + 1}: add the business and a full opener.`, index: bad}, 400);
+  }
+  const done = st.completedAt || (complete ? t : null);
+  const stmts = [env.DB.prepare("INSERT INTO training_progress (user_email, cert_id, content, completed_at, updated_at) VALUES (?,?,?,?,?) ON CONFLICT(user_email, cert_id) DO UPDATE SET content=excluded.content, completed_at=COALESCE(training_progress.completed_at, excluded.completed_at), updated_at=excluded.updated_at").bind(me.email, certId, JSON.stringify(content), done, t)];
+  if (complete && !st.completedAt) {
+    const cert = await env.DB.prepare("SELECT * FROM certifications WHERE id=?").bind(certId).first();
+    const prog = await getProgress(env, me.email, certId);
+    stmts.push(componentUpdate(env, cert, prog, me.email, {training: 'passed'}, t));
+    stmts.push(env.DB.prepare("INSERT INTO activity_events (user_email, kind, ref, occurred_at) VALUES (?, 'training_done', ?, ?)").bind(me.email, certId, t));
+  }
+  await env.DB.batch(stmts);
+  return json(await trainingState(env, me.email, certId));
+}
+async function submitRapid(env, me, cert, body) {
+  const def = ROLEPLAYS[cert.id];
+  const p = await getProgress(env, me.email, cert.id);
+  if (parse(p.components, {}).quiz !== 'passed') return fail('quiz', 'Pass the quiz before you book your roleplay.', 409);
+  const raw = Array.isArray(body.leads) ? body.leads : [];
+  const leads = def.slots.map((type, i) => ({type, business: clip(raw[i]?.business, 200).trim(), note: clip(raw[i]?.note, 600).trim(), opener: type === 'Cold' ? '' : clip(raw[i]?.opener, 1200).trim()}));
+  const miss = leads.findIndex(l => !l.business || !l.note || (l.type !== 'Cold' && l.opener.length < 20));
+  if (miss >= 0) return json({error: 'leads', message: `Lead ${miss + 1} (${leads[miss].type}) needs the business, its note${leads[miss].type === 'Cold' ? '' : ' and your opener'}.`, index: miss}, 400);
+  const b = body.booking || {};
+  const manager = await env.DB.prepare("SELECT email, name FROM users WHERE email=? AND role IN ('manager','admin') AND active=1").bind(String(b.manager || '').toLowerCase()).first();
+  if (!manager) return fail('booking', 'Pick the manager you booked with.');
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(b.date || '')) || isNaN(Date.parse(b.date))) return fail('booking', 'Add the date you booked.');
+  if (!/^\d{2}:\d{2}$/.test(String(b.time || ''))) return fail('booking', 'Add the time you booked.');
+  const booking = {manager: manager.email, managerName: manager.name || manager.email.split('@')[0], date: b.date, time: b.time};
+  const t = nowIso();
+  const cur = await env.DB.prepare("SELECT * FROM roleplay_leads WHERE user_email=? AND cert_id=? ORDER BY attempt_no DESC LIMIT 1").bind(me.email, cert.id).first();
+  if (cur && cur.status === 'started') return fail('started', 'Your manager has started the roleplay, so your leads are locked.', 409);
+  if (cur && cur.status === 'passed') return fail('passed', 'You’ve already passed this roleplay.', 409);
+  if (cur && cur.status === 'failed' && !p.retake_unlocked) return fail('needs_coaching', 'Your retake opens after a coaching session with your manager.', 409);
+  const content = JSON.stringify({leads, booking, draws: def.slots.map(() => null)});
+  if (cur && cur.status === 'submitted') {
+    await env.DB.prepare("UPDATE roleplay_leads SET business=?, content=?, updated_at=? WHERE id=?").bind(leads[0].business, content, t, cur.id).run();
+  } else {
+    await env.DB.batch([
+      env.DB.prepare("INSERT INTO roleplay_leads (id, user_email, cert_id, attempt_no, status, business, code, lead_status, content, submitted_at, updated_at) VALUES (?,?,?,?, 'submitted', ?, '-', '-', ?,?,?)")
+        .bind(crypto.randomUUID(), me.email, cert.id, (cur?.attempt_no || 0) + 1, leads[0].business, content, t, t),
+      componentUpdate(env, cert, p, me.email, {roleplay: 'submitted'}, t),
+      env.DB.prepare("INSERT INTO activity_events (user_email, kind, ref, occurred_at) VALUES (?, 'roleplay_booked', ?, ?)").bind(me.email, cert.id, t)
+    ]);
+  }
+  return json(await roleplayState(env, me.email, cert.id, false));
+}
 async function runRoleplay(env, me, certId, email, body) {
   const cert = await env.DB.prepare("SELECT * FROM certifications WHERE id=?").bind(certId).first();
   const def = ROLEPLAYS[certId];
@@ -528,6 +622,21 @@ async function runRoleplay(env, me, certId, email, body) {
     await audit(env, me.email, 'start_roleplay', `${email}:${certId}`, {card: pick.id});
     return json(await roleplayState(env, email, certId, true));
   }
+  if (body.action === 'draw' && def.mode === 'rapid') {
+    if (!cur || !['submitted', 'started'].includes(cur.status)) return fail('not_ready', 'There’s nothing booked to run.', 409);
+    const c = parse(cur.content, {}); const draws = c.draws || def.slots.map(() => null);
+    const i = Number(body.index);
+    if (!Number.isInteger(i) || i < 0 || i >= def.slots.length) return fail('bad_request', 'Pick a lead.');
+    if (draws[i]) return fail('drawn', 'That lead already has a card.', 409);
+    const pool = def.cards.filter(x => !draws.includes(x.id));
+    const pick = pool[crypto.getRandomValues(new Uint32Array(1))[0] % pool.length];
+    draws[i] = pick.id;
+    const stmts = [env.DB.prepare("UPDATE roleplay_leads SET status='started', content=?, manager_email=COALESCE(manager_email, ?), started_at=COALESCE(started_at, ?), updated_at=? WHERE id=?").bind(JSON.stringify({...c, draws}), me.email, t, t, cur.id)];
+    if (cur.status === 'submitted') { const prog = await getProgress(env, email, certId); stmts.push(componentUpdate(env, cert, prog, email, {roleplay: 'started'}, t)); }
+    await env.DB.batch(stmts);
+    await audit(env, me.email, 'draw_card', `${email}:${certId}`, {attempt: cur.attempt_no, lead: i, card: pick.id});
+    return json(await roleplayState(env, email, certId, true));
+  }
   if (body.action === 'start') {
     if (!cur || cur.status !== 'submitted') return fail('not_ready', 'There’s no lead waiting for a roleplay.', 409);
     const usedCards = (await env.DB.prepare("SELECT card_id FROM roleplay_leads WHERE user_email=? AND cert_id=? AND card_id IS NOT NULL").bind(email, certId).all()).results.map(r => r.card_id);
@@ -539,6 +648,7 @@ async function runRoleplay(env, me, certId, email, body) {
   }
   if (body.action === 'score') {
     if (!cur || cur.status !== 'started') return fail('not_started', 'Start the roleplay before scoring it.', 409);
+    if (def.mode === 'rapid' && (parse(cur.content, {}).draws || []).filter(Boolean).length < def.slots.length) return fail('draws', 'Draw a card for every lead before scoring.', 409);
     const scores = {};
     for (const c of def.criteria) {
       const v = Number(body.scores?.[c.id]);
@@ -559,7 +669,7 @@ async function runRoleplay(env, me, certId, email, body) {
       env.DB.prepare("INSERT INTO roleplay_scores (id, user_email, cert_id, attempt_no, scorer_email, persona_card_id, criteria, must_pass, average, result, coaching_notes, created_at, shared_at) VALUES (?,?,?,?,?, NULL, ?,?,?,?,?,?,?)")
         .bind(crypto.randomUUID(), email, certId, cur.attempt_no, me.email, JSON.stringify(scores), JSON.stringify(musts), average, passed ? 'passed' : 'failed', notes, t, t),
       env.DB.prepare("UPDATE roleplay_leads SET status=?, scored_at=?, updated_at=? WHERE id=?").bind(passed ? 'passed' : 'failed', t, t, cur.id),
-      componentUpdate(env, cert, prog, email, {roleplay: passed ? 'passed' : 'failed'}, t)
+      componentUpdate(env, cert, prog, email, {roleplay: passed ? 'passed' : 'failed'}, t, !passed && def.mode === 'rapid' ? ', retake_unlocked=0' : '')
     ]);
     await audit(env, me.email, 'score_roleplay', `${email}:${certId}`, {attempt: cur.attempt_no, average, passed});
     return json(await roleplayState(env, email, certId, true));
@@ -577,7 +687,7 @@ async function team(env) {
   const weekAgo = new Date(Date.now() - 7 * 864e5).toISOString(), monthAgo = new Date(Date.now() - 30 * 864e5).toISOString();
   const leaves = (await env.DB.prepare("SELECT e.user_email, e.outcome, e.duration_ms, e.occurred_at, a.cert_id FROM integrity_events e JOIN quiz_attempts a ON a.id=e.attempt_id WHERE e.occurred_at>=? ORDER BY e.occurred_at DESC").bind(weekAgo).all()).results;
   const visits = (await env.DB.prepare("SELECT user_email, COUNT(*) n FROM activity_events WHERE kind='page_view' AND occurred_at>=? GROUP BY user_email").bind(monthAgo).all()).results;
-  const rpRows = (await env.DB.prepare("SELECT user_email, cert_id, attempt_no, status, submitted_at FROM roleplay_leads ORDER BY attempt_no DESC").all()).results;
+  const rpRows = (await env.DB.prepare("SELECT user_email, cert_id, attempt_no, status, submitted_at, content FROM roleplay_leads ORDER BY attempt_no DESC").all()).results;
   const pracRows = (await env.DB.prepare("SELECT user_email, cert_id, attempt_no, status, submitted_at FROM practical_submissions ORDER BY attempt_no DESC").all()).results;
   const lastSeen = (await env.DB.prepare("SELECT user_email, MAX(t) t FROM (SELECT user_email, occurred_at t FROM activity_events UNION ALL SELECT user_email, started_at t FROM quiz_attempts) GROUP BY user_email").all()).results;
 
@@ -604,6 +714,7 @@ async function team(env) {
   const rpUsed = (email, cert) => rpRows.filter(r => r.user_email === email && r.cert_id === cert && ['passed', 'failed'].includes(r.status)).length;
   for (const r of latestRp.values()) {
     const u = rows.find(x => x.email === r.user_email); if (!u) continue;
+    if (ROLEPLAYS[r.cert_id]?.mode === 'rapid') continue;
     if (r.status === 'submitted' || r.status === 'started') attention.push({kind: 'roleplay', url: '/roleplay-run/' + r.cert_id + '?rep=' + encodeURIComponent(u.email), email: u.email, name: u.name, cert: r.cert_id, at: r.submitted_at, text: r.status === 'started' ? `has an ${r.cert_id} roleplay in progress · finish scoring it` : `sent their ${r.cert_id} roleplay lead${r.attempt_no > 1 ? ' (attempt ' + r.attempt_no + ')' : ''} · ready to run`});
     else if (r.status === 'failed' && ROLEPLAYS[r.cert_id]?.mode !== 'situation') attention.push(rpUsed(r.user_email, r.cert_id) >= MAX_ATTEMPTS
       ? {kind: 'max', email: u.email, name: u.name, cert: r.cert_id, text: `has used all ${MAX_ATTEMPTS} attempts on the ${r.cert_id} roleplay · time for a performance conversation`}
@@ -618,10 +729,25 @@ async function team(env) {
       attention.push({kind: 'roleplay', url: '/roleplay-run/' + c.id + '?rep=' + encodeURIComponent(u.email), email: u.email, name: u.name, cert: c.id, text: last ? `is due an ${c.id} confirmation roleplay retake · new situation` : `is ready for the ${c.id} confirmation roleplay`});
     }
   }
+  // Self-paced roleplays: the rep books the time with their manager once training and the quiz are done.
+  const fmtBooking = b => { if (!b?.date) return 'not booked yet'; const d = new Date(b.date + 'T12:00:00Z'); return 'booked ' + d.toLocaleDateString('en-US', {weekday: 'short', month: 'short', day: 'numeric', timeZone: 'UTC'}) + (b.time ? ' at ' + fmtTime(b.time) : ''); };
+  for (const c of certs.filter(c => c.status === 'active' && ROLEPLAYS[c.id]?.mode === 'rapid')) {
+    for (const u of rows) {
+      const p = progress.find(x => x.user_email === u.email && x.cert_id === c.id); if (!p) continue;
+      const comps = parse(p.components, {}); const last = latestRp.get(u.email + ':' + c.id);
+      if (comps.quiz !== 'passed' || last?.status === 'passed') continue;
+      if (last && ['submitted', 'started'].includes(last.status)) {
+        const bk = parse(last.content, {}).booking;
+        attention.push({kind: 'roleplay', url: '/roleplay-run/' + c.id + '?rep=' + encodeURIComponent(u.email), email: u.email, name: u.name, cert: c.id, at: last.submitted_at, booked: bk || null, text: last.status === 'started' ? `has a ${c.id} roleplay in progress · finish scoring it` : `is ready for the ${c.id} roleplay · ${fmtBooking(bk)}`});
+      } else if (last && last.status === 'failed') {
+        if (!p.retake_unlocked) attention.push({kind: 'coach', email: u.email, name: u.name, cert: c.id, text: `didn’t pass the ${c.id} roleplay · coaching needed before they rebook`});
+      } else attention.push({kind: 'waiting', email: u.email, name: u.name, cert: c.id, text: `is ready for the ${c.id} roleplay · not booked yet`});
+    }
+  }
   for (const p of progress.filter(p => p.status === 'failed' && parse(p.components, {}).quiz === 'failed')) {
     const u = rows.find(r => r.email === p.user_email); if (!u) continue;
     const s = lastScores.find(x => x.user_email === p.user_email && x.cert_id === p.cert_id);
-    if (p.attempts_used >= MAX_ATTEMPTS) attention.push({kind: 'max', email: u.email, name: u.name, cert: p.cert_id, text: `has used all ${MAX_ATTEMPTS} attempts on ${p.cert_id} · time for a performance conversation`});
+    if (p.attempts_used >= maxFor(certs.find(c => c.id === p.cert_id))) attention.push({kind: 'max', email: u.email, name: u.name, cert: p.cert_id, text: `has used all ${MAX_ATTEMPTS} attempts on ${p.cert_id} · time for a performance conversation`});
     else if (!p.retake_unlocked) attention.push({kind: 'coach', email: u.email, name: u.name, cert: p.cert_id, text: `didn’t pass the ${p.cert_id} quiz${s ? ' (' + Math.round(s.score * 100) + '%)' : ''} · coaching needed before retake`});
   }
   for (const l of leaves) {
@@ -660,8 +786,9 @@ async function certContent(env, certId) {
   const sections = [...new Set(questions.map(q => q.section))].sort();
   const pd = PRACTICALS[certId], rp = ROLEPLAYS[certId];
   const practical = !pd ? null : {kind: pd.kind || 'lists', component: pracComponent(pd), title: pd.title, brief: pd.brief || null, jobs: pd.jobs || null, criteria: pd.criteria, must: pd.must, key: pd.key || null};
-  const roleplay = !rp ? null : {mode: rp.mode || 'lead', business: rp.business || null, setup: rp.setup || null, criteria: rp.criteria, musts: rp.musts, cards: rp.cards};
-  return {cert: c, questions, sections, practical, roleplay, maxAttempts: MAX_ATTEMPTS, lockHours: LOCK_HOURS};
+  const roleplay = !rp ? null : {mode: rp.mode || 'lead', business: rp.business || null, setup: rp.setup || null, slots: rp.slots || null, criteria: rp.criteria, musts: rp.musts, cards: rp.cards};
+  const training = TRAININGS[certId] ? {title: TRAININGS[certId].title, sections: TRAININGS[certId].sections.filter(x => x.title).map(x => x.title)} : null;
+  return {cert: c, questions, sections, practical, roleplay, training, maxAttempts: maxFor(c), lockHours: LOCK_HOURS};
 }
 async function resetOwn(env, email) {
   const ids = (await env.DB.prepare("SELECT id FROM quiz_attempts WHERE user_email=?").bind(email).all()).results.map(r => r.id);
@@ -671,7 +798,7 @@ async function resetOwn(env, email) {
     stmts.push(env.DB.prepare("DELETE FROM integrity_events WHERE attempt_id=?").bind(id));
   }
   stmts.push(env.DB.prepare("DELETE FROM quiz_attempts WHERE user_email=?").bind(email));
-  for (const t of ['cert_progress', 'practical_submissions', 'roleplay_leads', 'roleplay_scores', 'retake_unlocks']) stmts.push(env.DB.prepare(`DELETE FROM ${t} WHERE user_email=?`).bind(email));
+  for (const t of ['cert_progress', 'practical_submissions', 'roleplay_leads', 'roleplay_scores', 'retake_unlocks', 'training_progress']) stmts.push(env.DB.prepare(`DELETE FROM ${t} WHERE user_email=?`).bind(email));
   await env.DB.batch(stmts);
 }
 
@@ -710,7 +837,7 @@ export async function handleApi(request, env, user) {
     const p = await getProgress(env, me.email, m[1]);
     return json({
       cert: {id: cert.id, name: cert.name, summary: cert.summary, status: cert.status, questions: cert.questions_per_attempt, seconds: cert.seconds_per_question, passMark: cert.pass_mark},
-      progress: {status: p.status, quizPassed: parse(p.components, {}).quiz === 'passed', hasPractical: !!secondComponent(parse(cert.components, [])), next: secondComponent(parse(cert.components, [])), attemptsUsed: p.attempts_used, retakeUnlocked: !!p.retake_unlocked, maxAttempts: MAX_ATTEMPTS, lockedUntil: await lockedUntil(env, me.email, m[1])},
+      progress: {status: p.status, quizPassed: parse(p.components, {}).quiz === 'passed', hasPractical: !!secondComponent(parse(cert.components, [])), next: secondComponent(parse(cert.components, [])), attemptsUsed: p.attempts_used, retakeUnlocked: !!p.retake_unlocked, maxAttempts: maxFor(cert), needsTraining: parse(cert.components, []).includes('training') && parse(p.components, {}).training !== 'passed', lockedUntil: await lockedUntil(env, me.email, m[1])},
       openAttempt: open ? open.id : null
     });
   }
@@ -760,6 +887,11 @@ export async function handleApi(request, env, user) {
     return st ? json(st) : fail('not_available', 'This practical isn’t open yet.', 404);
   }
 
+  if ((m = /^\/api\/training\/([A-Z0-9]{1,6})$/.exec(path))) {
+    if (method === 'POST') return saveTraining(env, me, m[1], body);
+    const st = await trainingState(env, me.email, m[1]);
+    return st ? json(st) : fail('not_available', 'This training isn’t open yet.', 404);
+  }
   if ((m = /^\/api\/roleplay\/([A-Z0-9]{1,6})$/.exec(path))) {
     if (method === 'POST') return submitRoleplayLead(env, me, m[1], body);
     const st = await roleplayState(env, me.email, m[1], false);
@@ -801,7 +933,8 @@ export async function handleApi(request, env, user) {
     const email = String(body.email || '').toLowerCase(), cert = String(body.cert || '');
     const p = await env.DB.prepare("SELECT * FROM cert_progress WHERE user_email=? AND cert_id=?").bind(email, cert).first();
     if (!p || p.status !== 'failed') return fail('not_needed', 'Nothing to unlock.', 409);
-    if (p.attempts_used >= MAX_ATTEMPTS) return fail('max_attempts', 'All attempts used.', 409);
+    const uc = await env.DB.prepare("SELECT track FROM certifications WHERE id=?").bind(cert).first();
+    if (p.attempts_used >= maxFor(uc)) return fail('max_attempts', 'All attempts used.', 409);
     await env.DB.batch([
       env.DB.prepare("UPDATE cert_progress SET retake_unlocked=1, updated_at=? WHERE user_email=? AND cert_id=?").bind(nowIso(), email, cert),
       env.DB.prepare("INSERT INTO retake_unlocks (user_email, cert_id, coached_by, coached_at, note) VALUES (?,?,?,?,?)").bind(email, cert, me.email, nowIso(), String(body.note || '').slice(0, 1000) || null)
@@ -832,6 +965,7 @@ export async function handleApi(request, env, user) {
       env.DB.prepare("DELETE FROM practical_submissions WHERE user_email=? AND cert_id=?").bind(email, cert),
       env.DB.prepare("DELETE FROM roleplay_leads WHERE user_email=? AND cert_id=?").bind(email, cert),
       env.DB.prepare("DELETE FROM roleplay_scores WHERE user_email=? AND cert_id=?").bind(email, cert),
+      env.DB.prepare("DELETE FROM training_progress WHERE user_email=? AND cert_id=?").bind(email, cert),
       env.DB.prepare("UPDATE quiz_attempts SET status='voided', locked_until=NULL WHERE user_email=? AND cert_id=? AND status='in_progress'").bind(email, cert),
       env.DB.prepare("UPDATE quiz_attempts SET locked_until=NULL WHERE user_email=? AND cert_id=?").bind(email, cert)
     ]);

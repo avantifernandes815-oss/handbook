@@ -1,0 +1,876 @@
+{
+ "cert": "CC1",
+ "version": 1,
+ "questions": [
+  {
+   "id": "CC1-A1",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "The one job",
+   "prompt": "What is the one job of an opener?",
+   "options": [
+    {
+     "id": "A",
+     "text": "To explain what Momence actually does"
+    },
+    {
+     "id": "B",
+     "text": "To find out who makes the decisions"
+    },
+    {
+     "id": "C",
+     "text": "To earn the next thirty seconds"
+    },
+    {
+     "id": "D",
+     "text": "To book the meeting as fast as possible"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "/training/CC1",
+   "source": "CC1 · Why the opener decides the call"
+  },
+  {
+   "id": "CC1-A2",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "The four parts",
+   "prompt": "What's the right order for the four-part opener?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Who you are, their name, a question, why them"
+    },
+    {
+     "id": "B",
+     "text": "Their name, who you are, why them, a question"
+    },
+    {
+     "id": "C",
+     "text": "Why them, their name, a question, who you are"
+    },
+    {
+     "id": "D",
+     "text": "Their name, a question, who you are, why them"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "/training/CC1",
+   "source": "CC1 · The four-part opener"
+  },
+  {
+   "id": "CC1-A3",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "The heavy part",
+   "prompt": "Which part of the opener carries the most weight?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Their name, said correctly"
+    },
+    {
+     "id": "B",
+     "text": "Who you are and your company"
+    },
+    {
+     "id": "C",
+     "text": "Why them, why now"
+    },
+    {
+     "id": "D",
+     "text": "The question at the very end"
+    }
+   ],
+   "correct": "C",
+   "reveal": "It's the only part that tells them this call is about their business, not a list.",
+   "review": "/training/CC1",
+   "source": "CC1 · The four-part opener"
+  },
+  {
+   "id": "CC1-A4",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Reading the numbers",
+   "prompt": "A rep's connects are healthy, but very few turn into conversations. Where should coaching start?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Their opener and first ten seconds"
+    },
+    {
+     "id": "B",
+     "text": "Their dial volume and call times"
+    },
+    {
+     "id": "C",
+     "text": "The questions they ask in discovery"
+    },
+    {
+     "id": "D",
+     "text": "How they ask for the meeting"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Day 7: connects but no conversations means you reach them and lose them. That's the opener.",
+   "review": "/training/CC1",
+   "source": "Day 7 · Diagnose the conversion point"
+  },
+  {
+   "id": "CC1-A5",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "All four parts",
+   "prompt": "Which opener covers all four parts?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Hi Dana, it's Sam with Momence. How's your week been going so far?”"
+    },
+    {
+     "id": "B",
+     "text": "“Hi, it's Sam with Momence, the all-in-one platform for wellness studios.”"
+    },
+    {
+     "id": "C",
+     "text": "“Hi Dana, quick one for you: what booking software is the studio on now?”"
+    },
+    {
+     "id": "D",
+     "text": "“Hi Dana, Sam with Momence. I help reformer studios cut no-shows. Got thirty seconds?”"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "/training/CC1",
+   "source": "CC1 · The four-part opener"
+  },
+  {
+   "id": "CC1-A6",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Length",
+   "prompt": "How long should the full four-part opener take?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Under fifteen seconds"
+    },
+    {
+     "id": "B",
+     "text": "About thirty seconds"
+    },
+    {
+     "id": "C",
+     "text": "Around a minute"
+    },
+    {
+     "id": "D",
+     "text": "As long as they keep listening"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "/training/CC1",
+   "source": "CC1 · The four-part opener"
+  },
+  {
+   "id": "CC1-B1",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Loud and sharp",
+   "prompt": "The owner answers “Yeah, what?” over loud music. Which opener fits?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Friendly: ask how today's classes went"
+    },
+    {
+     "id": "B",
+     "text": "Permission-based: name, reason, thirty seconds"
+    },
+    {
+     "id": "C",
+     "text": "Ask whether this is a bad time to talk"
+    },
+    {
+     "id": "D",
+     "text": "Give a full company intro to build trust"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "/training/CC1",
+   "source": "CC1 · Read the pickup"
+  },
+  {
+   "id": "CC1-B2",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "A slow afternoon",
+   "prompt": "She answers warmly and mentions it's a slow afternoon. What fits?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Match her energy briefly, then give your reason"
+    },
+    {
+     "id": "B",
+     "text": "Skip the rapport and go straight to the ask"
+    },
+    {
+     "id": "C",
+     "text": "Ask for the decision maker by job title"
+    },
+    {
+     "id": "D",
+     "text": "Run through the three things Momence helps with"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "/training/CC1",
+   "source": "CC1 · Read the pickup"
+  },
+  {
+   "id": "CC1-B3",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Who did you say?",
+   "prompt": "After your intro he says, “Sorry, who did you say?” What's next?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Repeat it quicker and keep moving"
+    },
+    {
+     "id": "B",
+     "text": "Slow down, repeat your name and company"
+    },
+    {
+     "id": "C",
+     "text": "Apologize and offer to call back later"
+    },
+    {
+     "id": "D",
+     "text": "Skip ahead to why you're calling"
+    }
+   ],
+   "correct": "B",
+   "reveal": "If they don't know who you are, nothing after that lands. Clear beats fast.",
+   "review": "/training/CC1",
+   "source": "CC1 · Read the pickup"
+  },
+  {
+   "id": "CC1-B4",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Permission-based",
+   "prompt": "Which pickup calls for the permission-based opener?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Someone relaxed and happy to chat"
+    },
+    {
+     "id": "B",
+     "text": "Someone who already knows Momence"
+    },
+    {
+     "id": "C",
+     "text": "Someone sharp or clearly annoyed"
+    },
+    {
+     "id": "D",
+     "text": "Someone who asks a lot of questions"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "/training/CC1",
+   "source": "Day 5 · The first ten seconds"
+  },
+  {
+   "id": "CC1-B5",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "The long story",
+   "prompt": "Your friendly opener works. She's been describing her new studio space for two minutes. What now?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Keep listening until she runs out of things to say"
+    },
+    {
+     "id": "B",
+     "text": "Cut in and ask for the meeting right away"
+    },
+    {
+     "id": "C",
+     "text": "Let her finish, then offer to call back another day"
+    },
+    {
+     "id": "D",
+     "text": "Pick up on something she said and tie it to why you called"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Day 5 on the friendly opener: build rapport, then get back to why you called.",
+   "review": "/training/CC1",
+   "source": "Day 5 · The first ten seconds"
+  },
+  {
+   "id": "CC1-B6",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "She warms up",
+   "prompt": "You opened permission-based, but she laughs and relaxes. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Shift to friendly and match her"
+    },
+    {
+     "id": "B",
+     "text": "Stay brisk; you already picked a style"
+    },
+    {
+     "id": "C",
+     "text": "Restart with the friendly opener"
+    },
+    {
+     "id": "D",
+     "text": "Ask whether she has a minute now"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "/training/CC1",
+   "source": "CC1 · Read the pickup"
+  },
+  {
+   "id": "CC1-C1",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Yoga on MindBody",
+   "prompt": "Your note: yoga, 22 weekly classes, on MindBody. Best part 3?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“We're the best alternative to MindBody on the market today.”"
+    },
+    {
+     "id": "B",
+     "text": "“I work with a lot of yoga studios your size on keeping classes full.”"
+    },
+    {
+     "id": "C",
+     "text": "“Momence does booking, payments, marketing and much more besides.”"
+    },
+    {
+     "id": "D",
+     "text": "“I wanted to find out what software you're using for bookings now.”"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "/training/CC1",
+   "source": "CC1 · Part 3 comes from your note"
+  },
+  {
+   "id": "CC1-C2",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Two systems",
+   "prompt": "Your note: reformer studio, Acuity for booking, Square for payments. Best part 3?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Most reformer studios I talk to are juggling booking and payments in two places.”"
+    },
+    {
+     "id": "B",
+     "text": "“Acuity has a lot of limits that we fix for studios exactly like yours.”"
+    },
+    {
+     "id": "C",
+     "text": "“I'd love to walk you through our reformer-specific booking features.”"
+    },
+    {
+     "id": "D",
+     "text": "“We integrate with more payment providers than anyone else out there.”"
+    }
+   ],
+   "correct": "A",
+   "reveal": "It names their situation without knocking their software or claiming anything you can't back up.",
+   "review": "/training/CC1",
+   "source": "CC1 · Part 3 comes from your note"
+  },
+  {
+   "id": "CC1-C3",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "What belongs",
+   "prompt": "Which belongs in part 3?",
+   "options": [
+    {
+     "id": "A",
+     "text": "One sentence about their kind of business"
+    },
+    {
+     "id": "B",
+     "text": "A short list of Momence's main features"
+    },
+    {
+     "id": "C",
+     "text": "A comparison with their current software"
+    },
+    {
+     "id": "D",
+     "text": "A question about their monthly budget"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "/training/CC1",
+   "source": "CC1 · Part 3 comes from your note"
+  },
+  {
+   "id": "CC1-C4",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Drop-in dance",
+   "prompt": "Your note: drop-in dance studio, no software found, payments taken at the door. Best part 3?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Dance studios love our marketing tools and our branded mobile app.”"
+    },
+    {
+     "id": "B",
+     "text": "“Are you happy with how you're taking payments at the door right now?”"
+    },
+    {
+     "id": "C",
+     "text": "“We're the leading all-in-one platform for every kind of studio out there.”"
+    },
+    {
+     "id": "D",
+     "text": "“I help drop-in dance studios take bookings and payments in one spot.”"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "/training/CC1",
+   "source": "CC1 · Part 3 comes from your note"
+  },
+  {
+   "id": "CC1-C5",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Not confirmed",
+   "prompt": "You think the studio has two locations, but your research didn't confirm it. In the opener you…",
+   "options": [
+    {
+     "id": "A",
+     "text": "Mention two locations; they'll correct you if it's wrong"
+    },
+    {
+     "id": "B",
+     "text": "Leave it out and keep part 3 to what you know"
+    },
+    {
+     "id": "C",
+     "text": "Open by asking them to confirm how many locations"
+    },
+    {
+     "id": "D",
+     "text": "Bring it up as a pain they probably have"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Nothing in part 3 you can't back up from the note. A wrong detail in the first ten seconds costs you the call.",
+   "review": "/training/CC1",
+   "source": "CC1 · Part 3 comes from your note"
+  },
+  {
+   "id": "CC1-C6",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Where it comes from",
+   "prompt": "Where does “what I know” for part 3 come from?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The prospect's answer to your first question"
+    },
+    {
+     "id": "B",
+     "text": "A general script for their vertical"
+    },
+    {
+     "id": "C",
+     "text": "The SDR Additional Note from pre-vetting"
+    },
+    {
+     "id": "D",
+     "text": "Momence's main product page"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "/training/CC1",
+   "source": "Day 5 · Where your pre-vetting shows up"
+  },
+  {
+   "id": "CC1-D1",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Recycled",
+   "prompt": "The lead is Recycled: you spoke three months ago and the timing was wrong. Best opener?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Treat it as a brand-new call so it feels fresh"
+    },
+    {
+     "id": "B",
+     "text": "“We spoke a few months back when the timing wasn't right. Has that changed?”"
+    },
+    {
+     "id": "C",
+     "text": "Open by asking whether they remember speaking with you"
+    },
+    {
+     "id": "D",
+     "text": "Remind them of everything Momence does before anything else"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Day 7: Recycled leads need an opener that acknowledges the last conversation.",
+   "review": "/training/CC1",
+   "source": "CC1 · Openers for specific situations"
+  },
+  {
+   "id": "CC1-D2",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "The callback",
+   "prompt": "She asked you to call Thursday at 3. It's Thursday at 3. Open with…",
+   "options": [
+    {
+     "id": "A",
+     "text": "Your usual four-part opener, start to finish"
+    },
+    {
+     "id": "B",
+     "text": "A quick recap of what Momence does first"
+    },
+    {
+     "id": "C",
+     "text": "Her request: “You asked me to try you now.”"
+    },
+    {
+     "id": "D",
+     "text": "A question about how her week is going"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "/training/CC1",
+   "source": "CC1 · Openers for specific situations"
+  },
+  {
+   "id": "CC1-D3",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "The name-drop",
+   "prompt": "A teammate wants to open with “Jordan suggested I call,” but nobody referred them. Your coaching?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Fine, as long as it gets them past hello"
+    },
+    {
+     "id": "B",
+     "text": "Only if someone named Jordan works there"
+    },
+    {
+     "id": "C",
+     "text": "Use it once, then drop it on later calls"
+    },
+    {
+     "id": "D",
+     "text": "Never: a false name-drop burns the account"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "/training/CC1",
+   "source": "CC1 · Openers for specific situations"
+  },
+  {
+   "id": "CC1-D4",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Front desk",
+   "prompt": "The front desk answers. Your note names the owner, Dana. Best line?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Hi, it's Sam with Momence. Is Dana in today?”"
+    },
+    {
+     "id": "B",
+     "text": "“Hi, could I speak with whoever owns the studio?”"
+    },
+    {
+     "id": "C",
+     "text": "“Hi, I'm calling about your booking software setup.”"
+    },
+    {
+     "id": "D",
+     "text": "“Hi, can you tell me who makes software decisions?”"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Day 5: share the bare minimum with a gatekeeper and ask for a route, not a pitch.",
+   "review": "/training/CC1",
+   "source": "Day 5 · Getting past the gatekeeper"
+  },
+  {
+   "id": "CC1-D5",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Wrong person",
+   "prompt": "She says she just teaches there and doesn't touch the software. What's next?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Pitch her anyway; she might pass it along"
+    },
+    {
+     "id": "B",
+     "text": "Ask who handles the booking software"
+    },
+    {
+     "id": "C",
+     "text": "Thank her and mark the lead Unqualified"
+    },
+    {
+     "id": "D",
+     "text": "Ask how she likes the current software"
+    }
+   ],
+   "correct": "B",
+   "reveal": null,
+   "review": "/training/CC1",
+   "source": "CC1 · Openers for specific situations"
+  },
+  {
+   "id": "CC1-D6",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "Recycled openers",
+   "prompt": "What makes a Recycled lead's opener different?",
+   "options": [
+    {
+     "id": "A",
+     "text": "It skips who you are, since they know you"
+    },
+    {
+     "id": "B",
+     "text": "It leads with pricing, since that's what changed"
+    },
+    {
+     "id": "C",
+     "text": "It acknowledges the earlier conversation"
+    },
+    {
+     "id": "D",
+     "text": "It asks for the meeting in the first line"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "/training/CC1",
+   "source": "Day 7 · Different leads need different plays"
+  },
+  {
+   "id": "CC1-E1",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Bad time?",
+   "prompt": "Why does “Did I catch you at a bad time?” hurt?",
+   "options": [
+    {
+     "id": "A",
+     "text": "It sounds like a recorded message"
+    },
+    {
+     "id": "B",
+     "text": "It takes too long to say out loud"
+    },
+    {
+     "id": "C",
+     "text": "It doesn't use their name at all"
+    },
+    {
+     "id": "D",
+     "text": "It hands them the easiest no of the day"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "/training/CC1",
+   "source": "CC1 · What kills an opener"
+  },
+  {
+   "id": "CC1-E2",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "How are you?",
+   "prompt": "Why does “How are you today?” hurt as an opener?",
+   "options": [
+    {
+     "id": "A",
+     "text": "It sounds like every sales call they've had"
+    },
+    {
+     "id": "B",
+     "text": "It's too personal for a first conversation"
+    },
+    {
+     "id": "C",
+     "text": "It makes the opener run past a minute"
+    },
+    {
+     "id": "D",
+     "text": "It gives away that you're with Momence"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "/training/CC1",
+   "source": "CC1 · What kills an opener"
+  },
+  {
+   "id": "CC1-E3",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Word for word",
+   "prompt": "A rep reads the opener word for word and sounds flat. Best coaching?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Read it slower so every word lands"
+    },
+    {
+     "id": "B",
+     "text": "Swap to a longer, friendlier script"
+    },
+    {
+     "id": "C",
+     "text": "Know the four parts and say them your own way"
+    },
+    {
+     "id": "D",
+     "text": "Skip the opener and go straight to questions"
+    }
+   ],
+   "correct": "C",
+   "reveal": null,
+   "review": "/training/CC1",
+   "source": "CC1 · What kills an opener"
+  },
+  {
+   "id": "CC1-E4",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "“Not interested”",
+   "prompt": "Ten seconds in, she says “I'm not interested.” Using Day 6, that's…",
+   "options": [
+    {
+     "id": "A",
+     "text": "A real objection to answer directly"
+    },
+    {
+     "id": "B",
+     "text": "A brush-off: earn attention once more"
+    },
+    {
+     "id": "C",
+     "text": "A sign to mark the lead Unqualified"
+    },
+    {
+     "id": "D",
+     "text": "A cue to list every feature quickly"
+    }
+   ],
+   "correct": "B",
+   "reveal": "A brush-off tells you nothing except that you haven't earned attention yet. Don't pitch harder.",
+   "review": "/training/CC1",
+   "source": "Day 6 · Not every “no” is the same"
+  },
+  {
+   "id": "CC1-E5",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "“The owner”",
+   "prompt": "Your note has the owner's name, but your opener asks for “the owner.” What does that tell them?",
+   "options": [
+    {
+     "id": "A",
+     "text": "That you're being polite and formal"
+    },
+    {
+     "id": "B",
+     "text": "That you're new and still learning"
+    },
+    {
+     "id": "C",
+     "text": "That the call is a quick one"
+    },
+    {
+     "id": "D",
+     "text": "That you didn't do the research"
+    }
+   ],
+   "correct": "D",
+   "reveal": null,
+   "review": "/training/CC1",
+   "source": "CC1 · What kills an opener"
+  },
+  {
+   "id": "CC1-E6",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "It landed",
+   "prompt": "Your opener lands and she says, “Okay, what's this about?” What's next?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Move into relevance and discovery"
+    },
+    {
+     "id": "B",
+     "text": "Ask for the meeting straight away"
+    },
+    {
+     "id": "C",
+     "text": "Give the full Momence overview"
+    },
+    {
+     "id": "D",
+     "text": "Repeat your opener a second time"
+    }
+   ],
+   "correct": "A",
+   "reveal": null,
+   "review": "/training/CC1",
+   "source": "CC1 · When the opener lands"
+  }
+ ]
+}

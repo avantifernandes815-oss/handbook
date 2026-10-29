@@ -64,6 +64,17 @@
       return {key: 'soon', chip: 'off', label: 'Coming soon', ico: 'off'};
     }
     if (!prereqOk) return {key: 'locked', chip: 'off', label: 'Locked · pass the one before', ico: 'off', locked: true};
+    if ((c.components || []).includes('training')) {
+      const comps = p.components || {}, rp = p.roleplay, tu = '/training/' + encodeURIComponent(c.id), ru = '/roleplay/' + encodeURIComponent(c.id);
+      if (comps.training !== 'passed') return {key: 'training', chip: 'go', label: p.training ? 'Training in progress' : 'Ready to start', ico: 'go', action: p.training ? 'Continue training' : 'Start training', url: tu};
+      if (comps.quiz !== 'passed' && !p.inProgress && p.status !== 'failed' && !p.lockedUntil) return {key: 'ready', chip: 'go', label: 'Training done · quiz next', ico: 'go', action: 'Start quiz'};
+      if (comps.quiz === 'passed') {
+        if (!rp) return {key: 'book', chip: 'go', label: 'Quiz passed · book your roleplay', ico: 'go', action: 'Book your roleplay', url: ru};
+        if (rp.status === 'submitted') return {key: 'rp', chip: 'go', label: 'Roleplay booked' + (rp.booking?.date ? ' · ' + new Date(rp.booking.date + 'T12:00:00Z').toLocaleDateString('en-US', {weekday: 'short', month: 'short', day: 'numeric', timeZone: 'UTC'}) : ''), ico: 'go', action: 'View roleplay', url: ru};
+        if (rp.status === 'started') return {key: 'rp', chip: 'go', label: 'Roleplay in progress', ico: 'go', action: 'View roleplay', url: ru};
+        if (rp.status === 'failed') return p.retakeUnlocked ? {key: 'rpretake', chip: 'warn', label: 'Retake open · book it', ico: 'go', action: 'Book your retake', url: ru} : {key: 'coaching', chip: 'warn', label: 'Roleplay retake after coaching', ico: 'go', action: 'See your scorecard', url: ru};
+      }
+    }
     if (second(c) === 'written' && !p.inProgress) {
       const comps = p.components || {}, parts = c.components || [];
       const done = parts.filter(x => comps[x] === 'passed').length;
@@ -93,7 +104,7 @@
     return {key: 'ready', chip: 'go', label: 'Ready to start', ico: 'go', action: 'Start quiz'};
   }
   const formatOf = c => {
-    const parts = (c.components || []).map(x => ({quiz: 'Quiz', roleplay: 'live roleplay', practical: 'practical'}[x] || x));
+    const parts = (c.components || []).map(x => ({training: 'Training', quiz: 'quiz', roleplay: 'live roleplay', practical: 'practical'}[x] || x));
     return parts.join(' + ').replace(/^./, s => s.toUpperCase()) + (c.day ? ' · Day ' + c.day : '');
   };
 
@@ -145,7 +156,7 @@
   function renderCatalog() {
     const live = c => c.status === 'active';
     const meta = c => {
-      const parts = (c.components || []).map(x => ({quiz: 'Quiz', roleplay: 'live roleplay', practical: 'written practical', written: 'written'}[x] || x)).join(' + ').replace(/^./, m => m.toUpperCase());
+      const parts = (c.components || []).map(x => ({training: 'Training', quiz: 'quiz', roleplay: 'live roleplay', practical: 'written practical', written: 'written'}[x] || x)).join(' + ').replace(/^./, m => m.toUpperCase());
       return parts + (c.day ? ' · Day ' + c.day : '');
     };
     const tile = c => {
@@ -165,7 +176,7 @@
     try { d = await api('/api/manage/cert/' + encodeURIComponent(id)); } catch (x) { main.innerHTML = '<p>' + esc(x.message) + '</p>'; return; }
     const c = d.cert, comps = c.components || [];
     const pr = d.practical, rp = d.roleplay;
-    const what = comps.map(x => ({quiz: 'quiz', roleplay: rp && rp.mode === 'situation' ? 'confirmation-call roleplay' : 'live roleplay on the rep’s own lead', practical: 'written practical', written: 'written Piper fix'}[x] || x));
+    const what = comps.map(x => ({training: 'training page', quiz: 'quiz', roleplay: rp && rp.mode === 'rapid' ? 'rapid-fire opener roleplay the rep books with their manager' : rp && rp.mode === 'situation' ? 'confirmation-call roleplay' : 'live roleplay on the rep’s own lead', practical: 'written practical', written: 'written Piper fix'}[x] || x));
     const unlock = (c.prerequisites || []).length ? 'After ' + c.prerequisites.join(', ') + ' is passed' : 'Open from the start';
     const rules = [
       ['Parts', what.join(', then ').replace(/^./, m => m.toUpperCase())],
@@ -174,7 +185,8 @@
       c.seconds ? ['Timing', c.seconds + ' seconds per question'] : null,
       ['Pass mark', Math.round((c.passMark || .8) * 100) + '% on the quiz' + ((pr || rp) ? ' · scored parts need an average of 3+ with every must-pass met' : '')],
       ['Leaving the tab', 'First time: warning · Second time: attempt voided, locked ' + d.lockHours + ' hours'],
-      ['Retakes', 'Day 10, then Monday · a third fail goes to performance management'],
+      ['Retakes', c.track === 'foundation' ? 'Day 10, then Monday · a third fail goes to performance management' : 'After a coaching session with their manager · no attempt limit'],
+      d.training ? ['Training', 'A ' + d.training.sections.length + '-part training page, done before the quiz unlocks'] : null,
       c.day ? ['Onboarding day', 'Day ' + c.day] : null
     ].filter(Boolean);
     const rulesHtml = '<section class="cx-panel">' + rules.map(r => '<div class="cx-rule"><span>' + esc(r[0]) + '</span><strong>' + esc(r[1]) + '</strong></div>').join('') + '</section>';
@@ -186,10 +198,10 @@
     const crit = (list, label) => '<div class="cx-k">' + label + '</div>' + list.map(k => '<div class="cx-rule"><span><b>' + esc(k.name) + '</b><br><small>' + esc(k.hint || '') + '</small></span></div>').join('');
     let keys = '';
     if (rp) {
-      keys += '<section class="cx-panel"><h2>' + (rp.mode === 'situation' ? 'Confirmation roleplay' : 'Live roleplay') + '</h2>' + (rp.setup ? '<p class="cx-sub"><b>What the rep is told:</b> ' + esc(rp.setup) + '</p>' : '<p class="cx-sub">The rep brings their own pre-vetted lead. You play it using one of the hidden cards below.</p>') +
+      keys += '<section class="cx-panel"><h2>' + (rp.mode === 'situation' ? 'Confirmation roleplay' : rp.mode === 'rapid' ? 'Rapid-fire opener roleplay' : 'Live roleplay') + '</h2>' + (rp.setup ? '<p class="cx-sub"><b>What the rep is told:</b> ' + esc(rp.setup) + '</p>' : '<p class="cx-sub">The rep brings their own pre-vetted lead. You play it using one of the hidden cards below.</p>') +
         crit(rp.criteria, 'SCORED 1–4 · PASS WITH AN AVERAGE OF 3+') + '<div class="cx-k">MUST-PASS · ALL REQUIRED</div><ul class="cx-ul">' + rp.musts.map(m => '<li>' + esc(m.name) + '</li>').join('') + '</ul></section>' +
         '<div class="cx-grid2">' + rp.cards.map(k => '<div class="cx-hidden"><div class="cx-k" style="color:var(--purple)">HIDDEN · REP NEVER SEES THIS</div><b>' + esc(k.title) + '</b>' +
-          (k.brief ? '<p><b>Rep is told:</b> ' + esc(k.brief) + '</p>' : '') + '<p><b>You play:</b> ' + esc(k.answer) + '</p>' + (k.brushoff ? '<p><b>Brush-off:</b> ' + esc(k.brushoff) + '</p>' : '') + (k.thread ? '<p><b>Thread to find:</b> ' + esc(k.thread) + '</p>' : '') + (k.objection ? '<p><b>Objection:</b> ' + esc(k.objection) + '</p>' : '') + '<p><b>What a yes looks like:</b> ' + esc(k.yes) + '</p></div>').join('') + '</div>';
+          (k.brief ? '<p><b>Rep is told:</b> ' + esc(k.brief) + '</p>' : '') + '<p><b>You play:</b> ' + esc(k.answer) + '</p>' + (k.next ? '<p><b>Then:</b> ' + esc(k.next) + '</p>' : '') + (k.brushoff ? '<p><b>Brush-off:</b> ' + esc(k.brushoff) + '</p>' : '') + (k.thread ? '<p><b>Thread to find:</b> ' + esc(k.thread) + '</p>' : '') + (k.objection ? '<p><b>Objection:</b> ' + esc(k.objection) + '</p>' : '') + '<p><b>What a yes looks like:</b> ' + esc(k.yes) + '</p></div>').join('') + '</div>';
     }
     if (pr) {
       keys += '<section class="cx-panel"><h2>' + esc(pr.title) + '</h2>' + (pr.brief ? '<p class="cx-sub">' + esc(pr.brief) + '</p>' : '') + (pr.jobs ? '<p class="cx-sub"><b>Lists they build:</b> ' + esc(pr.jobs.join(' · ')) + '</p>' : '') +

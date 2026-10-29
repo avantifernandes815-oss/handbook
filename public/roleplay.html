@@ -53,6 +53,7 @@ function scoring() {
 }
 function render() {
   const cur = S.current, st = cur?.status;
+  if (S.def.mode === 'rapid') return renderRapid();
   if (S.def.mode === 'situation') {
     if (st === 'passed' || st === 'failed') return renderResult();
     const box = st === 'started'
@@ -112,22 +113,91 @@ function renderSent() {
 function renderLocked() {
   app.innerHTML = head() + strip() + '<section class="panel" style="margin-bottom:18px">' + leadBox(S.current, 'ROLEPLAY IN PROGRESS') + '<p style="margin:14px 0 0;font-size:13px;color:var(--body)">Your manager has started the roleplay, so this lead is locked. Your scorecard shows up here as soon as they submit it.</p></section>' + scoring();
 }
+// ---------- rapid-fire roleplay (self-paced tracks): the rep books it with their manager ----------
+let rf = null;
+const fmtDate = d => { if (!d) return ''; const x = new Date(d + 'T12:00:00Z'); return x.toLocaleDateString('en-US', {weekday: 'short', month: 'short', day: 'numeric', timeZone: 'UTC'}); };
+const fmtTime = hm => { if (!hm) return ''; const [h, m] = hm.split(':').map(Number); return ((h + 11) % 12 + 1) + ':' + String(m).padStart(2, '0') + ' ' + (h < 12 ? 'AM' : 'PM'); };
+function stepper() {
+  const c = S.progress.components, st = S.current?.status;
+  const steps = [['Training', c.training === 'passed'], ['Quiz', c.quiz === 'passed'], ['Live roleplay', st === 'passed']];
+  const on = steps.findIndex(x => !x[1]);
+  return '<div class="cc-steps">' + steps.map((x, i) => '<span class="cc-step' + (x[1] ? ' done' : i === on ? ' on' : '') + '"><i>' + (x[1] ? '✓' : i + 1) + '</i>' + x[0] + '</span>').join('') + '</div>';
+}
+function rapidHead(sub) {
+  return '<a class="crumb" href="/#page=certifications">← Your path</a><div class="eyebrow" style="margin-top:14px">' + esc((S.cert.id + ' · ' + S.cert.name).toUpperCase()) + '</div><h1>' + esc(S.cert.name) + '</h1><p class="intro">' + esc(sub) + '</p>' + stepper();
+}
+function leadRows(leads) {
+  return leads.map(l => '<div class="cc-lead"><div><span class="chip ' + (l.type === 'Cold' ? 'off' : 'go') + '">' + esc(l.type) + '</span><b>' + esc(l.business) + '</b></div><div><small>' + esc(l.note) + '</small>' + (l.opener ? '<p>“' + esc(l.opener) + '”</p>' : '<p class="muted">No opener prepared. You’ll open this one cold.</p>') + '</div></div>').join('');
+}
+function renderRapid() {
+  const c = S.progress.components, cur = S.current, st = cur?.status;
+  if (c.training !== 'passed' || c.quiz !== 'passed') {
+    const t = c.training !== 'passed';
+    app.innerHTML = rapidHead(S.def.setup) + '<section class="panel" style="margin-bottom:18px"><h2 style="font-size:20px">' + (t ? 'Start with the training page' : 'Next: the quiz') + '</h2><p class="sub" style="font-size:14px;line-height:1.6;margin:6px 0 14px">' + (t ? 'Work through the training and write your three openers. The quiz unlocks after that, and the live roleplay after the quiz.' : 'Pass the quiz and you’ll be ready to book your live roleplay with your manager.') + '</p><a class="btn inline" href="' + (t ? '/training/' : '/quiz/') + cert + '">' + (t ? 'Open the training' : 'Go to the quiz') + '</a></section>' + scoring();
+    return;
+  }
+  if ((st === 'passed' || st === 'failed') && !editing) return renderResult();
+  if (st === 'started') {
+    app.innerHTML = rapidHead('Your manager has started the roleplay.') + '<section class="panel" style="margin-bottom:18px"><div style="color:var(--purple);font-size:11px;letter-spacing:1px;font-weight:700">ROLEPLAY IN PROGRESS</div><p style="margin:8px 0 0;font-size:14px;line-height:1.6">Your leads are locked. Your scorecard shows up here as soon as your manager submits it.</p></section>' + scoring();
+    return;
+  }
+  if (st === 'submitted' && !editing) {
+    const b = cur.booking || {};
+    app.innerHTML = rapidHead('You’re booked. Here’s what your manager has.') +
+      '<section class="panel" style="border:2px solid var(--purple);margin-bottom:18px"><div class="sec-h" style="align-items:center"><div><div style="font-size:11px;letter-spacing:1px;font-weight:700;color:var(--purple)">BOOKED WITH ' + esc((b.managerName || '').toUpperCase()) + '</div><h2 style="font-size:22px;margin:6px 0 0">' + esc(fmtDate(b.date)) + ' · ' + esc(fmtTime(b.time)) + '</h2></div><button class="btn ghost inline" id="change">Change details</button></div>' +
+      '<p style="margin:14px 0 0;font-size:13px;color:var(--body);line-height:1.6">You can change your leads or the time until your manager starts. Before the call, reread each note and know your part 3 for every lead.</p></section>' +
+      '<section class="panel" style="margin-bottom:18px"><h2 style="font-size:18px;margin-bottom:6px">Your four leads</h2>' + leadRows(cur.leads) + '</section>' + scoring();
+    document.getElementById('change').onclick = () => { editing = true; rf = null; render(); };
+    return;
+  }
+  rapidForm();
+}
+function rapidForm() {
+  const cur = S.current, keep = cur && cur.status === 'submitted';
+  if (!rf) {
+    const leads = S.def.slots.map((type, i) => {
+      const prev = keep ? cur.leads[i] : null, o = (S.openers || [])[i];
+      return prev ? {...prev} : {type, business: o?.business || '', note: o?.note || '', opener: type === 'Cold' ? '' : (o?.opener || '')};
+    });
+    rf = {leads, booking: keep ? {...cur.booking} : {manager: '', date: '', time: ''}};
+  }
+  const mgrs = S.managers || [];
+  app.innerHTML = rapidHead('Training done. Quiz passed. One step left.') +
+    '<section class="panel" style="border:2px solid var(--purple);margin-bottom:18px"><div style="font-size:11px;letter-spacing:1px;font-weight:700;color:var(--purple)">YOUR NEXT STEP</div><h2 style="font-size:22px;margin:6px 0 6px">You’re ready for your live roleplay.</h2><p style="margin:0;font-size:14px;line-height:1.6">Schedule 15 minutes with your manager to complete ' + esc(S.cert.id) + '. Book the time on their calendar yourself, then add it below so they can see it.</p></section>' +
+    '<section class="panel" style="margin-bottom:18px"><h2 style="font-size:18px;margin-bottom:12px">1 · When is it booked?</h2><div class="cc-3"><div><label class="fld" for="mgr">Manager</label><select class="in" id="mgr"><option value="">Pick your manager</option>' + mgrs.map(m => '<option value="' + esc(m.email) + '"' + (rf.booking.manager === m.email ? ' selected' : '') + '>' + esc(m.name) + '</option>').join('') + '</select></div><div><label class="fld" for="bdate">Date</label><input class="in" type="date" id="bdate" value="' + esc(rf.booking.date) + '"></div><div><label class="fld" for="btime">Time</label><input class="in" type="time" id="btime" value="' + esc(rf.booking.time) + '"></div></div></section>' +
+    '<section class="panel" style="margin-bottom:18px"><h2 style="font-size:18px;margin-bottom:4px">2 · Your four leads</h2><p class="sub" style="margin:0 0 6px">From your own Book. The first three come from the openers you wrote in training; the fourth you’ll open cold.</p>' +
+    rf.leads.map((l, i) => '<div class="cc-lead"><div><span class="chip ' + (l.type === 'Cold' ? 'off' : 'go') + '">' + esc(l.type) + '</span></div><div><div class="grid2"><div><label class="fld" for="b' + i + '">Business</label><input class="in" id="b' + i + '" data-i="' + i + '" data-f="business" maxlength="200" value="' + esc(l.business) + '"></div><div><label class="fld" for="n' + i + '">SDR Additional Note</label><input class="in" id="n' + i + '" data-i="' + i + '" data-f="note" maxlength="600" value="' + esc(l.note) + '"></div></div>' + (l.type === 'Cold' ? '<p class="muted" style="margin:8px 0 0">No opener for this one. Your manager wants to hear you open it cold.</p>' : '<label class="fld" for="o' + i + '">Your opener</label><textarea class="in" rows="2" id="o' + i + '" data-i="' + i + '" data-f="opener" maxlength="1200">' + esc(l.opener) + '</textarea>') + '</div></div>').join('') + '</section>' +
+    '<section class="bar-foot"><div class="note">Your manager sees this on Team Progress as soon as you send it.</div><div style="display:flex;gap:10px">' + (keep ? '<button class="btn ghost inline" id="cancel">Cancel</button>' : '') + '<button class="btn inline" id="send">Send to my manager</button></div></section><p class="err" id="err" role="alert"></p>' + scoring();
+  app.querySelectorAll('[data-f]').forEach(el => el.oninput = () => { rf.leads[+el.dataset.i][el.dataset.f] = el.value; });
+  document.getElementById('mgr').onchange = e => rf.booking.manager = e.target.value;
+  document.getElementById('bdate').oninput = e => rf.booking.date = e.target.value;
+  document.getElementById('btime').oninput = e => rf.booking.time = e.target.value;
+  const c = document.getElementById('cancel'); if (c) c.onclick = () => { editing = false; rf = null; render(); };
+  document.getElementById('send').onclick = async () => {
+    const b = document.getElementById('send'); b.disabled = true; b.textContent = 'Sending…';
+    try { S = await api('/api/roleplay/' + cert, {leads: rf.leads, booking: rf.booking}); editing = false; rf = null; window.scrollTo(0, 0); render(); }
+    catch (e) { b.disabled = false; b.textContent = 'Send to my manager'; document.getElementById('err').textContent = e.message; }
+  };
+}
+
 function renderResult() {
   const cur = S.current, sc = cur.score, pass = cur.status === 'passed';
-  const left = S.maxAttempts - S.attemptsUsed, fully = S.progress.status === 'passed', quizPassed = S.progress.components.quiz === 'passed';
+  const rapid = S.def.mode === 'rapid';
+  const left = rapid ? (S.retakeUnlocked ? 1 : 0) : S.maxAttempts - S.attemptsUsed, fully = S.progress.status === 'passed', quizPassed = S.progress.components.quiz === 'passed';
   const headline = pass ? (fully ? S.cert.id + ' passed' : 'Roleplay passed') : 'Not yet. Let’s get you there.';
   const sub = pass ? (fully ? 'Quiz and roleplay both done. Your ' + S.cert.id + ' badge is on your path.' : 'Nice work. Pass the ' + S.cert.id + ' quiz to finish the certification.')
+    : rapid ? (S.retakeUnlocked ? 'Your manager has marked coaching done. Book your retake whenever you’re ready.' : 'Work through the notes below. Once your manager marks coaching done, you can book your retake.')
     : left > 0 ? (S.def.mode === 'situation' ? 'Work through the notes below. Your manager will run your retake on the Foundation schedule (Day 10, then Monday) with a different situation.' : 'Work through the notes below, then pick a lead for your retake. It follows the Foundation schedule (Day 10, then Monday), and your manager will play a different card.') : 'You’ve used all your attempts. Your manager will talk with you about next steps.';
   const rows = sc ? S.def.criteria.map(c => '<div class="score-row"><div><b>' + esc(c.name) + '</b><small>' + esc(c.hint) + '</small></div><span class="chip ' + WCHIP[sc.criteria[c.id]] + '">' + WORDS[sc.criteria[c.id]] + '</span></div>').join('') +
     S.def.musts.map(m => '<div class="score-row"><div><b>Must-pass: ' + esc(m.name) + '</b></div><span class="chip ' + (sc.musts[m.id] ? 'ok">Met' : 'bad">Not met') + '</span></div>').join('') : '';
   app.innerHTML = '<div class="eyebrow">' + esc(S.cert.id + ' · ' + S.cert.name).toUpperCase() + '</div>' +
-    '<section class="result ' + (pass ? 'ok' : 'soft') + '" style="margin:6px 0 18px"><div><h1 style="margin:0 0 6px">' + esc(headline) + '</h1><p style="margin:0;font-size:14px;line-height:1.6">' + esc(sub) + '</p></div></section>' + strip() +
-    '<section class="panel" style="margin-bottom:18px"><div class="sec-h"><h2 style="font-size:18px">Your scorecard</h2><span>Average ' + Number(sc?.average || 0).toFixed(1) + ' of 4 · ' + esc(cur.business) + ' · attempt ' + cur.attemptNo + '</span></div>' + (cur.brief ? '<p class="sub" style="margin:0 0 6px">' + esc(cur.brief) + '</p>' : '') + rows + '</section>' +
+    (rapid ? stepper() : '') + '<section class="result ' + (pass ? 'ok' : 'soft') + '" style="margin:6px 0 18px"><div><h1 style="margin:0 0 6px">' + esc(headline) + '</h1><p style="margin:0;font-size:14px;line-height:1.6">' + esc(sub) + '</p></div></section>' + (rapid ? '' : strip()) +
+    '<section class="panel" style="margin-bottom:18px"><div class="sec-h"><h2 style="font-size:18px">Your scorecard</h2><span>Average ' + Number(sc?.average || 0).toFixed(1) + ' of 4 · ' + (rapid ? 'four openers' : esc(cur.business)) + ' · attempt ' + cur.attemptNo + '</span></div>' + (cur.brief ? '<p class="sub" style="margin:0 0 6px">' + esc(cur.brief) + '</p>' : '') + rows + '</section>' +
     '<section class="notes" style="margin-bottom:18px"><div class="k">COACHING NOTES FROM YOUR MANAGER</div><p>' + esc(sc?.notes) + '</p></section>' +
-    '<section class="bar-foot"><div class="note">' + (pass ? (quizPassed ? 'Up next: the next Foundation certification on your path.' : 'Up next: the ' + S.cert.id + ' quiz.') : left > 0 ? left + (left === 1 ? ' attempt' : ' attempts') + ' left' : 'Talk to your manager') + '</div><div style="display:flex;gap:10px;flex-wrap:wrap">' +
-      (!pass && left > 0 && S.def.mode !== 'situation' ? '<button class="btn inline" id="retake">Pick a lead for your retake</button>' : '') +
-      (S.def.mode === 'situation' ? '<a class="btn ghost inline" href="/written/' + cert + '">Back to ' + esc(S.cert.id) + '</a>' : pass && !quizPassed ? '<a class="btn inline" href="/quiz/' + cert + '">Go to the quiz</a>' : '<a class="btn ghost inline" href="/#page=certifications">Back to your path</a>') + '</div></section>';
-  const r = document.getElementById('retake'); if (r) r.onclick = () => { editing = true; form = null; window.scrollTo(0, 0); render(); };
+    '<section class="bar-foot"><div class="note">' + (rapid ? (pass ? 'Up next: the next certification on your path.' : S.retakeUnlocked ? 'Retake open' : 'Waiting on coaching') : pass ? (quizPassed ? 'Up next: the next Foundation certification on your path.' : 'Up next: the ' + S.cert.id + ' quiz.') : left > 0 ? left + (left === 1 ? ' attempt' : ' attempts') + ' left' : 'Talk to your manager') + '</div><div style="display:flex;gap:10px;flex-wrap:wrap">' +
+      (!pass && left > 0 && S.def.mode !== 'situation' ? '<button class="btn inline" id="retake">' + (rapid ? 'Book your retake' : 'Pick a lead for your retake') + '</button>' : '') +
+      (S.def.mode === 'situation' ? '<a class="btn ghost inline" href="/written/' + cert + '">Back to ' + esc(S.cert.id) + '</a>' : !rapid && pass && !quizPassed ? '<a class="btn inline" href="/quiz/' + cert + '">Go to the quiz</a>' : '<a class="btn ghost inline" href="/#page=certifications">Back to your path</a>') + '</div></section>';
+  const r = document.getElementById('retake'); if (r) r.onclick = () => { editing = true; form = null; rf = null; window.scrollTo(0, 0); render(); };
 }
 if (!cert) app.innerHTML = '<p class="center">Not found.</p>'; else load();
 })();

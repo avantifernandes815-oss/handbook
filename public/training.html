@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Training · Momence SDR Handbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&display=swap">
+<link rel="stylesheet" href="/cert-pages.css">
+<style>
+.tr-sec{margin-bottom:26px}
+.tr-num{font-size:11px;letter-spacing:1px;color:var(--purple);font-weight:700}
+.tr-sec h2{font-family:Nunito,Arial,sans-serif;font-size:21px;margin:4px 0 6px}
+.tr-sec>p{font-size:14px;color:var(--body);margin:0 0 14px;line-height:1.6}
+.tr-tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.tr-tbl th{text-align:left;font-size:11px;letter-spacing:.6px;color:var(--sub);background:var(--page);padding:10px 12px;text-transform:uppercase}
+.tr-tbl td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:top;line-height:1.45}
+.tr-tbl td:first-child{font-weight:700}
+.tr-scroll{overflow-x:auto}
+.tr-int{background:#f6f3ff;border:1px solid #e3dcff;border-radius:16px;padding:18px 20px;margin-top:14px}
+.tr-int .k{font-size:11px;letter-spacing:1px;color:var(--purple);font-weight:700}
+.tr-slots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:12px 0}
+.tr-slot{border:2px dashed #cfc6f5;border-radius:12px;padding:10px;font-size:12px;color:var(--sub);min-height:58px;background:var(--paper)}
+.tr-slot.filled{border-style:solid;border-color:var(--purple);color:var(--ink)}
+.tr-card{display:inline-block;background:var(--paper);border:1px solid #d9d3f3;border-radius:10px;padding:8px 12px;font-size:12px;font-weight:700;margin:4px 6px 0 0;cursor:pointer;font-family:inherit;color:var(--ink)}
+.tr-card:hover{border-color:var(--purple)}
+.tr-card.bad{border-color:#f0b4ae;background:#fdf1ef;color:#9b2c1f;text-decoration:line-through;cursor:default}
+.tr-fb{border-radius:10px;padding:10px 12px;font-size:13px;margin-top:10px;line-height:1.5}
+.tr-fb.ok{background:#eef8f2;border:1px solid #9bd3b5;color:#1f5c3c}
+.tr-fb.no{background:#fdf1ef;border:1px solid #f0b4ae;color:#9b2c1f}
+.tr-pick{display:inline-flex;padding:9px 16px;border-radius:10px;border:1px solid var(--line);background:var(--paper);font-size:13px;font-weight:700;margin:0 8px 8px 0;cursor:pointer;font-family:inherit;color:var(--ink)}
+.tr-pick.right{border-color:#1f7a4d;background:#eef8f2;color:#1f7a4d}.tr-pick.wrong{border-color:#f0b4ae;background:#fdf1ef;color:#9b2c1f}
+.tr-quote{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0 12px}
+.tr-quote .q{font-size:18px;font-weight:700;margin-top:4px}
+.tr-kill{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.tr-kill div{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:13px}
+.tr-kill b{display:block;color:#9b2c1f;font-size:14px}.tr-kill small{display:block;color:var(--sub);margin:4px 0 6px}
+.tr-stat{display:flex;gap:16px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 20px}
+.tr-stat .big{font-family:Nunito,Arial,sans-serif;font-size:30px;color:var(--purple);font-weight:800}
+.tr-app{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:6px 20px}
+.tr-row{display:grid;grid-template-columns:190px minmax(0,1fr);gap:16px;padding:16px 0;border-top:1px solid var(--line)}
+.tr-row:first-child{border-top:0}
+.tr-row small{display:block;color:var(--sub);font-size:12px;margin-top:6px;line-height:1.4}
+.tr-done{background:#eef8f2;border:1px solid #9bd3b5;border-radius:14px;padding:14px 18px;font-size:14px;color:#1f5c3c;margin-bottom:18px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+@media (max-width:760px){.tr-slots{grid-template-columns:1fr 1fr}.tr-kill{grid-template-columns:1fr}.tr-row{grid-template-columns:1fr;gap:8px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><img src="/momence-logo.svg" alt="Momence"><span class="div"></span><b id="htitle">Training</b></div>
+  <div class="status"><span id="saved"></span><a class="crumb" href="/#page=certifications">← Back to handbook</a></div>
+</header>
+<main><div class="wrap wide" id="app"><p class="center">Loading…</p></div></main>
+<script>
+(() => {
+const cert = (location.pathname.match(/^\/training\/([A-Z0-9]{1,6})$/) || [])[1];
+const app = document.getElementById('app'), saved = document.getElementById('saved');
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function api(path, body) {
+  const r = await fetch(path, body ? {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)} : {});
+  const data = await r.json().catch(() => ({}));
+  if (!r.ok) throw Object.assign(new Error(data.message || 'Something went wrong.'), data);
+  return data;
+}
+let S = null, openers = [], timer = null;
+const build = {placed: [], bad: [], msg: null}, pick = {i: 0, chosen: null}, shown = {};
+
+async function load() {
+  try { S = await api('/api/training/' + cert); }
+  catch (e) { app.innerHTML = '<div class="card narrow" style="margin:0 auto"><h1>Not open yet</h1><p class="lead">' + esc(e.message) + '</p><a class="btn ghost" href="/#page=certifications">Back to my certifications</a></div>'; return; }
+  document.getElementById('htitle').textContent = S.cert.id + ' · Training';
+  const app0 = S.def.sections.find(x => x.type === 'application');
+  openers = (app0?.slots || []).map((slot, i) => ({type: slot.type, business: S.content.openers?.[i]?.business || '', note: S.content.openers?.[i]?.note || '', opener: S.content.openers?.[i]?.opener || ''}));
+  render();
+}
+function stepper() {
+  const c = S.progress.components;
+  const steps = [['Training', c.training === 'passed'], ['Quiz', c.quiz === 'passed'], ['Live roleplay', c.roleplay === 'passed']];
+  const on = steps.findIndex(x => !x[1]);
+  return '<div class="cc-steps">' + steps.map((x, i) => '<span class="cc-step' + (x[1] ? ' done' : i === on ? ' on' : '') + '"><i>' + (x[1] ? '✓' : i + 1) + '</i>' + x[0] + '</span>').join('') + '</div>';
+}
+function table(sec) {
+  return '<div class="tr-scroll"><table class="tr-tbl"><tr>' + sec.head.map(h => '<th>' + esc(h) + '</th>').join('') + '</tr>' + sec.rows.map(r => '<tr>' + r.map(c => '<td>' + esc(c) + '</td>').join('') + '</tr>').join('') + '</table></div>';
+}
+function head(sec) { return (sec.label ? '<div class="tr-num">' + esc(sec.label) + '</div>' : '') + (sec.title ? '<h2>' + esc(sec.title) + '</h2>' : '') + (sec.body ? '<p>' + esc(sec.body) + '</p>' : ''); }
+function buildBox(sec) {
+  const pool = [...sec.parts.map((t, i) => ({t, i})), ...sec.decoys.map((d, j) => ({t: d.text, d: j}))];
+  const order = [3, 5, 0, 2, 4, 1].map(k => pool[k]).filter(Boolean);
+  const done = build.placed.length === sec.parts.length;
+  return '<div class="tr-int" id="buildbox"><div class="k">TRY IT · BUILD THE OPENER</div><div style="font-size:13px;margin-top:6px">' + esc(sec.prompt) + ' Tap the cards in order.</div>' +
+    '<div class="tr-slots">' + sec.parts.map((_, i) => '<div class="tr-slot' + (build.placed[i] != null ? ' filled' : '') + '"><b>' + (i + 1) + '</b><br>' + (build.placed[i] != null ? esc(sec.parts[build.placed[i]]) : 'Tap a card') + '</div>').join('') + '</div>' +
+    '<div>' + order.filter(x => x.i == null || !build.placed.includes(x.i)).map(x => x.d != null ? '<button type="button" class="tr-card' + (build.bad.includes(x.d) ? ' bad' : '') + '" data-decoy="' + x.d + '"' + (build.bad.includes(x.d) ? ' disabled' : '') + '>' + esc(x.t) + '</button>' : '<button type="button" class="tr-card" data-part="' + x.i + '">' + esc(x.t) + '</button>').join('') + '</div>' +
+    (done ? '<div class="tr-fb ok">That’s the opener: name, who you are, why them, a question back. Under fifteen seconds.</div>' : build.msg ? '<div class="tr-fb no">' + esc(build.msg) + '</div>' : '') +
+    (done || build.placed.length ? '<p style="margin:10px 0 0"><button type="button" class="tr-pick" id="buildreset" style="margin:0">Start over</button></p>' : '') + '</div>';
+}
+function pickBox(sec) {
+  const c = sec.cards[pick.i], ch = pick.chosen;
+  return '<div class="tr-int" id="pickbox"><div style="display:flex;justify-content:space-between"><div class="k">' + esc(sec.label) + '</div><span class="sub" style="font-size:12px">Card ' + (pick.i + 1) + ' of ' + sec.cards.length + '</span></div>' +
+    '<div class="tr-quote"><div class="sub" style="font-size:12px">' + esc(c.setup) + '</div><div class="q">' + esc(c.line) + '</div></div>' +
+    sec.options.map(o => '<button type="button" class="tr-pick' + (ch ? (o === c.answer ? ' right' : o === ch ? ' wrong' : '') : '') + '" data-pick="' + esc(o) + '"' + (ch ? ' disabled' : '') + '>' + esc(o) + (ch && o === c.answer ? ' ✓' : '') + '</button>').join('') +
+    (ch ? '<div class="tr-fb ' + (ch === c.answer ? 'ok">Right. ' : 'no">Not quite. ') + esc(c.why) + '</div><p style="margin:10px 0 0"><button type="button" class="tr-pick" id="picknext" style="margin:0">' + (pick.i < sec.cards.length - 1 ? 'Next card →' : 'Start over') + '</button></p>' : '') + '</div>';
+}
+function writeBox(sec) {
+  return '<div class="tr-int"><div class="k">TRY IT · WRITE PART 3</div><div style="font-size:13px;margin-top:6px">Write a part 3 for each note. Not graded.</div>' +
+    sec.notes.map((n, i) => '<div class="tr-quote" style="margin-top:12px"><div class="sub" style="font-size:11px;letter-spacing:.6px;font-weight:700">SDR ADDITIONAL NOTE</div><div style="font-size:13px;margin:4px 0 10px">' + esc(n.note) + '</div><label class="fld" for="w' + i + '">Your part 3</label><textarea class="in" rows="2" id="w' + i + '"></textarea>' +
+      (shown[i] ? '<div class="tr-fb ok">A strong example: ' + esc(n.example) + '</div>' : '<p style="margin:8px 0 0"><button type="button" class="tr-pick" data-show="' + i + '" style="margin:0">Show a strong example</button></p>') + '</div>').join('') + '</div>';
+}
+function appBox(sec) {
+  const ok = o => o.business.trim() && o.opener.trim().length >= 20;
+  const n = openers.filter(ok).length, done = !!S.completedAt;
+  return '<div class="tr-app">' + sec.slots.map((slot, i) => '<div class="tr-row"><div><span class="chip go">' + esc(slot.type) + '</span><small>' + esc(slot.hint) + '</small></div><div><div class="grid2"><div><label class="fld" for="ab' + i + '">Business</label><input class="in" id="ab' + i + '" data-i="' + i + '" data-f="business" maxlength="200" value="' + esc(openers[i].business) + '"></div><div><label class="fld" for="an' + i + '">SDR Additional Note</label><input class="in" id="an' + i + '" data-i="' + i + '" data-f="note" maxlength="600" value="' + esc(openers[i].note) + '"></div></div><label class="fld" for="ao' + i + '">Your four-part opener</label><textarea class="in" rows="2" id="ao' + i + '" data-i="' + i + '" data-f="opener" maxlength="1200" placeholder="Their name, who you are, why them, a question back.">' + esc(openers[i].opener) + '</textarea></div></div>').join('') + '</div>' +
+    '<section class="bar-foot" style="margin-top:16px"><div class="note" id="appnote">' + (done ? 'Saved. These come with you to the roleplay.' : 'Saved as you type · ' + n + ' of ' + sec.slots.length + ' written') + '</div><div>' + nextBtn(n === sec.slots.length) + '</div></section><p class="err" id="err" role="alert"></p>';
+}
+function nextBtn(ready) {
+  const c = S.progress.components;
+  if (S.completedAt) return c.quiz === 'passed' ? '<a class="btn inline" href="/roleplay/' + cert + '">Go to your roleplay</a>' : '<a class="btn inline" href="/quiz/' + cert + '">Go to the ' + esc(cert) + ' quiz</a>';
+  return ready ? '<button class="btn inline" id="finish">Finish training &amp; start the quiz</button>' : '<span class="locked-btn">Write all three openers to unlock the quiz</span>';
+}
+function render() {
+  if (S.missingPrereqs.length) {
+    app.innerHTML = '<a class="crumb" href="/#page=certifications">← Your path</a><div class="eyebrow" style="margin-top:14px">' + esc(S.cert.id) + '</div><h1>' + esc(S.def.title) + '</h1><section class="panel"><h2>Not unlocked yet</h2><p class="sub" style="font-size:14px">Pass ' + esc(S.missingPrereqs.join(', ')) + ' first.</p></section>';
+    return;
+  }
+  const label = {cold_calling: 'COLD CALLING', skills: 'SKILLS', foundation: 'FOUNDATION'}[S.cert.track] || '';
+  let html = '<a class="crumb" href="/#page=certifications">← Your path</a><div class="eyebrow" style="margin-top:14px">' + label + ' · ' + esc(S.cert.id) + '</div><h1>' + esc(S.def.title) + '</h1><p class="intro">' + esc(S.def.summary) + '</p>' + stepper();
+  if (S.completedAt) html += '<div class="tr-done"><span><b>Training done.</b> You can come back to it any time.</span>' + nextBtn(true) + '</div>';
+  for (const sec of S.def.sections) {
+    if (sec.type === 'why') html += '<section class="tr-sec">' + head(sec) + '<div class="tr-stat"><div class="big">' + esc(sec.stat.big) + '</div><div style="font-size:14px"><b>' + esc(sec.stat.line) + '</b><br><span class="sub" style="font-size:12px">' + esc(sec.stat.sub) + '</span></div></div></section>';
+    else if (sec.type === 'table') html += '<section class="tr-sec">' + head(sec) + table(sec) + (sec.after ? '<p style="font-size:13px;color:var(--body);margin:10px 0 0">' + esc(sec.after) + '</p>' : '') + '</section>';
+    else if (sec.type === 'build') html += '<section class="tr-sec" style="margin-top:-12px">' + buildBox(sec) + '</section>';
+    else if (sec.type === 'pickup') html += '<section class="tr-sec" style="margin-top:-12px">' + pickBox(sec) + '</section>';
+    else if (sec.type === 'write') html += '<section class="tr-sec">' + head(sec) + table(sec) + writeBox(sec) + '</section>';
+    else if (sec.type === 'killers') html += '<section class="tr-sec">' + head(sec) + '<div class="tr-kill">' + sec.items.map(k => '<div><b>' + esc(k[0]) + '</b><small>' + esc(k[1]) + '</small><span><b style="display:inline;color:var(--ink);font-size:13px">Instead:</b> ' + esc(k[2]) + '</span></div>').join('') + '</div></section>';
+    else if (sec.type === 'text') html += '<section class="tr-sec">' + head(sec) + '</section>';
+    else if (sec.type === 'application') html += '<section class="tr-sec" id="appsec">' + head(sec) + appBox(sec) + '</section>';
+  }
+  const writes = [...app.querySelectorAll('[id^="w"]')].map(t => t.value);
+  app.innerHTML = html;
+  writes.forEach((v, i) => { const t = document.getElementById('w' + i); if (t) t.value = v; });
+  wire();
+}
+function sec(type) { return S.def.sections.find(x => x.type === type); }
+function rerender(id, fn) { const el = document.getElementById(id); if (el) { el.outerHTML = fn(); wire(); } }
+function wire() {
+  const b = sec('build'), p = sec('pickup'), a = sec('application');
+  app.querySelectorAll('[data-part]').forEach(x => x.onclick = () => {
+    const i = +x.dataset.part, next = build.placed.length;
+    if (i === next) { build.placed.push(i); build.msg = null; } else build.msg = 'Not yet. What has to come before that?';
+    rerender('buildbox', () => buildBox(b));
+  });
+  app.querySelectorAll('[data-decoy]').forEach(x => x.onclick = () => { const j = +x.dataset.decoy; build.bad.push(j); build.msg = b.decoys[j].text + ' doesn’t belong: ' + b.decoys[j].why.charAt(0).toLowerCase() + b.decoys[j].why.slice(1); rerender('buildbox', () => buildBox(b)); });
+  const br = document.getElementById('buildreset'); if (br) br.onclick = () => { build.placed = []; build.bad = []; build.msg = null; rerender('buildbox', () => buildBox(b)); };
+  app.querySelectorAll('[data-pick]').forEach(x => x.onclick = () => { pick.chosen = x.dataset.pick; rerender('pickbox', () => pickBox(p)); });
+  const pn = document.getElementById('picknext'); if (pn) pn.onclick = () => { pick.i = (pick.i + 1) % p.cards.length; pick.chosen = null; rerender('pickbox', () => pickBox(p)); };
+  app.querySelectorAll('[data-show]').forEach(x => x.onclick = () => { shown[x.dataset.show] = true; render(); });
+  app.querySelectorAll('[data-f]').forEach(el => el.oninput = () => {
+    openers[+el.dataset.i][el.dataset.f] = el.value;
+    const n = openers.filter(o => o.business.trim() && o.opener.trim().length >= 20).length;
+    const note = document.getElementById('appnote'); if (note && !S.completedAt) note.textContent = 'Saving… · ' + n + ' of ' + a.slots.length + ' written';
+    const box = note?.parentElement?.lastElementChild; if (box && !S.completedAt) { box.innerHTML = nextBtn(n === a.slots.length); const f = document.getElementById('finish'); if (f) f.onclick = finish; }
+    clearTimeout(timer); timer = setTimeout(save, 800);
+  });
+  const f = document.getElementById('finish'); if (f) f.onclick = finish;
+}
+async function save() {
+  try { const r = await api('/api/training/' + cert, {content: {openers}}); S.completedAt = r.completedAt; saved.textContent = 'Saved'; const n = openers.filter(o => o.business.trim() && o.opener.trim().length >= 20).length; const note = document.getElementById('appnote'); if (note && !S.completedAt) note.textContent = 'Saved as you type · ' + n + ' of ' + openers.length + ' written'; }
+  catch (e) { saved.textContent = 'Not saved: ' + e.message; }
+}
+async function finish() {
+  const b = document.getElementById('finish'); b.disabled = true; b.textContent = 'Saving…'; clearTimeout(timer);
+  try { S = await api('/api/training/' + cert, {content: {openers}, complete: true}); location.href = '/quiz/' + cert; }
+  catch (e) { b.disabled = false; b.textContent = 'Finish training & start the quiz'; document.getElementById('err').textContent = e.message; }
+}
+if (!cert) app.innerHTML = '<p class="center">Not found.</p>'; else load();
+})();
+</script>
+</body>
+</html>

@@ -109,3 +109,18 @@ dl.ro dt{color:var(--sub);font-weight:700}dl.ro dd{margin:0;white-space:pre-wrap
 .notes p{margin:0;font-size:14px;line-height:1.7;white-space:pre-wrap}
 .err{color:var(--bad);font-size:13px;margin-top:8px}
 @media (max-width:700px){.strip,.grid2{grid-template-columns:1fr}dl.ro{grid-template-columns:1fr}}
+
+/* Self-paced tracks: stepper, booking form, lead rows */
+.cc-steps{display:flex;gap:8px;margin:16px 0 22px;flex-wrap:wrap}
+.cc-step{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--sub);background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:7px 14px}
+.cc-step i{width:20px;height:20px;border-radius:50%;background:#f2f1f6;display:inline-flex;align-items:center;justify-content:center;font-style:normal;font-size:11px}
+.cc-step.on{border-color:var(--purple);color:var(--purple)}.cc-step.on i{background:var(--purple);color:#fff}
+.cc-step.done{color:var(--ok)}.cc-step.done i{background:var(--ok-bg);color:var(--ok)}
+.cc-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.cc-lead{display:grid;grid-template-columns:200px minmax(0,1fr);gap:14px;padding:14px 0;border-top:1px solid var(--line)}
+.cc-lead:first-of-type{border-top:0}
+.cc-lead b{display:block;margin-top:8px;font-size:14px}
+.cc-lead small{display:block;color:var(--sub);font-size:12px}
+.cc-lead p{margin:6px 0 0;font-size:13px;line-height:1.5}
+.muted{color:var(--sub);font-size:13px}
+@media (max-width:760px){.cc-3{grid-template-columns:1fr}.cc-lead{grid-template-columns:1fr;gap:8px}}
