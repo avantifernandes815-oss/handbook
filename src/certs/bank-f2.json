@@ -732,7 +732,7 @@
    "section": "D",
    "kind": "knowledge",
    "topic": "AFH",
-   "prompt": "What makes a lead AFH?",
+   "prompt": "What would make you code a lead H for hot?",
    "options": [
     {
      "id": "A",
