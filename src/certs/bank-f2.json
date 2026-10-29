@@ -761,7 +761,7 @@
    "section": "D",
    "kind": "judgment",
    "topic": "AF1 or AF2?",
-   "prompt": "A dance studio hits every parameter: 10 weekly in-person classes, enough bookable staff, owner on LinkedIn, working website. Which code?",
+   "prompt": "A drop-in dance studio, set up like a yoga or Pilates studio, hits every parameter: 10 weekly in-person classes, enough bookable staff, owner on LinkedIn, working website. Which code?",
    "options": [
     {
      "id": "A",
@@ -810,7 +810,7 @@
     }
    ],
    "correct": "C",
-   "reveal": "AFU isn't a write-off. It marks an account that doesn't hit parameters today but could become a fit down the line, so you can find it again when it does.",
+   "reveal": "AFU isn't a write-off. It marks an account that doesn't fit today, because it misses parameters or runs on software we can't target right now, like ClubReady. Coding it means you can find it again if that changes.",
    "review": "day-3",
    "source": "Day 3, \"Choosing the right code\" (AFU as updated)"
   },
