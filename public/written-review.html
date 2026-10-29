@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Written Review · Momence SDR Handbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&display=swap">
+<link rel="stylesheet" href="/cert-pages.css">
+<style>
+.keybox{background:var(--soft);border-radius:16px;padding:20px 24px;margin-bottom:18px}
+.keybox .k{font-size:11px;letter-spacing:1px;font-weight:700;color:var(--purple)}
+.keybox ol{margin:10px 0 0;padding-left:20px;font-size:13px;line-height:1.6}
+.keybox li{margin-bottom:8px}
+.small-btn{white-space:nowrap;min-height:36px;padding:0 12px;border-radius:9px;background:#fff;color:var(--purple);border:1px solid #d9d0fb;font-size:12px;font-weight:700;font-family:inherit;cursor:pointer}
+details.src{background:var(--paper);border:1px solid var(--line);border-radius:15px;margin-bottom:18px}
+details.src summary{cursor:pointer;padding:14px 18px;font-weight:700;font-size:14px}
+details.src .in2{padding:0 18px 16px;font-size:13px;line-height:1.7;max-height:320px;overflow:auto}
+details.src pre{white-space:pre-wrap;font-family:inherit;margin:0}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><img src="/momence-logo.svg" alt="Momence"><span class="div"></span><b id="htitle">Written Review</b></div>
+  <div class="status"><span class="chip go">MANAGER</span><a class="crumb" href="/#page=team">← Team progress</a></div>
+</header>
+<main><div class="wrap wide" id="app"><p class="center">Loading…</p></div></main>
+<script>
+(() => {
+const cert = (location.pathname.match(/^\/written-review\/([A-Z0-9]{1,6})$/) || [])[1];
+const rep = new URLSearchParams(location.search).get('rep') || '';
+const app = document.getElementById('app');
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function api(path, body) {
+  const r = await fetch(path, body ? {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)} : {});
+  const data = await r.json().catch(() => ({}));
+  if (!r.ok) throw Object.assign(new Error(data.message || 'Something went wrong.'), data);
+  return data;
+}
+const WORDS = {1:'1 · Missed', 2:'2 · Developing', 3:'3 · Solid', 4:'4 · Strong'}, WCHIP = {1:'bad', 2:'warn', 3:'ok', 4:'go'};
+let S = null, scores = {}, must = null, notes = '', keyOpen = true, busy = false;
+
+async function load() {
+  try { S = await api('/api/review/' + cert + '?rep=' + encodeURIComponent(rep)); }
+  catch (e) { app.innerHTML = '<div class="card narrow" style="margin:0 auto"><h1>Can’t open this review</h1><p class="lead">' + esc(e.message) + '</p><a class="btn ghost" href="/#page=team">Back to team progress</a></div>'; return; }
+  document.getElementById('htitle').textContent = S.cert.id + ' · Written Review';
+  render();
+}
+function theirs(c) {
+  return '<section class="panel" style="margin-bottom:14px"><h2 style="font-size:18px">Their SDR Note</h2><dl class="ro">' + S.def.noteFields.map(f => '<dt>' + esc(f.label) + '</dt><dd>' + esc(c.note[f.id]) + '</dd>').join('') + '</dl></section>' +
+    '<section class="panel" style="margin-bottom:14px"><h2 style="font-size:18px">Their email and plan</h2><dl class="ro"><dt>Email</dt><dd>' + esc(c.email) + '</dd><dt>Plan</dt><dd>' + esc(c.plan) + '</dd></dl></section>' +
+    '<section class="panel" style="margin-bottom:18px"><h2 style="font-size:18px">What they changed and why</h2><ol style="margin:8px 0 0;font-size:13px;line-height:1.6">' + c.changes.filter(x => x.trim()).map(x => '<li>' + esc(x) + '</li>').join('') + '</ol></section>';
+}
+function key() {
+  return '<section class="keybox"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><div class="k">ANSWER KEY · MANAGERS ONLY · ' + S.def.key.length + ' PLANTED PROBLEMS</div><button class="small-btn" id="ktog" aria-expanded="' + keyOpen + '">' + (keyOpen ? 'Hide key' : 'Show key') + '</button></div>' +
+    (keyOpen ? '<ol>' + S.def.key.map(k => '<li><b>' + esc(k.issue) + '</b> ' + esc(k.fix) + '</li>').join('') + '</ol>' : '') + '</section>' +
+    '<details class="src"><summary>The booking call</summary><div class="in2"><p style="color:var(--sub)">' + esc(S.def.sampleHeader) + '</p>' + S.def.transcript.map(l => '<p style="margin:0 0 6px"><b>' + esc(l[0]) + ':</b> ' + esc(l[1]) + '</p>').join('') + '</div></details>' +
+    '<details class="src"><summary>Piper’s original draft</summary><div class="in2">' + S.def.noteFields.map(f => '<p style="margin:0 0 6px"><b>' + esc(f.label) + '</b> ' + esc(S.def.draft.note[f.id]) + '</p>').join('') + '<pre style="margin-top:10px">' + esc(S.def.draft.email) + '</pre><p style="margin-top:10px"><b>Plan</b> ' + esc(S.def.draft.plan) + '</p></div></details>';
+}
+function bindKey() { const b = document.getElementById('ktog'); if (b) b.onclick = () => { keyOpen = !keyOpen; const kb = b.closest('.keybox'); const h = document.createElement('div'); h.innerHTML = key(); kb.replaceWith(h.firstChild); bindKey(); }; }
+function top() {
+  const cur = S.current;
+  return '<div class="eyebrow">' + esc(S.cert.id) + ' · WRITTEN · FIX A PIPER DRAFT</div><h1>' + esc(S.rep.name) + (cur ? ' · Attempt ' + cur.attemptNo : '') + '</h1><p class="intro">' + (cur?.submittedAt ? 'Submitted ' + new Date(cur.submittedAt).toLocaleDateString([], {weekday:'short', month:'short', day:'numeric'}) : '') + '</p>';
+}
+function render() {
+  const cur = S.current;
+  if (!cur || cur.status === 'draft') { app.innerHTML = top() + '<div class="panel"><h2>Nothing to review yet</h2><p class="sub">' + esc(S.rep.name) + ' hasn’t submitted the written part.</p></div>'; return; }
+  if (cur.status !== 'submitted') return renderDone();
+  app.innerHTML = top() + key() + theirs(cur.content) +
+    '<section class="panel" style="margin-bottom:18px"><div class="sec-h"><h2 style="font-size:18px">Score each area, 1–4</h2><span>1 missed · 2 developing · 3 solid · 4 strong</span></div><p class="sub">Use the key: how many of the planted problems did they catch, and did their own edits stay true to the call?</p>' +
+      S.def.criteria.map(c => '<div class="crit"><div style="flex:1 1 300px;min-width:0"><b>' + esc(c.name) + '</b><small>' + esc(c.hint) + '</small></div><div class="nums" role="group" aria-label="' + esc(c.name) + '">' + [1,2,3,4].map(n => '<button type="button" data-c="' + c.id + '" data-n="' + n + '" aria-pressed="false">' + n + '</button>').join('') + '</div></div>').join('') + '</section>' +
+    '<section class="panel" style="margin-bottom:18px"><h2 style="font-size:18px">Must-pass</h2><p class="sub">A “no” is a fail, whatever the average.</p><div class="mustrow"><div id="mq">' + esc(S.def.must) + '</div><div class="seg yn" role="group" aria-labelledby="mq"><button type="button" class="yes" data-m="1" aria-pressed="false">Yes, met</button><button type="button" class="no" data-m="0" aria-pressed="false">No, not met</button></div></div></section>' +
+    '<section class="panel" style="margin-bottom:18px"><label for="notes" style="display:flex;align-items:center;gap:10px;font-family:Nunito,Arial,sans-serif;font-size:18px;font-weight:800;margin-bottom:4px">Coaching notes <span class="chip warn">Required</span></label><p class="sub">' + esc(S.rep.name) + ' sees the scorecard and these notes, but never the answer key.</p><textarea class="in" id="notes" rows="4" maxlength="4000" placeholder="What they caught, what they missed, and what to watch for on real handoffs."></textarea></section>' +
+    '<section class="result pend" id="result"></section><p class="err" id="err" role="alert"></p>';
+  bindKey();
+  app.querySelectorAll('[data-c]').forEach(b => b.onclick = () => { scores[b.dataset.c] = +b.dataset.n; b.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); update(); });
+  app.querySelectorAll('[data-m]').forEach(b => b.onclick = () => { must = b.dataset.m === '1'; b.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); update(); });
+  document.getElementById('notes').oninput = e => { notes = e.target.value; update(); };
+  update();
+}
+function update() {
+  const ids = S.def.criteria.map(c => c.id), scored = ids.filter(id => scores[id]).length, all = scored === ids.length;
+  const avg = scored ? ids.reduce((a, id) => a + (scores[id] || 0), 0) / scored : 0;
+  const decided = must !== null, pass = all && decided && must && avg >= 3, hasNotes = notes.trim().length > 0;
+  let cls = 'pend', verdict, why;
+  if (!all) { verdict = 'Score every area'; why = scored + ' of ' + ids.length + ' scored'; }
+  else if (!decided) { verdict = 'Answer the must-pass'; why = 'Average ' + avg.toFixed(1) + ' so far. Needs 3.0 or higher and the must-pass met.'; }
+  else if (pass) { cls = 'ok'; verdict = 'Pass'; why = 'Average ' + avg.toFixed(1) + ' and the must-pass met.'; }
+  else { cls = 'no'; verdict = 'Not yet · retake on the Foundation schedule'; why = (!must ? 'Must-pass not met' : 'Average ' + avg.toFixed(1) + ' is under 3.0') + '. The retake is Day 10, then Monday.'; }
+  const ready = all && decided && hasNotes;
+  const btn = !ready ? '<span class="locked-btn">' + (!all ? 'Score every area to submit' : !decided ? 'Answer the must-pass to submit' : 'Add coaching notes to submit') + '</span>'
+    : pass ? '<button class="btn inline" id="go">Submit pass &amp; share with ' + esc(S.rep.name) + '</button>' : '<button class="btn inline danger" id="go">Submit &amp; schedule retake</button>';
+  const box = document.getElementById('result'); box.className = 'result ' + cls;
+  box.innerHTML = '<div style="flex:1 1 320px;min-width:0"><div class="k">RESULT</div><div class="v">' + esc(verdict) + '</div><div class="w">' + esc(why) + '</div></div><div>' + btn + '</div>';
+  const go = document.getElementById('go'); if (go) go.onclick = send;
+}
+async function send() {
+  if (busy) return; busy = true;
+  const go = document.getElementById('go'); go.disabled = true; go.textContent = 'Submitting…';
+  try { S = await api('/api/review/' + cert, {email: rep, scores, mustPass: must, notes}); window.scrollTo(0, 0); render(); }
+  catch (e) { document.getElementById('err').textContent = e.message; go.disabled = false; update(); }
+  busy = false;
+}
+function renderDone() {
+  const cur = S.current, rv = cur.review, pass = cur.status === 'passed';
+  app.innerHTML = top() +
+    '<section class="result ' + (pass ? 'ok' : 'no') + '" style="margin-bottom:18px"><div><div class="k">RESULT · SHARED WITH ' + esc(S.rep.name).toUpperCase() + '</div><div class="v">' + (pass ? 'Pass' : 'Not yet · retake on the Foundation schedule') + '</div><div class="w">Average ' + Number(rv.average).toFixed(1) + ' · must-pass ' + (rv.mustPass ? 'met' : 'not met') + '</div></div></section>' +
+    '<section class="panel" style="margin-bottom:18px"><h2 style="font-size:18px">Scorecard</h2>' + S.def.criteria.map(c => '<div class="score-row"><div><b>' + esc(c.name) + '</b><small>' + esc(c.hint) + '</small></div><span class="chip ' + WCHIP[rv.scores[c.id]] + '">' + WORDS[rv.scores[c.id]] + '</span></div>').join('') + '</section>' +
+    '<section class="notes" style="margin-bottom:18px"><div class="k">YOUR COACHING NOTES</div><p>' + esc(rv.notes) + '</p></section>' + key() + theirs(cur.content) +
+    '<p><a class="btn ghost inline" href="/#page=team">Back to team progress</a></p>';
+  bindKey();
+}
+if (!cert || !rep) app.innerHTML = '<p class="center">Pick a rep from Team progress.</p>'; else load();
+})();
+</script>
+</body>
+</html>

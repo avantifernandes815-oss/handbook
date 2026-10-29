@@ -243,19 +243,19 @@
    "options": [
     {
      "id": "A",
-     "text": "In SDR Additional Notes on the contact record"
+     "text": "In SDR Additional Notes on the contact and the company"
     },
     {
      "id": "B",
-     "text": "In the description of the calendar invite"
+     "text": "In the calendar invite description, for the AE to read"
     },
     {
      "id": "C",
-     "text": "In a direct Slack message sent to the AE"
+     "text": "In a direct Slack message sent to the AE before the demo"
     },
     {
      "id": "D",
-     "text": "Logged via the Playbook, pinned to the company"
+     "text": "Logged via the Playbook, pinned to the company, contact and deal"
     }
    ],
    "correct": "D",

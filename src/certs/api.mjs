@@ -4,12 +4,14 @@
 import bankF1 from './bank-f1.json' with {type: 'json'};
 import bankF2 from './bank-f2.json' with {type: 'json'};
 import bankF3 from './bank-f3.json' with {type: 'json'};
+import bankF4 from './bank-f4.json' with {type: 'json'};
+import {PIPER_F4, F4_ROLEPLAY} from './f4-content.mjs';
 
-const BANKS = {F1: bankF1, F2: bankF2, F3: bankF3};
+const BANKS = {F1: bankF1, F2: bankF2, F3: bankF3, F4: bankF4};
 const GRACE_MS = 4000;          // network slack on top of each question's time limit
 const LOCK_HOURS = 24;          // lockout after a second tab-leave
 const MAX_ATTEMPTS = 3;         // failed attempts before a performance conversation
-const REVIEW_LABELS = {'day-1': 'Day 1 · The SDR Job', 'day-2': 'Day 2 · Who We Sell To & Why', 'day-3': 'Day 3 · Owning Your Book of Business', 'day-4': 'Day 4 · Pre-Vetting Workshop', 'day-5': 'Day 5 · Cold Calling Fundamentals', 'day-6': 'Day 6 · Controlling the Conversation', 'day-7': 'Day 7 · Working Smarter at Scale', 'sal': 'Qualification & SALs', 'book': 'Book of Business', 'statuses': 'Lead Statuses & CRM'};
+const REVIEW_LABELS = {'day-1': 'Day 1 · The SDR Job', 'day-2': 'Day 2 · Who We Sell To & Why', 'day-3': 'Day 3 · Owning Your Book of Business', 'day-4': 'Day 4 · Pre-Vetting Workshop', 'day-5': 'Day 5 · Cold Calling Fundamentals', 'day-6': 'Day 6 · Controlling the Conversation', 'day-7': 'Day 7 · Working Smarter at Scale', 'day-8': 'Day 8 · From Yes to Meeting Held', 'meetings': 'Meetings & AE Handoff', 'sal': 'Qualification & SALs', 'book': 'Book of Business', 'statuses': 'Lead Statuses & CRM'};
 
 // Written practicals. Scored live by a manager, 1–4 per area; pass = average 3+ and the must-pass met.
 export const PRACTICALS = {
@@ -27,12 +29,16 @@ export const PRACTICALS = {
       {id: 'next', name: 'Next action', hint: 'The channel and strategy follow from what they know.'}
     ],
     must: 'Every list and prospect stayed out of another SDR’s Book, a Nurture cooling period, a Customer and an open Opportunity'
-  }
+  },
+  F4: PIPER_F4
 };
+const pracComponent = (def) => def.component || 'practical';
 
 // Live roleplays. The rep brings their own pre-vetted lead; the manager plays it with a hidden card.
 export const ROLEPLAYS = {
+  F4: F4_ROLEPLAY,
   F3: {
+    mode: 'lead',
     criteria: [
       {id: 'open', name: 'Open and earn attention', hint: 'Sounded human, gave a clear reason for calling, earned the next 30 seconds.'},
       {id: 'relevance', name: 'Created relevance', hint: 'Used something specific to this business, not a generic platform pitch.'},
@@ -62,8 +68,8 @@ export function codePrefix(email) {
   if (!parts.length) return 'XX';
   return (parts.length > 1 ? parts[0][0] + parts[parts.length - 1][0] : parts[0].slice(0, 2)).toUpperCase();
 }
-const SECOND = {practical: '/practical/', roleplay: '/roleplay/'};
-const secondComponent = (components) => components.find(c => SECOND[c]) || null;
+const SECOND = {written: '/written/', practical: '/practical/', roleplay: '/roleplay/'};
+const secondComponent = (components) => ['written', 'practical', 'roleplay'].find(c => components.includes(c)) || null;
 
 const json = (data, status = 200) => new Response(JSON.stringify(data), {status, headers: {'Content-Type': 'application/json', 'Cache-Control': 'private, no-store'}});
 const fail = (code, message, status = 400) => json({error: code, message}, status);
@@ -307,6 +313,12 @@ async function result(env, attempt) {
 // ---------- written practicals ----------
 const clip = (v, n = 4000) => String(v ?? '').slice(0, n);
 function cleanContent(def, raw) {
+  if (def.kind === 'piper') {
+    const note = {};
+    for (const f of def.noteFields) note[f.id] = clip(raw?.note?.[f.id]);
+    const changes = (Array.isArray(raw?.changes) ? raw.changes : []).slice(0, 30).map(x => clip(x, 600));
+    return {note, email: clip(raw?.email, 6000), plan: clip(raw?.plan, 2000), changes};
+  }
   const lists = Array.from({length: 3}, (_, i) => {
     const l = (raw?.lists || [])[i] || {};
     return {job: clip(l.job, 200), why: clip(l.why), filters: clip(l.filters), type: ['active', 'static'].includes(l.type) ? l.type : '', plan: clip(l.plan)};
@@ -321,6 +333,13 @@ function cleanContent(def, raw) {
 }
 function missingParts(def, c) {
   const out = [];
+  if (def.kind === 'piper') {
+    for (const f of def.noteFields) if (!c.note[f.id].trim()) out.push(f.label);
+    if (!c.email.trim()) out.push('The email');
+    if (!c.plan.trim()) out.push('The confirmation plan');
+    if (c.changes.filter(x => x.trim()).length < 3) out.push('At least three changes, each with why');
+    return out;
+  }
   c.lists.forEach((l, i) => {
     const jobOk = i < 2 ? def.jobs.includes(l.job) : l.job.trim();
     if (!jobOk || def.listFields.some(f => !String(l[f]).trim())) out.push('List ' + (i + 1));
@@ -336,7 +355,7 @@ const pracView = (row) => !row ? null : ({
 async function latestPractical(env, email, certId) {
   return env.DB.prepare("SELECT * FROM practical_submissions WHERE user_email=? AND cert_id=? ORDER BY attempt_no DESC LIMIT 1").bind(email, certId).first();
 }
-async function practicalState(env, email, certId) {
+async function practicalState(env, email, certId, forManager) {
   const cert = await env.DB.prepare("SELECT * FROM certifications WHERE id=?").bind(certId).first();
   const def = PRACTICALS[certId];
   if (!cert || !def || cert.status !== 'active') return null;
@@ -347,7 +366,10 @@ async function practicalState(env, email, certId) {
   return {
     cert: {id: cert.id, name: cert.name, day: cert.onboarding_day, status: cert.status},
     rep: {email, name: user?.name || email.split('@')[0]},
-    def: {title: def.title, jobs: def.jobs, criteria: def.criteria, must: def.must},
+    def: def.kind === 'piper'
+      ? {kind: 'piper', title: def.title, brief: def.brief, sampleHeader: def.sampleHeader, transcript: def.transcript, noteFields: def.noteFields, draft: def.draft, criteria: def.criteria, must: def.must, key: forManager ? def.key : undefined}
+      : {title: def.title, jobs: def.jobs, criteria: def.criteria, must: def.must},
+    rpStatus: await (async () => { const r = await env.DB.prepare("SELECT status FROM roleplay_leads WHERE user_email=? AND cert_id=? ORDER BY attempt_no DESC LIMIT 1").bind(email, certId).first(); return r ? r.status : null; })(),
     progress: {status: p.status, components: parse(p.components, {}), quizAttemptsUsed: p.attempts_used, retakeUnlocked: !!p.retake_unlocked},
     quiz: quiz ? {status: quiz.status, score: quiz.score} : null,
     current: pracView(rows[0]), history: rows.slice(1).map(pracView), attemptsUsed: rows.filter(r => ['passed', 'failed'].includes(r.status)).length, maxAttempts: MAX_ATTEMPTS
@@ -375,7 +397,7 @@ async function savePractical(env, me, certId, raw, submit) {
     const prog = await getProgress(env, me.email, certId);
     await env.DB.batch([
       env.DB.prepare("INSERT INTO practical_submissions (id, user_email, cert_id, attempt_no, status, content, created_at, updated_at) VALUES (?,?,?,?, 'draft', ?, ?, ?)").bind(crypto.randomUUID(), me.email, certId, n + 1, JSON.stringify(content), t, t),
-      componentUpdate(env, cert, prog, me.email, {practical: 'draft'}, t)
+      componentUpdate(env, cert, prog, me.email, {[pracComponent(def)]: 'draft'}, t)
     ]);
     row = await latestPractical(env, me.email, certId);
   } else {
@@ -385,7 +407,7 @@ async function savePractical(env, me, certId, raw, submit) {
     const prog = await getProgress(env, me.email, certId);
     await env.DB.batch([
       env.DB.prepare("UPDATE practical_submissions SET status='submitted', submitted_at=?, updated_at=? WHERE id=?").bind(t, t, row.id),
-      componentUpdate(env, cert, prog, me.email, {practical: 'submitted'}, t),
+      componentUpdate(env, cert, prog, me.email, {[pracComponent(def)]: 'submitted'}, t),
       env.DB.prepare("INSERT INTO activity_events (user_email, kind, ref, occurred_at) VALUES (?, 'practical_submit', ?, ?)").bind(me.email, certId, t)
     ]);
   }
@@ -413,10 +435,10 @@ async function reviewPractical(env, me, certId, email, body) {
   await env.DB.batch([
     env.DB.prepare("UPDATE practical_submissions SET status=?, reviewer_email=?, scores=?, must_pass=?, average=?, notes=?, reviewed_at=?, updated_at=? WHERE id=?")
       .bind(passed ? 'passed' : 'failed', me.email, JSON.stringify(scores), body.mustPass ? 1 : 0, average, notes, t, t, row.id),
-    componentUpdate(env, cert, prog, email, {practical: passed ? 'passed' : 'failed'}, t)
+    componentUpdate(env, cert, prog, email, {[pracComponent(def)]: passed ? 'passed' : 'failed'}, t)
   ]);
   await audit(env, me.email, 'review_practical', `${email}:${certId}`, {attempt: row.attempt_no, average, mustPass: body.mustPass, passed});
-  return json(await practicalState(env, email, certId));
+  return json(await practicalState(env, email, certId, true));
 }
 
 
@@ -436,12 +458,13 @@ async function roleplayState(env, email, certId, forManager) {
     attemptNo: l.attempt_no, status: l.status, business: l.business, link: l.link, code: l.code, leadStatus: l.lead_status, note: l.note,
     submittedAt: l.submitted_at, startedAt: l.started_at,
     card: forManager && l.card_id ? def.cards.find(c => c.id === l.card_id) || null : null,
+    brief: def.mode === 'situation' && l.card_id ? (def.cards.find(c => c.id === l.card_id) || {}).brief || null : null,
     score: rpScoreView(scores.find(x => x.attempt_no === l.attempt_no))
   };
   return {
     cert: {id: cert.id, name: cert.name, day: cert.onboarding_day},
     rep: {email, name: user?.name || email.split('@')[0], codePrefix: codePrefix(email)},
-    def: {criteria: def.criteria, musts: def.musts},
+    def: {mode: def.mode || 'lead', business: def.business || null, setup: def.setup || null, criteria: def.criteria, musts: def.musts},
     progress: {status: p.status, components: parse(p.components, {})},
     quiz: quiz ? {status: quiz.status, score: quiz.score} : null,
     current: view(cur), history: leads.slice(1).map(view),
@@ -451,6 +474,7 @@ async function roleplayState(env, email, certId, forManager) {
 async function submitRoleplayLead(env, me, certId, body) {
   const cert = await env.DB.prepare("SELECT * FROM certifications WHERE id=?").bind(certId).first();
   if (!cert || !ROLEPLAYS[certId] || cert.status !== 'active') return fail('not_available', 'This roleplay isn’t open yet.', 404);
+  if (ROLEPLAYS[certId].mode === 'situation') return fail('no_lead', 'There’s nothing to submit for this roleplay. Your manager starts it with you.', 409);
   const business = String(body.business || '').trim().slice(0, 200);
   const link = String(body.link || '').trim().slice(0, 500);
   const num = String(body.codeNum || '');
@@ -486,6 +510,24 @@ async function runRoleplay(env, me, certId, email, body) {
   if (!cert || !def) return fail('not_found', 'Unknown roleplay.', 404);
   const cur = await env.DB.prepare("SELECT * FROM roleplay_leads WHERE user_email=? AND cert_id=? ORDER BY attempt_no DESC LIMIT 1").bind(email, certId).first();
   const t = nowIso();
+  if (body.action === 'start' && def.mode === 'situation') {
+    if (cur && ['started', 'passed'].includes(cur.status)) return fail('not_ready', cur.status === 'passed' ? 'This roleplay is already passed.' : 'This roleplay is already in progress.', 409);
+    const used = (await env.DB.prepare("SELECT COUNT(*) n FROM roleplay_leads WHERE user_email=? AND cert_id=? AND status IN ('passed','failed')").bind(email, certId).first()).n;
+    if (used >= MAX_ATTEMPTS) return fail('max_attempts', 'All attempts used.', 409);
+    if (!(await env.DB.prepare("SELECT 1 FROM users WHERE email=?").bind(email).first())) return fail('not_found', 'That rep hasn’t signed in yet.', 404);
+    const usedCards = (await env.DB.prepare("SELECT card_id FROM roleplay_leads WHERE user_email=? AND cert_id=? AND card_id IS NOT NULL").bind(email, certId).all()).results.map(r => r.card_id);
+    const pool = def.cards.filter(c => !usedCards.includes(c.id));
+    const from = pool.length ? pool : def.cards;
+    const pick = from[crypto.getRandomValues(new Uint32Array(1))[0] % from.length];
+    const prog = await getProgress(env, email, certId);
+    await env.DB.batch([
+      env.DB.prepare("INSERT INTO roleplay_leads (id, user_email, cert_id, attempt_no, status, business, code, lead_status, card_id, manager_email, submitted_at, started_at, updated_at) VALUES (?,?,?,?, 'started', ?, '-', '-', ?,?,?,?,?)")
+        .bind(crypto.randomUUID(), email, certId, (cur?.attempt_no || 0) + 1, def.business, pick.id, me.email, t, t, t),
+      componentUpdate(env, cert, prog, email, {roleplay: 'started'}, t)
+    ]);
+    await audit(env, me.email, 'start_roleplay', `${email}:${certId}`, {card: pick.id});
+    return json(await roleplayState(env, email, certId, true));
+  }
   if (body.action === 'start') {
     if (!cur || cur.status !== 'submitted') return fail('not_ready', 'There’s no lead waiting for a roleplay.', 409);
     const usedCards = (await env.DB.prepare("SELECT card_id FROM roleplay_leads WHERE user_email=? AND cert_id=? AND card_id IS NOT NULL").bind(email, certId).all()).results.map(r => r.card_id);
@@ -551,7 +593,7 @@ async function team(env) {
   const pracUsed = (email, cert) => pracRows.filter(r => r.user_email === email && r.cert_id === cert && ['passed', 'failed'].includes(r.status)).length;
   for (const r of latestPrac.values()) {
     const u = rows.find(x => x.email === r.user_email); if (!u) continue;
-    if (r.status === 'submitted') attention.push({kind: 'review', email: u.email, name: u.name, cert: r.cert_id, at: r.submitted_at, text: `submitted the ${r.cert_id} practical${r.attempt_no > 1 ? ' (attempt ' + r.attempt_no + ')' : ''} · ready for a live review`});
+    if (r.status === 'submitted') attention.push({kind: 'review', url: (PRACTICALS[r.cert_id]?.kind === 'piper' ? '/written-review/' : '/review/') + r.cert_id + '?rep=' + encodeURIComponent(u.email), email: u.email, name: u.name, cert: r.cert_id, at: r.submitted_at, text: `submitted the ${r.cert_id} ${PRACTICALS[r.cert_id]?.kind === 'piper' ? 'written Piper fix' : 'practical'}${r.attempt_no > 1 ? ' (attempt ' + r.attempt_no + ')' : ''} · ready for a live review`});
     else if (r.status === 'failed') attention.push(pracUsed(r.user_email, r.cert_id) >= MAX_ATTEMPTS
       ? {kind: 'max', email: u.email, name: u.name, cert: r.cert_id, text: `has used all ${MAX_ATTEMPTS} attempts on the ${r.cert_id} practical · time for a performance conversation`}
       : {kind: 'retake', email: u.email, name: u.name, cert: r.cert_id, text: `didn’t pass the ${r.cert_id} practical · retake on the Foundation schedule`});
@@ -561,10 +603,19 @@ async function team(env) {
   const rpUsed = (email, cert) => rpRows.filter(r => r.user_email === email && r.cert_id === cert && ['passed', 'failed'].includes(r.status)).length;
   for (const r of latestRp.values()) {
     const u = rows.find(x => x.email === r.user_email); if (!u) continue;
-    if (r.status === 'submitted' || r.status === 'started') attention.push({kind: 'roleplay', email: u.email, name: u.name, cert: r.cert_id, at: r.submitted_at, text: r.status === 'started' ? `has an ${r.cert_id} roleplay in progress · finish scoring it` : `sent their ${r.cert_id} roleplay lead${r.attempt_no > 1 ? ' (attempt ' + r.attempt_no + ')' : ''} · ready to run`});
-    else if (r.status === 'failed') attention.push(rpUsed(r.user_email, r.cert_id) >= MAX_ATTEMPTS
+    if (r.status === 'submitted' || r.status === 'started') attention.push({kind: 'roleplay', url: '/roleplay-run/' + r.cert_id + '?rep=' + encodeURIComponent(u.email), email: u.email, name: u.name, cert: r.cert_id, at: r.submitted_at, text: r.status === 'started' ? `has an ${r.cert_id} roleplay in progress · finish scoring it` : `sent their ${r.cert_id} roleplay lead${r.attempt_no > 1 ? ' (attempt ' + r.attempt_no + ')' : ''} · ready to run`});
+    else if (r.status === 'failed' && ROLEPLAYS[r.cert_id]?.mode !== 'situation') attention.push(rpUsed(r.user_email, r.cert_id) >= MAX_ATTEMPTS
       ? {kind: 'max', email: u.email, name: u.name, cert: r.cert_id, text: `has used all ${MAX_ATTEMPTS} attempts on the ${r.cert_id} roleplay · time for a performance conversation`}
       : {kind: 'retake', email: u.email, name: u.name, cert: r.cert_id, text: `didn’t pass the ${r.cert_id} roleplay · retake on the Foundation schedule with a new card`});
+  }
+  for (const c of certs.filter(c => c.status === 'active' && ROLEPLAYS[c.id]?.mode === 'situation')) {
+    for (const u of rows.filter(r => r.role === 'rep')) {
+      const preOk = (c.prerequisites || []).every(pre => progress.find(x => x.user_email === u.email && x.cert_id === pre)?.status === 'passed');
+      const last = latestRp.get(u.email + ':' + c.id);
+      if (!preOk || (last && last.status !== 'failed')) continue;
+      if (last && rpUsed(u.email, c.id) >= MAX_ATTEMPTS) continue;
+      attention.push({kind: 'roleplay', url: '/roleplay-run/' + c.id + '?rep=' + encodeURIComponent(u.email), email: u.email, name: u.name, cert: c.id, text: last ? `is due an ${c.id} confirmation roleplay retake · new situation` : `is ready for the ${c.id} confirmation roleplay`});
+    }
   }
   for (const p of progress.filter(p => p.status === 'failed' && parse(p.components, {}).quiz === 'failed')) {
     const u = rows.find(r => r.email === p.user_email); if (!u) continue;
@@ -611,6 +662,14 @@ export async function handleApi(request, env, user) {
   const body = method === 'POST' ? await request.json().catch(() => ({})) : {};
   let m;
 
+  if (path === '/api/me' && method === 'POST') {
+    const clean = v => String(v || '').trim().replace(/\s+/g, ' ').slice(0, 40);
+    const first = clean(body.firstName), last = clean(body.lastName);
+    if (!first || !last) return fail('name', 'Add your first and last name.');
+    if (!/^[\p{L}][\p{L}' .-]*$/u.test(first) || !/^[\p{L}][\p{L}' .-]*$/u.test(last)) return fail('name', 'Use letters only in your name.');
+    await env.DB.prepare("UPDATE users SET name=? WHERE email=?").bind(first + ' ' + last, me.email).run();
+    return json({email: me.email, name: first + ' ' + last, role: me.role});
+  }
   if (path === '/api/me') return json({email: me.email, name: me.name, role: me.role});
   if (path === '/api/certs') return json(await myCerts(env, me));
   if (path === '/api/activity' && method === 'POST') {
@@ -696,7 +755,7 @@ export async function handleApi(request, env, user) {
     const email = String(method === 'POST' ? body.email : url.searchParams.get('rep') || '').toLowerCase();
     if (!email) return fail('bad_request', 'Pick a rep.');
     if (method === 'POST') return reviewPractical(env, me, m[1], email, body);
-    const st = await practicalState(env, email, m[1]);
+    const st = await practicalState(env, email, m[1], true);
     return st ? json(st) : fail('not_available', 'This practical isn’t open yet.', 404);
   }
   if (path === '/api/team') { if (!isManager(me)) return fail('forbidden', 'Managers only.', 403); return json(await team(env)); }

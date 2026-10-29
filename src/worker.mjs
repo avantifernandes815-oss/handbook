@@ -59,6 +59,8 @@ export async function handle(request,env,user){
  if(/^\/review\/[A-Z0-9]{1,6}$/.test(pathname))return asset(request,env,'/review.html');
  if(/^\/roleplay\/[A-Z0-9]{1,6}$/.test(pathname))return asset(request,env,'/roleplay.html');
  if(/^\/roleplay-run\/[A-Z0-9]{1,6}$/.test(pathname))return asset(request,env,'/roleplay-run.html');
+ if(/^\/written\/[A-Z0-9]{1,6}$/.test(pathname))return asset(request,env,'/written.html');
+ if(/^\/written-review\/[A-Z0-9]{1,6}$/.test(pathname))return asset(request,env,'/written-review.html');
  if(pathname==='/content/certs.js'||pathname==='/content/certs.css')return asset(request,env,pathname);
  if(pathname==='/')return reply(`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Momence SDR Handbook</title><link rel="stylesheet" href="/app.css"></head><body><header class="account-bar"><a class="header-brand" href="/" aria-label="Momence SDR Handbook"><img src="/momence-logo.svg" alt="Momence"><span class="header-divider"></span><span class="header-title">SDR Handbook</span></a><nav>${user.admin?'<a class="access-link" href="/admin">Manage Access</a>':''}<a class="access-link" href="/cdn-cgi/access/logout" title="${escapeHtml(user.email)}">Sign Out</a></nav></header><iframe class="handbook-frame" allowfullscreen src="/content/handbook" title="Momence SDR Handbook"></iframe><script>if(location.hash)document.querySelector('.handbook-frame').src='/content/handbook'+location.hash;</script></body></html>`,200,'text/html; charset=utf-8');
  if(pathname==='/admin'){

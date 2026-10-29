@@ -40,19 +40,27 @@ function strip() {
   if (comps.quiz === 'passed') quizCell = '<span class="chip ok">Passed' + (q ? ' · ' + Math.round(q.score * 100) + '%' : '') + '</span>';
   else if (comps.quiz === 'failed') quizCell = '<a class="crumb" href="/quiz/' + cert + '">Not passed yet · see next steps →</a>';
   else quizCell = '<a class="btn inline" style="min-height:40px;font-size:13px" href="/quiz/' + cert + '">Start quiz</a>';
-  const leadCell = !cur || (st === 'failed' && editing) ? '<span class="chip go">Due end of Day 7</span>' : '<span class="chip ok">Sent</span>';
+  const leadCell = S.def.mode === 'situation' ? 'Nothing to prepare' : !cur || (st === 'failed' && editing) ? '<span class="chip go">Due end of Day 7</span>' : '<span class="chip ok">Sent</span>';
   const rp = st === 'passed' ? '<span class="chip ok">Passed</span>' : st === 'failed' ? '<span class="chip warn">Not yet · retake</span>' : st === 'started' ? 'In progress with your manager' : st === 'submitted' ? 'Day ' + (S.cert.day || 8) + ' with your manager' : 'Opens once your lead is in';
   const leadOn = !cur || editing;
-  return '<section class="strip"><div><div class="lbl">QUIZ</div><div class="val">' + quizCell + '</div></div><div' + (leadOn ? ' class="on"' : '') + '><div class="lbl">YOUR LEAD</div><div class="val">' + leadCell + '</div></div><div' + (!leadOn ? ' class="on"' : '') + '><div class="lbl">ROLEPLAY</div><div class="val">' + rp + '</div></div></section>';
+  return '<section class="strip"><div><div class="lbl">QUIZ</div><div class="val">' + quizCell + '</div></div><div' + (leadOn ? ' class="on"' : '') + '><div class="lbl">' + (S.def.mode === 'situation' ? 'SETUP' : 'YOUR LEAD') + '</div><div class="val">' + leadCell + '</div></div><div' + (!leadOn ? ' class="on"' : '') + '><div class="lbl">ROLEPLAY</div><div class="val">' + rp + '</div></div></section>';
 }
 function head() {
   return '<div class="eyebrow">' + esc(S.cert.id + ' · ' + S.cert.name).toUpperCase() + '</div><h1>Live roleplay</h1><p class="intro">You’ll cold call a lead you pre-vetted yourself, and your manager plays whoever picks up. They know something about the business that you don’t. Run the call the way you would for real.</p>';
 }
 function scoring() {
-  return '<section class="notes" style="margin-top:18px"><div class="k">HOW YOU’RE SCORED</div><p>' + S.def.criteria.map((c, i) => (i + 1) + ' · ' + esc(c.name)).join('<br>') + '</p><p style="margin-top:10px;font-size:13px;color:#4b4960">Each scored 1–4. You pass with an average of 3 or higher, as long as you ask for the meeting, make no inaccurate claims and never argue.</p></section>';
+  return '<section class="notes" style="margin-top:18px"><div class="k">HOW YOU’RE SCORED</div><p>' + S.def.criteria.map((c, i) => (i + 1) + ' · ' + esc(c.name)).join('<br>') + '</p><p style="margin-top:10px;font-size:13px;color:#4b4960">Each scored 1–4. You pass with an average of 3 or higher, and these must be met:</p><ul style="margin:6px 0 0 18px;font-size:13px;color:#4b4960">' + (S.def.musts || []).map(m => '<li>' + esc(m.name) + '</li>').join('') + '</ul></section>';
 }
 function render() {
   const cur = S.current, st = cur?.status;
+  if (S.def.mode === 'situation') {
+    if (st === 'passed' || st === 'failed') return renderResult();
+    const box = st === 'started'
+      ? '<section class="panel" style="border:2px solid var(--purple);margin-bottom:18px"><div style="font-size:11px;letter-spacing:1px;font-weight:700;color:var(--purple)">YOUR BOOKING · IN PROGRESS</div><h2 style="font-size:20px;margin:6px 0 8px">' + esc(S.def.business) + '</h2><p style="margin:0 0 8px;font-size:14px;line-height:1.6">' + esc(S.def.setup) + '</p><p style="margin:0;font-size:14px;line-height:1.6"><b>' + esc(cur.brief || '') + '</b></p></section>'
+      : '<section class="panel" style="margin-bottom:18px"><h2 style="font-size:20px">Nothing to prepare</h2><p class="sub" style="font-size:14px;line-height:1.6;margin:6px 0 0">Your manager starts this with you on Day ' + (S.cert.day || 9) + '. You’ll get the booking details when it starts, then make the confirmation call.</p></section>';
+    app.innerHTML = '<div class="eyebrow">' + esc(S.cert.id + ' · ' + S.cert.name).toUpperCase() + '</div><h1>Confirmation-call roleplay</h1><p class="intro">You booked a demo. Now protect it: your manager plays the prospect, and something may have changed since the booking call.</p>' + box + scoring() + '<p style="margin-top:18px"><a class="btn ghost inline" href="/written/' + cert + '">Back to ' + esc(S.cert.id) + '</a></p>';
+    return;
+  }
   if ((st === 'passed' || st === 'failed') && !editing) return renderResult();
   if (st === 'started') return renderLocked();
   if (st === 'submitted' && !editing) return renderSent();
@@ -109,16 +117,16 @@ function renderResult() {
   const left = S.maxAttempts - S.attemptsUsed, fully = S.progress.status === 'passed', quizPassed = S.progress.components.quiz === 'passed';
   const headline = pass ? (fully ? S.cert.id + ' passed' : 'Roleplay passed') : 'Not yet. Let’s get you there.';
   const sub = pass ? (fully ? 'Quiz and roleplay both done. Your ' + S.cert.id + ' badge is on your path.' : 'Nice work. Pass the ' + S.cert.id + ' quiz to finish the certification.')
-    : left > 0 ? 'Work through the notes below, then pick a lead for your retake. It follows the Foundation schedule (Day 10, then Monday), and your manager will play a different card.' : 'You’ve used all your attempts. Your manager will talk with you about next steps.';
+    : left > 0 ? (S.def.mode === 'situation' ? 'Work through the notes below. Your manager will run your retake on the Foundation schedule (Day 10, then Monday) with a different situation.' : 'Work through the notes below, then pick a lead for your retake. It follows the Foundation schedule (Day 10, then Monday), and your manager will play a different card.') : 'You’ve used all your attempts. Your manager will talk with you about next steps.';
   const rows = sc ? S.def.criteria.map(c => '<div class="score-row"><div><b>' + esc(c.name) + '</b><small>' + esc(c.hint) + '</small></div><span class="chip ' + WCHIP[sc.criteria[c.id]] + '">' + WORDS[sc.criteria[c.id]] + '</span></div>').join('') +
     S.def.musts.map(m => '<div class="score-row"><div><b>Must-pass: ' + esc(m.name) + '</b></div><span class="chip ' + (sc.musts[m.id] ? 'ok">Met' : 'bad">Not met') + '</span></div>').join('') : '';
   app.innerHTML = '<div class="eyebrow">' + esc(S.cert.id + ' · ' + S.cert.name).toUpperCase() + '</div>' +
     '<section class="result ' + (pass ? 'ok' : 'soft') + '" style="margin:6px 0 18px"><div><h1 style="margin:0 0 6px">' + esc(headline) + '</h1><p style="margin:0;font-size:14px;line-height:1.6">' + esc(sub) + '</p></div></section>' + strip() +
-    '<section class="panel" style="margin-bottom:18px"><div class="sec-h"><h2 style="font-size:18px">Your scorecard</h2><span>Average ' + Number(sc?.average || 0).toFixed(1) + ' of 4 · ' + esc(cur.business) + ' · attempt ' + cur.attemptNo + '</span></div>' + rows + '</section>' +
+    '<section class="panel" style="margin-bottom:18px"><div class="sec-h"><h2 style="font-size:18px">Your scorecard</h2><span>Average ' + Number(sc?.average || 0).toFixed(1) + ' of 4 · ' + esc(cur.business) + ' · attempt ' + cur.attemptNo + '</span></div>' + (cur.brief ? '<p class="sub" style="margin:0 0 6px">' + esc(cur.brief) + '</p>' : '') + rows + '</section>' +
     '<section class="notes" style="margin-bottom:18px"><div class="k">COACHING NOTES FROM YOUR MANAGER</div><p>' + esc(sc?.notes) + '</p></section>' +
     '<section class="bar-foot"><div class="note">' + (pass ? (quizPassed ? 'Up next: the next Foundation certification on your path.' : 'Up next: the ' + S.cert.id + ' quiz.') : left > 0 ? left + (left === 1 ? ' attempt' : ' attempts') + ' left' : 'Talk to your manager') + '</div><div style="display:flex;gap:10px;flex-wrap:wrap">' +
-      (!pass && left > 0 ? '<button class="btn inline" id="retake">Pick a lead for your retake</button>' : '') +
-      (pass && !quizPassed ? '<a class="btn inline" href="/quiz/' + cert + '">Go to the quiz</a>' : '<a class="btn ghost inline" href="/#page=certifications">Back to your path</a>') + '</div></section>';
+      (!pass && left > 0 && S.def.mode !== 'situation' ? '<button class="btn inline" id="retake">Pick a lead for your retake</button>' : '') +
+      (S.def.mode === 'situation' ? '<a class="btn ghost inline" href="/written/' + cert + '">Back to ' + esc(S.cert.id) + '</a>' : pass && !quizPassed ? '<a class="btn inline" href="/quiz/' + cert + '">Go to the quiz</a>' : '<a class="btn ghost inline" href="/#page=certifications">Back to your path</a>') + '</div></section>';
   const r = document.getElementById('retake'); if (r) r.onclick = () => { editing = true; form = null; window.scrollTo(0, 0); render(); };
 }
 if (!cert) app.innerHTML = '<p class="center">Not found.</p>'; else load();

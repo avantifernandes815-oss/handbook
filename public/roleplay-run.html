@@ -61,8 +61,21 @@ function card(c, canHide) {
     '<div style="font-size:16px;font-weight:700;margin:6px 0 4px">' + esc(c.title) + '</div>' +
     (cardOpen || !canHide ? '<dl><dt>You answer</dt><dd>' + esc(c.answer) + '</dd><dt>Brush-off</dt><dd>' + esc(c.brushoff) + '</dd><dt>The thread</dt><dd>' + esc(c.thread) + ' Drop it once, only if asked a real question.</dd><dt>Real objection</dt><dd>' + esc(c.objection) + '</dd><dt>Say yes when</dt><dd>' + esc(c.yes) + '</dd></dl>' : '') + '</div>';
 }
+function situationBrief(cur) {
+  return '<div class="lead-box"><div class="k">WHAT THE REP SEES · READ IT TO THEM</div><div style="font-size:16px;font-weight:700;margin:6px 0 6px">' + esc(S.def.business) + '</div><p style="font-size:13px;color:var(--body);line-height:1.6;margin:0 0 8px">' + esc(S.def.setup) + '</p><p style="font-size:13px;line-height:1.6;margin:0"><b>' + esc(cur.card ? cur.card.brief : '') + '</b></p></div>';
+}
+function situationCard(c) {
+  return '<div class="card-box"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><div class="k">HIDDEN REACTION · THE REP CAN’T SEE THIS</div><button class="small-btn" id="tog" aria-expanded="' + cardOpen + '">' + (cardOpen ? 'Hide' : 'Show') + '</button></div><div style="font-size:16px;font-weight:700;margin:6px 0 4px">' + esc(c.title) + '</div>' +
+    (cardOpen ? '<dl><dt>You play</dt><dd>' + esc(c.answer) + '</dd><dt>Right outcome</dt><dd>' + esc(c.yes) + '</dd></dl>' : '') + '</div>';
+}
 function render() {
   const cur = S.current, st = cur?.status;
+  if (S.def.mode === 'situation' && (!cur || (st === 'failed' && S.attemptsUsed < S.maxAttempts))) {
+    app.innerHTML = top() + (cur ? '<section class="result no" style="margin-bottom:18px"><div><div class="k">LAST ATTEMPT</div><div class="v">Not yet</div><div class="w">Average ' + Number(cur.score?.average || 0).toFixed(1) + ' · ' + esc(cur.card ? cur.card.title : '') + '</div></div></section>' : '') +
+      '<section class="panel" style="margin-bottom:18px"><h2 style="font-size:18px">Start the confirmation roleplay</h2><p class="sub" style="line-height:1.6;margin:6px 0 14px">The handbook picks one of six situations at random' + (cur ? ', different from their last one' : '') + '. You’ll see what to read to the rep and how to play the prospect. One run, about 5 minutes.</p><button class="btn inline" id="start">Start roleplay &amp; pick a situation</button></section><p class="err" id="err" role="alert"></p>';
+    document.getElementById('start').onclick = start;
+    return;
+  }
   if (!cur) { app.innerHTML = top() + '<div class="panel"><h2>No lead yet</h2><p class="sub">' + esc(S.rep.name) + ' hasn’t sent a roleplay lead.</p></div>'; return; }
   if (st === 'submitted') {
     app.innerHTML = top() + '<div class="two">' + lead(cur) + '<div class="card-box"><div class="k">YOUR HIDDEN CARD</div><p style="font-size:14px;line-height:1.6;margin:8px 0 14px">Read their lead first. When you’re ready to call, start the roleplay: the handbook picks a card at random' + (cur.attemptNo > 1 ? ', different from their last one' : '') + ', and their lead locks.</p><button class="btn inline" id="start">Start roleplay &amp; reveal card</button></div></div><p class="err" id="err" role="alert"></p>' +
@@ -75,19 +88,20 @@ function render() {
 }
 async function start() {
   const b = document.getElementById('start'); b.disabled = true; b.textContent = 'Picking a card…';
-  try { S = await api('/api/roleplay-run/' + cert, {email: rep, action: 'start'}); render(); }
-  catch (e) { b.disabled = false; b.textContent = 'Start roleplay & reveal card'; document.getElementById('err').textContent = e.message; }
+  try { S = await api('/api/roleplay-run/' + cert, {email: rep, action: 'start'}); scores = {}; musts = {}; notes = ''; render(); }
+  catch (e) { b.disabled = false; b.textContent = S.def.mode === 'situation' ? 'Start roleplay & pick a situation' : 'Start roleplay & reveal card'; document.getElementById('err').textContent = e.message; }
 }
 function renderScoring() {
-  const cur = S.current;
-  app.innerHTML = top() + '<div class="two" id="two">' + lead(cur) + card(cur.card, true) + '</div>' +
+  const cur = S.current, sit = S.def.mode === 'situation';
+  const pair = () => sit ? situationBrief(cur) + situationCard(cur.card) : lead(cur) + card(cur.card, true);
+  app.innerHTML = top() + '<div class="two" id="two">' + pair() + '</div>' +
     '<section class="panel" style="margin-bottom:18px"><div class="sec-h"><h2 style="font-size:18px">Score each moment, 1–4</h2><span>1 missed · 2 developing · 3 solid · 4 strong</span></div><p class="sub">Judge what each moment achieved, not whether every framework step was used.</p>' +
       S.def.criteria.map(c => '<div class="crit"><div style="flex:1 1 300px;min-width:0"><b>' + esc(c.name) + '</b><small>' + esc(c.hint) + '</small></div><div class="nums" role="group" aria-label="' + esc(c.name) + '">' + [1,2,3,4].map(n => '<button type="button" data-c="' + c.id + '" data-n="' + n + '" aria-pressed="' + (scores[c.id] === n) + '">' + n + '</button>').join('') + '</div></div>').join('') + '</section>' +
     '<section class="panel" style="margin-bottom:18px"><h2 style="font-size:18px">Must-pass</h2><p class="sub">Any “no” is a fail, whatever the average.</p><div style="display:flex;flex-direction:column;gap:8px">' +
       S.def.musts.map(m => '<div class="mustrow"><div id="m-' + m.id + '">' + esc(m.name) + '</div><div class="seg yn" role="group" aria-labelledby="m-' + m.id + '"><button type="button" class="yes" data-m="' + m.id + '" data-v="1" aria-pressed="' + (musts[m.id] === true) + '">Yes, met</button><button type="button" class="no" data-m="' + m.id + '" data-v="0" aria-pressed="' + (musts[m.id] === false) + '">No, not met</button></div></div>').join('') + '</div></section>' +
     '<section class="panel" style="margin-bottom:18px"><label for="notes" style="display:flex;align-items:center;gap:10px;font-family:Nunito,Arial,sans-serif;font-size:18px;font-weight:800;margin-bottom:4px">Coaching notes <span class="chip warn">Required</span></label><p class="sub">' + esc(S.rep.name) + ' sees the full scorecard and these notes as soon as you submit.</p><textarea class="in" id="notes" rows="4" maxlength="4000" placeholder="What to keep doing, and what to change before the next attempt.">' + esc(notes) + '</textarea></section>' +
     '<section class="result pend" id="result"></section><p class="err" id="err" role="alert"></p>';
-  const tog = () => { const b = document.getElementById('tog'); if (b) b.onclick = () => { cardOpen = !cardOpen; const two = document.getElementById('two'); two.innerHTML = lead(cur) + card(cur.card, true); tog(); }; };
+  const tog = () => { const b = document.getElementById('tog'); if (b) b.onclick = () => { cardOpen = !cardOpen; const two = document.getElementById('two'); two.innerHTML = pair(); tog(); }; };
   tog();
   app.querySelectorAll('[data-c]').forEach(b => b.onclick = () => { scores[b.dataset.c] = +b.dataset.n; b.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); update(); });
   app.querySelectorAll('[data-m]').forEach(b => b.onclick = () => { musts[b.dataset.m] = b.dataset.v === '1'; b.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); update(); });

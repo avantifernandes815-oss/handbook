@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Certification · Momence SDR Handbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&display=swap">
+<link rel="stylesheet" href="/cert-pages.css">
+<style>
+.tabs{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.tabs button{min-height:40px;padding:0 16px;border-radius:20px;font-size:13px;font-weight:700;font-family:inherit;cursor:pointer;background:var(--paper);color:var(--ink);border:1px solid var(--line)}
+.tabs button[aria-selected=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.src{background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:18px 20px;margin-bottom:26px;max-height:340px;overflow:auto;font-size:13px;line-height:1.7}
+.src p{margin:0 0 6px}.src .hd{font-size:12px;color:var(--sub);margin-bottom:10px}
+.src pre{white-space:pre-wrap;font-family:inherit;margin:0}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:6px 20px 20px;margin-bottom:14px}
+.box h3{font-family:Nunito,Arial,sans-serif;font-size:17px;margin:14px 0 0}
+.chg{display:grid;grid-template-columns:28px 1fr;gap:8px;align-items:start;margin-top:10px}
+.chg span{font-size:13px;font-weight:700;color:var(--sub);padding-top:12px}
+.addbtn{margin-top:12px;min-height:40px;padding:0 14px;border-radius:10px;background:#fff;color:var(--purple);border:1px solid #d9d0fb;font-size:13px;font-weight:700;font-family:inherit;cursor:pointer}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><img src="/momence-logo.svg" alt="Momence"><span class="div"></span><b id="htitle">Certification</b></div>
+  <div class="status"><a class="crumb" href="/#page=certifications">← Back to handbook</a></div>
+</header>
+<main><div class="wrap wide" id="app"><p class="center">Loading…</p></div></main>
+<script>
+(() => {
+const cert = (location.pathname.match(/^\/written\/([A-Z0-9]{1,6})$/) || [])[1];
+const app = document.getElementById('app');
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function api(path, body) {
+  const r = await fetch(path, body ? {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)} : {});
+  const data = await r.json().catch(() => ({}));
+  if (!r.ok) throw Object.assign(new Error(data.message || 'Something went wrong.'), data);
+  return data;
+}
+const WORDS = {1:'1 · Missed', 2:'2 · Developing', 3:'3 · Solid', 4:'4 · Strong'}, WCHIP = {1:'bad', 2:'warn', 3:'ok', 4:'go'};
+let S = null, model = null, tab = 'call', saveTimer = null, saving = false, dirty = false, retaking = false;
+
+async function load() {
+  try { S = await api('/api/practical/' + cert); }
+  catch (e) { app.innerHTML = '<div class="card narrow" style="margin:0 auto"><h1>Not open yet</h1><p class="lead">' + esc(e.message) + '</p><a class="btn ghost" href="/#page=certifications">Back to my certifications</a></div>'; return; }
+  document.getElementById('htitle').textContent = S.cert.id + ' · ' + S.cert.name;
+  render();
+}
+function strip() {
+  const comps = S.progress.components, q = S.quiz, cur = S.current, rp = S.rpStatus;
+  const quizCell = comps.quiz === 'passed' ? '<span class="chip ok">Passed' + (q ? ' · ' + Math.round(q.score * 100) + '%' : '') + '</span>'
+    : comps.quiz === 'failed' ? '<a class="crumb" href="/quiz/' + cert + '">Not passed yet · see next steps →</a>'
+    : '<a class="btn inline" style="min-height:40px;font-size:13px" href="/quiz/' + cert + '">Start quiz</a>';
+  const rpCell = rp === 'passed' ? '<a href="/roleplay/' + cert + '" style="text-decoration:none"><span class="chip ok">Passed · see scorecard</span></a>'
+    : rp === 'failed' ? '<a class="crumb" href="/roleplay/' + cert + '">Not yet · see your scorecard →</a>'
+    : rp === 'started' ? 'In progress with your manager'
+    : 'Day ' + (S.cert.day || 9) + ' with your manager. Nothing to prepare: you’ll get the booking details when it starts.';
+  const st = cur?.status;
+  const wCell = st === 'passed' ? '<span class="chip ok">Passed</span>' : st === 'failed' ? '<span class="chip warn">Not yet · retake</span>' : st === 'submitted' ? '<span class="chip go">Sent to your manager</span>' : '<span class="chip go">' + (cur ? 'Draft saved' : 'Not started') + '</span>';
+  return '<section class="strip"><div><div class="lbl">QUIZ</div><div class="val">' + quizCell + '</div></div><div><div class="lbl">CONFIRMATION ROLEPLAY</div><div class="val">' + rpCell + '</div></div><div class="on"><div class="lbl">WRITTEN · FIX A PIPER DRAFT</div><div class="val">' + wCell + '</div></div></section>';
+}
+function head() {
+  const passed = S.progress.status === 'passed';
+  return '<div class="eyebrow">' + esc(S.cert.id + ' · ' + S.cert.name).toUpperCase() + '</div><h1>' + (passed ? esc(S.cert.id) + ' passed' : 'Three parts, any order') + '</h1><p class="intro">' + (passed ? 'Quiz, roleplay and written all done. Your ' + esc(S.cert.id) + ' badge is on your path.' : 'Pass the quiz, the confirmation-call roleplay and the written Piper fix to earn ' + esc(S.cert.id) + '.') + '</p>';
+}
+function source() {
+  const d = S.def;
+  const body = tab === 'call'
+    ? '<div class="hd">' + esc(d.sampleHeader) + '</div>' + d.transcript.map(l => '<p><b>' + esc(l[0]) + ':</b> ' + esc(l[1]) + '</p>').join('')
+    : '<p><b>SDR Note</b></p>' + d.noteFields.map(f => '<p><b>' + esc(f.label) + '</b> ' + esc(d.draft.note[f.id]) + '</p>').join('') + '<p style="margin-top:12px"><b>Confirmation email</b></p><pre>' + esc(d.draft.email) + '</pre><p style="margin-top:12px"><b>Confirmation plan</b></p><p>' + esc(d.draft.plan) + '</p>';
+  return '<div class="tabs" role="tablist" aria-label="Source material"><button type="button" role="tab" data-tab="call" aria-selected="' + (tab === 'call') + '">The booking call</button><button type="button" role="tab" data-tab="draft" aria-selected="' + (tab === 'draft') + '">Piper’s draft</button></div><section class="src" id="src">' + body + '</section>';
+}
+function render() {
+  const st = S.current?.status;
+  if ((st === 'passed' || st === 'failed') && !retaking) return renderResult();
+  if (st === 'submitted') return renderSubmitted();
+  if (!model) model = S.current ? JSON.parse(JSON.stringify(S.current.content)) : {note: {...S.def.draft.note}, email: S.def.draft.email, plan: S.def.draft.plan, changes: ['', '', '']};
+  if (!model.changes || !model.changes.length) model.changes = ['', '', ''];
+  renderForm();
+}
+function bindTabs() { app.querySelectorAll('[data-tab]').forEach(b => b.onclick = () => { tab = b.dataset.tab; const h = document.createElement('div'); h.innerHTML = source(); b.closest('.tabs').replaceWith(h.firstChild); document.getElementById('src').replaceWith(h.lastChild); bindTabs(); }); }
+function renderForm() {
+  const d = S.def;
+  app.innerHTML = head() + strip() +
+    '<div class="sec-h"><h2>' + esc(d.title) + '</h2><span id="savenote" aria-live="polite">' + (S.current ? 'Saved' : 'Your work saves as you type') + '</span></div><p class="sec-p" style="line-height:1.6">' + esc(d.brief) + '</p>' +
+    (retaking || (S.current && S.current.attemptNo > 1) ? '<p class="sec-p"><span class="chip warn">Retake</span> Your last version is filled in. Work through your manager’s notes, then submit again.</p>' : '') +
+    source() +
+    '<section class="box"><h3>1 · SDR Note</h3>' + d.noteFields.map(f => '<label class="fld" for="n-' + f.id + '">' + esc(f.label) + '</label><textarea class="in" rows="3" id="n-' + f.id + '" data-note="' + f.id + '">' + esc(model.note[f.id]) + '</textarea>').join('') + '</section>' +
+    '<section class="box"><h3>2 · Confirmation email</h3><label class="fld" for="em">Your corrected email <small>· starts as Piper’s version, so edit it in place</small></label><textarea class="in" rows="12" id="em" data-k="email">' + esc(model.email) + '</textarea></section>' +
+    '<section class="box"><h3>3 · Confirmation plan</h3><label class="fld" for="pl">Your corrected plan</label><textarea class="in" rows="4" id="pl" data-k="plan">' + esc(model.plan) + '</textarea></section>' +
+    '<section class="box" style="margin-bottom:18px"><h3>4 · What I changed and why</h3><p class="sub" style="margin:6px 0 0">One line per change, at least three. Your manager reads these alongside your fixes.</p><div id="chgs">' + chgRows() + '</div><button type="button" class="addbtn" id="add">+ Add a change</button></section>' +
+    '<section class="bar-foot"><div class="note" id="todo"></div><div id="submitbox"></div></section><p class="err" id="err" role="alert"></p>';
+  bindTabs();
+  app.oninput = e => {
+    const t = e.target;
+    if (t.dataset.note) model.note[t.dataset.note] = t.value;
+    else if (t.dataset.k) model[t.dataset.k] = t.value;
+    else if (t.dataset.chg != null) model.changes[+t.dataset.chg] = t.value;
+    else return;
+    changed();
+  };
+  document.getElementById('add').onclick = () => { model.changes.push(''); document.getElementById('chgs').innerHTML = chgRows(); refresh(); };
+  refresh();
+}
+const chgRows = () => model.changes.map((c, i) => '<div class="chg"><span>' + (i + 1) + '</span><input class="in" data-chg="' + i + '" maxlength="600" aria-label="Change ' + (i + 1) + '" value="' + esc(c) + '"></div>').join('');
+function missing() {
+  const out = [];
+  for (const f of S.def.noteFields) if (!String(model.note[f.id] || '').trim()) out.push(f.label);
+  if (!model.email.trim()) out.push('the email');
+  if (!model.plan.trim()) out.push('the plan');
+  if (model.changes.filter(x => x.trim()).length < 3) out.push('at least three changes');
+  return out;
+}
+function refresh() {
+  const m = missing(), box = document.getElementById('submitbox'), want = m.length ? 'todo' : 'ready';
+  document.getElementById('todo').textContent = m.length ? 'Still needed: ' + m.join(', ') : 'Everything’s filled in. Read it once more against the call, then submit.';
+  if (box.dataset.state !== want) {
+    box.dataset.state = want;
+    box.innerHTML = m.length ? '<span class="locked-btn">Fill in every part to submit</span>' : '<button class="btn inline" id="submit">Submit to your manager</button>';
+    const b = document.getElementById('submit'); if (b) b.onclick = submit;
+  }
+}
+function changed() { dirty = true; refresh(); document.getElementById('savenote').textContent = 'Saving…'; clearTimeout(saveTimer); saveTimer = setTimeout(save, 1200); }
+async function save() {
+  if (saving) { clearTimeout(saveTimer); saveTimer = setTimeout(save, 600); return; }
+  saving = true; dirty = false;
+  try { S = await api('/api/practical/' + cert, {content: model}); retaking = false; document.getElementById('savenote').textContent = 'Saved · ' + new Date().toLocaleTimeString([], {hour:'numeric', minute:'2-digit'}); }
+  catch (e) { document.getElementById('savenote').textContent = 'Couldn’t save. ' + e.message; }
+  saving = false;
+}
+async function submit() {
+  const b = document.getElementById('submit'); b.disabled = true; b.textContent = 'Submitting…'; clearTimeout(saveTimer);
+  try { S = await api('/api/practical/' + cert, {content: model, submit: true}); retaking = false; dirty = false; window.scrollTo(0, 0); render(); }
+  catch (e) { b.disabled = false; b.textContent = 'Submit to your manager'; document.getElementById('err').textContent = e.message + (e.missing ? ' Missing: ' + e.missing.join(', ') + '.' : ''); }
+}
+window.addEventListener('beforeunload', e => { if (dirty) { e.preventDefault(); e.returnValue = ''; } });
+function yours(c) {
+  return '<section class="panel" style="margin-bottom:14px"><h2 style="font-size:18px">Your SDR Note</h2><dl class="ro">' + S.def.noteFields.map(f => '<dt>' + esc(f.label) + '</dt><dd>' + esc(c.note[f.id]) + '</dd>').join('') + '</dl></section>' +
+    '<section class="panel" style="margin-bottom:14px"><h2 style="font-size:18px">Your email</h2><dl class="ro"><dt>Email</dt><dd>' + esc(c.email) + '</dd><dt>Plan</dt><dd>' + esc(c.plan) + '</dd></dl></section>' +
+    '<section class="panel" style="margin-bottom:14px"><h2 style="font-size:18px">What you changed and why</h2><ol style="margin:8px 0 0">' + c.changes.filter(x => x.trim()).map(x => '<li>' + esc(x) + '</li>').join('') + '</ol></section>';
+}
+function renderSubmitted() {
+  app.innerHTML = head() + strip() + '<div class="sec-h"><h2>Sent to your manager</h2><span>Attempt ' + S.current.attemptNo + '</span></div><p class="sec-p">Your manager scores it against the call. Your scorecard and their notes show up here.</p>' + yours(S.current.content);
+}
+function renderResult() {
+  const cur = S.current, rv = cur.review, pass = cur.status === 'passed', left = S.maxAttempts - S.attemptsUsed;
+  const rows = S.def.criteria.map(c => '<div class="score-row"><div><b>' + esc(c.name) + '</b><small>' + esc(c.hint) + '</small></div><span class="chip ' + WCHIP[rv.scores[c.id]] + '">' + WORDS[rv.scores[c.id]] + '</span></div>').join('');
+  app.innerHTML = head() + strip() +
+    '<section class="result ' + (pass ? 'ok' : 'soft') + '" style="margin-bottom:18px"><div><div class="v" style="margin:0">' + (pass ? 'Written part passed' : 'Not yet on the written part') + '</div><div class="w">' + (pass ? 'Nice work.' : left > 0 ? 'Work through the notes below, then submit your retake. It follows the Foundation schedule: Day 10, then Monday.' : 'You’ve used all your attempts. Your manager will talk with you about next steps.') + '</div></div>' + (!pass && left > 0 ? '<button class="btn inline" id="retake">Start your retake</button>' : '') + '</section>' +
+    '<section class="panel" style="margin-bottom:18px"><div class="sec-h"><h2 style="font-size:18px">Your scorecard</h2><span>Average ' + Number(rv.average).toFixed(1) + ' of 4 · attempt ' + cur.attemptNo + '</span></div>' + rows +
+      '<div class="score-row"><div><b>Must-pass</b><small>' + esc(S.def.must) + '</small></div><span class="chip ' + (rv.mustPass ? 'ok">Met' : 'bad">Not met') + '</span></div></section>' +
+    '<section class="notes" style="margin-bottom:18px"><div class="k">COACHING NOTES FROM YOUR MANAGER</div><p>' + esc(rv.notes) + '</p></section>' + yours(cur.content);
+  const r = document.getElementById('retake'); if (r) r.onclick = () => { retaking = true; model = JSON.parse(JSON.stringify(cur.content)); window.scrollTo(0, 0); renderForm(); };
+}
+if (!cert) app.innerHTML = '<p class="center">Not found.</p>'; else load();
+})();
+</script>
+</body>
+</html>

@@ -15,7 +15,7 @@
   };
   const pct = s => s == null ? '' : ' · ' + Math.round(s * 100) + '%';
   const quizUrl = id => '/quiz/' + encodeURIComponent(id);
-  const second = c => (c.components || []).find(x => x === 'practical' || x === 'roleplay');
+  const second = c => ['written', 'practical', 'roleplay'].find(x => (c.components || []).includes(x));
   const pracUrl = (id, c) => '/' + (c ? second(c) : 'practical') + '/' + encodeURIComponent(id);
   const hasPractical = c => !!second(c);
   let data = null, me = null, myPage = null;
@@ -61,6 +61,12 @@
       return {key: 'soon', chip: 'off', label: 'Coming soon', ico: 'off'};
     }
     if (!prereqOk) return {key: 'locked', chip: 'off', label: 'Locked · pass the one before', ico: 'off', locked: true};
+    if (second(c) === 'written' && !p.inProgress) {
+      const comps = p.components || {}, parts = c.components || [];
+      const done = parts.filter(x => comps[x] === 'passed').length;
+      const waiting = comps.written === 'submitted' ? ' · written sent' : '';
+      return {key: 'multi', chip: done ? 'go' : 'go', label: done + ' of ' + parts.length + ' parts passed' + waiting, ico: 'go', action: done ? 'Open ' + c.id : 'Start ' + c.id, url: pracUrl(c.id, c)};
+    }
     if (second(c) === 'roleplay' && (p.components || {}).quiz === 'passed') {
       const rp = p.roleplay, u = pracUrl(c.id, c);
       if (!rp) return {key: 'lead', chip: 'go', label: 'Quiz passed · send your roleplay lead', ico: 'go', action: 'Pick your lead', url: u};
@@ -102,7 +108,7 @@
       return '<div class="cx-row' + (s.action ? ' focus' : c.status !== 'active' ? ' muted' : '') + '"><div class="cx-ico ' + (s.key === 'passed' ? 'ok' : s.ico) + '">' + iconHtml + '</div><div class="cx-body"><b>' + esc(c.id + ' · ' + c.name) + '</b><small>' + esc(c.status === 'active' ? formatOf(c) : 'Not open yet') + '</small></div>' + right + '</div>';
     }).join('');
     const intro = label.parentElement.querySelector('h1 + p') || label.nextElementSibling;
-    const html = '<section class="cx-card cx-day" aria-labelledby="cx-today"><div class="cx-head"><div><div class="cx-tag">CERTIFICATION DAY</div><h2 id="cx-today">Today’s certifications</h2><p>Take these after the session. Quizzes pass at 80%.' + (certs.some(c => second(c) === 'practical') ? ' Written practicals are due Day 10.' : '') + (certs.some(c => second(c) === 'roleplay') ? ' Your roleplay is live with your manager.' : '') + '</p></div><button class="cx-link" data-cert-page="certifications">View my progress →</button></div><div class="cx-rows">' + rows + '</div></section>';
+    const html = '<section class="cx-card cx-day" aria-labelledby="cx-today"><div class="cx-head"><div><div class="cx-tag">CERTIFICATION DAY</div><h2 id="cx-today">Today’s certifications</h2><p>Take these after the session. Quizzes pass at 80%.' + (certs.some(c => second(c) === 'practical') ? ' Written practicals are due Day 10.' : '') + (certs.some(c => (c.components || []).includes('roleplay')) ? ' Roleplays are live with your manager.' : '') + (certs.some(c => second(c) === 'written') ? ' The written Piper fix is on the ' + certs.find(c => second(c) === 'written').id + ' page.' : '') + '</p></div><button class="cx-link" data-cert-page="certifications">View my progress →</button></div><div class="cx-rows">' + rows + '</div></section>';
     (intro || label).insertAdjacentHTML('afterend', html);
     icons();
   }
@@ -145,8 +151,8 @@
     const mark = {p: '✓', i: '•', f: '✕', n: '–'}, word = {p: 'Passed', i: 'In progress', f: 'Not passed yet', n: 'Not started'};
     const att = t.attention.map(a => '<div class="cx-att' + (a.kind === 'leave' ? ' leave' : '') + '"><span><strong>' + esc(a.name) + '</strong> ' + esc(a.text) + '</span>' +
       (a.kind === 'coach' ? '<button class="cx-btn ghost" data-cx-unlock="' + esc(a.email) + '" data-cert="' + esc(a.cert) + '">Mark coached &amp; unlock</button>' : '') +
-      (a.kind === 'review' ? '<a class="cx-btn" href="/review/' + encodeURIComponent(a.cert) + '?rep=' + encodeURIComponent(a.email) + '" target="_top">Start live review</a>' : '') +
-      (a.kind === 'roleplay' ? '<a class="cx-btn" href="/roleplay-run/' + encodeURIComponent(a.cert) + '?rep=' + encodeURIComponent(a.email) + '" target="_top">Run roleplay</a>' : '') + '</div>').join('');
+      (a.kind === 'review' ? '<a class="cx-btn" href="' + esc(a.url || ('/review/' + encodeURIComponent(a.cert) + '?rep=' + encodeURIComponent(a.email))) + '" target="_top">' + (a.cert === 'F2' ? 'Start live review' : 'Review it') + '</a>' : '') +
+      (a.kind === 'roleplay' ? '<a class="cx-btn" href="' + esc(a.url || ('/roleplay-run/' + encodeURIComponent(a.cert) + '?rep=' + encodeURIComponent(a.email))) + '" target="_top">Run roleplay</a>' : '') + '</div>').join('');
     main.innerHTML = '<div class="label">MANAGER VIEW</div><h1>Team progress</h1><p>' + t.totals.reps + (t.totals.reps === 1 ? ' rep' : ' reps') + ' · updated live from certification results</p>' +
       '<div class="cx-tiles4">' +
         '<div class="cx-stat"><span>Practicals &amp; roleplays to run</span><b>' + t.tiles.reviews + '</b></div>' +
@@ -211,7 +217,26 @@
   }
 
   // ---------- boot ----------
+  function askName() {
+    if (me.name) return;
+    const wrap = document.createElement('div');
+    wrap.className = 'cx-name-overlay';
+    wrap.innerHTML = '<form class="cx-name" role="dialog" aria-modal="true" aria-labelledby="cx-name-h"><div class="cx-tag">WELCOME</div><h2 id="cx-name-h">What should we call you?</h2><p>Your name shows on your certifications and on Team Progress for your managers.</p>' +
+      '<div class="cx-name-row"><label>First name<input name="first" autocomplete="given-name" required maxlength="40"></label><label>Last name<input name="last" autocomplete="family-name" required maxlength="40"></label></div>' +
+      '<p class="cx-name-err" role="alert"></p><button class="cx-btn" type="submit">Save and continue</button></form>';
+    document.body.appendChild(wrap);
+    const f = wrap.querySelector('form'), err = wrap.querySelector('.cx-name-err');
+    f.first.focus();
+    f.onsubmit = async e => {
+      e.preventDefault();
+      const btn = f.querySelector('button'); btn.disabled = true; err.textContent = '';
+      try { const r = await api('/api/me', {firstName: f.first.value, lastName: f.last.value}); me.name = r.name; data.me = r; wrap.remove(); }
+      catch (x) { err.textContent = x.message; btn.disabled = false; }
+    };
+  }
+
   load().then(() => {
+    askName();
     addNav();
     new MutationObserver(() => { decorateDay(); track(); }).observe(main, {childList: true});
     const hash = new URLSearchParams(location.hash.slice(1)).get('page');
