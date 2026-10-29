@@ -569,7 +569,8 @@ async function runRoleplay(env, me, certId, email, body) {
 
 // ---------- team view ----------
 async function team(env) {
-  const users = (await env.DB.prepare("SELECT email, name, role FROM users WHERE active=1 ORDER BY role='rep' DESC, COALESCE(name, email)").all()).results;
+  // Managers and admins preview the path in user view; their own records never count here.
+  const users = (await env.DB.prepare("SELECT email, name, role FROM users WHERE active=1 AND role='rep' ORDER BY COALESCE(name, email)").all()).results;
   const certs = await certCatalog(env);
   const progress = (await env.DB.prepare("SELECT * FROM cert_progress").all()).results;
   const lastScores = (await env.DB.prepare("SELECT user_email, cert_id, score FROM quiz_attempts WHERE status IN ('passed','failed') ORDER BY finished_at DESC").all()).results;
@@ -648,6 +649,30 @@ async function team(env) {
     tiles: {reviews: attention.filter(a => a.kind === 'review' || a.kind === 'roleplay').length, coaching: attention.filter(a => a.kind === 'coach').length, leaves: leaves.length, eligible: allIds.length ? eligible : 0},
     totals: {reps: rows.filter(r => r.role === 'rep').length}
   };
+}
+
+// ---------- manager view: what each certification covers ----------
+async function certContent(env, certId) {
+  const c = (await certCatalog(env)).find(x => x.id === certId);
+  if (!c) return null;
+  const bank = BANKS[certId];
+  const questions = bank ? bank.questions.map(q => ({id: q.id, section: q.section, kind: q.kind, topic: q.topic, prompt: q.prompt, scenario: q.scenario || null, options: q.options, correct: q.correct, reveal: q.reveal || null, source: q.source || null})) : [];
+  const sections = [...new Set(questions.map(q => q.section))].sort();
+  const pd = PRACTICALS[certId], rp = ROLEPLAYS[certId];
+  const practical = !pd ? null : {kind: pd.kind || 'lists', component: pracComponent(pd), title: pd.title, brief: pd.brief || null, jobs: pd.jobs || null, criteria: pd.criteria, must: pd.must, key: pd.key || null};
+  const roleplay = !rp ? null : {mode: rp.mode || 'lead', business: rp.business || null, setup: rp.setup || null, criteria: rp.criteria, musts: rp.musts, cards: rp.cards};
+  return {cert: c, questions, sections, practical, roleplay, maxAttempts: MAX_ATTEMPTS, lockHours: LOCK_HOURS};
+}
+async function resetOwn(env, email) {
+  const ids = (await env.DB.prepare("SELECT id FROM quiz_attempts WHERE user_email=?").bind(email).all()).results.map(r => r.id);
+  const stmts = [];
+  for (const id of ids) {
+    stmts.push(env.DB.prepare("DELETE FROM quiz_answers WHERE attempt_id=?").bind(id));
+    stmts.push(env.DB.prepare("DELETE FROM integrity_events WHERE attempt_id=?").bind(id));
+  }
+  stmts.push(env.DB.prepare("DELETE FROM quiz_attempts WHERE user_email=?").bind(email));
+  for (const t of ['cert_progress', 'practical_submissions', 'roleplay_leads', 'roleplay_scores', 'retake_unlocks']) stmts.push(env.DB.prepare(`DELETE FROM ${t} WHERE user_email=?`).bind(email));
+  await env.DB.batch(stmts);
 }
 
 // ---------- router ----------
@@ -757,6 +782,18 @@ export async function handleApi(request, env, user) {
     if (method === 'POST') return reviewPractical(env, me, m[1], email, body);
     const st = await practicalState(env, email, m[1], true);
     return st ? json(st) : fail('not_available', 'This practical isn’t open yet.', 404);
+  }
+  if (path === '/api/me/reset-preview' && method === 'POST') {
+    if (!isManager(me)) return fail('forbidden', 'Managers only.', 403);
+    await resetOwn(env, me.email);
+    await audit(env, me.email, 'reset_preview', me.email);
+    return json({ok: true});
+  }
+  const mc = path.match(/^\/api\/manage\/cert\/([A-Z0-9]{1,6})$/);
+  if (mc) {
+    if (!isManager(me)) return fail('forbidden', 'Managers only.', 403);
+    const out = await certContent(env, mc[1]);
+    return out ? json(out) : fail('not_found', 'No such certification.', 404);
   }
   if (path === '/api/team') { if (!isManager(me)) return fail('forbidden', 'Managers only.', 403); return json(await team(env)); }
   if (path === '/api/team/unlock' && method === 'POST') {

@@ -117,8 +117,98 @@
   }
 
   // ---------- rep: my path ----------
+  // ---------- manager / user view toggle ----------
+  const isMgr = () => me && (me.role === 'manager' || me.role === 'admin');
+  const getView = () => { try { return localStorage.getItem('cx-view') === 'user' ? 'user' : 'manager'; } catch { return 'manager'; } };
+  const setView = v => { try { localStorage.setItem('cx-view', v); } catch {} };
+  const titleRow = view => '<div class="label">CERTIFICATIONS</div><div class="cx-titlerow"><h1>Your path</h1>' + (isMgr()
+    ? '<div class="cx-toggle" role="tablist" aria-label="Certification view"><button role="tab" data-cx-view="manager" aria-selected="' + (view === 'manager') + '"' + (view === 'manager' ? ' class="on"' : '') + '>Manager view</button><button role="tab" data-cx-view="user" aria-selected="' + (view === 'user') + '"' + (view === 'user' ? ' class="on"' : '') + '>User view</button></div>'
+    : '') + '</div>';
+  shell.addEventListener('click', e => {
+    const v = e.target.closest('[data-cx-view]');
+    if (v) { setView(v.dataset.cxView); renderPath(); return; }
+    const o = e.target.closest('[data-cx-cert]');
+    if (o) { e.preventDefault(); renderCertContent(o.dataset.cxCert); return; }
+    const t = e.target.closest('[data-cx-tab]');
+    if (t) { main.querySelectorAll('[data-cx-tab]').forEach(x => { x.classList.toggle('on', x === t); x.setAttribute('aria-selected', x === t); }); main.querySelectorAll('[data-cx-pane]').forEach(p => p.hidden = p.dataset.cxPane !== t.dataset.cxTab); return; }
+    const f = e.target.closest('[data-cx-sec]');
+    if (f) { main.querySelectorAll('[data-cx-sec]').forEach(x => x.classList.toggle('go', x === f)); main.querySelectorAll('[data-cx-sec]').forEach(x => x.classList.toggle('off', x !== f)); main.querySelectorAll('.cx-q').forEach(q => q.hidden = f.dataset.cxSec !== 'all' && q.dataset.sec !== f.dataset.cxSec); return; }
+    if (e.target.closest('[data-cx-reset-preview]')) resetPreview(e.target.closest('[data-cx-reset-preview]'));
+  });
+  async function resetPreview(b) {
+    if (b.dataset.armed !== '1') { b.dataset.armed = '1'; b.textContent = 'Click again to clear everything'; return; }
+    b.disabled = true; b.textContent = 'Resetting…';
+    try { await api('/api/me/reset-preview', {}); await load(); renderPath(); }
+    catch (x) { b.disabled = false; b.textContent = x.message; }
+  }
+
+  function renderCatalog() {
+    const live = c => c.status === 'active';
+    const meta = c => {
+      const parts = (c.components || []).map(x => ({quiz: 'Quiz', roleplay: 'live roleplay', practical: 'written practical', written: 'written'}[x] || x)).join(' + ').replace(/^./, m => m.toUpperCase());
+      return parts + (c.day ? ' · Day ' + c.day : '');
+    };
+    const tile = c => {
+      const inner = '<div class="cx-ico ' + (live(c) ? 'done' : 'off') + '">' + esc(c.id) + '</div><div class="cx-body"><b>' + esc(c.name) + '</b><small>' + esc(meta(c)) + '</small><span class="cx-chip ' + (live(c) ? 'ok' : 'off') + '">' + (live(c) ? 'Live' : 'Not built yet') + '</span>' + (live(c) ? '<span class="cx-more">View content →</span>' : '') + '</div>';
+      return live(c) ? '<a class="cx-tile" href="#" data-cx-cert="' + esc(c.id) + '">' + inner + '</a>' : '<div class="cx-tile locked">' + inner + '</div>';
+    };
+    const groups = [['foundation', 'Foundation', 'Onboarding · Required to go live'], ['cold_calling', 'Cold Calling track', 'Taken in order'], ['skills', 'Skills', 'Before applying for Senior SDR']];
+    main.innerHTML = titleRow('manager') + '<p>Manager view · What every certification tests, with answers and scoring keys. Reps never see this view.</p>' +
+      groups.map(([track, title, note]) => '<section class="cx-group"><div class="cx-group-h"><h2>' + title + '</h2><span>' + note + '</span></div><div class="cx-grid2">' + data.certs.filter(c => c.track === track).map(tile).join('') + '</div></section>').join('');
+    icons(); main.scrollTop = 0; window.scrollTo(0, 0);
+  }
+
+  async function renderCertContent(id) {
+    setActive('certifications');
+    main.innerHTML = '<p class="cx-empty">Loading…</p>';
+    let d;
+    try { d = await api('/api/manage/cert/' + encodeURIComponent(id)); } catch (x) { main.innerHTML = '<p>' + esc(x.message) + '</p>'; return; }
+    const c = d.cert, comps = c.components || [];
+    const pr = d.practical, rp = d.roleplay;
+    const what = comps.map(x => ({quiz: 'quiz', roleplay: rp && rp.mode === 'situation' ? 'confirmation-call roleplay' : 'live roleplay on the rep’s own lead', practical: 'written practical', written: 'written Piper fix'}[x] || x));
+    const unlock = (c.prerequisites || []).length ? 'After ' + c.prerequisites.join(', ') + ' is passed' : 'Open from the start';
+    const rules = [
+      ['Parts', what.join(', then ').replace(/^./, m => m.toUpperCase())],
+      ['Unlocks', unlock],
+      c.questions ? ['Quiz', c.questions + ' of ' + d.questions.length + ' questions, at least 2 from each section, shuffled'] : null,
+      c.seconds ? ['Timing', c.seconds + ' seconds per question'] : null,
+      ['Pass mark', Math.round((c.passMark || .8) * 100) + '% on the quiz' + ((pr || rp) ? ' · scored parts need an average of 3+ with every must-pass met' : '')],
+      ['Leaving the tab', 'First time: warning · Second time: attempt voided, locked ' + d.lockHours + ' hours'],
+      ['Retakes', 'Day 10, then Monday · a third fail goes to performance management'],
+      c.day ? ['Onboarding day', 'Day ' + c.day] : null
+    ].filter(Boolean);
+    const rulesHtml = '<section class="cx-panel">' + rules.map(r => '<div class="cx-rule"><span>' + esc(r[0]) + '</span><strong>' + esc(r[1]) + '</strong></div>').join('') + '</section>';
+    const q = x => '<div class="cx-q" data-sec="' + esc(x.section) + '"><div class="cx-q-h"><span>' + esc(x.id + ' · Section ' + x.section + ' · ' + x.topic) + '</span>' + (x.source ? '<small>' + esc(x.source) + '</small>' : '') + '</div>' +
+      (x.scenario ? '<p class="cx-q-sc">' + esc(x.scenario) + '</p>' : '') + '<p class="cx-q-p">' + esc(x.prompt) + '</p>' +
+      x.options.map(o => '<div class="cx-opt' + (o.id === x.correct ? ' right' : '') + '"><b>' + esc(o.id) + '</b><span>' + esc(o.text) + '</span>' + (o.id === x.correct ? '<em>Correct</em>' : '') + '</div>').join('') +
+      (x.reveal ? '<div class="cx-q-rev"><b>Shown to reps who get it right:</b> ' + esc(x.reveal) + '</div>' : '') + '</div>';
+    const bankHtml = d.questions.length ? '<div class="cx-secs">' + ['all', ...d.sections].map((sct, i) => '<button class="cx-chip ' + (i ? 'off' : 'go') + '" data-cx-sec="' + esc(sct) + '">' + (sct === 'all' ? 'All ' + d.questions.length : 'Section ' + esc(sct) + ' · ' + d.questions.filter(x => x.section === sct).length) + '</button>').join('') + '</div>' + d.questions.map(q).join('') : '<p class="cx-empty">No quiz questions yet.</p>';
+    const crit = (list, label) => '<div class="cx-k">' + label + '</div>' + list.map(k => '<div class="cx-rule"><span><b>' + esc(k.name) + '</b><br><small>' + esc(k.hint || '') + '</small></span></div>').join('');
+    let keys = '';
+    if (rp) {
+      keys += '<section class="cx-panel"><h2>' + (rp.mode === 'situation' ? 'Confirmation roleplay' : 'Live roleplay') + '</h2>' + (rp.setup ? '<p class="cx-sub"><b>What the rep is told:</b> ' + esc(rp.setup) + '</p>' : '<p class="cx-sub">The rep brings their own pre-vetted lead. You play it using one of the hidden cards below.</p>') +
+        crit(rp.criteria, 'SCORED 1–4 · PASS WITH AN AVERAGE OF 3+') + '<div class="cx-k">MUST-PASS · ALL REQUIRED</div><ul class="cx-ul">' + rp.musts.map(m => '<li>' + esc(m.name) + '</li>').join('') + '</ul></section>' +
+        '<div class="cx-grid2">' + rp.cards.map(k => '<div class="cx-hidden"><div class="cx-k" style="color:var(--purple)">HIDDEN · REP NEVER SEES THIS</div><b>' + esc(k.title) + '</b>' +
+          (k.brief ? '<p><b>Rep is told:</b> ' + esc(k.brief) + '</p>' : '') + '<p><b>You play:</b> ' + esc(k.answer) + '</p>' + (k.brushoff ? '<p><b>Brush-off:</b> ' + esc(k.brushoff) + '</p>' : '') + (k.thread ? '<p><b>Thread to find:</b> ' + esc(k.thread) + '</p>' : '') + (k.objection ? '<p><b>Objection:</b> ' + esc(k.objection) + '</p>' : '') + '<p><b>What a yes looks like:</b> ' + esc(k.yes) + '</p></div>').join('') + '</div>';
+    }
+    if (pr) {
+      keys += '<section class="cx-panel"><h2>' + esc(pr.title) + '</h2>' + (pr.brief ? '<p class="cx-sub">' + esc(pr.brief) + '</p>' : '') + (pr.jobs ? '<p class="cx-sub"><b>Lists they build:</b> ' + esc(pr.jobs.join(' · ')) + '</p>' : '') +
+        crit(pr.criteria, 'SCORED 1–4 · PASS WITH AN AVERAGE OF 3+') + '<div class="cx-k">MUST-PASS</div><ul class="cx-ul"><li>' + esc(pr.must) + '</li></ul></section>' +
+        (pr.key ? '<section class="cx-panel cx-keybox"><div class="cx-k" style="color:var(--purple)">ANSWER KEY · MANAGERS ONLY · ' + pr.key.length + ' PLANTED PROBLEMS</div><ol>' + pr.key.map(k => '<li><b>' + esc(k.issue) + '</b> ' + esc(k.fix) + '</li>').join('') + '</ol></section>' : '');
+    }
+    const tabs = [['rules', 'Rules & format'], d.questions.length ? ['bank', 'Quiz questions (' + d.questions.length + ')'] : null, keys ? ['keys', rp && pr ? 'Scorecards & keys' : rp ? 'Scorecard & cards' : 'Rubric & key'] : null].filter(Boolean);
+    const groupName = {foundation: 'FOUNDATION', cold_calling: 'COLD CALLING', skills: 'SKILLS'}[c.track] || '';
+    main.innerHTML = '<button class="cx-link" data-cert-page="certifications">← All certifications</button><div class="label" style="margin-top:14px">' + groupName + ' · MANAGER VIEW</div>' +
+      '<div class="cx-titlerow"><h1>' + esc(c.id + ' · ' + c.name) + '</h1><span class="cx-chip ok">Live' + (c.day ? ' · Day ' + c.day : '') + '</span></div><p>' + esc(c.summary || '') + '</p>' +
+      '<div class="cx-tabs" role="tablist">' + tabs.map((t, i) => '<button role="tab" data-cx-tab="' + t[0] + '" aria-selected="' + !i + '"' + (i ? '' : ' class="on"') + '>' + esc(t[1]) + '</button>').join('') + '</div>' +
+      '<div data-cx-pane="rules">' + rulesHtml + '</div>' + (d.questions.length ? '<div data-cx-pane="bank" hidden>' + bankHtml + '</div>' : '') + (keys ? '<div data-cx-pane="keys" hidden>' + keys + '</div>' : '');
+    icons(); main.scrollTop = 0; window.scrollTo(0, 0);
+  }
+
   function renderPath() {
     setActive('certifications');
+    const view = isMgr() ? getView() : 'user';
+    if (view === 'manager') return renderCatalog();
     const tracked = data.certs.filter(c => ['foundation', 'cold_calling', 'skills'].includes(c.track));
     const passed = tracked.filter(c => data.progress[c.id]?.status === 'passed').length;
     const groups = [
@@ -133,7 +223,9 @@
     };
     const count = track => { const list = data.certs.filter(c => c.track === track); return list.filter(c => data.progress[c.id]?.status === 'passed').length + ' / ' + list.length; };
     const lb = data.certs.find(c => c.id === 'LB');
-    main.innerHTML = '<div class="label">CERTIFICATIONS</div><h1>Your path</h1><p>Only you and your managers can see this page.</p>' +
+    main.innerHTML = titleRow('user') + (isMgr()
+        ? '<div class="cx-preview"><span><b>You’re seeing what a rep sees.</b> Anything you take here is saved to your own record only, and you never appear on Team Progress.</span><button class="cx-btn ghost" data-cx-reset-preview>Reset my preview</button></div>'
+        : '<p>Only you and your managers can see this page.</p>') +
       '<section class="cx-card cx-sum"><div class="cx-bar"><div class="cx-bar-l"><span>' + passed + ' of ' + tracked.length + ' certifications passed</span><span>Senior SDR path</span></div><div class="cx-track"><i style="width:' + Math.round(passed / Math.max(1, tracked.length) * 100) + '%"></i></div></div>' +
       '<div class="cx-badges" aria-label="Foundation badges">' + data.certs.filter(c => c.track === 'foundation').map(c => '<div class="cx-badge' + (data.progress[c.id]?.status === 'passed' ? ' on' : '') + '" title="' + esc(c.name) + '">' + esc(c.id) + '</div>').join('') + '</div></section>' +
       groups.map(([track, title, note]) => '<section class="cx-group"><div class="cx-group-h"><h2>' + title + '</h2><span>' + note + '</span></div><div class="cx-grid2">' + data.certs.filter(c => c.track === track).map(tile).join('') + '</div></section>').join('') +
