@@ -12,9 +12,11 @@ import bankCC2 from './bank-cc2.json' with {type: 'json'};
 import {CC2_TRAINING, CC2_ROLEPLAY} from './cc2-content.mjs';
 import bankCC3 from './bank-cc3.json' with {type: 'json'};
 import {CC3_TRAINING, CC3_ROLEPLAY} from './cc3-content.mjs';
+import bankCC4 from './bank-cc4.json' with {type: 'json'};
+import {CC4_TRAINING, CC4_ROLEPLAY} from './cc4-content.mjs';
 
-const BANKS = {F1: bankF1, F2: bankF2, F3: bankF3, F4: bankF4, CC1: bankCC1, CC2: bankCC2, CC3: bankCC3};
-export const TRAININGS = {CC1: CC1_TRAINING, CC2: CC2_TRAINING, CC3: CC3_TRAINING};
+const BANKS = {F1: bankF1, F2: bankF2, F3: bankF3, F4: bankF4, CC1: bankCC1, CC2: bankCC2, CC3: bankCC3, CC4: bankCC4};
+export const TRAININGS = {CC1: CC1_TRAINING, CC2: CC2_TRAINING, CC3: CC3_TRAINING, CC4: CC4_TRAINING};
 // Default entry fields for training applications and rapid roleplays (CC1 shape).
 const DEFAULT_FIELDS = [{key: 'business', label: 'Business', kind: 'input', required: true}, {key: 'note', label: 'SDR Additional Note', kind: 'input', required: true}, {key: 'opener', label: 'Your opener', kind: 'textarea', required: true, optionalFor: ['Cold']}];
 const cleanEntry = (fields, raw, type) => { const o = {type}; for (const f of fields) { let v = clip(raw?.[f.key], f.kind === 'textarea' ? 1200 : 600).trim(); if (f.kind === 'select' && v && !f.options.includes(v)) v = ''; o[f.key] = v; } return o; };
@@ -54,6 +56,7 @@ export const ROLEPLAYS = {
   CC1: CC1_ROLEPLAY,
   CC2: CC2_ROLEPLAY,
   CC3: CC3_ROLEPLAY,
+  CC4: CC4_ROLEPLAY,
   F3: {
     mode: 'lead',
     criteria: [
@@ -487,7 +490,7 @@ async function roleplayState(env, email, certId, forManager) {
   return {
     cert: {id: cert.id, name: cert.name, day: cert.onboarding_day},
     rep: {email, name: user?.name || email.split('@')[0], codePrefix: codePrefix(email)},
-    def: {mode: def.mode || 'lead', business: def.business || null, setup: def.setup || null, slots: def.slots || null, leadFields: def.mode === 'rapid' ? (def.leadFields || DEFAULT_FIELDS) : null, prepNote: def.prepNote || null, distinct: def.distinct || null, distinctMin: def.distinctMin || null, callMust: def.callMust || null, maxDq: def.maxDq ?? null, criteria: def.criteria, musts: def.musts},
+    def: {mode: def.mode || 'lead', business: def.business || null, setup: def.setup || null, slots: def.slots || null, leadFields: def.mode === 'rapid' ? (def.leadFields || DEFAULT_FIELDS) : null, prepNote: def.prepNote || null, distinct: def.distinct || null, distinctMin: def.distinctMin || null, callMust: def.callMust || null, maxDq: def.maxDq ?? null, callPrompt: def.callPrompt || null, callLabels: def.callLabels || null, callChips: def.callChips || null, criteria: def.criteria, musts: def.musts},
     progress: {status: p.status, components: parse(p.components, {})},
     quiz: quiz ? {status: quiz.status, score: quiz.score} : null,
     current: view(cur), history: leads.slice(1).map(view),
@@ -658,7 +661,7 @@ async function runRoleplay(env, me, certId, email, body) {
     const c = parse(cur.content, {}); const draws = c.draws || [];
     const i = Number(body.index);
     if (!Number.isInteger(i) || i < 0 || i >= def.slots.length || !draws[i]) return fail('bad_request', 'Draw a card for that lead first.');
-    if (!['book', 'nobook'].includes(body.value)) return fail('bad_request', 'Pick booked or didn’t book.');
+    if (!['book', 'nobook'].includes(body.value)) return fail('bad_request', 'Pick what they did.');
     const calls = c.calls || def.slots.map(() => null); calls[i] = body.value;
     await env.DB.prepare("UPDATE roleplay_leads SET content=?, updated_at=? WHERE id=?").bind(JSON.stringify({...c, calls}), t, cur.id).run();
     return json(await roleplayState(env, email, certId, true));
@@ -818,7 +821,7 @@ async function certContent(env, certId) {
   const sections = [...new Set(questions.map(q => q.section))].sort();
   const pd = PRACTICALS[certId], rp = ROLEPLAYS[certId];
   const practical = !pd ? null : {kind: pd.kind || 'lists', component: pracComponent(pd), title: pd.title, brief: pd.brief || null, jobs: pd.jobs || null, criteria: pd.criteria, must: pd.must, key: pd.key || null};
-  const roleplay = !rp ? null : {title: rp.title || null, maxDq: rp.maxDq ?? null, mode: rp.mode || 'lead', business: rp.business || null, setup: rp.setup || null, slots: rp.slots || null, criteria: rp.criteria, musts: rp.musts, cards: rp.cards};
+  const roleplay = !rp ? null : {title: rp.title || null, maxDq: rp.maxDq ?? null, dqLabel: rp.dqLabel || null, callChips: rp.callChips || null, mode: rp.mode || 'lead', business: rp.business || null, setup: rp.setup || null, slots: rp.slots || null, criteria: rp.criteria, musts: rp.musts, cards: rp.cards};
   const training = TRAININGS[certId] || null;
   return {cert: c, questions, sections, practical, roleplay, training, maxAttempts: maxFor(c), lockHours: LOCK_HOURS};
 }

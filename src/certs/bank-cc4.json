@@ -1,0 +1,876 @@
+{
+ "cert": "CC4",
+ "version": 1,
+ "questions": [
+  {
+   "id": "CC4-A1",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Objection or not",
+   "prompt": "“We’d never get the staff to learn a new system.” What is it?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A brush-off"
+    },
+    {
+     "id": "B",
+     "text": "Routing"
+    },
+    {
+     "id": "C",
+     "text": "An objection about the offer"
+    },
+    {
+     "id": "D",
+     "text": "A signal to stop"
+    }
+   ],
+   "correct": "C",
+   "reveal": "It’s a real concern you can answer.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-A2",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Info right away",
+   "prompt": "Right after your opener, before any conversation: “Just send me some info.” What is it, and what do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "An objection, so answer it"
+    },
+    {
+     "id": "B",
+     "text": "A brush-off: earn attention with one relevant thing, then ask"
+    },
+    {
+     "id": "C",
+     "text": "Routing"
+    },
+    {
+     "id": "D",
+     "text": "A signal to stop"
+    }
+   ],
+   "correct": "B",
+   "reveal": "You haven’t earned attention yet. Sending info won’t change that.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-A3",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Routing",
+   "prompt": "“Honestly, the owner handles all of that.” Best move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "It’s routing: find out who and when to reach them"
+    },
+    {
+     "id": "B",
+     "text": "Answer it as an objection"
+    },
+    {
+     "id": "C",
+     "text": "Stop and log it"
+    },
+    {
+     "id": "D",
+     "text": "Pitch harder"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Change who you’re talking to, not what you’re saying.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-A4",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "The reflex",
+   "prompt": "Why is the first no usually not the real answer?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Prospects don’t tell the truth"
+    },
+    {
+     "id": "B",
+     "text": "A cold call is an interruption, so the first response is often a reflex"
+    },
+    {
+     "id": "C",
+     "text": "They want a discount"
+    },
+    {
+     "id": "D",
+     "text": "They’re testing you"
+    }
+   ],
+   "correct": "B",
+   "reveal": "“No thanks, just looking.” Half the time they did need help.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-A5",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Read it first",
+   "prompt": "What should you do before you choose a response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Answer right away"
+    },
+    {
+     "id": "B",
+     "text": "Pitch the main features"
+    },
+    {
+     "id": "C",
+     "text": "Work out whether it’s a reflex, a real concern or a signal to stop"
+    },
+    {
+     "id": "D",
+     "text": "Ask for the meeting"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Read it before you answer it.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-A6",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Take me off your list",
+   "prompt": "“Please take me off your list.” What now?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Acknowledge, disarm, add value"
+    },
+    {
+     "id": "B",
+     "text": "Ask what’s behind it"
+    },
+    {
+     "id": "C",
+     "text": "Try once more"
+    },
+    {
+     "id": "D",
+     "text": "Stop, thank them and log it as do not call"
+    }
+   ],
+   "correct": "D",
+   "reveal": "That’s a signal to stop, not an objection.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-B1",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Asking for more",
+   "prompt": "When is the Ask step a question for more information, not the meeting?",
+   "options": [
+    {
+     "id": "A",
+     "text": "When the objection was vague and you don’t know what’s behind it"
+    },
+    {
+     "id": "B",
+     "text": "Always"
+    },
+    {
+     "id": "C",
+     "text": "Never"
+    },
+    {
+     "id": "D",
+     "text": "Only on a callback"
+    }
+   ],
+   "correct": "A",
+   "reveal": "You can’t answer what you don’t understand yet.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-B2",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "“Not a fit”",
+   "prompt": "“It’s just not a fit for us.” Best next line?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“It’s a fit for everyone.”"
+    },
+    {
+     "id": "B",
+     "text": "“OK, thanks for your time.”"
+    },
+    {
+     "id": "C",
+     "text": "“Can I send pricing?”"
+    },
+    {
+     "id": "D",
+     "text": "“When you say it’s not a fit, what’s behind that?”"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Clarify before you answer.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-B3",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Isolating",
+   "prompt": "Which is the best isolating question?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Why not?”"
+    },
+    {
+     "id": "B",
+     "text": "“Is that the main thing, or is there something else that makes it a no?”"
+    },
+    {
+     "id": "C",
+     "text": "“Are you sure?”"
+    },
+    {
+     "id": "D",
+     "text": "“What would it take?”"
+    }
+   ],
+   "correct": "B",
+   "reveal": "It finds the real objection without putting them on the defensive.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-B4",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Migration",
+   "prompt": "“I’ve migrated before. It was a nightmare.” Best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Ours is painless.”"
+    },
+    {
+     "id": "B",
+     "text": "“OK, I’ll let you go.”"
+    },
+    {
+     "id": "C",
+     "text": "“Totally fair, and we’re getting a little ahead of ourselves. We hear that a lot, which is why we’ve put so much into a smooth onboarding. What made it so painful last time?”"
+    },
+    {
+     "id": "D",
+     "text": "“We have the best migration team around.”"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Disarm, name the onboarding focus without promising specifics, then clarify. The AE covers the details.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-B5",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Use it as the reason",
+   "prompt": "What does “use the objection as the reason” mean?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Turning their concern into why the meeting is worth it"
+    },
+    {
+     "id": "B",
+     "text": "Arguing them out of it"
+    },
+    {
+     "id": "C",
+     "text": "Ignoring it"
+    },
+    {
+     "id": "D",
+     "text": "Offering a discount"
+    }
+   ],
+   "correct": "A",
+   "reveal": "“That’s exactly why it’s worth 15 minutes.”",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-B6",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "After you clarify",
+   "prompt": "You clarified and they said “We tried an app before and clients never used it.” What next?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Run through every app feature"
+    },
+    {
+     "id": "B",
+     "text": "Tell them their clients were wrong"
+    },
+    {
+     "id": "C",
+     "text": "Move to the next lead"
+    },
+    {
+     "id": "D",
+     "text": "Acknowledge it, ask how clients book today, then tie it to the meeting"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Their real concern, answered with a question that keeps it moving.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-C1",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "The second objection",
+   "prompt": "What’s the rule for a second objection?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A new objection gets a new acknowledge"
+    },
+    {
+     "id": "B",
+     "text": "Repeat your first answer"
+    },
+    {
+     "id": "C",
+     "text": "Go straight to the ask"
+    },
+    {
+     "id": "D",
+     "text": "Wrap up the call"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Repeating yourself tells them you weren’t listening.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-C2",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "No bandwidth",
+   "prompt": "A Pilates owner says “It works fine,” you handle it, then: “We just don’t have the bandwidth to switch.” Best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Repeat the first answer"
+    },
+    {
+     "id": "B",
+     "text": "“Totally get it. Switching is a lot. What’s eating most of the team’s time right now?”"
+    },
+    {
+     "id": "C",
+     "text": "“It only takes a day to switch.”"
+    },
+    {
+     "id": "D",
+     "text": "“No problem, I’ll send some info.”"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Acknowledge the new one, then ask a question that can surface the pain.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-C3",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Where the real one is",
+   "prompt": "In a stack, where is the real objection usually?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The first one"
+    },
+    {
+     "id": "B",
+     "text": "Neither"
+    },
+    {
+     "id": "C",
+     "text": "Often the second, once the reflex is out of the way"
+    },
+    {
+     "id": "D",
+     "text": "Whatever they say right before hanging up"
+    }
+   ],
+   "correct": "C",
+   "reveal": "The first is the reflex. The second is usually what’s really on their mind.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-C4",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Timing then price",
+   "prompt": "“Bad timing,” then: “And honestly it’s probably too expensive anyway.” Best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Fair enough. Price depends on the setup, and the AE covers that. What’s making this month so hectic?”"
+    },
+    {
+     "id": "B",
+     "text": "Quote a number"
+    },
+    {
+     "id": "C",
+     "text": "“We’re cheaper than everyone.”"
+    },
+    {
+     "id": "D",
+     "text": "“So it’s a no then?”"
+    }
+   ],
+   "correct": "A",
+   "reveal": "No price, no argument, and back to the thread that matters.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-C5",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Still talking",
+   "prompt": "You’ve handled two objections and they’re still talking and asking questions. What now?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Stop and log it"
+    },
+    {
+     "id": "B",
+     "text": "Ask for the meeting, tied to what they told you"
+    },
+    {
+     "id": "C",
+     "text": "Get ahead of a third objection"
+    },
+    {
+     "id": "D",
+     "text": "Offer to send info"
+    }
+   ],
+   "correct": "B",
+   "reveal": "They’re still in it. Go for the meeting.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-C6",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Sounding natural",
+   "prompt": "Which response to a second objection sounds most natural?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“As I said before…”"
+    },
+    {
+     "id": "B",
+     "text": "“I understand your concern, however…”"
+    },
+    {
+     "id": "C",
+     "text": "“Look, everyone says that.”"
+    },
+    {
+     "id": "D",
+     "text": "“Makes sense. Can I ask what’s behind that one?”"
+    }
+   ],
+   "correct": "D",
+   "reveal": "It sounds like a person, and it clarifies.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-D1",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Just switched",
+   "prompt": "“We just switched to WellnessLiving last month.” Best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“What made you switch, and is there anything you wish it did?” Then log it honestly"
+    },
+    {
+     "id": "B",
+     "text": "“You picked the wrong one.”"
+    },
+    {
+     "id": "C",
+     "text": "“You should switch again.”"
+    },
+    {
+     "id": "D",
+     "text": "Hang up right away"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Respect the decision, learn something, log it.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-D2",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Under contract",
+   "prompt": "“We’re under contract.” Best first move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Argue the contract"
+    },
+    {
+     "id": "B",
+     "text": "Ask when it comes up"
+    },
+    {
+     "id": "C",
+     "text": "Book the meeting anyway"
+    },
+    {
+     "id": "D",
+     "text": "Suggest they break it"
+    }
+   ],
+   "correct": "B",
+   "reveal": "The answer tells you whether there’s a meeting to set now.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-D3",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Owner picked it",
+   "prompt": "“The owner picked our software.” Best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“They picked wrong.”"
+    },
+    {
+     "id": "B",
+     "text": "“OK, bye.”"
+    },
+    {
+     "id": "C",
+     "text": "“Makes sense. Who would weigh in if you ever looked at options?”"
+    },
+    {
+     "id": "D",
+     "text": "“Can you overrule them?”"
+    }
+   ],
+   "correct": "C",
+   "reveal": "It’s routing in disguise.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-D4",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Slammed",
+   "prompt": "“Bad timing, we’re slammed.” Best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“I’ll call back next year.”"
+    },
+    {
+     "id": "B",
+     "text": "“No worries. What’s making it so busy right now?”"
+    },
+    {
+     "id": "C",
+     "text": "“This will only take ten minutes.”"
+    },
+    {
+     "id": "D",
+     "text": "Pitch anyway"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Busy is often the pain.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-D5",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Next quarter",
+   "prompt": "“Call me next quarter.” Best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Agree and set nothing"
+    },
+    {
+     "id": "B",
+     "text": "Push for a meeting today"
+    },
+    {
+     "id": "C",
+     "text": "Argue the timing"
+    },
+    {
+     "id": "D",
+     "text": "“Happy to. What changes next quarter?”"
+    }
+   ],
+   "correct": "D",
+   "reveal": "A real reason gets a real follow-up date. No reason means it was a brush-off.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-D6",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "New location",
+   "prompt": "“We’re opening a new location in the spring, so not now.” Best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Wait until spring"
+    },
+    {
+     "id": "B",
+     "text": "Send info"
+    },
+    {
+     "id": "C",
+     "text": "Treat it as a reason to meet: ask how they’re planning the new location’s schedule"
+    },
+    {
+     "id": "D",
+     "text": "Pitch every feature"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Growth is a reason to meet, not a reason to wait.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-E1",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Worth exploring",
+   "prompt": "When is an objection worth exploring?",
+   "options": [
+    {
+     "id": "A",
+     "text": "They’re still talking and gave you a reason, not just a refusal"
+    },
+    {
+     "id": "B",
+     "text": "Never"
+    },
+    {
+     "id": "C",
+     "text": "Only after three no’s"
+    },
+    {
+     "id": "D",
+     "text": "Only if it’s the owner"
+    }
+   ],
+   "correct": "A",
+   "reveal": "A reason gives you something to work with.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-E2",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Not interested",
+   "prompt": "Where does an honestly logged “not interested” go?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Dead"
+    },
+    {
+     "id": "B",
+     "text": "Nurture, and it comes back as Recycled in three months"
+    },
+    {
+     "id": "C",
+     "text": "It’s deleted"
+    },
+    {
+     "id": "D",
+     "text": "It stays New"
+    }
+   ],
+   "correct": "B",
+   "reveal": "A no you log honestly comes back to you.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-E3",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Do not call",
+   "prompt": "Where does a do-not-call request go?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Nurture"
+    },
+    {
+     "id": "B",
+     "text": "Recycled"
+    },
+    {
+     "id": "C",
+     "text": "New"
+    },
+    {
+     "id": "D",
+     "text": "Dead"
+    }
+   ],
+   "correct": "D",
+   "reveal": "And it stays there.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-E4",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Clear no twice",
+   "prompt": "They’ve said no clearly twice, with no reason. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Try a third time"
+    },
+    {
+     "id": "B",
+     "text": "Bring up price"
+    },
+    {
+     "id": "C",
+     "text": "Stop politely and log it"
+    },
+    {
+     "id": "D",
+     "text": "Ask for their manager"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Persistence needs judgment.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-E5",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Why log it honestly",
+   "prompt": "Why log a no honestly instead of arguing with it?",
+   "options": [
+    {
+     "id": "A",
+     "text": "An honest no comes back later; an argued one is gone either way"
+    },
+    {
+     "id": "B",
+     "text": "Your manager checks"
+    },
+    {
+     "id": "C",
+     "text": "It counts toward a quota"
+    },
+    {
+     "id": "D",
+     "text": "It’s faster"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Arguing doesn’t save the lead.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  },
+  {
+   "id": "CC4-E6",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Only one still talking",
+   "prompt": "The prospect gives one-word answers and keeps saying they need to go. You’re the only one still in the conversation. What now?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Keep pitching"
+    },
+    {
+     "id": "B",
+     "text": "Ask three more times"
+    },
+    {
+     "id": "C",
+     "text": "Book a meeting anyway"
+    },
+    {
+     "id": "D",
+     "text": "Wrap up politely and log it honestly"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Time to stop.",
+   "review": "/training/CC4",
+   "source": "CC4 training"
+  }
+ ]
+}

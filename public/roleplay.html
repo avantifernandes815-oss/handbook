@@ -130,7 +130,7 @@ const nw = () => ({2: 'two', 3: 'three', 4: 'four', 5: 'five'})[(S.def.slots || 
 const optionalSlot = type => (S.def.leadFields || []).some(f => f.key === 'opener' && (f.optionalFor || []).includes(type));
 const pitchWord = () => ((S.def.leadFields || []).find(f => f.key === 'opener')?.label || 'Your opener').replace(/^Your /, '').toLowerCase();
 function leadRows(leads) {
-  return leads.map(l => '<div class="cc-lead"><div><span class="chip ' + (optionalSlot(l.type) ? 'off' : 'go') + '">' + esc(l.vertical || l.type) + '</span><b>' + esc(l.business) + '</b>' + (l.persona ? '<small>' + esc(l.persona) + '</small>' : '') + '</div><div><small>' + esc(l.note) + '</small>' + (l.opener ? '<p>“' + esc(l.opener) + '”</p>' : '<p class="muted">No ' + pitchWord() + ' prepared. You’ll build this one live.</p>') + '</div></div>').join('');
+  return leads.map(l => '<div class="cc-lead"><div><span class="chip ' + (optionalSlot(l.type) ? 'off' : 'go') + '">' + esc(l.vertical || l.type) + '</span><b>' + esc(l.business) + '</b>' + (l.persona ? '<small>' + esc(l.persona) + '</small>' : '') + '</div><div><small>' + esc(l.note) + '</small>' + (l.opener ? '<p>' + (/^[“"]/.test(l.opener.trim()) ? esc(l.opener.trim()) : '“' + esc(l.opener) + '”') + '</p>' : '<p class="muted">No ' + pitchWord() + ' prepared. You’ll build this one live.</p>') + '</div></div>').join('');
 }
 function renderRapid() {
   const c = S.progress.components, cur = S.current, st = cur?.status;
