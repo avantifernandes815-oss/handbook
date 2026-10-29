@@ -15,7 +15,7 @@
   ],
   "vars": {
     "ACCESS_TEAM_DOMAIN": "https://fancy-grass-2946.cloudflareaccess.com",
-    "ACCESS_AUD": "SET_AFTER_ACCESS_SETUP",
+    "ACCESS_AUD": "337c9135a6fb4beeb0004475b076de90d28812e24f0e30823dc5d6251c131e4a",
     "HANDBOOK_OWNER_EMAIL": "avanti.fernandes1@gmail.com"
   },
   "observability": {"enabled": true}
