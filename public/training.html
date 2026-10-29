@@ -69,6 +69,7 @@ const fieldsOf = a => (a && a.fields) || DEFAULT_FIELDS;
 function entryOk(a, o) { return fieldsOf(a).every(f => !f.required || (o[f.key] || '').trim().length >= (f.kind === 'textarea' ? (a.textMin || 20) : 1)); }
 function appStatus(a) { const n = openers.filter(o => entryOk(a, o)).length, distinctOk = !a.distinct || new Set(openers.map(o => o[a.distinct]).filter(Boolean)).size >= (a.distinctMin || openers.length); return {n, ready: n === a.slots.length && distinctOk, distinctOk}; }
 const build = {placed: [], bad: [], msg: null}, picks = {}, shown = {}, noteVals = {}, noteShown = {};
+const tabOn = {};
 const pickOf = k => picks[k] || (picks[k] = {i: 0, chosen: null});
 
 async function load() {
@@ -110,6 +111,10 @@ function writeBox(sec) {
   return '<div class="tr-int"><div class="k">' + esc(sec.tryLabel || 'TRY IT · WRITE PART 3') + '</div><div style="font-size:13px;margin-top:6px">' + esc(sec.tryLabel ? 'Write it for each card. Not graded.' : 'Write a part 3 for each note. Not graded.') + '</div>' +
     sec.notes.map((n, i) => '<div class="tr-quote" style="margin-top:12px"><div class="sub" style="font-size:11px;letter-spacing:.6px;font-weight:700">' + esc(sec.noteLabel || 'SDR ADDITIONAL NOTE') + '</div><div style="font-size:13px;margin:4px 0 10px">' + esc(n.note) + '</div><label class="fld" for="w' + i + '">' + esc(sec.writeLabel || 'Your part 3') + '</label><textarea class="in" rows="2" id="w' + i + '"></textarea>' +
       (shown[i] ? '<div class="tr-fb ok">A strong example: ' + esc(n.example) + '</div>' : '<p style="margin:8px 0 0"><button type="button" class="tr-pick" data-show="' + i + '" style="margin:0">Show a strong example</button></p>') + '</div>').join('') + '</div>';
+}
+function tabsBox(sec, k) {
+  const on = tabOn[k] || 0, it = sec.items[on];
+  return '<div id="tabs' + k + '"><div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px" role="tablist">' + sec.items.map((x, i) => '<button type="button" role="tab" aria-selected="' + (i === on) + '" class="tr-pick' + (i === on ? ' right' : '') + '" style="margin:0" data-tab="' + k + ':' + i + '">' + esc(x.name) + '</button>').join('') + '</div><div class="tr-app" style="padding:14px 20px">' + it.rows.map(r => '<div class="tr-row" style="grid-template-columns:200px minmax(0,1fr);padding:10px 0"><b style="font-size:13px">' + esc(r[0]) + '</b><span style="font-size:14px;line-height:1.55">' + esc(r[1]) + '</span></div>').join('') + '</div></div>';
 }
 function noteBox(sec, k) {
   const v = noteVals[k] || (noteVals[k] = sec.fields.map(() => '')), ready = v.every(x => x.trim().length >= (sec.min || 40));
@@ -160,6 +165,7 @@ function render() {
     else if (sec.type === 'build') html += '<section class="tr-sec" style="margin-top:-12px">' + buildBox(sec) + '</section>';
     else if (sec.type === 'pickup') html += '<section class="tr-sec"' + (sec.title ? '>' + head(sec) : ' style="margin-top:-12px">') + pickBox(sec, si) + '</section>';
     else if (sec.type === 'cards') html += '<section class="tr-sec">' + head(sec) + '<div class="tr-kill">' + sec.items.map(k => '<div><b style="color:var(--ink)">' + esc(k.title) + '</b><small>' + esc(k.sub) + '</small><span>' + esc(k.quote) + '</span></div>').join('') + '</div>' + (sec.after ? '<div class="tr-int" style="padding:12px 16px;font-size:13px"><b>' + esc(sec.after.split(':')[0]) + ':</b>' + esc(sec.after.slice(sec.after.indexOf(':') + 1)) + '</div>' : '') + '</section>';
+    else if (sec.type === 'tabs') html += '<section class="tr-sec">' + head(sec) + tabsBox(sec, si) + '</section>';
     else if (sec.type === 'note') html += '<section class="tr-sec">' + head(sec) + noteBox(sec, si) + '</section>';
     else if (sec.type === 'write') html += '<section class="tr-sec">' + head(sec) + table(sec) + writeBox(sec) + '</section>';
     else if (sec.type === 'killers') html += '<section class="tr-sec">' + head(sec) + '<div class="tr-kill">' + sec.items.map(k => '<div><b>' + esc(k[0]) + '</b><small>' + esc(k[1]) + '</small><span><b style="display:inline;color:var(--ink);font-size:13px">Instead:</b> ' + esc(k[2]) + '</span></div>').join('') + '</div></section>';
@@ -184,6 +190,7 @@ function wire() {
   const br = document.getElementById('buildreset'); if (br) br.onclick = () => { build.placed = []; build.bad = []; build.msg = null; rerender('buildbox', () => buildBox(b)); };
   app.querySelectorAll('[data-pick]').forEach(x => x.onclick = () => { const k = +x.dataset.pk; pickOf(k).chosen = x.dataset.pick; rerender('pickbox' + k, () => pickBox(S.def.sections[k], k)); });
   app.querySelectorAll('[data-picknext]').forEach(x => x.onclick = () => { const k = +x.dataset.picknext, ps = S.def.sections[k], pk = pickOf(k); pk.i = (pk.i + 1) % ps.cards.length; pk.chosen = null; rerender('pickbox' + k, () => pickBox(ps, k)); });
+  app.querySelectorAll('[data-tab]').forEach(x => x.onclick = () => { const [k, i] = x.dataset.tab.split(':').map(Number); tabOn[k] = i; rerender('tabs' + k, () => tabsBox(S.def.sections[k], k)); });
   app.querySelectorAll('[data-nk]').forEach(el => el.oninput = () => { const k = +el.dataset.nk, ns = S.def.sections[k]; noteVals[k][+el.dataset.ni] = el.value; const bar = document.getElementById('ntbar' + k); bar.innerHTML = noteBar(ns, k, noteVals[k].every(x => x.trim().length >= (ns.min || 40))); wire(); });
   app.querySelectorAll('[data-ntshow]').forEach(x => x.onclick = () => { noteShown[x.dataset.ntshow] = true; render(); });
   app.querySelectorAll('[data-show]').forEach(x => x.onclick = () => { shown[x.dataset.show] = true; render(); });

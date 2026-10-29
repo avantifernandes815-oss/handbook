@@ -1,0 +1,876 @@
+{
+ "cert": "CC5",
+ "version": 1,
+ "questions": [
+  {
+   "id": "CC5-A1",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "First move",
+   "prompt": "The prospect says “We’re on Glofox.” What’s your first move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Glofox is overpriced.”"
+    },
+    {
+     "id": "B",
+     "text": "Acknowledge something real, tie it to where Momence is stronger, then ask about their experience"
+    },
+    {
+     "id": "C",
+     "text": "Pitch our features"
+    },
+    {
+     "id": "D",
+     "text": "Ask if they’d switch"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Acknowledge first so they don’t dig in, then show the edge.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-A2",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "No support attacks",
+   "prompt": "Why never open with “their support is bad”?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Several competitors out-rate Momence on support, and a prepared prospect will check"
+    },
+    {
+     "id": "B",
+     "text": "It’s rude"
+    },
+    {
+     "id": "C",
+     "text": "It takes too long"
+    },
+    {
+     "id": "D",
+     "text": "It’s against the rules"
+    }
+   ],
+   "correct": "A",
+   "reveal": "You’ll lose the room the moment they pull up the numbers.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-A3",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Landmine",
+   "prompt": "What is a landmine question?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A claim about the competitor"
+    },
+    {
+     "id": "B",
+     "text": "A feature comparison"
+    },
+    {
+     "id": "C",
+     "text": "A question they answer from their own experience that surfaces the cost"
+    },
+    {
+     "id": "D",
+     "text": "A question about price"
+    }
+   ],
+   "correct": "C",
+   "reveal": "They find the problem. You don’t have to say it.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-A4",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Attack or landmine",
+   "prompt": "Which of these is an attack, not a landmine?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“What’s your all-in rate per transaction?”"
+    },
+    {
+     "id": "B",
+     "text": "“What did your price move to at renewal?”"
+    },
+    {
+     "id": "C",
+     "text": "“Do your reports reconcile against Stripe?”"
+    },
+    {
+     "id": "D",
+     "text": "“Their software is buggy and everyone’s leaving.”"
+    }
+   ],
+   "correct": "D",
+   "reveal": "A claim makes them defend. A question makes them think.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-A5",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Where it ends",
+   "prompt": "On an SDR call, where should the competitor conversation end?",
+   "options": [
+    {
+     "id": "A",
+     "text": "On a reason for the meeting"
+    },
+    {
+     "id": "B",
+     "text": "On a full feature comparison"
+    },
+    {
+     "id": "C",
+     "text": "On Momence pricing"
+    },
+    {
+     "id": "D",
+     "text": "On a promise to switch"
+    }
+   ],
+   "correct": "A",
+   "reveal": "You’re selling the meeting, not the switch.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-A6",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Better than MindBody?",
+   "prompt": "“Is Momence better than MindBody?” Best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Yes, in every way.”"
+    },
+    {
+     "id": "B",
+     "text": "Validate, acknowledge their strength and tie it to ours, reframe on cost, then ask about them"
+    },
+    {
+     "id": "C",
+     "text": "“I can’t really say.”"
+    },
+    {
+     "id": "D",
+     "text": "Offer to send a comparison PDF"
+    }
+   ],
+   "correct": "B",
+   "reveal": "That’s VARS.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-B1",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Marketplace fee",
+   "prompt": "What is MindBody’s marketplace fee?",
+   "options": [
+    {
+     "id": "A",
+     "text": "5% of every sale"
+    },
+    {
+     "id": "B",
+     "text": "A flat $10 per booking"
+    },
+    {
+     "id": "C",
+     "text": "20% of the purchase, capped at $30, on new clients from the MindBody app"
+    },
+    {
+     "id": "D",
+     "text": "There isn’t one"
+    }
+   ],
+   "correct": "C",
+   "reveal": "From MindBody’s own documentation. It sits on top of subscription and processing fees.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-B2",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "“The app brings clients”",
+   "prompt": "“MindBody’s app brings us new clients.” Best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“It doesn’t.”"
+    },
+    {
+     "id": "B",
+     "text": "“Marketplaces are dead.”"
+    },
+    {
+     "id": "C",
+     "text": "“Then you should stay.”"
+    },
+    {
+     "id": "D",
+     "text": "“That channel is real. Do you know what share of new signups come through it, and what that fee adds up to?”"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Acknowledge the channel, then let them do the math on a fee Momence doesn’t charge.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-B3",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "MindBody strength",
+   "prompt": "Which MindBody strength should you acknowledge before showing the edge?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Deep reporting and payroll"
+    },
+    {
+     "id": "B",
+     "text": "Simplicity"
+    },
+    {
+     "id": "C",
+     "text": "No extra fees"
+    },
+    {
+     "id": "D",
+     "text": "Fast setup"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Don’t fight it head-on. Ask how many reports they actually pull.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-B4",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "“Great reviews”",
+   "prompt": "“WellnessLiving has great reviews. 4.4 on Capterra.” Best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Reviews are fake.”"
+    },
+    {
+     "id": "B",
+     "text": "“They do, and day to day people like it. Worth asking how they’d handle a billing dispute before you sign.”"
+    },
+    {
+     "id": "C",
+     "text": "“Their support is terrible.”"
+    },
+    {
+     "id": "D",
+     "text": "“Ours are better.”"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Both are true: good day-to-day reviews, and a billing pattern on the BBB.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-B5",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "WellnessLiving landmine",
+   "prompt": "Which is the best WellnessLiving landmine?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Is their support bad?”"
+    },
+    {
+     "id": "B",
+     "text": "“How many reports do you run?”"
+    },
+    {
+     "id": "C",
+     "text": "“If you cancelled tomorrow, how confident are you the charges would actually stop?”"
+    },
+    {
+     "id": "D",
+     "text": "“Do you like the design?”"
+    }
+   ],
+   "correct": "C",
+   "reveal": "It surfaces the documented billing pattern without a claim.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-B6",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "“Starting at”",
+   "prompt": "WellnessLiving advertises processing “starting at 2.59%.” What does that tell you?",
+   "options": [
+    {
+     "id": "A",
+     "text": "It’s a floor, so ask for their actual blended rate"
+    },
+    {
+     "id": "B",
+     "text": "It’s the rate they actually pay"
+    },
+    {
+     "id": "C",
+     "text": "It’s higher than everyone else"
+    },
+    {
+     "id": "D",
+     "text": "Nothing useful"
+    }
+   ],
+   "correct": "A",
+   "reveal": "“Starting at” isn’t what lands on the statement.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-C1",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Glofox fees",
+   "prompt": "What does Glofox’s own enterprise proposal quote?",
+   "options": [
+    {
+     "id": "A",
+     "text": "2.9% + $0.30 per transaction"
+    },
+    {
+     "id": "B",
+     "text": "Free texting on every plan"
+    },
+    {
+     "id": "C",
+     "text": "1.5% per card transaction"
+    },
+    {
+     "id": "D",
+     "text": "3.80% per card transaction, $0.10 per text, $3 per e-agreement"
+    }
+   ],
+   "correct": "D",
+   "reveal": "First-party and citable.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-C2",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Glofox landmine",
+   "prompt": "Which is the strongest Glofox landmine?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Is their support slow?”"
+    },
+    {
+     "id": "B",
+     "text": "“What did your price move to at your last renewal, and how much notice did you get?”"
+    },
+    {
+     "id": "C",
+     "text": "“Do you like the app?”"
+    },
+    {
+     "id": "D",
+     "text": "“Are you a franchise?”"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Renewal increases are the verified pattern. Their support rates well.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-C3",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Built for franchises",
+   "prompt": "“Glofox is built for franchises, and we plan to scale.” Best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Acknowledge their franchise depth, then ask what scaling costs on their per-location structure"
+    },
+    {
+     "id": "B",
+     "text": "Deny it"
+    },
+    {
+     "id": "C",
+     "text": "“We’re better at franchise.”"
+    },
+    {
+     "id": "D",
+     "text": "Move on"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Acknowledge the strength, then reframe on cost.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-C4",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Arketa fee",
+   "prompt": "What does Arketa’s own pricing page say about transaction fees?",
+   "options": [
+    {
+     "id": "A",
+     "text": "There aren’t any"
+    },
+    {
+     "id": "B",
+     "text": "1% per transaction"
+    },
+    {
+     "id": "C",
+     "text": "3% transaction fee plus Stripe fees"
+    },
+    {
+     "id": "D",
+     "text": "A flat $1 per sale"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Close to 6% all in once Stripe is included.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-C5",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Arketa landmine",
+   "prompt": "Which is the best Arketa landmine?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Their app looks dated.”"
+    },
+    {
+     "id": "B",
+     "text": "“When you pull a revenue report, does it reconcile against Stripe?”"
+    },
+    {
+     "id": "C",
+     "text": "“Is it expensive?”"
+    },
+    {
+     "id": "D",
+     "text": "“Do they have video?”"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Reporting accuracy is a theme in their own customers’ reviews.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-C6",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "“We love the video”",
+   "prompt": "“We love Arketa’s video.” Best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Video doesn’t matter.”"
+    },
+    {
+     "id": "B",
+     "text": "“Theirs isn’t good.”"
+    },
+    {
+     "id": "C",
+     "text": "“We have more features.”"
+    },
+    {
+     "id": "D",
+     "text": "“Video’s a real strength, and we do live and on-demand too. Worth weighing against the 3% on every transaction.”"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Acknowledge, show we match it, then reframe.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-D1",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Walla landmine",
+   "prompt": "Which is the best Walla landmine?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Besides Walla, what other tools are you paying for: email, SMS, reviews, forms?”"
+    },
+    {
+     "id": "B",
+     "text": "“Is Walla buggy?”"
+    },
+    {
+     "id": "C",
+     "text": "“Is their support slow?”"
+    },
+    {
+     "id": "D",
+     "text": "“How much do you pay them?”"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Consolidation is where Momence wins against Walla.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-D2",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "“Walla is easier”",
+   "prompt": "“Walla is easier to use.” Best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“It isn’t.”"
+    },
+    {
+     "id": "B",
+     "text": "“Ours is easier.”"
+    },
+    {
+     "id": "C",
+     "text": "“They’ve done a great job on simplicity, and we’re easy too. Do you want software for today, or something that grows with you?”"
+    },
+    {
+     "id": "D",
+     "text": "Drop the subject"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Acknowledge simplicity, then show where Momence goes further.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-D3",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "Walla complaints",
+   "prompt": "What do Walla customers complain about most?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Poor support"
+    },
+    {
+     "id": "B",
+     "text": "Features still being built and limited automation"
+    },
+    {
+     "id": "C",
+     "text": "Billing after cancellation"
+    },
+    {
+     "id": "D",
+     "text": "Hidden fees"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Their reviews are strong. The gap is growth, not quality.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-D4",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "VARS order",
+   "prompt": "What is the VARS order?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Reframe, Validate, Ask, Sell"
+    },
+    {
+     "id": "B",
+     "text": "Value, Ask, Reframe, Specify"
+    },
+    {
+     "id": "C",
+     "text": "Verify, Answer, Respond, Sell"
+    },
+    {
+     "id": "D",
+     "text": "Validate, Acknowledge, Reframe, Specify"
+    }
+   ],
+   "correct": "D",
+   "reveal": "For “what makes you different?”",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-D5",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "Acknowledge step",
+   "prompt": "What does the Acknowledge step do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Names the competitor’s strength so you can tie it to ours"
+    },
+    {
+     "id": "B",
+     "text": "Lists every Momence feature"
+    },
+    {
+     "id": "C",
+     "text": "Mentions our pricing"
+    },
+    {
+     "id": "D",
+     "text": "Asks for the meeting"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Acknowledge, then tie it to where we’re better.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-D6",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Specify on an SDR call",
+   "prompt": "On an SDR call, how does the Specify step end?",
+   "options": [
+    {
+     "id": "A",
+     "text": "With a full demo"
+    },
+    {
+     "id": "B",
+     "text": "With Momence pricing"
+    },
+    {
+     "id": "C",
+     "text": "By making it about their numbers and tying that to the meeting"
+    },
+    {
+     "id": "D",
+     "text": "With a discount"
+    }
+   ],
+   "correct": "C",
+   "reveal": "“That’s exactly what the AE can walk through with your numbers.”",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-E1",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "A quoted price",
+   "prompt": "Internal notes say “Arketa costs $299.” How do you use that?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Quote it"
+    },
+    {
+     "id": "B",
+     "text": "Say “studios we’ve talked to were quoted around…” or skip it"
+    },
+    {
+     "id": "C",
+     "text": "Round it up"
+    },
+    {
+     "id": "D",
+     "text": "Say it’s on their website"
+    }
+   ],
+   "correct": "B",
+   "reveal": "It isn’t their published price. If they’re on the $49 plan, you’ve lost credibility.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-E2",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Where fees come from",
+   "prompt": "Where should a competitor fee you cite come from?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A software blog"
+    },
+    {
+     "id": "B",
+     "text": "A forum thread"
+    },
+    {
+     "id": "C",
+     "text": "Memory"
+    },
+    {
+     "id": "D",
+     "text": "The competitor’s own pricing page, documentation or proposal"
+    }
+   ],
+   "correct": "D",
+   "reveal": "First-party sources are defensible.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-E3",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Unconfirmed feature",
+   "prompt": "The card says a WellnessLiving feature is unconfirmed, and the prospect asks about it. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Ask how they handle it today, without making a claim"
+    },
+    {
+     "id": "B",
+     "text": "Say they don’t have it"
+    },
+    {
+     "id": "C",
+     "text": "Say they do have it"
+    },
+    {
+     "id": "D",
+     "text": "Ignore the question"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Ask, don’t assert.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-E4",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Why cost and terms",
+   "prompt": "Why compete on cost structure and contract terms, not general quality?",
+   "options": [
+    {
+     "id": "A",
+     "text": "It’s easier to explain"
+    },
+    {
+     "id": "B",
+     "text": "It’s shorter"
+    },
+    {
+     "id": "C",
+     "text": "Those points are verified and specific, while general quality ratings often favor the competitor"
+    },
+    {
+     "id": "D",
+     "text": "Managers prefer it"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Fight where the facts are on your side.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-E5",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Locked in",
+   "prompt": "The prospect is on Glofox and renews in 14 months. Best move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Push hard for a meeting now"
+    },
+    {
+     "id": "B",
+     "text": "Acknowledge, plant one landmine, get the renewal date and log it"
+    },
+    {
+     "id": "C",
+     "text": "Argue about their price"
+    },
+    {
+     "id": "D",
+     "text": "Quote our price"
+    }
+   ],
+   "correct": "B",
+   "reveal": "More than 6 months left, so no meeting yet. Plant the question; it matters at renewal.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  },
+  {
+   "id": "CC5-E6",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Price comparison",
+   "prompt": "“What does Momence cost compared to MindBody?” Best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Give them numbers"
+    },
+    {
+     "id": "B",
+     "text": "“We’re cheaper.”"
+    },
+    {
+     "id": "C",
+     "text": "“We’re more.”"
+    },
+    {
+     "id": "D",
+     "text": "Say it depends on their setup, the AE walks through it with their numbers, then ask a question back"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Pricing stays with the AE.",
+   "review": "/training/CC5",
+   "source": "CC5 training"
+  }
+ ]
+}
