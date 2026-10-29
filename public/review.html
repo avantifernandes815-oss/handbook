@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Practical Review · Momence SDR Handbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&display=swap">
+<link rel="stylesheet" href="/cert-pages.css">
+</head>
+<body>
+<header>
+  <div class="brand"><img src="/momence-logo.svg" alt="Momence"><span class="div"></span><b id="htitle">Practical Review</b></div>
+  <div class="status"><span class="chip go">MANAGER</span><a class="crumb" href="/#page=team">← Team progress</a></div>
+</header>
+<main><div class="wrap wide" id="app"><p class="center">Loading…</p></div></main>
+<script>
+(() => {
+const cert = (location.pathname.match(/^\/review\/([A-Z0-9]{1,6})$/) || [])[1];
+const rep = new URLSearchParams(location.search).get('rep') || '';
+const app = document.getElementById('app');
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function api(path, body) {
+  const r = await fetch(path, body ? {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)} : {});
+  const data = await r.json().catch(() => ({}));
+  if (!r.ok) throw Object.assign(new Error(data.message || 'Something went wrong.'), data);
+  return data;
+}
+const P_FIELDS = [['fit','Business fit'],['persona','Persona fit'],['context','Relevant context'],['worth','Worth pursuing'],['priority','Priority'],['problem','Problem to lead with'],['channel','Strategy and channel']];
+const WORDS = {1:'1 · Missed', 2:'2 · Developing', 3:'3 · Solid', 4:'4 · Strong'}, WCHIP = {1:'bad', 2:'warn', 3:'ok', 4:'go'};
+let S = null, scores = {}, must = null, notes = '', busy = false;
+
+async function load() {
+  try { S = await api('/api/review/' + cert + '?rep=' + encodeURIComponent(rep)); }
+  catch (e) { app.innerHTML = '<div class="card narrow" style="margin:0 auto"><h1>Can’t open this review</h1><p class="lead">' + esc(e.message) + '</p><a class="btn ghost" href="/#page=team">Back to team progress</a></div>'; return; }
+  document.getElementById('htitle').textContent = S.cert.id + ' · Practical Review';
+  render();
+}
+function submission(c) {
+  const lists = (c.lists || []).map((l, i) => '<details class="item"' + (i === 0 ? ' open' : '') + '><summary><span><b>List ' + (i + 1) + ' · ' + esc(l.job) + '</b><small>' + (l.type === 'active' ? 'Active' : 'Static') + '</small></span><span class="crumb">Show</span></summary><div class="body"><dl class="ro"><dt>Who and why</dt><dd>' + esc(l.why) + '</dd><dt>Filters</dt><dd>' + esc(l.filters) + '</dd><dt>Active or static</dt><dd>' + (l.type === 'active' ? 'Active' : 'Static') + '</dd><dt>Fit and plan</dt><dd>' + esc(l.plan) + '</dd></dl></div></details>').join('');
+  const pros = (c.prospects || []).map((p, i) => '<details class="item"><summary><span><b>Prospect ' + (i + 1) + ' · ' + esc(p.name) + '</b><small>from List ' + (i + 1) + '</small></span><span class="crumb">Show</span></summary><div class="body"><dl class="ro">' + (p.link ? '<dt>HubSpot</dt><dd>' + (/^https?:\/\//.test(p.link) ? '<a href="' + esc(p.link) + '" target="_blank" rel="noopener noreferrer">' + esc(p.link) + '</a>' : esc(p.link)) + '</dd>' : '') + P_FIELDS.map(f => '<dt>' + f[1] + '</dt><dd>' + esc(p[f[0]]) + '</dd>').join('') + '</dl></div></details>').join('');
+  return '<div class="acc">' + lists + pros + '</div>';
+}
+function render() {
+  const cur = S.current, q = S.quiz;
+  const top = '<div class="eyebrow">' + esc(S.cert.id) + ' · WRITTEN PRACTICAL · LIVE REVIEW</div><h1>' + esc(S.rep.name) + (cur ? ' · Attempt ' + cur.attemptNo : '') + '</h1>' +
+    '<p class="intro">' + (cur?.submittedAt ? 'Submitted ' + new Date(cur.submittedAt).toLocaleDateString([], {weekday:'short', month:'short', day:'numeric'}) + ' · ' : '') + (q ? 'Quiz ' + (q.status === 'passed' ? 'passed' : 'not passed yet') + ' at ' + Math.round(q.score * 100) + '%' : 'Quiz not taken yet') + '</p>';
+  if (!cur || cur.status === 'draft') { app.innerHTML = top + '<div class="panel"><h2>Nothing to review yet</h2><p class="sub">' + esc(S.rep.name) + ' hasn’t submitted this practical.</p></div>'; return; }
+  if (cur.status !== 'submitted') return renderDone(top);
+  app.innerHTML = top +
+    '<section class="panel" style="margin-bottom:18px"><div class="sec-h"><h2 style="font-size:18px">Their submission</h2><span>Open each one as you talk it through</span></div>' + submission(cur.content) + '</section>' +
+    '<section class="panel" style="margin-bottom:18px"><div class="sec-h"><h2 style="font-size:18px">Score each area, 1–4</h2><span>1 missed · 2 developing · 3 solid · 4 strong</span></div><p class="sub">Ask “why?” after every answer. Score the reasoning they give you, not just what’s written.</p>' +
+      S.def.criteria.map(c => '<div class="crit"><div style="flex:1 1 300px;min-width:0"><b>' + esc(c.name) + '</b><small>' + esc(c.hint) + '</small></div><div class="nums" role="group" aria-label="' + esc(c.name) + '">' + [1,2,3,4].map(n => '<button type="button" data-c="' + c.id + '" data-n="' + n + '" aria-pressed="false">' + n + '</button>').join('') + '</div></div>').join('') + '</section>' +
+    '<section class="panel" style="margin-bottom:18px"><h2 style="font-size:18px">Must-pass</h2><p class="sub">A “no” is a fail, whatever the average.</p><div class="mustrow"><div id="mq">' + esc(S.def.must) + '</div><div class="seg yn" role="group" aria-labelledby="mq"><button type="button" class="yes" data-m="1" aria-pressed="false">Yes, met</button><button type="button" class="no" data-m="0" aria-pressed="false">No, not met</button></div></div></section>' +
+    '<section class="panel" style="margin-bottom:18px"><label for="notes" style="display:flex;align-items:center;gap:10px;font-family:Nunito,Arial,sans-serif;font-size:18px;font-weight:800;margin-bottom:4px">Coaching notes <span class="chip warn">Required</span></label><p class="sub">' + esc(S.rep.name) + ' sees the full scorecard and these notes as soon as you submit.</p><textarea class="in" id="notes" rows="4" maxlength="4000" placeholder="What they reasoned well, and what to change before their first week live."></textarea></section>' +
+    '<section class="result pend" id="result"></section><p class="err" id="err" role="alert"></p>';
+  app.querySelectorAll('[data-c]').forEach(b => b.onclick = () => { scores[b.dataset.c] = +b.dataset.n; b.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); update(); });
+  app.querySelectorAll('[data-m]').forEach(b => b.onclick = () => { must = b.dataset.m === '1'; b.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); update(); });
+  document.getElementById('notes').oninput = e => { notes = e.target.value; update(); };
+  update();
+}
+function update() {
+  const ids = S.def.criteria.map(c => c.id), scored = ids.filter(id => scores[id]).length, all = scored === ids.length;
+  const avg = scored ? ids.reduce((a, id) => a + (scores[id] || 0), 0) / scored : 0;
+  const decided = must !== null, pass = all && decided && must && avg >= 3, hasNotes = notes.trim().length > 0;
+  let cls = 'pend', verdict, why;
+  if (!all) { verdict = 'Score every area'; why = scored + ' of ' + ids.length + ' scored'; }
+  else if (!decided) { verdict = 'Answer the must-pass'; why = 'Average ' + avg.toFixed(1) + ' so far. Needs 3.0 or higher and the must-pass met.'; }
+  else if (pass) { cls = 'ok'; verdict = 'Pass'; why = 'Average ' + avg.toFixed(1) + ' and the must-pass met.'; }
+  else { cls = 'no'; verdict = 'Not yet · retake on the Foundation schedule'; why = (!must ? 'Must-pass not met' : 'Average ' + avg.toFixed(1) + ' is under 3.0') + '. They keep their quiz result and retake the practical Day 10, then Monday.'; }
+  const ready = all && decided && hasNotes;
+  const btn = !ready ? '<span class="locked-btn">' + (!all ? 'Score every area to submit' : !decided ? 'Answer the must-pass to submit' : 'Add coaching notes to submit') + '</span>'
+    : pass ? '<button class="btn inline" id="go">Submit pass &amp; share with ' + esc(S.rep.name) + '</button>' : '<button class="btn inline danger" id="go">Submit &amp; schedule retake</button>';
+  const box = document.getElementById('result');
+  box.className = 'result ' + cls;
+  box.innerHTML = '<div style="flex:1 1 320px;min-width:0"><div class="k">RESULT</div><div class="v">' + esc(verdict) + '</div><div class="w">' + esc(why) + '</div></div><div>' + btn + '</div>';
+  const go = document.getElementById('go'); if (go) go.onclick = send;
+}
+async function send() {
+  if (busy) return; busy = true;
+  const go = document.getElementById('go'); go.disabled = true; go.textContent = 'Submitting…';
+  try { S = await api('/api/review/' + cert, {email: rep, scores, mustPass: must, notes}); window.scrollTo(0, 0); render(); }
+  catch (e) { document.getElementById('err').textContent = e.message; go.disabled = false; update(); }
+  busy = false;
+}
+function renderDone(top) {
+  const cur = S.current, rv = cur.review, pass = cur.status === 'passed';
+  app.innerHTML = top +
+    '<section class="result ' + (pass ? 'ok' : 'no') + '" style="margin-bottom:18px"><div><div class="k">RESULT · SHARED WITH ' + esc(S.rep.name).toUpperCase() + '</div><div class="v">' + (pass ? 'Pass' : 'Not yet · retake on the Foundation schedule') + '</div><div class="w">Average ' + Number(rv.average).toFixed(1) + ' · must-pass ' + (rv.mustPass ? 'met' : 'not met') + ' · reviewed ' + new Date(rv.reviewedAt).toLocaleDateString([], {month:'short', day:'numeric'}) + '</div></div></section>' +
+    '<section class="panel" style="margin-bottom:18px"><h2 style="font-size:18px">Scorecard</h2>' + S.def.criteria.map(c => '<div class="score-row"><div><b>' + esc(c.name) + '</b><small>' + esc(c.hint) + '</small></div><span class="chip ' + WCHIP[rv.scores[c.id]] + '">' + WORDS[rv.scores[c.id]] + '</span></div>').join('') + '</section>' +
+    '<section class="notes" style="margin-bottom:18px"><div class="k">YOUR COACHING NOTES</div><p>' + esc(rv.notes) + '</p></section>' +
+    '<section class="panel"><div class="sec-h"><h2 style="font-size:18px">Their submission</h2></div>' + submission(cur.content) + '</section>' +
+    '<p style="margin-top:20px"><a class="btn ghost inline" href="/#page=team">Back to team progress</a></p>';
+}
+if (!cert || !rep) app.innerHTML = '<p class="center">Pick a rep from Team progress.</p>'; else load();
+})();
+</script>
+</body>
+</html>

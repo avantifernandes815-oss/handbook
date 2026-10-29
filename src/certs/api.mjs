@@ -2,12 +2,32 @@
 // Everything here runs server-side. Correct answers never leave the server
 // until a quiz is finished, and even then only as reveals for questions the rep got right.
 import bankF1 from './bank-f1.json' with {type: 'json'};
+import bankF2 from './bank-f2.json' with {type: 'json'};
 
-const BANKS = {F1: bankF1};
+const BANKS = {F1: bankF1, F2: bankF2};
 const GRACE_MS = 4000;          // network slack on top of each question's time limit
 const LOCK_HOURS = 24;          // lockout after a second tab-leave
 const MAX_ATTEMPTS = 3;         // failed attempts before a performance conversation
-const REVIEW_LABELS = {'day-1': 'Day 1 · The SDR Job', 'day-2': 'Day 2 · Who We Sell To & Why', 'sal': 'Qualification & SALs'};
+const REVIEW_LABELS = {'day-1': 'Day 1 · The SDR Job', 'day-2': 'Day 2 · Who We Sell To & Why', 'day-3': 'Day 3 · Owning Your Book of Business', 'day-4': 'Day 4 · Pre-Vetting Workshop', 'sal': 'Qualification & SALs', 'book': 'Book of Business', 'statuses': 'Lead Statuses & CRM'};
+
+// Written practicals. Scored live by a manager, 1–4 per area; pass = average 3+ and the must-pass met.
+export const PRACTICALS = {
+  F2: {
+    title: 'Lists, then prospects',
+    jobs: ['Find low-hanging fruit', 'Build a pre-vetting list', 'Identify Unqualified accounts', 'Build today’s call list'],
+    listFields: ['why', 'filters', 'type', 'plan'],
+    prospectFields: ['fit', 'persona', 'context', 'worth', 'priority', 'problem', 'channel'],
+    criteria: [
+      {id: 'purpose', name: 'List purpose', hint: 'Each list has a real reason to exist, and the filters match the job.'},
+      {id: 'mechanics', name: 'List mechanics', hint: 'The active or static choice fits how the list will be used.'},
+      {id: 'judgment', name: 'Prospect judgment', hint: 'The fit and worth-pursuing calls hold up with the information they had.'},
+      {id: 'priority', name: 'Prioritization', hint: 'The priority call follows the statuses, the clock and the codes.'},
+      {id: 'relevance', name: 'Relevance', hint: 'The problem is about their business, not about our product.'},
+      {id: 'next', name: 'Next action', hint: 'The channel and strategy follow from what they know.'}
+    ],
+    must: 'Every list and prospect stayed out of another SDR’s Book, a Nurture cooling period, a Customer and an open Opportunity'
+  }
+};
 
 const json = (data, status = 200) => new Response(JSON.stringify(data), {status, headers: {'Content-Type': 'application/json', 'Cache-Control': 'private, no-store'}});
 const fail = (code, message, status = 400) => json({error: code, message}, status);
@@ -90,6 +110,19 @@ async function getProgress(env, email, certId) {
   await env.DB.prepare("INSERT OR IGNORE INTO cert_progress (user_email, cert_id, updated_at) VALUES (?,?,?)").bind(email, certId, nowIso()).run();
   return env.DB.prepare("SELECT * FROM cert_progress WHERE user_email=? AND cert_id=?").bind(email, certId).first();
 }
+// Merge one component result into cert_progress and recompute the overall status.
+function overall(required, comps) {
+  if (required.every(c => comps[c] === 'passed')) return 'passed';
+  if (Object.values(comps).includes('failed')) return 'failed';
+  return Object.keys(comps).length ? 'in_progress' : 'not_started';
+}
+function componentUpdate(env, cert, prog, email, patch, t, extraSql = '', extraArgs = []) {
+  const comps = {...parse(prog?.components, {}), ...patch};
+  const status = overall(parse(cert.components, ['quiz']), comps);
+  return env.DB.prepare(`UPDATE cert_progress SET status=?, components=?, passed_at=CASE WHEN ?='passed' THEN COALESCE(passed_at, ?) ELSE passed_at END, updated_at=?${extraSql} WHERE user_email=? AND cert_id=?`)
+    .bind(status, JSON.stringify(comps), status, t, t, ...extraArgs, email, cert.id);
+}
+
 async function lockedUntil(env, email, certId) {
   const r = await env.DB.prepare("SELECT MAX(locked_until) l FROM quiz_attempts WHERE user_email=? AND cert_id=? AND status='voided'").bind(email, certId).first();
   return r?.l && r.l > nowIso() ? r.l : null;
@@ -108,6 +141,7 @@ async function myCerts(env, me) {
   const open = (await env.DB.prepare("SELECT id, cert_id FROM quiz_attempts WHERE user_email=? AND status='in_progress'").bind(me.email).all()).results;
   const last = (await env.DB.prepare("SELECT cert_id, score, status, finished_at FROM quiz_attempts WHERE user_email=? AND status IN ('passed','failed') ORDER BY finished_at DESC").bind(me.email).all()).results;
   const locks = (await env.DB.prepare("SELECT cert_id, MAX(locked_until) l FROM quiz_attempts WHERE user_email=? AND status='voided' GROUP BY cert_id").bind(me.email).all()).results;
+  const pracs = (await env.DB.prepare("SELECT cert_id, attempt_no, status FROM practical_submissions WHERE user_email=? ORDER BY attempt_no DESC").bind(me.email).all()).results;
   const progress = {};
   for (const c of certs) {
     const p = rows.find(r => r.cert_id === c.id);
@@ -116,7 +150,9 @@ async function myCerts(env, me) {
     progress[c.id] = {
       status: p?.status || 'not_started', attemptsUsed: p?.attempts_used || 0, retakeUnlocked: p ? !!p.retake_unlocked : true,
       passedAt: p?.passed_at || null, lastScore: l ? l.score : null, inProgress: !!open.find(o => o.cert_id === c.id),
-      lockedUntil: lock?.l && lock.l > nowIso() ? lock.l : null, maxAttempts: MAX_ATTEMPTS
+      lockedUntil: lock?.l && lock.l > nowIso() ? lock.l : null, maxAttempts: MAX_ATTEMPTS,
+      components: parse(p?.components, {}),
+      practical: (() => { const x = pracs.find(r => r.cert_id === c.id); return x ? {status: x.status, attemptNo: x.attempt_no} : null; })()
     };
   }
   return {me: {email: me.email, name: me.name, role: me.role}, certs, progress};
@@ -170,11 +206,11 @@ async function finishAttempt(env, attempt, cert) {
   const score = total ? (r.c || 0) / total : 0;
   const passed = score >= cert.pass_mark;
   const t = nowIso();
+  const prog = await getProgress(env, attempt.user_email, attempt.cert_id);
   await env.DB.batch([
     env.DB.prepare("UPDATE quiz_attempts SET status=?, score=?, correct_count=?, finished_at=? WHERE id=?").bind(passed ? 'passed' : 'failed', score, r.c || 0, t, attempt.id),
-    passed
-      ? env.DB.prepare("UPDATE cert_progress SET status='passed', attempts_used=attempts_used+1, passed_at=?, components=?, updated_at=? WHERE user_email=? AND cert_id=?").bind(t, JSON.stringify({quiz: 'passed'}), t, attempt.user_email, attempt.cert_id)
-      : env.DB.prepare("UPDATE cert_progress SET status='failed', attempts_used=attempts_used+1, retake_unlocked=0, components=?, updated_at=? WHERE user_email=? AND cert_id=?").bind(JSON.stringify({quiz: 'failed'}), t, attempt.user_email, attempt.cert_id)
+    componentUpdate(env, cert, prog, attempt.user_email, {quiz: passed ? 'passed' : 'failed'}, t,
+      passed ? ', attempts_used=attempts_used+1' : ', attempts_used=attempts_used+1, retake_unlocked=0')
   ]);
   return {...attempt, status: passed ? 'passed' : 'failed', score};
 }
@@ -196,7 +232,7 @@ async function startQuiz(env, me, certId) {
     if (p?.status !== 'passed') return fail('prerequisite', `Pass ${pre} first.`, 409);
   }
   const p = await getProgress(env, me.email, certId);
-  if (p.status === 'passed') return fail('passed', 'You’ve already passed this certification.', 409);
+  if (parse(p.components, {}).quiz === 'passed' || p.status === 'passed') return fail('passed', 'You’ve already passed this quiz.', 409);
   if (p.attempts_used >= MAX_ATTEMPTS) return fail('max_attempts', 'Talk to your manager about next steps for this certification.', 409);
   if (!p.retake_unlocked) return fail('needs_coaching', 'Your retake opens after a coaching session with your manager.', 409);
   const lock = await lockedUntil(env, me.email, certId);
@@ -217,16 +253,132 @@ async function startQuiz(env, me, certId) {
 
 async function result(env, attempt) {
   const answers = (await env.DB.prepare("SELECT a.position, a.is_correct, q.topic, q.prompt, q.reveal, q.review_link FROM quiz_answers a JOIN questions q ON q.id=a.question_id AND q.version=a.question_version WHERE a.attempt_id=? ORDER BY a.position").bind(attempt.id).all()).results;
-  const cert = await env.DB.prepare("SELECT name, pass_mark FROM certifications WHERE id=?").bind(attempt.cert_id).first();
+  const cert = await env.DB.prepare("SELECT name, pass_mark, components FROM certifications WHERE id=?").bind(attempt.cert_id).first();
   const p = await env.DB.prepare("SELECT attempts_used FROM cert_progress WHERE user_email=? AND cert_id=?").bind(attempt.user_email, attempt.cert_id).first();
   const missed = new Map();
   for (const a of answers.filter(a => !a.is_correct)) if (!missed.has(a.topic)) missed.set(a.topic, {topic: a.topic, review: a.review_link, label: REVIEW_LABELS[a.review_link] || a.review_link});
   return {
-    certId: attempt.cert_id, certName: cert.name, status: attempt.status, attemptNo: attempt.attempt_no, attemptsUsed: p?.attempts_used || 0, maxAttempts: MAX_ATTEMPTS,
+    certId: attempt.cert_id, certName: cert.name, status: attempt.status, hasPractical: parse(cert.components, []).includes('practical'), attemptNo: attempt.attempt_no, attemptsUsed: p?.attempts_used || 0, maxAttempts: MAX_ATTEMPTS,
     correct: attempt.correct_count, total: answers.length, score: attempt.score, passMark: cert.pass_mark,
     reveals: answers.filter(a => a.is_correct && a.reveal).map(a => ({topic: a.topic, question: a.prompt, text: a.reveal})),
     review: [...missed.values()]
   };
+}
+
+
+// ---------- written practicals ----------
+const clip = (v, n = 4000) => String(v ?? '').slice(0, n);
+function cleanContent(def, raw) {
+  const lists = Array.from({length: 3}, (_, i) => {
+    const l = (raw?.lists || [])[i] || {};
+    return {job: clip(l.job, 200), why: clip(l.why), filters: clip(l.filters), type: ['active', 'static'].includes(l.type) ? l.type : '', plan: clip(l.plan)};
+  });
+  const prospects = Array.from({length: 3}, (_, i) => {
+    const x = (raw?.prospects || [])[i] || {};
+    const o = {name: clip(x.name, 200), link: clip(x.link, 500)};
+    for (const f of def.prospectFields) o[f] = clip(x[f]);
+    return o;
+  });
+  return {lists, prospects};
+}
+function missingParts(def, c) {
+  const out = [];
+  c.lists.forEach((l, i) => {
+    const jobOk = i < 2 ? def.jobs.includes(l.job) : l.job.trim();
+    if (!jobOk || def.listFields.some(f => !String(l[f]).trim())) out.push('List ' + (i + 1));
+  });
+  if (c.lists[0].job && c.lists[0].job === c.lists[1].job) out.push('Lists 1 and 2 need different jobs');
+  c.prospects.forEach((x, i) => { if (!x.name.trim() || def.prospectFields.some(f => !x[f].trim())) out.push('Prospect ' + (i + 1)); });
+  return out;
+}
+const pracView = (row) => !row ? null : ({
+  id: row.id, attemptNo: row.attempt_no, status: row.status, content: parse(row.content, {}), updatedAt: row.updated_at, submittedAt: row.submitted_at,
+  review: ['passed', 'failed'].includes(row.status) ? {scores: parse(row.scores, {}), mustPass: !!row.must_pass, average: row.average, notes: row.notes, reviewedAt: row.reviewed_at, reviewer: row.reviewer_email} : null
+});
+async function latestPractical(env, email, certId) {
+  return env.DB.prepare("SELECT * FROM practical_submissions WHERE user_email=? AND cert_id=? ORDER BY attempt_no DESC LIMIT 1").bind(email, certId).first();
+}
+async function practicalState(env, email, certId) {
+  const cert = await env.DB.prepare("SELECT * FROM certifications WHERE id=?").bind(certId).first();
+  const def = PRACTICALS[certId];
+  if (!cert || !def || cert.status !== 'active') return null;
+  const p = await getProgress(env, email, certId);
+  const user = await env.DB.prepare("SELECT email, name FROM users WHERE email=?").bind(email).first();
+  const rows = (await env.DB.prepare("SELECT * FROM practical_submissions WHERE user_email=? AND cert_id=? ORDER BY attempt_no DESC").bind(email, certId).all()).results;
+  const quiz = await env.DB.prepare("SELECT score, status FROM quiz_attempts WHERE user_email=? AND cert_id=? AND status IN ('passed','failed') ORDER BY finished_at DESC LIMIT 1").bind(email, certId).first();
+  return {
+    cert: {id: cert.id, name: cert.name, day: cert.onboarding_day, status: cert.status},
+    rep: {email, name: user?.name || email.split('@')[0]},
+    def: {title: def.title, jobs: def.jobs, criteria: def.criteria, must: def.must},
+    progress: {status: p.status, components: parse(p.components, {}), quizAttemptsUsed: p.attempts_used, retakeUnlocked: !!p.retake_unlocked},
+    quiz: quiz ? {status: quiz.status, score: quiz.score} : null,
+    current: pracView(rows[0]), history: rows.slice(1).map(pracView), attemptsUsed: rows.filter(r => ['passed', 'failed'].includes(r.status)).length, maxAttempts: MAX_ATTEMPTS
+  };
+}
+async function savePractical(env, me, certId, raw, submit) {
+  const cert = await env.DB.prepare("SELECT * FROM certifications WHERE id=?").bind(certId).first();
+  const def = PRACTICALS[certId];
+  if (!cert || !def || cert.status !== 'active') return fail('not_available', 'This practical isn’t open yet.', 404);
+  let row = await latestPractical(env, me.email, certId);
+  const t = nowIso();
+  if (row && ['submitted', 'passed'].includes(row.status)) return fail('locked', row.status === 'passed' ? 'You’ve already passed this practical.' : 'You’ve submitted this. Your manager will go through it with you live.', 409);
+  if (row && row.status === 'failed') {
+    const used = (await env.DB.prepare("SELECT COUNT(*) n FROM practical_submissions WHERE user_email=? AND cert_id=? AND status IN ('passed','failed')").bind(me.email, certId).first()).n;
+    if (used >= MAX_ATTEMPTS) return fail('max_attempts', 'Talk to your manager about next steps for this certification.', 409);
+    row = null;
+  }
+  const content = cleanContent(def, raw);
+  if (submit) {
+    const missing = missingParts(def, content);
+    if (missing.length) return json({error: 'incomplete', message: 'Finish every part before you submit.', missing}, 422);
+  }
+  if (!row) {
+    const n = (await env.DB.prepare("SELECT COALESCE(MAX(attempt_no),0) n FROM practical_submissions WHERE user_email=? AND cert_id=?").bind(me.email, certId).first()).n;
+    const prog = await getProgress(env, me.email, certId);
+    await env.DB.batch([
+      env.DB.prepare("INSERT INTO practical_submissions (id, user_email, cert_id, attempt_no, status, content, created_at, updated_at) VALUES (?,?,?,?, 'draft', ?, ?, ?)").bind(crypto.randomUUID(), me.email, certId, n + 1, JSON.stringify(content), t, t),
+      componentUpdate(env, cert, prog, me.email, {practical: 'draft'}, t)
+    ]);
+    row = await latestPractical(env, me.email, certId);
+  } else {
+    await env.DB.prepare("UPDATE practical_submissions SET content=?, updated_at=? WHERE id=?").bind(JSON.stringify(content), t, row.id).run();
+  }
+  if (submit) {
+    const prog = await getProgress(env, me.email, certId);
+    await env.DB.batch([
+      env.DB.prepare("UPDATE practical_submissions SET status='submitted', submitted_at=?, updated_at=? WHERE id=?").bind(t, t, row.id),
+      componentUpdate(env, cert, prog, me.email, {practical: 'submitted'}, t),
+      env.DB.prepare("INSERT INTO activity_events (user_email, kind, ref, occurred_at) VALUES (?, 'practical_submit', ?, ?)").bind(me.email, certId, t)
+    ]);
+  }
+  return json(await practicalState(env, me.email, certId));
+}
+async function reviewPractical(env, me, certId, email, body) {
+  const cert = await env.DB.prepare("SELECT * FROM certifications WHERE id=?").bind(certId).first();
+  const def = PRACTICALS[certId];
+  if (!cert || !def) return fail('not_found', 'Unknown practical.', 404);
+  const row = await latestPractical(env, email, certId);
+  if (!row || row.status !== 'submitted') return fail('not_ready', 'There’s no submitted practical waiting for review.', 409);
+  const scores = {};
+  for (const c of def.criteria) {
+    const v = Number(body.scores?.[c.id]);
+    if (!Number.isInteger(v) || v < 1 || v > 4) return fail('scores', 'Score every area from 1 to 4.');
+    scores[c.id] = v;
+  }
+  if (typeof body.mustPass !== 'boolean') return fail('must_pass', 'Answer the must-pass.');
+  const notes = String(body.notes || '').trim().slice(0, 4000);
+  if (!notes) return fail('notes', 'Coaching notes are required.');
+  const average = Math.round(Object.values(scores).reduce((a, b) => a + b, 0) / def.criteria.length * 100) / 100;
+  const passed = body.mustPass && average >= 3;
+  const t = nowIso();
+  const prog = await getProgress(env, email, certId);
+  await env.DB.batch([
+    env.DB.prepare("UPDATE practical_submissions SET status=?, reviewer_email=?, scores=?, must_pass=?, average=?, notes=?, reviewed_at=?, updated_at=? WHERE id=?")
+      .bind(passed ? 'passed' : 'failed', me.email, JSON.stringify(scores), body.mustPass ? 1 : 0, average, notes, t, t, row.id),
+    componentUpdate(env, cert, prog, email, {practical: passed ? 'passed' : 'failed'}, t)
+  ]);
+  await audit(env, me.email, 'review_practical', `${email}:${certId}`, {attempt: row.attempt_no, average, mustPass: body.mustPass, passed});
+  return json(await practicalState(env, email, certId));
 }
 
 // ---------- team view ----------
@@ -238,6 +390,7 @@ async function team(env) {
   const weekAgo = new Date(Date.now() - 7 * 864e5).toISOString(), monthAgo = new Date(Date.now() - 30 * 864e5).toISOString();
   const leaves = (await env.DB.prepare("SELECT e.user_email, e.outcome, e.duration_ms, e.occurred_at, a.cert_id FROM integrity_events e JOIN quiz_attempts a ON a.id=e.attempt_id WHERE e.occurred_at>=? ORDER BY e.occurred_at DESC").bind(weekAgo).all()).results;
   const visits = (await env.DB.prepare("SELECT user_email, COUNT(*) n FROM activity_events WHERE kind='page_view' AND occurred_at>=? GROUP BY user_email").bind(monthAgo).all()).results;
+  const pracRows = (await env.DB.prepare("SELECT user_email, cert_id, attempt_no, status, submitted_at FROM practical_submissions ORDER BY attempt_no DESC").all()).results;
   const lastSeen = (await env.DB.prepare("SELECT user_email, MAX(t) t FROM (SELECT user_email, occurred_at t FROM activity_events UNION ALL SELECT user_email, started_at t FROM quiz_attempts) GROUP BY user_email").all()).results;
 
   const rows = users.map(u => ({
@@ -248,7 +401,17 @@ async function team(env) {
     })
   }));
   const attention = [];
-  for (const p of progress.filter(p => p.status === 'failed')) {
+  const latestPrac = new Map();
+  for (const r of pracRows) { const k = r.user_email + ':' + r.cert_id; if (!latestPrac.has(k)) latestPrac.set(k, r); }
+  const pracUsed = (email, cert) => pracRows.filter(r => r.user_email === email && r.cert_id === cert && ['passed', 'failed'].includes(r.status)).length;
+  for (const r of latestPrac.values()) {
+    const u = rows.find(x => x.email === r.user_email); if (!u) continue;
+    if (r.status === 'submitted') attention.push({kind: 'review', email: u.email, name: u.name, cert: r.cert_id, at: r.submitted_at, text: `submitted the ${r.cert_id} practical${r.attempt_no > 1 ? ' (attempt ' + r.attempt_no + ')' : ''} · ready for a live review`});
+    else if (r.status === 'failed') attention.push(pracUsed(r.user_email, r.cert_id) >= MAX_ATTEMPTS
+      ? {kind: 'max', email: u.email, name: u.name, cert: r.cert_id, text: `has used all ${MAX_ATTEMPTS} attempts on the ${r.cert_id} practical · time for a performance conversation`}
+      : {kind: 'retake', email: u.email, name: u.name, cert: r.cert_id, text: `didn’t pass the ${r.cert_id} practical · retake on the Foundation schedule`});
+  }
+  for (const p of progress.filter(p => p.status === 'failed' && parse(p.components, {}).quiz === 'failed')) {
     const u = rows.find(r => r.email === p.user_email); if (!u) continue;
     const s = lastScores.find(x => x.user_email === p.user_email && x.cert_id === p.cert_id);
     if (p.attempts_used >= MAX_ATTEMPTS) attention.push({kind: 'max', email: u.email, name: u.name, cert: p.cert_id, text: `has used all ${MAX_ATTEMPTS} attempts on ${p.cert_id} · time for a performance conversation`});
@@ -276,7 +439,7 @@ async function team(env) {
   const eligible = rows.filter(r => r.cells.every((c, i) => c === 'p' || !['foundation', 'cold_calling', 'skills'].includes(certs[i].track))).length;
   return {
     certs: certs.map(c => ({id: c.id, name: c.name, summary: c.summary, status: c.status})), rows, attention, leaders, quiet,
-    tiles: {roleplays: 0, coaching: attention.filter(a => a.kind === 'coach').length, leaves: leaves.length, eligible: allIds.length ? eligible : 0},
+    tiles: {reviews: attention.filter(a => a.kind === 'review').length, coaching: attention.filter(a => a.kind === 'coach').length, leaves: leaves.length, eligible: allIds.length ? eligible : 0},
     totals: {reps: rows.filter(r => r.role === 'rep').length}
   };
 }
@@ -308,7 +471,7 @@ export async function handleApi(request, env, user) {
     const p = await getProgress(env, me.email, m[1]);
     return json({
       cert: {id: cert.id, name: cert.name, summary: cert.summary, status: cert.status, questions: cert.questions_per_attempt, seconds: cert.seconds_per_question, passMark: cert.pass_mark},
-      progress: {status: p.status, attemptsUsed: p.attempts_used, retakeUnlocked: !!p.retake_unlocked, maxAttempts: MAX_ATTEMPTS, lockedUntil: await lockedUntil(env, me.email, m[1])},
+      progress: {status: p.status, quizPassed: parse(p.components, {}).quiz === 'passed', hasPractical: parse(cert.components, []).includes('practical'), attemptsUsed: p.attempts_used, retakeUnlocked: !!p.retake_unlocked, maxAttempts: MAX_ATTEMPTS, lockedUntil: await lockedUntil(env, me.email, m[1])},
       openAttempt: open ? open.id : null
     });
   }
@@ -352,7 +515,21 @@ export async function handleApi(request, env, user) {
     }
   }
 
+  if ((m = /^\/api\/practical\/([A-Z0-9]{1,6})$/.exec(path))) {
+    if (method === 'POST') return savePractical(env, me, m[1], body.content, !!body.submit);
+    const st = await practicalState(env, me.email, m[1]);
+    return st ? json(st) : fail('not_available', 'This practical isn’t open yet.', 404);
+  }
+
   // ----- managers (and admin) -----
+  if ((m = /^\/api\/review\/([A-Z0-9]{1,6})$/.exec(path))) {
+    if (!isManager(me)) return fail('forbidden', 'Managers only.', 403);
+    const email = String(method === 'POST' ? body.email : url.searchParams.get('rep') || '').toLowerCase();
+    if (!email) return fail('bad_request', 'Pick a rep.');
+    if (method === 'POST') return reviewPractical(env, me, m[1], email, body);
+    const st = await practicalState(env, email, m[1]);
+    return st ? json(st) : fail('not_available', 'This practical isn’t open yet.', 404);
+  }
   if (path === '/api/team') { if (!isManager(me)) return fail('forbidden', 'Managers only.', 403); return json(await team(env)); }
   if (path === '/api/team/unlock' && method === 'POST') {
     if (!isManager(me)) return fail('forbidden', 'Managers only.', 403);
@@ -387,6 +564,7 @@ export async function handleApi(request, env, user) {
     const email = String(body.email || '').toLowerCase(), cert = String(body.cert || '');
     await env.DB.batch([
       env.DB.prepare("DELETE FROM cert_progress WHERE user_email=? AND cert_id=?").bind(email, cert),
+      env.DB.prepare("DELETE FROM practical_submissions WHERE user_email=? AND cert_id=?").bind(email, cert),
       env.DB.prepare("UPDATE quiz_attempts SET status='voided', locked_until=NULL WHERE user_email=? AND cert_id=? AND status='in_progress'").bind(email, cert),
       env.DB.prepare("UPDATE quiz_attempts SET locked_until=NULL WHERE user_email=? AND cert_id=?").bind(email, cert)
     ]);

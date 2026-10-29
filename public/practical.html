@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Written Practical · Momence SDR Handbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&display=swap">
+<link rel="stylesheet" href="/cert-pages.css">
+</head>
+<body>
+<header>
+  <div class="brand"><img src="/momence-logo.svg" alt="Momence"><span class="div"></span><b id="htitle">Written Practical</b></div>
+  <div class="status"><a class="crumb" href="/#page=certifications">← Back to handbook</a></div>
+</header>
+<main><div class="wrap wide" id="app"><p class="center">Loading…</p></div></main>
+<script>
+(() => {
+const cert = (location.pathname.match(/^\/practical\/([A-Z0-9]{1,6})$/) || [])[1];
+const app = document.getElementById('app');
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function api(path, body) {
+  const r = await fetch(path, body ? {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)} : {});
+  const data = await r.json().catch(() => ({}));
+  if (!r.ok) throw Object.assign(new Error(data.message || 'Something went wrong.'), data);
+  return data;
+}
+const LIST_FIELDS = [
+  ['why', 'In one sentence: who’s on it, and why they all need the same action', '', 2],
+  ['filters', 'Filters, and why each one is there', '', 3]
+];
+const PLAN = ['plan', 'Why active or static fits the job', '· plus roughly how many records, and your plan for the list this week', 2];
+const P_FIELDS = [
+  ['fit', 'Business fit', '· vertical, size, current software'],
+  ['persona', 'Persona fit', '· who you’d talk to, and why that person'],
+  ['context', 'Relevant context', '· what pre-vetting and past activity told you'],
+  ['worth', 'Worth pursuing?', '· yes or no, and defend it either way'],
+  ['priority', 'Priority', '· where it sits against the rest of your Book'],
+  ['problem', 'The problem you’d lead with', '· and why it matters to this business'],
+  ['channel', 'Outreach strategy and channel', '· call, email or text, and why']
+];
+const WORDS = {1:'1 · Missed', 2:'2 · Developing', 3:'3 · Solid', 4:'4 · Strong'}, WCHIP = {1:'bad', 2:'warn', 3:'ok', 4:'go'};
+let S = null, model = null, saveTimer = null, saving = false, dirty = false, editingRetake = false;
+
+const blank = () => ({lists: [0,1,2].map(() => ({job:'', why:'', filters:'', type:'', plan:''})), prospects: [0,1,2].map(() => Object.fromEntries([['name',''],['link',''], ...P_FIELDS.map(f => [f[0], ''])]))});
+const listDone = (l, i) => (i < 2 ? S.def.jobs.includes(l.job) : !!l.job.trim()) && l.why.trim() && l.filters.trim() && l.type && l.plan.trim();
+const prosDone = p => p.name.trim() && P_FIELDS.every(f => p[f[0]].trim());
+const listStarted = l => Object.values(l).some(v => String(v).trim());
+const prosStarted = p => Object.values(p).some(v => String(v).trim());
+const chip = (done, started) => done ? '<span class="chip ok">Complete</span>' : started ? '<span class="chip go">In progress</span>' : '<span class="chip off">Not started</span>';
+
+async function load() {
+  try { S = await api('/api/practical/' + cert); }
+  catch (e) { app.innerHTML = '<div class="card narrow" style="margin:0 auto"><h1>Not open yet</h1><p class="lead">' + esc(e.message) + '</p><a class="btn ghost" href="/#page=certifications">Back to my certifications</a></div>'; return; }
+  document.getElementById('htitle').textContent = S.cert.id + ' · Written Practical';
+  render();
+}
+
+function strip() {
+  const comps = S.progress.components, q = S.quiz, cur = S.current;
+  let quizCell;
+  if (comps.quiz === 'passed') quizCell = '<span class="chip ok">Passed' + (q ? ' · ' + Math.round(q.score * 100) + '%' : '') + '</span>';
+  else if (comps.quiz === 'failed') quizCell = '<a class="crumb" href="/quiz/' + cert + '">Not passed yet · see next steps →</a>';
+  else quizCell = '<a class="btn inline" style="min-height:40px;font-size:13px" href="/quiz/' + cert + '">Start quiz</a>';
+  const st = cur?.status;
+  const pr = st === 'passed' ? '<span class="chip ok">Passed</span>' : st === 'failed' ? '<span class="chip warn">Not yet · retake</span>' : st === 'submitted' ? '<span class="chip go">Submitted</span>' : '<span class="chip go">' + (cur ? 'Draft' : 'Not started') + ' · due Day 10</span>';
+  const lr = st === 'submitted' ? 'Your manager sets this up with you next' : ['passed','failed'].includes(st) ? 'Done · scorecard below' : 'Your manager books it after you submit';
+  return '<section class="strip"><div><div class="lbl">QUIZ</div><div class="val">' + quizCell + '</div></div><div class="on"><div class="lbl">PRACTICAL</div><div class="val">' + pr + '</div></div><div><div class="lbl">LIVE REVIEW</div><div class="val">' + lr + '</div></div></section>';
+}
+function head(sub) {
+  return '<div class="eyebrow">' + esc(S.cert.id + ' · ' + S.cert.name).toUpperCase() + '</div><h1>Written practical</h1><p class="intro">' + sub + '</p>';
+}
+
+function render() {
+  const cur = S.current, st = cur?.status;
+  if ((st === 'passed' || st === 'failed') && !editingRetake) return renderResult();
+  if (st === 'submitted') return renderSubmitted();
+  model = cur ? JSON.parse(JSON.stringify(cur.content)) : (model || blank());
+  if (!model.lists) model = blank();
+  renderForm();
+}
+
+// ---------- the form ----------
+function renderForm() {
+  const jobs = S.def.jobs;
+  const listHtml = model.lists.map((l, i) => {
+    const jobField = i < 2
+      ? '<select class="in" id="l' + i + '-job" data-l="' + i + '" data-f="job"><option value="">Pick one of the four Day 3 jobs</option>' + jobs.map(j => '<option' + (j === l.job ? ' selected' : '') + '>' + esc(j) + '</option>').join('') + '</select>'
+      : '<input class="in" id="l' + i + '-job" data-l="' + i + '" data-f="job" maxlength="200" placeholder="Name the job this list does" value="' + esc(l.job) + '">';
+    return '<details class="item" data-item="l' + i + '"' + (i === 0 ? ' open' : '') + '><summary><span><b>List ' + (i + 1) + (i === 2 ? ' · Your own design' : '') + '</b><small id="l' + i + '-sub">' + esc(l.job || (i < 2 ? 'One of the four Day 3 jobs' : 'Any job you think your Book needs')) + '</small></span><span id="l' + i + '-chip">' + chip(listDone(l, i), listStarted(l)) + '</span></summary><div class="body">' +
+      '<label class="fld" for="l' + i + '-job">The job</label>' + jobField +
+      LIST_FIELDS.map(f => '<label class="fld" for="l' + i + '-' + f[0] + '">' + f[1] + '</label><textarea class="in" rows="' + f[3] + '" id="l' + i + '-' + f[0] + '" data-l="' + i + '" data-f="' + f[0] + '">' + esc(l[f[0]]) + '</textarea>').join('') +
+      '<div class="fld" id="l' + i + '-tl">Active or static</div><div class="seg" role="group" aria-labelledby="l' + i + '-tl">' +
+        ['active','static'].map(v => '<button type="button" data-type="' + v + '" data-l="' + i + '" aria-pressed="' + (l.type === v) + '">' + (v === 'active' ? 'Active' : 'Static') + '</button>').join('') + '</div>' +
+      '<label class="fld" for="l' + i + '-plan">' + PLAN[1] + ' <small>' + PLAN[2] + '</small></label><textarea class="in" rows="2" id="l' + i + '-plan" data-l="' + i + '" data-f="plan">' + esc(l.plan) + '</textarea>' +
+      '</div></details>';
+  }).join('');
+  const prosHtml = model.prospects.map((p, i) =>
+    '<details class="item" data-item="p' + i + '"><summary><span><b>Prospect from List ' + (i + 1) + '</b><small id="p' + i + '-sub">' + esc(p.name || 'Not picked yet') + '</small></span><span id="p' + i + '-chip">' + chip(prosDone(p), prosStarted(p)) + '</span></summary><div class="body">' +
+      '<div class="grid2"><div><label class="fld" for="p' + i + '-name">Business name</label><input class="in" id="p' + i + '-name" data-p="' + i + '" data-f="name" maxlength="200" value="' + esc(p.name) + '"></div>' +
+      '<div><label class="fld" for="p' + i + '-link">HubSpot record link <small>· optional</small></label><input class="in" id="p' + i + '-link" data-p="' + i + '" data-f="link" maxlength="500" value="' + esc(p.link) + '"></div></div>' +
+      P_FIELDS.map(f => '<label class="fld" for="p' + i + '-' + f[0] + '">' + f[1] + ' <small>' + f[2] + '</small></label><textarea class="in" rows="2" id="p' + i + '-' + f[0] + '" data-p="' + i + '" data-f="' + f[0] + '">' + esc(p[f[0]]) + '</textarea>').join('') +
+    '</div></details>').join('');
+  const retakeNote = editingRetake || (S.current && S.current.attemptNo > 1) ? '<p class="intro" style="margin-top:-8px"><span class="chip warn">Retake</span> Your last answers are filled in. Work through your manager’s notes, then submit again.</p>' : '';
+  app.innerHTML = head('Build three lists from your real Book, then make the case for one prospect from each. There’s no right answer, only a defensible one. You’ll walk your manager through it live, so expect “why?” after every answer.') + retakeNote + strip() +
+    '<div class="sec-h"><h2>Part 1 · Three lists</h2><span id="lcount"></span></div><p class="sec-p">Two lists built for two different Day 3 jobs, plus one list of your own design.</p><div class="acc">' + listHtml + '</div>' +
+    '<div class="sec-h"><h2>Part 2 · One prospect from each list</h2><span id="pcount"></span></div><p class="sec-p">Pick a real prospect from each list and make the case for it.</p><div class="acc">' + prosHtml + '</div>' +
+    '<section class="bar-foot"><div class="note" id="savenote" aria-live="polite">' + (S.current ? 'Saved' : 'Your work saves as you type') + '</div><div id="submitbox"></div></section><p class="err" id="err" role="alert"></p>';
+  if (!app.__bound) { app.__bound = true; app.addEventListener('input', onInput); app.addEventListener('change', onInput); }
+  app.querySelectorAll('[data-type]').forEach(b => b.onclick = () => {
+    const i = +b.dataset.l; model.lists[i].type = b.dataset.type;
+    b.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    changed();
+  });
+  refresh();
+}
+function onInput(e) {
+  const t = e.target; if (!t.dataset || !t.dataset.f) return;
+  if (e.type === 'change' && t.tagName !== 'SELECT') return;
+  if (t.dataset.l != null) model.lists[+t.dataset.l][t.dataset.f] = t.value;
+  if (t.dataset.p != null) model.prospects[+t.dataset.p][t.dataset.f] = t.value;
+  changed();
+}
+function changed() { dirty = true; refresh(); document.getElementById('savenote').textContent = 'Saving…'; clearTimeout(saveTimer); saveTimer = setTimeout(save, 1200); }
+function refresh() {
+  const ld = model.lists.filter(listDone).length, pd = model.prospects.filter(prosDone).length;
+  model.lists.forEach((l, i) => { document.getElementById('l' + i + '-chip').innerHTML = chip(listDone(l, i), listStarted(l)); document.getElementById('l' + i + '-sub').textContent = l.job || (i < 2 ? 'One of the four Day 3 jobs' : 'Any job you think your Book needs'); });
+  model.prospects.forEach((p, i) => { document.getElementById('p' + i + '-chip').innerHTML = chip(prosDone(p), prosStarted(p)); document.getElementById('p' + i + '-sub').textContent = p.name || 'Not picked yet'; });
+  document.getElementById('lcount').textContent = ld + ' of 3 complete';
+  document.getElementById('pcount').textContent = pd + ' of 3 complete';
+  const same = model.lists[0].job && model.lists[0].job === model.lists[1].job;
+  const ready = ld === 3 && pd === 3 && !same;
+  const box = document.getElementById('submitbox');
+  const want = ready ? 'ready' : same ? 'same' : 'todo';
+  if (box.dataset.state !== want) {
+    box.dataset.state = want;
+    box.innerHTML = ready ? '<button class="btn inline" id="submit">Submit to your manager</button>'
+      : '<span class="locked-btn">' + (same ? 'Lists 1 and 2 need different jobs' : 'Finish all 3 lists and 3 prospects to submit') + '</span>';
+    const sb = document.getElementById('submit'); if (sb) sb.onclick = submit;
+  }
+}
+async function save() {
+  if (saving) { clearTimeout(saveTimer); saveTimer = setTimeout(save, 600); return; }
+  saving = true; dirty = false;
+  try {
+    const st = await api('/api/practical/' + cert, {content: model});
+    S = st; editingRetake = false;
+    document.getElementById('savenote').textContent = 'Saved · ' + new Date().toLocaleTimeString([], {hour:'numeric', minute:'2-digit'});
+  } catch (e) { document.getElementById('savenote').textContent = 'Couldn’t save. ' + e.message; }
+  saving = false;
+}
+async function submit() {
+  const btn = document.getElementById('submit'); btn.disabled = true; btn.textContent = 'Submitting…';
+  clearTimeout(saveTimer);
+  try { S = await api('/api/practical/' + cert, {content: model, submit: true}); editingRetake = false; window.scrollTo(0, 0); render(); }
+  catch (e) { btn.disabled = false; btn.textContent = 'Submit to your manager'; document.getElementById('err').textContent = e.message + (e.missing ? ' Missing: ' + e.missing.join(', ') + '.' : ''); }
+}
+window.addEventListener('beforeunload', e => { if (dirty) { e.preventDefault(); e.returnValue = ''; } });
+
+// ---------- read-only views ----------
+function readOnly(c) {
+  const lists = (c.lists || []).map((l, i) => '<details class="item"><summary><span><b>List ' + (i + 1) + ' · ' + esc(l.job) + '</b><small>' + esc(l.type === 'active' ? 'Active' : 'Static') + '</small></span></summary><div class="body"><dl class="ro"><dt>Who and why</dt><dd>' + esc(l.why) + '</dd><dt>Filters</dt><dd>' + esc(l.filters) + '</dd><dt>Active or static</dt><dd>' + (l.type === 'active' ? 'Active' : 'Static') + '</dd><dt>Fit and plan</dt><dd>' + esc(l.plan) + '</dd></dl></div></details>').join('');
+  const pros = (c.prospects || []).map((p, i) => '<details class="item"><summary><span><b>Prospect ' + (i + 1) + ' · ' + esc(p.name) + '</b><small>from List ' + (i + 1) + '</small></span></summary><div class="body"><dl class="ro">' + (p.link ? '<dt>HubSpot</dt><dd>' + esc(p.link) + '</dd>' : '') + P_FIELDS.map(f => '<dt>' + f[1] + '</dt><dd>' + esc(p[f[0]]) + '</dd>').join('') + '</dl></div></details>').join('');
+  return '<div class="acc">' + lists + pros + '</div>';
+}
+function renderSubmitted() {
+  app.innerHTML = head('Submitted. Your manager will set up a live review and walk through it with you. Expect “why?” after every answer.') + strip() +
+    '<div class="sec-h"><h2>What you submitted</h2><span>Attempt ' + S.current.attemptNo + '</span></div>' + readOnly(S.current.content) +
+    '<a class="btn ghost inline" href="/#page=certifications">Back to my certifications</a>';
+}
+function renderResult() {
+  const cur = S.current, rv = cur.review, pass = cur.status === 'passed';
+  const left = S.maxAttempts - S.attemptsUsed;
+  const quizPassed = S.progress.components.quiz === 'passed';
+  const fullyPassed = S.progress.status === 'passed';
+  const rows = S.def.criteria.map(c => '<div class="score-row"><div><b>' + esc(c.name) + '</b><small>' + esc(c.hint) + '</small></div><span class="chip ' + WCHIP[rv.scores[c.id]] + '">' + WORDS[rv.scores[c.id]] + '</span></div>').join('');
+  const headline = pass ? (fullyPassed ? S.cert.id + ' passed' : 'Practical passed') : 'Not yet. Let’s get you there.';
+  const sub = pass ? (fullyPassed ? 'Quiz and practical both done. Your ' + S.cert.id + ' badge is on your path.' : 'Nice work. Pass the ' + S.cert.id + ' quiz to finish the certification.')
+    : left > 0 ? 'Work through the notes below, then submit your retake. It follows the Foundation schedule: Day 10, then Monday.' : 'You’ve used all your attempts. Your manager will talk with you about next steps.';
+  app.innerHTML = '<div class="eyebrow">' + esc(S.cert.id + ' · ' + S.cert.name).toUpperCase() + '</div>' +
+    '<section class="result ' + (pass ? 'ok' : 'soft') + '" style="margin:6px 0 18px"><div><h1 style="margin:0 0 6px">' + esc(headline) + '</h1><p style="margin:0;font-size:14px;line-height:1.6">' + esc(sub) + '</p></div></section>' +
+    strip() +
+    '<section class="panel" style="margin-bottom:18px"><div class="sec-h"><h2 style="font-size:18px">Your scorecard</h2><span>Average ' + Number(rv.average).toFixed(1) + ' of 4 · attempt ' + cur.attemptNo + '</span></div>' + rows +
+      '<div class="score-row"><div><b>Must-pass: stayed in your own lane</b><small>' + esc(S.def.must) + '</small></div><span class="chip ' + (rv.mustPass ? 'ok">Met' : 'bad">Not met') + '</span></div></section>' +
+    '<section class="notes" style="margin-bottom:18px"><div class="k">COACHING NOTES FROM YOUR MANAGER</div><p>' + esc(rv.notes) + '</p></section>' +
+    '<section class="bar-foot"><div class="note">' + (pass ? (quizPassed ? 'Up next: the next Foundation certification on your path.' : 'Up next: the ' + S.cert.id + ' quiz.') : left > 0 ? left + (left === 1 ? ' attempt' : ' attempts') + ' left' : 'Talk to your manager') + '</div><div style="display:flex;gap:10px;flex-wrap:wrap">' +
+      (!pass && left > 0 ? '<button class="btn inline" id="retake">Start your retake</button>' : '') +
+      (pass && !quizPassed ? '<a class="btn inline" href="/quiz/' + cert + '">Go to the quiz</a>' : '<a class="btn ghost inline" href="/#page=certifications">Back to your path</a>') + '</div></section>' +
+    '<h2 style="font-size:18px;margin:26px 0 10px">What you submitted</h2>' + readOnly(cur.content);
+  const r = document.getElementById('retake');
+  if (r) r.onclick = () => { editingRetake = true; model = JSON.parse(JSON.stringify(cur.content)); window.scrollTo(0, 0); renderForm(); };
+}
+
+if (!cert) app.innerHTML = '<p class="center">Not found.</p>'; else load();
+})();
+</script>
+</body>
+</html>
