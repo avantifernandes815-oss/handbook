@@ -90,35 +90,6 @@
    "source": "Day 5, \"The anatomy of a great cold call\""
   },
   {
-   "id": "F3-A4",
-   "section": "A",
-   "kind": "knowledge",
-   "topic": "Where the call ends",
-   "prompt": "Which of these belongs to Day 8, not to the cold call itself?",
-   "options": [
-    {
-     "id": "A",
-     "text": "Asking for the meeting directly and simply"
-    },
-    {
-     "id": "B",
-     "text": "Connecting one relevant piece of value"
-    },
-    {
-     "id": "C",
-     "text": "Following the thread the prospect gave you"
-    },
-    {
-     "id": "D",
-     "text": "Confirming the time and the calendar invite"
-    }
-   ],
-   "correct": "D",
-   "reveal": null,
-   "review": "day-5",
-   "source": "Day 5, \"Ask for the meeting\" and \"The anatomy of a great cold call\""
-  },
-  {
    "id": "F3-A5",
    "section": "A",
    "kind": "judgment",
@@ -239,23 +210,23 @@
    "section": "B",
    "kind": "knowledge",
    "topic": "The first ten seconds",
-   "prompt": "Which four things should be true in the first ten seconds?",
+   "prompt": "Which three things should be true in the first ten seconds?",
    "options": [
     {
      "id": "A",
-     "text": "Say your name, title, company and the price range"
+     "text": "Say your name, title and the price range"
     },
     {
      "id": "B",
-     "text": "Smile, slow down, give the pitch, then ask a question"
+     "text": "Smile, slow down and give the pitch"
     },
     {
      "id": "C",
-     "text": "Sound human, be clear, earn attention, get permission"
+     "text": "Sound human, be clear, earn attention"
     },
     {
      "id": "D",
-     "text": "Build rapport, find pain, show proof, close the call"
+     "text": "Build rapport, find pain, show proof"
     }
    ],
    "correct": "C",
@@ -483,7 +454,7 @@
     },
     {
      "id": "C",
-     "text": "What are two things you love about it?"
+     "text": "How's your experience been with your setup?"
     },
     {
      "id": "D",
@@ -852,19 +823,19 @@
    "options": [
     {
      "id": "A",
-     "text": "No problem at all. I'll set you to Nurture and try you again in a few months."
+     "text": "No problem. I'll set you to Nurture and try again in a few months."
     },
     {
      "id": "B",
-     "text": "Totally fair. Busy months are when admin bites. Is that where the time goes?"
+     "text": "Totally fair. What's taking up your time the most this month?"
     },
     {
      "id": "C",
-     "text": "I'll only take two minutes, I promise. Just hear me out on this one thing."
+     "text": "I'll only take two minutes, I promise. Just hear me out on this."
     },
     {
      "id": "D",
-     "text": "That's exactly why you need Momence. Let me explain how it saves you time."
+     "text": "That's exactly why you need Momence. Let me explain how it helps."
     }
    ],
    "correct": "B",
