@@ -117,12 +117,14 @@ function nextBtn(ready) {
   return ready ? '<button class="btn inline" id="finish">Finish training &amp; start the quiz</button>' : '<span class="locked-btn">Write all three openers to unlock the quiz</span>';
 }
 function render() {
-  if (S.missingPrereqs.length) {
+  const preview = S.missingPrereqs.length && S.canPreview;
+  if (S.missingPrereqs.length && !preview) {
     app.innerHTML = '<a class="crumb" href="/#page=certifications">← Your path</a><div class="eyebrow" style="margin-top:14px">' + esc(S.cert.id) + '</div><h1>' + esc(S.def.title) + '</h1><section class="panel"><h2>Not unlocked yet</h2><p class="sub" style="font-size:14px">Pass ' + esc(S.missingPrereqs.join(', ')) + ' first.</p></section>';
     return;
   }
   const label = {cold_calling: 'COLD CALLING', skills: 'SKILLS', foundation: 'FOUNDATION'}[S.cert.track] || '';
   let html = '<a class="crumb" href="/#page=certifications">← Your path</a><div class="eyebrow" style="margin-top:14px">' + label + ' · ' + esc(S.cert.id) + '</div><h1>' + esc(S.def.title) + '</h1><p class="intro">' + esc(S.def.summary) + '</p>' + stepper();
+  if (preview) html += '<div class="tr-done" style="background:#fff8e6;border-color:#f3dfa8;color:#5c4400"><span><b>Manager preview.</b> This is the page as a rep sees it. Your own path hasn’t unlocked it, so nothing here saves.</span></div>';
   if (S.completedAt) html += '<div class="tr-done"><span><b>Training done.</b> You can come back to it any time.</span>' + nextBtn(true) + '</div>';
   for (const sec of S.def.sections) {
     if (sec.type === 'why') html += '<section class="tr-sec">' + head(sec) + '<div class="tr-stat"><div class="big">' + esc(sec.stat.big) + '</div><div style="font-size:14px"><b>' + esc(sec.stat.line) + '</b><br><span class="sub" style="font-size:12px">' + esc(sec.stat.sub) + '</span></div></div></section>';
@@ -132,7 +134,7 @@ function render() {
     else if (sec.type === 'write') html += '<section class="tr-sec">' + head(sec) + table(sec) + writeBox(sec) + '</section>';
     else if (sec.type === 'killers') html += '<section class="tr-sec">' + head(sec) + '<div class="tr-kill">' + sec.items.map(k => '<div><b>' + esc(k[0]) + '</b><small>' + esc(k[1]) + '</small><span><b style="display:inline;color:var(--ink);font-size:13px">Instead:</b> ' + esc(k[2]) + '</span></div>').join('') + '</div></section>';
     else if (sec.type === 'text') html += '<section class="tr-sec">' + head(sec) + '</section>';
-    else if (sec.type === 'application') html += '<section class="tr-sec" id="appsec">' + head(sec) + appBox(sec) + '</section>';
+    else if (sec.type === 'application') html += '<section class="tr-sec" id="appsec">' + head(sec) + (preview ? '<div class="tr-app" style="padding:16px 20px">' + sec.slots.map(sl => '<p style="margin:6px 0;font-size:13px"><span class="chip go">' + esc(sl.type) + '</span> ' + esc(sl.hint) + '</p>').join('') + '</div>' : appBox(sec)) + '</section>';
   }
   const writes = [...app.querySelectorAll('[id^="w"]')].map(t => t.value);
   app.innerHTML = html;

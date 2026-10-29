@@ -787,7 +787,7 @@ async function certContent(env, certId) {
   const pd = PRACTICALS[certId], rp = ROLEPLAYS[certId];
   const practical = !pd ? null : {kind: pd.kind || 'lists', component: pracComponent(pd), title: pd.title, brief: pd.brief || null, jobs: pd.jobs || null, criteria: pd.criteria, must: pd.must, key: pd.key || null};
   const roleplay = !rp ? null : {mode: rp.mode || 'lead', business: rp.business || null, setup: rp.setup || null, slots: rp.slots || null, criteria: rp.criteria, musts: rp.musts, cards: rp.cards};
-  const training = TRAININGS[certId] ? {title: TRAININGS[certId].title, sections: TRAININGS[certId].sections.filter(x => x.title).map(x => x.title)} : null;
+  const training = TRAININGS[certId] || null;
   return {cert: c, questions, sections, practical, roleplay, training, maxAttempts: maxFor(c), lockHours: LOCK_HOURS};
 }
 async function resetOwn(env, email) {
@@ -890,7 +890,7 @@ export async function handleApi(request, env, user) {
   if ((m = /^\/api\/training\/([A-Z0-9]{1,6})$/.exec(path))) {
     if (method === 'POST') return saveTraining(env, me, m[1], body);
     const st = await trainingState(env, me.email, m[1]);
-    return st ? json(st) : fail('not_available', 'This training isn’t open yet.', 404);
+    return st ? json({...st, canPreview: isManager(me)}) : fail('not_available', 'This training isn’t open yet.', 404);
   }
   if ((m = /^\/api\/roleplay\/([A-Z0-9]{1,6})$/.exec(path))) {
     if (method === 'POST') return submitRoleplayLead(env, me, m[1], body);

@@ -186,7 +186,7 @@
       ['Pass mark', Math.round((c.passMark || .8) * 100) + '% on the quiz' + ((pr || rp) ? ' · scored parts need an average of 3+ with every must-pass met' : '')],
       ['Leaving the tab', 'First time: warning · Second time: attempt voided, locked ' + d.lockHours + ' hours'],
       ['Retakes', c.track === 'foundation' ? 'Day 10, then Monday · a third fail goes to performance management' : 'After a coaching session with their manager · no attempt limit'],
-      d.training ? ['Training', 'A ' + d.training.sections.length + '-part training page, done before the quiz unlocks'] : null,
+      d.training ? ['Training', 'A ' + d.training.sections.filter(x => x.title).length + '-part training page, done before the quiz unlocks'] : null,
       c.day ? ['Onboarding day', 'Day ' + c.day] : null
     ].filter(Boolean);
     const rulesHtml = '<section class="cx-panel">' + rules.map(r => '<div class="cx-rule"><span>' + esc(r[0]) + '</span><strong>' + esc(r[1]) + '</strong></div>').join('') + '</section>';
@@ -208,12 +208,25 @@
         crit(pr.criteria, 'SCORED 1–4 · PASS WITH AN AVERAGE OF 3+') + '<div class="cx-k">MUST-PASS</div><ul class="cx-ul"><li>' + esc(pr.must) + '</li></ul></section>' +
         (pr.key ? '<section class="cx-panel cx-keybox"><div class="cx-k" style="color:var(--purple)">ANSWER KEY · MANAGERS ONLY · ' + pr.key.length + ' PLANTED PROBLEMS</div><ol>' + pr.key.map(k => '<li><b>' + esc(k.issue) + '</b> ' + esc(k.fix) + '</li>').join('') + '</ol></section>' : '');
     }
-    const tabs = [['rules', 'Rules & format'], d.questions.length ? ['bank', 'Quiz questions (' + d.questions.length + ')'] : null, keys ? ['keys', rp && pr ? 'Scorecards & keys' : rp ? 'Scorecard & cards' : 'Rubric & key'] : null].filter(Boolean);
+    const T = d.training, tbl = x => '<div class="cx-scroll"><table class="cx-ttbl"><tr>' + x.head.map(h => '<th>' + esc(h) + '</th>').join('') + '</tr>' + x.rows.map(r => '<tr>' + r.map(c => '<td>' + esc(c) + '</td>').join('') + '</tr>').join('') + '</table></div>';
+    const tHead = x => '<div class="cx-k" style="color:var(--purple);margin-top:22px">' + esc(x.label || '') + '</div>' + (x.title ? '<h2 class="cx-th">' + esc(x.title) + '</h2>' : '') + (x.body ? '<p class="cx-sub" style="font-size:13px">' + esc(x.body) + '</p>' : '');
+    const trainHtml = !T ? '' : '<p class="cx-sub" style="font-size:13px">What reps work through before the quiz unlocks. The try-it exercises are shown with their answers.' + ' <a style="color:var(--purple);font-weight:700;text-decoration:none" href="/training/' + encodeURIComponent(c.id) + '" target="_top">Open the page as a rep sees it →</a></p>' + T.sections.map(x => {
+      if (x.type === 'why') return tHead(x) + '<div class="cx-panel" style="margin:0"><b>' + esc(x.stat.big) + ' · ' + esc(x.stat.line) + '</b><br><small>' + esc(x.stat.sub) + '</small></div>';
+      if (x.type === 'table') return tHead(x) + tbl(x) + (x.after ? '<p class="cx-sub" style="font-size:13px;margin-top:8px">' + esc(x.after) + '</p>' : '');
+      if (x.type === 'build') return '<div class="cx-hidden" style="margin-top:12px"><div class="cx-k" style="color:var(--purple);margin:0 0 6px">' + esc(x.label) + '</div><p>' + esc(x.prompt) + '</p><p><b>Right order:</b> ' + x.parts.map((p, i) => (i + 1) + ' ' + esc(p)).join(' · ') + '</p>' + x.decoys.map(dc => '<p><b>Decoy:</b> ' + esc(dc.text) + ' — ' + esc(dc.why) + '</p>').join('') + '</div>';
+      if (x.type === 'pickup') return '<div class="cx-hidden" style="margin-top:12px"><div class="cx-k" style="color:var(--purple);margin:0 0 6px">' + esc(x.label) + '</div>' + x.cards.map(k => '<p><b>' + esc(k.line) + '</b> <small>(' + esc(k.setup) + ')</small><br>Answer: <b>' + esc(k.answer) + '</b>. ' + esc(k.why) + '</p>').join('') + '</div>';
+      if (x.type === 'write') return tHead(x) + tbl(x) + '<div class="cx-hidden" style="margin-top:12px"><div class="cx-k" style="color:var(--purple);margin:0 0 6px">TRY IT · WRITE PART 3 · STRONG EXAMPLES</div>' + x.notes.map(n => '<p><small>' + esc(n.note) + '</small><br>' + esc(n.example) + '</p>').join('') + '</div>';
+      if (x.type === 'killers') return tHead(x) + tbl({head: ['Habit', 'Why it hurts', 'Instead'], rows: x.items});
+      if (x.type === 'text') return tHead(x);
+      if (x.type === 'application') return tHead(x) + '<ul class="cx-ul">' + x.slots.map(sl => '<li><b>' + esc(sl.type) + ':</b> ' + esc(sl.hint) + '</li>').join('') + '</ul><p class="cx-sub" style="font-size:13px;margin-top:8px">These openers carry over into the roleplay, so you’ll see them on the run page.</p>';
+      return '';
+    }).join('');
+    const tabs = [['rules', 'Rules & format'], T ? ['training', 'Training page'] : null, d.questions.length ? ['bank', 'Quiz questions (' + d.questions.length + ')'] : null, keys ? ['keys', rp && pr ? 'Scorecards & keys' : rp ? 'Scorecard & cards' : 'Rubric & key'] : null].filter(Boolean);
     const groupName = {foundation: 'FOUNDATION', cold_calling: 'COLD CALLING', skills: 'SKILLS'}[c.track] || '';
     main.innerHTML = '<button class="cx-link" data-cert-page="certifications">← All certifications</button><div class="label" style="margin-top:14px">' + groupName + ' · MANAGER VIEW</div>' +
       '<div class="cx-titlerow"><h1>' + esc(c.id + ' · ' + c.name) + '</h1><span class="cx-chip ok">Live' + (c.day ? ' · Day ' + c.day : '') + '</span></div><p>' + esc(c.summary || '') + '</p>' +
       '<div class="cx-tabs" role="tablist">' + tabs.map((t, i) => '<button role="tab" data-cx-tab="' + t[0] + '" aria-selected="' + !i + '"' + (i ? '' : ' class="on"') + '>' + esc(t[1]) + '</button>').join('') + '</div>' +
-      '<div data-cx-pane="rules">' + rulesHtml + '</div>' + (d.questions.length ? '<div data-cx-pane="bank" hidden>' + bankHtml + '</div>' : '') + (keys ? '<div data-cx-pane="keys" hidden>' + keys + '</div>' : '');
+      '<div data-cx-pane="rules">' + rulesHtml + '</div>' + (T ? '<div data-cx-pane="training" hidden>' + trainHtml + '</div>' : '') + (d.questions.length ? '<div data-cx-pane="bank" hidden>' + bankHtml + '</div>' : '') + (keys ? '<div data-cx-pane="keys" hidden>' + keys + '</div>' : '');
     icons(); main.scrollTop = 0; window.scrollTo(0, 0);
   }
 
