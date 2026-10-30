@@ -277,11 +277,11 @@ export const JA5_TRAINING = {
       "idea": "The CC5 card credits Walla with being simple and built by studio owners; its weak spots are features still being built and limited automation. Walla’s pitch is that booking stays on the studio’s own website. A pre-open founder liked its reporting and AI. One prospect who had used it was “still unsure of it”; another hit a bug where an intro offer with a chosen start date wouldn’t let her pre-book. Momence can embed the schedule on the site too. The default pop-up has its own case: closing it returns the client to the schedule, and every class has its own shareable link. Then show consolidation: inbox, sequences, reviews and ads in one login.",
       "say": "“Besides Walla, what else are you paying for to run email, texts and reviews?”",
       "good": {
-        "text": "When the prospect mentioned a studio that uses Walla, the AE called Walla a top competitor that does “a lot of really good things.” Then she made the case on consolidation: one login, one inbox, ads run from Momence. The prospect went on to share her own Walla booking problem.",
-        "source": "Sol Space demo",
+        "text": "A studio owner on Walla named its pains: no phone support or point person, and separate numbers for texts and calls. The AE answered each one directly: live human chat, a dedicated onboarding specialist, and one number for two-way texts with calls forwarded to the front desk.",
+        "source": "Hot For Yoga demo",
         "clip": {
           "src": "/content/videos/ja5-6-good.mp4",
-          "seconds": 133
+          "seconds": 88
         }
       },
       "missed": {

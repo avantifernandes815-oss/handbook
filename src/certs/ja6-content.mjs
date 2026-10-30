@@ -277,11 +277,11 @@ export const JA6_TRAINING = {
         }
       },
       "missed": {
-        "text": "Before the prospect had named her deciding need, the AE offered to give her the branded app. The concession came before the core need was proven, and nothing was asked in return.",
-        "source": "105 Fever, third call",
+        "text": "On a first call with a Walla studio, a discount request turned into an extra free month, a free add-on and a bigger text plan, all pending approval. Nothing was asked in return, not even a decision date, and the owner left saying she was just finding out more.",
+        "source": "Hot For Yoga demo",
         "clip": {
           "src": "/content/videos/ja6-6-missed.mp4",
-          "seconds": 110
+          "seconds": 112
         }
       },
       "check": {
