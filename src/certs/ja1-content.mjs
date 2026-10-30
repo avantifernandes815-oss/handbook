@@ -21,6 +21,14 @@ export const JA1_TRAINING = {
             "src": "/content/videos/ja1-1-good.mp4",
             "seconds": 105
           }
+        },
+        {
+          "text": "The prospect asked whether she could control the order of her offers. The AE put the intro offers first, then showed that picking a class and buying a pass happens in one flow: the client is enrolled in that class automatically, so nobody buys credits and then shows up off the roster.",
+          "source": "Hot For Yoga demo",
+          "clip": {
+            "src": "/content/videos/ja1-1-good-b.mp4",
+            "seconds": 117
+          }
         }
       ],
       "missed": [
@@ -279,6 +287,14 @@ export const JA1_TRAINING = {
           "clip": {
             "src": "/content/videos/ja1-6-good.mp4",
             "seconds": 110
+          }
+        },
+        {
+          "text": "Asked whether Instagram messages land in the inbox, the AE said plainly no: the inbox covers email, text and in-app chat. He then showed the workaround, a lead form linked from her Instagram bio so the conversation moves to text.",
+          "source": "Comova, first call",
+          "clip": {
+            "src": "/content/videos/ja1-6-good-b.mp4",
+            "seconds": 100
           }
         }
       ],

@@ -131,6 +131,14 @@ export const JA6_TRAINING = {
         {
           "text": "With two co-owners, the AE sent the agreement during the call, said who needed to sign it and booked a short call for questions. When one owner couldn't join, she offered to meet that owner directly.",
           "source": "Pilates & Co demo"
+        },
+        {
+          "text": "With both owners on the call, the AE asked what was really holding them back. The partner's concern was keeping her word to her franchisees on price. He proposed a way to honor that and then one combined onboarding session for all of them, which turned a stall into a plan.",
+          "source": "ReformX Pilates, second call (Australian franchise)",
+          "clip": {
+            "src": "/content/videos/ja6-3-good-b.mp4",
+            "seconds": 115
+          }
         }
       ],
       "missed": [
@@ -190,6 +198,14 @@ export const JA6_TRAINING = {
             "src": "/content/videos/ja6-4-good.mp4",
             "seconds": 120
           }
+        },
+        {
+          "text": "When the owner said she wanted to talk to her husband and email when ready, the AE offered to meet again later that day or tomorrow, then booked the date she picked before the call ended.",
+          "source": "Comova, first call",
+          "clip": {
+            "src": "/content/videos/ja6-4-good-b.mp4",
+            "seconds": 68
+          }
         }
       ],
       "missed": [
@@ -199,6 +215,14 @@ export const JA6_TRAINING = {
           "clip": {
             "src": "/content/videos/ja6-4-missed.mp4",
             "seconds": 70
+          }
+        },
+        {
+          "text": "The call ended with “I'll send you my contact info and pricing” and “when can I follow up without being annoying?” The owner said she was just finding out more. There was no agreed decision step and no calendar invite.",
+          "source": "Hot For Yoga demo",
+          "clip": {
+            "src": "/content/videos/ja6-4-missed-b.mp4",
+            "seconds": 58
           }
         }
       ],
@@ -241,6 +265,14 @@ export const JA6_TRAINING = {
         {
           "text": "The AE walked the quote and contract terms before she signed and pointed out the contract end date and auto-renewal himself. He also offered two quotes, with and without video on demand, so she could choose.",
           "source": "Suave Studio demo"
+        },
+        {
+          "text": "Asked how the contract ends, the AE explained it plainly: a one-year term that auto-renews, 30 days' notice to cancel, and the price locked for the term. He also said the contract allows a price change at renewal. Note: his line that prices have never gone up is not confirmed; don't repeat it.",
+          "source": "Comova, closing call",
+          "clip": {
+            "src": "/content/videos/ja6-5-good-b.mp4",
+            "seconds": 72
+          }
         }
       ],
       "missed": [
@@ -296,6 +328,22 @@ export const JA6_TRAINING = {
             "src": "/content/videos/ja6-6-good.mp4",
             "seconds": 58
           }
+        },
+        {
+          "text": "When the owner asked for less because another vendor was offering a lower price, the AE held the number he had already gotten approved and told her it was the maximum discount. He didn't reopen the price on the call.",
+          "source": "Comova, closing call",
+          "clip": {
+            "src": "/content/videos/ja6-6-good-b.mp4",
+            "seconds": 91
+          }
+        },
+        {
+          "text": "On a large multi-location deal, the lower price was offered only in exchange for a signature by a set date, plus billing pushed out so they wouldn't pay for two systems at once. Every concession came with a get.",
+          "source": "ReformX Pilates, second call (Australian franchise)",
+          "clip": {
+            "src": "/content/videos/ja6-6-good-c.mp4",
+            "seconds": 93
+          }
         }
       ],
       "missed": [
@@ -313,6 +361,14 @@ export const JA6_TRAINING = {
           "clip": {
             "src": "/content/videos/ja6-6-missed-b.mp4",
             "seconds": 112
+          }
+        },
+        {
+          "text": "A rep called a discounted price “no negotiation, the best we can do” and then moved it again twelve minutes later. The partner called out the “we've never done this for anyone” line live. Once a number is called final, moving it costs you credibility.",
+          "source": "ReformX Pilates, second call (Australian franchise)",
+          "clip": {
+            "src": "/content/videos/ja6-6-missed-c.mp4",
+            "seconds": 100
           }
         }
       ],
@@ -358,6 +414,14 @@ export const JA6_TRAINING = {
           "clip": {
             "src": "/content/videos/ja6-7-good.mp4",
             "seconds": 100
+          }
+        },
+        {
+          "text": "After the yes, the AE walked the owner through the sign-up live: create the business account, add a card in billing for the verification charge, and confirm the first charge date. Onboarding can't be booked until a verified card is on file. The e-signature email followed right after.",
+          "source": "Comova, closing call",
+          "clip": {
+            "src": "/content/videos/ja6-7-good-b.mp4",
+            "seconds": 87
           }
         }
       ],

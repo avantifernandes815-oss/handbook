@@ -72,6 +72,14 @@ export const JA8_TRAINING = {
             "src": "/content/videos/ja8-2-good.mp4",
             "seconds": 76
           }
+        },
+        {
+          "text": "When the business partner joined late, the AE paused and reset the agenda for her: where they'd got to, and the two decisions left for this call. Re-anchor whenever a decision-maker joins mid-call.",
+          "source": "ReformX Pilates, second call (Australian franchise)",
+          "clip": {
+            "src": "/content/videos/ja8-2-good-b.mp4",
+            "seconds": 90
+          }
         }
       ],
       "missed": [
@@ -81,6 +89,14 @@ export const JA8_TRAINING = {
           "clip": {
             "src": "/content/videos/ja8-2-missed.mp4",
             "seconds": 128
+          }
+        },
+        {
+          "text": "The AE thanked the owner and handed the call straight to her: “anything spark your interest?” There was no agreed time, agenda or outcome, and the prospect steered the rest of a 90-minute call.",
+          "source": "ReformX Pilates, first call (Australian franchise)",
+          "clip": {
+            "src": "/content/videos/ja8-2-missed-b.mp4",
+            "seconds": 40
           }
         }
       ],
@@ -114,6 +130,14 @@ export const JA8_TRAINING = {
           "clip": {
             "src": "/content/videos/ja8-3-good.mp4",
             "seconds": 150
+          }
+        },
+        {
+          "text": "The AE asked where she sees the business in two to three years (20 locations), then whether her current system can take her there. She answered herself that they had outgrown it. He then named the one remaining concern, the migration, and made that the focus.",
+          "source": "ReformX Pilates, first call (Australian franchise)",
+          "clip": {
+            "src": "/content/videos/ja8-3-good-b.mp4",
+            "seconds": 96
           }
         }
       ],
@@ -175,6 +199,14 @@ export const JA8_TRAINING = {
           "clip": {
             "src": "/content/videos/ja8-4-missed.mp4",
             "seconds": 82
+          }
+        },
+        {
+          "text": "When the owner asked for the starting price, the AE gave it cold: no recap of value, no comparison to what she pays today. When she asked about text message costs, he offered to cover them without asking for anything back.",
+          "source": "ReformX Pilates, first call (Australian franchise)",
+          "clip": {
+            "src": "/content/videos/ja8-4-missed-b.mp4",
+            "seconds": 60
           }
         }
       ],
@@ -262,8 +294,12 @@ export const JA8_TRAINING = {
           }
         },
         {
-          "text": "The AE answered the prospect’s top must-have in the first minute, then demoed against her list.",
-          "source": "Rori Z. demo"
+          "text": "The product rep asked how many locations are franchised and who will own the rest. That answer led straight into the corporate dashboard: same marketing across sites, control over what each location can change, and royalty fees collected automatically. (Screen blurred: it shows a client's lead list.)",
+          "source": "ReformX Pilates, first call (Australian franchise)",
+          "clip": {
+            "src": "/content/videos/ja8-6-good-b.mp4",
+            "seconds": 75
+          }
         }
       ],
       "missed": [
@@ -317,8 +353,12 @@ export const JA8_TRAINING = {
           }
         },
         {
-          "text": "The AE pointed out the contract end date and auto-renew before she signed, so nothing surprised her later.",
-          "source": "Suave Studio demo"
+          "text": "The AE added the partner to the invite, then told the owner what happens on the next call: if they're happy with the price, they'll meet the onboarding team before committing. That set up the next decision and removed a reason to stall.",
+          "source": "ReformX Pilates, first call (Australian franchise)",
+          "clip": {
+            "src": "/content/videos/ja8-7-good-b.mp4",
+            "seconds": 48
+          }
         }
       ],
       "missed": [

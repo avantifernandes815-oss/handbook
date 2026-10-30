@@ -86,6 +86,14 @@ export const JA2_TRAINING = {
             "src": "/content/videos/ja2-2-missed.mp4",
             "seconds": 50
           }
+        },
+        {
+          "text": "Asked to repeat the numbers, the AE quoted the add-ons from memory and the price of the same item changed mid-sentence. The owner had to ask twice what she was actually buying. Building it in the calculator on screen would have kept one clear number.",
+          "source": "Comova, first call",
+          "clip": {
+            "src": "/content/videos/ja2-2-missed-b.mp4",
+            "seconds": 98
+          }
         }
       ],
       "check": {
@@ -131,6 +139,14 @@ export const JA2_TRAINING = {
             "src": "/content/videos/ja2-3-good.mp4",
             "seconds": 77
           }
+        },
+        {
+          "text": "When the partner pushed on price, the product rep asked what they pay their current provider per location and set the new quote against that number, so the gap looked small next to everything they'd get. The figures in this clip are Australian and in two currencies; watch the method, not the numbers.",
+          "source": "ReformX Pilates, second call (Australian franchise)",
+          "clip": {
+            "src": "/content/videos/ja2-3-good-b.mp4",
+            "seconds": 102
+          }
         }
       ],
       "missed": [
@@ -140,6 +156,14 @@ export const JA2_TRAINING = {
           "clip": {
             "src": "/content/videos/ja2-3-missed.mp4",
             "seconds": 68
+          }
+        },
+        {
+          "text": "The AE quoted three package prices first and only then asked what the studio pays today. The answer came after the numbers were already on the table, so it couldn't frame them.",
+          "source": "Hot For Yoga demo",
+          "clip": {
+            "src": "/content/videos/ja2-3-missed-b.mp4",
+            "seconds": 110
           }
         }
       ],
@@ -237,6 +261,14 @@ export const JA2_TRAINING = {
             "src": "/content/videos/ja2-5-good.mp4",
             "seconds": 100
           }
+        },
+        {
+          "text": "The AE asked a budget question about the branded app: are you paying per location? The answer was yes, so he showed that one Momence app covers every location. A multi-location owner's current per-site fees are often your biggest price lever.",
+          "source": "ReformX Pilates, first call (Australian franchise)",
+          "clip": {
+            "src": "/content/videos/ja2-5-good-b.mp4",
+            "seconds": 56
+          }
         }
       ],
       "missed": [
@@ -246,6 +278,14 @@ export const JA2_TRAINING = {
           "clip": {
             "src": "/content/videos/ja2-5-missed.mp4",
             "seconds": 82
+          }
+        },
+        {
+          "text": "The AE offered to leave the AI off some smaller locations to save money. The product rep had to step in to explain that a corporate dashboard works best with the same products on every site, and the owner closed it herself: all locations. Don't unbundle a multi-location quote before they ask.",
+          "source": "ReformX Pilates, second call (Australian franchise)",
+          "clip": {
+            "src": "/content/videos/ja2-5-missed-b.mp4",
+            "seconds": 110
           }
         }
       ],

@@ -359,6 +359,14 @@ export const JA4_TRAINING = {
         {
           "text": "He'd lost members in a past switch to MindBody. The AE answered early and specifically: Momence's team pulls the client file, creates each client's account and matches remaining credits.",
           "source": "Massage Kingdom Spa demo"
+        },
+        {
+          "text": "The owner had been burned by a past switch. Before any timeline talk, the AE offered to introduce the onboarding manager before she commits. The product rep then laid out the plan: build one location, copy it to the rest, and clients just reset their password.",
+          "source": "ReformX Pilates, first call (Australian franchise)",
+          "clip": {
+            "src": "/content/videos/ja4-7-good-b.mp4",
+            "seconds": 98
+          }
         }
       ],
       "missed": [

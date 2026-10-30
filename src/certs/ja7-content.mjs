@@ -21,6 +21,14 @@ export const JA7_TRAINING = {
             "src": "/content/videos/ja7-1-good.mp4",
             "seconds": 108
           }
+        },
+        {
+          "text": "Asked whether she needed the AI to run her marketing, the AE separated the two clearly: marketing automations follow triggers you set, like an abandoned checkout. The AI agent handles the stream of inbound questions, like rescheduling, parking and freezes.",
+          "source": "Comova, first call",
+          "clip": {
+            "src": "/content/videos/ja7-1-good-b.mp4",
+            "seconds": 100
+          }
         }
       ],
       "missed": [
