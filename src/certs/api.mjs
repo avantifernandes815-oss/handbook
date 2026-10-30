@@ -100,7 +100,7 @@ export const ROLEPLAYS = {
   CC5: CC5_ROLEPLAY,
   CC6: CC6_ROLEPLAY,
   CC7: CC7_ROLEPLAY,
-  JAE9: JA9_ROLEPLAY,
+  JAE10: JA9_ROLEPLAY,
   F3: {
     mode: 'lead',
     criteria: [

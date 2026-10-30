@@ -1,4 +1,4 @@
-// JAE9 · Mock Demo — the last step of the mandatory Junior AE path. Roleplay only.
+// JAE10 · Mock Demo — the last step of the mandatory Junior AE path. Roleplay only.
 // The Senior SDR books a full mock demo with their manager once JAE1–JAE8 are passed.
 // The manager plays a prospect drawn from a hidden card. Cards are built from real AE demos in the Junior AE Knowledge Bank.
 
@@ -19,8 +19,8 @@ export const JA9_ROLEPLAY = {
   setup: 'One full demo, about 30–40 minutes, one take. Draw a card and play that prospect. Share the details on the card only when the rep asks for them, and raise the objection and the curveball when they fit naturally.',
   minutes: 45,
   criteria: [
-    {id: 'contract', name: 'Up-front contract and discovery', hint: 'JAE8 · Agreed time, agenda and how the call ends. Found the pain, its cost, the budget and who decides before demoing.'},
-    {id: 'fulfill', name: 'Demo tied to their pain', hint: 'JAE8 · Led with their top need, tied each screen to what they said, skipped what didn’t matter to them.'},
+    {id: 'contract', name: 'Up-front contract and discovery', hint: 'JAE8 · JAE9 · Agreed time, agenda and how the call ends. Found the pain, its cost, the budget and who decides before demoing.'},
+    {id: 'fulfill', name: 'Demo tied to their pain', hint: 'JAE8 · JAE9 · Led with their top need, tied each screen to what they said, skipped what didn’t matter to them.'},
     {id: 'product', name: 'Product knowledge', hint: 'JAE1 · JAE7 · Showed checkout, back end, marketing and the AI accurately and confidently.'},
     {id: 'competitor', name: 'Their current software', hint: 'JAE5 · Acknowledged what works for them, showed where Momence is better, no knocks.'},
     {id: 'pricing', name: 'Plan, quote and payments', hint: 'JAE2 · JAE3 · Anchored to their current total spend, built the quote properly, explained fees clearly.'},
