@@ -1,5 +1,5 @@
 // JAE4 · Migration and Onboarding — step-by-step training content (Junior AE track).
-// Built from the Junior AE Knowledge Bank; unconfirmed numbers are held back until the co-manager answers.
+// Built from the Junior AE Knowledge Bank. The card-export fee, sign-up offer and migration volume follow the co-manager's confirmed answers (Oct 30, 2026); onboarding length is still unconfirmed.
 
 export const JA4_TRAINING = {
   "title": "Migration and Onboarding",
@@ -11,7 +11,7 @@ export const JA4_TRAINING = {
     {
       "title": "What comes over",
       "why": "Owners decide whether to switch based on what they might lose. A vague answer makes them assume the worst.",
-      "idea": "Momence's team brings over the studio's client list, and demos agree that remaining credits are matched too. How much detail comes with each client depends on the old system and what its export includes. Visit history, client logins and tags on migrated clients are still being confirmed, so don't promise them. Say what's certain, then say onboarding will confirm the rest.",
+      "idea": "Momence's team brings over the studio's client list, and demos agree that remaining credits are matched too. How much detail comes with each client depends on the old system and what its export includes. The team has a migration guide for each source software. Visit history, client logins and tags on migrated clients are still being confirmed, so don't promise them. Say what's certain, then say onboarding will confirm the rest.",
       "say": "“Your client list comes over, and our team matches what people have left on their packages. The finer detail depends on what your current system exports, and onboarding confirms that with you.”",
       "good": [
         {
@@ -59,7 +59,7 @@ export const JA4_TRAINING = {
         },
         {
           "label": "Detail depends on export",
-          "text": "How much detail comes with each client depends on the old system and what its export includes."
+          "text": "How much detail comes with each client depends on the old system and what its export includes. The team has a migration guide for each source software."
         },
         {
           "label": "Unconfirmed migration details",
@@ -84,8 +84,8 @@ export const JA4_TRAINING = {
     {
       "title": "Stored cards",
       "why": "Stored cards are the piece most likely to go wrong, and owners dread chasing every member for a card.",
-      "idea": "Stored cards aren't guaranteed. They depend on the old provider releasing the card data, usually through a separate export file the studio requests. Some providers charge for that file. The amounts are being confirmed, so don't quote a fee. Cards are also the slowest part of a migration, and some owners choose to bring over only the client list and collect cards again.",
-      "say": "“Your client list comes over either way. Cards depend on your current provider releasing them, so I won't promise every card. Onboarding walks you through that export.”",
+      "idea": "Stored cards aren't guaranteed. They depend on the old provider releasing the card data, usually through a separate export file the studio requests. The card-export fee depends on the software and is about $500. MindBody, WellnessLiving and Glofox all charge for it. Cards are also the slowest part of a migration, and some owners choose to bring over only the client list and collect cards again.",
+      "say": "“Your client list comes over either way. Cards depend on your current provider releasing them, and depending on your software that file can cost about $500, so I won't promise every card. Onboarding walks you through that export.”",
       "good": [
         {
           "text": "The AE said the team would export her Arketa data and that cards might need to be captured again. She chose to bring over the client list only, and the AE confirmed that's a simple contact export.",
@@ -127,12 +127,8 @@ export const JA4_TRAINING = {
           "text": "They depend on the old provider releasing the card data, usually through a separate export file the studio requests."
         },
         {
-          "label": "Some providers charge",
-          "text": "Some providers charge for that file."
-        },
-        {
-          "label": "Don't quote a fee",
-          "text": "The amounts are being confirmed, so don't quote a fee."
+          "label": "Card-export fee",
+          "text": "The card-export fee depends on the software and is about $500. MindBody, WellnessLiving and Glofox all charge for it."
         },
         {
           "label": "Cards are slowest",
@@ -291,7 +287,7 @@ export const JA4_TRAINING = {
     {
       "title": "Plan around the renewal",
       "why": "A switch timed to the current contract avoids a rushed launch and paying for two systems longer than needed.",
-      "idea": "Ask when the current contract renews or ends, early in discovery. Then plan backwards from it: sign, build during the time left, and set the conversion date before the renewal. If the owner doesn't know the date, make checking it a next step. Offers to cover the overlap, like free months, are policy and change, so check with your manager before you offer anything.",
+      "idea": "Ask when the current contract renews or ends, early in discovery. Then plan backwards from it: sign, build during the time left, and set the conversion date before the renewal. If the owner doesn't know the date, make checking it a next step. The sign-up offer is usually the first month free, depending on that month's promotion. Near year end there's usually no free month if the first bill lands after January 1. Anything beyond that offer, like extra free months to cover the overlap, goes to your manager before you offer it.",
       "say": "“When does your current contract renew? Let's work backwards from that so you're live on Momence before it does.”",
       "good": [
         {
@@ -338,8 +334,12 @@ export const JA4_TRAINING = {
           "text": "If the owner doesn't know the date, make checking it a next step."
         },
         {
+          "label": "Sign-up offer",
+          "text": "The sign-up offer is usually the first month free, depending on that month's promotion. Near year end there's usually no free month if the first bill lands after January 1."
+        },
+        {
           "label": "Overlap offers need approval",
-          "text": "Offers to cover the overlap, like free months, are policy and change, so check with your manager before you offer anything."
+          "text": "Anything beyond that offer, like extra free months to cover the overlap, goes to your manager before you offer it."
         }
       ],
       "voice": [
@@ -433,7 +433,7 @@ export const JA4_TRAINING = {
     {
       "title": "Migration fear",
       "why": "Fear of losing members, data or cards was the most common objection in our demos.",
-      "idea": "Ask what happened last time, or what they're most afraid of losing. Then answer early and specifically: Momence's team moves the data, the old system runs until the switch, and the owner builds with a specialist. Be honest about what isn't guaranteed, like stored cards. Don't calm the fear by knocking the old vendor. Specifics do more.",
+      "idea": "Ask what happened last time, or what they're most afraid of losing. Then answer early and specifically: Momence's team moves the data, the old system runs until the switch, and the owner builds with a specialist. Momence's team moves about 25 MindBody studios a week, about 100 a month. Be honest about what isn't guaranteed, like stored cards. Don't calm the fear by knocking the old vendor. Specifics do more.",
       "say": "“What are you most worried about losing? Let me walk you through exactly what happens to it.”",
       "good": [
         {
@@ -459,7 +459,7 @@ export const JA4_TRAINING = {
       ],
       "missed": [
         {
-          "text": "Asked if cards would come over, the AEs answered honestly but added digs at WellnessLiving: “they'll try to do anything to get you to not switch” and “not the best people to work with.”",
+          "text": "Asked if cards would come over, the AEs answered honestly and added comments about WellnessLiving: “they'll try to do anything to get you to not switch” and “not the best people to work with.” Keep the answer on what the owner can check: the card-export file, its fee, and what happens if some cards don't come over.",
           "source": "105 Fever, third call",
           "clip": {
             "src": "/content/videos/ja4-7-missed.mp4",
@@ -486,6 +486,10 @@ export const JA4_TRAINING = {
         {
           "label": "Answer specifically",
           "text": "Then answer early and specifically: Momence's team moves the data, the old system runs until the switch, and the owner builds with a specialist."
+        },
+        {
+          "label": "Use the numbers",
+          "text": "Momence's team moves about 25 MindBody studios a week, about 100 a month."
         },
         {
           "label": "Be honest on cards",

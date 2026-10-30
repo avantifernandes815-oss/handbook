@@ -1,5 +1,5 @@
 // JAE1 · Core Product — step-by-step training content (Junior AE track).
-// Built from the Junior AE Knowledge Bank; unconfirmed numbers are held back until the co-manager answers.
+// Built from the Junior AE Knowledge Bank. Child accounts, rooms, roadmap answers and the staff app follow the co-manager's confirmed answers (Oct 30, 2026).
 
 export const JA1_TRAINING = {
   "title": "Core Product",
@@ -92,7 +92,7 @@ export const JA1_TRAINING = {
     {
       "title": "Checkout options",
       "why": "Bring-a-friend, waivers and waitlists come up in almost every demo, and each one shows less work for the front desk.",
-      "idea": "Studios write their own checkout questions for each class, and an answer like an injury can tag the client so the instructor sees it on the roster. Waivers are signed inside checkout. Clients can reserve extra spots for friends, who get their own contact record and booking email, and memberships and packs show above the class as upsells. Full classes get a waitlist that either notifies everyone, so the first to claim gets the spot, or offers it to the first person in line.",
+      "idea": "Studios write their own checkout questions for each class, and an answer like an injury can tag the client so the instructor sees it on the roster. Waivers are signed inside checkout. Clients can reserve extra spots for friends, who get their own contact record and booking email, and memberships and packs show above the class as upsells. Full classes get a waitlist that either notifies everyone, so the first to claim gets the spot, or offers it to the first person in line. Child accounts sit under the parent's account, and parents book each child into a class or appointment individually.",
       "say": "“If someone wants to bring a friend, they add a second spot. Your friend's details land in your client list too.”",
       "good": [
         {
@@ -157,6 +157,10 @@ export const JA1_TRAINING = {
         {
           "label": "Waitlist options",
           "text": "Full classes get a waitlist that either notifies everyone, so the first to claim gets the spot, or offers it to the first person in line."
+        },
+        {
+          "label": "Child accounts",
+          "text": "Child accounts sit under the parent's account, and parents book each child into a class or appointment individually."
         }
       ],
       "voice": [
@@ -343,7 +347,7 @@ export const JA1_TRAINING = {
     {
       "title": "Appointments and multi-service",
       "why": "Privates, massage and other services come up even at class studios, and owners with both often run two systems today.",
-      "idea": "Clients pick a service, add-ons that can add time or money, a practitioner or “any,” then a time, and the studio chooses whether time or practitioner comes first. A card on file can hold the booking, with payment taken at the visit. Staff see the day by practitioner or by room (called venues) and can book for someone who calls. A multi-service checkout books several services back to back and blocks each room.",
+      "idea": "Clients pick a service, add-ons that can add time or money, a practitioner or “any,” then a time, and the studio chooses whether time or practitioner comes first. A card on file can hold the booking, with payment taken at the visit. Staff see the day by practitioner or by room (called venues) and can book for someone who calls. A multi-service checkout books several services back to back and blocks each room. Providers are assigned to rooms and booked by availability, so there are no double bookings.",
       "say": "“Your massage therapist and your classes can run in one system, with one client history.”",
       "good": [
         {
@@ -357,7 +361,7 @@ export const JA1_TRAINING = {
       ],
       "missed": [
         {
-          "text": "With more providers than rooms on weekends, the spa owner asked whether rooms could block and be prioritized. The AE couldn't say and committed to confirm. He didn't overpromise, but it's the kind of question to know before a spa demo. The answer is still being confirmed.",
+          "text": "With more providers than rooms on weekends, the spa owner asked whether rooms could block and be prioritized. The AE couldn't say and committed to confirm. He didn't overpromise, but it's the kind of question to know before a spa demo. The answer: providers are assigned to rooms and booked by availability, so a room is never double-booked.",
           "source": "Purity Day Spa demo",
           "clip": {
             "src": "/content/videos/ja1-5-missed-o1.mp4",
@@ -400,6 +404,10 @@ export const JA1_TRAINING = {
         {
           "label": "Multi-service checkout",
           "text": "A multi-service checkout books several services back to back and blocks each room."
+        },
+        {
+          "label": "Rooms and providers",
+          "text": "Providers are assigned to rooms and booked by availability, so there are no double bookings."
         }
       ],
       "voice": [
@@ -519,7 +527,7 @@ export const JA1_TRAINING = {
       ],
       "missed": [
         {
-          "text": "The prospect said Arketa's natural-language reporting was what kept her there. After showing one report, the AE said it's on the roadmap with no date. Roadmap answers need confirming before you give them.",
+          "text": "The prospect said Arketa's natural-language reporting was what kept her there. After showing one report, the AE said it's on the roadmap with no date. Check Productboard before the call. If it shows a quarter for the feature, you can quote the quarter, never a month or a day.",
           "source": "Sol Space demo",
           "clip": {
             "src": "/content/videos/ja1-7-missed.mp4",
@@ -608,7 +616,7 @@ export const JA1_TRAINING = {
       ],
       "missed": [
         {
-          "text": "Asked about a business app for staff, the AE said a native one is coming “within the next couple of months” at no extra cost. That's an unconfirmed roadmap promise. Done well shows the right answer.",
+          "text": "Asked about a business app for staff, the AE said a native one is coming “within the next couple of months” at no extra cost. Roadmap timing comes from Productboard, and you quote it only as a quarter, never a month or a date. Done well shows the right answer.",
           "source": "Alli F. demo",
           "clip": {
             "src": "/content/videos/ja1-8-missed.mp4",

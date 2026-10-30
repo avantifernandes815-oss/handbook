@@ -35,28 +35,28 @@
    "id": "JAE4-A2",
    "section": "A",
    "kind": "knowledge",
-   "topic": "Stored cards",
-   "prompt": "Which part of a migration is the slowest and least certain?",
+   "topic": "Card-export fee",
+   "prompt": "A MindBody studio asks if it costs anything to bring members' stored cards over. What's accurate?",
    "options": [
     {
      "id": "A",
-     "text": "Bringing over the client list and contact details"
+     "text": "No. Momence's team moves the cards from MindBody at no cost"
     },
     {
      "id": "B",
-     "text": "Matching the old class schedule's times in Momence"
+     "text": "Only Momence charges, as a one-time fee for the migration"
     },
     {
      "id": "C",
-     "text": "Moving stored cards out of the old provider"
+     "text": "Yes. MindBody charges a card-export fee, usually about $500"
     },
     {
      "id": "D",
-     "text": "Sending clients a link to the free Momence app"
+     "text": "No. MindBody releases its card file free to any studio leaving"
     }
    ],
    "correct": "C",
-   "reveal": "Cards depend on the old provider releasing them, usually through a separate export file. That's why you never promise every card.",
+   "reveal": "The card-export fee depends on the software and is about $500. MindBody, WellnessLiving and Glofox all charge for it.",
    "review": "/training/JAE4",
    "source": "JAE4 training"
   },
@@ -85,7 +85,7 @@
     }
    ],
    "correct": "B",
-   "reveal": "Card data comes through the old provider's export. Some charge for it, and the fees are being confirmed, so don't quote one.",
+   "reveal": "Card data comes through the old provider's export. The fee depends on the software, about $500, and MindBody, WellnessLiving and Glofox all charge for it.",
    "review": "/training/JAE4",
    "source": "JAE4 training"
   },
@@ -400,11 +400,11 @@
     },
     {
      "id": "D",
-     "text": "What the old provider will charge for its export"
+     "text": "That every stored card will transfer to Momence"
     }
    ],
    "correct": "B",
-   "reveal": "Timelines, details of the data and old-provider fees are still being confirmed. Who does the migration is the same in every demo.",
+   "reveal": "The onboarding timeline and the finer detail of the data are still being confirmed, and cards depend on the old provider. Who does the migration is the same in every demo.",
    "review": "/training/JAE4",
    "source": "JAE4 training"
   },
