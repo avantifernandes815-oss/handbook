@@ -18,10 +18,12 @@ import bankCC5 from './bank-cc5.json' with {type: 'json'};
 import {CC5_TRAINING, CC5_ROLEPLAY} from './cc5-content.mjs';
 import bankCC6 from './bank-cc6.json' with {type: 'json'};
 import {CC6_TRAINING, CC6_ROLEPLAY} from './cc6-content.mjs';
+import bankJA8 from './bank-ja8.json' with {type: 'json'};
+import {JA8_TRAINING} from './ja8-content.mjs';
 import {CC7_ROLEPLAY} from './cc7-content.mjs';
 
-const BANKS = {F1: bankF1, F2: bankF2, F3: bankF3, F4: bankF4, CC1: bankCC1, CC2: bankCC2, CC3: bankCC3, CC4: bankCC4, CC5: bankCC5, CC6: bankCC6};
-export const TRAININGS = {CC1: CC1_TRAINING, CC2: CC2_TRAINING, CC3: CC3_TRAINING, CC4: CC4_TRAINING, CC5: CC5_TRAINING, CC6: CC6_TRAINING};
+const BANKS = {F1: bankF1, F2: bankF2, F3: bankF3, F4: bankF4, CC1: bankCC1, CC2: bankCC2, CC3: bankCC3, CC4: bankCC4, CC5: bankCC5, CC6: bankCC6, JA8: bankJA8};
+export const TRAININGS = {CC1: CC1_TRAINING, CC2: CC2_TRAINING, CC3: CC3_TRAINING, CC4: CC4_TRAINING, CC5: CC5_TRAINING, CC6: CC6_TRAINING, JA8: JA8_TRAINING};
 // Default entry fields for training applications and rapid roleplays (CC1 shape).
 const DEFAULT_FIELDS = [{key: 'business', label: 'Business', kind: 'input', required: true}, {key: 'note', label: 'SDR Additional Note', kind: 'input', required: true}, {key: 'opener', label: 'Your opener', kind: 'textarea', required: true, optionalFor: ['Cold']}];
 const cleanEntry = (fields, raw, type) => { const o = {type}; for (const f of fields) { let v = clip(raw?.[f.key], f.kind === 'textarea' ? 1200 : 600).trim(); if (f.kind === 'select' && v && !f.options.includes(v)) v = ''; o[f.key] = v; } return o; };
@@ -584,8 +586,15 @@ async function saveTraining(env, me, certId, body) {
   const fields = app?.fields || DEFAULT_FIELDS;
   const openers = (app?.slots || []).map((slot, i) => cleanEntry(fields, raw[i], slot.type));
   const content = {openers};
+  // Step-format trainings (Junior AE track) keep each quick-check answer so the rep can pick up where they left off.
+  const steps = st.def.format === 'steps' ? st.def.steps : null;
+  if (steps) {
+    const raw = Array.isArray(body.content?.checks) ? body.content.checks : [];
+    content.checks = steps.map((s, i) => { const v = raw[i]; return Number.isInteger(v) && v >= 0 && v < s.check.options.length ? v : null; });
+  }
   const t = nowIso();
   const complete = !!body.complete;
+  if (complete && steps && content.checks.some(v => v === null)) return json({error: 'incomplete', message: 'Answer the quick check on every step first.'}, 400);
   if (complete) {
     const bad = openers.findIndex(o => entryMissing(fields, o, app?.textMin));
     if (bad >= 0) { const f = entryMissing(fields, openers[bad], app?.textMin); return json({error: 'incomplete', message: `Finish ${app?.fields ? 'lead' : 'opener'} ${bad + 1}: ${f.kind === 'textarea' ? 'write the full ' + f.label.replace(/^Your /, '').toLowerCase() : 'add the ' + f.label.toLowerCase()}.`, index: bad}, 400); }

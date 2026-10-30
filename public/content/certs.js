@@ -172,9 +172,9 @@ const ROLE_NAMES = {sdr: 'SDR', senior_sdr: 'Senior SDR', manager: 'Manager', ad
       const inner = '<div class="cx-ico ' + (live(c) ? 'done' : 'off') + '">' + esc(c.id) + '</div><div class="cx-body"><b>' + esc(c.name) + '</b><small>' + esc(meta(c)) + '</small><span class="cx-chip ' + (live(c) ? 'ok' : 'off') + '">' + (live(c) ? 'Live' : 'Not built yet') + '</span>' + (live(c) ? '<span class="cx-more">View content →</span>' : '') + '</div>';
       return live(c) ? '<a class="cx-tile" href="#" data-cx-cert="' + esc(c.id) + '">' + inner + '</a>' : '<div class="cx-tile locked">' + inner + '</div>';
     };
-    const groups = [['foundation', 'Foundation', 'Onboarding · Required to go live'], ['cold_calling', 'Cold Calling track', 'Taken in order'], ['skills', 'Skills', 'Before applying for Senior SDR']];
+    const groups = [['foundation', 'Foundation', 'Onboarding · Required to go live'], ['cold_calling', 'Cold Calling track', 'Taken in order'], ['skills', 'Skills', 'Before applying for Senior SDR'], ['junior_ae', 'Junior AE track', 'Opens at Senior SDR · suggested order']];
     main.innerHTML = titleRow('manager') + '<p>Manager view · What every certification tests, with answers and scoring keys. Reps never see this view.</p>' +
-      groups.map(([track, title, note]) => '<section class="cx-group"><div class="cx-group-h"><h2>' + title + '</h2><span>' + note + '</span></div><div class="cx-grid2">' + data.certs.filter(c => c.track === track).map(tile).join('') + '</div></section>').join('');
+      groups.filter(([track]) => data.certs.some(c => c.track === track)).map(([track, title, note]) => '<section class="cx-group"><div class="cx-group-h"><h2>' + title + '</h2><span>' + note + '</span></div><div class="cx-grid2">' + data.certs.filter(c => c.track === track).map(tile).join('') + '</div></section>').join('');
     icons(); main.scrollTop = 0; window.scrollTo(0, 0);
   }
 
@@ -195,7 +195,7 @@ const ROLE_NAMES = {sdr: 'SDR', senior_sdr: 'Senior SDR', manager: 'Manager', ad
       ['Pass mark', Math.round((c.passMark || .8) * 100) + '% on the quiz' + ((pr || rp) ? ' · scored parts need an average of 3+ with every must-pass met' : '')],
       ['Leaving the tab', 'First time: warning · Second time: attempt voided, locked ' + d.lockHours + ' hours'],
       ['Retakes', c.track === 'foundation' ? 'Day 10, then Monday · a third fail goes to performance management' : 'After a coaching session with their manager · no attempt limit'],
-      d.training ? ['Training', 'A ' + d.training.sections.filter(x => x.title).length + '-part training page, done before the quiz unlocks'] : null,
+      d.training ? ['Training', d.training.format === 'steps' ? d.training.steps.length + ' short steps, one per screen, each with a quick check. Done before the quiz unlocks' : 'A ' + d.training.sections.filter(x => x.title).length + '-part training page, done before the quiz unlocks'] : null,
       c.day ? ['Onboarding day', 'Day ' + c.day] : null
     ].filter(Boolean);
     const rulesHtml = '<section class="cx-panel">' + rules.map(r => '<div class="cx-rule"><span>' + esc(r[0]) + '</span><strong>' + esc(r[1]) + '</strong></div>').join('') + '</section>';
@@ -220,7 +220,9 @@ const ROLE_NAMES = {sdr: 'SDR', senior_sdr: 'Senior SDR', manager: 'Manager', ad
     }
     const T = d.training, tbl = x => '<div class="cx-scroll"><table class="cx-ttbl"><tr>' + x.head.map(h => '<th>' + esc(h) + '</th>').join('') + '</tr>' + x.rows.map(r => '<tr>' + r.map(c => '<td>' + esc(c) + '</td>').join('') + '</tr>').join('') + '</table></div>';
     const tHead = x => '<div class="cx-k" style="color:var(--purple);margin-top:22px">' + esc(x.label || '') + '</div>' + (x.title ? '<h2 class="cx-th">' + esc(x.title) + '</h2>' : '') + (x.body ? '<p class="cx-sub" style="font-size:13px">' + esc(x.body) + '</p>' : '');
-    const trainHtml = !T ? '' : '<p class="cx-sub" style="font-size:13px">What reps work through before the quiz unlocks. The try-it exercises are shown with their answers.' + ' <a style="color:var(--purple);font-weight:700;text-decoration:none" href="/training/' + encodeURIComponent(c.id) + '" target="_top">Open the page as a rep sees it →</a></p>' + T.sections.map(x => {
+    const stepsHtml = T && T.format === 'steps' ? T.steps.map((x, k) => '<div class="cx-k" style="color:var(--purple);margin-top:22px">STEP ' + (k + 1) + '</div><h2 class="cx-th">' + esc(x.title) + '</h2><p class="cx-sub" style="font-size:13px"><b>' + esc(x.why) + '</b> ' + esc(x.idea) + '</p><p class="cx-sub" style="font-size:13px"><b>Try saying:</b> ' + esc(x.say) + '</p>' +
+      '<div class="cx-hidden" style="margin-top:10px"><p><b>Done well:</b> ' + esc(x.good.text) + ' <small>(' + esc(x.good.source) + ')</small></p><p><b>Missed:</b> ' + esc(x.missed.text) + ' <small>(' + esc(x.missed.source) + ')</small></p><p><b>Quick check:</b> ' + esc(x.check.prompt) + '<br>Answer: <b>' + esc(x.check.options[x.check.answer]) + '</b>. ' + esc(x.check.why) + '</p></div>').join('') : '';
+    const trainHtml = !T ? '' : '<p class="cx-sub" style="font-size:13px">What reps work through before the quiz unlocks. The try-it exercises are shown with their answers.' + ' <a style="color:var(--purple);font-weight:700;text-decoration:none" href="/training/' + encodeURIComponent(c.id) + '" target="_top">Open the page as a rep sees it →</a></p>' + stepsHtml + T.sections.map(x => {
       if (x.type === 'why' && x.quote) return tHead(x) + '<div class="cx-panel" style="margin:0"><b>' + esc(x.quote) + '</b></div>';
       if (x.type === 'tabs') return tHead(x) + x.items.map(it => '<div class="cx-k" style="margin-top:12px">' + esc(it.name) + '</div>' + tbl({head: ['', ''], rows: it.rows})).join('');
       if (x.type === 'cards') return tHead(x) + tbl({head: ['Check', 'When', 'Sounds like'], rows: x.items.map(k => [k.title, k.sub, k.quote])}) + (x.after ? '<p class="cx-sub" style="font-size:13px;margin-top:8px">' + esc(x.after) + '</p>' : '');
@@ -237,12 +239,26 @@ const ROLE_NAMES = {sdr: 'SDR', senior_sdr: 'Senior SDR', manager: 'Manager', ad
       return '';
     }).join('');
     const tabs = [['rules', 'Rules & format'], T ? ['training', 'Training page'] : null, d.questions.length ? ['bank', 'Quiz questions (' + d.questions.length + ')'] : null, keys ? ['keys', rp && pr ? 'Scorecards & keys' : rp ? 'Scorecard & cards' : 'Rubric & key'] : null].filter(Boolean);
-    const groupName = {foundation: 'FOUNDATION', cold_calling: 'COLD CALLING', skills: 'SKILLS'}[c.track] || '';
+    const groupName = {foundation: 'FOUNDATION', cold_calling: 'COLD CALLING', skills: 'SKILLS', junior_ae: 'JUNIOR AE TRACK'}[c.track] || '';
     main.innerHTML = '<button class="cx-link" data-cert-page="certifications">← All certifications</button><div class="label" style="margin-top:14px">' + groupName + ' · MANAGER VIEW</div>' +
       '<div class="cx-titlerow"><h1>' + esc(c.id + ' · ' + c.name) + '</h1><span class="cx-chip ok">Live' + (c.day ? ' · Day ' + c.day : '') + '</span></div><p>' + esc(c.summary || '') + '</p>' +
       '<div class="cx-tabs" role="tablist">' + tabs.map((t, i) => '<button role="tab" data-cx-tab="' + t[0] + '" aria-selected="' + !i + '"' + (i ? '' : ' class="on"') + '>' + esc(t[1]) + '</button>').join('') + '</div>' +
       '<div data-cx-pane="rules">' + rulesHtml + '</div>' + (T ? '<div data-cx-pane="training" hidden>' + trainHtml + '</div>' : '') + (d.questions.length ? '<div data-cx-pane="bank" hidden>' + bankHtml + '</div>' : '') + (keys ? '<div data-cx-pane="keys" hidden>' + keys + '</div>' : '');
     icons(); main.scrollTop = 0; window.scrollTo(0, 0);
+  }
+
+  // Junior AE track: real cert tiles once any exist; locked until a manager marks the SDR Senior SDR.
+  function juniorAe() {
+    const open = ['senior_sdr', 'manager', 'admin'].includes(me.level), list = data.certs.filter(c => c.track === 'junior_ae');
+    const head = '<section class="cx-group"><div class="cx-group-h"><h2>Junior AE track</h2><span>' + (open ? (me.level === 'senior_sdr' ? 'Unlocked · you’re a Senior SDR' : 'Unlocked') : 'Your next step after Senior SDR') + '</span></div><div class="cx-grid2">';
+    if (!list.length) return head + '<div class="cx-tile' + (open ? '' : ' locked') + '"><div class="cx-ico ' + (open ? 'go' : 'off') + '">AE</div><div class="cx-body"><b>Verticals, product, Competitor L2, discovery</b><small>Bite-sized certifications</small><span class="cx-chip ' + (open ? 'ok">Unlocked · first certifications coming soon' : 'off">Unlocks when your manager marks you Senior SDR') + '</span></div></div></div></section>';
+    const tile = c => {
+      if (!open) return '<div class="cx-tile locked"><div class="cx-ico off">' + esc(c.id) + '</div><div class="cx-body"><b>' + esc(c.name) + '</b><small>' + esc(formatOf(c)) + '</small><span class="cx-chip off">Unlocks at Senior SDR</span></div></div>';
+      const s = certState(c);
+      const inner = '<div class="cx-ico ' + s.ico + '">' + esc(c.id) + '</div><div class="cx-body"><b>' + esc(c.name) + '</b><small>' + esc(formatOf(c)) + '</small><span class="cx-chip ' + s.chip + '">' + esc(s.label) + '</span></div>';
+      return s.action ? '<a class="cx-tile focus" href="' + (s.url || quizUrl(c.id)) + '" target="_top">' + inner + '</a>' : '<div class="cx-tile' + (s.locked ? ' locked' : '') + '">' + inner + '</div>';
+    };
+    return head + list.map(tile).join('') + '</div></section>';
   }
 
   function renderPath() {
@@ -269,7 +285,7 @@ const ROLE_NAMES = {sdr: 'SDR', senior_sdr: 'Senior SDR', manager: 'Manager', ad
       '<section class="cx-card cx-sum"><div class="cx-bar"><div class="cx-bar-l"><span>' + passed + ' of ' + tracked.length + ' certifications passed</span><span>Senior SDR path</span></div><div class="cx-track"><i style="width:' + Math.round(passed / Math.max(1, tracked.length) * 100) + '%"></i></div></div>' +
       '<div class="cx-badges" aria-label="Foundation badges">' + data.certs.filter(c => c.track === 'foundation').map(c => '<div class="cx-badge' + (data.progress[c.id]?.status === 'passed' ? ' on' : '') + '" title="' + esc(c.name) + '">' + esc(c.id) + '</div>').join('') + '</div></section>' +
       groups.map(([track, title, note]) => '<section class="cx-group"><div class="cx-group-h"><h2>' + title + '</h2><span>' + note + '</span></div><div class="cx-grid2">' + data.certs.filter(c => c.track === track).map(tile).join('') + '</div></section>').join('') +
-      '<section class="cx-group"><div class="cx-group-h"><h2>Junior AE track</h2><span>' + (me.level === 'senior_sdr' ? 'Unlocked · you’re a Senior SDR' : 'Your next step after Senior SDR') + '</span></div><div class="cx-grid2"><div class="cx-tile' + (me.level === 'senior_sdr' ? '' : ' locked') + '"><div class="cx-ico ' + (me.level === 'senior_sdr' ? 'go' : 'off') + '">AE</div><div class="cx-body"><b>Verticals, product, Competitor L2, discovery</b><small>Bite-sized certifications</small><span class="cx-chip ' + (me.level === 'senior_sdr' ? 'ok">Unlocked · first certifications coming soon' : 'off">Unlocks when your manager marks you Senior SDR') + '</span></div></div></div></section>' +
+      juniorAe() +
       '<section class="cx-elig"><h2>Senior SDR eligibility</h2><p>Promotion also depends on performance. Your manager confirms that part.</p><div class="cx-grid2">' +
       '<div><span>Foundation</span><strong>' + count('foundation') + '</strong></div><div><span>Cold Calling track</span><strong>' + count('cold_calling') + '</strong></div>' +
       '<div><span>List Building</span><strong>' + (lb && data.progress.LB?.status === 'passed' ? 'Passed' : 'Not started') + '</strong></div><div><span>3 months at quota after ramp</span><strong>Manager confirms</strong></div></div></section>';

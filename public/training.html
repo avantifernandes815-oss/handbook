@@ -43,6 +43,45 @@
 .tr-row:first-child{border-top:0}
 .tr-row small{display:block;color:var(--sub);font-size:12px;margin-top:6px;line-height:1.4}
 .tr-done{background:#eef8f2;border:1px solid #9bd3b5;border-radius:14px;padding:14px 18px;font-size:14px;color:#1f5c3c;margin-bottom:18px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.st-pills{display:flex;gap:8px;margin:16px 0 22px;flex-wrap:wrap}
+.st-pills button{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:13px;font-weight:700;color:var(--sub);background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer}
+.st-pills button:disabled{cursor:default;opacity:.55}
+.st-pills i{width:20px;height:20px;border-radius:50%;background:#f2f1f6;display:inline-flex;align-items:center;justify-content:center;font-style:normal;font-size:11px}
+.st-pills .on{border-color:var(--purple);color:var(--purple)}.st-pills .on i{background:var(--purple);color:#fff}
+.st-pills .done{color:var(--ok)}.st-pills .done i{background:var(--ok-bg);color:var(--ok)}
+.st-pills .lbl{display:none}.st-pills .on .lbl{display:inline}
+.st-bar{display:none;height:6px;background:var(--line);border-radius:6px;overflow:hidden;margin:14px 0 16px}.st-bar i{display:block;height:100%;background:var(--purple)}
+.st-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:32px}
+.st-k{font-size:11px;letter-spacing:1px;font-weight:700;color:var(--purple);text-transform:uppercase}
+.st-card h2{font-family:Nunito,Arial,sans-serif;font-size:28px;line-height:1.15;margin:6px 0 10px}
+.st-why{font-size:15px;color:var(--sub);margin:0 0 22px;line-height:1.55;max-width:62ch}
+.st-idea{font-size:15px;color:var(--body);line-height:1.6;margin:0 0 18px;max-width:64ch}
+.st-say{border:1px dashed var(--purple);border-radius:14px;padding:14px 16px;margin:0 0 20px;font-size:14px;line-height:1.5}
+.st-say b{display:block;font-size:11px;letter-spacing:.8px;text-transform:uppercase;color:var(--purple);margin-bottom:4px}
+.st-tabs{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}
+.st-tabs button{font:inherit;font-size:12px;font-weight:700;padding:6px 12px;border-radius:20px;border:1px solid var(--line);background:var(--paper);color:var(--sub);cursor:pointer}
+.st-tabs button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.st-ex{background:var(--page);border-radius:14px;padding:16px 18px;font-size:14px;line-height:1.55;margin-bottom:26px}
+.st-ex small{display:block;font-size:12px;color:var(--sub);margin-top:6px}
+.st-ex.good{border-left:3px solid var(--ok)}.st-ex.missed{border-left:3px solid #b42318}
+.st-check{border-top:1px solid var(--line);padding-top:22px}
+.st-check h3{font-family:Nunito,Arial,sans-serif;font-size:17px;margin:0 0 4px}
+.st-check .q{margin:0 0 14px;font-size:14px;color:var(--body);line-height:1.55}
+.st-opts{display:grid;gap:8px}
+.st-opt{display:flex;gap:12px;align-items:flex-start;text-align:left;font:inherit;font-size:14px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;line-height:1.45}
+.st-opt:hover:not(:disabled){border-color:var(--purple)}.st-opt:disabled{cursor:default}
+.st-opt .lt{flex:0 0 24px;height:24px;border-radius:7px;background:var(--soft);color:var(--purple);font-weight:700;font-size:12px;display:grid;place-items:center}
+.st-opt.right{border-color:var(--ok);background:var(--ok-bg)}.st-opt.right .lt{background:var(--ok);color:#fff}
+.st-opt.wrong{border-color:#b42318;background:#fdecea}.st-opt.wrong .lt{background:#b42318;color:#fff}
+.st-rev{margin-top:12px;padding:14px 16px;border-radius:12px;background:var(--soft);font-size:14px;line-height:1.5}.st-rev b{color:var(--purple)}
+.st-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:26px;flex-wrap:wrap}
+.st-back{font:inherit;font-size:14px;color:var(--sub);background:none;border:0;cursor:pointer;padding:8px 4px}
+.st-hint{font-size:12px;color:var(--sub)}
+.st-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:18px 0 24px}
+.st-grid div{background:var(--page);border-radius:12px;padding:12px;font-size:13px}.st-grid b{display:block;font-size:11px;color:var(--purple)}
+.st-facts{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--sub);margin-bottom:8px}.st-facts b{color:var(--ink)}
+.st-score{font-family:Nunito,Arial,sans-serif;font-size:44px;color:var(--purple);font-weight:800;margin:4px 0}
+@media (max-width:760px){.st-pills{display:none}.st-bar{display:block}.st-card{padding:22px}.st-card h2{font-size:23px}.st-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:760px){.tr-stats{grid-template-columns:1fr}.tr-slots{grid-template-columns:1fr 1fr}.tr-kill{grid-template-columns:1fr}.tr-row{grid-template-columns:1fr;gap:8px}}
 </style>
 </head>
@@ -82,7 +121,7 @@ async function load() {
 }
 function stepper() {
   const c = S.progress.components;
-  const steps = [['Training', c.training === 'passed'], ['Quiz', c.quiz === 'passed'], ['Live roleplay', c.roleplay === 'passed']];
+  const steps = [['Training', c.training === 'passed'], ['Quiz', c.quiz === 'passed'], ['Live roleplay', c.roleplay === 'passed']].filter(x => x[0] !== 'Live roleplay' || S.cert.components.includes('roleplay'));
   const on = steps.findIndex(x => !x[1]);
   return '<div class="cc-steps">' + steps.map((x, i) => '<span class="cc-step' + (x[1] ? ' done' : i === on ? ' on' : '') + '"><i>' + (x[1] ? '✓' : i + 1) + '</i>' + x[0] + '</span>').join('') + '</div>';
 }
@@ -150,10 +189,11 @@ function nextBtn(ready) {
 function render() {
   const preview = S.missingPrereqs.length && S.canPreview;
   if (S.missingPrereqs.length && !preview) {
-    app.innerHTML = '<a class="crumb" href="/#page=certifications">← Your path</a><div class="eyebrow" style="margin-top:14px">' + esc(S.cert.id) + '</div><h1>' + esc(S.def.title) + '</h1><section class="panel"><h2>Not unlocked yet</h2><p class="sub" style="font-size:14px">Pass ' + esc(S.missingPrereqs.join(', ')) + ' first.</p></section>';
+    app.innerHTML = '<a class="crumb" href="/#page=certifications">← Your path</a><div class="eyebrow" style="margin-top:14px">' + esc(S.cert.id) + '</div><h1>' + esc(S.def.title) + '</h1><section class="panel"><h2>Not unlocked yet</h2><p class="sub" style="font-size:14px">' + (S.missingPrereqs.includes('Senior SDR') ? 'The Junior AE track opens once your manager marks you Senior SDR.' : 'Pass ' + esc(S.missingPrereqs.join(', ')) + ' first.') + '</p></section>';
     return;
   }
-  const label = {cold_calling: 'COLD CALLING', skills: 'SKILLS', foundation: 'FOUNDATION'}[S.cert.track] || '';
+  const label = {cold_calling: 'COLD CALLING', skills: 'SKILLS', foundation: 'FOUNDATION', junior_ae: 'JUNIOR AE TRACK'}[S.cert.track] || '';
+  if (S.def.format === 'steps') return renderSteps(label, preview);
   let html = '<a class="crumb" href="/#page=certifications">← Your path</a><div class="eyebrow" style="margin-top:14px">' + label + ' · ' + esc(S.cert.id) + '</div><h1>' + esc(S.def.title) + '</h1><p class="intro">' + esc(S.def.summary) + '</p>' + stepper();
   if (preview) html += '<div class="tr-done" style="background:#fff8e6;border-color:#f3dfa8;color:#5c4400"><span><b>Manager preview.</b> This is the page as a rep sees it. Your own path hasn’t unlocked it, so nothing here saves.</span></div>';
   if (S.completedAt) html += '<div class="tr-done"><span><b>Training done.</b> You can come back to it any time.</span>' + nextBtn(true) + '</div>';
@@ -209,6 +249,64 @@ async function save() {
 async function finish() {
   const b = document.getElementById('finish'); b.disabled = true; b.textContent = 'Saving…'; clearTimeout(timer);
   try { S = await api('/api/training/' + cert, {content: {openers}, complete: true}); location.href = '/quiz/' + cert; }
+  catch (e) { b.disabled = false; b.textContent = 'Finish training & start the quiz'; document.getElementById('err').textContent = e.message; }
+}
+// ---------- step format (Junior AE track): one idea per screen, a quick check on each ----------
+const ST = {i: -1, checks: null, tab: {}};
+function stepsDone() { return ST.checks.filter(v => v !== null).length; }
+function firstOpen() { const k = ST.checks.findIndex(v => v === null); return S.completedAt || k < 0 ? S.def.steps.length - 1 : k; }
+function renderSteps(label, preview) {
+  const D = S.def, N = D.steps.length;
+  if (!ST.checks) { const saved = S.content.checks || []; ST.checks = D.steps.map((_, k) => Number.isInteger(saved[k]) ? saved[k] : null); }
+  let html = '<a class="crumb" href="/#page=certifications">← Your path</a><div class="eyebrow" style="margin-top:14px">' + label + ' · ' + esc(S.cert.id) + '</div><h1>' + esc(D.title) + '</h1><p class="intro">Eight short steps with a quick check on each. About ' + esc(D.minutes || 12) + ' minutes.</p>';
+  if (preview) html += '<div class="tr-done" style="background:#fff8e6;border-color:#f3dfa8;color:#5c4400"><span><b>Manager preview.</b> This is the page as a rep sees it. Your own path hasn’t unlocked it, so nothing here saves.</span></div>';
+  if (S.completedAt) html += '<div class="tr-done"><span><b>Training done.</b> You can come back to it any time.</span>' + nextBtn(true) + '</div>';
+  html += '<nav class="st-pills" aria-label="Steps">' + D.steps.map((st, k) => { const done = ST.checks[k] !== null && k !== ST.i, open = k <= firstOpen(); return '<button type="button" data-step="' + k + '" class="' + (k === ST.i ? 'on' : done ? 'done' : '') + '"' + (open ? '' : ' disabled') + ' title="' + esc(st.title) + '"><i>' + (done ? '✓' : k + 1) + '</i><span class="lbl">' + esc(st.title) + '</span></button>'; }).join('') + '</nav>';
+  html += '<div class="st-bar" aria-hidden="true"><i style="width:' + Math.round(stepsDone() / N * 100) + '%"></i></div><section class="st-card" aria-live="polite">' + (ST.i < 0 ? stepIntro() : ST.i >= N ? stepEnd() : stepView(ST.i)) + '</section><p class="err" id="err" role="alert"></p>';
+  app.innerHTML = html;
+  app.querySelectorAll('[data-step]').forEach(b => b.onclick = () => goStep(+b.dataset.step));
+  app.querySelectorAll('[data-opt]').forEach(b => b.onclick = () => answer(+b.dataset.opt, preview));
+  app.querySelectorAll('[data-ex]').forEach(b => b.onclick = () => { ST.tab[ST.i] = b.dataset.ex; render(); });
+  const nx = document.getElementById('stnext'), bk = document.getElementById('stback'), fin = document.getElementById('finish');
+  if (nx) nx.onclick = () => goStep(ST.i + 1);
+  if (bk) bk.onclick = () => goStep(ST.i >= N ? N - 1 : ST.i - 1);
+  if (fin) fin.onclick = preview ? () => { document.getElementById('err').textContent = 'Preview only. Reps finish here and go to the quiz.'; } : finishSteps;
+}
+function goStep(k) { ST.i = Math.max(-1, Math.min(S.def.steps.length, k)); render(); window.scrollTo(0, 0); }
+function stepIntro() {
+  const D = S.def;
+  return '<div class="st-k">Mandatory · Junior AE track</div><h2>' + esc(D.title) + '</h2><p class="st-why">' + esc(D.summary) + '</p>' +
+    '<div class="st-facts"><span><b>' + esc(D.minutes || 12) + '</b> minutes</span><span><b>' + D.steps.length + '</b> quick checks</span><span>Then a <b>' + esc(S.quiz?.questions || 10) + '-question</b> quiz</span></div>' +
+    '<div class="st-grid">' + D.steps.map((x, k) => '<div><b>' + String(k + 1).padStart(2, '0') + '</b>' + esc(x.title) + '</div>').join('') + '</div>' +
+    '<div class="st-foot"><span class="st-hint">Quick checks don’t count toward your score.</span><button class="btn inline" id="stnext">' + (stepsDone() && !S.completedAt ? 'Continue where you left off' : 'Start step 1') + '</button></div>';
+}
+function stepView(k) {
+  const st = S.def.steps[k], N = S.def.steps.length, ans = ST.checks[k], tab = ST.tab[k] || 'good', ex = st[tab];
+  const L = 'ABCD';
+  return '<div class="st-k">Step ' + (k + 1) + ' of ' + N + '</div><h2>' + esc(st.title) + '</h2><p class="st-why">' + esc(st.why) + '</p><p class="st-idea">' + esc(st.idea) + '</p>' +
+    '<div class="st-say"><b>Try saying</b>' + esc(st.say) + '</div>' +
+    '<div class="st-tabs" role="tablist"><button type="button" role="tab" aria-selected="' + (tab === 'good') + '" class="' + (tab === 'good' ? 'on' : '') + '" data-ex="good">Done well</button><button type="button" role="tab" aria-selected="' + (tab === 'missed') + '" class="' + (tab === 'missed' ? 'on' : '') + '" data-ex="missed">Missed</button></div>' +
+    '<div class="st-ex ' + tab + '">' + esc(ex.text) + '<small>From our demos · ' + esc(ex.source) + '</small></div>' +
+    '<div class="st-check"><h3>Quick check</h3><p class="q">' + esc(st.check.prompt) + '</p><div class="st-opts">' +
+    st.check.options.map((o, j) => '<button type="button" class="st-opt' + (ans === null ? '' : j === st.check.answer ? ' right' : j === ans ? ' wrong' : '') + '" data-opt="' + j + '"' + (ans === null ? '' : ' disabled') + '><span class="lt">' + L[j] + '</span><span>' + esc(o) + '</span></button>').join('') + '</div>' +
+    (ans === null ? '' : '<div class="st-rev"><b>' + (ans === st.check.answer ? 'Right.' : 'Not quite.') + '</b> ' + esc(st.check.why) + '</div>') + '</div>' +
+    '<div class="st-foot"><button type="button" class="st-back" id="stback">← Back</button><span class="st-hint">' + (ans === null ? 'Answer the quick check to continue' : '') + '</span><button class="btn inline" id="stnext"' + (ans === null ? ' disabled' : '') + '>' + (k === N - 1 ? 'Finish the steps' : 'Next step') + '</button></div>';
+}
+function stepEnd() {
+  const D = S.def, right = D.steps.filter((st, k) => ST.checks[k] === st.check.answer).length;
+  return '<div class="st-k">Steps complete</div><h2>Ready for the ' + esc(S.cert.id) + ' quiz</h2><div class="st-score">' + right + '/' + D.steps.length + '</div><p class="st-why">Quick checks right. These don’t count. ' + esc(D.quizNote || '') + '</p>' +
+    '<div class="st-foot"><button type="button" class="st-back" id="stback">← Review steps</button>' + (S.completedAt ? nextBtn(true) : '<button class="btn inline" id="finish">Finish training &amp; start the quiz</button>') + '</div>';
+}
+async function answer(j, preview) {
+  if (ST.checks[ST.i] !== null) return;
+  ST.checks[ST.i] = j; render();
+  if (preview) return;
+  try { const r = await api('/api/training/' + cert, {content: {checks: ST.checks}}); S.completedAt = r.completedAt; saved.textContent = 'Saved'; }
+  catch (e) { saved.textContent = 'Not saved: ' + e.message; }
+}
+async function finishSteps() {
+  const b = document.getElementById('finish'); b.disabled = true; b.textContent = 'Saving…';
+  try { await api('/api/training/' + cert, {content: {checks: ST.checks}, complete: true}); location.href = '/quiz/' + cert; }
   catch (e) { b.disabled = false; b.textContent = 'Finish training & start the quiz'; document.getElementById('err').textContent = e.message; }
 }
 if (!cert) app.innerHTML = '<p class="center">Not found.</p>'; else load();

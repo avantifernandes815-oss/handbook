@@ -1,0 +1,586 @@
+{
+ "cert": "JA8",
+ "version": 1,
+ "questions": [
+  {
+   "id": "JA8-A1",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Up-front contract",
+   "prompt": "Ten minutes into a demo, the owner says, “I just want to see the schedule, then I’ll think about it.” Which part of an up-front contract would have prevented the “I’ll think about it”?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Agreeing on how long the call would run before you started"
+    },
+    {
+     "id": "B",
+     "text": "Asking what they wanted to see before you shared your screen"
+    },
+    {
+     "id": "C",
+     "text": "Agreeing up front that a clear yes or no at the end is fine"
+    },
+    {
+     "id": "D",
+     "text": "Confirming which competitor they’re comparing you against"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Most AEs set time and agenda. Agreeing on the ending is what stops “I’ll think about it.”",
+   "review": "/training/JA8",
+   "source": "JA8 training"
+  },
+  {
+   "id": "JA8-A2",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Up-front contract",
+   "prompt": "An owner joins and says, “I only have 20 minutes, not 45.” What’s the best move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Re-set the contract: ask what matters most and agree the next step"
+    },
+    {
+     "id": "B",
+     "text": "Speed through the full demo so they still see every feature"
+    },
+    {
+     "id": "C",
+     "text": "Ask to reschedule for a time when they have the full 45"
+    },
+    {
+     "id": "D",
+     "text": "Skip discovery entirely and go straight to showing pricing"
+    }
+   ],
+   "correct": "A",
+   "reveal": "A shorter call needs a new agreement: what to cover and what happens at the end.",
+   "review": "/training/JA8",
+   "source": "JA8 training"
+  },
+  {
+   "id": "JA8-A3",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Rapport",
+   "prompt": "What does good rapport look like at the start of a demo?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Several minutes of small talk before any business comes up"
+    },
+    {
+     "id": "B",
+     "text": "A joke about their current software to warm them up"
+    },
+    {
+     "id": "C",
+     "text": "A compliment on their website before you share your screen"
+    },
+    {
+     "id": "D",
+     "text": "A brief, genuine question tied to their business, then move on"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Short, real and about their business. Rapport that runs long eats the time you need for pain.",
+   "review": "/training/JA8",
+   "source": "JA8 training"
+  },
+  {
+   "id": "JA8-A4",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Up-front contract",
+   "prompt": "You open with, “At the end, if it’s not a fit, just tell me. That’s totally fine.” Why does this help the AE?",
+   "options": [
+    {
+     "id": "A",
+     "text": "It makes the prospect feel obligated to buy by the end of the call"
+    },
+    {
+     "id": "B",
+     "text": "It lowers pressure, so they’re honest about concerns along the way"
+    },
+    {
+     "id": "C",
+     "text": "It lets you skip discovery since they’ll tell you what they need"
+    },
+    {
+     "id": "D",
+     "text": "It shortens the demo because they’ll end the call when they’re done"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Permission to say no makes people tell you the truth earlier, which is where deals are won.",
+   "review": "/training/JA8",
+   "source": "JA8 training"
+  },
+  {
+   "id": "JA8-B1",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Pain",
+   "prompt": "An owner says, “Our current system works fine. It’s just a bit slow at the front desk.” What’s the best next question?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Which system are you on, and how long have you used it?”"
+    },
+    {
+     "id": "B",
+     "text": "“What does slow look like on a busy Monday night?”"
+    },
+    {
+     "id": "C",
+     "text": "“Would you like to see how fast our check-in is?”"
+    },
+    {
+     "id": "D",
+     "text": "“How many front desk staff are on each shift today?”"
+    }
+   ],
+   "correct": "B",
+   "reveal": "“Fine” hides the pain. Ask what slow looks like in real life, then you’ll know what it costs.",
+   "review": "/training/JA8",
+   "source": "JA8 training"
+  },
+  {
+   "id": "JA8-B2",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Pain",
+   "prompt": "Which question goes deepest on pain?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“What’s your biggest challenge with your current software?”"
+    },
+    {
+     "id": "B",
+     "text": "“Is there anything you’d change about your current setup?”"
+    },
+    {
+     "id": "C",
+     "text": "“What features are you hoping to see in today’s demo?”"
+    },
+    {
+     "id": "D",
+     "text": "“What has that cost you in clients or hours this year?”"
+    }
+   ],
+   "correct": "D",
+   "reveal": "The first three find the problem. Only the last one finds what it costs them.",
+   "review": "/training/JA8",
+   "source": "JA8 training"
+  },
+  {
+   "id": "JA8-B3",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Pain",
+   "prompt": "Early in the first call, an owner mentions private events are “a huge part of my business,” then moves on. What’s the best move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Stop and dig: how events run today and what that costs them"
+    },
+    {
+     "id": "B",
+     "text": "Note it down and plan to cover events on the follow-up call"
+    },
+    {
+     "id": "C",
+     "text": "Show the events page quickly, then return to your usual order"
+    },
+    {
+     "id": "D",
+     "text": "Wait to see if they mention it again before you spend time on it"
+    }
+   ],
+   "correct": "A",
+   "reveal": "In one of our demos this exact line was never explored, and it turned out to be the deciding need.",
+   "review": "/training/JA8",
+   "source": "JA8 training"
+  },
+  {
+   "id": "JA8-B4",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Pain",
+   "prompt": "Why dig for pain before demoing, not after?",
+   "options": [
+    {
+     "id": "A",
+     "text": "It makes the call run longer, which builds a stronger relationship"
+    },
+    {
+     "id": "B",
+     "text": "It lets you skip the screens that every prospect always wants"
+    },
+    {
+     "id": "C",
+     "text": "It lets you tie each screen to something they told you mattered"
+    },
+    {
+     "id": "D",
+     "text": "It gives you time to check which plan they can afford first"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Pain first means every screen answers something they said, so the demo lands.",
+   "review": "/training/JA8",
+   "source": "JA8 training"
+  },
+  {
+   "id": "JA8-C1",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Budget",
+   "prompt": "You ask what they spend on software today, and the owner says, “I’d rather not say.” What’s the best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“No problem. I’ll just walk you through our pricing then.”"
+    },
+    {
+     "id": "B",
+     "text": "“Totally fine. What would make the switch not worth it?”"
+    },
+    {
+     "id": "C",
+     "text": "“Most studios your size pay about $300, so let’s use that.”"
+    },
+    {
+     "id": "D",
+     "text": "“Roughly, is it under $200 a month or closer to $500?”"
+    }
+   ],
+   "correct": "D",
+   "reveal": "A range is easy to answer and still gives you the anchor you need before pricing.",
+   "review": "/training/JA8",
+   "source": "JA8 training"
+  },
+  {
+   "id": "JA8-C2",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Budget",
+   "prompt": "An owner pays $225 a month for their software. You quote $475 without asking anything else. What did you miss?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Offering an extra free month before you shared the price"
+    },
+    {
+     "id": "B",
+     "text": "Their full spend: add-ons, third-party tools, fees and time"
+    },
+    {
+     "id": "C",
+     "text": "The date their current contract renews or ends this year"
+    },
+    {
+     "id": "D",
+     "text": "Which of your plans their closest competitor is using"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Compare against their real total, not the base fee. A marketing add-on or a third-party tool can close the gap.",
+   "review": "/training/JA8",
+   "source": "JA8 training"
+  },
+  {
+   "id": "JA8-C3",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Decision",
+   "prompt": "In discovery, the owner says, “I decide, but I run big things by my business partner.” What’s the best move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Take them at their word, since they said they decide alone"
+    },
+    {
+     "id": "B",
+     "text": "Plan to send the partner a recap after you finish the demo"
+    },
+    {
+     "id": "C",
+     "text": "Ask what the partner cares about, and invite them to the call"
+    },
+    {
+     "id": "D",
+     "text": "Skip the partner, so the owner doesn’t feel second-guessed"
+    }
+   ],
+   "correct": "C",
+   "reveal": "“Run it by” means the partner has a vote. Find out what they care about and get them on the call.",
+   "review": "/training/JA8",
+   "source": "JA8 training"
+  },
+  {
+   "id": "JA8-C4",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Decision",
+   "prompt": "A prospect’s spouse used the free trial but isn’t on the call. What should you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Ask what role they play in the decision and invite them next time"
+    },
+    {
+     "id": "B",
+     "text": "Assume the prospect decides alone, since they booked the demo"
+    },
+    {
+     "id": "C",
+     "text": "Send the spouse a recap email after the call ends today"
+    },
+    {
+     "id": "D",
+     "text": "Avoid mentioning it so the prospect doesn’t feel second-guessed"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Someone who used the trial is part of the decision. Ask early and bring them in.",
+   "review": "/training/JA8",
+   "source": "JA8 training"
+  },
+  {
+   "id": "JA8-D1",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Fulfillment",
+   "prompt": "Discovery shows the owner’s top need is following up with new leads. Where should the demo start?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The lead pipeline, tied back to the leads they said they lose"
+    },
+    {
+     "id": "B",
+     "text": "The client checkout, since every prospect wants to see it"
+    },
+    {
+     "id": "C",
+     "text": "The dashboard, so they get the full picture of the product"
+    },
+    {
+     "id": "D",
+     "text": "The pricing calculator, so they know the cost up front"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Start where their pain is. Everything else is secondary to the need they named.",
+   "review": "/training/JA8",
+   "source": "JA8 training"
+  },
+  {
+   "id": "JA8-D2",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Fulfillment",
+   "prompt": "A prospect said leads keep slipping through the cracks. How should you open the screen you show for that?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“This is our marketing suite. It has a lot of great tools.”"
+    },
+    {
+     "id": "B",
+     "text": "“Let me give you a full tour of everything in marketing.”"
+    },
+    {
+     "id": "C",
+     "text": "“You said leads were getting lost. Here’s where they land.”"
+    },
+    {
+     "id": "D",
+     "text": "“Most studios love this part. Let me walk you through it.”"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Tie the screen to their words. It turns a feature into their fix.",
+   "review": "/training/JA8",
+   "source": "JA8 training"
+  },
+  {
+   "id": "JA8-D3",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "Fulfillment",
+   "prompt": "Which is the best sign a demo is following the Sandler approach?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The AE shows every feature so nothing is missed on the call"
+    },
+    {
+     "id": "B",
+     "text": "Every screen shown connects to a pain the prospect named"
+    },
+    {
+     "id": "C",
+     "text": "The AE covers pricing first so the prospect knows the cost"
+    },
+    {
+     "id": "D",
+     "text": "The prospect asks very few questions while the AE presents"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Demo only what solves the pain they named, and say so as you show it.",
+   "review": "/training/JA8",
+   "source": "JA8 training"
+  },
+  {
+   "id": "JA8-D4",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Fulfillment",
+   "prompt": "A prospect asks about a feature that has nothing to do with the pain they named. What’s the best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Show it in full, since they asked and it builds goodwill"
+    },
+    {
+     "id": "B",
+     "text": "Tell them it isn’t important for a business like theirs"
+    },
+    {
+     "id": "C",
+     "text": "Ignore it and continue with the screens you had planned"
+    },
+    {
+     "id": "D",
+     "text": "Answer briefly, then ask how it fits what they told you"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Answer, then bring it back to their pain so the demo stays theirs.",
+   "review": "/training/JA8",
+   "source": "JA8 training"
+  },
+  {
+   "id": "JA8-E1",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Post-sell",
+   "prompt": "The owner says yes on the call. Which question best prevents buyer’s remorse before they sign?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Are you sure you don’t want to see a few more features?”"
+    },
+    {
+     "id": "B",
+     "text": "“Would you like me to send over a few client case studies?”"
+    },
+    {
+     "id": "C",
+     "text": "“What would make you second-guess this once we hang up?”"
+    },
+    {
+     "id": "D",
+     "text": "“Do you want to talk about the free months one more time?”"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Bring the doubt out now, while you can answer it, not after the call ends.",
+   "review": "/training/JA8",
+   "source": "JA8 training"
+  },
+  {
+   "id": "JA8-E2",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Post-sell",
+   "prompt": "An owner mentions their current provider wants them “to get on a call” before they cancel. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Prepare them: what they’ll be offered and how they’ll answer"
+    },
+    {
+     "id": "B",
+     "text": "Tell them to ignore the call and cancel by email instead"
+    },
+    {
+     "id": "C",
+     "text": "Offer a bigger discount so the provider can’t outbid you"
+    },
+    {
+     "id": "D",
+     "text": "Leave it alone, since it’s between them and their provider"
+    }
+   ],
+   "correct": "A",
+   "reveal": "That call is a retention attempt. Prepare them for it so a discount doesn’t undo the decision.",
+   "review": "/training/JA8",
+   "source": "JA8 training"
+  },
+  {
+   "id": "JA8-E3",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Next steps",
+   "prompt": "The owner says, “Send me the contract and I’ll look at it this weekend.” What’s the best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Sounds great. I’ll send it over and check in next week.”"
+    },
+    {
+     "id": "B",
+     "text": "“No rush at all. Take whatever time you need to decide.”"
+    },
+    {
+     "id": "C",
+     "text": "“If it isn’t signed by Friday, the free months go away.”"
+    },
+    {
+     "id": "D",
+     "text": "“Let’s walk it together Monday at 9, so nothing surprises you.”"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Agree, then set a specific time to go through it together. A contract sent alone tends to drift.",
+   "review": "/training/JA8",
+   "source": "JA8 training"
+  },
+  {
+   "id": "JA8-E4",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Negative reverse",
+   "prompt": "An owner says their current system “handles privates fine.” Which response is a negative reverse?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Our privates booking is much easier than theirs, let me show you.”"
+    },
+    {
+     "id": "B",
+     "text": "“Then it may not be worth switching. What would make it worth it?”"
+    },
+    {
+     "id": "C",
+     "text": "“Most studios that say that end up switching to us anyway.”"
+    },
+    {
+     "id": "D",
+     "text": "“Privates are easy. Let’s focus on the rest of the platform.”"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Saying it may not be worth it makes them tell you why it is. Pushing makes them defend their current setup.",
+   "review": "/training/JA8",
+   "source": "JA8 training"
+  }
+ ]
+}
