@@ -18,6 +18,7 @@ import bankCC5 from './bank-cc5.json' with {type: 'json'};
 import {CC5_TRAINING, CC5_ROLEPLAY} from './cc5-content.mjs';
 import bankCC6 from './bank-cc6.json' with {type: 'json'};
 import {CC6_TRAINING, CC6_ROLEPLAY} from './cc6-content.mjs';
+import {CC7_ROLEPLAY} from './cc7-content.mjs';
 
 const BANKS = {F1: bankF1, F2: bankF2, F3: bankF3, F4: bankF4, CC1: bankCC1, CC2: bankCC2, CC3: bankCC3, CC4: bankCC4, CC5: bankCC5, CC6: bankCC6};
 export const TRAININGS = {CC1: CC1_TRAINING, CC2: CC2_TRAINING, CC3: CC3_TRAINING, CC4: CC4_TRAINING, CC5: CC5_TRAINING, CC6: CC6_TRAINING};
@@ -63,6 +64,7 @@ export const ROLEPLAYS = {
   CC4: CC4_ROLEPLAY,
   CC5: CC5_ROLEPLAY,
   CC6: CC6_ROLEPLAY,
+  CC7: CC7_ROLEPLAY,
   F3: {
     mode: 'lead',
     criteria: [
@@ -116,7 +118,7 @@ export async function ensureUser(env, user) {
   const role = user.admin ? 'admin' : null;
   await env.DB.prepare("INSERT OR IGNORE INTO users (email, role, created_at) VALUES (?, ?, ?)").bind(user.email, role || 'rep', nowIso()).run();
   if (role) await env.DB.prepare("UPDATE users SET role='admin' WHERE email=? AND role!='admin'").bind(user.email).run();
-  const row = await env.DB.prepare("SELECT email, name, role, active FROM users WHERE email=?").bind(user.email).first();
+  const row = await env.DB.prepare("SELECT email, name, role, level, active FROM users WHERE email=?").bind(user.email).first();
   // Only the configured owner can hold the admin role.
   if (row.role === 'admin' && !user.admin) { await env.DB.prepare("UPDATE users SET role='rep' WHERE email=?").bind(user.email).run(); row.role = 'rep'; }
   return row;
@@ -174,6 +176,23 @@ function buildPlan(rows, total, minPer) {
 }
 
 // ---------- progress ----------
+// Certs that need a role, not just earlier certs. The Junior AE track opens once a manager marks the SDR Senior SDR.
+const TRACK_ROLES = {junior_ae: ['senior_sdr']};
+const roleKey = (u) => !u ? 'sdr' : u.role === 'rep' ? (u.level === 'senior_sdr' ? 'senior_sdr' : 'sdr') : u.role;
+async function missingFor(env, email, cert) {
+  const out = [];
+  for (const pre of parse(cert.prerequisites, [])) {
+    const x = await env.DB.prepare("SELECT status FROM cert_progress WHERE user_email=? AND cert_id=?").bind(email, pre).first();
+    if (x?.status !== 'passed') out.push(pre);
+  }
+  const need = TRACK_ROLES[cert.track];
+  if (need) {
+    const u = await env.DB.prepare("SELECT role, level FROM users WHERE email=?").bind(email).first();
+    const k = roleKey(u);
+    if (!need.includes(k) && !['manager', 'admin'].includes(k)) out.push('Senior SDR');
+  }
+  return out;
+}
 async function getProgress(env, email, certId) {
   await env.DB.prepare("INSERT OR IGNORE INTO cert_progress (user_email, cert_id, updated_at) VALUES (?,?,?)").bind(email, certId, nowIso()).run();
   return env.DB.prepare("SELECT * FROM cert_progress WHERE user_email=? AND cert_id=?").bind(email, certId).first();
@@ -227,7 +246,7 @@ async function myCerts(env, me) {
       roleplay: (() => { const x = rps.find(r => r.cert_id === c.id); return x ? {status: x.status, attemptNo: x.attempt_no, booking: parse(x.content, {}).booking || null} : null; })()
     };
   }
-  return {me: {email: me.email, name: me.name, role: me.role}, certs, progress};
+  return {me: {email: me.email, name: me.name, role: me.role, level: roleKey(me)}, certs, progress};
 }
 
 // ---------- quiz engine ----------
@@ -299,10 +318,8 @@ async function startQuiz(env, me, certId) {
   if (!cert || cert.status !== 'active' || !parse(cert.components, []).includes('quiz')) return fail('not_available', 'This certification isn’t open yet.', 404);
   const open = await env.DB.prepare("SELECT * FROM quiz_attempts WHERE user_email=? AND cert_id=? AND status='in_progress'").bind(me.email, certId).first();
   if (open) return json(await currentQuestion(env, open, cert));
-  for (const pre of parse(cert.prerequisites, [])) {
-    const p = await env.DB.prepare("SELECT status FROM cert_progress WHERE user_email=? AND cert_id=?").bind(me.email, pre).first();
-    if (p?.status !== 'passed') return fail('prerequisite', `Pass ${pre} first.`, 409);
-  }
+  const missQ = await missingFor(env, me.email, cert);
+  if (missQ.length) return fail('prerequisite', `Pass ${missQ[0]} first.`, 409);
   const p = await getProgress(env, me.email, certId);
   if (parse(p.components, {}).quiz === 'passed' || p.status === 'passed') return fail('passed', 'You’ve already passed this quiz.', 409);
   if (parse(cert.components, []).includes('training') && parse(p.components, {}).training !== 'passed') return fail('training', 'Finish the training page first.', 409);
@@ -494,9 +511,10 @@ async function roleplayState(env, email, certId, forManager) {
     score: rpScoreView(scores.find(x => x.attempt_no === l.attempt_no))
   };
   return {
-    cert: {id: cert.id, name: cert.name, day: cert.onboarding_day},
+    cert: {id: cert.id, name: cert.name, day: cert.onboarding_day, components: parse(cert.components, [])},
+    missingPrereqs: await missingFor(env, email, cert),
     rep: {email, name: user?.name || email.split('@')[0], codePrefix: codePrefix(email)},
-    def: {mode: def.mode || 'lead', business: def.business || null, setup: def.setup || null, slots: def.slots || null, leadFields: def.mode === 'rapid' ? (def.leadFields || DEFAULT_FIELDS) : null, prepNote: def.prepNote || null, distinct: def.distinct || null, distinctMin: def.distinctMin || null, callMust: def.callMust || null, maxDq: def.maxDq ?? null, callPrompt: def.callPrompt || null, callLabels: def.callLabels || null, callChips: def.callChips || null, quickFacts: forManager ? (def.quickFacts || null) : null, factsKey: def.factsKey || null, criteria: def.criteria, musts: def.musts},
+    def: {mode: def.mode || 'lead', business: def.business || null, setup: def.setup || null, slots: def.slots || null, leadFields: def.mode === 'rapid' ? (def.leadFields || DEFAULT_FIELDS) : null, prepNote: def.prepNote || null, distinct: def.distinct || null, distinctMin: def.distinctMin || null, callMust: def.callMust || null, maxDq: def.maxDq ?? null, callPrompt: def.callPrompt || null, callLabels: def.callLabels || null, callChips: def.callChips || null, minutes: def.minutes || 15, quickFacts: forManager ? (def.quickFacts || null) : null, factsKey: def.factsKey || null, criteria: def.criteria, musts: def.musts},
     progress: {status: p.status, components: parse(p.components, {})},
     quiz: quiz ? {status: quiz.status, score: quiz.score} : null,
     current: view(cur), history: leads.slice(1).map(view),
@@ -550,11 +568,7 @@ async function trainingState(env, email, certId) {
   if (!cert || !def || cert.status !== 'active') return null;
   const row = await env.DB.prepare("SELECT * FROM training_progress WHERE user_email=? AND cert_id=?").bind(email, certId).first();
   const p = await getProgress(env, email, certId);
-  const prereqs = [];
-  for (const pre of parse(cert.prerequisites, [])) {
-    const x = await env.DB.prepare("SELECT status FROM cert_progress WHERE user_email=? AND cert_id=?").bind(email, pre).first();
-    if (x?.status !== 'passed') prereqs.push(pre);
-  }
+  const prereqs = await missingFor(env, email, cert);
   return {
     cert: {id: cert.id, name: cert.name, track: cert.track, components: parse(cert.components, [])}, def,
     content: parse(row?.content, {}), completedAt: row?.completed_at || null, missingPrereqs: prereqs,
@@ -591,7 +605,9 @@ async function saveTraining(env, me, certId, body) {
 async function submitRapid(env, me, cert, body) {
   const def = ROLEPLAYS[cert.id];
   const p = await getProgress(env, me.email, cert.id);
-  if (parse(p.components, {}).quiz !== 'passed') return fail('quiz', 'Pass the quiz before you book your roleplay.', 409);
+  if (parse(cert.components, []).includes('quiz') && parse(p.components, {}).quiz !== 'passed') return fail('quiz', 'Pass the quiz before you book your roleplay.', 409);
+  const missPre = await missingFor(env, me.email, cert);
+  if (missPre.length) return fail('prerequisite', `Pass ${missPre.join(', ')} first.`, 409);
   const raw = Array.isArray(body.leads) ? body.leads : [];
   const fields = def.leadFields || DEFAULT_FIELDS;
   const leads = def.slots.map((type, i) => { const e = cleanEntry(fields, raw[i], type); if (type === 'Cold') e.opener = ''; return e; });
@@ -721,7 +737,7 @@ async function runRoleplay(env, me, certId, email, body) {
 // ---------- team view ----------
 async function team(env) {
   // Managers and admins preview the path in user view; their own records never count here.
-  const users = (await env.DB.prepare("SELECT email, name, role FROM users WHERE active=1 AND role='rep' ORDER BY COALESCE(name, email)").all()).results;
+  const users = (await env.DB.prepare("SELECT email, name, role, level FROM users WHERE active=1 AND role='rep' ORDER BY COALESCE(name, email)").all()).results;
   const certs = await certCatalog(env);
   const progress = (await env.DB.prepare("SELECT * FROM cert_progress").all()).results;
   const lastScores = (await env.DB.prepare("SELECT user_email, cert_id, score FROM quiz_attempts WHERE status IN ('passed','failed') ORDER BY finished_at DESC").all()).results;
@@ -733,7 +749,7 @@ async function team(env) {
   const lastSeen = (await env.DB.prepare("SELECT user_email, MAX(t) t FROM (SELECT user_email, occurred_at t FROM activity_events UNION ALL SELECT user_email, started_at t FROM quiz_attempts) GROUP BY user_email").all()).results;
 
   const rows = users.map(u => ({
-    email: u.email, name: u.name || u.email.split('@')[0], role: u.role,
+    email: u.email, name: u.name || u.email.split('@')[0], role: u.role, level: roleKey(u),
     cells: certs.map(c => {
       const p = progress.find(x => x.user_email === u.email && x.cert_id === c.id);
       return p?.status === 'passed' ? 'p' : p?.status === 'failed' ? 'f' : p?.status === 'in_progress' ? 'i' : 'n';
@@ -776,7 +792,8 @@ async function team(env) {
     for (const u of rows) {
       const p = progress.find(x => x.user_email === u.email && x.cert_id === c.id); if (!p) continue;
       const comps = parse(p.components, {}); const last = latestRp.get(u.email + ':' + c.id);
-      if (comps.quiz !== 'passed' || last?.status === 'passed') continue;
+      const needsQuiz = (c.components || []).includes('quiz');
+      if ((needsQuiz ? comps.quiz !== 'passed' : !(c.prerequisites || []).every(pre => progress.find(x => x.user_email === u.email && x.cert_id === pre)?.status === 'passed')) || last?.status === 'passed') continue;
       if (last && ['submitted', 'started'].includes(last.status)) {
         const bk = parse(last.content, {}).booking;
         attention.push({kind: 'roleplay', url: '/roleplay-run/' + c.id + '?rep=' + encodeURIComponent(u.email), email: u.email, name: u.name, cert: c.id, at: last.submitted_at, booked: bk || null, text: last.status === 'started' ? `has a ${c.id} roleplay in progress · finish scoring it` : `is ready for the ${c.id} roleplay · ${fmtBooking(bk)}`});
@@ -986,17 +1003,28 @@ export async function handleApi(request, env, user) {
 
   // ----- admin only: people, resets, question bank -----
   if (path === '/api/admin/users') {
-    if (!isAdmin(me)) return fail('forbidden', 'Admin only.', 403);
+    // Roles shown to people: SDR, Senior SDR, Manager (admin is the configured owner).
+    // Stored as role='rep' + level for SDRs, so older data and checks keep working.
+    if (!isManager(me)) return fail('forbidden', 'Managers only.', 403);
     if (method === 'POST') {
       const email = String(body.email || '').trim().toLowerCase();
       if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return fail('bad_email', 'Enter a valid email.');
-      const role = ['manager', 'rep'].includes(body.role) ? body.role : 'rep';
       if (email === me.email) return fail('self', 'You can’t change your own role.');
-      await env.DB.prepare("INSERT INTO users (email, name, role, created_at) VALUES (?,?,?,?) ON CONFLICT(email) DO UPDATE SET role=excluded.role, name=COALESCE(excluded.name, users.name), active=1")
-        .bind(email, body.name ? String(body.name).slice(0, 80) : null, role, nowIso()).run();
-      await audit(env, me.email, 'set_role', email, {role});
+      const want = body.role === 'rep' ? 'sdr' : body.role;
+      if (!['sdr', 'senior_sdr', 'manager'].includes(want)) return fail('bad_role', 'Pick SDR, Senior SDR or Manager.');
+      const cur = await env.DB.prepare("SELECT role FROM users WHERE email=?").bind(email).first();
+      if (!isAdmin(me)) {
+        if (!cur) return fail('forbidden', 'Only an admin can add people.', 403);
+        if (cur.role !== 'rep' || want === 'manager') return fail('forbidden', 'Managers can switch people between SDR and Senior SDR only.', 403);
+      }
+      if (cur?.role === 'admin') return fail('forbidden', 'The admin role can’t be changed here.', 403);
+      const role = want === 'manager' ? 'manager' : 'rep', level = want === 'senior_sdr' ? 'senior_sdr' : 'sdr';
+      await env.DB.prepare("INSERT INTO users (email, name, role, level, created_at) VALUES (?,?,?,?,?) ON CONFLICT(email) DO UPDATE SET role=excluded.role, level=excluded.level, name=COALESCE(excluded.name, users.name), active=1")
+        .bind(email, body.name ? String(body.name).slice(0, 80) : null, role, level, nowIso()).run();
+      await audit(env, me.email, 'set_role', email, {role: want});
     }
-    return json({users: (await env.DB.prepare("SELECT email, name, role, active FROM users ORDER BY role, email").all()).results});
+    const list = (await env.DB.prepare("SELECT email, name, role, level, active FROM users ORDER BY role, email").all()).results;
+    return json({users: list.map(u => ({email: u.email, name: u.name, active: u.active, role: roleKey(u)})), canAdd: isAdmin(me)});
   }
   if (path === '/api/admin/reset' && method === 'POST') {
     if (!isAdmin(me)) return fail('forbidden', 'Admin only.', 403);

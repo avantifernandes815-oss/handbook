@@ -58,7 +58,7 @@ function top() {
   const cur = S.current, q = S.quiz;
   const bk = rapid() && cur?.booking ? '<span class="chip go" style="float:right;margin-top:10px">Booked ' + esc(fmtDate(cur.booking.date) + ' · ' + fmtTime(cur.booking.time)) + '</span>' : '';
   return '<div class="eyebrow">' + esc(S.cert.id + ' · ' + S.cert.name).toUpperCase() + ' · ' + (rapid() ? 'LIVE ROLEPLAY' : 'ROLEPLAY') + '</div>' + bk + '<h1>' + esc(S.rep.name) + (cur ? ' · Attempt ' + cur.attemptNo : '') + '</h1>' +
-    '<p class="intro">' + (q ? 'Quiz ' + (q.status === 'passed' ? 'passed' : 'not passed yet') + ' at ' + Math.round(q.score * 100) + '%' : 'Quiz not taken yet') + '</p>';
+    '<p class="intro">' + (!(S.cert.components || ['quiz']).includes('quiz') ? 'Roleplay only · no quiz for this one' : q ? 'Quiz ' + (q.status === 'passed' ? 'passed' : 'not passed yet') + ' at ' + Math.round(q.score * 100) + '%' : 'Quiz not taken yet') + '</p>';
 }
 function lead(cur) {
   return '<div class="lead-box"><div class="k">THEIR LEAD · SENT ' + new Date(cur.submittedAt).toLocaleDateString([], {weekday:'short', month:'short', day:'numeric'}).toUpperCase() + '</div><div style="font-size:16px;font-weight:700;margin:6px 0 4px">' + esc(cur.business) + '</div><div style="font-size:13px;color:var(--body)">' + esc(cur.code) + ' · ' + esc(cur.leadStatus) + ' · in ' + esc(S.rep.name) + '’s Book</div>' +

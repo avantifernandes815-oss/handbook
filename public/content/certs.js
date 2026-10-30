@@ -15,6 +15,7 @@
   };
   const pct = s => s == null ? '' : ' · ' + Math.round(s * 100) + '%';
   const quizUrl = id => '/quiz/' + encodeURIComponent(id);
+const ROLE_NAMES = {sdr: 'SDR', senior_sdr: 'Senior SDR', manager: 'Manager', admin: 'Admin'};
   const second = c => ['written', 'practical', 'roleplay'].find(x => (c.components || []).includes(x));
   const pracUrl = (id, c) => '/' + (c ? second(c) : 'practical') + '/' + encodeURIComponent(id);
   const hasPractical = c => !!second(c);
@@ -64,6 +65,14 @@
       return {key: 'soon', chip: 'off', label: 'Coming soon', ico: 'off'};
     }
     if (!prereqOk) return {key: 'locked', chip: 'off', label: 'Locked · pass the one before', ico: 'off', locked: true};
+    if ((c.components || []).length === 1 && c.components[0] === 'roleplay' && c.track !== 'foundation') {
+      // Roleplay-only (the CC7 capstone): book it once the cert before it is passed.
+      const rp = p.roleplay, ru = '/roleplay/' + encodeURIComponent(c.id);
+      if (!rp) return {key: 'book', chip: 'go', label: 'Ready · book your capstone', ico: 'go', action: 'Book your capstone', url: ru};
+      if (rp.status === 'submitted') return {key: 'rp', chip: 'go', label: 'Capstone booked' + (rp.booking?.date ? ' · ' + new Date(rp.booking.date + 'T12:00:00Z').toLocaleDateString('en-US', {weekday: 'short', month: 'short', day: 'numeric', timeZone: 'UTC'}) : ''), ico: 'go', action: 'View capstone', url: ru};
+      if (rp.status === 'started') return {key: 'rp', chip: 'go', label: 'Capstone in progress', ico: 'go', action: 'View capstone', url: ru};
+      if (rp.status === 'failed') return p.retakeUnlocked ? {key: 'rpretake', chip: 'warn', label: 'Retake open · book it', ico: 'go', action: 'Book your retake', url: ru} : {key: 'coaching', chip: 'warn', label: 'Retake after coaching', ico: 'go', action: 'See your scorecard', url: ru};
+    }
     if ((c.components || []).includes('training')) {
       const comps = p.components || {}, rp = p.roleplay, tu = '/training/' + encodeURIComponent(c.id), ru = '/roleplay/' + encodeURIComponent(c.id);
       if (comps.training !== 'passed') return {key: 'training', chip: 'go', label: p.training ? 'Training in progress' : 'Ready to start', ico: 'go', action: p.training ? 'Continue training' : 'Start training', url: tu};
@@ -260,7 +269,7 @@
       '<section class="cx-card cx-sum"><div class="cx-bar"><div class="cx-bar-l"><span>' + passed + ' of ' + tracked.length + ' certifications passed</span><span>Senior SDR path</span></div><div class="cx-track"><i style="width:' + Math.round(passed / Math.max(1, tracked.length) * 100) + '%"></i></div></div>' +
       '<div class="cx-badges" aria-label="Foundation badges">' + data.certs.filter(c => c.track === 'foundation').map(c => '<div class="cx-badge' + (data.progress[c.id]?.status === 'passed' ? ' on' : '') + '" title="' + esc(c.name) + '">' + esc(c.id) + '</div>').join('') + '</div></section>' +
       groups.map(([track, title, note]) => '<section class="cx-group"><div class="cx-group-h"><h2>' + title + '</h2><span>' + note + '</span></div><div class="cx-grid2">' + data.certs.filter(c => c.track === track).map(tile).join('') + '</div></section>').join('') +
-      '<section class="cx-group"><div class="cx-group-h"><h2>Junior AE track</h2><span>Your next step after Senior SDR</span></div><div class="cx-grid2"><div class="cx-tile locked"><div class="cx-ico off">AE</div><div class="cx-body"><b>Verticals, product, Competitor L2, discovery</b><small>Bite-sized certifications</small><span class="cx-chip off">Unlocks when you reach Senior SDR</span></div></div></div></section>' +
+      '<section class="cx-group"><div class="cx-group-h"><h2>Junior AE track</h2><span>' + (me.level === 'senior_sdr' ? 'Unlocked · you’re a Senior SDR' : 'Your next step after Senior SDR') + '</span></div><div class="cx-grid2"><div class="cx-tile' + (me.level === 'senior_sdr' ? '' : ' locked') + '"><div class="cx-ico ' + (me.level === 'senior_sdr' ? 'go' : 'off') + '">AE</div><div class="cx-body"><b>Verticals, product, Competitor L2, discovery</b><small>Bite-sized certifications</small><span class="cx-chip ' + (me.level === 'senior_sdr' ? 'ok">Unlocked · first certifications coming soon' : 'off">Unlocks when your manager marks you Senior SDR') + '</span></div></div></div></section>' +
       '<section class="cx-elig"><h2>Senior SDR eligibility</h2><p>Promotion also depends on performance. Your manager confirms that part.</p><div class="cx-grid2">' +
       '<div><span>Foundation</span><strong>' + count('foundation') + '</strong></div><div><span>Cold Calling track</span><strong>' + count('cold_calling') + '</strong></div>' +
       '<div><span>List Building</span><strong>' + (lb && data.progress.LB?.status === 'passed' ? 'Passed' : 'Not started') + '</strong></div><div><span>3 months at quota after ramp</span><strong>Manager confirms</strong></div></div></section>';
@@ -294,12 +303,12 @@
       '<section class="cx-panel"><h2>Needs your attention</h2><p class="cx-sub">Practicals ready to review, results waiting on coaching, and left-tab flags from the last 7 days</p>' + (att || '<p class="cx-empty">Nothing needs you right now.</p>') + '</section>' +
       '<section class="cx-panel"><div class="cx-group-h"><h2>Every rep, every cert</h2><div class="cx-legend">' + legend.map(l => '<span><span class="cx-cell ' + l[0] + '" style="width:22px;height:22px;font-size:12px">' + l[1] + '</span> ' + l[2] + '</span>').join('') + '</div></div>' +
         '<div class="cx-scroll"><table class="cx-table"><thead><tr><th style="text-align:left">Rep</th>' + t.certs.map(c => '<th scope="col"><span class="cx-tip" tabindex="0">' + esc(c.id) + '<span class="cx-tipbox" role="tooltip"><strong>' + esc(c.name) + '</strong>' + esc(c.summary || '') + (c.status !== 'active' ? ' Not open yet.' : '') + '</span></span></th>').join('') + '</tr></thead><tbody>' +
-        t.rows.map(r => '<tr><th scope="row">' + esc(r.name) + (r.role !== 'rep' ? '<small>' + esc(r.role) + '</small>' : '') + '</th>' + r.cells.map(c => '<td><span class="cx-cell ' + c + '" aria-label="' + word[c] + '">' + mark[c] + '</span></td>').join('') + '</tr>').join('') +
+        t.rows.map(r => '<tr><th scope="row">' + esc(r.name) + (r.level === 'senior_sdr' ? '<small>Senior SDR</small>' : r.role !== 'rep' ? '<small>' + esc(r.role) + '</small>' : '') + '</th>' + r.cells.map(c => '<td><span class="cx-cell ' + c + '" aria-label="' + word[c] + '">' + mark[c] + '</span></td>').join('') + '</tr>').join('') +
         '</tbody></table></div></section>' +
-      (me.role === 'admin' ? '<section class="cx-panel" id="cx-people"><h2>People</h2><p class="cx-sub">Admin only. Managers see everything here except this panel.</p><div class="cx-people"><p class="cx-empty">Loading…</p></div>' +
-        '<form class="cx-form" id="cx-add"><input type="email" required placeholder="name@company.com" aria-label="Email"><select aria-label="Role"><option value="rep">Rep</option><option value="manager">Manager</option></select><button class="cx-btn" type="submit">Save</button></form><p class="cx-msg" aria-live="polite"></p></section>' : '');
+      '<section class="cx-panel" id="cx-people"><h2>People</h2><p class="cx-sub">' + (me.role === 'admin' ? 'Set each person’s role. Marking someone Senior SDR unlocks the Junior AE track for them.' : 'Switch your SDRs between SDR and Senior SDR. Senior SDR unlocks the Junior AE track. Only the admin can add people or change managers.') + '</p><div class="cx-people"><p class="cx-empty">Loading…</p></div>' +
+        (me.role === 'admin' ? '<form class="cx-form" id="cx-add"><input type="email" required placeholder="name@company.com" aria-label="Email"><select aria-label="Role"><option value="sdr">SDR</option><option value="senior_sdr">Senior SDR</option><option value="manager">Manager</option></select><button class="cx-btn" type="submit">Save</button></form>' : '') + '<p class="cx-msg" aria-live="polite"></p></section>';
     icons();
-    if (me.role === 'admin') loadPeople(t.certs);
+    loadPeople(t.certs);
   }
   async function unlock(b) {
     b.disabled = true; b.textContent = 'Unlocking…';
@@ -310,12 +319,13 @@
     const box = main.querySelector('.cx-people'), msg = main.querySelector('.cx-msg');
     const draw = list => {
       box.innerHTML = list.users.map(u => '<div class="cx-person"><span>' + esc(u.email) + '</span><span style="display:flex;gap:8px;align-items:center">' +
-        (u.role === 'admin' ? '<span class="cx-chip go">Admin</span>' : '<select data-email="' + esc(u.email) + '" aria-label="Role for ' + esc(u.email) + '"><option value="rep"' + (u.role === 'rep' ? ' selected' : '') + '>Rep</option><option value="manager"' + (u.role === 'manager' ? ' selected' : '') + '>Manager</option></select>') +
-        certs.filter(c => c.status === 'active').map(c => '<button class="cx-btn ghost" data-cx-reset="' + esc(u.email) + '" data-cert="' + esc(c.id) + '" title="Clear this person’s ' + esc(c.id) + ' progress so they can test it again">Reset ' + esc(c.id) + '</button>').join('') + '</span></div>').join('');
+        (u.role === 'admin' || (me.role !== 'admin' && u.role === 'manager') || u.email === me.email ? '<span class="cx-chip go">' + esc(ROLE_NAMES[u.role] || u.role) + '</span>' : '<select data-email="' + esc(u.email) + '" aria-label="Role for ' + esc(u.email) + '">' + (me.role === 'admin' ? ['sdr', 'senior_sdr', 'manager'] : ['sdr', 'senior_sdr']).map(r => '<option value="' + r + '"' + (u.role === r ? ' selected' : '') + '>' + ROLE_NAMES[r] + '</option>').join('') + '</select>') +
+        (me.role !== 'admin' ? '' : certs.filter(c => c.status === 'active').map(c => '<button class="cx-btn ghost" data-cx-reset="' + esc(u.email) + '" data-cert="' + esc(c.id) + '" title="Clear this person’s ' + esc(c.id) + ' progress so they can test it again">Reset ' + esc(c.id) + '</button>').join('')) + '</span></div>').join('');
       box.querySelectorAll('select').forEach(s => s.onchange = async () => { try { await api('/api/admin/users', {email: s.dataset.email, role: s.value}); msg.textContent = 'Saved.'; } catch (e) { msg.textContent = e.message; } });
     };
     try { draw(await api('/api/admin/users')); } catch (e) { box.textContent = e.message; }
-    main.querySelector('#cx-add').onsubmit = async e => {
+    const add = main.querySelector('#cx-add'); if (!add) return;
+    add.onsubmit = async e => {
       e.preventDefault();
       const f = e.target;
       try { draw(await api('/api/admin/users', {email: f.querySelector('input').value, role: f.querySelector('select').value})); msg.textContent = 'Saved.'; f.reset(); }
