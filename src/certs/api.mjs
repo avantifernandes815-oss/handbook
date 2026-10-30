@@ -217,7 +217,8 @@ async function missingFor(env, email, cert) {
   if (need) {
     const u = await env.DB.prepare("SELECT role, level FROM users WHERE email=?").bind(email).first();
     const k = roleKey(u);
-    if (!need.includes(k) && !['manager', 'admin'].includes(k)) out.push('Senior SDR');
+    // Managers previewing the path are treated like an SDR, so they see exactly what a rep sees.
+    if (!need.includes(k)) out.push('Senior SDR');
   }
   return out;
 }

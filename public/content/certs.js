@@ -250,8 +250,9 @@ const ROLE_NAMES = {sdr: 'SDR', senior_sdr: 'Senior SDR', manager: 'Manager', ad
 
   // Junior AE track: real cert tiles once any exist; locked until a manager marks the SDR Senior SDR.
   function juniorAe() {
-    const open = ['senior_sdr', 'manager', 'admin'].includes(me.level), list = data.certs.filter(c => c.track === 'junior_ae');
-    const head = '<section class="cx-group"><div class="cx-group-h"><h2>Junior AE track</h2><span>' + (open ? (me.level === 'senior_sdr' ? 'Unlocked · you’re a Senior SDR' : 'Unlocked') : 'Your next step after Senior SDR') + '</span></div><div class="cx-grid2">';
+    // Managers previewing get the same rule as reps: the track opens only for someone marked Senior SDR.
+    const open = me.level === 'senior_sdr', list = data.certs.filter(c => c.track === 'junior_ae');
+    const head = '<section class="cx-group"><div class="cx-group-h"><h2>Junior AE track</h2><span>' + (open ? 'Unlocked · you’re a Senior SDR' : 'Your next step after Senior SDR') + '</span></div><div class="cx-grid2">';
     if (!list.length) return head + '<div class="cx-tile' + (open ? '' : ' locked') + '"><div class="cx-ico ' + (open ? 'go' : 'off') + '">AE</div><div class="cx-body"><b>Verticals, product, Competitor L2, discovery</b><small>Bite-sized certifications</small><span class="cx-chip ' + (open ? 'ok">Unlocked · first certifications coming soon' : 'off">Unlocks when your manager marks you Senior SDR') + '</span></div></div></div></section>';
     const tile = c => {
       if (!open) return '<div class="cx-tile locked"><div class="cx-ico off">' + esc(c.id) + '</div><div class="cx-body"><b>' + esc(c.name) + '</b><small>' + esc(formatOf(c)) + '</small><span class="cx-chip off">Unlocks at Senior SDR</span></div></div>';
@@ -266,7 +267,9 @@ const ROLE_NAMES = {sdr: 'SDR', senior_sdr: 'Senior SDR', manager: 'Manager', ad
     setActive('certifications');
     const view = isMgr() ? getView() : 'user';
     if (view === 'manager') return renderCatalog();
-    const tracked = data.certs.filter(c => ['foundation', 'cold_calling', 'skills'].includes(c.track));
+    // Before Senior SDR the path counts Foundation, Cold Calling and Skills. Once marked Senior SDR it counts the Junior AE track.
+    const senior = me.level === 'senior_sdr';
+    const tracked = data.certs.filter(c => senior ? c.track === 'junior_ae' : ['foundation', 'cold_calling', 'skills'].includes(c.track));
     const passed = tracked.filter(c => data.progress[c.id]?.status === 'passed').length;
     const groups = [
       ['foundation', 'Foundation', 'Onboarding · Required to go live'],
@@ -280,16 +283,24 @@ const ROLE_NAMES = {sdr: 'SDR', senior_sdr: 'Senior SDR', manager: 'Manager', ad
     };
     const count = track => { const list = data.certs.filter(c => c.track === track); return list.filter(c => data.progress[c.id]?.status === 'passed').length + ' / ' + list.length; };
     const lb = data.certs.find(c => c.id === 'LB');
+    const jae = data.certs.filter(c => c.track === 'junior_ae'), mock = jae.find(c => (c.components || []).join() === 'roleplay');
+    const jaeDone = jae.filter(c => c !== mock && data.progress[c.id]?.status === 'passed').length, jaeAll = jae.filter(c => c !== mock).length;
+    const elig = senior
+      ? '<section class="cx-elig" style="margin-bottom:22px"><h2>AE eligibility</h2><p>Moving to AE also depends on performance. Your manager confirms that part.</p><div class="cx-grid2">' +
+        '<div><span>Junior AE certifications</span><strong>' + jaeDone + ' / ' + jaeAll + '</strong></div>' +
+        '<div><span>Mock demo with your manager</span><strong>' + (mock && data.progress[mock.id]?.status === 'passed' ? 'Passed' : 'Not yet') + '</strong></div>' +
+        '<div><span>Performance as a Senior SDR</span><strong>Manager confirms</strong></div></div></section>'
+      : '<section class="cx-elig" style="margin-bottom:22px"><h2>Senior SDR eligibility</h2><p>Promotion also depends on performance. Your manager confirms that part.</p><div class="cx-grid2">' +
+        '<div><span>Foundation</span><strong>' + count('foundation') + '</strong></div><div><span>Cold Calling track</span><strong>' + count('cold_calling') + '</strong></div>' +
+        '<div><span>List Building</span><strong>' + (lb && data.progress.LB?.status === 'passed' ? 'Passed' : 'Not started') + '</strong></div><div><span>3 months at quota after ramp</span><strong>Manager confirms</strong></div></div></section>';
     main.innerHTML = titleRow('user') + (isMgr()
         ? '<div class="cx-preview"><span><b>You’re seeing what a rep sees.</b> Anything you take here is saved to your own record only, and you never appear on Team Progress.</span><button class="cx-btn ghost" data-cx-reset-preview>Reset my preview</button></div>'
         : '<p>Only you and your managers can see this page.</p>') +
-      '<section class="cx-card cx-sum"><div class="cx-bar"><div class="cx-bar-l"><span>' + passed + ' of ' + tracked.length + ' certifications passed</span><span>Senior SDR path</span></div><div class="cx-track"><i style="width:' + Math.round(passed / Math.max(1, tracked.length) * 100) + '%"></i></div></div>' +
+      '<section class="cx-card cx-sum"><div class="cx-bar"><div class="cx-bar-l"><span>' + passed + ' of ' + tracked.length + ' certifications passed</span><span>' + (senior ? 'AE path' : 'Senior SDR path') + '</span></div><div class="cx-track"><i style="width:' + Math.round(passed / Math.max(1, tracked.length) * 100) + '%"></i></div></div>' +
       '<div class="cx-badges" aria-label="Foundation badges">' + data.certs.filter(c => c.track === 'foundation').map(c => '<div class="cx-badge' + (data.progress[c.id]?.status === 'passed' ? ' on' : '') + '" title="' + esc(c.name) + '">' + esc(c.id) + '</div>').join('') + '</div></section>' +
+      elig +
       groups.map(([track, title, note]) => '<section class="cx-group"><div class="cx-group-h"><h2>' + title + '</h2><span>' + note + '</span></div><div class="cx-grid2">' + data.certs.filter(c => c.track === track).map(tile).join('') + '</div></section>').join('') +
-      juniorAe() +
-      '<section class="cx-elig"><h2>Senior SDR eligibility</h2><p>Promotion also depends on performance. Your manager confirms that part.</p><div class="cx-grid2">' +
-      '<div><span>Foundation</span><strong>' + count('foundation') + '</strong></div><div><span>Cold Calling track</span><strong>' + count('cold_calling') + '</strong></div>' +
-      '<div><span>List Building</span><strong>' + (lb && data.progress.LB?.status === 'passed' ? 'Passed' : 'Not started') + '</strong></div><div><span>3 months at quota after ramp</span><strong>Manager confirms</strong></div></div></section>';
+      juniorAe();
     icons(); main.scrollTop = 0; window.scrollTo(0, 0);
   }
 
