@@ -906,27 +906,27 @@
    "section": "D",
    "kind": "judgment",
    "topic": "When pre-vetting finds nothing",
-   "prompt": "A studio's website shows no schedule, just a contact form. HubSpot says they're on MindBody. What do you build relevance from?",
+   "prompt": "A studio's website shows no schedule, just a contact form. HubSpot says they're on MindBody. How do you build relevance on the call?",
    "options": [
     {
      "id": "A",
-     "text": "What's usually true for studios on MindBody, like multi-step booking."
+     "text": "Open with a common MindBody pain, then ask how booking works for them."
     },
     {
      "id": "B",
-     "text": "Momence's full feature list, since there's nothing specific to use."
+     "text": "Walk through Momence's full feature list, since nothing is specific."
     },
     {
      "id": "C",
-     "text": "Ask the prospect to walk you through how their business runs."
+     "text": "Skip relevance and ask for the demo, since there's nothing to use."
     },
     {
      "id": "D",
-     "text": "Hold off calling until you can find something specific to them."
+     "text": "Hold off calling until you find something specific to this studio."
     }
    ],
    "correct": "A",
-   "reveal": null,
+   "reveal": "With no booking on the site, asking how someone books with them (they reach out, then the owner adds them to a class by hand) is a strong way to find the pain and size it. A common MindBody point gives you a reason for the call before you ask.",
    "review": "day-2",
    "source": "Day 2, \"Building a repeatable framework\" (fallback)"
   },
