@@ -173,7 +173,7 @@ const ROLE_NAMES = {sdr: 'SDR', senior_sdr: 'Senior SDR', manager: 'Manager', ad
       const inner = '<div class="cx-ico ' + (live(c) ? 'done' : 'off') + '">' + esc(c.id) + '</div><div class="cx-body"><b>' + esc(c.name) + '</b><small>' + esc(meta(c)) + '</small><span class="cx-chip ' + (live(c) ? 'ok' : 'off') + '">' + (live(c) ? 'Live' : 'Not built yet') + '</span>' + (live(c) ? '<span class="cx-more">View content →</span>' : '') + '</div>';
       return live(c) ? '<a class="cx-tile" href="#" data-cx-cert="' + esc(c.id) + '">' + inner + '</a>' : '<div class="cx-tile locked">' + inner + '</div>';
     };
-    const groups = [['foundation', 'Foundation', 'Onboarding · Required to go live'], ['cold_calling', 'Cold Calling track', 'Taken in order'], ['skills', 'Skills', 'Before applying for Senior SDR'], ['junior_ae', 'Junior AE track', 'Opens at Senior SDR · suggested order']];
+    const groups = [['foundation', 'Foundation', 'Onboarding · Required to go live'], ['cold_calling', 'Cold Calling track', 'Taken in order'], ['skills', 'Skills', 'Before applying for Senior SDR'], ['junior_ae', 'Junior AE track', 'Opens at Senior SDR · suggested order'], ['bonus', 'Bonus certifications', 'Open to everyone after Foundation · earn a badge']];
     main.innerHTML = titleRow('manager') + '<p>Manager view · What every certification tests, with answers and scoring keys. Reps never see this view.</p>' +
       groups.filter(([track]) => data.certs.some(c => c.track === track)).map(([track, title, note]) => '<section class="cx-group"><div class="cx-group-h"><h2>' + title + '</h2><span>' + note + '</span></div><div class="cx-grid2">' + data.certs.filter(c => c.track === track).map(tile).join('') + '</div></section>').join('');
     icons(); main.scrollTop = 0; window.scrollTo(0, 0);
@@ -240,7 +240,7 @@ const ROLE_NAMES = {sdr: 'SDR', senior_sdr: 'Senior SDR', manager: 'Manager', ad
       return '';
     }).join('');
     const tabs = [['rules', 'Rules & format'], T ? ['training', 'Training page'] : null, d.questions.length ? ['bank', 'Quiz questions (' + d.questions.length + ')'] : null, keys ? ['keys', rp && pr ? 'Scorecards & keys' : rp ? 'Scorecard & cards' : 'Rubric & key'] : null].filter(Boolean);
-    const groupName = {foundation: 'FOUNDATION', cold_calling: 'COLD CALLING', skills: 'SKILLS', junior_ae: 'JUNIOR AE TRACK'}[c.track] || '';
+    const groupName = {foundation: 'FOUNDATION', cold_calling: 'COLD CALLING', skills: 'SKILLS', junior_ae: 'JUNIOR AE TRACK', bonus: 'BONUS CERTIFICATION'}[c.track] || '';
     main.innerHTML = '<button class="cx-link" data-cert-page="certifications">← All certifications</button><div class="label" style="margin-top:14px">' + groupName + ' · MANAGER VIEW</div>' +
       '<div class="cx-titlerow"><h1>' + esc(c.id + ' · ' + c.name) + '</h1><span class="cx-chip ok">Live' + (c.day ? ' · Day ' + c.day : '') + '</span></div><p>' + esc(c.summary || '') + '</p>' +
       '<div class="cx-tabs" role="tablist">' + tabs.map((t, i) => '<button role="tab" data-cx-tab="' + t[0] + '" aria-selected="' + !i + '"' + (i ? '' : ' class="on"') + '>' + esc(t[1]) + '</button>').join('') + '</div>' +
@@ -261,6 +261,21 @@ const ROLE_NAMES = {sdr: 'SDR', senior_sdr: 'Senior SDR', manager: 'Manager', ad
       return s.action ? '<a class="cx-tile focus" href="' + (s.url || quizUrl(c.id)) + '" target="_top">' + inner + '</a>' : '<div class="cx-tile' + (s.locked ? ' locked' : '') + '">' + inner + '</div>';
     };
     return head + list.map(tile).join('') + '</div></section>';
+  }
+
+  // Bonus certifications: open to everyone after Foundation, never count toward promotion, earn a badge.
+  function bonusPanel() {
+    const list = data.certs.filter(c => c.track === 'bonus');
+    if (!list.length) return '';
+    const tile = c => {
+      const s = certState(c);
+      const chip = s.key === 'locked' ? {chip: 'off', label: 'Opens after Foundation'} : s;
+      const inner = '<div class="cx-ico ' + (s.key === 'passed' ? 'gold' : s.ico) + '">' + esc(c.id) + '</div><div class="cx-body"><b>' + esc(c.name) + '</b><small>' + esc(formatOf(c)) + '</small><span class="cx-chip ' + chip.chip + '">' + esc(chip.label) + '</span></div>';
+      return s.action ? '<a class="cx-tile focus" href="' + (s.url || quizUrl(c.id)) + '" target="_top">' + inner + '</a>' : '<div class="cx-tile' + (s.locked ? ' locked' : '') + '">' + inner + '</div>';
+    };
+    return '<section class="cx-bonus"><div class="cx-bonus-h"><span class="cx-star" aria-hidden="true">★</span><h2>Bonus certifications</h2></div><p>Extra badges for anyone. They don’t count toward promotion and show on your readiness view.</p>' +
+      '<div class="cx-bonus-grid">' + list.map(tile).join('') + '</div>' +
+      '<div class="cx-earned"><span>Badges earned</span>' + list.map(c => '<div class="cx-badge' + (data.progress[c.id]?.status === 'passed' ? ' gold' : '') + '" title="' + esc(c.name) + '">' + esc(c.id) + '</div>').join('') + '</div></section>';
   }
 
   function renderPath() {
@@ -301,7 +316,7 @@ const ROLE_NAMES = {sdr: 'SDR', senior_sdr: 'Senior SDR', manager: 'Manager', ad
         : '<p>Only you and your managers can see this page.</p>') +
       elig +
       groups.map(([track, title, note]) => '<section class="cx-group"><div class="cx-group-h"><h2>' + title + '</h2><span>' + note + '</span></div><div class="cx-grid2">' + data.certs.filter(c => c.track === track).map(tile).join('') + '</div></section>').join('') +
-      juniorAe();
+      juniorAe() + bonusPanel();
     icons(); main.scrollTop = 0; window.scrollTo(0, 0);
   }
 

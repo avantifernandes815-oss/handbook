@@ -67,6 +67,7 @@
 .st-tabs{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}
 .st-tabs button{font:inherit;font-size:12px;font-weight:700;padding:6px 12px;border-radius:20px;border:1px solid var(--line);background:var(--paper);color:var(--sub);cursor:pointer}
 .st-tabs button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.st-src{font-size:12px;color:var(--sub);margin:-10px 0 18px}.st-src a{color:var(--purple)}
 .st-exs{display:flex;flex-direction:column;gap:12px;margin-bottom:26px}.st-exs .st-ex{margin-bottom:0}
 .st-ex{background:var(--page);border-radius:14px;padding:16px 18px;font-size:14px;line-height:1.55;margin-bottom:26px}
 .st-ex small{display:block;font-size:12px;color:var(--sub);margin-top:6px}
@@ -201,7 +202,7 @@ function render() {
     app.innerHTML = '<a class="crumb" href="/#page=certifications">← Your path</a><div class="eyebrow" style="margin-top:14px">' + esc(S.cert.id) + '</div><h1>' + esc(S.def.title) + '</h1><section class="panel"><h2>Not unlocked yet</h2><p class="sub" style="font-size:14px">' + (S.missingPrereqs.includes('Senior SDR') ? 'The Junior AE track opens once your manager marks you Senior SDR.' : 'Pass ' + esc(S.missingPrereqs.join(', ')) + ' first.') + '</p></section>';
     return;
   }
-  const label = {cold_calling: 'COLD CALLING', skills: 'SKILLS', foundation: 'FOUNDATION', junior_ae: 'JUNIOR AE TRACK'}[S.cert.track] || '';
+  const label = {cold_calling: 'COLD CALLING', skills: 'SKILLS', foundation: 'FOUNDATION', junior_ae: 'JUNIOR AE TRACK', bonus: 'BONUS CERTIFICATION'}[S.cert.track] || '';
   if (S.def.format === 'steps') return renderSteps(label, preview);
   let html = '<a class="crumb" href="/#page=certifications">← Your path</a><div class="eyebrow" style="margin-top:14px">' + label + ' · ' + esc(S.cert.id) + '</div><h1>' + esc(S.def.title) + '</h1><p class="intro">' + esc(S.def.summary) + '</p>' + stepper();
   if (preview) html += '<div class="tr-done" style="background:#fff8e6;border-color:#f3dfa8;color:#5c4400"><span><b>Manager preview.</b> This is the page as a rep sees it. Your own path hasn’t unlocked it, so nothing here saves.</span></div>';
@@ -284,17 +285,18 @@ function renderSteps(label, preview) {
 function goStep(k) { ST.i = Math.max(-1, Math.min(S.def.steps.length, k)); render(); window.scrollTo(0, 0); }
 function stepIntro() {
   const D = S.def;
-  return '<div class="st-k">Mandatory · Junior AE track</div><h2>' + esc(D.title) + '</h2><p class="st-why">' + esc(D.summary) + '</p>' +
+  return '<div class="st-k">' + (S.cert.track === 'bonus' ? 'Bonus certification' : 'Mandatory · Junior AE track') + '</div><h2>' + esc(D.title) + '</h2><p class="st-why">' + esc(D.summary) + '</p>' +
     '<div class="st-facts"><span><b>' + esc(D.minutes || 12) + '</b> minutes</span><span><b>' + D.steps.length + '</b> quick checks</span><span>Then a <b>' + esc(S.quiz?.questions || 10) + '-question</b> quiz</span></div>' +
     '<div class="st-grid">' + D.steps.map((x, k) => '<div><b>' + String(k + 1).padStart(2, '0') + '</b>' + esc(x.title) + '</div>').join('') + '</div>' +
     '<div class="st-foot"><span class="st-hint">Quick checks don’t count toward your score.</span><button class="btn inline" id="stnext">' + (stepsDone() && !S.completedAt ? 'Continue where you left off' : 'Start step 1') + '</button></div>';
 }
 function stepView(k) {
-  const st = S.def.steps[k], N = S.def.steps.length, ans = ST.checks[k], tab = ST.tab[k] || 'good', exs = [].concat(st[tab] || []), cnt = x => [].concat(st[x] || []).length;
+  const st = S.def.steps[k], N = S.def.steps.length, ans = ST.checks[k], cnt = x => [].concat(st[x] || []).length, tabs = ['good', 'missed'].filter(x => cnt(x)), tab = tabs.includes(ST.tab[k]) ? ST.tab[k] : tabs[0], exs = tab ? [].concat(st[tab]) : [];
   const L = 'ABCD';
   return '<div class="st-k">Step ' + (k + 1) + ' of ' + N + '</div><h2>' + esc(st.title) + '</h2>' + (st.points ? '<div class="st-whyb"><b>Why it matters</b>' + esc(st.why) + '</div><div class="st-tiles">' + st.points.map((pt, j) => '<div class="st-tile' + (j === st.points.length - 1 && st.points.length % 2 ? ' wide' : '') + '"><b>' + esc(pt.label) + '</b>' + esc(pt.text) + '</div>').join('') + '</div>' : '<p class="st-why">' + esc(st.why) + '</p><p class="st-idea">' + esc(st.idea) + '</p>') +
+    (st.sources && st.sources.length ? '<p class="st-src">Sources: ' + st.sources.map(x => '<a href="' + esc(x.url) + '" target="_blank" rel="noopener">' + esc(x.title) + '</a>').join(' · ') + '</p>' : '') +
     '<div class="st-say"><b>Try saying</b>' + esc(st.say) + '</div>' +
-    '<div class="st-tabs" role="tablist"><button type="button" role="tab" aria-selected="' + (tab === 'good') + '" class="' + (tab === 'good' ? 'on' : '') + '" data-ex="good">Done well' + (cnt('good') > 1 ? ' · ' + cnt('good') : '') + '</button><button type="button" role="tab" aria-selected="' + (tab === 'missed') + '" class="' + (tab === 'missed' ? 'on' : '') + '" data-ex="missed">Missed' + (cnt('missed') > 1 ? ' · ' + cnt('missed') : '') + '</button></div>' +
+    (tabs.length ? '<div class="st-tabs" role="tablist">' + tabs.map(x => '<button type="button" role="tab" aria-selected="' + (tab === x) + '" class="' + (tab === x ? 'on' : '') + '" data-ex="' + x + '">' + (x === 'good' ? 'Done well' : 'Missed') + (cnt(x) > 1 ? ' · ' + cnt(x) : '') + '</button>').join('') + '</div>' : '') +
     '<div class="st-exs">' + exs.map(ex => '<div class="st-ex ' + tab + '">' + esc(ex.text) + '<small>From our demos · ' + esc(ex.source) + '</small>' +
     (ex.clip ? '<div class="st-clip"><div class="st-clip-k">Watch the moment · ' + Math.floor(ex.clip.seconds / 60) + ':' + String(ex.clip.seconds % 60).padStart(2, '0') + '</div><video controls preload="metadata" playsinline src="' + esc(ex.clip.src) + '"></video></div>' : '') + '</div>').join('') + '</div>' +
     '<div class="st-check"><h3>Quick check</h3><p class="q">' + esc(st.check.prompt) + '</p><div class="st-opts">' +

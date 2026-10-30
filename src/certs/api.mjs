@@ -50,7 +50,7 @@ const NUM = {2: 'two', 3: 'three', 4: 'four', 5: 'five'};
 const REVIEW_LABELS = {'day-1': 'Day 1 · The SDR Job', 'day-2': 'Day 2 · Who We Sell To & Why', 'day-3': 'Day 3 · Owning Your Book of Business', 'day-4': 'Day 4 · Pre-Vetting Workshop', 'day-5': 'Day 5 · Cold Calling Fundamentals', 'day-6': 'Day 6 · Controlling the Conversation', 'day-7': 'Day 7 · Working Smarter at Scale', 'day-8': 'Day 8 · From Yes to Meeting Held', 'meetings': 'Meetings & AE Handoff', 'sal': 'Qualification & SALs', 'book': 'Book of Business', 'statuses': 'Lead Statuses & CRM', '/training/CC1': 'CC1 · Openers training', '/training/CC2': 'CC2 · Elevator Pitch training', '/training/JAE1': 'JAE1 · Core Product training', '/training/JAE2': 'JAE2 · Plans and Quoting training', '/training/JAE3': 'JAE3 · Payments and Card Fees training', '/training/JAE4': 'JAE4 · Migration and Onboarding training', '/training/JAE5': 'JAE5 · Main Competitors training', '/training/JAE6': 'JAE6 · Contract and Close training', '/training/JAE7': 'JAE7 · AI Agent training', '/training/JAE8': 'JAE8 · Sandler Selling training'};
 // Foundation certs allow three attempts; the self-paced tracks have no limit (a retake opens after coaching).
 // Junior AE track: no manager coaching gate. A failed quiz locks for 24 hours, then the rep retakes it on their own.
-const RETAKE_WAIT_HOURS = {junior_ae: 24};
+const RETAKE_WAIT_HOURS = {junior_ae: 24, bonus: 24};
 async function retakeAt(env, email, cert) {
   const h = RETAKE_WAIT_HOURS[cert?.track];
   if (!h) return null;
