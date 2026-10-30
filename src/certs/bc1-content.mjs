@@ -153,7 +153,8 @@ export const BC1_TRAINING = {
           "source": "Lexi demo",
           "clip": {
             "src": "/content/videos/bc1-2-good.mp4",
-            "seconds": 52
+            "seconds": 52,
+            "audio": true
           }
         }
       ],
@@ -396,7 +397,8 @@ export const BC1_TRAINING = {
           "source": "Lexi demo",
           "clip": {
             "src": "/content/videos/bc1-5-good.mp4",
-            "seconds": 63
+            "seconds": 63,
+            "audio": true
           }
         }
       ],
@@ -413,7 +415,8 @@ export const BC1_TRAINING = {
           "source": "Lexi demo",
           "clip": {
             "src": "/content/videos/bc1-5-voice.mp4",
-            "seconds": 45
+            "seconds": 45,
+            "audio": true
           }
         }
       ],
@@ -473,7 +476,8 @@ export const BC1_TRAINING = {
           "source": "Lexi demo",
           "clip": {
             "src": "/content/videos/bc1-6-good-b.mp4",
-            "seconds": 55
+            "seconds": 55,
+            "audio": true
           }
         }
       ],
@@ -498,7 +502,8 @@ export const BC1_TRAINING = {
           "source": "Lexi demo",
           "clip": {
             "src": "/content/videos/bc1-6-voice-b.mp4",
-            "seconds": 30
+            "seconds": 30,
+            "audio": true
           }
         }
       ],
@@ -624,7 +629,8 @@ export const BC1_TRAINING = {
           "source": "Lexi demo",
           "clip": {
             "src": "/content/videos/bc1-8-good.mp4",
-            "seconds": 55
+            "seconds": 55,
+            "audio": true
           }
         }
       ],
