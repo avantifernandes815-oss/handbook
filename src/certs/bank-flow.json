@@ -1,0 +1,586 @@
+{
+ "cert": "JAE9",
+ "version": 1,
+ "questions": [
+  {
+   "id": "JAE9-A1",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "The flow at a glance",
+   "prompt": "Which order matches the suggested flow for a first demo, after the up-front contract?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Discovery, recap, client side, back end, price, close"
+    },
+    {
+     "id": "B",
+     "text": "Client side, back end, discovery, recap, price, close"
+    },
+    {
+     "id": "C",
+     "text": "Recap, client side, discovery, back end, close, price"
+    },
+    {
+     "id": "D",
+     "text": "Back end, discovery, client side, recap, close, price"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Find the need, say it back, show the client side and then their day, and only then price and close.",
+   "review": "/training/JAE9",
+   "source": "JAE9 training"
+  },
+  {
+   "id": "JAE9-A2",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Re-setting the contract",
+   "prompt": "Fifteen minutes in, the co-owner joins the call. What should you do before you go on?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Keep going so the first owner doesn't lose the thread"
+    },
+    {
+     "id": "B",
+     "text": "Restart the whole demo from the beginning for them"
+    },
+    {
+     "id": "C",
+     "text": "Ask them to watch the recording later instead"
+    },
+    {
+     "id": "D",
+     "text": "Recap where you are and agree what's left for the call"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Whenever a decision-maker joins late, re-set the plan so they know what's been covered and how the call ends.",
+   "review": "/training/JAE9",
+   "source": "JAE9 training"
+  },
+  {
+   "id": "JAE9-A3",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Stage timing",
+   "prompt": "In our strongest first demos, about how long did discovery run before the first screen?",
+   "options": [
+    {
+     "id": "A",
+     "text": "About 1 to 2 minutes, then straight to the screen"
+    },
+    {
+     "id": "B",
+     "text": "About 5 to 10 minutes, with open questions"
+    },
+    {
+     "id": "C",
+     "text": "About 15 to 20 minutes, the first half of the call"
+    },
+    {
+     "id": "D",
+     "text": "About 25 to 30 minutes, most of the whole call"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Long enough to learn the pain, its cost, the spend and who decides. When it was cut to a question or two, the must-haves came out late.",
+   "review": "/training/JAE9",
+   "source": "JAE9 training"
+  },
+  {
+   "id": "JAE9-A4",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Agreeing the ending",
+   "prompt": "Fifty minutes in, your next meeting starts and the owner asks, “So how do we go from here?” What would have prevented this?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Showing fewer features so the demo ran a bit faster"
+    },
+    {
+     "id": "B",
+     "text": "Sending the agenda by email the day before the call"
+    },
+    {
+     "id": "C",
+     "text": "Agreeing the time and how it ends in the first minutes"
+    },
+    {
+     "id": "D",
+     "text": "Booking a longer slot so there was time for questions"
+    }
+   ],
+   "correct": "C",
+   "reveal": "An up-front contract covers how long the call runs and how it ends, so the next step is planned, not improvised.",
+   "review": "/training/JAE9",
+   "source": "JAE9 training"
+  },
+  {
+   "id": "JAE9-B1",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Follow the answer",
+   "prompt": "Early in discovery, the owner says onboarding with her current software was “messy.” What's your best next move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Say, “Tell me about that,” and let her walk you through it"
+    },
+    {
+     "id": "B",
+     "text": "Promise that Momence onboarding is much easier than that"
+    },
+    {
+     "id": "C",
+     "text": "Move on and ask how many classes she runs each week"
+    },
+    {
+     "id": "D",
+     "text": "Share your screen and show the onboarding checklist"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Stay on the pain. Her story is what you'll answer later in the demo.",
+   "review": "/training/JAE9",
+   "source": "JAE9 training"
+  },
+  {
+   "id": "JAE9-B2",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "What discovery covers",
+   "prompt": "Which set belongs in discovery, before you share your screen?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Their logo, brand colors, website and social accounts"
+    },
+    {
+     "id": "B",
+     "text": "Current tools, the pain and its cost, spend, who decides"
+    },
+    {
+     "id": "C",
+     "text": "Which features they want and which plan they'll choose"
+    },
+    {
+     "id": "D",
+     "text": "Their staff list, class schedule and membership prices"
+    }
+   ],
+   "correct": "B",
+   "reveal": "What they use, what isn't working and what it costs, what they pay and who decides. The rest comes later.",
+   "review": "/training/JAE9",
+   "source": "JAE9 training"
+  },
+  {
+   "id": "JAE9-B3",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Recap",
+   "prompt": "What belongs in the short recap between discovery and the demo?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A summary of Momence's plans and what each one includes"
+    },
+    {
+     "id": "B",
+     "text": "A list of every feature you plan to show, in your order"
+    },
+    {
+     "id": "C",
+     "text": "Their top needs in their words, and what you'll show first"
+    },
+    {
+     "id": "D",
+     "text": "A reminder of how long Momence has worked with studios"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Say it back, ask what you missed, and name the order, starting with their top need.",
+   "review": "/training/JAE9",
+   "source": "JAE9 training"
+  },
+  {
+   "id": "JAE9-B4",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Grow or fix",
+   "prompt": "You ask whether she wants to grow or mostly fix problems. She says, “Just fix the booking headaches.” How does that shape the demo?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Lead with booking, and keep marketing short or skip it"
+    },
+    {
+     "id": "B",
+     "text": "Lead with marketing, since growth always follows later"
+    },
+    {
+     "id": "C",
+     "text": "Show every part equally so she can decide on her own"
+    },
+    {
+     "id": "D",
+     "text": "Skip the demo and go straight to price and the close"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Her answer tells you where to spend the time. Marketing can wait until growth is a goal.",
+   "review": "/training/JAE9",
+   "source": "JAE9 training"
+  },
+  {
+   "id": "JAE9-C1",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Client experience first",
+   "prompt": "The owner's pain is that clients need too many clicks to book a session. Where do you start the screen share?",
+   "options": [
+    {
+     "id": "A",
+     "text": "On the dashboard, to show how the business runs"
+    },
+    {
+     "id": "B",
+     "text": "On the reports, to show what clients are booking"
+    },
+    {
+     "id": "C",
+     "text": "On a client booking on a live studio's checkout"
+    },
+    {
+     "id": "D",
+     "text": "On the marketing suite, to show the big upgrade"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Start where it hurts and count the clicks with them.",
+   "review": "/training/JAE9",
+   "source": "JAE9 training"
+  },
+  {
+   "id": "JAE9-C2",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Side by side",
+   "prompt": "Which front-end moment was among the strongest in our demos?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A full tour of every checkout setting and option"
+    },
+    {
+     "id": "B",
+     "text": "Their own booking flow next to a Momence checkout"
+    },
+    {
+     "id": "C",
+     "text": "A slide that compares feature lists across vendors"
+    },
+    {
+     "id": "D",
+     "text": "The admin dashboard shown before any client screen"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Seeing their own login walls and redirects next to a one-page checkout makes the difference concrete.",
+   "review": "/training/JAE9",
+   "source": "JAE9 training"
+  },
+  {
+   "id": "JAE9-C3",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Stay on what matters",
+   "prompt": "During the back end, the owner says, “Paying for friends is a big deal for us.” You were about to show guest passes. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Show guest passes first, then come back to it later"
+    },
+    {
+     "id": "B",
+     "text": "Say it's easy and keep going to finish the tour"
+    },
+    {
+     "id": "C",
+     "text": "Note it for onboarding and move to the schedule"
+    },
+    {
+     "id": "D",
+     "text": "Stop, ask what happens today, and show that flow"
+    }
+   ],
+   "correct": "D",
+   "reveal": "When they say something matters, stay there. The next screen can wait.",
+   "review": "/training/JAE9",
+   "source": "JAE9 training"
+  },
+  {
+   "id": "JAE9-C4",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Honest limits",
+   "prompt": "The owner asks whether Momence can always fill single clients into a couples room last. You're not sure. What do you say?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Say yes, since most room setups can be configured"
+    },
+    {
+     "id": "B",
+     "text": "Say what you know works, and confirm the rest after"
+    },
+    {
+     "id": "C",
+     "text": "Say no, so you don't risk overpromising anything"
+    },
+    {
+     "id": "D",
+     "text": "Move on and hope it doesn't come up again later"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Show the closest fit, say what you don't know, and confirm it. Guessing either way costs trust.",
+   "review": "/training/JAE9",
+   "source": "JAE9 training"
+  },
+  {
+   "id": "JAE9-D1",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Marketing where it fits",
+   "prompt": "An owner gets few client messages but loses leads who start to book and don't finish. What should you show her?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Sequences that follow up on abandoned checkouts"
+    },
+    {
+     "id": "B",
+     "text": "The AI agent answering routine inbox messages"
+    },
+    {
+     "id": "C",
+     "text": "A branded app with her logo in the app store"
+    },
+    {
+     "id": "D",
+     "text": "Point of sale and the card reader at the desk"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Abandoned checkouts become leads, and sequences follow up with them automatically.",
+   "review": "/training/JAE9",
+   "source": "JAE9 training"
+  },
+  {
+   "id": "JAE9-D2",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "When marketing and AI belong",
+   "prompt": "When do marketing and the AI belong in a first demo?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Always, since they're the biggest upgrades we sell"
+    },
+    {
+     "id": "B",
+     "text": "Only after they've signed, during their onboarding"
+    },
+    {
+     "id": "C",
+     "text": "Only if the owner asks to see them by name first"
+    },
+    {
+     "id": "D",
+     "text": "When they fit what the owner said in discovery"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Growth goals, lost leads or a busy inbox make them relevant. Otherwise mention them and move on.",
+   "review": "/training/JAE9",
+   "source": "JAE9 training"
+  },
+  {
+   "id": "JAE9-D3",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "Before the number",
+   "prompt": "The demo is done and you're about to price. What should come right before the number?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A list of every feature included in the plan"
+    },
+    {
+     "id": "B",
+     "text": "A reminder of the offer that ends this month"
+    },
+    {
+     "id": "C",
+     "text": "A question about which plan they'd like most"
+    },
+    {
+     "id": "D",
+     "text": "A short recap of what landed, in their words"
+    }
+   ],
+   "correct": "D",
+   "reveal": "The recap reminds them what they're paying for, so the price lands on value they've seen.",
+   "review": "/training/JAE9",
+   "source": "JAE9 training"
+  },
+  {
+   "id": "JAE9-D4",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Anchoring the price",
+   "prompt": "The owner pays for a booking tool and a separate texting tool. How do you set up the price comparison?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Compare to the booking tool, since it's the main one"
+    },
+    {
+     "id": "B",
+     "text": "Skip the comparison and show the plan price alone"
+    },
+    {
+     "id": "C",
+     "text": "Ask both costs early and compare against the total"
+    },
+    {
+     "id": "D",
+     "text": "Compare to the cheapest competitor in their area"
+    }
+   ],
+   "correct": "C",
+   "reveal": "An all-in-one replaces both tools, so the fair comparison is their total spend.",
+   "review": "/training/JAE9",
+   "source": "JAE9 training"
+  },
+  {
+   "id": "JAE9-E1",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Trial close",
+   "prompt": "Which of these is a trial close?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Do you have any other questions about the features?”"
+    },
+    {
+     "id": "B",
+     "text": "“Does what you saw solve the problems you told me?”"
+    },
+    {
+     "id": "C",
+     "text": "“Would you like me to send you a recap by email?”"
+    },
+    {
+     "id": "D",
+     "text": "“Should I show you the rest of the marketing suite?”"
+    }
+   ],
+   "correct": "B",
+   "reveal": "It checks whether the demo did its job and surfaces what's left before you ask for the decision.",
+   "review": "/training/JAE9",
+   "source": "JAE9 training"
+  },
+  {
+   "id": "JAE9-E2",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Multi-location",
+   "prompt": "Mid-demo, an owner mentions two local studios have asked her to buy them. What's the best move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Note it and come back to it if she raises it again"
+    },
+    {
+     "id": "B",
+     "text": "Quote three locations now so she sees the full cost"
+    },
+    {
+     "id": "C",
+     "text": "Ask how they'd be owned and run, then show locations"
+    },
+    {
+     "id": "D",
+     "text": "Tell her a branded app is a must for more locations"
+    }
+   ],
+   "correct": "C",
+   "reveal": "How the locations are owned and run decides the setup and the quote. Ask before you show anything.",
+   "review": "/training/JAE9",
+   "source": "JAE9 training"
+  },
+  {
+   "id": "JAE9-E3",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Follow-up calls",
+   "prompt": "You start a follow-up call. The owner emailed a list of questions, with one marked as her deal-breaker. What do you cover first?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Her list in the order she wrote it, top to bottom"
+    },
+    {
+     "id": "B",
+     "text": "A short recap demo of everything from last time"
+    },
+    {
+     "id": "C",
+     "text": "The pricing, since it's what decides most deals"
+    },
+    {
+     "id": "D",
+     "text": "Her deal-breaker, then the rest of her list"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Prove the deal-breaker first. If it fails, the rest doesn't matter. If it works, the rest goes faster.",
+   "review": "/training/JAE9",
+   "source": "JAE9 training"
+  },
+  {
+   "id": "JAE9-E4",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Pre-open studios",
+   "prompt": "A pre-open owner starts presales in January and opens in February. What fits her best?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Memberships that activate on first use"
+    },
+    {
+     "id": "B",
+     "text": "A branded app before the doors open"
+    },
+    {
+     "id": "C",
+     "text": "The AI agent to answer her inbox now"
+    },
+    {
+     "id": "D",
+     "text": "Payroll reports for her future staff"
+    }
+   ],
+   "correct": "A",
+   "reveal": "She can sell founding memberships now, and they start when clients first come in.",
+   "review": "/training/JAE9",
+   "source": "JAE9 training"
+  }
+ ]
+}
