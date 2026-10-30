@@ -182,3 +182,4 @@
 #momence-preview .cx-q.res-bad{border-left:3px solid #b42318}#momence-preview .cx-q.res-ok{border-left:3px solid #1f7a4d}
 #momence-preview .cx-opt.chose{background:#fdecea}
 #momence-preview .cx-opt em.bad{color:#b42318}
+#momence-preview .cx-res-sec .cx-res-letter{font-size:10px;letter-spacing:.8px;text-transform:uppercase;color:var(--sub)}

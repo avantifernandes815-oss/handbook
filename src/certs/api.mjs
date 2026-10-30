@@ -42,6 +42,7 @@ import bankBC4 from './bank-bc4.json' with {type: 'json'};
 import {BC4_TRAINING} from './bc4-content.mjs';
 import bankJAE9 from './bank-flow.json' with {type: 'json'};
 import {JAE9_TRAINING} from './flow-content.mjs';
+import SECTION_NAMES from './section-names.json' with {type: 'json'};
 import bankJA8 from './bank-ja8.json' with {type: 'json'};
 import {JA8_TRAINING} from './ja8-content.mjs';
 import {CC7_ROLEPLAY} from './cc7-content.mjs';
@@ -175,14 +176,14 @@ async function quizResults(env, email, certId) {
     const rows = (await env.DB.prepare("SELECT qa.position, qa.option_order, qa.chosen, qa.is_correct, qa.timed_out, qa.time_taken_ms, q.id qid, q.section, q.topic, q.prompt, q.scenario, q.options, q.correct, q.reveal, q.review_link FROM quiz_answers qa LEFT JOIN questions q ON q.id=qa.question_id AND q.version=qa.question_version WHERE qa.attempt_id=? ORDER BY qa.position").bind(a.id).all()).results;
     const answers = rows.map(r => {
       const opts = parse(r.options, []), order = parse(r.option_order, opts.map(o => o.id));
-      return {position: r.position, id: r.qid, section: r.section, topic: r.topic, prompt: r.prompt, scenario: r.scenario,
+      return {position: r.position, id: r.qid, section: r.section, sectionName: SECTION_NAMES[certId]?.[r.section] || null, topic: r.topic, prompt: r.prompt, scenario: r.scenario,
         options: order.map(id => ({id, text: opts.find(o => o.id === id)?.text || ''})), chosen: r.chosen, correct: r.correct,
         isCorrect: !!r.is_correct, timedOut: !!r.timed_out, seconds: r.time_taken_ms ? Math.round(r.time_taken_ms / 1000) : null, reveal: r.reveal, review: r.review_link};
     });
     const bySection = {};
     for (const x of answers) { const k = x.section || '?'; bySection[k] = bySection[k] || {section: k, right: 0, total: 0, topics: new Set()}; bySection[k].total++; if (x.isCorrect) bySection[k].right++; else if (x.topic) bySection[k].topics.add(x.topic); }
     out.push({attemptNo: a.attempt_no, status: a.status, score: a.score, correct: a.correct_count, total: answers.length, startedAt: a.started_at, finishedAt: a.finished_at, tabLeaves: a.tab_leaves, answers,
-      sections: Object.values(bySection).sort((x, y) => x.section.localeCompare(y.section)).map(x => ({section: x.section, right: x.right, total: x.total, missedTopics: [...x.topics]}))});
+      sections: Object.values(bySection).sort((x, y) => x.section.localeCompare(y.section)).map(x => ({section: x.section, name: SECTION_NAMES[certId]?.[x.section] || null, right: x.right, total: x.total, missedTopics: [...x.topics]}))});
   }
   return {rep: {email: user.email, name: user.name || user.email.split('@')[0]}, cert: {id: cert.id, name: cert.name}, attempts: out};
 }
