@@ -285,19 +285,20 @@ const ROLE_NAMES = {sdr: 'SDR', senior_sdr: 'Senior SDR', manager: 'Manager', ad
     const lb = data.certs.find(c => c.id === 'LB');
     const jae = data.certs.filter(c => c.track === 'junior_ae'), mock = jae.find(c => (c.components || []).join() === 'roleplay');
     const jaeDone = jae.filter(c => c !== mock && data.progress[c.id]?.status === 'passed').length, jaeAll = jae.filter(c => c !== mock).length;
+    const badgeCerts = senior ? data.certs.filter(c => c.track === 'junior_ae') : data.certs.filter(c => c.track === 'foundation');
+    const prog = '<div class="cx-sum" style="margin-top:16px"><div class="cx-bar"><div class="cx-bar-l"><span>' + passed + ' of ' + tracked.length + ' certifications passed</span><span>' + (senior ? 'AE path' : 'Senior SDR path') + '</span></div><div class="cx-track"><i style="width:' + Math.round(passed / Math.max(1, tracked.length) * 100) + '%"></i></div></div>' +
+      '<div class="cx-badges" style="flex-wrap:wrap" aria-label="' + (senior ? 'Junior AE' : 'Foundation') + ' badges">' + badgeCerts.map(c => '<div class="cx-badge' + (data.progress[c.id]?.status === 'passed' ? ' on' : '') + '" title="' + esc(c.name) + '">' + esc(c.id) + '</div>').join('') + '</div></div>';
     const elig = senior
       ? '<section class="cx-elig" style="margin-bottom:22px"><h2>AE eligibility</h2><p>Moving to AE also depends on performance. Your manager confirms that part.</p><div class="cx-grid2">' +
         '<div><span>Junior AE certifications</span><strong>' + jaeDone + ' / ' + jaeAll + '</strong></div>' +
         '<div><span>Mock demo with your manager</span><strong>' + (mock && data.progress[mock.id]?.status === 'passed' ? 'Passed' : 'Not yet') + '</strong></div>' +
-        '<div><span>Performance as a Senior SDR</span><strong>Manager confirms</strong></div></div></section>'
+        '<div><span>Performance as a Senior SDR</span><strong>Manager confirms</strong></div></div>' + prog + '</section>'
       : '<section class="cx-elig" style="margin-bottom:22px"><h2>Senior SDR eligibility</h2><p>Promotion also depends on performance. Your manager confirms that part.</p><div class="cx-grid2">' +
         '<div><span>Foundation</span><strong>' + count('foundation') + '</strong></div><div><span>Cold Calling track</span><strong>' + count('cold_calling') + '</strong></div>' +
-        '<div><span>List Building</span><strong>' + (lb && data.progress.LB?.status === 'passed' ? 'Passed' : 'Not started') + '</strong></div><div><span>3 months at quota after ramp</span><strong>Manager confirms</strong></div></div></section>';
+        '<div><span>List Building</span><strong>' + (lb && data.progress.LB?.status === 'passed' ? 'Passed' : 'Not started') + '</strong></div><div><span>3 months at quota after ramp</span><strong>Manager confirms</strong></div></div>' + prog + '</section>';
     main.innerHTML = titleRow('user') + (isMgr()
         ? '<div class="cx-preview"><span><b>You’re seeing what a rep sees.</b> Anything you take here is saved to your own record only, and you never appear on Team Progress.</span><button class="cx-btn ghost" data-cx-reset-preview>Reset my preview</button></div>'
         : '<p>Only you and your managers can see this page.</p>') +
-      '<section class="cx-card cx-sum"><div class="cx-bar"><div class="cx-bar-l"><span>' + passed + ' of ' + tracked.length + ' certifications passed</span><span>' + (senior ? 'AE path' : 'Senior SDR path') + '</span></div><div class="cx-track"><i style="width:' + Math.round(passed / Math.max(1, tracked.length) * 100) + '%"></i></div></div>' +
-      '<div class="cx-badges" aria-label="Foundation badges">' + data.certs.filter(c => c.track === 'foundation').map(c => '<div class="cx-badge' + (data.progress[c.id]?.status === 'passed' ? ' on' : '') + '" title="' + esc(c.name) + '">' + esc(c.id) + '</div>').join('') + '</div></section>' +
       elig +
       groups.map(([track, title, note]) => '<section class="cx-group"><div class="cx-group-h"><h2>' + title + '</h2><span>' + note + '</span></div><div class="cx-grid2">' + data.certs.filter(c => c.track === track).map(tile).join('') + '</div></section>').join('') +
       juniorAe();
