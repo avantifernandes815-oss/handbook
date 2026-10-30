@@ -67,6 +67,7 @@
 .st-tabs{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}
 .st-tabs button{font:inherit;font-size:12px;font-weight:700;padding:6px 12px;border-radius:20px;border:1px solid var(--line);background:var(--paper);color:var(--sub);cursor:pointer}
 .st-tabs button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.st-exs{display:flex;flex-direction:column;gap:12px;margin-bottom:26px}.st-exs .st-ex{margin-bottom:0}
 .st-ex{background:var(--page);border-radius:14px;padding:16px 18px;font-size:14px;line-height:1.55;margin-bottom:26px}
 .st-ex small{display:block;font-size:12px;color:var(--sub);margin-top:6px}
 .st-clip{margin-top:14px}.st-clip-k{font-size:11px;letter-spacing:.8px;font-weight:700;color:var(--purple);text-transform:uppercase;margin-bottom:6px}
@@ -289,13 +290,13 @@ function stepIntro() {
     '<div class="st-foot"><span class="st-hint">Quick checks don’t count toward your score.</span><button class="btn inline" id="stnext">' + (stepsDone() && !S.completedAt ? 'Continue where you left off' : 'Start step 1') + '</button></div>';
 }
 function stepView(k) {
-  const st = S.def.steps[k], N = S.def.steps.length, ans = ST.checks[k], tab = ST.tab[k] || 'good', ex = st[tab];
+  const st = S.def.steps[k], N = S.def.steps.length, ans = ST.checks[k], tab = ST.tab[k] || 'good', exs = [].concat(st[tab] || []), cnt = x => [].concat(st[x] || []).length;
   const L = 'ABCD';
   return '<div class="st-k">Step ' + (k + 1) + ' of ' + N + '</div><h2>' + esc(st.title) + '</h2>' + (st.points ? '<div class="st-whyb"><b>Why it matters</b>' + esc(st.why) + '</div><div class="st-tiles">' + st.points.map((pt, j) => '<div class="st-tile' + (j === st.points.length - 1 && st.points.length % 2 ? ' wide' : '') + '"><b>' + esc(pt.label) + '</b>' + esc(pt.text) + '</div>').join('') + '</div>' : '<p class="st-why">' + esc(st.why) + '</p><p class="st-idea">' + esc(st.idea) + '</p>') +
     '<div class="st-say"><b>Try saying</b>' + esc(st.say) + '</div>' +
-    '<div class="st-tabs" role="tablist"><button type="button" role="tab" aria-selected="' + (tab === 'good') + '" class="' + (tab === 'good' ? 'on' : '') + '" data-ex="good">Done well</button><button type="button" role="tab" aria-selected="' + (tab === 'missed') + '" class="' + (tab === 'missed' ? 'on' : '') + '" data-ex="missed">Missed</button></div>' +
-    '<div class="st-ex ' + tab + '">' + esc(ex.text) + '<small>From our demos · ' + esc(ex.source) + '</small>' +
-    (ex.clip ? '<div class="st-clip"><div class="st-clip-k">Watch the moment · ' + Math.floor(ex.clip.seconds / 60) + ':' + String(ex.clip.seconds % 60).padStart(2, '0') + '</div><video controls preload="metadata" playsinline src="' + esc(ex.clip.src) + '"></video></div>' : '') + '</div>' +
+    '<div class="st-tabs" role="tablist"><button type="button" role="tab" aria-selected="' + (tab === 'good') + '" class="' + (tab === 'good' ? 'on' : '') + '" data-ex="good">Done well' + (cnt('good') > 1 ? ' · ' + cnt('good') : '') + '</button><button type="button" role="tab" aria-selected="' + (tab === 'missed') + '" class="' + (tab === 'missed' ? 'on' : '') + '" data-ex="missed">Missed' + (cnt('missed') > 1 ? ' · ' + cnt('missed') : '') + '</button></div>' +
+    '<div class="st-exs">' + exs.map(ex => '<div class="st-ex ' + tab + '">' + esc(ex.text) + '<small>From our demos · ' + esc(ex.source) + '</small>' +
+    (ex.clip ? '<div class="st-clip"><div class="st-clip-k">Watch the moment · ' + Math.floor(ex.clip.seconds / 60) + ':' + String(ex.clip.seconds % 60).padStart(2, '0') + '</div><video controls preload="metadata" playsinline src="' + esc(ex.clip.src) + '"></video></div>' : '') + '</div>').join('') + '</div>' +
     '<div class="st-check"><h3>Quick check</h3><p class="q">' + esc(st.check.prompt) + '</p><div class="st-opts">' +
     st.check.options.map((o, j) => '<button type="button" class="st-opt' + (ans === null ? '' : j === st.check.answer ? ' right' : j === ans ? ' wrong' : '') + '" data-opt="' + j + '"' + (ans === null ? '' : ' disabled') + '><span class="lt">' + L[j] + '</span><span>' + esc(o) + '</span></button>').join('') + '</div>' +
     (ans === null ? '' : '<div class="st-rev"><b>' + (ans === st.check.answer ? 'Right.' : 'Not quite.') + '</b> ' + esc(st.check.why) + '</div>') + '</div>' +
