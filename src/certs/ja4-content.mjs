@@ -17,6 +17,14 @@ export const JA4_TRAINING = {
         {
           "text": "Moving from Acuity, the AE split it clearly: Momence's team pulls the client data, and stored cards need a separate encrypted export from Acuity.",
           "source": "Wild Yoga demo"
+        },
+        {
+          "text": "The AE split it clearly: Momence's onboarding team pulls the data out of Arketa for her, while stored cards are the one thing she may have to collect again. The owner said she only wanted her client list anyway, and the AE confirmed that's a simple export and upload.",
+          "source": "Sol Space demo",
+          "clip": {
+            "src": "/content/videos/ja4-1-good-a1.mp4",
+            "seconds": 50
+          }
         }
       ],
       "missed": [
@@ -434,6 +442,14 @@ export const JA4_TRAINING = {
           "clip": {
             "src": "/content/videos/ja4-7-good-b.mp4",
             "seconds": 98
+          }
+        },
+        {
+          "text": "Asked what the rollout “truly” looks like, the AE got specific. The owner keeps Arketa running while she builds in Momence. Then they set a conversion date, Momence's team pulls the reports and the data comes over in a day or two, and they check it together.",
+          "source": "Sol Space demo",
+          "clip": {
+            "src": "/content/videos/ja4-7-good-a1.mp4",
+            "seconds": 85
           }
         }
       ],

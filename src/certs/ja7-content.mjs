@@ -301,6 +301,14 @@ export const JA7_TRAINING = {
         {
           "text": "A day spa owner said she'd switch if Boulevard didn't add an AI chatbot. The AE asked what she paid across Boulevard and Podium, then showed the agent's setup, custom instructions and escalation to staff, all tied to booking in one inbox.",
           "source": "Purity Day Spa demo"
+        },
+        {
+          "text": "Before demoing the AI, the rep asked the owners which tasks feel repetitive and tedious. The partner named pausing memberships and no-show fee disputes, which take her admin team a few hours every day. That gave the demo its job.",
+          "source": "ReformX Pilates, second call (Australian franchise)",
+          "clip": {
+            "src": "/content/videos/ja7-5-good-a1.mp4",
+            "seconds": 58
+          }
         }
       ],
       "missed": [

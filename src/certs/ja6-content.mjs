@@ -159,6 +159,14 @@ export const JA6_TRAINING = {
             "src": "/content/videos/ja6-3-good-b.mp4",
             "seconds": 115
           }
+        },
+        {
+          "text": "The AE asked when she planned to decide with her partner. He offered a follow-up with the partner on Monday and said he'd send a draft contract to look over, with the next steps laid out.",
+          "source": "The Mill Yoga demo",
+          "clip": {
+            "src": "/content/videos/ja6-3-good-a1.mp4",
+            "seconds": 104
+          }
         }
       ],
       "missed": [
@@ -320,6 +328,14 @@ export const JA6_TRAINING = {
           "clip": {
             "src": "/content/videos/ja6-5-good-b.mp4",
             "seconds": 72
+          }
+        },
+        {
+          "text": "Before she opened the agreement, the AE told her what it would show: her package, the discount, the first charge date, and that after the free week still owed, billing renews on the 7th of each month.",
+          "source": "Jenn G. demo",
+          "clip": {
+            "src": "/content/videos/ja6-5-good-a1.mp4",
+            "seconds": 62
           }
         }
       ],

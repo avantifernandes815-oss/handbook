@@ -396,6 +396,14 @@ export const JA2_TRAINING = {
         {
           "text": "The prospect called because WellnessLiving had just moved sequences behind a paywall. That was the case for Growth, and the AE never built on it. The call stayed a price list.",
           "source": "NRG Pilates pricing call"
+        },
+        {
+          "text": "The owners had opened by saying renewal reminders and other admin should be automated, which is the case for Growth. The AE never showed marketing. He priced it as an add-on “we haven't covered at all” and told them the base plan could replace Mailchimp.",
+          "source": "Skillz Sports Lab demo (Toronto)",
+          "clip": {
+            "src": "/content/videos/ja2-6-missed-a1.mp4",
+            "seconds": 113
+          }
         }
       ],
       "check": {

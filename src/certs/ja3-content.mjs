@@ -86,6 +86,14 @@ export const JA3_TRAINING = {
         {
           "text": "Asked what ACH costs, the AE guessed a number on the spot (“I want to say like…”). Another demo quoted a different one. A guessed rate is the one the prospect remembers.",
           "source": "Pure Yoga demo"
+        },
+        {
+          "text": "The AE told the prospect that paying by direct debit (ACH) carries no processing fee. Later in the call she found a fee on the quote, and he had to correct himself.",
+          "source": "Jenn G. demo",
+          "clip": {
+            "src": "/content/videos/ja3-2-missed-a1.mp4",
+            "seconds": 90
+          }
         }
       ],
       "check": {
@@ -216,6 +224,14 @@ export const JA3_TRAINING = {
         {
           "text": "The prospect said her older, small-town clients would mind paying fees. The AE pushed passing fees on twice more before he adapted.",
           "source": "Pure Yoga demo"
+        },
+        {
+          "text": "For the second time in the call, the AE told a brand-new studio owner to pass card fees on, saying it would save at least $400 a month and pay for Momence. He never asked whether she passes fees on today or how her students would feel about it.",
+          "source": "New yoga studio demo (Manhattan)",
+          "clip": {
+            "src": "/content/videos/ja3-4-missed-a1.mp4",
+            "seconds": 68
+          }
         }
       ],
       "check": {
@@ -405,6 +421,14 @@ export const JA3_TRAINING = {
         {
           "text": "The prospect said fast check-in and payment at the door was his priority. The door-side flow with the card reader came 20 minutes in.",
           "source": "SALSAtlanta demo"
+        },
+        {
+          "text": "The operations lead asked whether staff could record cash taken in person. The AE moved on to saved cards and passing fees on, then the dashboard and inbox. He came back to paying at the desk about a minute later.",
+          "source": "Skillz Sports Lab demo (Toronto)",
+          "clip": {
+            "src": "/content/videos/ja3-7-missed-a1.mp4",
+            "seconds": 107
+          }
         }
       ],
       "check": {

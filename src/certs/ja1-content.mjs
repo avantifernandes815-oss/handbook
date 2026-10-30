@@ -35,6 +35,14 @@ export const JA1_TRAINING = {
         {
           "text": "Explaining why he recommends the default pop-up checkout over an embedded one, the AE told the prospect three times that 98% of clients prefer it. No source backs that number.",
           "source": "Greylock Yoga demo"
+        },
+        {
+          "text": "After a spa owner watched the one-page checkout, the AE claimed that every extra click or page makes 14 percent of people stop booking. No source backs that number. The checkout's real advantages were enough.",
+          "source": "Nathaniel R. demo",
+          "clip": {
+            "src": "/content/videos/ja1-1-missed-a1.mp4",
+            "seconds": 60
+          }
         }
       ],
       "check": {
@@ -104,6 +112,14 @@ export const JA1_TRAINING = {
         {
           "text": "The prospect's one deal-breaker was a parent booking herself and her children in one checkout. The AE didn't know and said she'd check. Done well shows the right answer.",
           "source": "Kaylea C. demo"
+        },
+        {
+          "text": "The owner asked whether clients can get a receipt after they check out. The AE didn't know. He said they'd get a confirmation email and that he'd get back to her. Know the checkout basics owners ask about before the demo.",
+          "source": "Core Fluency Pilates demo",
+          "clip": {
+            "src": "/content/videos/ja1-2-missed-a1.mp4",
+            "seconds": 95
+          }
         }
       ],
       "check": {
@@ -173,6 +189,14 @@ export const JA1_TRAINING = {
         {
           "text": "The prospect said his priority was fast check-in at the door before class. The class page and check-in came about 20 minutes in, after other features.",
           "source": "SALSAtlanta demo"
+        },
+        {
+          "text": "About 34 minutes into a call booked for 30, the operations lead asked whether this was the demo. She wanted to see what happens once a client books. Only then did the AE open the class roster and show staff checking people in.",
+          "source": "Skillz Sports Lab demo (Toronto)",
+          "clip": {
+            "src": "/content/videos/ja1-3-missed-a1.mp4",
+            "seconds": 75
+          }
         }
       ],
       "check": {
@@ -315,6 +339,14 @@ export const JA1_TRAINING = {
         {
           "text": "With more providers than rooms on weekends, the spa owner asked whether rooms could block and be prioritized. The AE couldn't say and committed to confirm. He didn't overpromise, but it's the kind of question to know before a spa demo. The answer is still being confirmed.",
           "source": "Purity Day Spa demo"
+        },
+        {
+          "text": "The owner's spa location came up a few minutes in, unprompted, and the AE hadn't prepared for it. She said she wasn't aware of it and searched for a spa example to show. Find out about services and rooms before a spa demo.",
+          "source": "Sol Space demo",
+          "clip": {
+            "src": "/content/videos/ja1-5-missed-a1.mp4",
+            "seconds": 100
+          }
         }
       ],
       "check": {
