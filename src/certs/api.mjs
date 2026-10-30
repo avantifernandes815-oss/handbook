@@ -16,9 +16,11 @@ import bankCC4 from './bank-cc4.json' with {type: 'json'};
 import {CC4_TRAINING, CC4_ROLEPLAY} from './cc4-content.mjs';
 import bankCC5 from './bank-cc5.json' with {type: 'json'};
 import {CC5_TRAINING, CC5_ROLEPLAY} from './cc5-content.mjs';
+import bankCC6 from './bank-cc6.json' with {type: 'json'};
+import {CC6_TRAINING, CC6_ROLEPLAY} from './cc6-content.mjs';
 
-const BANKS = {F1: bankF1, F2: bankF2, F3: bankF3, F4: bankF4, CC1: bankCC1, CC2: bankCC2, CC3: bankCC3, CC4: bankCC4, CC5: bankCC5};
-export const TRAININGS = {CC1: CC1_TRAINING, CC2: CC2_TRAINING, CC3: CC3_TRAINING, CC4: CC4_TRAINING, CC5: CC5_TRAINING};
+const BANKS = {F1: bankF1, F2: bankF2, F3: bankF3, F4: bankF4, CC1: bankCC1, CC2: bankCC2, CC3: bankCC3, CC4: bankCC4, CC5: bankCC5, CC6: bankCC6};
+export const TRAININGS = {CC1: CC1_TRAINING, CC2: CC2_TRAINING, CC3: CC3_TRAINING, CC4: CC4_TRAINING, CC5: CC5_TRAINING, CC6: CC6_TRAINING};
 // Default entry fields for training applications and rapid roleplays (CC1 shape).
 const DEFAULT_FIELDS = [{key: 'business', label: 'Business', kind: 'input', required: true}, {key: 'note', label: 'SDR Additional Note', kind: 'input', required: true}, {key: 'opener', label: 'Your opener', kind: 'textarea', required: true, optionalFor: ['Cold']}];
 const cleanEntry = (fields, raw, type) => { const o = {type}; for (const f of fields) { let v = clip(raw?.[f.key], f.kind === 'textarea' ? 1200 : 600).trim(); if (f.kind === 'select' && v && !f.options.includes(v)) v = ''; o[f.key] = v; } return o; };
@@ -60,6 +62,7 @@ export const ROLEPLAYS = {
   CC3: CC3_ROLEPLAY,
   CC4: CC4_ROLEPLAY,
   CC5: CC5_ROLEPLAY,
+  CC6: CC6_ROLEPLAY,
   F3: {
     mode: 'lead',
     criteria: [

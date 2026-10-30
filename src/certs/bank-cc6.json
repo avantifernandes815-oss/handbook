@@ -1,0 +1,876 @@
+{
+ "cert": "CC6",
+ "version": 1,
+ "questions": [
+  {
+   "id": "CC6-A1",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Spot a signal",
+   "prompt": "Which of these is a buying signal?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Sounds interesting.”"
+    },
+    {
+     "id": "B",
+     "text": "“How would that work with our memberships?”"
+    },
+    {
+     "id": "C",
+     "text": "“We’re pretty busy.”"
+    },
+    {
+     "id": "D",
+     "text": "“Who is this again?”"
+    }
+   ],
+   "correct": "B",
+   "reveal": "A “how” question means they’re picturing using it.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-A2",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Asking about others",
+   "prompt": "“How do other studios like ours handle that?” What does it tell you?",
+   "options": [
+    {
+     "id": "A",
+     "text": "They want proof it works for businesses like theirs"
+    },
+    {
+     "id": "B",
+     "text": "It’s an objection to answer"
+    },
+    {
+     "id": "C",
+     "text": "It’s a brush-off"
+    },
+    {
+     "id": "D",
+     "text": "They want the price"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Answer briefly with an example, then ask.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-A3",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "After a signal",
+   "prompt": "What do you do after a buying signal?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Keep pitching"
+    },
+    {
+     "id": "B",
+     "text": "Explain every feature"
+    },
+    {
+     "id": "C",
+     "text": "Answer briefly, then ask"
+    },
+    {
+     "id": "D",
+     "text": "Wait for them to ask"
+    }
+   ],
+   "correct": "C",
+   "reveal": "A signal is a door, not a cue to keep talking.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-A4",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Not a signal",
+   "prompt": "Which of these is NOT a buying signal?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“How long does switching take?”"
+    },
+    {
+     "id": "B",
+     "text": "“My manager would want to see this.”"
+    },
+    {
+     "id": "C",
+     "text": "“Our contract’s up in March.”"
+    },
+    {
+     "id": "D",
+     "text": "“Sounds interesting,” with nothing after it"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Polite filler. Ask a question to find out where they are.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-A5",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "“Exactly our problem”",
+   "prompt": "“Yeah, that’s exactly our problem.” What now?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Play it back and ask for the meeting"
+    },
+    {
+     "id": "B",
+     "text": "Explain more features"
+    },
+    {
+     "id": "C",
+     "text": "Ask about their contract"
+    },
+    {
+     "id": "D",
+     "text": "Offer to send info"
+    }
+   ],
+   "correct": "A",
+   "reveal": "You’ve connected value. Go.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-A6",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Talking past it",
+   "prompt": "Why are more meetings lost by talking past the moment than by asking too early?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Prospects dislike being asked questions"
+    },
+    {
+     "id": "B",
+     "text": "Their attention moves on while you keep pitching"
+    },
+    {
+     "id": "C",
+     "text": "Managers track how long calls run"
+    },
+    {
+     "id": "D",
+     "text": "The AE prefers short calls"
+    }
+   ],
+   "correct": "B",
+   "reveal": "The moment there’s a reason to meet, go.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-B1",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Trial close",
+   "prompt": "What is a trial close?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The meeting ask itself"
+    },
+    {
+     "id": "B",
+     "text": "A discount offer"
+    },
+    {
+     "id": "C",
+     "text": "A small yes that checks they’re with you before you ask"
+    },
+    {
+     "id": "D",
+     "text": "Closing the deal"
+    }
+   ],
+   "correct": "C",
+   "reveal": "It tests the water without asking for the meeting yet.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-B2",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Best trial close",
+   "prompt": "What’s the best trial close after they name a pain?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Want to buy?”"
+    },
+    {
+     "id": "B",
+     "text": "“Can I send pricing?”"
+    },
+    {
+     "id": "C",
+     "text": "“Are you the owner?”"
+    },
+    {
+     "id": "D",
+     "text": "“Would it help to see how that works with your schedule?”"
+    }
+   ],
+   "correct": "D",
+   "reveal": "A yes here makes the ask easy.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-B3",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Yes to the trial close",
+   "prompt": "They say yes to your trial close. What next?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Go straight to the ask"
+    },
+    {
+     "id": "B",
+     "text": "Another trial close"
+    },
+    {
+     "id": "C",
+     "text": "More discovery questions"
+    },
+    {
+     "id": "D",
+     "text": "Keep pitching"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Don’t make them say yes twice.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-B4",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Earned the ask",
+   "prompt": "When have you earned the ask?",
+   "options": [
+    {
+     "id": "A",
+     "text": "After ten minutes on the phone"
+    },
+    {
+     "id": "B",
+     "text": "They’ve named something that isn’t working and engaged with a question"
+    },
+    {
+     "id": "C",
+     "text": "After you’ve covered pricing"
+    },
+    {
+     "id": "D",
+     "text": "Once they agree we’re better"
+    }
+   ],
+   "correct": "B",
+   "reveal": "That’s the bar.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-B5",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "What they don’t need",
+   "prompt": "What does the prospect NOT need before you ask?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A pain they’ve named"
+    },
+    {
+     "id": "B",
+     "text": "Real engagement on the call"
+    },
+    {
+     "id": "C",
+     "text": "To know the price or agree we’re better"
+    },
+    {
+     "id": "D",
+     "text": "A reason to meet"
+    }
+   ],
+   "correct": "C",
+   "reveal": "None of that is your job on this call.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-B6",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Ready early",
+   "prompt": "Mid-pitch, the owner says “Okay, I’d be open to seeing it.” What now?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Stop selling and book the time"
+    },
+    {
+     "id": "B",
+     "text": "Finish your pitch first"
+    },
+    {
+     "id": "C",
+     "text": "Ask three more questions"
+    },
+    {
+     "id": "D",
+     "text": "Offer to send info"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Talking past yes costs you the meeting.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-C1",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Direct and specific",
+   "prompt": "Which ask is direct and specific?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Do you maybe want to set some time aside?”"
+    },
+    {
+     "id": "B",
+     "text": "“Let me know if you’re interested.”"
+    },
+    {
+     "id": "C",
+     "text": "“Whenever works for you.”"
+    },
+    {
+     "id": "D",
+     "text": "“Let’s do Thursday at 10. Does that work?”"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Confident, assumptive, specific.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-C2",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Order of the ask",
+   "prompt": "What’s the right order for a firm ask?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Time, pitch, pain, who"
+    },
+    {
+     "id": "B",
+     "text": "Playback of their pain, the reason to meet, a specific time, who should be there"
+    },
+    {
+     "id": "C",
+     "text": "Price, time, who, pain"
+    },
+    {
+     "id": "D",
+     "text": "Who, price, time, pain"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Their words first, then make it easy to say yes.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-C3",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "One time",
+   "prompt": "Why name one specific time?",
+   "options": [
+    {
+     "id": "A",
+     "text": "It’s easier to say yes to than choosing from options"
+    },
+    {
+     "id": "B",
+     "text": "It suits the AE’s calendar"
+    },
+    {
+     "id": "C",
+     "text": "It’s a requirement"
+    },
+    {
+     "id": "D",
+     "text": "It keeps the call shorter"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Don’t make them choose from a thousand options.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-C4",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "“Only 30 minutes”",
+   "prompt": "“It’s only 30 minutes, I promise.” What’s wrong with it?",
+   "options": [
+    {
+     "id": "A",
+     "text": "It’s too long"
+    },
+    {
+     "id": "B",
+     "text": "It’s too specific"
+    },
+    {
+     "id": "C",
+     "text": "It apologizes for the meeting; say it like the next logical step"
+    },
+    {
+     "id": "D",
+     "text": "Nothing"
+    }
+   ],
+   "correct": "C",
+   "reveal": "The meeting isn’t a favor you’re asking for.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-C5",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Playback",
+   "prompt": "Which playback best opens the ask?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“So you need Momence.”"
+    },
+    {
+     "id": "B",
+     "text": "“So it’s the manual reporting across three locations.”"
+    },
+    {
+     "id": "C",
+     "text": "“Lots of studios have that.”"
+    },
+    {
+     "id": "D",
+     "text": "“Great.”"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Their pain, their words.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-C6",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Thursday doesn’t work",
+   "prompt": "She says Thursday doesn’t work. Best move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Whenever’s good, then.”"
+    },
+    {
+     "id": "B",
+     "text": "“Just let me know.”"
+    },
+    {
+     "id": "C",
+     "text": "Suggest next month"
+    },
+    {
+     "id": "D",
+     "text": "Offer another specific time, still within the next few days"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Stay specific and stay close.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-D1",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "“Send me something”",
+   "prompt": "“Sure, send me something.” Best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Happy to. So it’s not just another email, let’s put 20 minutes on the calendar. Tomorrow at 2?”"
+    },
+    {
+     "id": "B",
+     "text": "Send it and move on"
+    },
+    {
+     "id": "C",
+     "text": "“So that’s a no?”"
+    },
+    {
+     "id": "D",
+     "text": "Argue that info isn’t enough"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Agree, then turn it into a time.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-D2",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Business partner",
+   "prompt": "“Let me check with my business partner.” Best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Wait for her to call back"
+    },
+    {
+     "id": "B",
+     "text": "Book it without the partner"
+    },
+    {
+     "id": "C",
+     "text": "“Makes sense. Let’s find a time that works for both of you. Is she usually free mornings?”"
+    },
+    {
+     "id": "D",
+     "text": "Send info for the partner"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Bring the partner in instead of waiting on them.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-D3",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "“Call me next week”",
+   "prompt": "“Call me next week.” Best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Agree and hang up"
+    },
+    {
+     "id": "B",
+     "text": "“Will do. Let’s lock in the time now so it doesn’t slip. Tuesday at 11?”"
+    },
+    {
+     "id": "C",
+     "text": "Push for a meeting today"
+    },
+    {
+     "id": "D",
+     "text": "Argue the timing"
+    }
+   ],
+   "correct": "B",
+   "reveal": "A callback with no time usually doesn’t happen.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-D4",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Calendar check",
+   "prompt": "“I’ll look at my calendar and get back to you.” Best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Wait for them"
+    },
+    {
+     "id": "B",
+     "text": "Email them a link"
+    },
+    {
+     "id": "C",
+     "text": "Call back in a week"
+    },
+    {
+     "id": "D",
+     "text": "“Easy. Have you got it open now? I’ll hold Wednesday at 3.”"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Do it together while you have them.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-D5",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "The stall principle",
+   "prompt": "What’s the principle for stalls at the ask?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Agree with the stall, then turn it into a specific time"
+    },
+    {
+     "id": "B",
+     "text": "Ignore it"
+    },
+    {
+     "id": "C",
+     "text": "Argue with it"
+    },
+    {
+     "id": "D",
+     "text": "Accept it"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Same posture as objection handling, aimed at a time.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-D6",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Get off the phone",
+   "prompt": "“Honestly, I’d only be saying yes to get off the phone.” What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Book it anyway"
+    },
+    {
+     "id": "B",
+     "text": "Push three more times"
+    },
+    {
+     "id": "C",
+     "text": "Don’t book: respect it, or go back to discovery for a real reason, and log it honestly"
+    },
+    {
+     "id": "D",
+     "text": "Send an invite anyway"
+    }
+   ],
+   "correct": "C",
+   "reveal": "A forced meeting becomes a no-show.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-E1",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Why an agenda",
+   "prompt": "What does an agenda do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Fills the time"
+    },
+    {
+     "id": "B",
+     "text": "Makes the meeting feel worth keeping and tells the AE what matters"
+    },
+    {
+     "id": "C",
+     "text": "It’s required paperwork"
+    },
+    {
+     "id": "D",
+     "text": "Sets the price"
+    }
+   ],
+   "correct": "B",
+   "reveal": "It’s the reason to show up.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-E2",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Strongest agenda",
+   "prompt": "Which agenda is strongest?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“We’ll show you everything.”"
+    },
+    {
+     "id": "B",
+     "text": "“Just a quick demo.”"
+    },
+    {
+     "id": "C",
+     "text": "“A standard overview.”"
+    },
+    {
+     "id": "D",
+     "text": "“You said reporting eats your Monday. The AE will walk you through how that looks in Momence. About 30 minutes.”"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Their reason, what the AE will show, how long.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-E3",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Owner weighs in",
+   "prompt": "A studio manager says the owner usually weighs in on software. Best move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Ask whether the owner should join, and pick a time that works for both"
+    },
+    {
+     "id": "B",
+     "text": "Cancel the meeting"
+    },
+    {
+     "id": "C",
+     "text": "Book only the owner"
+    },
+    {
+     "id": "D",
+     "text": "Ignore it"
+    }
+   ],
+   "correct": "A",
+   "reveal": "The manager can book. Inviting the owner means the meeting doesn’t have to happen twice.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-E4",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Who else",
+   "prompt": "Why ask who else should be there?",
+   "options": [
+    {
+     "id": "A",
+     "text": "To fill seats"
+    },
+    {
+     "id": "B",
+     "text": "It’s a rule"
+    },
+    {
+     "id": "C",
+     "text": "So the decision-maker hears it firsthand and the meeting doesn’t have to happen twice"
+    },
+    {
+     "id": "D",
+     "text": "The AE asks you to"
+    }
+   ],
+   "correct": "C",
+   "reveal": "It protects the meeting.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-E5",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Agenda first line",
+   "prompt": "What goes first in the agenda?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The feature list"
+    },
+    {
+     "id": "B",
+     "text": "Their reason, in their words"
+    },
+    {
+     "id": "C",
+     "text": "Price"
+    },
+    {
+     "id": "D",
+     "text": "The AE’s background"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Start with why they said yes.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  },
+  {
+   "id": "CC6-E6",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "After the yes",
+   "prompt": "She agrees to Thursday at 10 and the agenda. What’s next?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Hang up"
+    },
+    {
+     "id": "B",
+     "text": "Pitch some more"
+    },
+    {
+     "id": "C",
+     "text": "Bring up price"
+    },
+    {
+     "id": "D",
+     "text": "Send the invite while you’re still on the phone and ask her to accept it"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Then everything you learned for Yes to Meeting Held takes over.",
+   "review": "/training/CC6",
+   "source": "CC6 training"
+  }
+ ]
+}
