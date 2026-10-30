@@ -31,6 +31,11 @@ export const JA2_TRAINING = {
             "src": "/content/videos/ja2-1-missed.mp4",
             "seconds": 112
           }
+        },
+        {
+          "text": "A reformer owner asked whether spot selection needs the Growth plan. The AE first said yes, mixing it up with Spot Filler, then corrected herself. The two names are close, so know which is which, and which plan each sits in, before the call.",
+          "source": "Taylored Pilates demo",
+          "clip": null
         }
       ],
       "check": {
@@ -407,6 +412,14 @@ export const JA2_TRAINING = {
           "clip": {
             "src": "/content/videos/ja2-6-missed-a1.mp4",
             "seconds": 113
+          }
+        },
+        {
+          "text": "The owner said easier booking had two risks: less contact before a first visit, and new clients booking the wrong level. She'd just lost two people who called and didn't hear back in time. The AE said “yeah, it makes sense” and asked what she pays in card fees. He never asked what those lost clients were worth or showed how leads get captured, which is the case for the marketing features.",
+          "source": "Core Fluency Pilates demo",
+          "clip": {
+            "src": "/content/videos/bc1-4-missed.mp4",
+            "seconds": 112
           }
         }
       ],

@@ -31,6 +31,22 @@ export const JA5_TRAINING = {
             "src": "/content/videos/ja5-1-missed.mp4",
             "seconds": 75
           }
+        },
+        {
+          "text": "While explaining Spot Filler, the AE compared ClassPass to Groupon. The founder said she'd rather never be on ClassPass, and he agreed, calling ClassPass clients flaky. A better move: ask what she's worried about, then show how her own client list fills spots.",
+          "source": "Rabbithole demo",
+          "clip": {
+            "src": "/content/videos/bc1-2-missed-o1.mp4",
+            "seconds": 64
+          }
+        },
+        {
+          "text": "Carla asked what makes Momence different from Recess, her current system. The AE said “more sophisticated,” then spent minutes knocking marketplaces. Her real pains (a ClassPass link that never worked, a month to reach her dashboard) went unused.",
+          "source": "Carla demo (Demo 37)",
+          "clip": {
+            "src": "/content/videos/bc2-7-missed.mp4",
+            "seconds": 108
+          }
         }
       ],
       "check": {

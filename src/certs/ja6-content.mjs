@@ -181,6 +181,14 @@ export const JA6_TRAINING = {
             "src": "/content/videos/ja6-3-missed.mp4",
             "seconds": 48
           }
+        },
+        {
+          "text": "At the end the owner wanted to talk to her husband first. The AE accepted with no date set, and her husband had never been brought into the call.",
+          "source": "River Oaks Dancing demo",
+          "clip": {
+            "src": "/content/videos/bc4-8-missed-b.mp4",
+            "seconds": 46
+          }
         }
       ],
       "check": {
@@ -273,6 +281,14 @@ export const JA6_TRAINING = {
           "clip": {
             "src": "/content/videos/ja6-4-missed-b.mp4",
             "seconds": 58
+          }
+        },
+        {
+          "text": "The call ended with the owner comparing against Glofox on his own and no dated next step. Booking a follow-up tied to his priority (the door) would have kept it moving.",
+          "source": "SALSAtlanta demo",
+          "clip": {
+            "src": "/content/videos/bc4-8-missed-o1.mp4",
+            "seconds": 76
           }
         }
       ],

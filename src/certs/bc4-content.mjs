@@ -76,7 +76,7 @@ export const BC4_TRAINING = {
       ],
       "good": [
         {
-          "text": "The owner runs salsa one day a week alongside a full-time job. The AE was candid about which plan gave real value at his size instead of pushing the biggest package, which kept the conversation honest.",
+          "text": "The owner runs salsa one day a week alongside a full-time job. At that size only some plans give him real value, and the biggest package isn't one of them.",
           "source": "SALSAtlanta demo",
           "clip": {
             "src": "/content/videos/bc4-1-good-o1.mp4",
@@ -146,19 +146,11 @@ export const BC4_TRAINING = {
       ],
       "good": [
         {
-          "text": "The AE learned early that the prospect ran several levels of salsa at once on one day a week, then showed dance studio examples with spot booking and custom fields that matched that setup.",
+          "text": "The owner runs several levels of salsa at once on one day a week. Dance studio examples with spot booking and custom fields matched that setup.",
           "source": "SALSAtlanta demo",
           "clip": {
             "src": "/content/videos/bc4-2-good-o1.mp4",
             "seconds": 75
-          }
-        },
-        {
-          "text": "The AE summed up her pain (the client journey), then asked whether she wanted to grow or just fix problems. That surfaced which side of the hybrid studio she wanted to grow.",
-          "source": "Hansing's School of Dance demo",
-          "clip": {
-            "src": "/content/videos/bc4-2-good-b.mp4",
-            "seconds": 97
           }
         }
       ],
@@ -214,7 +206,7 @@ export const BC4_TRAINING = {
       "say": "“When do you open registration for next season, and how do you reach the families who haven't signed up yet?”",
       "good": [
         {
-          "text": "The operations lead asked whether a family who bought a summer camp pass could be emailed about camp next year. The AE showed auto-tagging by what someone buys and filtering the client list, so last summer's campers can be reached next season.",
+          "text": "The operations lead wanted to email families who bought a summer camp pass about camp next year. Auto-tagging by what someone buys, then filtering the client list, reaches last summer's campers next season.",
           "source": "Skillz Sports Lab demo",
           "clip": {
             "src": "/content/videos/bc4-3-good.mp4",
@@ -222,16 +214,7 @@ export const BC4_TRAINING = {
           }
         }
       ],
-      "missed": [
-        {
-          "text": "Asked what else might change in the next six months, the owner said she wants more daytime options and mom-and-me classes. The AE said “Okay, great. Easy” and started the demo, without asking about tuition, recitals or when her season starts, so the biggest dates in her year never came up.",
-          "source": "Hansing's School of Dance demo",
-          "clip": {
-            "src": "/content/videos/bc4-3-missed-o1.mp4",
-            "seconds": 67
-          }
-        }
-      ],
+      "missed": [],
       "check": {
         "prompt": "According to the Dance Teacher advice in this step, what helps most with post-recital drop-off?",
         "options": [
@@ -283,7 +266,7 @@ export const BC4_TRAINING = {
       ],
       "good": [
         {
-          "text": "The operations lead explained that youth clients with passes drop in without pre-booking, and coaches take attendance. The AE showed adding them to the class from the schedule, either as they walk in or after class.",
+          "text": "Youth clients with passes drop in without pre-booking, and coaches take attendance. Staff add them to the class from the schedule, as they walk in or after class.",
           "source": "Skillz Sports Lab demo",
           "clip": {
             "src": "/content/videos/bc4-4-good.mp4",
@@ -291,16 +274,7 @@ export const BC4_TRAINING = {
           }
         }
       ],
-      "missed": [
-        {
-          "text": "The prospect said his priority was fast check-in at the door before class. The class page and check-in came about 20 minutes into the call, after other features.",
-          "source": "SALSAtlanta demo",
-          "clip": {
-            "src": "/content/videos/bc4-4-missed-o1.mp4",
-            "seconds": 94
-          }
-        }
-      ],
+      "missed": [],
       "check": {
         "prompt": "A salsa owner says, “Sunday nights, I'm alone at the door with a line out the back.” What should the demo lead with?",
         "options": [
@@ -366,7 +340,7 @@ export const BC4_TRAINING = {
       ],
       "good": [
         {
-          "text": "The AE ran honest discovery on why the owner had left MindBody and how Glofox was working. That surfaced the missing card terminal and credits that didn't always come back on cancellation; a later question about newsletters surfaced the extra newsletter tool.",
+          "text": "The owner left MindBody for Glofox. On Glofox he had no card terminal, credits didn't always come back on cancellation, and he paid for a separate newsletter tool.",
           "source": "SALSAtlanta demo",
           "clip": {
             "src": "/content/videos/bc4-5-good-o1.mp4",
@@ -374,7 +348,7 @@ export const BC4_TRAINING = {
           }
         },
         {
-          "text": "The AE opened by asking what software they use and why they switched. The owner explained they left MindBody because it couldn't pass card fees on to clients.",
+          "text": "The owner left MindBody because it couldn't pass card fees on to clients.",
           "source": "River Oaks Dancing demo",
           "clip": {
             "src": "/content/videos/bc4-5-good-b.mp4",
@@ -434,7 +408,7 @@ export const BC4_TRAINING = {
       ],
       "good": [
         {
-          "text": "The co-owner asked whether students need an account to register. The AE explained it's a name and email, then payment, with a password email afterwards.",
+          "text": "The co-owner wanted to know if students need an account to register. They don't: it's a name and email, then payment, with a password email afterwards.",
           "source": "Zouk community follow-up",
           "clip": {
             "src": "/content/videos/bc4-6-good.mp4",
@@ -442,7 +416,7 @@ export const BC4_TRAINING = {
           }
         },
         {
-          "text": "The AE showed one appointment board with a private session, training time, a party and a pole rental, then set privates to pick the instructor first and tours to pick the time first.",
+          "text": "The pole studio runs private sessions, training time, parties and pole rentals. One appointment board holds them all, with privates set to pick the instructor first and tours to pick the time first.",
           "source": "Studio 33 (pole) follow-up",
           "clip": {
             "src": "/content/videos/bc4-6-good-b.mp4",
@@ -450,7 +424,7 @@ export const BC4_TRAINING = {
           }
         },
         {
-          "text": "The owner explained she keeps privates off online booking to control teachers' schedules and match clients. The AE showed request-only appointments: clients see availability and request a time, and staff confirm.",
+          "text": "The owner keeps privates off online booking to control teachers' schedules and match clients. Request-only appointments fit: clients see availability and request a time, and staff confirm.",
           "source": "River Oaks Dancing demo",
           "clip": {
             "src": "/content/videos/bc4-6-good-c.mp4",
@@ -510,7 +484,7 @@ export const BC4_TRAINING = {
       ],
       "good": [
         {
-          "text": "The AE booked as a new parent for a child, with an email generated for the child. When she asked about a second child, he was honest that only one child goes in the first booking, and showed how parents add more from their account.",
+          "text": "The owner needed parents to book their children. A parent books for a child with an email generated for the child, and since only one child goes in the first booking, parents add more from their account.",
           "source": "Hansing's School of Dance demo",
           "clip": {
             "src": "/content/videos/bc4-7-good.mp4",
@@ -518,7 +492,7 @@ export const BC4_TRAINING = {
           }
         },
         {
-          "text": "The AE booked a child into a semester with set dates, paying by installment plan plus a registration fee, and noted families could also pay in full.",
+          "text": "A child can be booked into a semester with set dates, paid by installment plan plus a registration fee, or families can pay in full.",
           "source": "Hansing's School of Dance demo",
           "clip": {
             "src": "/content/videos/bc4-7-good-b.mp4",
@@ -526,7 +500,7 @@ export const BC4_TRAINING = {
           }
         },
         {
-          "text": "The AE showed limiting a class to certain memberships to control levels, and setting a minimum and maximum age.",
+          "text": "A class can be limited to certain memberships to control levels, with a minimum and maximum age.",
           "source": "Hansing's School of Dance demo",
           "clip": {
             "src": "/content/videos/bc4-7-good-c.mp4",
@@ -534,16 +508,7 @@ export const BC4_TRAINING = {
           }
         }
       ],
-      "missed": [
-        {
-          "text": "The prospect's biggest need was a mom booking herself and her kids into the same class in one checkout. The AE didn't know and said she'd check, which left the prospect waiting.",
-          "source": "Kaylea C. demo",
-          "clip": {
-            "src": "/content/videos/bc4-7-missed-o1.mp4",
-            "seconds": 90
-          }
-        }
-      ],
+      "missed": [],
       "check": {
         "prompt": "A kids' studio owner asks, “Can I give a 10% sibling discount on tuition?” Our demos haven't shown it. What do you do?",
         "options": [
@@ -585,15 +550,7 @@ export const BC4_TRAINING = {
       "say": "“Who else helps you decide on something like this, and what would they want to see?”",
       "good": [
         {
-          "text": "The AE named his own dance background to build credibility, then ran honest discovery on why the owner left MindBody and what wasn't working on Glofox.",
-          "source": "SALSAtlanta demo",
-          "clip": {
-            "src": "/content/videos/bc4-8-good-o1.mp4",
-            "seconds": 135
-          }
-        },
-        {
-          "text": "The AE asked how long she'd used MindBody and what wasn't working, and let her talk: families couldn't book several kids, and the basic package felt expensive for what it did.",
+          "text": "On MindBody, families couldn't book several kids, and the basic package felt expensive for what it did.",
           "source": "Hansing's School of Dance demo",
           "clip": {
             "src": "/content/videos/bc4-8-good-b.mp4",
@@ -601,24 +558,7 @@ export const BC4_TRAINING = {
           }
         }
       ],
-      "missed": [
-        {
-          "text": "The call ended with the owner comparing against Glofox on his own and no dated next step. Booking a follow-up tied to his priority (the door) would have kept it moving.",
-          "source": "SALSAtlanta demo",
-          "clip": {
-            "src": "/content/videos/bc4-8-missed-o1.mp4",
-            "seconds": 76
-          }
-        },
-        {
-          "text": "At the end the owner wanted to talk to her husband first. The AE accepted with no date set, and her husband had never been brought into the call.",
-          "source": "River Oaks Dancing demo",
-          "clip": {
-            "src": "/content/videos/bc4-8-missed-b.mp4",
-            "seconds": 46
-          }
-        }
-      ],
+      "missed": [],
       "check": {
         "prompt": "A studio owner says, “Call me back after the recital, we're slammed.” What's the strongest reply?",
         "options": [

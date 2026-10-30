@@ -50,7 +50,7 @@ export const BC2_TRAINING = {
       "say": "“How does your mix look today: mostly members, or more packs and drop-ins?”",
       "good": [
         {
-          "text": "Jackie said she doesn't run trainings yet, wants to build a daily yoga culture in her one-room studio, and is slowly adding private sessions around her two young kids. The AE suggested a private-session interest form that creates a lead, so Jackie can call back and book around her own schedule.",
+          "text": "Jackie doesn't run trainings yet. She wants to build a daily yoga culture in her one-room studio and is slowly adding private sessions around her two young kids, so a private-session interest form that creates a lead lets her call back and book around her own schedule.",
           "source": "Sol Space demo",
           "clip": {
             "src": "/content/videos/bc2-1-good.mp4",
@@ -58,7 +58,7 @@ export const BC2_TRAINING = {
           }
         },
         {
-          "text": "Early in discovery the AE asked how many instructors the studio had: 21. Alli added 72 memberships, plus class passes and drop-ins. Six months in, that's a member base worth protecting in a switch.",
+          "text": "Alli's studio has 21 instructors and 72 memberships, plus class passes and drop-ins. Six months in, that's a member base worth protecting in a switch.",
           "source": "Alli F. demo",
           "clip": {
             "src": "/content/videos/bc2-1-good-b.mp4",
@@ -66,16 +66,7 @@ export const BC2_TRAINING = {
           }
         }
       ],
-      "missed": [
-        {
-          "text": "Ravinder had run her hot yoga studio for about 10 years. The AE never put a number on her pain or asked about her Walla contract and how she'd decide, so the offer was built without knowing what the business needed.",
-          "source": "Hot For Yoga demo",
-          "clip": {
-            "src": "/content/videos/bc2-1-missed-o1.mp4",
-            "seconds": 106
-          }
-        }
-      ],
+      "missed": [],
       "voice": [
         {
           "text": "Brinn describes a typical boutique yoga studio: mostly yoga classes, plus workshops, special events and privates, and maybe some retail later.",
@@ -137,7 +128,7 @@ export const BC2_TRAINING = {
       "say": "“Of the new students who tried you last month, how many bought a membership?”",
       "good": [
         {
-          "text": "Carla had opened three weeks earlier, and every student so far came through ClassPass. The AE explained that once ClassPass is connected, those students land in Momence, so she can email them after class about her intro offer and grow her own list week by week.",
+          "text": "Carla had opened three weeks earlier, and every student so far came through ClassPass. Once ClassPass is connected, those students land in Momence, so she can email them after class about her intro offer and grow her own list week by week.",
           "source": "Carla demo (Demo 37)",
           "clip": {
             "src": "/content/videos/bc2-2-good.mp4",
@@ -145,16 +136,7 @@ export const BC2_TRAINING = {
           }
         }
       ],
-      "missed": [
-        {
-          "text": "Carla had almost no clients yet. The AE never asked how many classes she runs, what she needs to earn, or what her manual setup was costing her, so the call ran on features instead of her numbers.",
-          "source": "Carla demo (Demo 37)",
-          "clip": {
-            "src": "/content/videos/bc2-2-missed-o1.mp4",
-            "seconds": 114
-          }
-        }
-      ],
+      "missed": [],
       "voice": [
         {
           "text": "Jen is about to start a corporate job while running the studio alone. Right now she emails and texts every new single-class buyer herself to get them onto her intro week.",
@@ -216,7 +198,7 @@ export const BC2_TRAINING = {
       "say": "“Where do most of your new students find you today?”",
       "good": [
         {
-          "text": "The AE asked what made Brinn open a studio. She explained her partner's studio closed during the pandemic, downtown Santa Cruz has no yoga studios left, new housing just went in, and her partner already has a membership model that worked. That gave the AE her plan in her own words.",
+          "text": "Brinn explained why she's opening: her partner's studio closed during the pandemic, downtown Santa Cruz has no yoga studios left, new housing just went in, and her partner already has a membership model that worked.",
           "source": "The Mill Yoga demo",
           "clip": {
             "src": "/content/videos/bc2-3-good.mp4",
@@ -286,7 +268,7 @@ export const BC2_TRAINING = {
       "say": "“Do your hot classes and your non-hot classes run with the same capacity?”",
       "good": [
         {
-          "text": "Daphne asked to set capacity class by class, since aerial has only 11 hammocks. The AE set capacity on each class template, then showed custom checkout questions for “have you done hot before?” and injuries, which her front desk collects unevenly today.",
+          "text": "Daphne needed capacity set class by class, since aerial has only 11 hammocks. Capacity sits on each class template, and custom checkout questions collect “have you done hot before?” and injuries, which her front desk gathers unevenly today.",
           "source": "105 Fever, second call",
           "clip": {
             "src": "/content/videos/bc2-4-good.mp4",
@@ -294,7 +276,7 @@ export const BC2_TRAINING = {
           }
         },
         {
-          "text": "Daphne said last-minute cancels were becoming a real problem. The AE showed the cancellation policy settings (the window, and whether credits go back) and the late-cancel email the client receives.",
+          "text": "Daphne said last-minute cancels were becoming a real problem. The cancellation policy sets the window and whether credits go back, and the client gets a late-cancel email.",
           "source": "105 Fever, second call",
           "clip": {
             "src": "/content/videos/bc2-4-good-b.mp4",
@@ -354,7 +336,7 @@ export const BC2_TRAINING = {
       "say": "“What happens today after someone buys your intro offer?”",
       "good": [
         {
-          "text": "Brinn wanted new students to see only the new-client intro first, then be steered to memberships. The AE showed the setting that makes an offer purchasable only as a first membership, and how other memberships open up once the intro is done.",
+          "text": "Brinn wanted new students to see only the new-client intro first, then be steered to memberships. A setting makes an offer purchasable only as a first membership, and other memberships open up once the intro is done.",
           "source": "The Mill Yoga demo",
           "clip": {
             "src": "/content/videos/bc2-5-good.mp4",
@@ -362,7 +344,7 @@ export const BC2_TRAINING = {
           }
         },
         {
-          "text": "Brinn wanted every new intro student to get a voicemail from her. The AE said plainly that Momence doesn't place automatic calls, then offered a recorded message in an email or text, or a staff task to make the call.",
+          "text": "Brinn wanted every new intro student to get a voicemail from her. Momence doesn't place automatic calls, so the options are a recorded message in an email or text, or a staff task to make the call.",
           "source": "The Mill Yoga demo",
           "clip": {
             "src": "/content/videos/bc2-5-good-b.mp4",
@@ -370,7 +352,7 @@ export const BC2_TRAINING = {
           }
         },
         {
-          "text": "Ravinder asked how to stop migrated clients from buying her intro offer a second time. The AE suggested tagging past clients during migration and restricting the intro to everyone else, and left the exact setup to onboarding.",
+          "text": "Ravinder needed to stop migrated clients from buying her intro offer a second time. Tagging past clients during migration and restricting the intro to everyone else handles it, with the exact setup done in onboarding.",
           "source": "Hot For Yoga demo",
           "clip": {
             "src": "/content/videos/bc2-5-good-c.mp4",
@@ -444,7 +426,7 @@ export const BC2_TRAINING = {
       "say": "“How do people sign up and pay for your teacher training today?”",
       "good": [
         {
-          "text": "The AE segmented clients by recent visits to show how to promote a workshop with its own link. Alli asked about specialty classes, and he showed one-offs as workshops, courses, retreats, private classes or semesters.",
+          "text": "Alli wanted to promote workshops and run specialty classes. Segmenting clients by recent visits lets her promote a workshop with its own link, and one-offs can be workshops, courses, retreats, private classes or semesters.",
           "source": "Alli F. demo",
           "clip": {
             "src": "/content/videos/bc2-6-good.mp4",
@@ -452,7 +434,7 @@ export const BC2_TRAINING = {
           }
         },
         {
-          "text": "Ravinder was mid-campaign for a retreat and asked how retreats and sound baths work. The AE showed retreat packages with a VIP option and events on their own calendar, then confirmed her rolling pass can include the events she chooses.",
+          "text": "Ravinder was mid-campaign for a retreat and wanted to know how retreats and sound baths work. Retreat packages can have a VIP option, events can sit on their own calendar, and her rolling pass can include the events she chooses.",
           "source": "Hot For Yoga demo",
           "clip": {
             "src": "/content/videos/bc2-6-good-b.mp4",
@@ -460,7 +442,7 @@ export const BC2_TRAINING = {
           }
         },
         {
-          "text": "Jen runs events at vineyards and breweries plus birthday parties. The AE showed a live studio with a separate calendar for each kind of booking, including a party booked with a deposit.",
+          "text": "Jen runs events at vineyards and breweries plus birthday parties. A live studio showed a separate calendar for each kind of booking, including a party booked with a deposit.",
           "source": "Jenn G. demo",
           "clip": {
             "src": "/content/videos/bc2-6-good-c.mp4",
@@ -468,16 +450,7 @@ export const BC2_TRAINING = {
           }
         }
       ],
-      "missed": [
-        {
-          "text": "Daphne's deciding need was private aerial events with a deposit, then the balance. It surfaced in the third call and was never demoed.",
-          "source": "105 Fever, third call",
-          "clip": {
-            "src": "/content/videos/bc2-6-missed-o1.mp4",
-            "seconds": 120
-          }
-        }
-      ],
+      "missed": [],
       "voice": [
         {
           "text": "Daphne calls private aerial events a huge part of her business. Clients can't book a date and pay a deposit online, so she takes calls and sends invoices by hand.",
@@ -539,7 +512,7 @@ export const BC2_TRAINING = {
       "say": "“What's the one thing your current system makes harder than it should be?”",
       "good": [
         {
-          "text": "The AE opened by asking what stood out from Brinn's other demos. She said the basics looked the same everywhere, marketing would decide it, and she wanted a clear price with no surprise fees. That became his agenda.",
+          "text": "Brinn had seen other demos and said the basics looked the same everywhere. Marketing would decide it, and she wanted a clear price with no surprise fees.",
           "source": "The Mill Yoga demo",
           "clip": {
             "src": "/content/videos/bc2-7-good.mp4",
@@ -547,7 +520,7 @@ export const BC2_TRAINING = {
           }
         },
         {
-          "text": "The AE asked about her onboarding. Alli described 12 onboarding calls, the last six repetitive, and leads tracked on Post-its that sat unseen for about 50 days.",
+          "text": "Alli described her last onboarding: 12 calls, the last six repetitive, and leads tracked on Post-its that sat unseen for about 50 days.",
           "source": "Alli F. demo",
           "clip": {
             "src": "/content/videos/bc2-7-good-b.mp4",
@@ -555,16 +528,7 @@ export const BC2_TRAINING = {
           }
         }
       ],
-      "missed": [
-        {
-          "text": "Carla asked what makes Momence different from Recess, her current system. The AE said “more sophisticated,” then spent minutes knocking marketplaces. Her real pains (a ClassPass link that never worked, a month to reach her dashboard) went unused.",
-          "source": "Carla demo (Demo 37)",
-          "clip": {
-            "src": "/content/videos/bc2-7-missed.mp4",
-            "seconds": 108
-          }
-        }
-      ],
+      "missed": [],
       "voice": [
         {
           "text": "Ravinder has run her studio for 10 years on MindBody, WellnessLiving and now Walla. Her biggest pain is support only by chat or email, with no phone number or point person.",
@@ -624,23 +588,7 @@ export const BC2_TRAINING = {
       "say": "“When does your current contract renew, and who decides with you?”",
       "good": [
         {
-          "text": "The AE asked Alli's current spend and her renewal date in the first five minutes, which set up a close built around the overlap with her old system.",
-          "source": "Alli F. demo",
-          "clip": {
-            "src": "/content/videos/bc2-8-good-o1.mp4",
-            "seconds": 75
-          }
-        },
-        {
-          "text": "The AE asked when Brinn planned to decide with her partner, then offered a follow-up with the partner on Monday.",
-          "source": "The Mill Yoga demo",
-          "clip": {
-            "src": "/content/videos/bc2-8-good-b.mp4",
-            "seconds": 64
-          }
-        },
-        {
-          "text": "Jen said Punch Pass worked fine, so the AE looked for small pains. She described sending each unlimited member's monthly guest pass as a gift card with a promo code, and he showed Momence's built-in guest passes on the membership.",
+          "text": "Jen said Punch Pass worked fine, with one small pain: she sends each unlimited member's monthly guest pass as a gift card with a promo code. Momence builds guest passes into the membership.",
           "source": "Jenn G. demo",
           "clip": {
             "src": "/content/videos/bc2-8-good-c.mp4",
@@ -648,16 +596,7 @@ export const BC2_TRAINING = {
           }
         }
       ],
-      "missed": [
-        {
-          "text": "Lori kept pushing back on passing card fees. The AE kept pushing until she explained her town is small and her members are older. Only then did he adapt.",
-          "source": "Pure Yoga demo",
-          "clip": {
-            "src": "/content/videos/bc2-8-missed-o1.mp4",
-            "seconds": 95
-          }
-        }
-      ],
+      "missed": [],
       "check": {
         "prompt": "A yoga owner says she's happy with her current system. What do you do first?",
         "options": [

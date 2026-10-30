@@ -21,6 +21,14 @@ export const JA8_TRAINING = {
             "src": "/content/videos/ja8-1-good.mp4",
             "seconds": 65
           }
+        },
+        {
+          "text": "With a salsa studio owner, the AE named his own dance background to build credibility, then asked why the owner left MindBody and what wasn't working on Glofox.",
+          "source": "SALSAtlanta demo",
+          "clip": {
+            "src": "/content/videos/bc4-8-good-o1.mp4",
+            "seconds": 135
+          }
         }
       ],
       "missed": [
@@ -108,6 +116,14 @@ export const JA8_TRAINING = {
             "src": "/content/videos/ja8-2-missed-b.mp4",
             "seconds": 40
           }
+        },
+        {
+          "text": "In a 65-minute call booked for 30, a long company overview came before any demo, and budget and who decides were never asked.",
+          "source": "Skillz Sports Lab demo",
+          "clip": {
+            "src": "/content/videos/bc3-7-missed-o1.mp4",
+            "seconds": 135
+          }
         }
       ],
       "check": {
@@ -159,6 +175,14 @@ export const JA8_TRAINING = {
             "src": "/content/videos/ja8-3-good-b.mp4",
             "seconds": 96
           }
+        },
+        {
+          "text": "The AE summed up the owner's pain (the client journey), then asked whether she wanted to grow or just fix problems. That surfaced which side of her hybrid dance studio she wanted to grow.",
+          "source": "Hansing's School of Dance demo",
+          "clip": {
+            "src": "/content/videos/bc4-2-good-b.mp4",
+            "seconds": 97
+          }
         }
       ],
       "missed": [
@@ -168,6 +192,22 @@ export const JA8_TRAINING = {
           "clip": {
             "src": "/content/videos/ja8-3-missed.mp4",
             "seconds": 60
+          }
+        },
+        {
+          "text": "Carla had almost no clients yet. The AE never asked how many classes she runs, what she needs to earn, or what her manual setup was costing her, so the call ran on features instead of her numbers.",
+          "source": "Carla demo (Demo 37)",
+          "clip": {
+            "src": "/content/videos/bc2-2-missed-o1.mp4",
+            "seconds": 114
+          }
+        },
+        {
+          "text": "Asked what else might change in the next six months, the owner said she wants more daytime options and mom-and-me classes. The AE said “Okay, great. Easy” and started the demo, without asking about tuition, recitals or when her season starts, so the biggest dates in her year never came up.",
+          "source": "Hansing's School of Dance demo",
+          "clip": {
+            "src": "/content/videos/bc4-3-missed-o1.mp4",
+            "seconds": 67
           }
         }
       ],
@@ -303,6 +343,14 @@ export const JA8_TRAINING = {
             "src": "/content/videos/ja8-5-missed.mp4",
             "seconds": 58
           }
+        },
+        {
+          "text": "Ravinder had run her hot yoga studio for about 10 years. The AE never asked about her Walla contract or how she'd decide, and never put a number on her pain, so the offer was built without knowing what the business needed.",
+          "source": "Hot For Yoga demo",
+          "clip": {
+            "src": "/content/videos/bc2-1-missed-o1.mp4",
+            "seconds": 106
+          }
         }
       ],
       "check": {
@@ -368,6 +416,19 @@ export const JA8_TRAINING = {
             "src": "/content/videos/ja8-6-missed.mp4",
             "seconds": 82
           }
+        },
+        {
+          "text": "The owner said how she wants to grow: more people in the door for her current teachers, and no video. She also guides new clients by phone partly to avoid MindBody's fee on online intro packages. The AE only asked whether she passes on card fees. He never asked how many open spots she has or what a new client is worth, and later still pitched on-demand video.",
+          "source": "Core Fluency Pilates demo",
+          "clip": {
+            "src": "/content/videos/bc1-1-missed-n.mp4",
+            "seconds": 118
+          }
+        },
+        {
+          "text": "A pre-open reformer owner was about to sign with another platform. Discovery was about two questions, so the demo ran as a general tour and the call ended with no decision.",
+          "source": "The Reformatory Studio demo",
+          "clip": null
         }
       ],
       "check": {

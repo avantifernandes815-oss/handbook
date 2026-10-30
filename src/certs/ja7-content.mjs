@@ -323,6 +323,14 @@ export const JA7_TRAINING = {
             "src": "/content/videos/ja7-5-missed.mp4",
             "seconds": 40
           }
+        },
+        {
+          "text": "When she asked about following up abandoned checkouts, the AE rightly said the marketing automations handle it. Then he went straight into a long AI-agent demo for a studio that hadn't opened and had no inbound messages yet. He later called the AI the highest-return add-on, and it was dropped at close.",
+          "source": "Comova, first call",
+          "clip": {
+            "src": "/content/videos/bc3-5-missed-o1.mp4",
+            "seconds": 140
+          }
         }
       ],
       "check": {

@@ -54,7 +54,7 @@ export const BC3_TRAINING = {
       "say": "“Roughly how much of your monthly revenue is members on autopay, and how much is packs and drop-ins?”",
       "good": [
         {
-          "text": "The owner ran about 50 members on recurring card payments, plus InBody scans and nutrition consults. The AE showed those add-ons as appointments next to her classes, booked with pay now or card on file to pay later.",
+          "text": "The owner ran about 50 members on recurring card payments, plus InBody scans and nutrition consults. Those add-ons run as appointments next to her classes, booked with pay now or card on file to pay later.",
           "source": "F.I.T. Warriors demo",
           "clip": {
             "src": "/content/videos/bc3-1-good-o1.mp4",
@@ -209,7 +209,7 @@ export const BC3_TRAINING = {
       "say": "“How do you pay your coaches today, and how long does payroll take you each period?”",
       "good": [
         {
-          "text": "Asked whether Momence could act as a staff sign-in sheet that rolls into payroll, the AE covered clock-in and clock-out, rates per head, hourly or as a percentage split, and the staff payroll reports. He was clear the studio still pays people outside Momence.",
+          "text": "The gym wanted a staff sign-in sheet that rolls into payroll. Momence has clock-in and clock-out, rates per head, hourly or as a percentage split, and staff payroll reports, and the studio still pays people outside Momence.",
           "source": "Skillz Sports Lab demo",
           "clip": {
             "src": "/content/videos/bc3-3-good.mp4",
@@ -217,16 +217,7 @@ export const BC3_TRAINING = {
           }
         }
       ],
-      "missed": [
-        {
-          "text": "The operations lead asked for a shared iPad where staff clock in at the gym. Momence has no such kiosk, and the AE said so plainly. The need only came up 40 minutes in; asking early how staff hours are tracked would have surfaced it before the demo.",
-          "source": "Skillz Sports Lab demo",
-          "clip": {
-            "src": "/content/videos/bc3-3-missed.mp4",
-            "seconds": 100
-          }
-        }
-      ],
+      "missed": [],
       "voice": [
         {
           "text": "The operations lead tracks staff sign-in with a WhatsApp poll. Her staff range widely in age and comfort with tech, and she says many simply won't log in to clock in, so she wants one shared place to do it.",
@@ -278,7 +269,7 @@ export const BC3_TRAINING = {
       "say": "“Before your 6 a.m. class, what does your coach need to know about who's walking in?”",
       "good": [
         {
-          "text": "She asked to see her 8 a.m. class. The AE opened the class page: profit margin, the sub request, and the roster with visit history, birthdays, waivers and tags. Then he showed custom checkout questions turning into tags, like a back injury for personal-training clients.",
+          "text": "She wanted to see her 8 a.m. class. The class page shows profit margin, the sub request, and the roster with visit history, birthdays, waivers and tags, and custom checkout questions turn into tags, like a back injury for personal-training clients.",
           "source": "Comova, first call",
           "clip": {
             "src": "/content/videos/bc3-4-good.mp4",
@@ -286,7 +277,7 @@ export const BC3_TRAINING = {
           }
         },
         {
-          "text": "The operations lead explained that youth athletes with passes often drop in without booking. The AE showed adding them to the class from the schedule, during or after the session, so their passes still get used.",
+          "text": "Youth athletes with passes often drop in without booking. Staff add them to the class from the schedule, during or after the session, so their passes still get used.",
           "source": "Skillz Sports Lab demo",
           "clip": {
             "src": "/content/videos/bc3-4-good-b.mp4",
@@ -354,7 +345,7 @@ export const BC3_TRAINING = {
       "say": "“Your riders pick their own bike when they book. Let me show you what that looks like.”",
       "good": [
         {
-          "text": "The AE showed a spin studio's room map at checkout, then the Customer Milestones sequence that emails riders at 50, 100, 200, 300 and 500 visits so nobody gets missed.",
+          "text": "A spin studio's riders pick their bike on a room map at checkout. The Customer Milestones sequence emails riders at 50, 100, 200, 300 and 500 visits so nobody gets missed.",
           "source": "The Grind Spin Studio 2.0 demo",
           "clip": {
             "src": "/content/videos/bc3-5-good-o1.mp4",
@@ -362,7 +353,7 @@ export const BC3_TRAINING = {
           }
         },
         {
-          "text": "The founder said she'd have two rooms, one for bikes and one for weight stations. The AE showed a live studio's spot map and explained it's a builder: circles, bikes or squares, in the studio's own fonts and colors.",
+          "text": "The founder will have two rooms, one for bikes and one for weight stations. The spot map is a builder, as a live studio's map showed: circles, bikes or squares, in the studio's own fonts and colors.",
           "source": "Comova, first call",
           "clip": {
             "src": "/content/videos/bc3-5-good-b.mp4",
@@ -370,16 +361,7 @@ export const BC3_TRAINING = {
           }
         }
       ],
-      "missed": [
-        {
-          "text": "When she asked about following up abandoned checkouts, the AE rightly said the marketing automations handle it, then went straight into a long AI-agent demo for a studio that hadn't opened and had no inbound messages yet. He later called the AI the highest-return add-on; it was dropped at close.",
-          "source": "Comova, first call",
-          "clip": {
-            "src": "/content/videos/bc3-5-missed-o1.mp4",
-            "seconds": 140
-          }
-        }
-      ],
+      "missed": [],
       "voice": [
         {
           "text": "The owner explains that for strength training they track each member's goals with photos and measurements, and wants members to be able to see their own progress.",
@@ -441,7 +423,7 @@ export const BC3_TRAINING = {
       "say": "“What's the one thing your current system makes you do by hand that you wish it just did?”",
       "good": [
         {
-          "text": "The AE asked straight out why they were looking at Momence. The owner named booking that's hard for clients, renewals her team chases by hand, and support she can't reach.",
+          "text": "The owner named why they were looking: booking that's hard for clients, renewals her team chases by hand, and support she can't reach.",
           "source": "Skillz Sports Lab demo",
           "clip": {
             "src": "/content/videos/bc3-6-good.mp4",
@@ -449,7 +431,7 @@ export const BC3_TRAINING = {
           }
         },
         {
-          "text": "The AE booked a class on the prospect's own website, live. It forced a login, then said incorrect email or password. Everyone on the call saw what a new client hits.",
+          "text": "Booking a class on the gym's own website forced a login, then showed “incorrect email or password.” That's what a new client hits there today.",
           "source": "Skillz Sports Lab demo",
           "clip": {
             "src": "/content/videos/bc3-6-good-b.mp4",
@@ -457,16 +439,7 @@ export const BC3_TRAINING = {
           }
         }
       ],
-      "missed": [
-        {
-          "text": "The marketing lead asked if she could build video ads in the ads manager. The AE first said “you'll build them here,” then had to walk it back because he wasn't sure about video or carousels. “Let me confirm that” up front would have kept trust.",
-          "source": "Skillz Sports Lab demo",
-          "clip": {
-            "src": "/content/videos/bc3-6-missed.mp4",
-            "seconds": 110
-          }
-        }
-      ],
+      "missed": [],
       "voice": [
         {
           "text": "She describes tracking leads on oversized Post-its by hand, and finding sign-ups that had sat unseen for about 50 days because no notifications came through.",
@@ -526,7 +499,7 @@ export const BC3_TRAINING = {
       "say": "“Walk me through what happens after someone takes their first class with you.”",
       "good": [
         {
-          "text": "Asking how she booked privates surfaced a second business, health coaching, run on a separate system; later she asked about replacing her Facebook-group community. The AE showed a matching example for each: a health-coaching studio's booking page and Momence's built-in community feed.",
+          "text": "Her privates led to a second business, health coaching, run on a separate system, and she also wanted to replace her Facebook-group community. A health-coaching studio's booking page and Momence's built-in community feed matched each one.",
           "source": "F.I.T. Warriors demo",
           "clip": {
             "src": "/content/videos/bc3-7-good-o1.mp4",
@@ -534,16 +507,7 @@ export const BC3_TRAINING = {
           }
         }
       ],
-      "missed": [
-        {
-          "text": "In a 65-minute call booked for 30, a long company overview came before any demo, and budget and who decides were never asked.",
-          "source": "Skillz Sports Lab demo",
-          "clip": {
-            "src": "/content/videos/bc3-7-missed-o1.mp4",
-            "seconds": 135
-          }
-        }
-      ],
+      "missed": [],
       "check": {
         "prompt": "Which question best tells you whether to lead with marketing automations?",
         "options": [
@@ -585,7 +549,7 @@ export const BC3_TRAINING = {
       "say": "“What would you keep from your current system, and what would you never miss?”",
       "good": [
         {
-          "text": "She asked about check-in. The AE showed self check-in on an iPad and was plain that Momence doesn't supply the hardware. She said she was glad he told her.",
+          "text": "She asked about check-in. Self check-in runs on an iPad up front, and Momence doesn't supply the hardware.",
           "source": "Comova, first call",
           "clip": {
             "src": "/content/videos/bc3-8-good.mp4",
@@ -593,7 +557,7 @@ export const BC3_TRAINING = {
           }
         },
         {
-          "text": "The studio would open in November or December. The AE explained she should start presales, waitlists and founding memberships the month before, working with onboarding to get ready.",
+          "text": "The studio would open in November or December. Presales, waitlists and founding memberships should start the month before, with onboarding helping her get ready.",
           "source": "Comova, first call",
           "clip": {
             "src": "/content/videos/bc3-8-good-b.mp4",
@@ -601,16 +565,7 @@ export const BC3_TRAINING = {
           }
         }
       ],
-      "missed": [
-        {
-          "text": "She said Glofox had offered her discounts. The AE held his price, but answered with a long monologue that knocked other software instead of asking what she valued.",
-          "source": "Comova, closing call",
-          "clip": {
-            "src": "/content/videos/bc3-8-missed-o1.mp4",
-            "seconds": 78
-          }
-        }
-      ],
+      "missed": [],
       "check": {
         "prompt": "A prospect says, “Glofox just offered me a discount.” What's your best first move?",
         "options": [

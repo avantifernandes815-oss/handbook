@@ -209,6 +209,14 @@ export const JA1_TRAINING = {
             "src": "/content/videos/ja1-3-missed-a1.mp4",
             "seconds": 75
           }
+        },
+        {
+          "text": "The operations lead asked for a shared iPad where staff clock in at the gym. Momence has no such kiosk, and the AE said so plainly. The need only came up 40 minutes in. Asking early how staff hours are tracked would have surfaced it before the demo.",
+          "source": "Skillz Sports Lab demo",
+          "clip": {
+            "src": "/content/videos/bc3-3-missed.mp4",
+            "seconds": 100
+          }
         }
       ],
       "check": {
@@ -516,6 +524,14 @@ export const JA1_TRAINING = {
           "clip": {
             "src": "/content/videos/ja1-7-missed.mp4",
             "seconds": 82
+          }
+        },
+        {
+          "text": "The marketing lead asked if she could build video ads in the ads manager. The AE first said “you'll build them here,” then had to walk it back because he wasn't sure about video or carousels. “Let me confirm that” up front would have kept trust.",
+          "source": "Skillz Sports Lab demo",
+          "clip": {
+            "src": "/content/videos/bc3-6-missed.mp4",
+            "seconds": 110
           }
         }
       ],
