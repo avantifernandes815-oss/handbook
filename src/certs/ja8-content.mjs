@@ -1,4 +1,4 @@
-// JA8 · Sandler Selling — step-by-step training content.
+// JAE8 · Sandler Selling — step-by-step training content.
 // Approved as the Junior AE step format (mockup approved Oct 29, 2026). Sandler ideas taught in our own words.
 
 export const JA8_TRAINING = {

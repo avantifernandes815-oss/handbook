@@ -1,4 +1,4 @@
-// JA2 · Plans and Quoting — step-by-step training content (Junior AE track).
+// JAE2 · Plans and Quoting — step-by-step training content (Junior AE track).
 // Built from the Junior AE Knowledge Bank; unconfirmed numbers are held back until the co-manager answers.
 
 export const JA2_TRAINING = {

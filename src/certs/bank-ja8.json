@@ -1,9 +1,9 @@
 {
- "cert": "JA8",
+ "cert": "JAE8",
  "version": 1,
  "questions": [
   {
-   "id": "JA8-A1",
+   "id": "JAE8-A1",
    "section": "A",
    "kind": "judgment",
    "topic": "Up-front contract",
@@ -28,11 +28,11 @@
    ],
    "correct": "C",
    "reveal": "Most AEs set time and agenda. Agreeing on the ending is what stops “I’ll think about it.”",
-   "review": "/training/JA8",
-   "source": "JA8 training"
+   "review": "/training/JAE8",
+   "source": "JAE8 training"
   },
   {
-   "id": "JA8-A2",
+   "id": "JAE8-A2",
    "section": "A",
    "kind": "judgment",
    "topic": "Up-front contract",
@@ -57,11 +57,11 @@
    ],
    "correct": "A",
    "reveal": "A shorter call needs a new agreement: what to cover and what happens at the end.",
-   "review": "/training/JA8",
-   "source": "JA8 training"
+   "review": "/training/JAE8",
+   "source": "JAE8 training"
   },
   {
-   "id": "JA8-A3",
+   "id": "JAE8-A3",
    "section": "A",
    "kind": "knowledge",
    "topic": "Rapport",
@@ -86,11 +86,11 @@
    ],
    "correct": "D",
    "reveal": "Short, real and about their business. Rapport that runs long eats the time you need for pain.",
-   "review": "/training/JA8",
-   "source": "JA8 training"
+   "review": "/training/JAE8",
+   "source": "JAE8 training"
   },
   {
-   "id": "JA8-A4",
+   "id": "JAE8-A4",
    "section": "A",
    "kind": "judgment",
    "topic": "Up-front contract",
@@ -115,11 +115,11 @@
    ],
    "correct": "B",
    "reveal": "Permission to say no makes people tell you the truth earlier, which is where deals are won.",
-   "review": "/training/JA8",
-   "source": "JA8 training"
+   "review": "/training/JAE8",
+   "source": "JAE8 training"
   },
   {
-   "id": "JA8-B1",
+   "id": "JAE8-B1",
    "section": "B",
    "kind": "judgment",
    "topic": "Pain",
@@ -144,11 +144,11 @@
    ],
    "correct": "B",
    "reveal": "“Fine” hides the pain. Ask what slow looks like in real life, then you’ll know what it costs.",
-   "review": "/training/JA8",
-   "source": "JA8 training"
+   "review": "/training/JAE8",
+   "source": "JAE8 training"
   },
   {
-   "id": "JA8-B2",
+   "id": "JAE8-B2",
    "section": "B",
    "kind": "judgment",
    "topic": "Pain",
@@ -173,11 +173,11 @@
    ],
    "correct": "D",
    "reveal": "The first three find the problem. Only the last one finds what it costs them.",
-   "review": "/training/JA8",
-   "source": "JA8 training"
+   "review": "/training/JAE8",
+   "source": "JAE8 training"
   },
   {
-   "id": "JA8-B3",
+   "id": "JAE8-B3",
    "section": "B",
    "kind": "judgment",
    "topic": "Pain",
@@ -202,11 +202,11 @@
    ],
    "correct": "A",
    "reveal": "In one of our demos this exact line was never explored, and it turned out to be the deciding need.",
-   "review": "/training/JA8",
-   "source": "JA8 training"
+   "review": "/training/JAE8",
+   "source": "JAE8 training"
   },
   {
-   "id": "JA8-B4",
+   "id": "JAE8-B4",
    "section": "B",
    "kind": "knowledge",
    "topic": "Pain",
@@ -231,11 +231,11 @@
    ],
    "correct": "C",
    "reveal": "Pain first means every screen answers something they said, so the demo lands.",
-   "review": "/training/JA8",
-   "source": "JA8 training"
+   "review": "/training/JAE8",
+   "source": "JAE8 training"
   },
   {
-   "id": "JA8-C1",
+   "id": "JAE8-C1",
    "section": "C",
    "kind": "judgment",
    "topic": "Budget",
@@ -260,11 +260,11 @@
    ],
    "correct": "D",
    "reveal": "A range is easy to answer and still gives you the anchor you need before pricing.",
-   "review": "/training/JA8",
-   "source": "JA8 training"
+   "review": "/training/JAE8",
+   "source": "JAE8 training"
   },
   {
-   "id": "JA8-C2",
+   "id": "JAE8-C2",
    "section": "C",
    "kind": "judgment",
    "topic": "Budget",
@@ -289,11 +289,11 @@
    ],
    "correct": "B",
    "reveal": "Compare against their real total, not the base fee. A marketing add-on or a third-party tool can close the gap.",
-   "review": "/training/JA8",
-   "source": "JA8 training"
+   "review": "/training/JAE8",
+   "source": "JAE8 training"
   },
   {
-   "id": "JA8-C3",
+   "id": "JAE8-C3",
    "section": "C",
    "kind": "judgment",
    "topic": "Decision",
@@ -318,11 +318,11 @@
    ],
    "correct": "C",
    "reveal": "“Run it by” means the partner has a vote. Find out what they care about and get them on the call.",
-   "review": "/training/JA8",
-   "source": "JA8 training"
+   "review": "/training/JAE8",
+   "source": "JAE8 training"
   },
   {
-   "id": "JA8-C4",
+   "id": "JAE8-C4",
    "section": "C",
    "kind": "judgment",
    "topic": "Decision",
@@ -347,11 +347,11 @@
    ],
    "correct": "A",
    "reveal": "Someone who used the trial is part of the decision. Ask early and bring them in.",
-   "review": "/training/JA8",
-   "source": "JA8 training"
+   "review": "/training/JAE8",
+   "source": "JAE8 training"
   },
   {
-   "id": "JA8-D1",
+   "id": "JAE8-D1",
    "section": "D",
    "kind": "judgment",
    "topic": "Fulfillment",
@@ -376,11 +376,11 @@
    ],
    "correct": "A",
    "reveal": "Start where their pain is. Everything else is secondary to the need they named.",
-   "review": "/training/JA8",
-   "source": "JA8 training"
+   "review": "/training/JAE8",
+   "source": "JAE8 training"
   },
   {
-   "id": "JA8-D2",
+   "id": "JAE8-D2",
    "section": "D",
    "kind": "judgment",
    "topic": "Fulfillment",
@@ -405,11 +405,11 @@
    ],
    "correct": "C",
    "reveal": "Tie the screen to their words. It turns a feature into their fix.",
-   "review": "/training/JA8",
-   "source": "JA8 training"
+   "review": "/training/JAE8",
+   "source": "JAE8 training"
   },
   {
-   "id": "JA8-D3",
+   "id": "JAE8-D3",
    "section": "D",
    "kind": "knowledge",
    "topic": "Fulfillment",
@@ -434,11 +434,11 @@
    ],
    "correct": "B",
    "reveal": "Demo only what solves the pain they named, and say so as you show it.",
-   "review": "/training/JA8",
-   "source": "JA8 training"
+   "review": "/training/JAE8",
+   "source": "JAE8 training"
   },
   {
-   "id": "JA8-D4",
+   "id": "JAE8-D4",
    "section": "D",
    "kind": "judgment",
    "topic": "Fulfillment",
@@ -463,11 +463,11 @@
    ],
    "correct": "D",
    "reveal": "Answer, then bring it back to their pain so the demo stays theirs.",
-   "review": "/training/JA8",
-   "source": "JA8 training"
+   "review": "/training/JAE8",
+   "source": "JAE8 training"
   },
   {
-   "id": "JA8-E1",
+   "id": "JAE8-E1",
    "section": "E",
    "kind": "judgment",
    "topic": "Post-sell",
@@ -492,11 +492,11 @@
    ],
    "correct": "C",
    "reveal": "Bring the doubt out now, while you can answer it, not after the call ends.",
-   "review": "/training/JA8",
-   "source": "JA8 training"
+   "review": "/training/JAE8",
+   "source": "JAE8 training"
   },
   {
-   "id": "JA8-E2",
+   "id": "JAE8-E2",
    "section": "E",
    "kind": "judgment",
    "topic": "Post-sell",
@@ -521,11 +521,11 @@
    ],
    "correct": "A",
    "reveal": "That call is a retention attempt. Prepare them for it so a discount doesn’t undo the decision.",
-   "review": "/training/JA8",
-   "source": "JA8 training"
+   "review": "/training/JAE8",
+   "source": "JAE8 training"
   },
   {
-   "id": "JA8-E3",
+   "id": "JAE8-E3",
    "section": "E",
    "kind": "judgment",
    "topic": "Next steps",
@@ -550,11 +550,11 @@
    ],
    "correct": "D",
    "reveal": "Agree, then set a specific time to go through it together. A contract sent alone tends to drift.",
-   "review": "/training/JA8",
-   "source": "JA8 training"
+   "review": "/training/JAE8",
+   "source": "JAE8 training"
   },
   {
-   "id": "JA8-E4",
+   "id": "JAE8-E4",
    "section": "E",
    "kind": "judgment",
    "topic": "Negative reverse",
@@ -579,8 +579,8 @@
    ],
    "correct": "B",
    "reveal": "Saying it may not be worth it makes them tell you why it is. Pushing makes them defend their current setup.",
-   "review": "/training/JA8",
-   "source": "JA8 training"
+   "review": "/training/JAE8",
+   "source": "JAE8 training"
   }
  ]
 }

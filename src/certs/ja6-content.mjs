@@ -1,4 +1,4 @@
-// JA6 · Contract and Close — step-by-step training content (Junior AE track).
+// JAE6 · Contract and Close — step-by-step training content (Junior AE track).
 // Built from the Junior AE Knowledge Bank; unconfirmed numbers are held back until the co-manager answers.
 
 export const JA6_TRAINING = {

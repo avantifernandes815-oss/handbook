@@ -1,9 +1,9 @@
 {
- "cert": "JA3",
+ "cert": "JAE3",
  "version": 1,
  "questions": [
   {
-   "id": "JA3-A1",
+   "id": "JAE3-A1",
    "section": "A",
    "kind": "knowledge",
    "topic": "Processing basics",
@@ -28,11 +28,11 @@
    ],
    "correct": "B",
    "reveal": "Connecting Stripe is on the onboarding checklist. Doing it early means the studio can take payments sooner.",
-   "review": "/training/JA3",
-   "source": "JA3 training"
+   "review": "/training/JAE3",
+   "source": "JAE3 training"
   },
   {
-   "id": "JA3-A2",
+   "id": "JAE3-A2",
    "section": "A",
    "kind": "judgment",
    "topic": "Processing basics",
@@ -57,11 +57,11 @@
    ],
    "correct": "D",
    "reveal": "Processing fees come out of each transaction, as on every booking system. There’s no extra processing plan.",
-   "review": "/training/JA3",
-   "source": "JA3 training"
+   "review": "/training/JAE3",
+   "source": "JAE3 training"
   },
   {
-   "id": "JA3-A3",
+   "id": "JAE3-A3",
    "section": "A",
    "kind": "knowledge",
    "topic": "Card on file",
@@ -86,11 +86,11 @@
    ],
    "correct": "A",
    "reveal": "The card saved at checkout is reused for recurring billing, so the studio doesn’t chase each payment.",
-   "review": "/training/JA3",
-   "source": "JA3 training"
+   "review": "/training/JAE3",
+   "source": "JAE3 training"
   },
   {
-   "id": "JA3-A4",
+   "id": "JAE3-A4",
    "section": "A",
    "kind": "judgment",
    "topic": "Card on file",
@@ -115,11 +115,11 @@
    ],
    "correct": "C",
    "reveal": "Saving the card holds the spot without charging it. With a no-show fee in her terms, she can collect it.",
-   "review": "/training/JA3",
-   "source": "JA3 training"
+   "review": "/training/JAE3",
+   "source": "JAE3 training"
   },
   {
-   "id": "JA3-B1",
+   "id": "JAE3-B1",
    "section": "B",
    "kind": "judgment",
    "topic": "Passing on fees",
@@ -144,11 +144,11 @@
    ],
    "correct": "C",
    "reveal": "Arketa studios can pass fees on too, so it isn’t a differentiator. Her answer tells you how to compare costs.",
-   "review": "/training/JA3",
-   "source": "JA3 training"
+   "review": "/training/JAE3",
+   "source": "JAE3 training"
   },
   {
-   "id": "JA3-B2",
+   "id": "JAE3-B2",
    "section": "B",
    "kind": "knowledge",
    "topic": "Passing on fees",
@@ -173,11 +173,11 @@
    ],
    "correct": "A",
    "reveal": "On or off is confirmed. Partial pass-through and member exemptions are still being confirmed, so don’t promise either.",
-   "review": "/training/JA3",
-   "source": "JA3 training"
+   "review": "/training/JAE3",
+   "source": "JAE3 training"
   },
   {
-   "id": "JA3-B3",
+   "id": "JAE3-B3",
    "section": "B",
    "kind": "judgment",
    "topic": "Clients will mind fees",
@@ -202,11 +202,11 @@
    ],
    "correct": "D",
    "reveal": "Pass-through is optional, and pushing after she’s said no costs trust. Exempting members isn’t confirmed, so don’t offer it.",
-   "review": "/training/JA3",
-   "source": "JA3 training"
+   "review": "/training/JAE3",
+   "source": "JAE3 training"
   },
   {
-   "id": "JA3-B4",
+   "id": "JAE3-B4",
    "section": "B",
    "kind": "judgment",
    "topic": "Clients will mind fees",
@@ -231,11 +231,11 @@
    ],
    "correct": "B",
    "reveal": "Start from how she runs today, then show what changes if she chooses to pass fees on. Assuming pass-through inflates the savings.",
-   "review": "/training/JA3",
-   "source": "JA3 training"
+   "review": "/training/JAE3",
+   "source": "JAE3 training"
   },
   {
-   "id": "JA3-C1",
+   "id": "JAE3-C1",
    "section": "C",
    "kind": "judgment",
    "topic": "Rate questions",
@@ -260,11 +260,11 @@
    ],
    "correct": "D",
    "reveal": "Rates are being confirmed, and AEs have quoted several different numbers. Her current rate gives you something real to compare.",
-   "review": "/training/JA3",
-   "source": "JA3 training"
+   "review": "/training/JAE3",
+   "source": "JAE3 training"
   },
   {
-   "id": "JA3-C2",
+   "id": "JAE3-C2",
    "section": "C",
    "kind": "judgment",
    "topic": "Rate questions",
@@ -289,11 +289,11 @@
    ],
    "correct": "B",
    "reveal": "A rate match needs approval. In one demo the AE got a lower rate approved while the prospect stepped away, which kept the momentum.",
-   "review": "/training/JA3",
-   "source": "JA3 training"
+   "review": "/training/JAE3",
+   "source": "JAE3 training"
   },
   {
-   "id": "JA3-C3",
+   "id": "JAE3-C3",
    "section": "C",
    "kind": "knowledge",
    "topic": "Rate questions",
@@ -318,11 +318,11 @@
    ],
    "correct": "A",
    "reveal": "AEs quoted at least five different card rates across our demos. Until management confirms them, send rates in writing.",
-   "review": "/training/JA3",
-   "source": "JA3 training"
+   "review": "/training/JAE3",
+   "source": "JAE3 training"
   },
   {
-   "id": "JA3-C4",
+   "id": "JAE3-C4",
    "section": "C",
    "kind": "judgment",
    "topic": "Rate questions",
@@ -347,11 +347,11 @@
    ],
    "correct": "C",
    "reveal": "Demos agree ACH costs less than a card. The exact ACH rate is being confirmed.",
-   "review": "/training/JA3",
-   "source": "JA3 training"
+   "review": "/training/JAE3",
+   "source": "JAE3 training"
   },
   {
-   "id": "JA3-D1",
+   "id": "JAE3-D1",
    "section": "D",
    "kind": "knowledge",
    "topic": "Failed payments",
@@ -376,11 +376,11 @@
    ],
    "correct": "A",
    "reveal": "The dashboard shows failed membership payments when she logs in. The report shows who paid later and who still owes.",
-   "review": "/training/JA3",
-   "source": "JA3 training"
+   "review": "/training/JAE3",
+   "source": "JAE3 training"
   },
   {
-   "id": "JA3-D2",
+   "id": "JAE3-D2",
    "section": "D",
    "kind": "judgment",
    "topic": "Failed payments",
@@ -405,11 +405,11 @@
    ],
    "correct": "C",
    "reveal": "Reruns show on screen with the next rerun date. The retry count is being confirmed, and one AE guessed it on a call.",
-   "review": "/training/JA3",
-   "source": "JA3 training"
+   "review": "/training/JAE3",
+   "source": "JAE3 training"
   },
   {
-   "id": "JA3-D3",
+   "id": "JAE3-D3",
    "section": "D",
    "kind": "knowledge",
    "topic": "Failed payments",
@@ -434,11 +434,11 @@
    ],
    "correct": "B",
    "reveal": "Transactional templates cover failed and retried payments, and the studio can change the wording.",
-   "review": "/training/JA3",
-   "source": "JA3 training"
+   "review": "/training/JAE3",
+   "source": "JAE3 training"
   },
   {
-   "id": "JA3-D4",
+   "id": "JAE3-D4",
    "section": "D",
    "kind": "judgment",
    "topic": "Point of sale",
@@ -463,11 +463,11 @@
    ],
    "correct": "D",
    "reveal": "Lead with the flow he named as his priority. In one demo this came 20 minutes in, after features he didn’t ask about.",
-   "review": "/training/JA3",
-   "source": "JA3 training"
+   "review": "/training/JAE3",
+   "source": "JAE3 training"
   },
   {
-   "id": "JA3-E1",
+   "id": "JAE3-E1",
    "section": "E",
    "kind": "judgment",
    "topic": "Stored cards",
@@ -492,11 +492,11 @@
    ],
    "correct": "A",
    "reveal": "Momence’s team pulls the data, but the old provider controls the card file. Don’t promise every card.",
-   "review": "/training/JA3",
-   "source": "JA3 training"
+   "review": "/training/JAE3",
+   "source": "JAE3 training"
   },
   {
-   "id": "JA3-E2",
+   "id": "JAE3-E2",
    "section": "E",
    "kind": "knowledge",
    "topic": "Stored cards",
@@ -521,11 +521,11 @@
    ],
    "correct": "B",
    "reveal": "MindBody charges for the exit file with payment profiles. The exact fee is being confirmed, so don’t quote it.",
-   "review": "/training/JA3",
-   "source": "JA3 training"
+   "review": "/training/JAE3",
+   "source": "JAE3 training"
   },
   {
-   "id": "JA3-E3",
+   "id": "JAE3-E3",
    "section": "E",
    "kind": "judgment",
    "topic": "Stored cards",
@@ -550,11 +550,11 @@
    ],
    "correct": "C",
    "reveal": "Cards matter for recurring billing. A studio with mostly class packs has less to move, and some owners only want the client list.",
-   "review": "/training/JA3",
-   "source": "JA3 training"
+   "review": "/training/JAE3",
+   "source": "JAE3 training"
   },
   {
-   "id": "JA3-E4",
+   "id": "JAE3-E4",
    "section": "E",
    "kind": "knowledge",
    "topic": "Confirm before you answer",
@@ -579,8 +579,8 @@
    ],
    "correct": "D",
    "reveal": "The other three are still being confirmed. Say “let me confirm that” instead of guessing.",
-   "review": "/training/JA3",
-   "source": "JA3 training"
+   "review": "/training/JAE3",
+   "source": "JAE3 training"
   }
  ]
 }

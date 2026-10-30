@@ -1,9 +1,9 @@
 {
- "cert": "JA2",
+ "cert": "JAE2",
  "version": 1,
  "questions": [
   {
-   "id": "JA2-A1",
+   "id": "JAE2-A1",
    "section": "A",
    "kind": "knowledge",
    "topic": "Plan structure",
@@ -28,11 +28,11 @@
    ],
    "correct": "B",
    "reveal": "Core runs the business. Growth adds the marketing suite. The AI agent and the add-ons sit on top.",
-   "review": "/training/JA2",
-   "source": "JA2 training"
+   "review": "/training/JAE2",
+   "source": "JAE2 training"
   },
   {
-   "id": "JA2-A2",
+   "id": "JAE2-A2",
    "section": "A",
    "kind": "knowledge",
    "topic": "Plan structure",
@@ -57,11 +57,11 @@
    ],
    "correct": "D",
    "reveal": "Spot Filler targets clients who’ve taken that kind of class before. Spot selection on a room map is a different feature, and AEs have mixed the two up.",
-   "review": "/training/JA2",
-   "source": "JA2 training"
+   "review": "/training/JAE2",
+   "source": "JAE2 training"
   },
   {
-   "id": "JA2-A3",
+   "id": "JAE2-A3",
    "section": "A",
    "kind": "judgment",
    "topic": "The calculator",
@@ -86,11 +86,11 @@
    ],
    "correct": "A",
    "reveal": "Building it live takes a minute and gives a number you can stand behind.",
-   "review": "/training/JA2",
-   "source": "JA2 training"
+   "review": "/training/JAE2",
+   "source": "JAE2 training"
   },
   {
-   "id": "JA2-A4",
+   "id": "JAE2-A4",
    "section": "A",
    "kind": "judgment",
    "topic": "The calculator",
@@ -115,11 +115,11 @@
    ],
    "correct": "C",
    "reveal": "The comparison sheet lists every feature in each plan side by side, and it matches the quote.",
-   "review": "/training/JA2",
-   "source": "JA2 training"
+   "review": "/training/JAE2",
+   "source": "JAE2 training"
   },
   {
-   "id": "JA2-B1",
+   "id": "JAE2-B1",
    "section": "B",
    "kind": "judgment",
    "topic": "Current spend",
@@ -144,11 +144,11 @@
    ],
    "correct": "C",
    "reveal": "Knowing what her fee covers lets you build a like-for-like package and compare fairly.",
-   "review": "/training/JA2",
-   "source": "JA2 training"
+   "review": "/training/JAE2",
+   "source": "JAE2 training"
   },
   {
-   "id": "JA2-B2",
+   "id": "JAE2-B2",
    "section": "B",
    "kind": "knowledge",
    "topic": "Current spend",
@@ -173,11 +173,11 @@
    ],
    "correct": "A",
    "reveal": "The current total is the anchor. You still build the quote in the calculator; you don’t set it to undercut.",
-   "review": "/training/JA2",
-   "source": "JA2 training"
+   "review": "/training/JAE2",
+   "source": "JAE2 training"
   },
   {
-   "id": "JA2-B3",
+   "id": "JAE2-B3",
    "section": "B",
    "kind": "judgment",
    "topic": "Current spend",
@@ -202,11 +202,11 @@
    ],
    "correct": "D",
    "reveal": "When Momence replaces two tools, the fair comparison is against both of them.",
-   "review": "/training/JA2",
-   "source": "JA2 training"
+   "review": "/training/JAE2",
+   "source": "JAE2 training"
   },
   {
-   "id": "JA2-B4",
+   "id": "JAE2-B4",
    "section": "B",
    "kind": "judgment",
    "topic": "Current spend",
@@ -231,11 +231,11 @@
    ],
    "correct": "B",
    "reveal": "It’s late, but the anchor still helps. Get her total, then compare like for like.",
-   "review": "/training/JA2",
-   "source": "JA2 training"
+   "review": "/training/JAE2",
+   "source": "JAE2 training"
   },
   {
-   "id": "JA2-C1",
+   "id": "JAE2-C1",
    "section": "C",
    "kind": "knowledge",
    "topic": "Branded app",
@@ -260,11 +260,11 @@
    ],
    "correct": "A",
    "reveal": "The layout and features are the same. The branded app puts the studio’s name on the phone.",
-   "review": "/training/JA2",
-   "source": "JA2 training"
+   "review": "/training/JAE2",
+   "source": "JAE2 training"
   },
   {
-   "id": "JA2-C2",
+   "id": "JAE2-C2",
    "section": "C",
    "kind": "judgment",
    "topic": "Branded app",
@@ -289,11 +289,11 @@
    ],
    "correct": "C",
    "reveal": "Her clients get an app either way. Let her decide if the name and logo are worth the cost.",
-   "review": "/training/JA2",
-   "source": "JA2 training"
+   "review": "/training/JAE2",
+   "source": "JAE2 training"
   },
   {
-   "id": "JA2-C3",
+   "id": "JAE2-C3",
    "section": "C",
    "kind": "judgment",
    "topic": "Video on demand",
@@ -318,11 +318,11 @@
    ],
    "correct": "B",
    "reveal": "Per-location charging for on-demand is still being confirmed. Saying when you’ll answer beats a guess.",
-   "review": "/training/JA2",
-   "source": "JA2 training"
+   "review": "/training/JAE2",
+   "source": "JAE2 training"
   },
   {
-   "id": "JA2-C4",
+   "id": "JAE2-C4",
    "section": "C",
    "kind": "knowledge",
    "topic": "Multi-location",
@@ -347,11 +347,11 @@
    ],
    "correct": "D",
    "reveal": "Same-brand locations share a dashboard. Different brands use separate dashboards you switch between.",
-   "review": "/training/JA2",
-   "source": "JA2 training"
+   "review": "/training/JAE2",
+   "source": "JAE2 training"
   },
   {
-   "id": "JA2-D1",
+   "id": "JAE2-D1",
    "section": "D",
    "kind": "judgment",
    "topic": "Do I need Growth?",
@@ -376,11 +376,11 @@
    ],
    "correct": "D",
    "reveal": "A full studio may still want reviews or win-back, or may not. Her answer decides the build.",
-   "review": "/training/JA2",
-   "source": "JA2 training"
+   "review": "/training/JAE2",
+   "source": "JAE2 training"
   },
   {
-   "id": "JA2-D2",
+   "id": "JAE2-D2",
    "section": "D",
    "kind": "judgment",
    "topic": "Do I need Growth?",
@@ -405,11 +405,11 @@
    ],
    "correct": "A",
    "reveal": "Lead flow shows whether the marketing suite would earn its cost for this studio.",
-   "review": "/training/JA2",
-   "source": "JA2 training"
+   "review": "/training/JAE2",
+   "source": "JAE2 training"
   },
   {
-   "id": "JA2-D3",
+   "id": "JAE2-D3",
    "section": "D",
    "kind": "judgment",
    "topic": "Arketa is cheaper",
@@ -434,11 +434,11 @@
    ],
    "correct": "C",
    "reveal": "The other three are unverified knocks. A prospect who checks one will doubt everything else you said.",
-   "review": "/training/JA2",
-   "source": "JA2 training"
+   "review": "/training/JAE2",
+   "source": "JAE2 training"
   },
   {
-   "id": "JA2-D4",
+   "id": "JAE2-D4",
    "section": "D",
    "kind": "knowledge",
    "topic": "Arketa is cheaper",
@@ -463,11 +463,11 @@
    ],
    "correct": "B",
    "reveal": "The side-by-side showed Arketa asking for a password. Arketa can pass on fees and book guests, so don’t claim those.",
-   "review": "/training/JA2",
-   "source": "JA2 training"
+   "review": "/training/JAE2",
+   "source": "JAE2 training"
   },
   {
-   "id": "JA2-E1",
+   "id": "JAE2-E1",
    "section": "E",
    "kind": "knowledge",
    "topic": "Manager approval",
@@ -492,11 +492,11 @@
    ],
    "correct": "A",
    "reveal": "The calculator quote is yours to give. Discounts, free months and free add-ons need approval.",
-   "review": "/training/JA2",
-   "source": "JA2 training"
+   "review": "/training/JAE2",
+   "source": "JAE2 training"
   },
   {
-   "id": "JA2-E2",
+   "id": "JAE2-E2",
    "section": "E",
    "kind": "judgment",
    "topic": "Manager approval",
@@ -521,11 +521,11 @@
    ],
    "correct": "B",
    "reveal": "Renewal terms are still being confirmed. A promise you can’t back up can follow you into the contract.",
-   "review": "/training/JA2",
-   "source": "JA2 training"
+   "review": "/training/JAE2",
+   "source": "JAE2 training"
   },
   {
-   "id": "JA2-E3",
+   "id": "JAE2-E3",
    "section": "E",
    "kind": "judgment",
    "topic": "Manager approval",
@@ -550,11 +550,11 @@
    ],
    "correct": "C",
    "reveal": "Whatever happens after year one should be in writing, approved by the manager who gave the addendum.",
-   "review": "/training/JA2",
-   "source": "JA2 training"
+   "review": "/training/JAE2",
+   "source": "JAE2 training"
   },
   {
-   "id": "JA2-E4",
+   "id": "JAE2-E4",
    "section": "E",
    "kind": "judgment",
    "topic": "Manager approval",
@@ -579,8 +579,8 @@
    ],
    "correct": "D",
    "reveal": "Approval on the call keeps momentum and keeps the number real.",
-   "review": "/training/JA2",
-   "source": "JA2 training"
+   "review": "/training/JAE2",
+   "source": "JAE2 training"
   }
  ]
 }

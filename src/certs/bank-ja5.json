@@ -1,9 +1,9 @@
 {
- "cert": "JA5",
+ "cert": "JAE5",
  "version": 1,
  "questions": [
   {
-   "id": "JA5-A1",
+   "id": "JAE5-A1",
    "section": "A",
    "kind": "judgment",
    "topic": "Acknowledge, then show",
@@ -28,11 +28,11 @@
    ],
    "correct": "B",
    "reveal": "Several competitors out-rate us on day-to-day service. Grant what’s true and move to where Momence is stronger for her.",
-   "review": "/training/JA5",
-   "source": "JA5 training"
+   "review": "/training/JAE5",
+   "source": "JAE5 training"
   },
   {
-   "id": "JA5-A2",
+   "id": "JAE5-A2",
    "section": "A",
    "kind": "knowledge",
    "topic": "Acknowledge, then show",
@@ -57,11 +57,11 @@
    ],
    "correct": "D",
    "reveal": "Only first-party facts and what the prospect tells you about their own experience. Everything else stays out.",
-   "review": "/training/JA5",
-   "source": "JA5 training"
+   "review": "/training/JAE5",
+   "source": "JAE5 training"
   },
   {
-   "id": "JA5-A3",
+   "id": "JAE5-A3",
    "section": "A",
    "kind": "judgment",
    "topic": "Mariana Tek",
@@ -86,11 +86,11 @@
    ],
    "correct": "A",
    "reveal": "Don’t knock it and don’t lean on the franchise framing, which is still being confirmed. Let her pain drive the demo.",
-   "review": "/training/JA5",
-   "source": "JA5 training"
+   "review": "/training/JAE5",
+   "source": "JAE5 training"
   },
   {
-   "id": "JA5-A4",
+   "id": "JAE5-A4",
    "section": "A",
    "kind": "judgment",
    "topic": "Mariana Tek",
@@ -115,11 +115,11 @@
    ],
    "correct": "C",
    "reveal": "A new person can see classes, prices and instructors straight away and book without downloading anything first.",
-   "review": "/training/JA5",
-   "source": "JA5 training"
+   "review": "/training/JAE5",
+   "source": "JAE5 training"
   },
   {
-   "id": "JA5-B1",
+   "id": "JAE5-B1",
    "section": "B",
    "kind": "judgment",
    "topic": "MindBody",
@@ -144,11 +144,11 @@
    ],
    "correct": "C",
    "reveal": "She told you the strength and the pain in one line. Dig into the pain before you share a screen.",
-   "review": "/training/JA5",
-   "source": "JA5 training"
+   "review": "/training/JAE5",
+   "source": "JAE5 training"
   },
   {
-   "id": "JA5-B2",
+   "id": "JAE5-B2",
    "section": "B",
    "kind": "knowledge",
    "topic": "MindBody",
@@ -173,11 +173,11 @@
    ],
    "correct": "A",
    "reveal": "It’s on new clients who come through the MindBody app. Ask if they know what it adds up to in a year.",
-   "review": "/training/JA5",
-   "source": "JA5 training"
+   "review": "/training/JAE5",
+   "source": "JAE5 training"
   },
   {
-   "id": "JA5-B3",
+   "id": "JAE5-B3",
    "section": "B",
    "kind": "judgment",
    "topic": "MindBody",
@@ -202,11 +202,11 @@
    ],
    "correct": "D",
    "reveal": "The plugin can be styled to match the studio, and checkout is one page with no account to create.",
-   "review": "/training/JA5",
-   "source": "JA5 training"
+   "review": "/training/JAE5",
+   "source": "JAE5 training"
   },
   {
-   "id": "JA5-B4",
+   "id": "JAE5-B4",
    "section": "B",
    "kind": "knowledge",
    "topic": "MindBody",
@@ -231,11 +231,11 @@
    ],
    "correct": "B",
    "reveal": "No other studio can advertise to her clients in the free app. That’s a real difference from a marketplace app.",
-   "review": "/training/JA5",
-   "source": "JA5 training"
+   "review": "/training/JAE5",
+   "source": "JAE5 training"
   },
   {
-   "id": "JA5-C1",
+   "id": "JAE5-C1",
    "section": "C",
    "kind": "judgment",
    "topic": "WellnessLiving",
@@ -260,11 +260,11 @@
    ],
    "correct": "D",
    "reveal": "You don’t know their contract terms, and guessing is a knock. Her own agreement is the source.",
-   "review": "/training/JA5",
-   "source": "JA5 training"
+   "review": "/training/JAE5",
+   "source": "JAE5 training"
   },
   {
-   "id": "JA5-C2",
+   "id": "JAE5-C2",
    "section": "C",
    "kind": "judgment",
    "topic": "WellnessLiving",
@@ -289,11 +289,11 @@
    ],
    "correct": "B",
    "reveal": "In one cycle this need was agreed to and never shown across four calls. Prove the deciding need on screen.",
-   "review": "/training/JA5",
-   "source": "JA5 training"
+   "review": "/training/JAE5",
+   "source": "JAE5 training"
   },
   {
-   "id": "JA5-C3",
+   "id": "JAE5-C3",
    "section": "C",
    "kind": "judgment",
    "topic": "Glofox",
@@ -318,11 +318,11 @@
    ],
    "correct": "C",
    "reveal": "He answers it from his own experience. Hidden-fee hearsay and price promises are both unverified.",
-   "review": "/training/JA5",
-   "source": "JA5 training"
+   "review": "/training/JAE5",
+   "source": "JAE5 training"
   },
   {
-   "id": "JA5-C4",
+   "id": "JAE5-C4",
    "section": "C",
    "kind": "knowledge",
    "topic": "Glofox",
@@ -347,11 +347,11 @@
    ],
    "correct": "A",
    "reveal": "Every class and offer has its own link, so a post, email or flyer can go straight to the purchase.",
-   "review": "/training/JA5",
-   "source": "JA5 training"
+   "review": "/training/JAE5",
+   "source": "JAE5 training"
   },
   {
-   "id": "JA5-D1",
+   "id": "JAE5-D1",
    "section": "D",
    "kind": "knowledge",
    "topic": "Arketa",
@@ -376,11 +376,11 @@
    ],
    "correct": "A",
    "reveal": "Arketa’s checkout made the client create an account with a password. It can pass fees on and book for a guest too.",
-   "review": "/training/JA5",
-   "source": "JA5 training"
+   "review": "/training/JAE5",
+   "source": "JAE5 training"
   },
   {
-   "id": "JA5-D2",
+   "id": "JAE5-D2",
    "section": "D",
    "kind": "judgment",
    "topic": "Arketa",
@@ -405,11 +405,11 @@
    ],
    "correct": "C",
    "reveal": "Book both services in one checkout. That was the reason one prospect left Arketa.",
-   "review": "/training/JA5",
-   "source": "JA5 training"
+   "review": "/training/JAE5",
+   "source": "JAE5 training"
   },
   {
-   "id": "JA5-D3",
+   "id": "JAE5-D3",
    "section": "D",
    "kind": "judgment",
    "topic": "Arketa",
@@ -434,11 +434,11 @@
    ],
    "correct": "B",
    "reveal": "Conceding the basics and asking this surfaced the real deciding need in one cycle.",
-   "review": "/training/JA5",
-   "source": "JA5 training"
+   "review": "/training/JAE5",
+   "source": "JAE5 training"
   },
   {
-   "id": "JA5-D4",
+   "id": "JAE5-D4",
    "section": "D",
    "kind": "judgment",
    "topic": "Arketa",
@@ -463,11 +463,11 @@
    ],
    "correct": "D",
    "reveal": "Momence had no equivalent to show. Roadmap dates aren’t confirmed, so don’t name one.",
-   "review": "/training/JA5",
-   "source": "JA5 training"
+   "review": "/training/JAE5",
+   "source": "JAE5 training"
   },
   {
-   "id": "JA5-E1",
+   "id": "JAE5-E1",
    "section": "E",
    "kind": "judgment",
    "topic": "Walla",
@@ -492,11 +492,11 @@
    ],
    "correct": "C",
    "reveal": "Real reasons beat a made-up stat. And she can still embed the schedule if she prefers.",
-   "review": "/training/JA5",
-   "source": "JA5 training"
+   "review": "/training/JAE5",
+   "source": "JAE5 training"
   },
   {
-   "id": "JA5-E2",
+   "id": "JAE5-E2",
    "section": "E",
    "kind": "knowledge",
    "topic": "Walla",
@@ -521,11 +521,11 @@
    ],
    "correct": "D",
    "reveal": "There’s no fee angle on Walla. Ask what else they pay for to run email, texts and reviews.",
-   "review": "/training/JA5",
-   "source": "JA5 training"
+   "review": "/training/JAE5",
+   "source": "JAE5 training"
   },
   {
-   "id": "JA5-E3",
+   "id": "JAE5-E3",
    "section": "E",
    "kind": "judgment",
    "topic": "Across competitors",
@@ -550,11 +550,11 @@
    ],
    "correct": "A",
    "reveal": "Her own reasons tell you which strengths to acknowledge and what to show first.",
-   "review": "/training/JA5",
-   "source": "JA5 training"
+   "review": "/training/JAE5",
+   "source": "JAE5 training"
   },
   {
-   "id": "JA5-E4",
+   "id": "JAE5-E4",
    "section": "E",
    "kind": "knowledge",
    "topic": "Across competitors",
@@ -579,8 +579,8 @@
    ],
    "correct": "B",
    "reveal": "Consolidation is the Walla angle. The others fit Arketa, WellnessLiving and Glofox.",
-   "review": "/training/JA5",
-   "source": "JA5 training"
+   "review": "/training/JAE5",
+   "source": "JAE5 training"
   }
  ]
 }

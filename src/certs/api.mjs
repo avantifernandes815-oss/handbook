@@ -37,8 +37,8 @@ import {JA8_TRAINING} from './ja8-content.mjs';
 import {CC7_ROLEPLAY} from './cc7-content.mjs';
 import {JA9_ROLEPLAY} from './ja9-content.mjs';
 
-const BANKS = {F1: bankF1, F2: bankF2, F3: bankF3, F4: bankF4, CC1: bankCC1, CC2: bankCC2, CC3: bankCC3, CC4: bankCC4, CC5: bankCC5, CC6: bankCC6, JA1: bankJA1, JA2: bankJA2, JA3: bankJA3, JA4: bankJA4, JA5: bankJA5, JA6: bankJA6, JA7: bankJA7, JA8: bankJA8};
-export const TRAININGS = {CC1: CC1_TRAINING, CC2: CC2_TRAINING, CC3: CC3_TRAINING, CC4: CC4_TRAINING, CC5: CC5_TRAINING, CC6: CC6_TRAINING, JA1: JA1_TRAINING, JA2: JA2_TRAINING, JA3: JA3_TRAINING, JA4: JA4_TRAINING, JA5: JA5_TRAINING, JA6: JA6_TRAINING, JA7: JA7_TRAINING, JA8: JA8_TRAINING};
+const BANKS = {F1: bankF1, F2: bankF2, F3: bankF3, F4: bankF4, CC1: bankCC1, CC2: bankCC2, CC3: bankCC3, CC4: bankCC4, CC5: bankCC5, CC6: bankCC6, JAE1: bankJA1, JAE2: bankJA2, JAE3: bankJA3, JAE4: bankJA4, JAE5: bankJA5, JAE6: bankJA6, JAE7: bankJA7, JAE8: bankJA8};
+export const TRAININGS = {CC1: CC1_TRAINING, CC2: CC2_TRAINING, CC3: CC3_TRAINING, CC4: CC4_TRAINING, CC5: CC5_TRAINING, CC6: CC6_TRAINING, JAE1: JA1_TRAINING, JAE2: JA2_TRAINING, JAE3: JA3_TRAINING, JAE4: JA4_TRAINING, JAE5: JA5_TRAINING, JAE6: JA6_TRAINING, JAE7: JA7_TRAINING, JAE8: JA8_TRAINING};
 // Default entry fields for training applications and rapid roleplays (CC1 shape).
 const DEFAULT_FIELDS = [{key: 'business', label: 'Business', kind: 'input', required: true}, {key: 'note', label: 'SDR Additional Note', kind: 'input', required: true}, {key: 'opener', label: 'Your opener', kind: 'textarea', required: true, optionalFor: ['Cold']}];
 const cleanEntry = (fields, raw, type) => { const o = {type}; for (const f of fields) { let v = clip(raw?.[f.key], f.kind === 'textarea' ? 1200 : 600).trim(); if (f.kind === 'select' && v && !f.options.includes(v)) v = ''; o[f.key] = v; } return o; };
@@ -47,7 +47,7 @@ const GRACE_MS = 4000;          // network slack on top of each question's time 
 const LOCK_HOURS = 24;          // lockout after a second tab-leave
 const MAX_ATTEMPTS = 3;         // failed attempts before a performance conversation
 const NUM = {2: 'two', 3: 'three', 4: 'four', 5: 'five'};
-const REVIEW_LABELS = {'day-1': 'Day 1 · The SDR Job', 'day-2': 'Day 2 · Who We Sell To & Why', 'day-3': 'Day 3 · Owning Your Book of Business', 'day-4': 'Day 4 · Pre-Vetting Workshop', 'day-5': 'Day 5 · Cold Calling Fundamentals', 'day-6': 'Day 6 · Controlling the Conversation', 'day-7': 'Day 7 · Working Smarter at Scale', 'day-8': 'Day 8 · From Yes to Meeting Held', 'meetings': 'Meetings & AE Handoff', 'sal': 'Qualification & SALs', 'book': 'Book of Business', 'statuses': 'Lead Statuses & CRM', '/training/CC1': 'CC1 · Openers training', '/training/CC2': 'CC2 · Elevator Pitch training', '/training/JA1': 'JA1 · Core Product training', '/training/JA2': 'JA2 · Plans and Quoting training', '/training/JA3': 'JA3 · Payments and Card Fees training', '/training/JA4': 'JA4 · Migration and Onboarding training', '/training/JA5': 'JA5 · Main Competitors training', '/training/JA6': 'JA6 · Contract and Close training', '/training/JA7': 'JA7 · AI Agent training', '/training/JA8': 'JA8 · Sandler Selling training'};
+const REVIEW_LABELS = {'day-1': 'Day 1 · The SDR Job', 'day-2': 'Day 2 · Who We Sell To & Why', 'day-3': 'Day 3 · Owning Your Book of Business', 'day-4': 'Day 4 · Pre-Vetting Workshop', 'day-5': 'Day 5 · Cold Calling Fundamentals', 'day-6': 'Day 6 · Controlling the Conversation', 'day-7': 'Day 7 · Working Smarter at Scale', 'day-8': 'Day 8 · From Yes to Meeting Held', 'meetings': 'Meetings & AE Handoff', 'sal': 'Qualification & SALs', 'book': 'Book of Business', 'statuses': 'Lead Statuses & CRM', '/training/CC1': 'CC1 · Openers training', '/training/CC2': 'CC2 · Elevator Pitch training', '/training/JAE1': 'JAE1 · Core Product training', '/training/JAE2': 'JAE2 · Plans and Quoting training', '/training/JAE3': 'JAE3 · Payments and Card Fees training', '/training/JAE4': 'JAE4 · Migration and Onboarding training', '/training/JAE5': 'JAE5 · Main Competitors training', '/training/JAE6': 'JAE6 · Contract and Close training', '/training/JAE7': 'JAE7 · AI Agent training', '/training/JAE8': 'JAE8 · Sandler Selling training'};
 // Foundation certs allow three attempts; the self-paced tracks have no limit (a retake opens after coaching).
 // Junior AE track: no manager coaching gate. A failed quiz locks for 24 hours, then the rep retakes it on their own.
 const RETAKE_WAIT_HOURS = {junior_ae: 24};
@@ -92,7 +92,7 @@ export const ROLEPLAYS = {
   CC5: CC5_ROLEPLAY,
   CC6: CC6_ROLEPLAY,
   CC7: CC7_ROLEPLAY,
-  JA9: JA9_ROLEPLAY,
+  JAE9: JA9_ROLEPLAY,
   F3: {
     mode: 'lead',
     criteria: [

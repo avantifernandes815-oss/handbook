@@ -1,9 +1,9 @@
 {
- "cert": "JA4",
+ "cert": "JAE4",
  "version": 1,
  "questions": [
   {
-   "id": "JA4-A1",
+   "id": "JAE4-A1",
    "section": "A",
    "kind": "judgment",
    "topic": "What comes over",
@@ -28,11 +28,11 @@
    ],
    "correct": "A",
    "reveal": "Some owners only want the list. Cards are a separate piece, and Momence's team handles the export.",
-   "review": "/training/JA4",
-   "source": "JA4 training"
+   "review": "/training/JAE4",
+   "source": "JAE4 training"
   },
   {
-   "id": "JA4-A2",
+   "id": "JAE4-A2",
    "section": "A",
    "kind": "knowledge",
    "topic": "Stored cards",
@@ -57,11 +57,11 @@
    ],
    "correct": "C",
    "reveal": "Cards depend on the old provider releasing them, usually through a separate export file. That's why you never promise every card.",
-   "review": "/training/JA4",
-   "source": "JA4 training"
+   "review": "/training/JAE4",
+   "source": "JAE4 training"
   },
   {
-   "id": "JA4-A3",
+   "id": "JAE4-A3",
    "section": "A",
    "kind": "judgment",
    "topic": "Stored cards",
@@ -86,11 +86,11 @@
    ],
    "correct": "B",
    "reveal": "Card data comes through the old provider's export. Some charge for it, and the fees are being confirmed, so don't quote one.",
-   "review": "/training/JA4",
-   "source": "JA4 training"
+   "review": "/training/JAE4",
+   "source": "JAE4 training"
   },
   {
-   "id": "JA4-A4",
+   "id": "JAE4-A4",
    "section": "A",
    "kind": "judgment",
    "topic": "What comes over",
@@ -115,11 +115,11 @@
    ],
    "correct": "D",
    "reveal": "Name what's certain and the one piece that depends on the old provider.",
-   "review": "/training/JA4",
-   "source": "JA4 training"
+   "review": "/training/JAE4",
+   "source": "JAE4 training"
   },
   {
-   "id": "JA4-B1",
+   "id": "JAE4-B1",
    "section": "B",
    "kind": "knowledge",
    "topic": "Who does the migration",
@@ -144,11 +144,11 @@
    ],
    "correct": "B",
    "reveal": "The team pulls the data. The owner's job is to build the business it lands in.",
-   "review": "/training/JA4",
-   "source": "JA4 training"
+   "review": "/training/JAE4",
+   "source": "JAE4 training"
   },
   {
-   "id": "JA4-B2",
+   "id": "JAE4-B2",
    "section": "B",
    "kind": "knowledge",
    "topic": "What the owner builds",
@@ -173,11 +173,11 @@
    ],
    "correct": "D",
    "reveal": "Build first, migrate second. Then each client lands in what they bought.",
-   "review": "/training/JA4",
-   "source": "JA4 training"
+   "review": "/training/JAE4",
+   "source": "JAE4 training"
   },
   {
-   "id": "JA4-B3",
+   "id": "JAE4-B3",
    "section": "B",
    "kind": "judgment",
    "topic": "What the owner builds",
@@ -202,11 +202,11 @@
    ],
    "correct": "A",
    "reveal": "Onboarding is done with the owner. The team moves the data, and the specialist teaches and builds alongside her.",
-   "review": "/training/JA4",
-   "source": "JA4 training"
+   "review": "/training/JAE4",
+   "source": "JAE4 training"
   },
   {
-   "id": "JA4-B4",
+   "id": "JAE4-B4",
    "section": "B",
    "kind": "judgment",
    "topic": "Who does the migration",
@@ -231,11 +231,11 @@
    ],
    "correct": "C",
    "reveal": "Separate the two jobs clearly. Moving the data isn't her job.",
-   "review": "/training/JA4",
-   "source": "JA4 training"
+   "review": "/training/JAE4",
+   "source": "JAE4 training"
   },
   {
-   "id": "JA4-C1",
+   "id": "JAE4-C1",
    "section": "C",
    "kind": "knowledge",
    "topic": "Running both systems",
@@ -260,11 +260,11 @@
    ],
    "correct": "C",
    "reveal": "Clients keep booking and paying there until the conversion date.",
-   "review": "/training/JA4",
-   "source": "JA4 training"
+   "review": "/training/JAE4",
+   "source": "JAE4 training"
   },
   {
-   "id": "JA4-C2",
+   "id": "JAE4-C2",
    "section": "C",
    "kind": "knowledge",
    "topic": "Running both systems",
@@ -289,11 +289,11 @@
    ],
    "correct": "A",
    "reveal": "Build first, then pick the date. The team pulls the data at the switch.",
-   "review": "/training/JA4",
-   "source": "JA4 training"
+   "review": "/training/JAE4",
+   "source": "JAE4 training"
   },
   {
-   "id": "JA4-C3",
+   "id": "JAE4-C3",
    "section": "C",
    "kind": "judgment",
    "topic": "Renewal date",
@@ -318,11 +318,11 @@
    ],
    "correct": "D",
    "reveal": "The renewal date gives the plan a deadline and the close a reason.",
-   "review": "/training/JA4",
-   "source": "JA4 training"
+   "review": "/training/JAE4",
+   "source": "JAE4 training"
   },
   {
-   "id": "JA4-C4",
+   "id": "JAE4-C4",
    "section": "C",
    "kind": "judgment",
    "topic": "Renewal date",
@@ -347,11 +347,11 @@
    ],
    "correct": "B",
    "reveal": "You can't plan the switch without the date. Make finding it the next step, and ask earlier next time.",
-   "review": "/training/JA4",
-   "source": "JA4 training"
+   "review": "/training/JAE4",
+   "source": "JAE4 training"
   },
   {
-   "id": "JA4-D1",
+   "id": "JAE4-D1",
    "section": "D",
    "kind": "judgment",
    "topic": "Setting expectations",
@@ -376,11 +376,11 @@
    ],
    "correct": "D",
    "reveal": "Owner hours aren't confirmed. Explain what drives the time and let onboarding set the plan.",
-   "review": "/training/JA4",
-   "source": "JA4 training"
+   "review": "/training/JAE4",
+   "source": "JAE4 training"
   },
   {
-   "id": "JA4-D2",
+   "id": "JAE4-D2",
    "section": "D",
    "kind": "knowledge",
    "topic": "Setting expectations",
@@ -405,11 +405,11 @@
    ],
    "correct": "B",
    "reveal": "Timelines, details of the data and old-provider fees are still being confirmed. Who does the migration is the same in every demo.",
-   "review": "/training/JA4",
-   "source": "JA4 training"
+   "review": "/training/JAE4",
+   "source": "JAE4 training"
   },
   {
-   "id": "JA4-D3",
+   "id": "JAE4-D3",
    "section": "D",
    "kind": "judgment",
    "topic": "Setting expectations",
@@ -434,11 +434,11 @@
    ],
    "correct": "C",
    "reveal": "A guess sounds helpful until it's wrong. Flag it and follow up.",
-   "review": "/training/JA4",
-   "source": "JA4 training"
+   "review": "/training/JAE4",
+   "source": "JAE4 training"
   },
   {
-   "id": "JA4-D4",
+   "id": "JAE4-D4",
    "section": "D",
    "kind": "judgment",
    "topic": "Setting expectations",
@@ -463,11 +463,11 @@
    ],
    "correct": "A",
    "reveal": "Use her date to plan, without promising a timeline that isn't confirmed.",
-   "review": "/training/JA4",
-   "source": "JA4 training"
+   "review": "/training/JAE4",
+   "source": "JAE4 training"
   },
   {
-   "id": "JA4-E1",
+   "id": "JAE4-E1",
    "section": "E",
    "kind": "knowledge",
    "topic": "Migration fear",
@@ -492,11 +492,11 @@
    ],
    "correct": "A",
    "reveal": "Migration fear tops the list. Answer it early and specifically.",
-   "review": "/training/JA4",
-   "source": "JA4 training"
+   "review": "/training/JAE4",
+   "source": "JAE4 training"
   },
   {
-   "id": "JA4-E2",
+   "id": "JAE4-E2",
    "section": "E",
    "kind": "judgment",
    "topic": "Migration fear",
@@ -521,11 +521,11 @@
    ],
    "correct": "C",
    "reveal": "Stay factual: cards depend on the old provider's export. Leave the commentary out.",
-   "review": "/training/JA4",
-   "source": "JA4 training"
+   "review": "/training/JAE4",
+   "source": "JAE4 training"
   },
   {
-   "id": "JA4-E3",
+   "id": "JAE4-E3",
    "section": "E",
    "kind": "judgment",
    "topic": "Past bad onboarding",
@@ -550,11 +550,11 @@
    ],
    "correct": "B",
    "reveal": "A past bad setup is a clue to what she needs. Use it to shape the plan.",
-   "review": "/training/JA4",
-   "source": "JA4 training"
+   "review": "/training/JAE4",
+   "source": "JAE4 training"
   },
   {
-   "id": "JA4-E4",
+   "id": "JAE4-E4",
    "section": "E",
    "kind": "knowledge",
    "topic": "Migration fear",
@@ -579,8 +579,8 @@
    ],
    "correct": "D",
    "reveal": "Specifics calm fear. Blanket promises and digs at the old vendor don't.",
-   "review": "/training/JA4",
-   "source": "JA4 training"
+   "review": "/training/JAE4",
+   "source": "JAE4 training"
   }
  ]
 }

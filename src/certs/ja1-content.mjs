@@ -1,4 +1,4 @@
-// JA1 · Core Product — step-by-step training content (Junior AE track).
+// JAE1 · Core Product — step-by-step training content (Junior AE track).
 // Built from the Junior AE Knowledge Bank; unconfirmed numbers are held back until the co-manager answers.
 
 export const JA1_TRAINING = {

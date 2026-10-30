@@ -1,9 +1,9 @@
 {
- "cert": "JA7",
+ "cert": "JAE7",
  "version": 1,
  "questions": [
   {
-   "id": "JA7-A1",
+   "id": "JAE7-A1",
    "section": "A",
    "kind": "judgment",
    "topic": "Support agent",
@@ -28,11 +28,11 @@
    ],
    "correct": "A",
    "reveal": "The agent takes actions in the account, and cancellations follow the cancellation policy the studio set up.",
-   "review": "/training/JA7",
-   "source": "JA7 training"
+   "review": "/training/JAE7",
+   "source": "JAE7 training"
   },
   {
-   "id": "JA7-A2",
+   "id": "JAE7-A2",
    "section": "A",
    "kind": "knowledge",
    "topic": "Support agent",
@@ -57,11 +57,11 @@
    ],
    "correct": "B",
    "reveal": "Text, email and web chat all land in the all-in-one inbox, and the agent can answer each of them.",
-   "review": "/training/JA7",
-   "source": "JA7 training"
+   "review": "/training/JAE7",
+   "source": "JAE7 training"
   },
   {
-   "id": "JA7-A3",
+   "id": "JAE7-A3",
    "section": "A",
    "kind": "judgment",
    "topic": "Escalation",
@@ -86,11 +86,11 @@
    ],
    "correct": "C",
    "reveal": "Owners choose what goes to a person. Escalated conversations land in the inbox and staff get notified.",
-   "review": "/training/JA7",
-   "source": "JA7 training"
+   "review": "/training/JAE7",
+   "source": "JAE7 training"
   },
   {
-   "id": "JA7-A4",
+   "id": "JAE7-A4",
    "section": "A",
    "kind": "judgment",
    "topic": "Request types",
@@ -115,11 +115,11 @@
    ],
    "correct": "D",
    "reveal": "Each request type can be switched on or off, so she turns on booking and leaves payments and refunds off.",
-   "review": "/training/JA7",
-   "source": "JA7 training"
+   "review": "/training/JAE7",
+   "source": "JAE7 training"
   },
   {
-   "id": "JA7-B1",
+   "id": "JAE7-B1",
    "section": "B",
    "kind": "knowledge",
    "topic": "Setup",
@@ -144,11 +144,11 @@
    ],
    "correct": "A",
    "reveal": "Owners set the name, brand voice, response length (concise, standard or detailed), response style and example messages.",
-   "review": "/training/JA7",
-   "source": "JA7 training"
+   "review": "/training/JAE7",
+   "source": "JAE7 training"
   },
   {
-   "id": "JA7-B2",
+   "id": "JAE7-B2",
    "section": "B",
    "kind": "judgment",
    "topic": "Setup score",
@@ -173,11 +173,11 @@
    ],
    "correct": "B",
    "reveal": "The setup score reads the account and lists what's missing. Filling those gaps moves it toward a high setup.",
-   "review": "/training/JA7",
-   "source": "JA7 training"
+   "review": "/training/JAE7",
+   "source": "JAE7 training"
   },
   {
-   "id": "JA7-B3",
+   "id": "JAE7-B3",
    "section": "B",
    "kind": "judgment",
    "topic": "Setup",
@@ -202,11 +202,11 @@
    ],
    "correct": "C",
    "reveal": "Brand voice is a setting. She can pick a tone and add example messages so replies sound like her studio.",
-   "review": "/training/JA7",
-   "source": "JA7 training"
+   "review": "/training/JAE7",
+   "source": "JAE7 training"
   },
   {
-   "id": "JA7-B4",
+   "id": "JAE7-B4",
    "section": "B",
    "kind": "knowledge",
    "topic": "Setup",
@@ -231,11 +231,11 @@
    ],
    "correct": "D",
    "reveal": "Onboarding walks through the setup with the owner, and the setup score points to exactly what to add.",
-   "review": "/training/JA7",
-   "source": "JA7 training"
+   "review": "/training/JAE7",
+   "source": "JAE7 training"
   },
   {
-   "id": "JA7-C1",
+   "id": "JAE7-C1",
    "section": "C",
    "kind": "knowledge",
    "topic": "Sales agent",
@@ -260,11 +260,11 @@
    ],
    "correct": "A",
    "reveal": "The tone options are gentle reminder, encouraging push and high urgency.",
-   "review": "/training/JA7",
-   "source": "JA7 training"
+   "review": "/training/JAE7",
+   "source": "JAE7 training"
   },
   {
-   "id": "JA7-C2",
+   "id": "JAE7-C2",
    "section": "C",
    "kind": "judgment",
    "topic": "Sequences",
@@ -289,11 +289,11 @@
    ],
    "correct": "C",
    "reveal": "A message that ends in a question invites a reply, and a reply opens the conversation the agent picks up.",
-   "review": "/training/JA7",
-   "source": "JA7 training"
+   "review": "/training/JAE7",
+   "source": "JAE7 training"
   },
   {
-   "id": "JA7-C3",
+   "id": "JAE7-C3",
    "section": "C",
    "kind": "knowledge",
    "topic": "Sales agent",
@@ -318,11 +318,11 @@
    ],
    "correct": "B",
    "reveal": "Replies land in the inbox as a conversation, and the agent takes it from there.",
-   "review": "/training/JA7",
-   "source": "JA7 training"
+   "review": "/training/JAE7",
+   "source": "JAE7 training"
   },
   {
-   "id": "JA7-C4",
+   "id": "JAE7-C4",
    "section": "C",
    "kind": "knowledge",
    "topic": "Sales agent",
@@ -347,11 +347,11 @@
    ],
    "correct": "A",
    "reveal": "Leads contacted and revenue are on the screen. On a demo, point to the owner's own results once she's live, not another studio's numbers.",
-   "review": "/training/JA7",
-   "source": "JA7 training"
+   "review": "/training/JAE7",
+   "source": "JAE7 training"
   },
   {
-   "id": "JA7-D1",
+   "id": "JAE7-D1",
    "section": "D",
    "kind": "judgment",
    "topic": "AI as the reason",
@@ -376,11 +376,11 @@
    ],
    "correct": "D",
    "reveal": "The job decides what you demo. Her spend across every tool doing that job gives you the comparison.",
-   "review": "/training/JA7",
-   "source": "JA7 training"
+   "review": "/training/JAE7",
+   "source": "JAE7 training"
   },
   {
-   "id": "JA7-D2",
+   "id": "JAE7-D2",
    "section": "D",
    "kind": "judgment",
    "topic": "AI as the reason",
@@ -405,11 +405,11 @@
    ],
    "correct": "B",
    "reveal": "Momence's AI handles customer conversations. Say so plainly, and don't promise a roadmap item.",
-   "review": "/training/JA7",
-   "source": "JA7 training"
+   "review": "/training/JAE7",
+   "source": "JAE7 training"
   },
   {
-   "id": "JA7-D3",
+   "id": "JAE7-D3",
    "section": "D",
    "kind": "judgment",
    "topic": "Honest description",
@@ -434,11 +434,11 @@
    ],
    "correct": "C",
    "reveal": "Acknowledge it and ask. Don't make claims about a competitor's AI that you can't verify.",
-   "review": "/training/JA7",
-   "source": "JA7 training"
+   "review": "/training/JAE7",
+   "source": "JAE7 training"
   },
   {
-   "id": "JA7-D4",
+   "id": "JAE7-D4",
    "section": "D",
    "kind": "knowledge",
    "topic": "Honest description",
@@ -463,11 +463,11 @@
    ],
    "correct": "D",
    "reveal": "Escalation to staff was shown in several demos. Payback claims and \"never wrong\" are promises you can't back up.",
-   "review": "/training/JA7",
-   "source": "JA7 training"
+   "review": "/training/JAE7",
+   "source": "JAE7 training"
   },
   {
-   "id": "JA7-E1",
+   "id": "JAE7-E1",
    "section": "E",
    "kind": "judgment",
    "topic": "Cost pushback",
@@ -492,11 +492,11 @@
    ],
    "correct": "A",
    "reveal": "Sequences first is the cheaper start and the base the agent works on. Don't concede before you know the core need.",
-   "review": "/training/JA7",
-   "source": "JA7 training"
+   "review": "/training/JAE7",
+   "source": "JAE7 training"
   },
   {
-   "id": "JA7-E2",
+   "id": "JAE7-E2",
    "section": "E",
    "kind": "judgment",
    "topic": "Price questions",
@@ -521,11 +521,11 @@
    ],
    "correct": "B",
    "reveal": "AI pricing is still being confirmed. A guessed number becomes the number she remembers.",
-   "review": "/training/JA7",
-   "source": "JA7 training"
+   "review": "/training/JAE7",
+   "source": "JAE7 training"
   },
   {
-   "id": "JA7-E3",
+   "id": "JAE7-E3",
    "section": "E",
    "kind": "knowledge",
    "topic": "Cost pushback",
@@ -550,11 +550,11 @@
    ],
    "correct": "C",
    "reveal": "The agent works conversations. Sequences that end in a question create the replies it picks up.",
-   "review": "/training/JA7",
-   "source": "JA7 training"
+   "review": "/training/JAE7",
+   "source": "JAE7 training"
   },
   {
-   "id": "JA7-E4",
+   "id": "JAE7-E4",
    "section": "E",
    "kind": "judgment",
    "topic": "Questions you can't answer",
@@ -579,8 +579,8 @@
    ],
    "correct": "D",
    "reveal": "When you're not sure, say so and follow up with the confirmed answer. Don't hedge your way into a guess.",
-   "review": "/training/JA7",
-   "source": "JA7 training"
+   "review": "/training/JAE7",
+   "source": "JAE7 training"
   }
  ]
 }

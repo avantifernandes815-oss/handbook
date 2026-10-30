@@ -1,9 +1,9 @@
 {
- "cert": "JA6",
+ "cert": "JAE6",
  "version": 1,
  "questions": [
   {
-   "id": "JA6-A1",
+   "id": "JAE6-A1",
    "section": "A",
    "kind": "judgment",
    "topic": "Contract timing",
@@ -28,11 +28,11 @@
    ],
    "correct": "A",
    "reveal": "“Sometime in the fall” can't anchor a close. The exact date and notice period can.",
-   "review": "/training/JA6",
-   "source": "JA6 training"
+   "review": "/training/JAE6",
+   "source": "JAE6 training"
   },
   {
-   "id": "JA6-A2",
+   "id": "JAE6-A2",
    "section": "A",
    "kind": "knowledge",
    "topic": "Contract timing",
@@ -57,11 +57,11 @@
    ],
    "correct": "B",
    "reveal": "Asked early, the date shapes the whole call. Found at the end, it's a surprise that stalls the deal.",
-   "review": "/training/JA6",
-   "source": "JA6 training"
+   "review": "/training/JAE6",
+   "source": "JAE6 training"
   },
   {
-   "id": "JA6-A3",
+   "id": "JAE6-A3",
    "section": "A",
    "kind": "judgment",
    "topic": "Contract timing",
@@ -86,11 +86,11 @@
    ],
    "correct": "C",
    "reveal": "Covering an overlap is a concession. It needs approval, and once approved it goes in writing.",
-   "review": "/training/JA6",
-   "source": "JA6 training"
+   "review": "/training/JAE6",
+   "source": "JAE6 training"
   },
   {
-   "id": "JA6-A4",
+   "id": "JAE6-A4",
    "section": "A",
    "kind": "judgment",
    "topic": "Contract timing",
@@ -115,11 +115,11 @@
    ],
    "correct": "D",
    "reveal": "Her go-live date is the deadline. Onboarding and migration take time, so the signing date comes well before it.",
-   "review": "/training/JA6",
-   "source": "JA6 training"
+   "review": "/training/JAE6",
+   "source": "JAE6 training"
   },
   {
-   "id": "JA6-B1",
+   "id": "JAE6-B1",
    "section": "B",
    "kind": "judgment",
    "topic": "Comparison shopping",
@@ -144,11 +144,11 @@
    ],
    "correct": "B",
    "reveal": "Know what she'll weigh and be the first call after the other demo.",
-   "review": "/training/JA6",
-   "source": "JA6 training"
+   "review": "/training/JAE6",
+   "source": "JAE6 training"
   },
   {
-   "id": "JA6-B2",
+   "id": "JAE6-B2",
    "section": "B",
    "kind": "knowledge",
    "topic": "Comparison shopping",
@@ -173,11 +173,11 @@
    ],
    "correct": "C",
    "reveal": "Conceding a real strength builds trust. Then tie Momence's strengths to what she said matters.",
-   "review": "/training/JA6",
-   "source": "JA6 training"
+   "review": "/training/JAE6",
+   "source": "JAE6 training"
   },
   {
-   "id": "JA6-B3",
+   "id": "JAE6-B3",
    "section": "B",
    "kind": "judgment",
    "topic": "Partner stall",
@@ -202,11 +202,11 @@
    ],
    "correct": "D",
    "reveal": "The person who decides should hear it from you, and every signer should have the agreement.",
-   "review": "/training/JA6",
-   "source": "JA6 training"
+   "review": "/training/JAE6",
+   "source": "JAE6 training"
   },
   {
-   "id": "JA6-B4",
+   "id": "JAE6-B4",
    "section": "B",
    "kind": "knowledge",
    "topic": "Partner stall",
@@ -231,11 +231,11 @@
    ],
    "correct": "A",
    "reveal": "Sending it to everyone who signs keeps the deal from waiting on one person to forward it.",
-   "review": "/training/JA6",
-   "source": "JA6 training"
+   "review": "/training/JAE6",
+   "source": "JAE6 training"
   },
   {
-   "id": "JA6-C1",
+   "id": "JAE6-C1",
    "section": "C",
    "kind": "judgment",
    "topic": "Next step",
@@ -260,11 +260,11 @@
    ],
    "correct": "C",
    "reveal": "A time picked together on the call is a next step. A promise to email one is a hope.",
-   "review": "/training/JA6",
-   "source": "JA6 training"
+   "review": "/training/JAE6",
+   "source": "JAE6 training"
   },
   {
-   "id": "JA6-C2",
+   "id": "JAE6-C2",
    "section": "C",
    "kind": "knowledge",
    "topic": "Next step",
@@ -289,11 +289,11 @@
    ],
    "correct": "D",
    "reveal": "A date, a time, the right people and a purpose. Everything else depends on someone remembering.",
-   "review": "/training/JA6",
-   "source": "JA6 training"
+   "review": "/training/JAE6",
+   "source": "JAE6 training"
   },
   {
-   "id": "JA6-C3",
+   "id": "JAE6-C3",
    "section": "C",
    "kind": "judgment",
    "topic": "Next step",
@@ -318,11 +318,11 @@
    ],
    "correct": "A",
    "reveal": "Tie the next step to the meeting that matters, and put the decision-maker on it.",
-   "review": "/training/JA6",
-   "source": "JA6 training"
+   "review": "/training/JAE6",
+   "source": "JAE6 training"
   },
   {
-   "id": "JA6-C4",
+   "id": "JAE6-C4",
    "section": "C",
    "kind": "knowledge",
    "topic": "Next step",
@@ -347,11 +347,11 @@
    ],
    "correct": "B",
    "reveal": "If both sides can say what happens and when, it's a next step.",
-   "review": "/training/JA6",
-   "source": "JA6 training"
+   "review": "/training/JAE6",
+   "source": "JAE6 training"
   },
   {
-   "id": "JA6-D1",
+   "id": "JAE6-D1",
    "section": "D",
    "kind": "judgment",
    "topic": "Walking the agreement",
@@ -376,11 +376,11 @@
    ],
    "correct": "D",
    "reveal": "If it isn't written in the agreement, don't state it from memory. Confirm it and put it in writing.",
-   "review": "/training/JA6",
-   "source": "JA6 training"
+   "review": "/training/JAE6",
+   "source": "JAE6 training"
   },
   {
-   "id": "JA6-D2",
+   "id": "JAE6-D2",
    "section": "D",
    "kind": "judgment",
    "topic": "Walking the agreement",
@@ -405,11 +405,11 @@
    ],
    "correct": "A",
    "reveal": "State only the terms written in her agreement. Terms change, and hers is the one she's signing.",
-   "review": "/training/JA6",
-   "source": "JA6 training"
+   "review": "/training/JAE6",
+   "source": "JAE6 training"
   },
   {
-   "id": "JA6-D3",
+   "id": "JAE6-D3",
    "section": "D",
    "kind": "judgment",
    "topic": "Concessions",
@@ -434,11 +434,11 @@
    ],
    "correct": "B",
    "reveal": "Payment timing is a concession. Get it approved first, then write it into the agreement.",
-   "review": "/training/JA6",
-   "source": "JA6 training"
+   "review": "/training/JAE6",
+   "source": "JAE6 training"
   },
   {
-   "id": "JA6-D4",
+   "id": "JAE6-D4",
    "section": "D",
    "kind": "knowledge",
    "topic": "Concessions",
@@ -463,11 +463,11 @@
    ],
    "correct": "C",
    "reveal": "An approved concession belongs in the agreement as an addendum, where both sides can see it.",
-   "review": "/training/JA6",
-   "source": "JA6 training"
+   "review": "/training/JAE6",
+   "source": "JAE6 training"
   },
   {
-   "id": "JA6-E1",
+   "id": "JAE6-E1",
    "section": "E",
    "kind": "judgment",
    "topic": "Sign-up steps",
@@ -492,11 +492,11 @@
    ],
    "correct": "A",
    "reveal": "Onboarding can't be booked until the agreement is signed. Signed live is signed.",
-   "review": "/training/JA6",
-   "source": "JA6 training"
+   "review": "/training/JAE6",
+   "source": "JAE6 training"
   },
   {
-   "id": "JA6-E2",
+   "id": "JAE6-E2",
    "section": "E",
    "kind": "knowledge",
    "topic": "Sign-up steps",
@@ -521,11 +521,11 @@
    ],
    "correct": "B",
    "reveal": "Agreement, host account and card on file come first. Onboarding gets booked after.",
-   "review": "/training/JA6",
-   "source": "JA6 training"
+   "review": "/training/JAE6",
+   "source": "JAE6 training"
   },
   {
-   "id": "JA6-E3",
+   "id": "JAE6-E3",
    "section": "E",
    "kind": "judgment",
    "topic": "Retention call",
@@ -550,11 +550,11 @@
    ],
    "correct": "C",
    "reveal": "A retention discount changes the price, not the reasons she started looking. Bring her back to those.",
-   "review": "/training/JA6",
-   "source": "JA6 training"
+   "review": "/training/JAE6",
+   "source": "JAE6 training"
   },
   {
-   "id": "JA6-E4",
+   "id": "JAE6-E4",
    "section": "E",
    "kind": "knowledge",
    "topic": "Retention call",
@@ -579,8 +579,8 @@
    ],
    "correct": "D",
    "reveal": "Both systems run until the switch, so cancelling the old one never puts her bookings at risk.",
-   "review": "/training/JA6",
-   "source": "JA6 training"
+   "review": "/training/JAE6",
+   "source": "JAE6 training"
   }
  ]
 }

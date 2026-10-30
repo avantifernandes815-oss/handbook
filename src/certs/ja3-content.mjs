@@ -1,4 +1,4 @@
-// JA3 · Payments and Card Fees — step-by-step training content (Junior AE track).
+// JAE3 · Payments and Card Fees — step-by-step training content (Junior AE track).
 // Built from the Junior AE Knowledge Bank; unconfirmed numbers are held back until the co-manager answers.
 
 export const JA3_TRAINING = {
@@ -404,7 +404,7 @@ export const JA3_TRAINING = {
     {
       "title": "Stored cards when switching",
       "why": "“Will my members’ cards come over?” often decides whether the switch feels safe.",
-      "idea": "Client data and stored cards are two different things. Momence’s team pulls the client data, but the old provider controls the card file, and some charge a fee to release it. Some providers make it hard, so never promise that every card will transfer. Ask how many members pay on recurring cards, because they’re the ones affected. JA4 covers migration in depth, and fees and timing are being confirmed.",
+      "idea": "Client data and stored cards are two different things. Momence’s team pulls the client data, but the old provider controls the card file, and some charge a fee to release it. Some providers make it hard, so never promise that every card will transfer. Ask how many members pay on recurring cards, because they’re the ones affected. JAE4 covers migration in depth, and fees and timing are being confirmed.",
       "say": "“Your client list comes over. Cards depend on your current provider, so let’s check what they’ll release.”",
       "good": [
         {
@@ -455,8 +455,8 @@ export const JA3_TRAINING = {
           "text": "Ask how many members pay on recurring cards, because they’re the ones affected."
         },
         {
-          "label": "Migration covered in JA4",
-          "text": "JA4 covers migration in depth, and fees and timing are being confirmed."
+          "label": "Migration covered in JAE4",
+          "text": "JAE4 covers migration in depth, and fees and timing are being confirmed."
         }
       ]
     }

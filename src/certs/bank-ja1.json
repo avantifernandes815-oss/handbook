@@ -1,9 +1,9 @@
 {
- "cert": "JA1",
+ "cert": "JAE1",
  "version": 1,
  "questions": [
   {
-   "id": "JA1-A1",
+   "id": "JAE1-A1",
    "section": "A",
    "kind": "judgment",
    "topic": "One-page checkout",
@@ -28,11 +28,11 @@
    ],
    "correct": "A",
    "reveal": "Let her see the difference. A live booking as a first-timer shows the one-page flow with no account step.",
-   "review": "/training/JA1",
-   "source": "JA1 training"
+   "review": "/training/JAE1",
+   "source": "JAE1 training"
   },
   {
-   "id": "JA1-A2",
+   "id": "JAE1-A2",
    "section": "A",
    "kind": "knowledge",
    "topic": "One-page checkout",
@@ -57,11 +57,11 @@
    ],
    "correct": "B",
    "reveal": "Momence creates the contact as soon as details go in, so the studio can follow up with someone who nearly booked.",
-   "review": "/training/JA1",
-   "source": "JA1 training"
+   "review": "/training/JAE1",
+   "source": "JAE1 training"
   },
   {
-   "id": "JA1-A3",
+   "id": "JAE1-A3",
    "section": "A",
    "kind": "judgment",
    "topic": "Bring a friend",
@@ -86,11 +86,11 @@
    ],
    "correct": "C",
    "reveal": "Reserving extra spots is built into checkout. The friend gets a contact record and her own booking email.",
-   "review": "/training/JA1",
-   "source": "JA1 training"
+   "review": "/training/JAE1",
+   "source": "JAE1 training"
   },
   {
-   "id": "JA1-A4",
+   "id": "JAE1-A4",
    "section": "A",
    "kind": "judgment",
    "topic": "Waitlists",
@@ -115,11 +115,11 @@
    ],
    "correct": "D",
    "reveal": "The other mode offers the spot to the first person in line. Ask which the owner prefers, then set it up that way.",
-   "review": "/training/JA1",
-   "source": "JA1 training"
+   "review": "/training/JAE1",
+   "source": "JAE1 training"
   },
   {
-   "id": "JA1-B1",
+   "id": "JAE1-B1",
    "section": "B",
    "kind": "judgment",
    "topic": "Class roster",
@@ -144,11 +144,11 @@
    ],
    "correct": "B",
    "reveal": "Flags on the roster put that information in front of the instructor at check-in, with no extra work.",
-   "review": "/training/JA1",
-   "source": "JA1 training"
+   "review": "/training/JAE1",
+   "source": "JAE1 training"
   },
   {
-   "id": "JA1-B2",
+   "id": "JAE1-B2",
    "section": "B",
    "kind": "knowledge",
    "topic": "Check-in",
@@ -173,11 +173,11 @@
    ],
    "correct": "C",
    "reveal": "Momence is mobile-first, so instructors can check people in from the room. An iPad up front handles self check-in.",
-   "review": "/training/JA1",
-   "source": "JA1 training"
+   "review": "/training/JAE1",
+   "source": "JAE1 training"
   },
   {
-   "id": "JA1-B3",
+   "id": "JAE1-B3",
    "section": "B",
    "kind": "judgment",
    "topic": "Contacting a class",
@@ -202,11 +202,11 @@
    ],
    "correct": "D",
    "reveal": "One click from the roster reaches everyone booked, by email, text or in-app. No list to build.",
-   "review": "/training/JA1",
-   "source": "JA1 training"
+   "review": "/training/JAE1",
+   "source": "JAE1 training"
   },
   {
-   "id": "JA1-B4",
+   "id": "JAE1-B4",
    "section": "B",
    "kind": "judgment",
    "topic": "Walk-ins",
@@ -231,11 +231,11 @@
    ],
    "correct": "A",
    "reveal": "Staff add a walk-in straight from the class page and open point of sale with the class already in the cart.",
-   "review": "/training/JA1",
-   "source": "JA1 training"
+   "review": "/training/JAE1",
+   "source": "JAE1 training"
   },
   {
-   "id": "JA1-C1",
+   "id": "JAE1-C1",
    "section": "C",
    "kind": "judgment",
    "topic": "Activation",
@@ -260,11 +260,11 @@
    ],
    "correct": "C",
    "reveal": "Activate on first use starts the membership at the first class. The deadline starts it anyway if the client never comes in.",
-   "review": "/training/JA1",
-   "source": "JA1 training"
+   "review": "/training/JAE1",
+   "source": "JAE1 training"
   },
   {
-   "id": "JA1-C2",
+   "id": "JAE1-C2",
    "section": "C",
    "kind": "knowledge",
    "topic": "Price rules",
@@ -289,11 +289,11 @@
    ],
    "correct": "D",
    "reveal": "Members or a financial-assistance tag can get a lower price or a percentage off without asking for a code.",
-   "review": "/training/JA1",
-   "source": "JA1 training"
+   "review": "/training/JAE1",
+   "source": "JAE1 training"
   },
   {
-   "id": "JA1-C3",
+   "id": "JAE1-C3",
    "section": "C",
    "kind": "judgment",
    "topic": "Auto-refill",
@@ -318,11 +318,11 @@
    ],
    "correct": "A",
    "reveal": "Packs can refill when credits run out, on a time interval, or whichever comes first.",
-   "review": "/training/JA1",
-   "source": "JA1 training"
+   "review": "/training/JAE1",
+   "source": "JAE1 training"
   },
   {
-   "id": "JA1-C4",
+   "id": "JAE1-C4",
    "section": "C",
    "kind": "knowledge",
    "topic": "Usage limits",
@@ -347,11 +347,11 @@
    ],
    "correct": "B",
    "reveal": "Usage limits can be set separately for classes and appointments, and you choose exactly what the membership covers.",
-   "review": "/training/JA1",
-   "source": "JA1 training"
+   "review": "/training/JAE1",
+   "source": "JAE1 training"
   },
   {
-   "id": "JA1-D1",
+   "id": "JAE1-D1",
    "section": "D",
    "kind": "judgment",
    "topic": "Booking order",
@@ -376,11 +376,11 @@
    ],
    "correct": "D",
    "reveal": "Booking order is a setting. Practitioner first lets clients book their favorite; time first matches them to whoever is free.",
-   "review": "/training/JA1",
-   "source": "JA1 training"
+   "review": "/training/JAE1",
+   "source": "JAE1 training"
   },
   {
-   "id": "JA1-D2",
+   "id": "JAE1-D2",
    "section": "D",
    "kind": "knowledge",
    "topic": "Holding a booking",
@@ -405,11 +405,11 @@
    ],
    "correct": "A",
    "reveal": "A card on file reserves the spot. Staff take payment from the schedule when the client arrives.",
-   "review": "/training/JA1",
-   "source": "JA1 training"
+   "review": "/training/JAE1",
+   "source": "JAE1 training"
   },
   {
-   "id": "JA1-D3",
+   "id": "JAE1-D3",
    "section": "D",
    "kind": "judgment",
    "topic": "Inbox",
@@ -434,11 +434,11 @@
    ],
    "correct": "B",
    "reveal": "One thread per client across email, text, calls and in-app, with her memberships and visits in the side panel.",
-   "review": "/training/JA1",
-   "source": "JA1 training"
+   "review": "/training/JAE1",
+   "source": "JAE1 training"
   },
   {
-   "id": "JA1-D4",
+   "id": "JAE1-D4",
    "section": "D",
    "kind": "knowledge",
    "topic": "Local number",
@@ -463,11 +463,11 @@
    ],
    "correct": "C",
    "reveal": "Voicemails are transcribed, and staff can call back from Momence. The number can also forward to another line.",
-   "review": "/training/JA1",
-   "source": "JA1 training"
+   "review": "/training/JAE1",
+   "source": "JAE1 training"
   },
   {
-   "id": "JA1-E1",
+   "id": "JAE1-E1",
    "section": "E",
    "kind": "judgment",
    "topic": "Segments",
@@ -492,11 +492,11 @@
    ],
    "correct": "B",
    "reveal": "Segments filter the client list by visits, purchases or tags. Then one message goes to just that group.",
-   "review": "/training/JA1",
-   "source": "JA1 training"
+   "review": "/training/JAE1",
+   "source": "JAE1 training"
   },
   {
-   "id": "JA1-E2",
+   "id": "JAE1-E2",
    "section": "E",
    "kind": "knowledge",
    "topic": "Dashboard and permissions",
@@ -521,11 +521,11 @@
    ],
    "correct": "D",
    "reveal": "Each staff type gets its own permissions, and each person can customize their dashboard. Class profit is visible to admins only.",
-   "review": "/training/JA1",
-   "source": "JA1 training"
+   "review": "/training/JAE1",
+   "source": "JAE1 training"
   },
   {
-   "id": "JA1-E3",
+   "id": "JAE1-E3",
    "section": "E",
    "kind": "judgment",
    "topic": "Staff pay",
@@ -550,11 +550,11 @@
    ],
    "correct": "A",
    "reveal": "Pay rates and payroll reports show what each person is owed. The studio still pays staff outside Momence.",
-   "review": "/training/JA1",
-   "source": "JA1 training"
+   "review": "/training/JAE1",
+   "source": "JAE1 training"
   },
   {
-   "id": "JA1-E4",
+   "id": "JAE1-E4",
    "section": "E",
    "kind": "knowledge",
    "topic": "Free Momence app",
@@ -579,8 +579,8 @@
    ],
    "correct": "C",
    "reveal": "It isn't a marketplace. No other studio can advertise to the studio's clients there.",
-   "review": "/training/JA1",
-   "source": "JA1 training"
+   "review": "/training/JAE1",
+   "source": "JAE1 training"
   }
  ]
 }
