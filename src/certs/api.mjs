@@ -164,6 +164,29 @@ export async function ensureUser(env, user) {
 const isManager = (me) => me.role === 'manager' || me.role === 'admin';
 const isAdmin = (me) => me.role === 'admin';
 
+// Every finished quiz attempt for one rep and cert, with each question, their answer and the right one, for coaching.
+async function quizResults(env, email, certId) {
+  const cert = await env.DB.prepare("SELECT id, name FROM certifications WHERE id=?").bind(certId).first();
+  const user = await env.DB.prepare("SELECT email, name FROM users WHERE email=?").bind(email).first();
+  if (!cert || !user) return {error: 'not_found'};
+  const attempts = (await env.DB.prepare("SELECT id, attempt_no, status, score, correct_count, started_at, finished_at, tab_leaves FROM quiz_attempts WHERE user_email=? AND cert_id=? AND status IN ('passed','failed','voided') ORDER BY attempt_no DESC").bind(email, certId).all()).results;
+  const out = [];
+  for (const a of attempts) {
+    const rows = (await env.DB.prepare("SELECT qa.position, qa.option_order, qa.chosen, qa.is_correct, qa.timed_out, qa.time_taken_ms, q.id qid, q.section, q.topic, q.prompt, q.scenario, q.options, q.correct, q.reveal, q.review_link FROM quiz_answers qa LEFT JOIN questions q ON q.id=qa.question_id AND q.version=qa.question_version WHERE qa.attempt_id=? ORDER BY qa.position").bind(a.id).all()).results;
+    const answers = rows.map(r => {
+      const opts = parse(r.options, []), order = parse(r.option_order, opts.map(o => o.id));
+      return {position: r.position, id: r.qid, section: r.section, topic: r.topic, prompt: r.prompt, scenario: r.scenario,
+        options: order.map(id => ({id, text: opts.find(o => o.id === id)?.text || ''})), chosen: r.chosen, correct: r.correct,
+        isCorrect: !!r.is_correct, timedOut: !!r.timed_out, seconds: r.time_taken_ms ? Math.round(r.time_taken_ms / 1000) : null, reveal: r.reveal, review: r.review_link};
+    });
+    const bySection = {};
+    for (const x of answers) { const k = x.section || '?'; bySection[k] = bySection[k] || {section: k, right: 0, total: 0, topics: new Set()}; bySection[k].total++; if (x.isCorrect) bySection[k].right++; else if (x.topic) bySection[k].topics.add(x.topic); }
+    out.push({attemptNo: a.attempt_no, status: a.status, score: a.score, correct: a.correct_count, total: answers.length, startedAt: a.started_at, finishedAt: a.finished_at, tabLeaves: a.tab_leaves, answers,
+      sections: Object.values(bySection).sort((x, y) => x.section.localeCompare(y.section)).map(x => ({section: x.section, right: x.right, total: x.total, missedTopics: [...x.topics]}))});
+  }
+  return {rep: {email: user.email, name: user.name || user.email.split('@')[0]}, cert: {id: cert.id, name: cert.name}, attempts: out};
+}
+
 async function audit(env, actor, action, target, details) {
   await env.DB.prepare("INSERT INTO audit_log (actor_email, action, target, details, at) VALUES (?,?,?,?,?)").bind(actor, action, target || null, details ? JSON.stringify(details) : null, nowIso()).run();
 }
@@ -861,6 +884,12 @@ async function team(env) {
     const u = rows.find(r => r.email === l.user_email); if (!u) continue;
     attention.push({kind: 'leave', email: u.email, name: u.name, cert: l.cert_id, at: l.occurred_at, text: `left the tab during the ${l.cert_id} quiz · ${l.outcome === 'voided' ? 'second time, attempt ended and locked 24h' : 'first warning'}${l.duration_ms ? ' · ' + Math.round(l.duration_ms / 1000) + ' sec' : ''}`});
   }
+  // Name every cert in full ("F1 · Momence & Our Market") so managers don't have to decode codes. Quiz items link to the results.
+  const certLabel = id => { const c = certs.find(x => x.id === id); return c ? id + ' · ' + c.name : id; };
+  for (const a of attention) {
+    if (a.cert) a.text = a.text.replace(new RegExp('\\b' + a.cert + '\\b'), certLabel(a.cert));
+    if (a.cert && ['coach', 'max', 'leave'].includes(a.kind)) a.results = true;
+  }
   const growth = rows.map(r => {
     const passed = progress.filter(p => p.user_email === r.email && p.status === 'passed' && p.passed_at >= monthAgo).length;
     const optional = 0; // optional competitor modules arrive with the Senior SDR track
@@ -1033,6 +1062,10 @@ export async function handleApi(request, env, user) {
     if (!isManager(me)) return fail('forbidden', 'Managers only.', 403);
     const out = await certContent(env, mc[1]);
     return out ? json(out) : fail('not_found', 'No such certification.', 404);
+  }
+  if (path === '/api/manage/results') {
+    if (!isManager(me)) return fail('forbidden', 'Managers only.', 403);
+    return json(await quizResults(env, String(url.searchParams.get('rep') || '').toLowerCase(), String(url.searchParams.get('cert') || '')));
   }
   if (path === '/api/team') { if (!isManager(me)) return fail('forbidden', 'Managers only.', 403); return json(await team(env)); }
   if (path === '/api/team/unlock' && method === 'POST') {

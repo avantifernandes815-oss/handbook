@@ -46,6 +46,8 @@ const ROLE_NAMES = {sdr: 'SDR', senior_sdr: 'Senior SDR', manager: 'Manager', ad
     if (u) unlock(u);
     const rs = e.target.closest('[data-cx-reset]');
     if (rs) reset(rs);
+    const vr = e.target.closest('[data-cx-results]');
+    if (vr) { e.preventDefault(); renderResults(vr.dataset.cxResults, vr.dataset.cert); }
   });
   function openPage(page) {
     if (page === 'certifications') return renderPath();
@@ -329,6 +331,7 @@ const ROLE_NAMES = {sdr: 'SDR', senior_sdr: 'Senior SDR', manager: 'Manager', ad
     const legend = [['p', '✓', 'Passed'], ['i', '•', 'In progress'], ['f', '✕', 'Not passed yet'], ['n', '–', 'Not started']];
     const mark = {p: '✓', i: '•', f: '✕', n: '–'}, word = {p: 'Passed', i: 'In progress', f: 'Not passed yet', n: 'Not started'};
     const att = t.attention.map(a => '<div class="cx-att' + (a.kind === 'leave' ? ' leave' : '') + '"><span><strong>' + esc(a.name) + '</strong> ' + esc(a.text) + '</span>' +
+      (a.results ? '<button class="cx-btn ghost" data-cx-results="' + esc(a.email) + '" data-cert="' + esc(a.cert) + '">View results</button>' : '') +
       (a.kind === 'coach' ? '<button class="cx-btn ghost" data-cx-unlock="' + esc(a.email) + '" data-cert="' + esc(a.cert) + '">Mark coached &amp; unlock</button>' : '') +
       (a.kind === 'review' ? '<a class="cx-btn" href="' + esc(a.url || ('/review/' + encodeURIComponent(a.cert) + '?rep=' + encodeURIComponent(a.email))) + '" target="_top">' + (a.cert === 'F2' ? 'Start live review' : 'Review it') + '</a>' : '') +
       (a.kind === 'roleplay' ? '<a class="cx-btn" href="' + esc(a.url || ('/roleplay-run/' + encodeURIComponent(a.cert) + '?rep=' + encodeURIComponent(a.email))) + '" target="_top">Run roleplay</a>' : '') + '</div>').join('');
@@ -347,12 +350,37 @@ const ROLE_NAMES = {sdr: 'SDR', senior_sdr: 'Senior SDR', manager: 'Manager', ad
       '<section class="cx-panel"><h2>Needs your attention</h2><p class="cx-sub">Practicals ready to review, results waiting on coaching, and left-tab flags from the last 7 days</p>' + (att || '<p class="cx-empty">Nothing needs you right now.</p>') + '</section>' +
       '<section class="cx-panel"><div class="cx-group-h"><h2>Every rep, every cert</h2><div class="cx-legend">' + legend.map(l => '<span><span class="cx-cell ' + l[0] + '" style="width:22px;height:22px;font-size:12px">' + l[1] + '</span> ' + l[2] + '</span>').join('') + '</div></div>' +
         '<div class="cx-scroll"><table class="cx-table"><thead><tr><th style="text-align:left">Rep</th>' + t.certs.map(c => '<th scope="col"><span class="cx-tip" tabindex="0">' + esc(c.id) + '<span class="cx-tipbox" role="tooltip"><strong>' + esc(c.name) + '</strong>' + esc(c.summary || '') + (c.status !== 'active' ? ' Not open yet.' : '') + '</span></span></th>').join('') + '</tr></thead><tbody>' +
-        t.rows.map(r => '<tr><th scope="row">' + esc(r.name) + (r.level === 'senior_sdr' ? '<small>Senior SDR</small>' : r.role !== 'rep' ? '<small>' + esc(r.role) + '</small>' : '') + '</th>' + r.cells.map(c => '<td><span class="cx-cell ' + c + '" aria-label="' + word[c] + '">' + mark[c] + '</span></td>').join('') + '</tr>').join('') +
+        t.rows.map(r => '<tr><th scope="row">' + esc(r.name) + (r.level === 'senior_sdr' ? '<small>Senior SDR</small>' : r.role !== 'rep' ? '<small>' + esc(r.role) + '</small>' : '') + '</th>' + r.cells.map((c, i) => '<td>' + (c === 'p' || c === 'f' ? '<button class="cx-cell ' + c + ' cx-cellbtn" data-cx-results="' + esc(r.email) + '" data-cert="' + esc(t.certs[i].id) + '" aria-label="' + word[c] + ' · view ' + esc(t.certs[i].id) + ' results" title="View ' + esc(t.certs[i].id) + ' results">' + mark[c] + '</button>' : '<span class="cx-cell ' + c + '" aria-label="' + word[c] + '">' + mark[c] + '</span>') + '</td>').join('') + '</tr>').join('') +
         '</tbody></table></div></section>' +
       '<section class="cx-panel" id="cx-people"><h2>People</h2><p class="cx-sub">' + (me.role === 'admin' ? 'Set each person’s role. Marking someone Senior SDR unlocks the Junior AE track for them.' : 'Switch your SDRs between SDR and Senior SDR. Senior SDR unlocks the Junior AE track. Only the admin can add people or change managers.') + '</p><div class="cx-people"><p class="cx-empty">Loading…</p></div>' +
         (me.role === 'admin' ? '<form class="cx-form" id="cx-add"><input type="email" required placeholder="name@company.com" aria-label="Email"><select aria-label="Role"><option value="sdr">SDR</option><option value="senior_sdr">Senior SDR</option><option value="manager">Manager</option></select><button class="cx-btn" type="submit">Save</button></form>' : '') + '<p class="cx-msg" aria-live="polite"></p></section>';
     icons();
     loadPeople(t.certs);
+  }
+  // Manager: one rep's quiz results for one cert — every attempt, every question, what they chose and the right answer.
+  async function renderResults(email, cert) {
+    setActive('team');
+    main.innerHTML = '<p class="cx-empty">Loading results…</p>';
+    let d;
+    try { d = await api('/api/manage/results?rep=' + encodeURIComponent(email) + '&cert=' + encodeURIComponent(cert)); } catch (x) { main.innerHTML = '<p>' + esc(x.message) + '</p>'; return; }
+    const head = '<button class="cx-link" data-cert-page="team">← Team progress</button><div class="label" style="margin-top:14px">MANAGER VIEW · QUIZ RESULTS</div><h1>' + esc(d.rep.name) + '</h1><p>' + esc(d.cert.id + ' · ' + d.cert.name) + '</p>';
+    if (!d.attempts || !d.attempts.length) { main.innerHTML = head + '<p class="cx-empty">No finished quiz attempts yet. Training and roleplay results show on their own pages.</p>'; return; }
+    const date = s => s ? new Date(s.replace(' ', 'T') + (s.endsWith('Z') ? '' : 'Z')).toLocaleDateString('en-US', {month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'}) : '';
+    const tabs = '<div class="cx-tabs" role="tablist">' + d.attempts.map((a, i) => '<button role="tab" data-cx-tab="att' + i + '" aria-selected="' + !i + '"' + (i ? '' : ' class="on"') + '>Attempt ' + a.attemptNo + ' · ' + (a.status === 'voided' ? 'voided' : Math.round((a.score || 0) * 100) + '%') + '</button>').join('') + '</div>';
+    const pane = (a, i) => {
+      const wrong = a.answers.filter(x => !x.isCorrect);
+      const summary = '<section class="cx-panel"><div class="cx-res-top"><div><b class="cx-res-score ' + (a.status === 'passed' ? 'ok' : 'bad') + '">' + (a.status === 'voided' ? 'Voided' : Math.round((a.score || 0) * 100) + '%') + '</b><span>' + (a.status === 'passed' ? 'Passed' : a.status === 'failed' ? 'Not passed' : 'Attempt ended') + ' · ' + a.correct + ' of ' + a.total + ' right · ' + esc(date(a.finishedAt)) + (a.tabLeaves ? ' · left the tab ' + a.tabLeaves + '×' : '') + '</span></div></div>' +
+        '<div class="cx-k" style="margin-top:14px">BY SECTION</div><div class="cx-res-secs">' + a.sections.map(s => '<div class="cx-res-sec' + (s.right < s.total ? ' miss' : '') + '"><b>Section ' + esc(s.section) + '</b><span>' + s.right + ' / ' + s.total + '</span>' + (s.missedTopics.length ? '<small>Missed: ' + esc(s.missedTopics.join(', ')) + '</small>' : '') + '</div>').join('') + '</div>' +
+        (wrong.length ? '<div class="cx-k" style="margin-top:14px">COACH ON</div><ul class="cx-ul">' + wrong.map(x => '<li>' + esc(x.topic || x.id) + (x.timedOut ? ' (ran out of time)' : '') + '</li>').join('') + '</ul>' : '') + '</section>';
+      const q = x => '<div class="cx-q ' + (x.isCorrect ? 'res-ok' : 'res-bad') + '"><div class="cx-q-h"><span>Q' + (x.position + 1) + ' · Section ' + esc(x.section || '') + ' · ' + esc(x.topic || '') + '</span><small>' + (x.isCorrect ? 'Right' : x.timedOut ? 'Ran out of time' : 'Wrong') + (x.seconds != null ? ' · ' + x.seconds + 's' : '') + '</small></div>' +
+        (x.scenario ? '<p class="cx-q-sc">' + esc(x.scenario) + '</p>' : '') + '<p class="cx-q-p">' + esc(x.prompt || '(question no longer in the bank)') + '</p>' +
+        x.options.map((o, k) => '<div class="cx-opt' + (o.id === x.correct ? ' right' : o.id === x.chosen ? ' chose' : '') + '"><b>' + 'ABCD'[k] + '</b><span>' + esc(o.text) + '</span>' + (o.id === x.chosen && o.id === x.correct ? '<em>Their answer · correct</em>' : o.id === x.chosen ? '<em class="bad">Their answer</em>' : o.id === x.correct ? '<em>Correct</em>' : '') + '</div>').join('') +
+        (x.reveal ? '<div class="cx-q-rev"><b>Why:</b> ' + esc(x.reveal) + '</div>' : '') + '</div>';
+      const order = [...a.answers].sort((p, r) => (p.isCorrect - r.isCorrect) || (p.position - r.position));
+      return '<div data-cx-pane="att' + i + '"' + (i ? ' hidden' : '') + '>' + summary + '<div class="cx-k" style="margin:6px 0 10px">EVERY QUESTION · WRONG ANSWERS FIRST</div>' + order.map(q).join('') + '</div>';
+    };
+    main.innerHTML = head + tabs + d.attempts.map(pane).join('');
+    icons(); main.scrollTop = 0; window.scrollTo(0, 0);
   }
   async function unlock(b) {
     b.disabled = true; b.textContent = 'Unlocking…';
