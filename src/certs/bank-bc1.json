@@ -1,0 +1,586 @@
+{
+ "cert": "BC1",
+ "version": 1,
+ "questions": [
+  {
+   "id": "BC1-A1",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "How Pilates studios make money",
+   "prompt": "An owner says most of her clients buy 10-class packs and few are on memberships. What's the most useful thing to ask next?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Which social channels her pack buyers follow her on"
+    },
+    {
+     "id": "B",
+     "text": "How often pack buyers come in and whether they renew"
+    },
+    {
+     "id": "C",
+     "text": "Whether she'd like to stop selling class packs at all"
+    },
+    {
+     "id": "D",
+     "text": "How long she has been teaching Pilates as an instructor"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Pack buyers who come often are the natural candidates for a membership. Their visit pattern tells you how much recurring revenue she's leaving on the table.",
+   "review": "/training/BC1",
+   "source": "BC1 training"
+  },
+  {
+   "id": "BC1-A2",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "How Pilates studios make money",
+   "prompt": "Why does filling every spot matter so much in a reformer studio?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Reformer clients only ever pay for unlimited memberships"
+    },
+    {
+     "id": "B",
+     "text": "Reformers have to be rebooked by staff after every class"
+    },
+    {
+     "id": "C",
+     "text": "Insurers require each reformer studio to run at capacity"
+    },
+    {
+     "id": "D",
+     "text": "A class can only hold as many people as there are machines"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Capacity is set by the number of reformers. Revenue grows by filling those spots and keeping privates booked, not by squeezing more people in.",
+   "review": "/training/BC1",
+   "source": "BC1 training"
+  },
+  {
+   "id": "BC1-A3",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "How Pilates studios make money",
+   "prompt": "A privates-heavy owner asks whether memberships would really earn her more. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Ask about her spots, private vs group mix and teacher pay"
+    },
+    {
+     "id": "B",
+     "text": "Tell her memberships always earn more than privates do"
+    },
+    {
+     "id": "C",
+     "text": "Say that's a question only her accountant can answer"
+    },
+    {
+     "id": "D",
+     "text": "Tell her to switch every private client to a membership"
+    }
+   ],
+   "correct": "A",
+   "reveal": "The answer depends on her numbers. Ask for them and work through the trade-off with her instead of giving a general answer.",
+   "review": "/training/BC1",
+   "source": "BC1 training"
+  },
+  {
+   "id": "BC1-A4",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "How Pilates studios make money",
+   "prompt": "What does the training say separates a side project from a profitable Pilates studio?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A large Instagram following and a branded mobile app"
+    },
+    {
+     "id": "B",
+     "text": "Offering every class format in one studio, all week"
+    },
+    {
+     "id": "C",
+     "text": "A recurring base, full spots and a working intro funnel"
+    },
+    {
+     "id": "D",
+     "text": "Paying every teacher a salary rather than per class"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Instructor pay and rent are the big costs. A studio covers them with recurring members, full spots and intro offers that turn into members.",
+   "review": "/training/BC1",
+   "source": "BC1 training"
+  },
+  {
+   "id": "BC1-B1",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "What owners worry about now",
+   "prompt": "A boutique owner says a new chain studio just opened down the street. What's your best next step?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Tell her chains usually close within their first year"
+    },
+    {
+     "id": "B",
+     "text": "Move on, since competitors aren't part of the demo"
+    },
+    {
+     "id": "C",
+     "text": "Ask what makes her studio different and who it's for"
+    },
+    {
+     "id": "D",
+     "text": "Offer a discount so she can lower her prices to match"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Boutique owners compete on attention and fit. Her answer tells you which features to show, like screening, privates and personal follow-up.",
+   "review": "/training/BC1",
+   "source": "BC1 training"
+  },
+  {
+   "id": "BC1-B2",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "What owners worry about now",
+   "prompt": "According to the training, what's the catch with clients who come through third-party apps like ClassPass?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Studios earn less per booking and few become members"
+    },
+    {
+     "id": "B",
+     "text": "Their bookings can't be added to the studio roster"
+    },
+    {
+     "id": "C",
+     "text": "The studio has to pay a fee before each such class"
+    },
+    {
+     "id": "D",
+     "text": "Those clients are barred from buying a membership"
+    }
+   ],
+   "correct": "A",
+   "reveal": "The apps bring first-timers, but studios earn less per visit and few of those visitors convert. Owners weigh the exposure against that cost.",
+   "review": "/training/BC1",
+   "source": "BC1 training"
+  },
+  {
+   "id": "BC1-B3",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Formats and owner language",
+   "prompt": "An owner says, “We're a Lagree studio.” Which follow-up shows you know the format?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“So mostly mat classes, with a bigger room per class?”"
+    },
+    {
+     "id": "B",
+     "text": "“Do your teachers hold comprehensive certification?”"
+    },
+    {
+     "id": "C",
+     "text": "“Do you mostly teach classical work on the Cadillac?”"
+    },
+    {
+     "id": "D",
+     "text": "“How many Megaformers do you run in each class now?”"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Lagree is taught on its own machine, the Megaformer. Like reformers, the number of machines sets each class's capacity.",
+   "review": "/training/BC1",
+   "source": "BC1 training"
+  },
+  {
+   "id": "BC1-B4",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Formats and owner language",
+   "prompt": "What does a comprehensive Pilates certification cover?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Mat only, usually earned in a single weekend course"
+    },
+    {
+     "id": "B",
+     "text": "Mat plus Reformer, Cadillac, Chair and the Barrels"
+    },
+    {
+     "id": "C",
+     "text": "Reformer only, with a focus on group class cueing"
+    },
+    {
+     "id": "D",
+     "text": "Lagree on the Megaformer, plus studio management"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Comprehensive training covers mat and the full apparatus. The National Pilates Certification Program asks for at least 450 hours.",
+   "review": "/training/BC1",
+   "source": "BC1 training"
+  },
+  {
+   "id": "BC1-C1",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Privates and client screening",
+   "prompt": "An owner gives teachers and friends and family a discount, set up today as a fake free membership. What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A price rule that gives a tagged group its discount"
+    },
+    {
+     "id": "B",
+     "text": "A promo code each person types in at every checkout"
+    },
+    {
+     "id": "C",
+     "text": "A separate drop-in price she edits by hand per client"
+    },
+    {
+     "id": "D",
+     "text": "A gift card she reloads for each person every month"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Tag the group, and a price rule applies their discount automatically. Nobody has to ask for a code.",
+   "review": "/training/BC1",
+   "source": "BC1 training"
+  },
+  {
+   "id": "BC1-C2",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Privates and client screening",
+   "prompt": "An owner says new clients must not book a class while injured. What do you show first?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A survey sent the week after each client's first class"
+    },
+    {
+     "id": "B",
+     "text": "A note the instructor types into each client by hand"
+    },
+    {
+     "id": "C",
+     "text": "A checkout question asking if the client is injured"
+    },
+    {
+     "id": "D",
+     "text": "A waiver that clients sign at the front desk on paper"
+    }
+   ],
+   "correct": "C",
+   "reveal": "The studio writes its own checkout questions. An injury answer can tag the client so the instructor sees it on the roster.",
+   "review": "/training/BC1",
+   "source": "BC1 training"
+  },
+  {
+   "id": "BC1-C3",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Filling every reformer",
+   "prompt": "What does Spot Filler use to decide who gets a last-minute spot message?",
+   "options": [
+    {
+     "id": "A",
+     "text": "New leads who haven't bought anything at the studio"
+    },
+    {
+     "id": "B",
+     "text": "Past attendance at that kind of class and time of day"
+    },
+    {
+     "id": "C",
+     "text": "Clients ranked by how much they've spent this year"
+    },
+    {
+     "id": "D",
+     "text": "Anyone on the studio's newsletter list, all at once"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Spot Filler targets clients who've attended that kind of class before. That's why it suits established studios more than new ones.",
+   "review": "/training/BC1",
+   "source": "BC1 training"
+  },
+  {
+   "id": "BC1-C4",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Filling every reformer",
+   "prompt": "An owner with limited reformers wants late cancellations to get a credit, not a refund. What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A promo code she sends to anyone who cancels late"
+    },
+    {
+     "id": "B",
+     "text": "A refund she reverses by hand on the client's card"
+    },
+    {
+     "id": "C",
+     "text": "A new class pack she sells to people who cancel late"
+    },
+    {
+     "id": "D",
+     "text": "The cancellation setting that gives credit back"
+    }
+   ],
+   "correct": "D",
+   "reveal": "The studio chooses what a cancellation gets: nothing back, a credit or a refund. Credit back keeps the money in the studio.",
+   "review": "/training/BC1",
+   "source": "BC1 training"
+  },
+  {
+   "id": "BC1-D1",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Pre-open, pop-ups, traveling",
+   "prompt": "A pre-open owner's website won't be ready for two months, but she wants to sell founding memberships now. What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A paper sign-up sheet that she enters into Momence later"
+    },
+    {
+     "id": "B",
+     "text": "A waitlist that opens on the day the website goes live"
+    },
+    {
+     "id": "C",
+     "text": "A promo code she can hand out at her next pop-up event"
+    },
+    {
+     "id": "D",
+     "text": "The membership's own purchase link for her Instagram"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Every membership has its own purchase page and link. She can sell from Instagram or a link-in-bio before the site exists.",
+   "review": "/training/BC1",
+   "source": "BC1 training"
+  },
+  {
+   "id": "BC1-D2",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "Pre-open, pop-ups, traveling",
+   "prompt": "In Momence, what's the difference between a location and a room?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A room has an address and a location sits inside it"
+    },
+    {
+     "id": "B",
+     "text": "A location is a physical place; a room sits inside it"
+    },
+    {
+     "id": "C",
+     "text": "They're the same thing with two different names"
+    },
+    {
+     "id": "D",
+     "text": "Locations are for classes and rooms for appointments"
+    }
+   ],
+   "correct": "B",
+   "reveal": "A location is physical and can hold an address. A room is a space inside a location.",
+   "review": "/training/BC1",
+   "source": "BC1 training"
+  },
+  {
+   "id": "BC1-D3",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Pre-open, pop-ups, traveling",
+   "prompt": "A founder runs pop-ups at a club using an event platform. She says, “It's not my own CRM.” What's the point to make?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Event platforms can't take any card payments online"
+    },
+    {
+     "id": "B",
+     "text": "She should stop running pop-ups until her studio opens"
+    },
+    {
+     "id": "C",
+     "text": "Each Momence checkout adds the guest to her own list"
+    },
+    {
+     "id": "D",
+     "text": "Momence can import contacts from any event platform"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Every Momence checkout creates or updates a contact, with a signed waiver. She keeps the attendee list for her opening.",
+   "review": "/training/BC1",
+   "source": "BC1 training"
+  },
+  {
+   "id": "BC1-D4",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Pre-open, pop-ups, traveling",
+   "prompt": "A traveling instructor got a bad review from a client who went to the wrong venue. What do you focus on?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Setting up each venue so clients see where they booked"
+    },
+    {
+     "id": "B",
+     "text": "Turning off reviews so a bad one can't be posted again"
+    },
+    {
+     "id": "C",
+     "text": "Running every class through one virtual Zoom location"
+    },
+    {
+     "id": "D",
+     "text": "Asking her to stop teaching at more than one venue"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Her pain is clients going to the wrong place. Each venue set up as its own place shows clients exactly where they booked.",
+   "review": "/training/BC1",
+   "source": "BC1 training"
+  },
+  {
+   "id": "BC1-E1",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Software needs and frustrations",
+   "prompt": "An owner asks when a reformer integration will be ready. You don't know. What do you say?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“I don't have a date, and I won't promise one.”"
+    },
+    {
+     "id": "B",
+     "text": "“It's coming next quarter, so you're all set.”"
+    },
+    {
+     "id": "C",
+     "text": "“Every other platform is far behind us on that.”"
+    },
+    {
+     "id": "D",
+     "text": "“We don't plan to build that, so it won't happen.”"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Don't guess a roadmap. Saying you don't have a date keeps the prospect's trust.",
+   "review": "/training/BC1",
+   "source": "BC1 training"
+  },
+  {
+   "id": "BC1-E2",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Software needs and frustrations",
+   "prompt": "A long-time MindBody owner says, “It works, I've used it for years.” What's the best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Tell her it looks outdated next to every other system"
+    },
+    {
+     "id": "B",
+     "text": "Agree and end the call, since she sounds happy with it"
+    },
+    {
+     "id": "C",
+     "text": "Skip discovery and go straight to pricing and contract"
+    },
+    {
+     "id": "D",
+     "text": "Ask what she'd keep, then what slows her or clients down"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Acknowledge what her system does well, then find where it costs her time or clients. Never knock the competitor.",
+   "review": "/training/BC1",
+   "source": "BC1 training"
+  },
+  {
+   "id": "BC1-E3",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Software needs and frustrations",
+   "prompt": "Which need does the training list for Pilates studio software?",
+   "options": [
+    {
+     "id": "A",
+     "text": "One app per teacher, separate from the studio's own"
+    },
+    {
+     "id": "B",
+     "text": "Ad-free booking pages that hide all class prices"
+    },
+    {
+     "id": "C",
+     "text": "Privates and group classes run in the same system"
+    },
+    {
+     "id": "D",
+     "text": "Manual waitlists the owner approves before class"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Pilates studios sell privates and classes side by side. They want both in one system, with spot booking, waitlists and cancellation rules.",
+   "review": "/training/BC1",
+   "source": "BC1 training"
+  },
+  {
+   "id": "BC1-E4",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Discovery and objections",
+   "prompt": "A solo instructor with no studio yet says Momence sounds like more than she needs right now. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Show every add-on so she sees the full value of it"
+    },
+    {
+     "id": "B",
+     "text": "Build only what she needs and say if an add-on can wait"
+    },
+    {
+     "id": "C",
+     "text": "Tell her to call back once she has opened a studio"
+    },
+    {
+     "id": "D",
+     "text": "Offer a deep discount before you know her budget"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Build the quote around what she'll use now. Saying an add-on isn't worth it yet builds trust.",
+   "review": "/training/BC1",
+   "source": "BC1 training"
+  }
+ ]
+}

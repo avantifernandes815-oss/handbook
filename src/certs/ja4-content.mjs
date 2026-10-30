@@ -57,6 +57,16 @@ export const JA4_TRAINING = {
           "label": "Say what's certain",
           "text": "Say what's certain, then say onboarding will confirm the rest."
         }
+      ],
+      "voice": [
+        {
+          "text": "She said that every time she has migrated, all her clients look new. She asked how to stop someone who bought an intro offer in Walla from buying it again after the move.",
+          "source": "Hot For Yoga demo",
+          "clip": {
+            "src": "/content/videos/ja4-1-voice.mp4",
+            "seconds": 35
+          }
+        }
       ]
     },
     {
@@ -115,6 +125,16 @@ export const JA4_TRAINING = {
         {
           "label": "Cards are slowest",
           "text": "Cards are also the slowest part of a migration, and some owners choose to bring over only the client list and collect cards again."
+        }
+      ],
+      "voice": [
+        {
+          "text": "She has about 60 active memberships, and MindBody's web and app wallets don't match. If cards can't come over, her teachers can each contact about ten clients to collect cards again. She said that's not the end of the world.",
+          "source": "Core Fluency Pilates demo",
+          "clip": {
+            "src": "/content/videos/ja4-2-voice.mp4",
+            "seconds": 44
+          }
         }
       ]
     },
@@ -175,6 +195,16 @@ export const JA4_TRAINING = {
           "label": "Sessions and homework",
           "text": "The specialist shows how, builds some with the owner, and gives homework between sessions."
         }
+      ],
+      "voice": [
+        {
+          "text": "The owner wants the decision made this week so the business partner, who has more time while the owner handles construction, can lead onboarding. They want a presale running within a few weeks.",
+          "source": "The Mill Yoga demo",
+          "clip": {
+            "src": "/content/videos/ja4-3-voice.mp4",
+            "seconds": 40
+          }
+        }
       ]
     },
     {
@@ -234,6 +264,16 @@ export const JA4_TRAINING = {
           "label": "No double booking",
           "text": "That way nobody books in two systems at once."
         }
+      ],
+      "voice": [
+        {
+          "text": "She described how she pictures it: meetings with an onboarding person during her admin time, building up to a set date, then a quick switch so clients and teachers never use two systems at once.",
+          "source": "Core Fluency Pilates demo",
+          "clip": {
+            "src": "/content/videos/ja4-4-voice.mp4",
+            "seconds": 50
+          }
+        }
       ]
     },
     {
@@ -288,6 +328,24 @@ export const JA4_TRAINING = {
         {
           "label": "Overlap offers need approval",
           "text": "Offers to cover the overlap, like free months, are policy and change, so check with your manager before you offer anything."
+        }
+      ],
+      "voice": [
+        {
+          "text": "She's been with MindBody since 2017 and doesn't remember signing a contract. She'll find out when it ends, then email to pick a start date.",
+          "source": "Core Fluency Pilates demo",
+          "clip": {
+            "src": "/content/videos/ja4-5-voice.mp4",
+            "seconds": 58
+          }
+        },
+        {
+          "text": "She said MindBody is hard to get off and she's not sure whether she's under contract, because she can't remember what she signed up for.",
+          "source": "Hansing's School of Dance demo",
+          "clip": {
+            "src": "/content/videos/ja4-5-voice-b.mp4",
+            "seconds": 36
+          }
         }
       ]
     },
@@ -347,6 +405,16 @@ export const JA4_TRAINING = {
         {
           "label": "Onboarding will confirm",
           "text": "When you don't know something, say onboarding will confirm it and follow up."
+        }
+      ],
+      "voice": [
+        {
+          "text": "She has a first pop-up event about six weeks out and no ticketing system yet. She said she doesn't know how long onboarding takes.",
+          "source": "Rabbithole demo",
+          "clip": {
+            "src": "/content/videos/ja4-6-voice.mp4",
+            "seconds": 56
+          }
         }
       ]
     },
@@ -411,6 +479,16 @@ export const JA4_TRAINING = {
           "label": "Specifics do more",
           "text": "Specifics do more."
         }
+      ],
+      "voice": [
+        {
+          "text": "After listing what MindBody makes hard, she said what scares her most is a cumbersome switch: she's busy, and some of her clients are older and will face a learning curve.",
+          "source": "Core Fluency Pilates demo",
+          "clip": {
+            "src": "/content/videos/ja4-7-voice.mp4",
+            "seconds": 88
+          }
+        }
       ]
     },
     {
@@ -469,6 +547,24 @@ export const JA4_TRAINING = {
         {
           "label": "Don't brush it off",
           "text": "Don't let the story pass with a quick “sorry to hear that.”"
+        }
+      ],
+      "voice": [
+        {
+          "text": "The franchise team said their move to Hapana about two years ago wasn't smooth. They don't want to keep moving clients from company to company, and the next switch can't affect clients.",
+          "source": "ReformX Pilates, second call (Australian franchise)",
+          "clip": {
+            "src": "/content/videos/ja4-8-voice.mp4",
+            "seconds": 42
+          }
+        },
+        {
+          "text": "Months after onboarding, she said they still call MindBody about once a day, and it usually ends with support remoting into their computer to do the task or show them.",
+          "source": "Alli F. demo",
+          "clip": {
+            "src": "/content/videos/ja4-8-voice-b.mp4",
+            "seconds": 42
+          }
         }
       ]
     }

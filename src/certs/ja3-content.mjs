@@ -116,6 +116,16 @@ export const JA3_TRAINING = {
           "label": "Don't give ACH rate",
           "text": "The ACH rate is being confirmed, so say it’s lower and don’t give a number."
         }
+      ],
+      "voice": [
+        {
+          "text": "Last-minute cancellations are becoming a real problem. She's never charged a cancellation fee and asked how clients would know one might apply.",
+          "source": "105 Fever, second call",
+          "clip": {
+            "src": "/content/videos/ja3-2-voice.mp4",
+            "seconds": 32
+          }
+        }
       ]
     },
     {
@@ -174,6 +184,16 @@ export const JA3_TRAINING = {
         {
           "label": "Not unique to Momence",
           "text": "Arketa studios can pass fees on too, so present it as an option the owner controls and don’t pitch it as unique to Momence."
+        }
+      ],
+      "voice": [
+        {
+          "text": "She already passes the card fee on to all clients as a flat convenience fee. That keeps pricing even between people who pay by card and people who pay cash.",
+          "source": "Core Fluency Pilates demo",
+          "clip": {
+            "src": "/content/videos/ja3-3-voice.mp4",
+            "seconds": 50
+          }
         }
       ]
     },
@@ -289,6 +309,16 @@ export const JA3_TRAINING = {
           "label": "Compare full total",
           "text": "Then compare the total, software plus processing, against what they pay today."
         }
+      ],
+      "voice": [
+        {
+          "text": "Asked what she pays, she said her card fees range from about 2.75 to 3.3 percent, so she charges clients 3.2 as a middle figure. Clients rarely complain, and a few pay by check instead.",
+          "source": "Core Fluency Pilates demo",
+          "clip": {
+            "src": "/content/videos/ja3-5-voice.mp4",
+            "seconds": 42
+          }
+        }
       ]
     },
     {
@@ -343,6 +373,16 @@ export const JA3_TRAINING = {
         {
           "label": "Retry count unconfirmed",
           "text": "How many times the system retries is being confirmed, so don’t give a number."
+        }
+      ],
+      "voice": [
+        {
+          "text": "The owners said retries recover most failed payments, and the ones that don't recover are usually the same repeat clients. Automatic retries take a load off their admin team.",
+          "source": "ReformX Pilates, second call (Australian franchise)",
+          "clip": {
+            "src": "/content/videos/ja3-6-voice.mp4",
+            "seconds": 70
+          }
         }
       ]
     },
@@ -457,6 +497,16 @@ export const JA3_TRAINING = {
         {
           "label": "Migration covered in JAE4",
           "text": "JAE4 covers migration in depth, and fees and timing are being confirmed."
+        }
+      ],
+      "voice": [
+        {
+          "text": "She hasn't been storing clients' cards, so that isn't a worry when she switches. For long-time clients whose older records may not come over, she has their emails and will ask them to sign up again.",
+          "source": "Hansing's School of Dance demo",
+          "clip": {
+            "src": "/content/videos/ja3-8-voice.mp4",
+            "seconds": 30
+          }
         }
       ]
     }

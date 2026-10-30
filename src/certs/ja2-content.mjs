@@ -61,6 +61,16 @@ export const JA2_TRAINING = {
           "label": "Check the calculator",
           "text": "Which simple sequences come with core, and where Spot Filler sits, are still being confirmed, so check the calculator before you answer."
         }
+      ],
+      "voice": [
+        {
+          "text": "Comparing several systems, the owner said they'd be fine with any of them for scheduling and processing if they aren't buggy. What they're weighing is the marketing, and they want a clear picture of exactly what they'd pay, with no surprise fees or add-ons.",
+          "source": "The Mill Yoga demo",
+          "clip": {
+            "src": "/content/videos/ja2-1-voice.mp4",
+            "seconds": 93
+          }
+        }
       ]
     },
     {
@@ -123,6 +133,16 @@ export const JA2_TRAINING = {
         {
           "label": "Calculator is the source",
           "text": "List prices are still being confirmed, so treat the calculator as your source and check with your manager if anything looks off."
+        }
+      ],
+      "voice": [
+        {
+          "text": "On the follow-up, the partner asked to be reminded of the prices. The owner said any repetition helps because it's been a lot, and she wanted to see the free-app option again.",
+          "source": "Zouk dance community, follow-up call",
+          "clip": {
+            "src": "/content/videos/ja2-2-voice.mp4",
+            "seconds": 38
+          }
         }
       ]
     },
@@ -191,6 +211,24 @@ export const JA2_TRAINING = {
           "label": "Totals side by side",
           "text": "Then build the matching package in the calculator and put the two totals side by side."
         }
+      ],
+      "voice": [
+        {
+          "text": "She pays a flat 270 a month for a basic MindBody plan with no on-demand video, since she'd rather fill the studio first. She'd like not to go over that.",
+          "source": "Core Fluency Pilates demo",
+          "clip": {
+            "src": "/content/videos/ja2-3-voice.mp4",
+            "seconds": 80
+          }
+        },
+        {
+          "text": "She pays 300 a month for MindBody's basic package and called it finicky for the price. Classes sometimes don't show on the schedule, and she has to call support to find out why.",
+          "source": "Hansing's School of Dance demo",
+          "clip": {
+            "src": "/content/videos/ja2-3-voice-b.mp4",
+            "seconds": 77
+          }
+        }
       ]
     },
     {
@@ -245,6 +283,16 @@ export const JA2_TRAINING = {
         {
           "label": "Video on demand",
           "text": "Video on demand is quoted as an add-on in most demos, but two demos called it included and per-location charging is still being confirmed, so add it in the calculator only when they want it and confirm anything you’re unsure of."
+        }
+      ],
+      "voice": [
+        {
+          "text": "She asked why a custom app has such a high monthly fee when most of the work seems to be done up front.",
+          "source": "Zouk dance community, follow-up call",
+          "clip": {
+            "src": "/content/videos/ja2-4-voice.mp4",
+            "seconds": 40
+          }
         }
       ]
     },
@@ -317,6 +365,16 @@ export const JA2_TRAINING = {
           "label": "Never multiply by hand",
           "text": "Some items, like the branded app, have been shown as one charge across locations, but the exact discount and what’s charged per location are still being confirmed, so never multiply by hand or promise a number."
         }
+      ],
+      "voice": [
+        {
+          "text": "She plans a second, higher-end location with massage, facials and IV therapy. She said Arketa can't do add-ons at checkout and would charge her a whole new fee for another location.",
+          "source": "Sol Space demo",
+          "clip": {
+            "src": "/content/videos/ja2-5-voice.mp4",
+            "seconds": 80
+          }
+        }
       ]
     },
     {
@@ -367,6 +425,24 @@ export const JA2_TRAINING = {
         {
           "label": "Build to their goal",
           "text": "If they want more clients, show how lead capture, sequences, reviews and referrals work together; if they don’t, build only what they need in the calculator and show what upgrading would add later."
+        }
+      ],
+      "voice": [
+        {
+          "text": "She's been paying for MindBody's marketing add-on but still hasn't been able to get it set up, so she does a lot of marketing by hand. She said the business is doing well but could do better with automations.",
+          "source": "Her Zen Studio demo",
+          "clip": {
+            "src": "/content/videos/ja2-6-voice.mp4",
+            "seconds": 50
+          }
+        },
+        {
+          "text": "A small boutique owner said she mostly relies on word of mouth and posters, teaches 30 to 35 hours a week, and finds that broad advertising brings people better suited to big chains.",
+          "source": "Core Fluency Pilates demo",
+          "clip": {
+            "src": "/content/videos/ja2-6-voice-b.mp4",
+            "seconds": 100
+          }
         }
       ]
     },
@@ -423,6 +499,16 @@ export const JA2_TRAINING = {
           "label": "Never knock Arketa",
           "text": "Never knock Arketa with claims you can’t back up."
         }
+      ],
+      "voice": [
+        {
+          "text": "She said WellnessLiving is her cheapest option and Arketa costs more. She won't switch just to switch: a new system has to be head and shoulders above what she has, including the white-label app she already runs.",
+          "source": "105 Fever, third call",
+          "clip": {
+            "src": "/content/videos/ja2-7-voice.mp4",
+            "seconds": 98
+          }
+        }
       ]
     },
     {
@@ -477,6 +563,16 @@ export const JA2_TRAINING = {
         {
           "label": "Confirm with a time",
           "text": "If you don’t know an answer, say you’ll confirm and give a time."
+        }
+      ],
+      "voice": [
+        {
+          "text": "The partner said they hadn't had time to look at anything yet and asked whether the sign-up promotion could be extended a week so they could review it before approving.",
+          "source": "Zouk dance community, follow-up call",
+          "clip": {
+            "src": "/content/videos/ja2-8-voice.mp4",
+            "seconds": 50
+          }
         }
       ]
     }

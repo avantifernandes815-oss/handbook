@@ -1,0 +1,586 @@
+{
+ "cert": "BC3",
+ "version": 1,
+ "questions": [
+  {
+   "id": "BC3-A1",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Intro-to-member conversion",
+   "prompt": "A boutique HIIT owner sells dozens of intro offers a month, but her member count barely moves. What do you ask first?",
+   "options": [
+    {
+     "id": "A",
+     "text": "How many intro buyers go on to become members?"
+    },
+    {
+     "id": "B",
+     "text": "How many stations are set up in each room?"
+    },
+    {
+     "id": "C",
+     "text": "Which payment processor do you use now?"
+    },
+    {
+     "id": "D",
+     "text": "How many coaches are on the schedule?"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Guest-to-member conversion is where the money is. Her answer tells you whether to lead with follow-up sequences.",
+   "review": "/training/BC3",
+   "source": "BC3 training"
+  },
+  {
+   "id": "BC3-A2",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Revenue mix",
+   "prompt": "In this training, what gives a profitable studio or gym its steady base of income?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Drop-ins paid at the door for each class"
+    },
+    {
+     "id": "B",
+     "text": "Retail sales of water and grip socks"
+    },
+    {
+     "id": "C",
+     "text": "Recurring memberships billed automatically"
+    },
+    {
+     "id": "D",
+     "text": "Workshops run a few times each year"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Memberships on autopay are the predictable base. Packs, drop-ins and intro offers are the on-ramp to them.",
+   "review": "/training/BC3",
+   "source": "BC3 training"
+  },
+  {
+   "id": "BC3-A3",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Class economics",
+   "prompt": "A gym's 6 a.m. bootcamp rarely has more than three people. What's the business question underneath?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Is the coach certified to teach bootcamp?"
+    },
+    {
+     "id": "B",
+     "text": "Does the class earn more than the coach costs?"
+    },
+    {
+     "id": "C",
+     "text": "Does the class need its own waiver form?"
+    },
+    {
+     "id": "D",
+     "text": "Does the room map have enough spots?"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Each class has to cover the coach's time. Thin classes can earn less than the coach is worth.",
+   "review": "/training/BC3",
+   "source": "BC3 training"
+  },
+  {
+   "id": "BC3-A4",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Trends",
+   "prompt": "Per the Health & Fitness Association, which age group of US fitness members grew fastest in 2025?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Members aged 18 to 24"
+    },
+    {
+     "id": "B",
+     "text": "Members aged 25 to 34"
+    },
+    {
+     "id": "C",
+     "text": "Members aged 35 to 44"
+    },
+    {
+     "id": "D",
+     "text": "Members aged 65 and over"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Members 65 and over grew fastest. ACSM's 2026 survey also ranks programs for older adults second.",
+   "review": "/training/BC3",
+   "source": "BC3 training"
+  },
+  {
+   "id": "BC3-B1",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Coach pay",
+   "prompt": "An owner says payroll takes her hours because she counts each coach's classes by hand. What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The free app's push notifications"
+    },
+    {
+     "id": "B",
+     "text": "Pay rates and payroll reports in Momence"
+    },
+    {
+     "id": "C",
+     "text": "The Spot Filler add-on settings"
+    },
+    {
+     "id": "D",
+     "text": "The community page for members"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Pay rates per coach plus payroll reports show what each person is owed, without counting by hand.",
+   "review": "/training/BC3",
+   "source": "BC3 training"
+  },
+  {
+   "id": "BC3-B2",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Coach pay",
+   "prompt": "What's accurate about staff pay in Momence?",
+   "options": [
+    {
+     "id": "A",
+     "text": "It shows what's owed; pay happens outside"
+    },
+    {
+     "id": "B",
+     "text": "It pays coaches by direct deposit weekly"
+    },
+    {
+     "id": "C",
+     "text": "It allows only one hourly rate per coach"
+    },
+    {
+     "id": "D",
+     "text": "It needs a separate payroll add-on to run"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Momence tracks rates and reports what's owed. The owner still pays staff outside Momence.",
+   "review": "/training/BC3",
+   "source": "BC3 training"
+  },
+  {
+   "id": "BC3-B3",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Milestones",
+   "prompt": "A rider is about to hit her 100th class. How does a studio on Momence make sure nobody misses it?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The coach keeps a list of riders in a notebook"
+    },
+    {
+     "id": "B",
+     "text": "Staff search the reports by hand each Friday"
+    },
+    {
+     "id": "C",
+     "text": "The rider tells the front desk about it herself"
+    },
+    {
+     "id": "D",
+     "text": "Visit count on the roster and a milestone email"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Visit counts show at check-in, and a milestone sequence can email the client automatically.",
+   "review": "/training/BC3",
+   "source": "BC3 training"
+  },
+  {
+   "id": "BC3-B4",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Staff roles",
+   "prompt": "A gym owner wants coaches to see only their own classes, while the front desk handles messages and sales. What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "One shared login for all of the staff"
+    },
+    {
+     "id": "B",
+     "text": "A separate account for each coach"
+    },
+    {
+     "id": "C",
+     "text": "Staff roles with their own permissions"
+    },
+    {
+     "id": "D",
+     "text": "The free app with a staff setting on"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Roles control what each person sees and does, so coaches check people in and the desk gets the inbox and point of sale.",
+   "review": "/training/BC3",
+   "source": "BC3 training"
+  },
+  {
+   "id": "BC3-C1",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Programming",
+   "prompt": "A strength coach writes an individual program for every client and tracks their lifts. What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Custom checkout questions about goals"
+    },
+    {
+     "id": "B",
+     "text": "Video on demand with recorded classes"
+    },
+    {
+     "id": "C",
+     "text": "Workouts with scored exercises and programs"
+    },
+    {
+     "id": "D",
+     "text": "The community page with weekly posts"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Workouts hold exercises scored in pounds, reps or rounds, built into programs for a group or one person.",
+   "review": "/training/BC3",
+   "source": "BC3 training"
+  },
+  {
+   "id": "BC3-C2",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Pack auto-refill",
+   "prompt": "A coaching client's pack runs out mid-month. What can Momence do with the pack?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Hold her bookings until she pays in person"
+    },
+    {
+     "id": "B",
+     "text": "Turn the pack into a membership on its own"
+    },
+    {
+     "id": "C",
+     "text": "Send a refill link only on the 1st"
+    },
+    {
+     "id": "D",
+     "text": "Refill it when the last credit is used"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Packs can auto-refill when credits run out, on an interval, or whichever comes first.",
+   "review": "/training/BC3",
+   "source": "BC3 training"
+  },
+  {
+   "id": "BC3-C3",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Terms and programs",
+   "prompt": "A sports training facility runs a six-week youth skills program. Families should pay once and be enrolled in every session. What fits?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A term that enrolls them in all sessions"
+    },
+    {
+     "id": "B",
+     "text": "Six drop-ins booked a week at a time"
+    },
+    {
+     "id": "C",
+     "text": "A membership with a six-class limit"
+    },
+    {
+     "id": "D",
+     "text": "An appointment the coach books weekly"
+    }
+   ],
+   "correct": "A",
+   "reveal": "A term enrolls the client in every session of a multi-week series at once, paid up front or on a plan.",
+   "review": "/training/BC3",
+   "source": "BC3 training"
+  },
+  {
+   "id": "BC3-C4",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Community",
+   "prompt": "A bootcamp owner runs her community in a Facebook group and wants it inside her studio's app. What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A group text to every member weekly"
+    },
+    {
+     "id": "B",
+     "text": "The community page in the free app"
+    },
+    {
+     "id": "C",
+     "text": "The inbox with a shared staff thread"
+    },
+    {
+     "id": "D",
+     "text": "A monthly newsletter from the CRM"
+    }
+   ],
+   "correct": "B",
+   "reveal": "The community page lets members see posts and like and comment on them in the app, sent to everyone or a segment.",
+   "review": "/training/BC3",
+   "source": "BC3 training"
+  },
+  {
+   "id": "BC3-D1",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Booking friction",
+   "prompt": "A prospect says new clients give up at her system's login screen. What's your strongest demo move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Show the report of new clients by month"
+    },
+    {
+     "id": "B",
+     "text": "Explain how passwords keep cards safe"
+    },
+    {
+     "id": "C",
+     "text": "Open the inbox and show a client thread"
+    },
+    {
+     "id": "D",
+     "text": "Book on her site, then on a Momence site"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Let her see the difference. Her own login wall next to Momence's one-page checkout makes the point.",
+   "review": "/training/BC3",
+   "source": "BC3 training"
+  },
+  {
+   "id": "BC3-D2",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "First-time buyers",
+   "prompt": "A small-group trainer moving off paper sign-up sheets is comparing systems. What does this training say she needs most?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A branded app before anything else"
+    },
+    {
+     "id": "B",
+     "text": "Simplicity over a long list of features"
+    },
+    {
+     "id": "C",
+     "text": "Every add-on so she never upgrades"
+    },
+    {
+     "id": "D",
+     "text": "A custom build done by onboarding"
+    }
+   ],
+   "correct": "B",
+   "reveal": "First-time software buyers need it simple. Show the few screens that replace her paper, not the whole platform.",
+   "review": "/training/BC3",
+   "source": "BC3 training"
+  },
+  {
+   "id": "BC3-D3",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Honest limits",
+   "prompt": "Asked whether video ads can be built in the ads manager, you aren't sure. What do you say?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Yes, you'll build everything right here.”"
+    },
+    {
+     "id": "B",
+     "text": "“No, Meta ads don't work with Momence.”"
+    },
+    {
+     "id": "C",
+     "text": "“Let me confirm that and get back to you.”"
+    },
+    {
+     "id": "D",
+     "text": "“Most studios don't run video ads now.”"
+    }
+   ],
+   "correct": "C",
+   "reveal": "A confident guess you have to walk back costs more trust than a short “let me confirm.”",
+   "review": "/training/BC3",
+   "source": "BC3 training"
+  },
+  {
+   "id": "BC3-D4",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Renewals",
+   "prompt": "An owner says her team reaches out to every month-to-month member by hand before renewal. What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Auto-renewing memberships and sequences"
+    },
+    {
+     "id": "B",
+     "text": "A spreadsheet export of every member"
+    },
+    {
+     "id": "C",
+     "text": "A staff task list for weekly calls"
+    },
+    {
+     "id": "D",
+     "text": "Roster flags for birthdays and visits"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Memberships renew and bill automatically, and sequences can trigger on events like a membership expiring.",
+   "review": "/training/BC3",
+   "source": "BC3 training"
+  },
+  {
+   "id": "BC3-E1",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Partner decisions",
+   "prompt": "A founder says, “I need to talk to my husband about the cost.” What's the best next step?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Book a dated call and invite him to it"
+    },
+    {
+     "id": "B",
+     "text": "Send pricing and wait for her email"
+    },
+    {
+     "id": "C",
+     "text": "Offer a discount if she signs today"
+    },
+    {
+     "id": "D",
+     "text": "Ask her to decide before he weighs in"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Get a decision date and bring the other decision-maker into the next call, with a recap he can read first.",
+   "review": "/training/BC3",
+   "source": "BC3 training"
+  },
+  {
+   "id": "BC3-E2",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Discovery",
+   "prompt": "Which discovery question best tells you whether to show appointments next to classes?",
+   "options": [
+    {
+     "id": "A",
+     "text": "How many members do you have today?"
+    },
+    {
+     "id": "B",
+     "text": "What time is your busiest class?"
+    },
+    {
+     "id": "C",
+     "text": "How did you choose your studio name?"
+    },
+    {
+     "id": "D",
+     "text": "Do you sell PT, scans or consults too?"
+    }
+   ],
+   "correct": "D",
+   "reveal": "If she sells personal training, scans or consults, show them as appointments in the same system as her classes.",
+   "review": "/training/BC3",
+   "source": "BC3 training"
+  },
+  {
+   "id": "BC3-E3",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Competitors",
+   "prompt": "How does this training say to handle a real strength in the prospect's current tool?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Point out its bugs before she brings them up"
+    },
+    {
+     "id": "B",
+     "text": "Acknowledge it, then show where we're better"
+    },
+    {
+     "id": "C",
+     "text": "Skip past it and move on to our marketing"
+    },
+    {
+     "id": "D",
+     "text": "Say all tools have the same features now"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Acknowledge what their tool does well, then show where Momence is better for them. Never knock the competitor.",
+   "review": "/training/BC3",
+   "source": "BC3 training"
+  },
+  {
+   "id": "BC3-E4",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Pre-open studios",
+   "prompt": "A cycling studio opens in December, and the founder plans to wait until then to set up software. What do you point out?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Onboarding can't start before the doors open"
+    },
+    {
+     "id": "B",
+     "text": "She can't take any payments until she opens"
+    },
+    {
+     "id": "C",
+     "text": "Presales and founding memberships start sooner"
+    },
+    {
+     "id": "D",
+     "text": "Spot Filler works best from her first week"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Presales and founding memberships can sell before opening, and a membership can activate on the client's first class.",
+   "review": "/training/BC3",
+   "source": "BC3 training"
+  }
+ ]
+}

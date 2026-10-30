@@ -65,6 +65,16 @@ export const JA1_TRAINING = {
           "label": "Links and embedded schedule",
           "text": "Every class and offer also has its own link, and the schedule can open Momence's checkout over the studio's site or sit embedded in the page."
         }
+      ],
+      "voice": [
+        {
+          "text": "She said booking through her current system sends people from her site to another site where they have to sign in. For someone who just wants to try a class, that's too many steps and a real barrier.",
+          "source": "105 Fever, first call",
+          "clip": {
+            "src": "/content/videos/ja1-1-voice.mp4",
+            "seconds": 100
+          }
+        }
       ]
     },
     {
@@ -80,11 +90,19 @@ export const JA1_TRAINING = {
             "src": "/content/videos/ja1-2-good.mp4",
             "seconds": 72
           }
+        },
+        {
+          "text": "A kids' dance owner needed parents to book their children, and asked whether a second child could go in too. The AE booked as a new parent for a child on a live studio's checkout, with an email generated for the child, and was honest that only one child goes in the first booking, while parents add more child accounts when they come back.",
+          "source": "Hansing's School of Dance demo",
+          "clip": {
+            "src": "/content/videos/ja1-2-good-b.mp4",
+            "seconds": 82
+          }
         }
       ],
       "missed": [
         {
-          "text": "The prospect's one deal-breaker was a parent booking herself and her children in one checkout. The AE didn't know and said she'd check. Earlier demo screens show child-account options at checkout, and how they work is still being confirmed.",
+          "text": "The prospect's one deal-breaker was a parent booking herself and her children in one checkout. The AE didn't know and said she'd check. Done well shows the right answer.",
           "source": "Kaylea C. demo"
         }
       ],
@@ -115,6 +133,24 @@ export const JA1_TRAINING = {
         {
           "label": "Waitlist options",
           "text": "Full classes get a waitlist that either notifies everyone, so the first to claim gets the spot, or offers it to the first person in line."
+        }
+      ],
+      "voice": [
+        {
+          "text": "A dance studio owner said her current plan won't let one family book several kids into the same class. She needs a mom to book her own barre class and her daughters' dance class.",
+          "source": "Hansing's School of Dance demo",
+          "clip": {
+            "src": "/content/videos/ja1-2-voice.mp4",
+            "seconds": 31
+          }
+        },
+        {
+          "text": "Because booking is confusing, new people tend to call her first, which lets her steer them to the right level. But she just lost two who called before she could get back to them. She wants new clients tagged so they can't book advanced classes.",
+          "source": "Core Fluency Pilates demo",
+          "clip": {
+            "src": "/content/videos/ja1-2-voice-b.mp4",
+            "seconds": 57
+          }
         }
       ]
     },
@@ -166,6 +202,24 @@ export const JA1_TRAINING = {
         {
           "label": "Substitute requests",
           "text": "A teacher who can't make it sends a substitute request to every instructor who can teach that class, and the first to accept takes it."
+        }
+      ],
+      "voice": [
+        {
+          "text": "Her instructors already run the studio from their phones. They move their classes to another teacher when they're out, and check clients in against their packages.",
+          "source": "Core Fluency Pilates demo",
+          "clip": {
+            "src": "/content/videos/ja1-3-voice.mp4",
+            "seconds": 41
+          }
+        },
+        {
+          "text": "Kids with passes often drop in without booking, and coaches take attendance. She asked whether staff can add them to the class afterwards so their passes still get used.",
+          "source": "Skillz Sports Lab demo (Toronto)",
+          "clip": {
+            "src": "/content/videos/ja1-3-voice-b.mp4",
+            "seconds": 41
+          }
         }
       ]
     },
@@ -222,6 +276,24 @@ export const JA1_TRAINING = {
           "label": "Auto-refill and price rules",
           "text": "Packs can auto-refill when the last credit is used, and price rules give a tagged group, like members, a lower price."
         }
+      ],
+      "voice": [
+        {
+          "text": "To give teacher, friends-and-family and student discounts, she gives those clients a free membership that unlocks a cheaper price option. She also needs prerequisites, so only clients who've finished a process can book Open Gym.",
+          "source": "Core Fluency Pilates demo",
+          "clip": {
+            "src": "/content/videos/ja1-4-voice.mp4",
+            "seconds": 100
+          }
+        },
+        {
+          "text": "She asked for a pass that renews itself: her five-class rolling pass renews after five classes or three months, whichever comes first.",
+          "source": "Hot For Yoga demo",
+          "clip": {
+            "src": "/content/videos/ja1-4-voice-b.mp4",
+            "seconds": 33
+          }
+        }
       ]
     },
     {
@@ -272,6 +344,24 @@ export const JA1_TRAINING = {
         {
           "label": "Multi-service checkout",
           "text": "A multi-service checkout books several services back to back and blocks each room."
+        }
+      ],
+      "voice": [
+        {
+          "text": "A spa owner on Vagaro said bookings and client schedules get mixed up, staff scheduling is all over the place and payment processing is poor. He's raised it with Vagaro and it hasn't been fixed.",
+          "source": "Nathaniel R. demo",
+          "clip": {
+            "src": "/content/videos/ja1-5-voice.mp4",
+            "seconds": 100
+          }
+        },
+        {
+          "text": "Private aerial sessions and parties can't be booked on her website, so people call and she sends invoices manually through Square. She wants clients to book a date online, pay a deposit, then pay the rest two weeks before.",
+          "source": "105 Fever, third call",
+          "clip": {
+            "src": "/content/videos/ja1-5-voice-b.mp4",
+            "seconds": 83
+          }
         }
       ]
     },
@@ -336,6 +426,24 @@ export const JA1_TRAINING = {
           "label": "Don't quote allowances",
           "text": "Text and call allowances are being confirmed, so don't quote a number yet."
         }
+      ],
+      "voice": [
+        {
+          "text": "She has one number for texts and a different number for calls. Joining them has been on his current software's feature-request list for over a year with no date.",
+          "source": "Hot For Yoga demo",
+          "clip": {
+            "src": "/content/videos/ja1-6-voice.mp4",
+            "seconds": 43
+          }
+        },
+        {
+          "text": "He said texting was never properly set up in his current system, which is one of the reasons he's leaving, though his clients mostly prefer email.",
+          "source": "Nathaniel R. demo",
+          "clip": {
+            "src": "/content/videos/ja1-6-voice-b.mp4",
+            "seconds": 50
+          }
+        }
       ]
     },
     {
@@ -391,6 +499,24 @@ export const JA1_TRAINING = {
           "label": "Dashboard and reports",
           "text": "The dashboard is customizable by role, and reports go down to staff pay, which is paid outside Momence."
         }
+      ],
+      "voice": [
+        {
+          "text": "She said her current software now caps emails at 200 per send, while she has about 4,000 people in her database. Having to think about a separate CRM is the frustrating part.",
+          "source": "105 Fever, third call",
+          "clip": {
+            "src": "/content/videos/ja1-7-voice.mp4",
+            "seconds": 63
+          }
+        },
+        {
+          "text": "Planning pop-up events before she opens, she'd looked at event ticketing platforms, but they aren't her own CRM. She wants every event sign-up in one system.",
+          "source": "Rabbithole demo",
+          "clip": {
+            "src": "/content/videos/ja1-7-voice-b.mp4",
+            "seconds": 33
+          }
+        }
       ]
     },
     {
@@ -406,11 +532,19 @@ export const JA1_TRAINING = {
             "src": "/content/videos/ja1-8-good.mp4",
             "seconds": 77
           }
+        },
+        {
+          "text": "Asked whether the back end has an app, the AE said it's a web experience: staff pin Momence to their phone's home screen and it opens like an app, and permissions decide what each person sees, such as classes for instructors or the inbox and point of sale for the front desk.",
+          "source": "Skillz Sports Lab demo",
+          "clip": {
+            "src": "/content/videos/ja1-8-good-b.mp4",
+            "seconds": 46
+          }
         }
       ],
       "missed": [
         {
-          "text": "Asked about a business app for staff, the AE said a native one is coming “within the next couple of months” at no extra cost. That's an unconfirmed roadmap promise. What exists today is Momence running on staff phones from the home screen.",
+          "text": "Asked about a business app for staff, the AE said a native one is coming “within the next couple of months” at no extra cost. That's an unconfirmed roadmap promise. Done well shows the right answer.",
           "source": "Alli F. demo",
           "clip": {
             "src": "/content/videos/ja1-8-missed.mp4",
@@ -445,6 +579,24 @@ export const JA1_TRAINING = {
         {
           "label": "Mobile-first for staff",
           "text": "For staff, Momence is mobile-first: they add it to their phone's home screen to check people in."
+        }
+      ],
+      "voice": [
+        {
+          "text": "Most of her clients are 40 plus and book on a computer. She's gradually moving them onto the app and wants a shorter booking flow on phones.",
+          "source": "Sol Space demo",
+          "clip": {
+            "src": "/content/videos/ja1-8-voice.mp4",
+            "seconds": 38
+          }
+        },
+        {
+          "text": "She said MindBody charges her a fee when a new client finds her online and buys through MindBody. Her team prefers to handle new clients' first purchases themselves.",
+          "source": "Core Fluency Pilates demo",
+          "clip": {
+            "src": "/content/videos/ja1-8-voice-b.mp4",
+            "seconds": 45
+          }
         }
       ]
     }

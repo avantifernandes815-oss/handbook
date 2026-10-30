@@ -1,0 +1,586 @@
+{
+ "cert": "BC2",
+ "version": 1,
+ "questions": [
+  {
+   "id": "BC2-A1",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Revenue mix",
+   "prompt": "An owner says lots of new faces try her studio, but her member count barely moves. Where do you focus?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The path from intro offer to membership"
+    },
+    {
+     "id": "B",
+     "text": "The look of her studio's Instagram feed"
+    },
+    {
+     "id": "C",
+     "text": "The number of classes on her schedule"
+    },
+    {
+     "id": "D",
+     "text": "The brand of mats she sells at the desk"
+    }
+   ],
+   "correct": "A",
+   "reveal": "New faces only pay off when they become members. Ask what happens after the intro offer, then show the intro-to-member path.",
+   "review": "/training/BC2",
+   "source": "BC2 training"
+  },
+  {
+   "id": "BC2-A2",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Teacher pay",
+   "prompt": "According to the training's research, how are most yoga teachers paid?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A salary that includes health benefits"
+    },
+    {
+     "id": "B",
+     "text": "Per class, per head, or a mix of both"
+    },
+    {
+     "id": "C",
+     "text": "A share of the studio's yearly sales"
+    },
+    {
+     "id": "D",
+     "text": "An hourly rate for front-desk shifts"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Per-class flat rates are most common, with per-head pay or a base plus a per-head bonus. Most teachers are contractors.",
+   "review": "/training/BC2",
+   "source": "BC2 training"
+  },
+  {
+   "id": "BC2-A3",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Fixed costs",
+   "prompt": "An owner's evening classes are full, but her midday classes run a third full. Why does that matter to her?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Small classes count against her license"
+    },
+    {
+     "id": "B",
+     "text": "Small classes can't be booked online"
+    },
+    {
+     "id": "C",
+     "text": "Rent and most pay are owed at any size"
+    },
+    {
+     "id": "D",
+     "text": "Midday clients only buy single drop-ins"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Rent and most teacher pay don't shrink with the class, so how full classes are drives her profit.",
+   "review": "/training/BC2",
+   "source": "BC2 training"
+  },
+  {
+   "id": "BC2-A4",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Retention",
+   "prompt": "What does the training say about when new yoga students decide whether to stay?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Only after their first full year there"
+    },
+    {
+     "id": "B",
+     "text": "Each time their class pack runs out"
+    },
+    {
+     "id": "C",
+     "text": "Only when the studio raises its prices"
+    },
+    {
+     "id": "D",
+     "text": "Mostly within their first 4 to 6 weeks"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Jonathan Fields writes that most new students decide in their first four to six weeks, so the intro-to-member path matters most.",
+   "review": "/training/BC2",
+   "source": "BC2 training"
+  },
+  {
+   "id": "BC2-B1",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Trends",
+   "prompt": "What does ClassPass's 2025 Look Back Report say about yoga?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Bookings fell for the third year"
+    },
+    {
+     "id": "B",
+     "text": "Second most-booked, behind Pilates"
+    },
+    {
+     "id": "C",
+     "text": "Most-booked workout for 3 years"
+    },
+    {
+     "id": "D",
+     "text": "Only hot yoga grew in bookings"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Yoga was the second most-booked workout. Pilates was first for the third year, and both grew.",
+   "review": "/training/BC2",
+   "source": "BC2 training"
+  },
+  {
+   "id": "BC2-B2",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Why people start",
+   "prompt": "Yoga Alliance's study found the top reason Americans start yoga is now:",
+   "options": [
+    {
+     "id": "A",
+     "text": "Stress release"
+    },
+    {
+     "id": "B",
+     "text": "Flexibility"
+    },
+    {
+     "id": "C",
+     "text": "Weight loss"
+    },
+    {
+     "id": "D",
+     "text": "Injury rehab"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Stress release is now the top reason. In 2016 it was flexibility.",
+   "review": "/training/BC2",
+   "source": "BC2 training"
+  },
+  {
+   "id": "BC2-B3",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "First-timers",
+   "prompt": "A hot yoga owner says her front desk forgets to ask first-timers if they've done hot yoga before. What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A reminder note taped to the desk"
+    },
+    {
+     "id": "B",
+     "text": "A survey emailed after the class"
+    },
+    {
+     "id": "C",
+     "text": "A tag the teacher adds after class"
+    },
+    {
+     "id": "D",
+     "text": "Custom questions asked at checkout"
+    }
+   ],
+   "correct": "D",
+   "reveal": "The studio writes its own checkout questions, so every new student answers before class and the answers reach the roster.",
+   "review": "/training/BC2",
+   "source": "BC2 training"
+  },
+  {
+   "id": "BC2-B4",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Capacity",
+   "prompt": "Her hot room fits 20 students, but aerial has only 11 hammocks. What does she need?",
+   "options": [
+    {
+     "id": "A",
+     "text": "One capacity number for the studio"
+    },
+    {
+     "id": "B",
+     "text": "A separate account for aerial only"
+    },
+    {
+     "id": "C",
+     "text": "Capacity set on each class template"
+    },
+    {
+     "id": "D",
+     "text": "Spot booking turned off for aerial"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Capacity is set class by class, so aerial can cap at its hammocks while hot classes take more.",
+   "review": "/training/BC2",
+   "source": "BC2 training"
+  },
+  {
+   "id": "BC2-C1",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Intro offer",
+   "prompt": "An owner wants brand-new students to see only her intro offer first. What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A promo code she posts on her Instagram"
+    },
+    {
+     "id": "B",
+     "text": "A pop-up form that asks for their email"
+    },
+    {
+     "id": "C",
+     "text": "An offer set as buyable first membership"
+    },
+    {
+     "id": "D",
+     "text": "A welcome email sent after they book"
+    }
+   ],
+   "correct": "C",
+   "reveal": "An offer can be purchasable only as a first membership and shown first, so a new student sees the easiest way in.",
+   "review": "/training/BC2",
+   "source": "BC2 training"
+  },
+  {
+   "id": "BC2-C2",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Buy and book",
+   "prompt": "A new client buys a class pack from a class's page. What happens?",
+   "options": [
+    {
+     "id": "A",
+     "text": "She's also enrolled in that class"
+    },
+    {
+     "id": "B",
+     "text": "She has to go back and book again"
+    },
+    {
+     "id": "C",
+     "text": "She's added to that class's waitlist"
+    },
+    {
+     "id": "D",
+     "text": "The studio has to enroll her by hand"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Buying a pack from a class page enrolls her in that class, so nobody buys credits and then shows up off the roster.",
+   "review": "/training/BC2",
+   "source": "BC2 training"
+  },
+  {
+   "id": "BC2-C3",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Migration",
+   "prompt": "A switching owner worries that migrated clients will buy her intro offer a second time. What fits?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Take the intro offer off her website"
+    },
+    {
+     "id": "B",
+     "text": "Ask clients not to buy it a second time"
+    },
+    {
+     "id": "C",
+     "text": "Charge the full price to everyone now"
+    },
+    {
+     "id": "D",
+     "text": "Tag past clients and restrict the intro"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Tag past clients during migration and limit the intro to everyone else. Onboarding sets up the details.",
+   "review": "/training/BC2",
+   "source": "BC2 training"
+  },
+  {
+   "id": "BC2-C4",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Honest limits",
+   "prompt": "An owner wants an automatic voicemail to every new intro student. Momence doesn't place automatic calls. What do you say?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Say it's coming in the next release"
+    },
+    {
+     "id": "B",
+     "text": "Say so, then offer a staff call task"
+    },
+    {
+     "id": "C",
+     "text": "Say yes and let onboarding sort it out"
+    },
+    {
+     "id": "D",
+     "text": "Skip the question and show sequences"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Say it plainly, then offer what works: a recorded message in an email or text, or a sequence step that creates a staff task to call.",
+   "review": "/training/BC2",
+   "source": "BC2 training"
+  },
+  {
+   "id": "BC2-D1",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "Teacher trainings",
+   "prompt": "Per the ClassPass partner guide, why do studios run teacher trainings?",
+   "options": [
+    {
+     "id": "A",
+     "text": "It's required to keep the studio open"
+    },
+    {
+     "id": "B",
+     "text": "It replaces their weekly class revenue"
+    },
+    {
+     "id": "C",
+     "text": "Students can't practice without one"
+    },
+    {
+     "id": "D",
+     "text": "Extra income, new teachers, community"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Trainings use empty studio time, add income, help find new teachers and build community. Many trainees join to deepen their own practice.",
+   "review": "/training/BC2",
+   "source": "BC2 training"
+  },
+  {
+   "id": "BC2-D2",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Events calendar",
+   "prompt": "An owner says workshops and retreats get lost in her busy class schedule. What fits?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Fewer classes on her weekly schedule"
+    },
+    {
+     "id": "B",
+     "text": "A text blast before each workshop"
+    },
+    {
+     "id": "C",
+     "text": "A separate calendar just for events"
+    },
+    {
+     "id": "D",
+     "text": "Listing events only in her newsletter"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Events and workshops can sit on their own calendar on her site, apart from the class schedule, or on one calendar if she prefers.",
+   "review": "/training/BC2",
+   "source": "BC2 training"
+  },
+  {
+   "id": "BC2-D3",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Promoting workshops",
+   "prompt": "An owner wants to fill a workshop with her most regular students. What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A segment by visits, then the event link"
+    },
+    {
+     "id": "B",
+     "text": "A ClassPass listing for the workshop"
+    },
+    {
+     "id": "C",
+     "text": "A flyer posted at the front desk"
+    },
+    {
+     "id": "D",
+     "text": "An ad aimed at people who never came"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Segment clients by recent visits and send them the workshop's own link by email, text or in-app.",
+   "review": "/training/BC2",
+   "source": "BC2 training"
+  },
+  {
+   "id": "BC2-D4",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Packs and events",
+   "prompt": "An owner wants her five-class rolling pass to work for sound baths too. What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A separate pass just for events"
+    },
+    {
+     "id": "B",
+     "text": "Choosing what the pack includes"
+    },
+    {
+     "id": "C",
+     "text": "A promo code for sound baths only"
+    },
+    {
+     "id": "D",
+     "text": "A price rule on a sound-bath tag"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Each pack lists exactly which classes and events it covers, so the owner can add sound baths to it.",
+   "review": "/training/BC2",
+   "source": "BC2 training"
+  },
+  {
+   "id": "BC2-E1",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Software needs",
+   "prompt": "A prospect says she felt “on her own” after her last system's onboarding. What should your demo make sure to cover?",
+   "options": [
+    {
+     "id": "A",
+     "text": "How many reports come built in"
+    },
+    {
+     "id": "B",
+     "text": "How help works once she's live"
+    },
+    {
+     "id": "C",
+     "text": "How the branded app is approved"
+    },
+    {
+     "id": "D",
+     "text": "How to design her gift cards"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Support after onboarding is the pain she named, so show how she gets help once she's live. Quote only what you can confirm.",
+   "review": "/training/BC2",
+   "source": "BC2 training"
+  },
+  {
+   "id": "BC2-E2",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Frustrations",
+   "prompt": "Which frustrations do vendor buyer guides and our yoga demos both point to?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Too many class styles on the schedule"
+    },
+    {
+     "id": "B",
+     "text": "Waivers that clients have to sign"
+    },
+    {
+     "id": "C",
+     "text": "Booking pages that load too quickly"
+    },
+    {
+     "id": "D",
+     "text": "Add-on fees and support hard to reach"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Surprise fees, slow support and onboarding that leaves owners on their own come up in research and in our calls.",
+   "review": "/training/BC2",
+   "source": "BC2 training"
+  },
+  {
+   "id": "BC2-E3",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Card fees",
+   "prompt": "An owner says her older, small-town clients would mind paying card fees. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Accept it and move on without pushing"
+    },
+    {
+     "id": "B",
+     "text": "Explain the fee pass-through again"
+    },
+    {
+     "id": "C",
+     "text": "Say every studio passes fees on now"
+    },
+    {
+     "id": "D",
+     "text": "Insist it's the only way to save"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Passing fees on is her choice. Pushing after she says no cost the AE trust in our Pure Yoga demo.",
+   "review": "/training/BC2",
+   "source": "BC2 training"
+  },
+  {
+   "id": "BC2-E4",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Getting found",
+   "prompt": "A brand-new owner asks where new students will come from. What did our demos point to?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The Momence app's list of nearby studios"
+    },
+    {
+     "id": "B",
+     "text": "Free ads Momence runs for new studios"
+    },
+    {
+     "id": "C",
+     "text": "ClassPass, Google reviews and referrals"
+    },
+    {
+     "id": "D",
+     "text": "A partner network Momence sends leads to"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Momence isn't a marketplace. New studios got students from ClassPass, Google reviews and referrals, then booked them on their own site.",
+   "review": "/training/BC2",
+   "source": "BC2 training"
+  }
+ ]
+}

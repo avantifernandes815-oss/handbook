@@ -57,6 +57,16 @@ export const JA8_TRAINING = {
           "label": "Long rapport costs time",
           "text": "Rapport that runs five minutes eats the time you need for pain."
         }
+      ],
+      "voice": [
+        {
+          "text": "The owner shares how the studio started: she's taught yoga for about 20 years, her partner was her longtime teacher who once owned a studio, and downtown Santa Cruz has no yoga studios left.",
+          "source": "The Mill Yoga demo",
+          "clip": {
+            "src": "/content/videos/ja8-1-voice.mp4",
+            "seconds": 72
+          }
+        }
       ]
     },
     {
@@ -115,6 +125,16 @@ export const JA8_TRAINING = {
         {
           "label": "Agree four things",
           "text": "In the first two minutes, agree four things: how long the call is, what they want to get out of it, what you'll cover, and that at the end a clear yes, a clear no or a booked next step are all fine outcomes."
+        }
+      ],
+      "voice": [
+        {
+          "text": "The owner says what she wants from the call: whether marketing tools beat a simpler system plus a hired marketer, and a clear picture of exactly what she'd pay.",
+          "source": "The Mill Yoga demo",
+          "clip": {
+            "src": "/content/videos/ja8-2-voice.mp4",
+            "seconds": 58
+          }
         }
       ]
     },
@@ -175,6 +195,16 @@ export const JA8_TRAINING = {
           "label": "Dig before demo",
           "text": "Dig before you demo, so every screen you show answers something they said."
         }
+      ],
+      "voice": [
+        {
+          "text": "The owner says she has kept booking a little hands-on so new clients call first. But she recently missed two people who reached out, and by the time she called back she'd lost them.",
+          "source": "Core Fluency Pilates demo",
+          "clip": {
+            "src": "/content/videos/ja8-3-voice.mp4",
+            "seconds": 58
+          }
+        }
       ]
     },
     {
@@ -230,6 +260,24 @@ export const JA8_TRAINING = {
           "label": "Price against total",
           "text": "Then position the price against that total, not against zero."
         }
+      ],
+      "voice": [
+        {
+          "text": "The owner says she pays a flat $270 a month for MindBody's basic plan, passes card fees on to clients, and would like not to go over that.",
+          "source": "Core Fluency Pilates demo",
+          "clip": {
+            "src": "/content/videos/ja8-4-voice.mp4",
+            "seconds": 92
+          }
+        },
+        {
+          "text": "The owner says she was hoping to save money overall. She'd rather start at about what she pays now, around $300, and spend more once it's working.",
+          "source": "Hansing's School of Dance demo",
+          "clip": {
+            "src": "/content/videos/ja8-4-voice-b.mp4",
+            "seconds": 55
+          }
+        }
       ]
     },
     {
@@ -276,6 +324,16 @@ export const JA8_TRAINING = {
         {
           "label": "Invite the decider",
           "text": "If a partner, spouse or GM decides, invite them to the next call instead of hoping your champion re-pitches it well."
+        }
+      ],
+      "voice": [
+        {
+          "text": "While booking the next call, the owner says she might want her business partner, Valerie, on it.",
+          "source": "The Mill Yoga demo",
+          "clip": {
+            "src": "/content/videos/ja8-5-voice.mp4",
+            "seconds": 34
+          }
         }
       ]
     },
@@ -335,6 +393,16 @@ export const JA8_TRAINING = {
         {
           "label": "Skip the rest",
           "text": "Skip what doesn't matter to them."
+        }
+      ],
+      "voice": [
+        {
+          "text": "A founder opening her first studio says she found Momence through another studio using it to sell tickets for pop-ups, and that events and ticketing are what drew her in.",
+          "source": "Rabbithole demo",
+          "clip": {
+            "src": "/content/videos/ja8-6-voice.mp4",
+            "seconds": 42
+          }
         }
       ]
     },

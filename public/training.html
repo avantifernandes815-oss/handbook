@@ -73,7 +73,7 @@
 .st-ex small{display:block;font-size:12px;color:var(--sub);margin-top:6px}
 .st-clip{margin-top:14px}.st-clip-k{font-size:11px;letter-spacing:.8px;font-weight:700;color:var(--purple);text-transform:uppercase;margin-bottom:6px}
 .st-clip video{display:block;width:100%;max-width:640px;aspect-ratio:16/9;background:#000;border-radius:12px}
-.st-ex.good{border-left:3px solid var(--ok)}.st-ex.missed{border-left:3px solid #b42318}
+.st-ex.voice{border-left:3px solid var(--purple)}.st-ex.good{border-left:3px solid var(--ok)}.st-ex.missed{border-left:3px solid #b42318}
 .st-check{border-top:1px solid var(--line);padding-top:22px}
 .st-check h3{font-family:Nunito,Arial,sans-serif;font-size:17px;margin:0 0 4px}
 .st-check .q{margin:0 0 14px;font-size:14px;color:var(--body);line-height:1.55}
@@ -291,13 +291,13 @@ function stepIntro() {
     '<div class="st-foot"><span class="st-hint">Quick checks don’t count toward your score.</span><button class="btn inline" id="stnext">' + (stepsDone() && !S.completedAt ? 'Continue where you left off' : 'Start step 1') + '</button></div>';
 }
 function stepView(k) {
-  const st = S.def.steps[k], N = S.def.steps.length, ans = ST.checks[k], cnt = x => [].concat(st[x] || []).length, tabs = ['good', 'missed'].filter(x => cnt(x)), tab = tabs.includes(ST.tab[k]) ? ST.tab[k] : tabs[0], exs = tab ? [].concat(st[tab]) : [];
+  const st = S.def.steps[k], N = S.def.steps.length, ans = ST.checks[k], cnt = x => [].concat(st[x] || []).length, tabs = ['voice', 'good', 'missed'].filter(x => cnt(x)), tab = tabs.includes(ST.tab[k]) ? ST.tab[k] : tabs[0], exs = tab ? [].concat(st[tab]) : [];
   const L = 'ABCD';
   return '<div class="st-k">Step ' + (k + 1) + ' of ' + N + '</div><h2>' + esc(st.title) + '</h2>' + (st.points ? '<div class="st-whyb"><b>Why it matters</b>' + esc(st.why) + '</div><div class="st-tiles">' + st.points.map((pt, j) => '<div class="st-tile' + (j === st.points.length - 1 && st.points.length % 2 ? ' wide' : '') + '"><b>' + esc(pt.label) + '</b>' + esc(pt.text) + '</div>').join('') + '</div>' : '<p class="st-why">' + esc(st.why) + '</p><p class="st-idea">' + esc(st.idea) + '</p>') +
     (st.sources && st.sources.length ? '<p class="st-src">Sources: ' + st.sources.map(x => '<a href="' + esc(x.url) + '" target="_blank" rel="noopener">' + esc(x.title) + '</a>').join(' · ') + '</p>' : '') +
     '<div class="st-say"><b>Try saying</b>' + esc(st.say) + '</div>' +
-    (tabs.length ? '<div class="st-tabs" role="tablist">' + tabs.map(x => '<button type="button" role="tab" aria-selected="' + (tab === x) + '" class="' + (tab === x ? 'on' : '') + '" data-ex="' + x + '">' + (x === 'good' ? 'Done well' : 'Missed') + (cnt(x) > 1 ? ' · ' + cnt(x) : '') + '</button>').join('') + '</div>' : '') +
-    '<div class="st-exs">' + exs.map(ex => '<div class="st-ex ' + tab + '">' + esc(ex.text) + '<small>From our demos · ' + esc(ex.source) + '</small>' +
+    (tabs.length ? '<div class="st-tabs" role="tablist">' + tabs.map(x => '<button type="button" role="tab" aria-selected="' + (tab === x) + '" class="' + (tab === x ? 'on' : '') + '" data-ex="' + x + '">' + ({voice: 'In their words', good: 'Done well', missed: 'Missed'}[x]) + (cnt(x) > 1 ? ' · ' + cnt(x) : '') + '</button>').join('') + '</div>' : '') +
+    '<div class="st-exs">' + exs.map(ex => '<div class="st-ex ' + tab + '">' + esc(ex.text) + '<small>' + (tab === 'voice' ? 'An owner on our demos · ' : 'From our demos · ') + esc(ex.source) + '</small>' +
     (ex.clip ? '<div class="st-clip"><div class="st-clip-k">Watch the moment · ' + Math.floor(ex.clip.seconds / 60) + ':' + String(ex.clip.seconds % 60).padStart(2, '0') + '</div><video controls preload="metadata" playsinline src="' + esc(ex.clip.src) + '"></video></div>' : '') + '</div>').join('') + '</div>' +
     '<div class="st-check"><h3>Quick check</h3><p class="q">' + esc(st.check.prompt) + '</p><div class="st-opts">' +
     st.check.options.map((o, j) => '<button type="button" class="st-opt' + (ans === null ? '' : j === st.check.answer ? ' right' : j === ans ? ' wrong' : '') + '" data-opt="' + j + '"' + (ans === null ? '' : ' disabled') + '><span class="lt">' + L[j] + '</span><span>' + esc(o) + '</span></button>').join('') + '</div>' +

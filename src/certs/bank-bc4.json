@@ -1,0 +1,586 @@
+{
+ "cert": "BC4",
+ "version": 1,
+ "questions": [
+  {
+   "id": "BC4-A1",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Revenue models",
+   "prompt": "Adult salsa and bachata classes most often sell in which way?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Drop-ins and class packs"
+    },
+    {
+     "id": "B",
+     "text": "Annual contracts only"
+    },
+    {
+     "id": "C",
+     "text": "Season tuition by the month"
+    },
+    {
+     "id": "D",
+     "text": "Free classes paid by tips"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Adult and open-level classes usually sell as drop-ins and packs. Monthly season tuition is the youth studio model.",
+   "review": "/training/BC4",
+   "source": "BC4 training"
+  },
+  {
+   "id": "BC4-A2",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Fees around the season",
+   "prompt": "Besides tuition, which fees does a kids' dance studio commonly charge?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Locker and towel fees each month"
+    },
+    {
+     "id": "B",
+     "text": "Registration, recital and costumes"
+    },
+    {
+     "id": "C",
+     "text": "Booking fees on every class signup"
+    },
+    {
+     "id": "D",
+     "text": "Late fees for arriving to class"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Annual registration, recital or performance fees, costume fees and recital tickets sit on top of tuition.",
+   "review": "/training/BC4",
+   "source": "BC4 training"
+  },
+  {
+   "id": "BC4-A3",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Segments",
+   "prompt": "An owner says, “We're mostly kids, but we run adult tap and salsa at night.” How do you think about this studio?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Adult studio; skip the kids' needs"
+    },
+    {
+     "id": "B",
+     "text": "Kids only; adults are a side note"
+    },
+    {
+     "id": "C",
+     "text": "A hybrid with two ways of buying"
+    },
+    {
+     "id": "D",
+     "text": "Competition studio; ask about teams"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Hybrid studios often bill kids by monthly tuition and adults by drop-ins or packs. Discover both.",
+   "review": "/training/BC4",
+   "source": "BC4 training"
+  },
+  {
+   "id": "BC4-A4",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Side project vs business",
+   "prompt": "A one-night-a-week salsa owner with a day job asks what he really needs. What's your best approach?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Pitch the largest plan so he can grow"
+    },
+    {
+     "id": "B",
+     "text": "Be honest about what fits his size"
+    },
+    {
+     "id": "C",
+     "text": "Tell him he is too small for Momence"
+    },
+    {
+     "id": "D",
+     "text": "Push video on demand as a new income"
+    }
+   ],
+   "correct": "B",
+   "reveal": "In the SALSAtlanta demo the AE was candid about which plan gave value at his size. Fit beats the biggest package.",
+   "review": "/training/BC4",
+   "source": "BC4 training"
+  },
+  {
+   "id": "BC4-B1",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Keeping families",
+   "prompt": "A kids' studio owner says, “We lose a chunk of families every year after the recital.” What do you ask?",
+   "options": [
+    {
+     "id": "A",
+     "text": "How many classes run each week"
+    },
+    {
+     "id": "B",
+     "text": "Which card reader the desk uses"
+    },
+    {
+     "id": "C",
+     "text": "How she reaches them to re-enroll"
+    },
+    {
+     "id": "D",
+     "text": "Whether teachers take attendance"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Re-enrollment is the worry. Find out how she reaches families before next season, then show tags and segments.",
+   "review": "/training/BC4",
+   "source": "BC4 training"
+  },
+  {
+   "id": "BC4-B2",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "The summer dip",
+   "prompt": "How do dance studios commonly fill the summer dip?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Camps, intensives and drop-ins"
+    },
+    {
+     "id": "B",
+     "text": "Closing June through August"
+    },
+    {
+     "id": "C",
+     "text": "Raising tuition for summer only"
+    },
+    {
+     "id": "D",
+     "text": "Moving every class online"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Camps, intensives and drop-in classes bring summer revenue, and fall discounts turn summer students into year-round ones.",
+   "review": "/training/BC4",
+   "source": "BC4 training"
+  },
+  {
+   "id": "BC4-B3",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Words they use",
+   "prompt": "An owner mentions “the company” and “solos, duets and trios.” What is she talking about?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Her payroll and staff teams"
+    },
+    {
+     "id": "B",
+     "text": "Her competition team dances"
+    },
+    {
+     "id": "C",
+     "text": "Her adult beginner classes"
+    },
+    {
+     "id": "D",
+     "text": "Her summer camp age groups"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Company or comp team, plus solos, duets and trios, means competition. Expect team fees and choreography fees.",
+   "review": "/training/BC4",
+   "source": "BC4 training"
+  },
+  {
+   "id": "BC4-B4",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Parents are the customer",
+   "prompt": "In a kids' studio, who should your discovery questions about payment and messages focus on?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The dancers who take the classes"
+    },
+    {
+     "id": "B",
+     "text": "The teachers who run each class"
+    },
+    {
+     "id": "C",
+     "text": "The judges at each competition"
+    },
+    {
+     "id": "D",
+     "text": "The parents who pay and decide"
+    }
+   ],
+   "correct": "D",
+   "reveal": "The child dances, but the parent pays, reads the messages and decides whether to re-enroll.",
+   "review": "/training/BC4",
+   "source": "BC4 training"
+  },
+  {
+   "id": "BC4-C1",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Bring a partner",
+   "prompt": "A partner-dance student wants to book for herself and her partner, who has never been in. What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Her partner makes an account first"
+    },
+    {
+     "id": "B",
+     "text": "The desk books him through POS later"
+    },
+    {
+     "id": "C",
+     "text": "A second spot in the same checkout"
+    },
+    {
+     "id": "D",
+     "text": "A gift card she sends him to pay"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Extra spots are built into checkout. The partner gets a contact record and their own waiver email.",
+   "review": "/training/BC4",
+   "source": "BC4 training"
+  },
+  {
+   "id": "BC4-C2",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "The door",
+   "prompt": "A salsa owner runs cards for walk-ins on a separate device and logs them as cash. What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A newsletter to past walk-in clients"
+    },
+    {
+     "id": "B",
+     "text": "Roster walk-ins, POS and card reader"
+    },
+    {
+     "id": "C",
+     "text": "An intake form for each new walk-in"
+    },
+    {
+     "id": "D",
+     "text": "The waitlist setting for full classes"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Add the walk-in from the roster and take payment through point of sale, with an optional Stripe card reader.",
+   "review": "/training/BC4",
+   "source": "BC4 training"
+  },
+  {
+   "id": "BC4-C3",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Custom checkout questions",
+   "prompt": "What happens to a student's answers to a studio's custom checkout questions?",
+   "options": [
+    {
+     "id": "A",
+     "text": "They can tag the client on the roster"
+    },
+    {
+     "id": "B",
+     "text": "They're deleted after the class ends"
+    },
+    {
+     "id": "C",
+     "text": "Only Momence support can view them"
+    },
+    {
+     "id": "D",
+     "text": "They post to the community page"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Studios set their own questions (level, experience, injuries), and answers can tag the client for the teacher.",
+   "review": "/training/BC4",
+   "source": "BC4 training"
+  },
+  {
+   "id": "BC4-C4",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Privates on request",
+   "prompt": "A ballroom owner wants to approve every private lesson before it's booked, to match teachers. What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Turn off privates and take calls instead"
+    },
+    {
+     "id": "B",
+     "text": "A class with one spot for each private"
+    },
+    {
+     "id": "C",
+     "text": "A lead form that emails her each request"
+    },
+    {
+     "id": "D",
+     "text": "Request-only appointments staff confirm"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Appointments can be request-only. Clients see availability and request a time, and staff confirm it.",
+   "review": "/training/BC4",
+   "source": "BC4 training"
+  },
+  {
+   "id": "BC4-D1",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "Terms and semesters",
+   "prompt": "What does a term or semester do in Momence?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Bills the client a fee per visit"
+    },
+    {
+     "id": "B",
+     "text": "Limits the class to members only"
+    },
+    {
+     "id": "C",
+     "text": "Repeats the class with no signups"
+    },
+    {
+     "id": "D",
+     "text": "Enrolls a client in every session"
+    }
+   ],
+   "correct": "D",
+   "reveal": "A term or semester is a multi-week series. The client enrolls in, and pays for, all sessions at once.",
+   "review": "/training/BC4",
+   "source": "BC4 training"
+  },
+  {
+   "id": "BC4-D2",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Booking for a child",
+   "prompt": "A mom wants to book her six-year-old, who has no email, into a class. What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "She creates a second login for her child"
+    },
+    {
+     "id": "B",
+     "text": "The desk adds the child by hand later on"
+    },
+    {
+     "id": "C",
+     "text": "Book for a child, linked to her account"
+    },
+    {
+     "id": "D",
+     "text": "She books herself and brings the child"
+    }
+   ],
+   "correct": "C",
+   "reveal": "At checkout a parent can book for a child. A child with no email gets one generated and linked to the parent's account.",
+   "review": "/training/BC4",
+   "source": "BC4 training"
+  },
+  {
+   "id": "BC4-D3",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "Semesters and installments",
+   "prompt": "How can a kids' studio charge families for a semester in Momence?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Installments plus a registration fee"
+    },
+    {
+     "id": "B",
+     "text": "Only one full payment before it starts"
+    },
+    {
+     "id": "C",
+     "text": "Only weekly drop-ins for each session"
+    },
+    {
+     "id": "D",
+     "text": "Only by invoice sent outside Momence"
+    }
+   ],
+   "correct": "A",
+   "reveal": "A semester can require an installment plan with a registration fee, or let families pay in full.",
+   "review": "/training/BC4",
+   "source": "BC4 training"
+  },
+  {
+   "id": "BC4-D4",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Levels and ages",
+   "prompt": "A studio wants only Level 2 dancers aged 8 to 12 to book a class. What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A note in the class description only"
+    },
+    {
+     "id": "B",
+     "text": "A survey sent before each new season"
+    },
+    {
+     "id": "C",
+     "text": "A separate schedule page per level"
+    },
+    {
+     "id": "D",
+     "text": "Membership and age limits on the class"
+    }
+   ],
+   "correct": "D",
+   "reveal": "A class can be limited to certain memberships, which studios use for levels, and to a minimum and maximum age.",
+   "review": "/training/BC4",
+   "source": "BC4 training"
+  },
+  {
+   "id": "BC4-E1",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "“We're built for dance”",
+   "prompt": "An owner says, “Our system was built for dance studios.” What's the best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Say dance software is out of date"
+    },
+    {
+     "id": "B",
+     "text": "Agree, then ask what's still manual"
+    },
+    {
+     "id": "C",
+     "text": "Offer a discount to switch this week"
+    },
+    {
+     "id": "D",
+     "text": "Drop it and ask about her marketing"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Acknowledge the strength first, then find the manual work. That's where Momence can be better.",
+   "review": "/training/BC4",
+   "source": "BC4 training"
+  },
+  {
+   "id": "BC4-E2",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "“Not mid-season”",
+   "prompt": "It's October, and an owner says, “I can't switch anything mid-season.” What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Ask when the season ends; book then"
+    },
+    {
+     "id": "B",
+     "text": "Tell her switching only takes a week"
+    },
+    {
+     "id": "C",
+     "text": "Agree and close out the lead today"
+    },
+    {
+     "id": "D",
+     "text": "Offer free months to switch right now"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Respect the season. Find the end date and book a dated next step in the planning window before registration.",
+   "review": "/training/BC4",
+   "source": "BC4 training"
+  },
+  {
+   "id": "BC4-E3",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Find the manual work",
+   "prompt": "Which discovery question best uncovers manual work at a kids' studio?",
+   "options": [
+    {
+     "id": "A",
+     "text": "How many mirrors are in the room?"
+    },
+    {
+     "id": "B",
+     "text": "Which styles do you teach most?"
+    },
+    {
+     "id": "C",
+     "text": "How long have you been dancing?"
+    },
+    {
+     "id": "D",
+     "text": "How do you bill recital and costumes?"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Fees around the season are often handled by hand. Ask how they bill them today.",
+   "review": "/training/BC4",
+   "source": "BC4 training"
+  },
+  {
+   "id": "BC4-E4",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Lead with the pain",
+   "prompt": "Early in a call, a salsa owner says check-in at the door is his biggest headache. What should the demo do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Save check-in for the end of the demo"
+    },
+    {
+     "id": "B",
+     "text": "Start with the marketing suite first"
+    },
+    {
+     "id": "C",
+     "text": "Lead with the door: roster and payment"
+    },
+    {
+     "id": "D",
+     "text": "Ask him to send a list of features"
+    }
+   ],
+   "correct": "C",
+   "reveal": "In the SALSAtlanta demo the door came 20 minutes in. Lead with the prospect's stated pain.",
+   "review": "/training/BC4",
+   "source": "BC4 training"
+  }
+ ]
+}

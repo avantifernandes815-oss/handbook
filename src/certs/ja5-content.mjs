@@ -61,6 +61,24 @@ export const JA5_TRAINING = {
           "label": "Prospects remember a bash",
           "text": "Prospects remember a bash: one owner still brought up a rep who trashed MindBody on a demo a year earlier."
         }
+      ],
+      "voice": [
+        {
+          "text": "Asked what WellnessLiving does really well, the owner says it's probably better than MindBody in some ways. Then she names what it doesn't do: clients get sent to another site and have to sign in, which she calls too many steps and a real barrier to booking.",
+          "source": "105 Fever, first call",
+          "clip": {
+            "src": "/content/videos/ja5-1-voice.mp4",
+            "seconds": 95
+          }
+        },
+        {
+          "text": "The owner explains a setup she relies on in Walla: she tags clients who have the prerequisites, so only they can book her advanced, invite-only classes.",
+          "source": "Hot For Yoga demo",
+          "clip": {
+            "src": "/content/videos/ja5-1-voice-b.mp4",
+            "seconds": 38
+          }
+        }
       ]
     },
     {
@@ -115,6 +133,24 @@ export const JA5_TRAINING = {
         {
           "label": "What to show",
           "text": "Show the one-page checkout with no account, the lead center and inbox where every new lead lands, and the free Momence app, which isn’t a marketplace, so no other studio can advertise to their clients."
+        }
+      ],
+      "voice": [
+        {
+          "text": "The owner says she's been on MindBody since opening and is paying for its third-party AI marketing tool, but it still isn't set up, so she does her marketing by hand.",
+          "source": "Her Zen Studio demo",
+          "clip": {
+            "src": "/content/videos/ja5-2-voice.mp4",
+            "seconds": 52
+          }
+        },
+        {
+          "text": "A longtime MindBody studio says younger clients can't book quickly, there's no easy way to email a group of clients (they tried Constant Contact and dropped it), and recent updates made the app more confusing for teachers and clients.",
+          "source": "Core Fluency Pilates demo",
+          "clip": {
+            "src": "/content/videos/ja5-2-voice-b.mp4",
+            "seconds": 92
+          }
         }
       ]
     },
@@ -174,6 +210,16 @@ export const JA5_TRAINING = {
         {
           "label": "Confirm before promising",
           "text": "If their deciding need is something you haven’t seen work in Momence, like private events with a deposit, confirm how it’s built before you promise it."
+        }
+      ],
+      "voice": [
+        {
+          "text": "The owner says WellnessLiving recently capped her email sends at 200, though her list is around 4,000. She'd need a separate CRM just to reach everyone.",
+          "source": "105 Fever, third call",
+          "clip": {
+            "src": "/content/videos/ja5-3-voice.mp4",
+            "seconds": 62
+          }
         }
       ]
     },
@@ -289,6 +335,24 @@ export const JA5_TRAINING = {
           "label": "Don't claim false gaps",
           "text": "Don’t claim gaps that aren’t there: Arketa can also pass card fees on and book for a guest."
         }
+      ],
+      "voice": [
+        {
+          "text": "The owner says booking privates on her current system is cumbersome because people have to call, and that Arketa had already told her privates could be built in.",
+          "source": "105 Fever, third call",
+          "clip": {
+            "src": "/content/videos/ja5-5-voice.mp4",
+            "seconds": 70
+          }
+        },
+        {
+          "text": "A current Arketa customer says Meta ads have been a big struggle. Her ads specialist dislikes that clients have to create an account to do anything.",
+          "source": "Sol Space demo",
+          "clip": {
+            "src": "/content/videos/ja5-5-voice-b.mp4",
+            "seconds": 30
+          }
+        }
       ]
     },
     {
@@ -359,6 +423,16 @@ export const JA5_TRAINING = {
         {
           "label": "Show consolidation",
           "text": "Then show consolidation: inbox, sequences, reviews and ads in one login."
+        }
+      ],
+      "voice": [
+        {
+          "text": "A founder opening her first studio says she loves Walla and Mariana Tek for reporting, AI, staff and schedule management, but needs much more, including events and retreats.",
+          "source": "Rabbithole demo",
+          "clip": {
+            "src": "/content/videos/ja5-6-voice.mp4",
+            "seconds": 46
+          }
         }
       ]
     },

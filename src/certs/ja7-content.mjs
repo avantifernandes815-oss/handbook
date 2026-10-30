@@ -29,11 +29,19 @@ export const JA7_TRAINING = {
             "src": "/content/videos/ja7-1-good-b.mp4",
             "seconds": 100
           }
+        },
+        {
+          "text": "Asked whether clients would see a chat box on her website, the AE pointed to the chat in the corner of a live studio's site, then explained that the AI works those messages in the leads dashboard and the all-in-one inbox, alongside texts and emails, so it's more than a chatbot in the corner.",
+          "source": "105 Fever, third call",
+          "clip": {
+            "src": "/content/videos/ja7-1-good-c.mp4",
+            "seconds": 96
+          }
         }
       ],
       "missed": [
         {
-          "text": "The prospect asked about an AI chat on the website. The AE said \"we don't have one of those.\" On the next call, a teammate showed web chat landing in the inbox, where the agent can answer it.",
+          "text": "The prospect asked about an AI chat on the website. The AE said \"we don't have one of those.\" Done well shows the right answer.",
           "source": "105 Fever, second call",
           "clip": {
             "src": "/content/videos/ja7-1-missed.mp4",
@@ -68,6 +76,16 @@ export const JA7_TRAINING = {
         {
           "label": "Hands off to staff",
           "text": "Anything it can't handle, like \"is class cancelled because of the weather?\", goes to a team member."
+        }
+      ],
+      "voice": [
+        {
+          "text": "Watching an AI reply about a missed class, the owner asks whether it actually applies her cancellation policy automatically, or just says “oh no.”",
+          "source": "105 Fever, third call",
+          "clip": {
+            "src": "/content/videos/ja7-1-voice.mp4",
+            "seconds": 32
+          }
         }
       ]
     },
@@ -124,6 +142,16 @@ export const JA7_TRAINING = {
           "label": "Escalation notifications",
           "text": "Escalated conversations land in the inbox and staff get notified."
         }
+      ],
+      "voice": [
+        {
+          "text": "The owner says support is her biggest frustration with her current software: when they need help, they get an AI, and sometimes they want a live person.",
+          "source": "Skillz Sports Lab demo (Toronto)",
+          "clip": {
+            "src": "/content/videos/ja7-2-voice.mp4",
+            "seconds": 38
+          }
+        }
       ]
     },
     {
@@ -175,6 +203,16 @@ export const JA7_TRAINING = {
           "label": "Onboarding helps setup",
           "text": "Onboarding walks through this setup with the owner."
         }
+      ],
+      "voice": [
+        {
+          "text": "The owner asks roughly how much work it took the studio that referred her to get its setup running. She says she'd hate to do all that work and wish she'd stayed where she was.",
+          "source": "105 Fever, second call",
+          "clip": {
+            "src": "/content/videos/ja7-3-voice.mp4",
+            "seconds": 78
+          }
+        }
       ]
     },
     {
@@ -190,14 +228,22 @@ export const JA7_TRAINING = {
             "src": "/content/videos/ja7-4-good.mp4",
             "seconds": 94
           }
+        },
+        {
+          "text": "On the sales agent screen, the AE pointed to one studio's 30-day revenue from the agent and framed it as the agent paying for itself. Tying the add-on to money it brings back is a strong way to handle cost.",
+          "source": "105 Fever, third call",
+          "clip": {
+            "src": "/content/videos/ja7-4-good-b.mp4",
+            "seconds": 100
+          }
         }
       ],
       "missed": [
         {
-          "text": "On the sales agent screen, the AE pointed to one studio's 30-day revenue and said it had \"almost paid for itself.\" That figure isn't verified, so the point rested on a number reps can't stand behind.",
-          "source": "105 Fever, third call",
+          "text": "Early on, the owner said leads had sat unseen for about 50 days while her team tracked members on Post-its. When the AE reached leads and sequences, he gave a general tour of lead sources and templates and never tied it back to that problem or asked how her leads get followed up today.",
+          "source": "Alli F. demo",
           "clip": {
-            "src": "/content/videos/ja7-4-missed.mp4",
+            "src": "/content/videos/ja7-4-missed-2.mp4",
             "seconds": 100
           }
         }
@@ -233,6 +279,16 @@ export const JA7_TRAINING = {
         {
           "label": "Stop on purchase",
           "text": "A pre-purchase sequence can stop as soon as the lead buys any membership or pack."
+        }
+      ],
+      "voice": [
+        {
+          "text": "The owner says she can see her leads in MindBody, but its third-party tool isn't working, so she copies and pastes emails to follow up with each one.",
+          "source": "Her Zen Studio demo",
+          "clip": {
+            "src": "/content/videos/ja7-4-voice.mp4",
+            "seconds": 37
+          }
         }
       ]
     },
@@ -289,6 +345,16 @@ export const JA7_TRAINING = {
           "label": "Flag mismatches early",
           "text": "If the job they describe is something else, like reporting, find that out early and say so plainly."
         }
+      ],
+      "voice": [
+        {
+          "text": "The owner says that with new AI, a lot of their admin should be automated, like reminding month-to-month members about renewal instead of reaching out to each one.",
+          "source": "Skillz Sports Lab demo (Toronto)",
+          "clip": {
+            "src": "/content/videos/ja7-5-voice.mp4",
+            "seconds": 32
+          }
+        }
       ]
     },
     {
@@ -343,6 +409,16 @@ export const JA7_TRAINING = {
         {
           "label": "Answer reporting questions",
           "text": "If they ask about AI reporting or analytics, say what's true today: the agent is customer-facing."
+        }
+      ],
+      "voice": [
+        {
+          "text": "The owner says every platform tells her “yes, you can do that,” so what she wants to know is whether it's simple or takes a tech person with lots of time. Her email templates today are too much work to build.",
+          "source": "105 Fever, second call",
+          "clip": {
+            "src": "/content/videos/ja7-6-voice.mp4",
+            "seconds": 100
+          }
         }
       ]
     },

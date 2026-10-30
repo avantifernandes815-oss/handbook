@@ -61,6 +61,16 @@ export const JA6_TRAINING = {
           "label": "Overlap offers need approval",
           "text": "If they'd pay for both systems during the overlap, any offer to cover it is a concession your manager approves, so don't promise one on the spot."
         }
+      ],
+      "voice": [
+        {
+          "text": "The owner has been on MindBody since 2017 and doesn't remember signing a contract. She says she'll find out today, then pick a start date once she knows when it ends.",
+          "source": "Core Fluency Pilates demo",
+          "clip": {
+            "src": "/content/videos/ja6-1-voice.mp4",
+            "seconds": 52
+          }
+        }
       ]
     },
     {
@@ -119,6 +129,16 @@ export const JA6_TRAINING = {
         {
           "label": "Never knock competitors",
           "text": "Never knock the other system or claim a win on something you haven't shown."
+        }
+      ],
+      "voice": [
+        {
+          "text": "Asked who else she's seen, the owner lists WellnessLiving, FitDegree, MindBody and Walla. She says the basics would be fine with any of them as long as they aren't buggy, so she's weighing what else each one adds.",
+          "source": "The Mill Yoga demo",
+          "clip": {
+            "src": "/content/videos/ja6-2-voice.mp4",
+            "seconds": 72
+          }
         }
       ]
     },
@@ -182,6 +202,24 @@ export const JA6_TRAINING = {
         {
           "label": "Dated follow-up",
           "text": "Then set a dated follow-up, with the partner on it if you can."
+        }
+      ],
+      "voice": [
+        {
+          "text": "The owner says her second location is with her sister-in-law, who runs massage and esthetics, and she wants her partner to see what her side would look like before they roll anything out.",
+          "source": "Sol Space demo",
+          "clip": {
+            "src": "/content/videos/ja6-3-voice.mp4",
+            "seconds": 92
+          }
+        },
+        {
+          "text": "The owner asks for studio examples to show her business partner, who she says is pickier about branding than she is.",
+          "source": "The Mill Yoga demo",
+          "clip": {
+            "src": "/content/videos/ja6-3-voice-b.mp4",
+            "seconds": 35
+          }
         }
       ]
     },
@@ -254,6 +292,16 @@ export const JA6_TRAINING = {
           "label": "Hopes aren't plans",
           "text": "“I'll email you” and “let's touch base later this week” are hopes, not plans."
         }
+      ],
+      "voice": [
+        {
+          "text": "Asked when she'll decide with her partner, the owner says she'd love it done by Saturday. She has more demos tomorrow and a pre-sale planned in a few weeks.",
+          "source": "The Mill Yoga demo",
+          "clip": {
+            "src": "/content/videos/ja6-4-voice.mp4",
+            "seconds": 45
+          }
+        }
       ]
     },
     {
@@ -312,6 +360,16 @@ export const JA6_TRAINING = {
         {
           "label": "Confirm unclear terms",
           "text": "Standard terms like free months, term length, renewal notice and leaving early are still being confirmed, so if the document doesn't answer a question, say you'll confirm and send the answer in writing."
+        }
+      ],
+      "voice": [
+        {
+          "text": "The owner says she wants a clear picture going into any agreement of exactly what she'd pay: no surprise fees, add-ons or charges for going over a number of students.",
+          "source": "The Mill Yoga demo",
+          "clip": {
+            "src": "/content/videos/ja6-5-voice.mp4",
+            "seconds": 38
+          }
         }
       ]
     },
@@ -525,6 +583,16 @@ export const JA6_TRAINING = {
         {
           "label": "Don't predict vendors",
           "text": "Don't predict what the old vendor will or won't do."
+        }
+      ],
+      "voice": [
+        {
+          "text": "The owner says she has to get on a phone call with MindBody to leave because it's hard to get off, and she can't remember what contract she signed.",
+          "source": "Hansing's School of Dance demo",
+          "clip": {
+            "src": "/content/videos/ja6-8-voice.mp4",
+            "seconds": 34
+          }
         }
       ]
     }
