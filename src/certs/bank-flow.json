@@ -164,7 +164,7 @@
     },
     {
      "id": "C",
-     "text": "Which features they want and which plan they'll choose"
+     "text": "Which features they want and which add-ons they’ll buy"
     },
     {
      "id": "D",
@@ -185,7 +185,7 @@
    "options": [
     {
      "id": "A",
-     "text": "A summary of Momence's plans and what each one includes"
+     "text": "A summary of every add-on and what each one includes"
     },
     {
      "id": "B",
@@ -417,7 +417,7 @@
    "options": [
     {
      "id": "A",
-     "text": "A list of every feature included in the plan"
+     "text": "A list of every feature included in the quote"
     },
     {
      "id": "B",
@@ -425,7 +425,7 @@
     },
     {
      "id": "C",
-     "text": "A question about which plan they'd like most"
+     "text": "A question about which add-ons they like most"
     },
     {
      "id": "D",
@@ -450,7 +450,7 @@
     },
     {
      "id": "B",
-     "text": "Skip the comparison and show the plan price alone"
+     "text": "Skip the comparison and show the quote alone"
     },
     {
      "id": "C",

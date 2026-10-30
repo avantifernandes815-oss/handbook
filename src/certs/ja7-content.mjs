@@ -1,9 +1,9 @@
 // JAE7 · AI Agent — step-by-step training content (Junior AE track).
-// Built from the Junior AE Knowledge Bank; unconfirmed numbers are held back until the co-manager answers.
+// Built from the Junior AE Knowledge Bank; updated with the co-manager's confirmed answers (Oct 30, 2026).
 
 export const JA7_TRAINING = {
   "title": "AI Agent",
-  "summary": "What Momence's AI agent does, how owners set it up and control it, and how to talk about it honestly, including cost pushback and questions you can't answer yet. AI pricing and trial terms are still being confirmed, so this cert teaches how to handle them, not the numbers. About 12 minutes.",
+  "summary": "What Momence's AI agent does, how owners set it up and control it, and how to talk about it honestly, including cost pushback and questions you can't answer yet. The AI is a premium add-on priced into each custom quote, so this cert teaches how to handle price, not a number. About 12 minutes.",
   "format": "steps",
   "minutes": 12,
   "quizNote": "10 scenario questions from real demo moments. You need 80% to pass.",
@@ -380,7 +380,7 @@ export const JA7_TRAINING = {
     {
       "title": "Describing it honestly",
       "why": "Prospects have seen a lot of AI claims. One overreach and they doubt the rest of the demo.",
-      "idea": "Describe what it does and how the owner controls it: it answers and takes actions in the inbox, within the permissions and policies they set. Don't knock a competitor's AI as \"not really AI\". Don't quote time-saved or revenue figures from other studios, because they aren't verified. If they ask about AI reporting or analytics, say what's true today: the agent is customer-facing.",
+      "idea": "Describe what it does and how the owner controls it: it answers and takes actions in the inbox, within the permissions and policies they set. Don't knock a competitor's AI as \"not really AI\". You can say the AI saves owners 2+ hours a day; that's a confirmed company figure. Don't quote time-saved or revenue figures from single studios, because they aren't verified. If they ask about AI reporting or analytics, say what's true today: the agent is customer-facing.",
       "say": "\"It answers and takes actions in your inbox, within the permissions you give it. You can watch every conversation.\"",
       "good": [
         {
@@ -423,8 +423,12 @@ export const JA7_TRAINING = {
           "text": "Don't knock a competitor's AI as \"not really AI\"."
         },
         {
+          "label": "The confirmed figure",
+          "text": "You can say the AI saves owners 2+ hours a day; that's a confirmed company figure."
+        },
+        {
           "label": "No unverified figures",
-          "text": "Don't quote time-saved or revenue figures from other studios, because they aren't verified."
+          "text": "Don't quote time-saved or revenue figures from single studios, because they aren't verified."
         },
         {
           "label": "Answer reporting questions",
@@ -445,7 +449,7 @@ export const JA7_TRAINING = {
     {
       "title": "Cost pushback: sequences first",
       "why": "When AI tips the price over budget, pushing harder loses the deal. A sequence-first path keeps it.",
-      "idea": "If a prospect balks at the cost, don't lead with the AI. Get the sequences running first. That's where follow-up starts paying off, and it's the base the agent works on, since replies to sequences are what it picks up. Add the AI once they see results. The AI's price and any trial terms are being confirmed, so quote from the pricing calculator or check with your manager. Don't give away the AI before you know the prospect's core need.",
+      "idea": "If a prospect balks at the cost, don't lead with the AI. Get the sequences running first. That's where follow-up starts paying off, and it's the base the agent works on, since replies to sequences are what it picks up. Add the AI once they see results. The AI is a premium add-on, so it moves their custom quote within the usual $200 to $600+ a month. Build the price in the pricing calculator. There's no set trial or discount, so take any free period to your manager. Don't give away the AI before you know the prospect's core need.",
       "say": "\"If cost is the worry, start with your sequences. Once you see replies coming in, the AI is the next step.\"",
       "good": [
         {
@@ -459,7 +463,7 @@ export const JA7_TRAINING = {
       ],
       "missed": [
         {
-          "text": "Up against a cheaper competitor, the AI was offered free for three months before the prospect's deciding need had come up. The concession came before the proof. The trial terms are still being confirmed.",
+          "text": "Up against a cheaper competitor, the AI was offered free for three months before the prospect's deciding need had come up. The concession came before the proof. A free trial is a concession: take it to your manager first and trade it for a decision.",
           "source": "105 Fever, third call",
           "clip": {
             "src": "/content/videos/ja7-7-missed.mp4",
@@ -497,7 +501,7 @@ export const JA7_TRAINING = {
         },
         {
           "label": "Quote from calculator",
-          "text": "The AI's price and any trial terms are being confirmed, so quote from the pricing calculator or check with your manager."
+          "text": "The AI is a premium add-on, so it moves their custom quote within the usual $200 to $600+ a month. Build the price in the pricing calculator. There's no set trial or discount, so take any free period to your manager."
         },
         {
           "label": "Know the core need",
@@ -508,7 +512,7 @@ export const JA7_TRAINING = {
     {
       "title": "Questions you can't answer",
       "why": "A guessed answer about AI price or roadmap can follow you into the contract.",
-      "idea": "Price, trial terms, and roadmap items like an AI analytics dashboard or natural-language reporting are all being confirmed. Don't guess. Say what's true today, say you'll confirm the rest, and give a date for the answer. A price comes from the pricing calculator or your manager, never from memory.",
+      "idea": "Some answers you won't have on the call. For roadmap items like an AI analytics dashboard or natural-language reporting, check Productboard and quote only the quarter it shows, never a month or a day. Don't guess. Say what's true today, say you'll confirm the rest, and give a date for the answer. A price comes from the pricing calculator or your manager, never from memory, and any trial is your manager's call.",
       "say": "\"I don't want to guess on that. I'll confirm it with my team and have the answer to you by Thursday.\"",
       "good": [
         {
@@ -539,12 +543,12 @@ export const JA7_TRAINING = {
           "\"Their reporting AI isn't as good as it looks in their demos.\""
         ],
         "answer": 0,
-        "why": "Say what's true now and commit to find out. A guessed date becomes a promise."
+        "why": "Say what's true now and commit to find out. If Productboard shows it, quote the quarter only. A guessed date becomes a promise."
       },
       "points": [
         {
-          "label": "Items being confirmed",
-          "text": "Price, trial terms, and roadmap items like an AI analytics dashboard or natural-language reporting are all being confirmed."
+          "label": "Roadmap by quarter",
+          "text": "For roadmap items like an AI analytics dashboard or natural-language reporting, check Productboard and quote only the quarter it shows, never a month or a day."
         },
         {
           "label": "Don't guess",
@@ -556,7 +560,7 @@ export const JA7_TRAINING = {
         },
         {
           "label": "Price from calculator",
-          "text": "A price comes from the pricing calculator or your manager, never from memory."
+          "text": "A price comes from the pricing calculator or your manager, never from memory, and any trial is your manager's call."
         }
       ]
     }

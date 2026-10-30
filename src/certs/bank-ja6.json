@@ -23,7 +23,7 @@
     },
     {
      "id": "D",
-     "text": "Skip it, since timing only matters once she has picked her plan"
+     "text": "Skip it, since timing only matters once she has seen the price"
     }
    ],
    "correct": "A",
@@ -355,27 +355,27 @@
    "section": "D",
    "kind": "judgment",
    "topic": "Walking the agreement",
-   "prompt": "While you walk the agreement, the prospect asks what happens to her price after the first year. The agreement doesn't say. What do you do?",
+   "prompt": "While you walk the agreement, the prospect asks what happens when her 12 months are up. What’s accurate?",
    "options": [
     {
      "id": "A",
-     "text": "Tell her prices never go up, since that's what you've heard on calls"
+     "text": "It goes month to month, and the price moves up to the list rate"
     },
     {
      "id": "B",
-     "text": "Say it depends and move on so the question doesn't stall the close"
+     "text": "It ends, and she signs a new agreement at that year’s pricing"
     },
     {
      "id": "C",
-     "text": "Tell her she can renegotiate anything once her first year is done"
+     "text": "It renews for 12 months, with a set yearly rise in the price"
     },
     {
      "id": "D",
-     "text": "Say you'll confirm with your manager and send the answer in writing"
+     "text": "It renews for 12 months; Momence hasn’t raised current hosts’ prices"
     }
    ],
    "correct": "D",
-   "reveal": "If it isn't written in the agreement, don't state it from memory. Confirm it and put it in writing.",
+   "reveal": "The agreement auto-renews for another 12 months. Prices have been grandfathered, and Momence hasn’t raised prices for current hosts.",
    "review": "/training/JAE6",
    "source": "JAE6 training"
   },
@@ -384,27 +384,27 @@
    "section": "D",
    "kind": "judgment",
    "topic": "Walking the agreement",
-   "prompt": "The prospect asks, “So how long am I committed for?” The agreement is on screen. What do you do?",
+   "prompt": "The prospect asks, “So how long am I committed for, and can I leave early?” What’s accurate?",
    "options": [
     {
      "id": "A",
-     "text": "Show her the term as it's written in the agreement in front of her"
+     "text": "12 months from the first bill date; leaving early means paying the rest"
     },
     {
      "id": "B",
-     "text": "Tell her the term other AEs usually quote on calls like this one"
+     "text": "12 months from the day she signs; she can cancel with 30 days’ notice"
     },
     {
      "id": "C",
-     "text": "Say it's flexible, so the question doesn't slow down the signing"
+     "text": "Month to month after the first 90 days, so she can leave at any time"
     },
     {
      "id": "D",
-     "text": "Tell her the term from the last agreement you sent to a studio"
+     "text": "12 months from her onboarding call; leaving early costs one month"
     }
    ],
    "correct": "A",
-   "reveal": "State only the terms written in her agreement. Terms change, and hers is the one she's signing.",
+   "reveal": "The term starts on the first bill date and runs 12 months. There’s no early exit: leaving early means paying the remaining months.",
    "review": "/training/JAE6",
    "source": "JAE6 training"
   },

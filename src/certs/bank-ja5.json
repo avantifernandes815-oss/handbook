@@ -27,7 +27,7 @@
     }
    ],
    "correct": "B",
-   "reveal": "Several competitors out-rate us on day-to-day service. Grant what’s true and move to where Momence is stronger for her.",
+   "reveal": "Grant what’s true, then move to where Momence is stronger for her. Hearsay about their support stays out of the demo.",
    "review": "/training/JAE5",
    "source": "JAE5 training"
   },
@@ -65,27 +65,27 @@
    "section": "A",
    "kind": "judgment",
    "topic": "Mariana Tek",
-   "prompt": "An owner on Mariana Tek asks why she would switch to its sister company’s product. What’s your best move?",
+   "prompt": "A prospect asks how Momence and Mariana Tek relate. Which positioning is accurate?",
    "options": [
     {
      "id": "A",
-     "text": "Ask what isn’t working for her today, then show where Momence fits"
+     "text": "Sister companies; Mariana Tek suits large franchises with a big brand"
     },
     {
      "id": "B",
-     "text": "Explain that Mariana Tek is built for big franchises, not her size"
+     "text": "The same software, sold under two brand names at two price points"
     },
     {
      "id": "C",
-     "text": "Tell her Momence is the newer and better product of the two brands"
+     "text": "Momence is the newer platform that is replacing Mariana Tek"
     },
     {
      "id": "D",
-     "text": "Say it’s much the same software, so switching over will be simple"
+     "text": "Two competitors under different owners, with no shared company"
     }
    ],
    "correct": "A",
-   "reveal": "Don’t knock it and don’t lean on the franchise framing, which is still being confirmed. Let her pain drive the demo.",
+   "reveal": "Both sit under Xplor and run separately. Mariana Tek fits large franchises with a big brand presence and a focus on the branded app. Ask how she runs before you say which fits.",
    "review": "/training/JAE5",
    "source": "JAE5 training"
   },
@@ -317,7 +317,7 @@
     }
    ],
    "correct": "C",
-   "reveal": "He answers it from his own experience. Hidden-fee hearsay and price promises are both unverified.",
+   "reveal": "He answers it from his own experience. Hidden-fee hearsay is unverified, and jumping to our pricing skips his story.",
    "review": "/training/JAE5",
    "source": "JAE5 training"
   },
@@ -462,7 +462,7 @@
     }
    ],
    "correct": "D",
-   "reveal": "Momence had no equivalent to show. Roadmap dates aren’t confirmed, so don’t name one.",
+   "reveal": "Momence had no equivalent to show. If she asks when, quote only the quarter Productboard shows, never a date.",
    "review": "/training/JAE5",
    "source": "JAE5 training"
   },

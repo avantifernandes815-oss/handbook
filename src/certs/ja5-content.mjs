@@ -1,5 +1,5 @@
 // JAE5 · Main Competitors — step-by-step training content (Junior AE track).
-// Built from the Junior AE Knowledge Bank; unconfirmed numbers are held back until the co-manager answers.
+// Built from the Junior AE Knowledge Bank; updated with the co-manager's confirmed answers (Oct 30, 2026).
 
 export const JA5_TRAINING = {
   "title": "Main Competitors",
@@ -25,7 +25,7 @@ export const JA5_TRAINING = {
       ],
       "missed": [
         {
-          "text": "The prospect asked how the AI agent differs from the chat on her WellnessLiving site. The AE said that chat is “not really AI.” That claim isn’t verified and is on the list of lines to drop. Showing what Momence’s agent does in the inbox made the point on its own.",
+          "text": "The prospect asked how the AI agent differs from the chat on her WellnessLiving site. The AE said that chat is “not really AI.” That claim isn’t verified. Showing what Momence’s agent does in the inbox made the point on its own.",
           "source": "105 Fever, third call",
           "clip": {
             "src": "/content/videos/ja5-1-missed.mp4",
@@ -100,7 +100,7 @@ export const JA5_TRAINING = {
     {
       "title": "MindBody",
       "why": "MindBody is the software prospects are most often switching from, current or past.",
-      "idea": "Prospects often like MindBody’s client side; one owner had used it for years as a client and teacher. The frustration is usually the back end: leads sitting unseen because no notification came (one studio found leads 50 days old and tracked members on Post-its), features sold as separate tools (an AI marketing add-on paid for months and never set up), and a booking widget that takes clients off the studio’s site. The CC5 card adds the verified fee: 20%, capped at $30, on new clients who find the studio through the MindBody app. Show the one-page checkout with no account, the lead center and inbox where every new lead lands, and the free Momence app, which isn’t a marketplace, so no other studio can advertise to their clients.",
+      "idea": "Prospects often like MindBody’s client side; one owner had used it for years as a client and teacher. The frustration is usually the back end: leads sitting unseen because no notification came (one studio found leads 50 days old and tracked members on Post-its), features sold as separate tools (an AI marketing add-on paid for months and never set up), and a booking widget that takes clients off the studio’s site. The CC5 card adds the verified fee: 20%, capped at $30, on new clients who find the studio through the MindBody app. Show the one-page checkout with no account, the lead center and inbox where every new lead lands, and the free Momence app, which isn’t a marketplace, so no other studio can advertise to their clients. If the switch itself worries them, you can say Momence moves about 25 MindBody studios a week, around 100 a month.",
       "say": "“You said the client side works for you. Let’s look at the back end, starting with where a new lead lands and who gets told.”",
       "good": [
         {
@@ -149,6 +149,10 @@ export const JA5_TRAINING = {
         {
           "label": "What to show",
           "text": "Show the one-page checkout with no account, the lead center and inbox where every new lead lands, and the free Momence app, which isn’t a marketplace, so no other studio can advertise to their clients."
+        },
+        {
+          "label": "MindBody switches",
+          "text": "If the switch itself worries them, you can say Momence moves about 25 MindBody studios a week, around 100 a month."
         }
       ],
       "voice": [
@@ -187,7 +191,7 @@ export const JA5_TRAINING = {
       ],
       "missed": [
         {
-          "text": "The prospect said she didn’t know she had a contract. The AE said she might be in a three-year contract because WellnessLiving “do do that sometimes.” That line is unverified and on the drop list. Asking her to check her agreement and renewal date would have done the job.",
+          "text": "The prospect said she didn’t know she had a contract. The AE said she might be in a three-year contract because WellnessLiving “do do that sometimes.” That line isn’t verified. Asking her to check her agreement and renewal date would have done the job.",
           "source": "105 Fever, first call",
           "clip": {
             "src": "/content/videos/ja5-3-missed.mp4",
@@ -309,7 +313,7 @@ export const JA5_TRAINING = {
     {
       "title": "Arketa",
       "why": "Arketa is often the cheaper option on the table, and prospects comparing it usually name a real strength.",
-      "idea": "Prospects like that Arketa’s plan includes marketing and an app, the lower price, sequences and AI. One current customer stays for its natural-language reporting through Claude, which Momence had no equivalent to show. Her frustrations: a new fee per location, no add-ons at checkout so it couldn’t run a spa menu, a Meta ads integration that didn’t track leads, and months of bugs. Another prospect left Arketa because it couldn’t book several services in one appointment. The CC5 card’s verified fee is 3% plus Stripe fees, from Arketa’s pricing page. Show the checkout side by side (the Arketa one we showed had a long pass list, a password, separate tick boxes and a visible processing fee), multi-service appointments with add-ons, and the ads manager and lead center. Don’t claim gaps that aren’t there: Arketa can also pass card fees on and book for a guest.",
+      "idea": "Prospects like that Arketa’s plan includes marketing and an app, the lower price, sequences and AI. One current customer stays for its natural-language reporting through Claude, which Momence had no equivalent to show. If she asks when, quote only the quarter Productboard shows, never a date. Her frustrations: a new fee per location, no add-ons at checkout so it couldn’t run a spa menu, a Meta ads integration that didn’t track leads, and months of bugs. Another prospect left Arketa because it couldn’t book several services in one appointment. The CC5 card’s verified fee is 3% plus Stripe fees, from Arketa’s pricing page. Show the checkout side by side (the Arketa one we showed had a long pass list, a password, separate tick boxes and a visible processing fee), multi-service appointments with add-ons, and the ads manager and lead center. Don’t claim gaps that aren’t there: Arketa can also pass card fees on and book for a guest.",
       "say": "“If classes and privates are all you need, Arketa can handle that. Let me show you what changes once leads and your spa menu come in.”",
       "good": [
         {
@@ -323,7 +327,7 @@ export const JA5_TRAINING = {
       ],
       "missed": [
         {
-          "text": "The prospect called Arketa the cheaper “middle guy.” The AE answered that Arketa is “half the price because they are half the software.” That line is on the drop list. Showing one thing her business needed would have answered the price gap.",
+          "text": "The prospect called Arketa the cheaper “middle guy.” The AE answered that Arketa is “half the price because they are half the software.” A knock doesn’t close a price gap. Showing one thing her business needed would have answered the price gap.",
           "source": "105 Fever, third call",
           "clip": {
             "src": "/content/videos/ja5-5-missed.mp4",
@@ -337,7 +341,7 @@ export const JA5_TRAINING = {
           "No, Momence absorbs card fees for every studio on every plan",
           "Yes, both can, so treat it as even and move to what differs",
           "Yes, and it’s one thing Arketa can’t do for its studios yet",
-          "Only on the top plan, so it depends on which plan they buy"
+          "Only with a paid add-on, so it depends on the quote they build"
         ],
         "answer": 1,
         "why": "Both platforms do it. Calling it a gap is the kind of claim a prospect can check and catch."
@@ -349,7 +353,7 @@ export const JA5_TRAINING = {
         },
         {
           "label": "Natural-language reporting",
-          "text": "One current customer stays for its natural-language reporting through Claude, which Momence had no equivalent to show."
+          "text": "One current customer stays for its natural-language reporting through Claude, which Momence had no equivalent to show. If she asks when, quote only the quarter Productboard shows, never a date."
         },
         {
           "label": "Arketa frustrations",
@@ -487,8 +491,8 @@ export const JA5_TRAINING = {
     {
       "title": "Mariana Tek",
       "why": "Prospects know Momence and Mariana Tek share a parent company, and they will ask how the two relate.",
-      "idea": "Mariana Tek is Momence’s sister company under the Xplor umbrella, run separately. Say that plainly when asked, and never knock it. AEs have framed it other ways (by franchise size, or “we compete every day”), and the official positioning is still being confirmed, so stick to those facts and let fit decide. When a prospect is on it, use what they tell you. One Mariana Tek studio said package building was hard to learn, getting Android users onto the branded app was a process, support was hard to reach, and clients could only book through the app. That last one you can show against: a schedule on the website lets a new client see classes and prices without downloading anything.",
-      "say": "“Mariana Tek is our sister company under Xplor, and the two are run separately. What matters is which one fits how you run your studio.”",
+      "idea": "Mariana Tek is Momence’s sister company under the Xplor umbrella, run separately. Say that plainly when asked, and never knock it. The confirmed positioning: Mariana Tek is better suited to large franchises with a big brand presence, and its focus is the studio’s branded mobile app and brand. Ask how they run before you say which one fits them. When a prospect is on it, use what they tell you. One Mariana Tek studio said package building was hard to learn, getting Android users onto the branded app was a process, support was hard to reach, and clients could only book through the app. That last one you can show against: a schedule on the website lets a new client see classes and prices without downloading anything.",
+      "say": "“Mariana Tek is our sister company under Xplor, and the two are run separately. It’s built for large franchises with a big brand and their own app. What matters is which one fits how you run your studio.”",
       "good": [
         {
           "text": "The AE asked which platforms they had demoed, then said Mariana Tek is a sister company, “so you might see a little bit of similarities.” Plain, accurate, and he moved on.",
@@ -518,7 +522,7 @@ export const JA5_TRAINING = {
           "Sister companies under Xplor, run separately. Let’s see fit"
         ],
         "answer": 3,
-        "why": "Accurate, neutral and short. The franchise-size framing is still being confirmed, so don’t use it."
+        "why": "Accurate, neutral and short. Mariana Tek does fit large franchises with a big brand presence, but telling her where she belongs before you know how she runs sounds like a brush-off."
       },
       "points": [
         {
@@ -530,8 +534,12 @@ export const JA5_TRAINING = {
           "text": "Say that plainly when asked, and never knock it."
         },
         {
-          "label": "Positioning being confirmed",
-          "text": "AEs have framed it other ways (by franchise size, or “we compete every day”), and the official positioning is still being confirmed, so stick to those facts and let fit decide."
+          "label": "Confirmed positioning",
+          "text": "The confirmed positioning: Mariana Tek is better suited to large franchises with a big brand presence, and its focus is the studio’s branded mobile app and brand."
+        },
+        {
+          "label": "Let fit decide",
+          "text": "Ask how they run before you say which one fits them."
         },
         {
           "label": "Use what they say",

@@ -226,7 +226,7 @@
     },
     {
      "id": "D",
-     "text": "It gives you time to check which plan they can afford first"
+     "text": "It gives you time to check which add-ons they can afford first"
     }
    ],
    "correct": "C",
@@ -284,7 +284,7 @@
     },
     {
      "id": "D",
-     "text": "Which of your plans their closest competitor is using"
+     "text": "Which add-ons their nearest competitor is paying for"
     }
    ],
    "correct": "B",

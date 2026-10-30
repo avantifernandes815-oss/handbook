@@ -102,7 +102,7 @@ export const JA8_TRAINING = {
       ],
       "missed": [
         {
-          "text": "No agenda and no agreed outcome. The demo became reactive Q&A and ended with two contracts sent and no plan chosen.",
+          "text": "No agenda and no agreed outcome. The demo became reactive Q&A and ended with two contracts sent and no option chosen.",
           "source": "105 Fever, second call",
           "clip": {
             "src": "/content/videos/ja8-2-missed.mp4",
@@ -250,8 +250,8 @@ export const JA8_TRAINING = {
     {
       "title": "Budget",
       "why": "If you price before you know what they spend, the number lands with nothing to compare it to.",
-      "idea": "Before pricing, ask what they spend today, including add-ons, third-party tools, card fees and staff time. Then position the price against that total, not against zero.",
-      "say": "\"Before we look at plans, what are you paying across your software today, including the marketing tool?\"",
+      "idea": "Before pricing, ask what they spend today, including add-ons, third-party tools, card fees and staff time. Then position the price against that total, not against zero. Every Momence plan is custom, the core platform plus the add-ons they need, so the price runs from about $200 to $600+ a month.",
+      "say": "\"Before we build your quote, what are you paying across your software today, including the marketing tool?\"",
       "good": [
         {
           "text": "The AE asked current spend in the first five minutes ($500 on MindBody), then priced at $475 with no hidden fees against it.",
@@ -286,7 +286,7 @@ export const JA8_TRAINING = {
           "During discovery, before any pricing comes up in the call at all",
           "Right after you share the price, so they can compare the two numbers",
           "Only if the prospect raises price as a concern or an objection",
-          "At the very end, once you know which plan they want to choose"
+          "At the very end, once you know which add-ons they want to choose"
         ],
         "answer": 0,
         "why": "Asking early gives you the anchor. Asked after pricing, it sounds like a negotiation."
@@ -299,6 +299,10 @@ export const JA8_TRAINING = {
         {
           "label": "Price against total",
           "text": "Then position the price against that total, not against zero."
+        },
+        {
+          "label": "A custom price",
+          "text": "Every Momence plan is custom, the core platform plus the add-ons they need, so the price runs from about $200 to $600+ a month."
         }
       ],
       "voice": [
@@ -470,7 +474,7 @@ export const JA8_TRAINING = {
     {
       "title": "Post-sell",
       "why": "A yes on the call can still fall apart once the old vendor calls to keep them.",
-      "idea": "Lock in the decision: walk the agreement, set expectations for onboarding and prepare them for the retention call or buyer's remorse.",
+      "idea": "Lock in the decision: walk the agreement, set expectations for onboarding and prepare them for the retention call or buyer's remorse. When you walk the agreement, state the standard terms: 12 months from the first bill date, auto-renewal, and no early exit.",
       "say": "\"When you cancel, they'll probably offer a discount to keep you. How do you want to handle that?\"",
       "good": [
         {
@@ -506,7 +510,7 @@ export const JA8_TRAINING = {
           "Send the contract quickly and end the call before they change their mind",
           "Offer an extra free month to make sure they're happy with the decision",
           "Ask how they'll handle a retention offer from their current provider",
-          "Remind them of every feature they're going to get in their new plan"
+          "Remind them of every feature they're going to get with the new setup"
         ],
         "answer": 2,
         "why": "Naming the retention offer before it happens takes away its power."
@@ -515,6 +519,10 @@ export const JA8_TRAINING = {
         {
           "label": "Lock in decision",
           "text": "Lock in the decision: walk the agreement, set expectations for onboarding and prepare them for the retention call or buyer's remorse."
+        },
+        {
+          "label": "State the terms",
+          "text": "When you walk the agreement, state the standard terms: 12 months from the first bill date, auto-renewal, and no early exit."
         }
       ]
     },

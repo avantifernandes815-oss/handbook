@@ -1,5 +1,5 @@
 // JAE9 · Demo Flow — the order of a strong first demo (Junior AE track, step format).
-// Built from the flow logs of 41 recorded demos in the Junior AE Knowledge Bank; unconfirmed numbers are held back.
+// Built from the flow logs of 41 recorded demos in the Junior AE Knowledge Bank; updated with the co-manager's confirmed answers (Oct 30, 2026).
 
 export const JAE9_TRAINING = {
   "title": "Demo Flow",
@@ -67,7 +67,7 @@ export const JAE9_TRAINING = {
         "prompt": "What should you agree with the prospect before you share your screen?",
         "options": [
           "How long the call runs, what you'll cover and how it ends",
-          "Which plan they want, so you can show only its features",
+          "Which add-ons they want, so you can show only those features",
           "That they will decide on this call, whatever they see",
           "Which competitor demos they have booked after this one"
         ],
@@ -452,7 +452,7 @@ export const JAE9_TRAINING = {
     {
       "title": "Price from what they spend today",
       "why": "A price only makes sense next to what they already pay.",
-      "idea": "Bring the price in after they've seen what fits, and set it against their total spend today: the software, add-ons, separate tools for email, texting or reviews, and card fees. Recap the value in their words first, then build the quote live in the pricing calculator. Our prices, card rates and free months are being confirmed, so quote only what the calculator gives you and take anything beyond it to your manager.",
+      "idea": "Bring the price in after they've seen what fits, and set it against their total spend today: the software, add-ons, separate tools for email, texting or reviews, and card fees. Recap the value in their words first, then build the quote live in the pricing calculator. There are no set plans: each quote is custom, the core platform plus the add-ons they need, and runs from about $200 to $600+ a month. Card fees can be passed on to clients, which saves studios $400 to $2,000 a month. The first month is free depending on that month's promotion. There's no set discount, so take anything beyond the calculator to your manager and never promise one.",
       "points": [
         {
           "label": "Total spend first",
@@ -467,12 +467,16 @@ export const JAE9_TRAINING = {
           "text": "Build it live in the pricing calculator. Don't improvise prices or discounts."
         },
         {
+          "label": "A custom quote",
+          "text": "There are no set plans. Each quote is the core platform plus the add-ons they need, about $200 to $600+ a month."
+        },
+        {
           "label": "If they ask early",
-          "text": "Ask what they pay today and what they need, then promise the exact quote once you know what fits."
+          "text": "Give the range if they push, then ask what they pay today and what they need, and promise the exact quote once you know what fits."
         },
         {
           "label": "No free extras",
-          "text": "Discounts and free months are concessions. They need your manager's approval and something in return."
+          "text": "Discounts and free months beyond this month's promotion are concessions. There's no set number. They need your manager's approval and something in return."
         }
       ],
       "say": "“You liked the one-page booking and the family accounts. You're paying for two tools today. Let's build exactly that and put it next to what you pay now.”",
@@ -509,7 +513,7 @@ export const JAE9_TRAINING = {
       "check": {
         "prompt": "Ten minutes in, before discovery is done, the owner says, “Just tell me what it costs.” What's your best reply?",
         "options": [
-          "Give the base plan price now so they stay with you",
+          "Quote a full price now so they stay with you",
           "Ask what they pay today, then promise the exact quote",
           "Say pricing always comes at the end of every demo",
           "Offer a discount up front so price isn't a worry"
@@ -619,7 +623,7 @@ export const JAE9_TRAINING = {
         },
         {
           "label": "Already decided",
-          "text": "If they open with “we need pricing, a short demo and setup,” keep discovery short, organize the demo by plan and move to the sign-up steps."
+          "text": "If they open with “we need pricing, a short demo and setup,” keep discovery short, organize the demo by what they asked for and move to the sign-up steps."
         }
       ],
       "say": "“Last time you were close. Where are you now, and what's left before you'd move forward?”",

@@ -442,27 +442,27 @@
    "section": "D",
    "kind": "knowledge",
    "topic": "Honest description",
-   "prompt": "Which statement about the agent is safe to make on a demo?",
+   "prompt": "Which figure about the AI can you safely quote on a demo?",
    "options": [
     {
      "id": "A",
-     "text": "It never gets an answer wrong, so staff needn't check it"
+     "text": "It pays for itself in the first month for nearly every studio"
     },
     {
      "id": "B",
-     "text": "It pays for itself within the first month for most studios"
+     "text": "It books one in three of the leads it contacts, on average"
     },
     {
      "id": "C",
-     "text": "It runs your reports and tells you your churn each month"
+     "text": "It handles 90% of all inbox messages without staff help"
     },
     {
      "id": "D",
-     "text": "It escalates what it can't handle to a staff member"
+     "text": "It saves owners 2+ hours a day, a confirmed company figure"
     }
    ],
    "correct": "D",
-   "reveal": "Escalation to staff was shown in several demos. Payback claims and \"never wrong\" are promises you can't back up.",
+   "reveal": "Momence confirms the AI saves 2+ hours a day. Payback and conversion numbers from single studios aren’t verified, so leave them out.",
    "review": "/training/JAE7",
    "source": "JAE7 training"
   },
@@ -512,7 +512,7 @@
     },
     {
      "id": "C",
-     "text": "Say it's included in the top plan so she doesn't worry about it"
+     "text": "Say it comes free with the core platform, so she needn’t worry"
     },
     {
      "id": "D",
@@ -520,7 +520,7 @@
     }
    ],
    "correct": "B",
-   "reveal": "AI pricing is still being confirmed. A guessed number becomes the number she remembers.",
+   "reveal": "The AI is a premium add-on priced into her custom quote. A guessed number becomes the number she remembers.",
    "review": "/training/JAE7",
    "source": "JAE7 training"
   },

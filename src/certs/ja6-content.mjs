@@ -1,5 +1,5 @@
 // JAE6 · Contract and Close — step-by-step training content (Junior AE track).
-// Built from the Junior AE Knowledge Bank; unconfirmed numbers are held back until the co-manager answers.
+// Built from the Junior AE Knowledge Bank; updated with the co-manager's confirmed answers (Oct 30, 2026).
 
 export const JA6_TRAINING = {
   "title": "Contract and Close",
@@ -335,7 +335,7 @@ export const JA6_TRAINING = {
     {
       "title": "Walk the agreement",
       "why": "A surprise found in the agreement after signing makes the prospect doubt everything else you said.",
-      "idea": "Before they sign, go through the agreement with them on screen: the plan and add-ons, the price, when billing starts, the term, how renewal works and any addenda. Point out the end date and the renewal language yourself. State only what's written in the agreement. Standard terms like free months, term length, renewal notice and leaving early are still being confirmed, so if the document doesn't answer a question, say you'll confirm and send the answer in writing.",
+      "idea": "Before they sign, go through the agreement with them on screen: their custom plan (the core platform plus the add-ons they chose), the price, when billing starts, the term, how renewal works and any addenda. Point out the end date and the renewal language yourself. Know the standard terms: a 12-month agreement that starts on the first bill date, auto-renews for another 12 months, and has no early exit, so leaving early means paying the remaining months. You can also say Momence hasn't raised prices for current hosts. If the document doesn't answer a question, say you'll confirm and send the answer in writing.",
       "say": "“Before you sign, let's go through it together. Here's when billing starts, and here's how renewal works.”",
       "good": [
         {
@@ -347,7 +347,7 @@ export const JA6_TRAINING = {
           }
         },
         {
-          "text": "Asked how the contract ends, the AE explained it plainly: a one-year term that auto-renews, 30 days' notice to cancel, and the price locked for the term. He also said the contract allows a price change at renewal. Note: his line that prices have never gone up is not confirmed; don't repeat it.",
+          "text": "Asked how the contract ends, the AE explained it plainly: a one-year term that auto-renews, 30 days' notice to cancel, and the price locked for the term. He also said the contract allows a price change at renewal, and that prices have never gone up. That last line is confirmed: Momence hasn't raised prices for current hosts. The 30-day notice is his wording, so check the agreement for it.",
           "source": "Comova, closing call",
           "clip": {
             "src": "/content/videos/ja6-5-good-b.mp4",
@@ -365,7 +365,7 @@ export const JA6_TRAINING = {
       ],
       "missed": [
         {
-          "text": "The prospect asked what the branded app would cost after its free year. The agreement didn't say, so the AE answered from memory with a claim about the company's history. The question needed a confirmed, written answer.",
+          "text": "The prospect asked what the branded app would cost after its free year. The agreement didn't say, so the AE answered with a line about the company's history. That line didn't tell her a price. The question needed a quote from your manager, written into the agreement.",
           "source": "105 Fever, fourth call",
           "clip": {
             "src": "/content/videos/ja6-5-missed.mp4",
@@ -387,7 +387,7 @@ export const JA6_TRAINING = {
       "points": [
         {
           "label": "Walk the agreement",
-          "text": "Before they sign, go through the agreement with them on screen: the plan and add-ons, the price, when billing starts, the term, how renewal works and any addenda."
+          "text": "Before they sign, go through the agreement with them on screen: their custom plan (the core platform plus the add-ons they chose), the price, when billing starts, the term, how renewal works and any addenda."
         },
         {
           "label": "Point out renewal",
@@ -398,8 +398,12 @@ export const JA6_TRAINING = {
           "text": "State only what's written in the agreement."
         },
         {
-          "label": "Confirm unclear terms",
-          "text": "Standard terms like free months, term length, renewal notice and leaving early are still being confirmed, so if the document doesn't answer a question, say you'll confirm and send the answer in writing."
+          "label": "The standard terms",
+          "text": "A 12-month agreement that starts on the first bill date, auto-renews for another 12 months, and has no early exit, so leaving early means paying the remaining months. You can also say Momence hasn't raised prices for current hosts."
+        },
+        {
+          "label": "Confirm the rest",
+          "text": "If the document doesn't answer a question, say you'll confirm and send the answer in writing."
         }
       ],
       "voice": [
@@ -416,7 +420,7 @@ export const JA6_TRAINING = {
     {
       "title": "Concessions need approval",
       "why": "An offer you invent on a call becomes a promise the company has to keep.",
-      "idea": "Free months, delayed payments, discounts, lower rates and add-ons at no cost are all concessions. The standard offers are still being confirmed, so get your manager's approval before you say any of them. Trade a concession for a decision, such as a signed agreement by a set date. Once it's approved, write it into the agreement as an addendum so the prospect sees it in writing.",
+      "idea": "The sign-up offer is the first month free, depending on that month's promotion. It usually doesn't apply at year end when the first bill lands after January 1. Anything beyond it is a concession: extra free months, delayed payments, discounts, lower rates and add-ons at no cost. There's no set discount. Take every concession to your sales manager, who decides what's possible, and never promise one yourself. Trade a concession for a decision, such as a signed agreement by a set date. Once it's approved, write it into the agreement as an addendum so the prospect sees it in writing.",
       "say": "“Let me take that to my manager. If I can get it approved, are you ready to sign this week?”",
       "good": [
         {
@@ -483,12 +487,16 @@ export const JA6_TRAINING = {
       },
       "points": [
         {
+          "label": "The sign-up offer",
+          "text": "The sign-up offer is the first month free, depending on that month's promotion. It usually doesn't apply at year end when the first bill lands after January 1."
+        },
+        {
           "label": "What counts as concessions",
-          "text": "Free months, delayed payments, discounts, lower rates and add-ons at no cost are all concessions."
+          "text": "Anything beyond it is a concession: extra free months, delayed payments, discounts, lower rates and add-ons at no cost."
         },
         {
           "label": "Get manager approval",
-          "text": "The standard offers are still being confirmed, so get your manager's approval before you say any of them."
+          "text": "There's no set discount. Take every concession to your sales manager, who decides what's possible, and never promise one yourself."
         },
         {
           "label": "Trade for a decision",
@@ -503,7 +511,7 @@ export const JA6_TRAINING = {
     {
       "title": "The sign-up steps",
       "why": "A verbal yes isn't a customer yet. Onboarding can't be booked until the sign-up steps are done.",
-      "idea": "The prospect e-signs the agreement, creates a host account and puts a card on file under Billing in that account. Then you book onboarding. In some demos the agreement also came with a verification email from HubSpot to complete. Onboarding can't be scheduled until the agreement is signed and the account exists. Do as much as you can live on the call, and when they create the account, remind them to pick host, not client.",
+      "idea": "The prospect e-signs the agreement, creates a host account and puts a card on file under Billing in that account. Then you book onboarding. In some demos the agreement also came with a verification email from HubSpot to complete. Onboarding can't be scheduled until the agreement is signed and the account exists. Do as much as you can live on the call, and when they create the account, remind them to pick host, not client. A debit card works for billing too.",
       "say": "“Let's set up your account together now. It takes a minute, and then I can book your onboarding.”",
       "good": [
         {
@@ -564,6 +572,10 @@ export const JA6_TRAINING = {
         {
           "label": "Pick host account",
           "text": "Do as much as you can live on the call, and when they create the account, remind them to pick host, not client."
+        },
+        {
+          "label": "Debit cards work",
+          "text": "A debit card works for billing too."
         }
       ]
     },
