@@ -1,0 +1,586 @@
+{
+ "cert": "JA2",
+ "version": 1,
+ "questions": [
+  {
+   "id": "JA2-A1",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Plan structure",
+   "prompt": "Which features does Growth add on top of the core platform?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Class booking, memberships, point of sale and reports"
+    },
+    {
+     "id": "B",
+     "text": "Leads, sequences, ads manager, referrals and reviews"
+    },
+    {
+     "id": "C",
+     "text": "The AI agent that answers and books from the inbox"
+    },
+    {
+     "id": "D",
+     "text": "The branded app and the library for on-demand video"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Core runs the business. Growth adds the marketing suite. The AI agent and the add-ons sit on top.",
+   "review": "/training/JA2",
+   "source": "JA2 training"
+  },
+  {
+   "id": "JA2-A2",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Plan structure",
+   "prompt": "A prospect asks what Spot Filler does. What’s accurate?",
+   "options": [
+    {
+     "id": "A",
+     "text": "It lets clients pick their own spot from a room map at checkout"
+    },
+    {
+     "id": "B",
+     "text": "It lists open spots on a marketplace other studios’ clients see"
+    },
+    {
+     "id": "C",
+     "text": "It moves the next waitlisted client in when someone cancels"
+    },
+    {
+     "id": "D",
+     "text": "It messages past attendees of that class type when it isn’t full"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Spot Filler targets clients who’ve taken that kind of class before. Spot selection on a room map is a different feature, and AEs have mixed the two up.",
+   "review": "/training/JA2",
+   "source": "JA2 training"
+  },
+  {
+   "id": "JA2-A3",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "The calculator",
+   "prompt": "Midway through a demo, a prospect asks what her total would be with the marketing suite and on-demand video. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Build that package in the calculator and show her the total"
+    },
+    {
+     "id": "B",
+     "text": "Add the two prices from memory so the demo keeps moving"
+    },
+    {
+     "id": "C",
+     "text": "Tell her you’ll email a quote once you’ve worked it out"
+    },
+    {
+     "id": "D",
+     "text": "Give a range from the lowest to the highest plan for now"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Building it live takes a minute and gives a number you can stand behind.",
+   "review": "/training/JA2",
+   "source": "JA2 training"
+  },
+  {
+   "id": "JA2-A4",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "The calculator",
+   "prompt": "The prospect’s co-owner missed the demo. She wants something to show him what’s in each plan. What’s best?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Write him an email listing the features you remember"
+    },
+    {
+     "id": "B",
+     "text": "Send the recording and tell him to skip to the pricing"
+    },
+    {
+     "id": "C",
+     "text": "Download the calculator’s comparison sheet for both plans"
+    },
+    {
+     "id": "D",
+     "text": "Send him your pricing slide with a few notes added on top"
+    }
+   ],
+   "correct": "C",
+   "reveal": "The comparison sheet lists every feature in each plan side by side, and it matches the quote.",
+   "review": "/training/JA2",
+   "source": "JA2 training"
+  },
+  {
+   "id": "JA2-B1",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Current spend",
+   "prompt": "In discovery, a prospect on MindBody tells you her monthly fee. What’s the most useful follow-up?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Ask if she’d pay a bit more for a lot more value"
+    },
+    {
+     "id": "B",
+     "text": "Ask when she’d like to see our pricing on this call"
+    },
+    {
+     "id": "C",
+     "text": "Ask what that fee includes, like marketing or an app"
+    },
+    {
+     "id": "D",
+     "text": "Ask how happy she is with MindBody from one to ten"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Knowing what her fee covers lets you build a like-for-like package and compare fairly.",
+   "review": "/training/JA2",
+   "source": "JA2 training"
+  },
+  {
+   "id": "JA2-B2",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Current spend",
+   "prompt": "Why ask about current spend before you show any price?",
+   "options": [
+    {
+     "id": "A",
+     "text": "So the price lands next to a number they already pay"
+    },
+    {
+     "id": "B",
+     "text": "So you can set your quote just under what they pay now"
+    },
+    {
+     "id": "C",
+     "text": "So you know whether to offer free months at the close"
+    },
+    {
+     "id": "D",
+     "text": "So you can cut discovery short if the budget is too low"
+    }
+   ],
+   "correct": "A",
+   "reveal": "The current total is the anchor. You still build the quote in the calculator; you don’t set it to undercut.",
+   "review": "/training/JA2",
+   "source": "JA2 training"
+  },
+  {
+   "id": "JA2-B3",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Current spend",
+   "prompt": "A spa pays one tool for booking and a second tool for texting and reviews. How do you compare costs?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Compare our price with the booking tool only, since that’s the switch"
+    },
+    {
+     "id": "B",
+     "text": "Leave the texting tool out, since she may keep it after switching"
+    },
+    {
+     "id": "C",
+     "text": "Compare with whichever of the two tools costs her more each month"
+    },
+    {
+     "id": "D",
+     "text": "Add both tools together and compare with the matching package"
+    }
+   ],
+   "correct": "D",
+   "reveal": "When Momence replaces two tools, the fair comparison is against both of them.",
+   "review": "/training/JA2",
+   "source": "JA2 training"
+  },
+  {
+   "id": "JA2-B4",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Current spend",
+   "prompt": "You’ve shown pricing and the prospect goes quiet. You never asked what she pays now. What’s the best recovery?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Offer a discount right away to get past the sticker shock"
+    },
+    {
+     "id": "B",
+     "text": "Ask what she pays today in total, then compare the two"
+    },
+    {
+     "id": "C",
+     "text": "Move on to onboarding so price doesn’t stall the call"
+    },
+    {
+     "id": "D",
+     "text": "Explain how the features pay for themselves within a year"
+    }
+   ],
+   "correct": "B",
+   "reveal": "It’s late, but the anchor still helps. Get her total, then compare like for like.",
+   "review": "/training/JA2",
+   "source": "JA2 training"
+  },
+  {
+   "id": "JA2-C1",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Branded app",
+   "prompt": "What does a branded app give a studio that the free Momence app doesn’t?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The studio’s own name and logo in the App Store"
+    },
+    {
+     "id": "B",
+     "text": "Booking features clients can’t get in the free app"
+    },
+    {
+     "id": "C",
+     "text": "A way to stop clients seeing other studios’ ads"
+    },
+    {
+     "id": "D",
+     "text": "Push notifications to clients about new classes"
+    }
+   ],
+   "correct": "A",
+   "reveal": "The layout and features are the same. The branded app puts the studio’s name on the phone.",
+   "review": "/training/JA2",
+   "source": "JA2 training"
+  },
+  {
+   "id": "JA2-C2",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Branded app",
+   "prompt": "A one-location studio asks for a branded app because “clients like having an app.” What’s your best move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Add the branded app since she asked, and move on to marketing"
+    },
+    {
+     "id": "B",
+     "text": "Tell her the branded app is a waste of money at one location"
+    },
+    {
+     "id": "C",
+     "text": "Show the free app first, then ask what branding would add for her"
+    },
+    {
+     "id": "D",
+     "text": "Offer the branded app for free so it won’t affect her decision"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Her clients get an app either way. Let her decide if the name and logo are worth the cost.",
+   "review": "/training/JA2",
+   "source": "JA2 training"
+  },
+  {
+   "id": "JA2-C3",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Video on demand",
+   "prompt": "A prospect with two locations asks if video on demand is charged per location. You’re not sure. What do you say?",
+   "options": [
+    {
+     "id": "A",
+     "text": "That it’s charged once, since most add-ons work that way"
+    },
+    {
+     "id": "B",
+     "text": "That you’ll confirm it and get back to her by a set time"
+    },
+    {
+     "id": "C",
+     "text": "That it’s per location, so she isn’t surprised later on"
+    },
+    {
+     "id": "D",
+     "text": "That it comes with Growth, so it won’t matter for her"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Per-location charging for on-demand is still being confirmed. Saying when you’ll answer beats a guess.",
+   "review": "/training/JA2",
+   "source": "JA2 training"
+  },
+  {
+   "id": "JA2-C4",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Multi-location",
+   "prompt": "A studio is adding a second location under the same brand. How is it usually set up?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Each location gets its own dashboard and its own login"
+    },
+    {
+     "id": "B",
+     "text": "The second location opens a separate account and plan"
+    },
+    {
+     "id": "C",
+     "text": "Both share one schedule, with no filter by location"
+    },
+    {
+     "id": "D",
+     "text": "Both run from one dashboard, filtered by location"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Same-brand locations share a dashboard. Different brands use separate dashboards you switch between.",
+   "review": "/training/JA2",
+   "source": "JA2 training"
+  },
+  {
+   "id": "JA2-D1",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Do I need Growth?",
+   "prompt": "An owner says she’s at capacity with waitlists on most classes, and asks if she needs Growth. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Recommend Growth, since every studio benefits from more leads"
+    },
+    {
+     "id": "B",
+     "text": "Quote Growth and the AI agent so she has room to grow later"
+    },
+    {
+     "id": "C",
+     "text": "Tell her flatly that she has no use for marketing right now"
+    },
+    {
+     "id": "D",
+     "text": "Ask what she wants from marketing, then build what fits her"
+    }
+   ],
+   "correct": "D",
+   "reveal": "A full studio may still want reviews or win-back, or may not. Her answer decides the build.",
+   "review": "/training/JA2",
+   "source": "JA2 training"
+  },
+  {
+   "id": "JA2-D2",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Do I need Growth?",
+   "prompt": "A prospect asks, “Do I really need Growth?” Which question helps you most?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Where do new clients come from, and what happens to leads?”"
+    },
+    {
+     "id": "B",
+     "text": "“Could you fit Growth into your monthly budget right now?”"
+    },
+    {
+     "id": "C",
+     "text": "“Have studios you know picked Growth, or just the core?”"
+    },
+    {
+     "id": "D",
+     "text": "“Do you want to see every feature before you decide?”"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Lead flow shows whether the marketing suite would earn its cost for this studio.",
+   "review": "/training/JA2",
+   "source": "JA2 training"
+  },
+  {
+   "id": "JA2-D3",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Arketa is cheaper",
+   "prompt": "A prospect comparing Arketa asks why Momence costs more. Which answer keeps her trust?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Arketa is cheaper because it has about half our software.”"
+    },
+    {
+     "id": "B",
+     "text": "“Arketa was built by ex-staff who copied our design.”"
+    },
+    {
+     "id": "C",
+     "text": "“Arketa does a lot well. Let me show what our price adds.”"
+    },
+    {
+     "id": "D",
+     "text": "“Arketa will raise prices once you’re in their contract.”"
+    }
+   ],
+   "correct": "C",
+   "reveal": "The other three are unverified knocks. A prospect who checks one will doubt everything else you said.",
+   "review": "/training/JA2",
+   "source": "JA2 training"
+  },
+  {
+   "id": "JA2-D4",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "Arketa is cheaper",
+   "prompt": "Which point is fair to make when comparing Arketa’s checkout with Momence’s?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Arketa can’t pass card fees on to clients at checkout"
+    },
+    {
+     "id": "B",
+     "text": "Momence doesn’t make a new client create a password"
+    },
+    {
+     "id": "C",
+     "text": "Arketa has no way to book a guest along with yourself"
+    },
+    {
+     "id": "D",
+     "text": "Arketa doesn’t let clients buy packs during checkout"
+    }
+   ],
+   "correct": "B",
+   "reveal": "The side-by-side showed Arketa asking for a password. Arketa can pass on fees and book guests, so don’t claim those.",
+   "review": "/training/JA2",
+   "source": "JA2 training"
+  },
+  {
+   "id": "JA2-E1",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Manager approval",
+   "prompt": "Which of these can you offer without your manager’s approval?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The package price the calculator shows"
+    },
+    {
+     "id": "B",
+     "text": "A small discount to close a deal this week"
+    },
+    {
+     "id": "C",
+     "text": "An extra free month for a pre-open studio"
+    },
+    {
+     "id": "D",
+     "text": "A free branded app for the first year"
+    }
+   ],
+   "correct": "A",
+   "reveal": "The calculator quote is yours to give. Discounts, free months and free add-ons need approval.",
+   "review": "/training/JA2",
+   "source": "JA2 training"
+  },
+  {
+   "id": "JA2-E2",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Manager approval",
+   "prompt": "A prospect asks what her price will be when the contract renews. You don’t know the policy. What do you say?",
+   "options": [
+    {
+     "id": "A",
+     "text": "That prices have never gone up, so she has nothing to worry about"
+    },
+    {
+     "id": "B",
+     "text": "That you’ll confirm with your manager and reply by a set time"
+    },
+    {
+     "id": "C",
+     "text": "That it renews at the same rate, since most contracts work that way"
+    },
+    {
+     "id": "D",
+     "text": "That she can renegotiate at renewal if she’s unhappy with the rate"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Renewal terms are still being confirmed. A promise you can’t back up can follow you into the contract.",
+   "review": "/training/JA2",
+   "source": "JA2 training"
+  },
+  {
+   "id": "JA2-E3",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Manager approval",
+   "prompt": "Your manager approved a free branded app for a year as a contract addendum. The prospect asks what it costs after year one. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Say it will most likely stay free, since that was the intent"
+    },
+    {
+     "id": "B",
+     "text": "Quote the branded app price you heard in your last demo"
+    },
+    {
+     "id": "C",
+     "text": "Check with your manager and get it written into the addendum"
+    },
+    {
+     "id": "D",
+     "text": "Tell her not to worry about it, since it’s a year away"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Whatever happens after year one should be in writing, approved by the manager who gave the addendum.",
+   "review": "/training/JA2",
+   "source": "JA2 training"
+  },
+  {
+   "id": "JA2-E4",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Manager approval",
+   "prompt": "On a call, a prospect asks for a lower price. You think your manager would agree. What’s the strongest move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Promise it now, since you’re confident it’ll be approved"
+    },
+    {
+     "id": "B",
+     "text": "Tell her the price is fixed, to avoid setting expectations"
+    },
+    {
+     "id": "C",
+     "text": "End the call and email her a new price later in the week"
+    },
+    {
+     "id": "D",
+     "text": "Ask your manager during the call if you can, then confirm it"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Approval on the call keeps momentum and keeps the number real.",
+   "review": "/training/JA2",
+   "source": "JA2 training"
+  }
+ ]
+}

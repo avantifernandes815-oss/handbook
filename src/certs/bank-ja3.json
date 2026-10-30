@@ -1,0 +1,586 @@
+{
+ "cert": "JA3",
+ "version": 1,
+ "questions": [
+  {
+   "id": "JA3-A1",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Processing basics",
+   "prompt": "What does a studio need to do during onboarding before it can take payments in Momence?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Buy a card reader so in-person and online payments both work"
+    },
+    {
+     "id": "B",
+     "text": "Connect its own Stripe account, ideally early in onboarding"
+    },
+    {
+     "id": "C",
+     "text": "Choose a pass-through setting so fee rules are in place first"
+    },
+    {
+     "id": "D",
+     "text": "Sign a separate processing agreement with Momence’s team"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Connecting Stripe is on the onboarding checklist. Doing it early means the studio can take payments sooner.",
+   "review": "/training/JA3",
+   "source": "JA3 training"
+  },
+  {
+   "id": "JA3-A2",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Processing basics",
+   "prompt": "A prospect asks whether payment processing adds a second monthly software bill. What do you tell her?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Yes, but it’s waived for the first months after she signs up"
+    },
+    {
+     "id": "B",
+     "text": "No, Momence absorbs the processing cost on every plan it sells"
+    },
+    {
+     "id": "C",
+     "text": "It’s bundled into the plan price, so there’s no fee on any sale"
+    },
+    {
+     "id": "D",
+     "text": "No second bill; fees are taken per transaction through Stripe"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Processing fees come out of each transaction, as on every booking system. There’s no extra processing plan.",
+   "review": "/training/JA3",
+   "source": "JA3 training"
+  },
+  {
+   "id": "JA3-A3",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Card on file",
+   "prompt": "How do recurring memberships get paid in Momence?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The client’s saved card is charged automatically each billing date"
+    },
+    {
+     "id": "B",
+     "text": "Staff charge each member through point of sale on renewal day"
+    },
+    {
+     "id": "C",
+     "text": "Members get an emailed payment link to pay before each cycle"
+    },
+    {
+     "id": "D",
+     "text": "The studio exports a list and runs the charges inside Stripe"
+    }
+   ],
+   "correct": "A",
+   "reveal": "The card saved at checkout is reused for recurring billing, so the studio doesn’t chase each payment.",
+   "review": "/training/JA3",
+   "source": "JA3 training"
+  },
+  {
+   "id": "JA3-A4",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Card on file",
+   "prompt": "A day spa owner says clients book and don’t show. She doesn’t want to charge in full at booking. What do you show her?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A reminder sequence that texts clients the day before each visit"
+    },
+    {
+     "id": "B",
+     "text": "Passing card fees on so no-shows at least cover processing costs"
+    },
+    {
+     "id": "C",
+     "text": "Card details taken at booking without a charge, backed by her terms"
+    },
+    {
+     "id": "D",
+     "text": "Request-only appointments so staff approve each booking first"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Saving the card holds the spot without charging it. With a no-show fee in her terms, she can collect it.",
+   "review": "/training/JA3",
+   "source": "JA3 training"
+  },
+  {
+   "id": "JA3-B1",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Passing on fees",
+   "prompt": "A prospect on Arketa asks, “Can you pass card fees on to clients?” How should you frame it?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Yes, and it’s something Arketa can’t do, so it’s a reason to switch"
+    },
+    {
+     "id": "B",
+     "text": "Yes, and we recommend every studio turn it on from the first day"
+    },
+    {
+     "id": "C",
+     "text": "Yes, it’s an option she controls; ask if she passes them on today"
+    },
+    {
+     "id": "D",
+     "text": "No, but we can lower her rate later to make up the difference"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Arketa studios can pass fees on too, so it isn’t a differentiator. Her answer tells you how to compare costs.",
+   "review": "/training/JA3",
+   "source": "JA3 training"
+  },
+  {
+   "id": "JA3-B2",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Passing on fees",
+   "prompt": "Which statement about passing on card fees is confirmed and safe to say on a demo?",
+   "options": [
+    {
+     "id": "A",
+     "text": "It’s a setting the studio can turn on or leave off"
+    },
+    {
+     "id": "B",
+     "text": "It can be set to any share of the fee the studio picks"
+    },
+    {
+     "id": "C",
+     "text": "It applies to everyone, and members can’t be exempted"
+    },
+    {
+     "id": "D",
+     "text": "It’s only available to studios on the Growth plan"
+    }
+   ],
+   "correct": "A",
+   "reveal": "On or off is confirmed. Partial pass-through and member exemptions are still being confirmed, so don’t promise either.",
+   "review": "/training/JA3",
+   "source": "JA3 training"
+  },
+  {
+   "id": "JA3-B3",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Clients will mind fees",
+   "prompt": "A small-town studio owner says her clients would be upset by a card fee. She’s otherwise keen. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Ask her to try it for a month and count how many clients complain"
+    },
+    {
+     "id": "B",
+     "text": "Explain that most US studios now pass card fees on to clients"
+    },
+    {
+     "id": "C",
+     "text": "Offer to exempt her members so only drop-ins see the card fee"
+    },
+    {
+     "id": "D",
+     "text": "Respect it, leave pass-through off and compare costs without it"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Pass-through is optional, and pushing after she’s said no costs trust. Exempting members isn’t confirmed, so don’t offer it.",
+   "review": "/training/JA3",
+   "source": "JA3 training"
+  },
+  {
+   "id": "JA3-B4",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Clients will mind fees",
+   "prompt": "You’re pricing against a prospect’s current costs. She doesn’t pass fees on today. What’s the cleanest comparison?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Show the plan price alone, since processing is the same anywhere"
+    },
+    {
+     "id": "B",
+     "text": "Compare total cost with fees off, then show passing on as an option"
+    },
+    {
+     "id": "C",
+     "text": "Assume she’ll pass fees on and show savings against her costs"
+    },
+    {
+     "id": "D",
+     "text": "Leave processing out until she asks, then quote a standard rate"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Start from how she runs today, then show what changes if she chooses to pass fees on. Assuming pass-through inflates the savings.",
+   "review": "/training/JA3",
+   "source": "JA3 training"
+  },
+  {
+   "id": "JA3-C1",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Rate questions",
+   "prompt": "A prospect says, “Just tell me your card rate. I’m comparing three systems.” What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Give the rate from your last demo and say you’ll confirm it later"
+    },
+    {
+     "id": "B",
+     "text": "Say rates stay confidential until she’s ready to sign an agreement"
+    },
+    {
+     "id": "C",
+     "text": "Tell her we match any provider, so the rate won’t be an issue"
+    },
+    {
+     "id": "D",
+     "text": "Ask what she pays now and send our current rates in writing"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Rates are being confirmed, and AEs have quoted several different numbers. Her current rate gives you something real to compare.",
+   "review": "/training/JA3",
+   "source": "JA3 training"
+  },
+  {
+   "id": "JA3-C2",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Rate questions",
+   "prompt": "Late in a strong demo, the prospect says her current card rate is lower than ours and it’s her last holdout. What’s the best move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Promise to match her rate so the deal doesn’t stall on processing"
+    },
+    {
+     "id": "B",
+     "text": "Get her current rate in writing and take it to your manager now"
+    },
+    {
+     "id": "C",
+     "text": "Tell her processing costs the same everywhere, so it won’t matter"
+    },
+    {
+     "id": "D",
+     "text": "Suggest passing fees on so the rate stops mattering to her at all"
+    }
+   ],
+   "correct": "B",
+   "reveal": "A rate match needs approval. In one demo the AE got a lower rate approved while the prospect stepped away, which kept the momentum.",
+   "review": "/training/JA3",
+   "source": "JA3 training"
+  },
+  {
+   "id": "JA3-C3",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Rate questions",
+   "prompt": "Why does this cert tell you not to quote a card or ACH rate from memory?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Demos quoted different rates, and the rates are being confirmed"
+    },
+    {
+     "id": "B",
+     "text": "Rates change daily with Stripe, so any number is already stale"
+    },
+    {
+     "id": "C",
+     "text": "Rates are shared only by the onboarding team after signing"
+    },
+    {
+     "id": "D",
+     "text": "Quoting rates on a sales call breaks the card networks’ rules"
+    }
+   ],
+   "correct": "A",
+   "reveal": "AEs quoted at least five different card rates across our demos. Until management confirms them, send rates in writing.",
+   "review": "/training/JA3",
+   "source": "JA3 training"
+  },
+  {
+   "id": "JA3-C4",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Rate questions",
+   "prompt": "A prospect asks if ACH is cheaper than cards, and by how much. What do you say?",
+   "options": [
+    {
+     "id": "A",
+     "text": "ACH costs the same as cards, so offer whichever clients prefer"
+    },
+    {
+     "id": "B",
+     "text": "ACH is only for paying Momence’s bill, so it doesn’t apply here"
+    },
+    {
+     "id": "C",
+     "text": "ACH costs less than a card; you’ll send the exact rate in writing"
+    },
+    {
+     "id": "D",
+     "text": "ACH is cheaper, and quote the percentage the last AE gave her"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Demos agree ACH costs less than a card. The exact ACH rate is being confirmed.",
+   "review": "/training/JA3",
+   "source": "JA3 training"
+  },
+  {
+   "id": "JA3-D1",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "Failed payments",
+   "prompt": "Where does an owner first see that membership payments have failed?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A failed payments tile on the dashboard, with a report behind it"
+    },
+    {
+     "id": "B",
+     "text": "An inbox alert each time Stripe declines a member’s saved card"
+    },
+    {
+     "id": "C",
+     "text": "A weekly summary email sent to the owner from her Stripe account"
+    },
+    {
+     "id": "D",
+     "text": "Only in the sales report, which she has to run by date range"
+    }
+   ],
+   "correct": "A",
+   "reveal": "The dashboard shows failed membership payments when she logs in. The report shows who paid later and who still owes.",
+   "review": "/training/JA3",
+   "source": "JA3 training"
+  },
+  {
+   "id": "JA3-D2",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Failed payments",
+   "prompt": "An owner asks, “How many times will the system retry a failed card?” What do you say?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Two or three times, then it stops and the client loses access"
+    },
+    {
+     "id": "B",
+     "text": "Unlimited times, until the client updates the card on file"
+    },
+    {
+     "id": "C",
+     "text": "It reruns automatically; you’ll confirm the exact number"
+    },
+    {
+     "id": "D",
+     "text": "It doesn’t retry, so staff rerun each charge by hand"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Reruns show on screen with the next rerun date. The retry count is being confirmed, and one AE guessed it on a call.",
+   "review": "/training/JA3",
+   "source": "JA3 training"
+  },
+  {
+   "id": "JA3-D3",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "Failed payments",
+   "prompt": "What can the studio edit to control what clients hear about a failed payment?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The pass-through setting on that client’s membership"
+    },
+    {
+     "id": "B",
+     "text": "The transactional email templates for failed payments"
+    },
+    {
+     "id": "C",
+     "text": "The sequence that runs before each membership renews"
+    },
+    {
+     "id": "D",
+     "text": "The Stripe receipt that goes out after every charge"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Transactional templates cover failed and retried payments, and the studio can change the wording.",
+   "review": "/training/JA3",
+   "source": "JA3 training"
+  },
+  {
+   "id": "JA3-D4",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Point of sale",
+   "prompt": "A dance studio owner runs the door alone before class and needs walk-ins paid fast. What do you show first?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The online checkout, so walk-ins book on their phones at the door"
+    },
+    {
+     "id": "B",
+     "text": "The marketing suite, so walk-ins become leads after the visit"
+    },
+    {
+     "id": "C",
+     "text": "The free app, so walk-ins download it and buy a class pack"
+    },
+    {
+     "id": "D",
+     "text": "Check-in from the class page and payment through point of sale"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Lead with the flow he named as his priority. In one demo this came 20 minutes in, after features he didn’t ask about.",
+   "review": "/training/JA3",
+   "source": "JA3 training"
+  },
+  {
+   "id": "JA3-E1",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Stored cards",
+   "prompt": "A prospect leaving WellnessLiving asks if her members’ recurring cards will transfer. What’s the best answer?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Her data comes over; cards depend on what WellnessLiving releases"
+    },
+    {
+     "id": "B",
+     "text": "Yes, every card transfers, since onboarding handles the migration"
+    },
+    {
+     "id": "C",
+     "text": "No, cards never transfer, so plan to collect every one again"
+    },
+    {
+     "id": "D",
+     "text": "Cards transfer only if she pays an exit fee to Momence’s team"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Momence’s team pulls the data, but the old provider controls the card file. Don’t promise every card.",
+   "review": "/training/JA3",
+   "source": "JA3 training"
+  },
+  {
+   "id": "JA3-E2",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Stored cards",
+   "prompt": "When a MindBody studio wants its members’ saved cards moved, what usually has to happen?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Members re-enter their cards in the Momence app before go-live"
+    },
+    {
+     "id": "B",
+     "text": "The studio requests MindBody’s card file, which MindBody charges for"
+    },
+    {
+     "id": "C",
+     "text": "Momence’s team exports the cards from MindBody at no cost to anyone"
+    },
+    {
+     "id": "D",
+     "text": "Stripe moves the cards on its own once the account is connected"
+    }
+   ],
+   "correct": "B",
+   "reveal": "MindBody charges for the exit file with payment profiles. The exact fee is being confirmed, so don’t quote it.",
+   "review": "/training/JA3",
+   "source": "JA3 training"
+  },
+  {
+   "id": "JA3-E3",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Stored cards",
+   "prompt": "You’re scoping a switch. Which question tells you most about how much stored cards matter for this studio?",
+   "options": [
+    {
+     "id": "A",
+     "text": "How long they’ve been on their current booking system"
+    },
+    {
+     "id": "B",
+     "text": "Which payment methods their clients use most often"
+    },
+    {
+     "id": "C",
+     "text": "How many members pay on recurring cards right now"
+    },
+    {
+     "id": "D",
+     "text": "Whether they pass card fees on to clients today"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Cards matter for recurring billing. A studio with mostly class packs has less to move, and some owners only want the client list.",
+   "review": "/training/JA3",
+   "source": "JA3 training"
+  },
+  {
+   "id": "JA3-E4",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Confirm before you answer",
+   "prompt": "Which of these payment facts is confirmed and safe to state on a demo?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Partial pass-through can apply to drop-ins and skip members"
+    },
+    {
+     "id": "B",
+     "text": "The card reader is one set model at one set price from Stripe"
+    },
+    {
+     "id": "C",
+     "text": "Studios can accept HSA cards by switching them on in setup"
+    },
+    {
+     "id": "D",
+     "text": "Clients can pay by ACH, which costs the studio less than a card"
+    }
+   ],
+   "correct": "D",
+   "reveal": "The other three are still being confirmed. Say “let me confirm that” instead of guessing.",
+   "review": "/training/JA3",
+   "source": "JA3 training"
+  }
+ ]
+}

@@ -67,10 +67,10 @@ const ROLE_NAMES = {sdr: 'SDR', senior_sdr: 'Senior SDR', manager: 'Manager', ad
     if (!prereqOk) return {key: 'locked', chip: 'off', label: 'Locked · pass the one before', ico: 'off', locked: true};
     if ((c.components || []).length === 1 && c.components[0] === 'roleplay' && c.track !== 'foundation') {
       // Roleplay-only (the CC7 capstone): book it once the cert before it is passed.
-      const rp = p.roleplay, ru = '/roleplay/' + encodeURIComponent(c.id);
-      if (!rp) return {key: 'book', chip: 'go', label: 'Ready · book your capstone', ico: 'go', action: 'Book your capstone', url: ru};
-      if (rp.status === 'submitted') return {key: 'rp', chip: 'go', label: 'Capstone booked' + (rp.booking?.date ? ' · ' + new Date(rp.booking.date + 'T12:00:00Z').toLocaleDateString('en-US', {weekday: 'short', month: 'short', day: 'numeric', timeZone: 'UTC'}) : ''), ico: 'go', action: 'View capstone', url: ru};
-      if (rp.status === 'started') return {key: 'rp', chip: 'go', label: 'Capstone in progress', ico: 'go', action: 'View capstone', url: ru};
+      const rp = p.roleplay, ru = '/roleplay/' + encodeURIComponent(c.id), w = c.track === 'junior_ae' ? 'mock demo' : 'capstone', W = w.charAt(0).toUpperCase() + w.slice(1);
+      if (!rp) return {key: 'book', chip: 'go', label: 'Ready · book your ' + w, ico: 'go', action: 'Book your ' + w, url: ru};
+      if (rp.status === 'submitted') return {key: 'rp', chip: 'go', label: W + ' booked' + (rp.booking?.date ? ' · ' + new Date(rp.booking.date + 'T12:00:00Z').toLocaleDateString('en-US', {weekday: 'short', month: 'short', day: 'numeric', timeZone: 'UTC'}) : ''), ico: 'go', action: 'View ' + w, url: ru};
+      if (rp.status === 'started') return {key: 'rp', chip: 'go', label: W + ' in progress', ico: 'go', action: 'View ' + w, url: ru};
       if (rp.status === 'failed') return p.retakeUnlocked ? {key: 'rpretake', chip: 'warn', label: 'Retake open · book it', ico: 'go', action: 'Book your retake', url: ru} : {key: 'coaching', chip: 'warn', label: 'Retake after coaching', ico: 'go', action: 'See your scorecard', url: ru};
     }
     if ((c.components || []).includes('training')) {

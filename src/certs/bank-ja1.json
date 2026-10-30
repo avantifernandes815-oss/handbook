@@ -1,0 +1,586 @@
+{
+ "cert": "JA1",
+ "version": 1,
+ "questions": [
+  {
+   "id": "JA1-A1",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "One-page checkout",
+   "prompt": "A prospect says her current system makes new clients set a password before they ever see a price. Which demo move answers this best?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Book a drop-in as a new client on a live site"
+    },
+    {
+     "id": "B",
+     "text": "Show the client profile created after a booking"
+    },
+    {
+     "id": "C",
+     "text": "Open the reports page and show new-client counts"
+    },
+    {
+     "id": "D",
+     "text": "Explain that passwords keep card details safe"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Let her see the difference. A live booking as a first-timer shows the one-page flow with no account step.",
+   "review": "/training/JA1",
+   "source": "JA1 training"
+  },
+  {
+   "id": "JA1-A2",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "One-page checkout",
+   "prompt": "A new client enters her details at checkout, then closes the page before paying. What happens?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Nothing is saved until the payment goes through"
+    },
+    {
+     "id": "B",
+     "text": "Her contact is captured as an abandoned checkout"
+    },
+    {
+     "id": "C",
+     "text": "The spot is held for her for the next 24 hours"
+    },
+    {
+     "id": "D",
+     "text": "She's charged once she reopens the booking link"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Momence creates the contact as soon as details go in, so the studio can follow up with someone who nearly booked.",
+   "review": "/training/JA1",
+   "source": "JA1 training"
+  },
+  {
+   "id": "JA1-A3",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Bring a friend",
+   "prompt": "A member wants to bring her sister to class and pay for both. What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The sister makes her own account, then books"
+    },
+    {
+     "id": "B",
+     "text": "The desk books the sister through point of sale"
+    },
+    {
+     "id": "C",
+     "text": "A second spot in one checkout, with her details"
+    },
+    {
+     "id": "D",
+     "text": "A gift card the member sends so her sister can pay"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Reserving extra spots is built into checkout. The friend gets a contact record and her own booking email.",
+   "review": "/training/JA1",
+   "source": "JA1 training"
+  },
+  {
+   "id": "JA1-A4",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Waitlists",
+   "prompt": "A class fills every week, and the owner wants an open spot to go to whoever grabs it fastest. Which waitlist setup fits?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Offer the open spot to the first person in line"
+    },
+    {
+     "id": "B",
+     "text": "Raise the capacity once the waitlist is full"
+    },
+    {
+     "id": "C",
+     "text": "Let members overbook at the drop-in rate"
+    },
+    {
+     "id": "D",
+     "text": "Notify everyone; the first to claim it gets in"
+    }
+   ],
+   "correct": "D",
+   "reveal": "The other mode offers the spot to the first person in line. Ask which the owner prefers, then set it up that way.",
+   "review": "/training/JA1",
+   "source": "JA1 training"
+  },
+  {
+   "id": "JA1-B1",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Class roster",
+   "prompt": "An owner says instructors only find out who's new or injured after class. What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A pre-class email each instructor sends out"
+    },
+    {
+     "id": "B",
+     "text": "Roster flags for new, injured and milestones"
+    },
+    {
+     "id": "C",
+     "text": "The client list sorted by date they signed up"
+    },
+    {
+     "id": "D",
+     "text": "The intake form library for each class type"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Flags on the roster put that information in front of the instructor at check-in, with no extra work.",
+   "review": "/training/JA1",
+   "source": "JA1 training"
+  },
+  {
+   "id": "JA1-B2",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Check-in",
+   "prompt": "Which ways can people be checked in to a class in Momence?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Only from the front desk computer in studio"
+    },
+    {
+     "id": "B",
+     "text": "Only by scanning a code in the branded app"
+    },
+    {
+     "id": "C",
+     "text": "Roster on a phone, or iPad self check-in"
+    },
+    {
+     "id": "D",
+     "text": "Automatically once the class start time passes"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Momence is mobile-first, so instructors can check people in from the room. An iPad up front handles self check-in.",
+   "review": "/training/JA1",
+   "source": "JA1 training"
+  },
+  {
+   "id": "JA1-B3",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Contacting a class",
+   "prompt": "An owner asks how she'd tell everyone booked into tonight's class that it's starting 15 minutes late. What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A segment of that class, then a newsletter"
+    },
+    {
+     "id": "B",
+     "text": "A post on the studio's community page"
+    },
+    {
+     "id": "C",
+     "text": "The AI agent replying to whoever texts in"
+    },
+    {
+     "id": "D",
+     "text": "Contacting the class from the roster"
+    }
+   ],
+   "correct": "D",
+   "reveal": "One click from the roster reaches everyone booked, by email, text or in-app. No list to build.",
+   "review": "/training/JA1",
+   "source": "JA1 training"
+  },
+  {
+   "id": "JA1-B4",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Walk-ins",
+   "prompt": "A walk-in with no account turns up five minutes before class. What's the fastest way to get her in?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Add her from the roster and take payment in POS"
+    },
+    {
+     "id": "B",
+     "text": "Have her book on her phone, then check her in"
+    },
+    {
+     "id": "C",
+     "text": "Add her to the waitlist and charge her later"
+    },
+    {
+     "id": "D",
+     "text": "Turn her away until she's booked online first"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Staff add a walk-in straight from the class page and open point of sale with the class already in the cart.",
+   "review": "/training/JA1",
+   "source": "JA1 training"
+  },
+  {
+   "id": "JA1-C1",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Activation",
+   "prompt": "A pre-open studio is selling founding memberships months ahead. The owner worries about buyers who never show up. Which setting helps?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A usage limit that resets every billing period"
+    },
+    {
+     "id": "B",
+     "text": "Auto-refill once the client's last credit is used"
+    },
+    {
+     "id": "C",
+     "text": "An activation deadline so it starts on its own"
+    },
+    {
+     "id": "D",
+     "text": "A guest pass that expires after thirty days"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Activate on first use starts the membership at the first class. The deadline starts it anyway if the client never comes in.",
+   "review": "/training/JA1",
+   "source": "JA1 training"
+  },
+  {
+   "id": "JA1-C2",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Price rules",
+   "prompt": "What does a price rule do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Raises prices after a set number of visits"
+    },
+    {
+     "id": "B",
+     "text": "Adds a card fee to purchases by non-members"
+    },
+    {
+     "id": "C",
+     "text": "Sets the drop-in price shown at checkout"
+    },
+    {
+     "id": "D",
+     "text": "Gives clients with a set tag a lower price"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Members or a financial-assistance tag can get a lower price or a percentage off without asking for a code.",
+   "review": "/training/JA1",
+   "source": "JA1 training"
+  },
+  {
+   "id": "JA1-C3",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Auto-refill",
+   "prompt": "A coach says, “My clients' packs should reload when the last session is used, not on a date.” What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Auto-refill that runs when credits run out"
+    },
+    {
+     "id": "B",
+     "text": "A monthly membership that renews on billing day"
+    },
+    {
+     "id": "C",
+     "text": "Staff adding credits by hand when they run low"
+    },
+    {
+     "id": "D",
+     "text": "A usage limit that resets every four weeks"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Packs can refill when credits run out, on a time interval, or whichever comes first.",
+   "review": "/training/JA1",
+   "source": "JA1 training"
+  },
+  {
+   "id": "JA1-C4",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Usage limits",
+   "prompt": "A wellness studio wants one membership with 10 classes and a separate allowance for sauna sessions. What's accurate?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A membership covers classes or appointments only"
+    },
+    {
+     "id": "B",
+     "text": "Classes and appointments get separate limits"
+    },
+    {
+     "id": "C",
+     "text": "Sauna sessions need a second membership on top"
+    },
+    {
+     "id": "D",
+     "text": "One limit applies, whatever the client books"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Usage limits can be set separately for classes and appointments, and you choose exactly what the membership covers.",
+   "review": "/training/JA1",
+   "source": "JA1 training"
+  },
+  {
+   "id": "JA1-D1",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Booking order",
+   "prompt": "Clients at a stretch studio always want the same practitioner. How do you set up booking?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Let clients book any time, then assign staff later"
+    },
+    {
+     "id": "B",
+     "text": "Create a separate service for every practitioner"
+    },
+    {
+     "id": "C",
+     "text": "Use request-only booking so staff can confirm"
+    },
+    {
+     "id": "D",
+     "text": "Put the practitioner step before choosing a time"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Booking order is a setting. Practitioner first lets clients book their favorite; time first matches them to whoever is free.",
+   "review": "/training/JA1",
+   "source": "JA1 training"
+  },
+  {
+   "id": "JA1-D2",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "Holding a booking",
+   "prompt": "How can a studio hold an appointment without charging the client up front?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Save the card at booking, charge at the visit"
+    },
+    {
+     "id": "B",
+     "text": "Require full prepayment for every appointment"
+    },
+    {
+     "id": "C",
+     "text": "Send a payment link only after the session ends"
+    },
+    {
+     "id": "D",
+     "text": "Block clients who miss a session from booking"
+    }
+   ],
+   "correct": "A",
+   "reveal": "A card on file reserves the spot. Staff take payment from the schedule when the client arrives.",
+   "review": "/training/JA1",
+   "source": "JA1 training"
+  },
+  {
+   "id": "JA1-D3",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Inbox",
+   "prompt": "A client emails to cancel, then texts an hour later to keep her spot. The owner asks how she'd know which came last. What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The email inbox and the text log, side by side"
+    },
+    {
+     "id": "B",
+     "text": "Both messages in one thread, bookings beside it"
+    },
+    {
+     "id": "C",
+     "text": "A staff task created for each new message"
+    },
+    {
+     "id": "D",
+     "text": "The notes on the client's profile from last visit"
+    }
+   ],
+   "correct": "B",
+   "reveal": "One thread per client across email, text, calls and in-app, with her memberships and visits in the side panel.",
+   "review": "/training/JA1",
+   "source": "JA1 training"
+  },
+  {
+   "id": "JA1-D4",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "Local number",
+   "prompt": "A client calls the studio's Momence number and nobody picks up. What happens?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The call is passed to Momence support"
+    },
+    {
+     "id": "B",
+     "text": "The call drops and a text goes out instead"
+    },
+    {
+     "id": "C",
+     "text": "A transcribed voicemail lands in the inbox"
+    },
+    {
+     "id": "D",
+     "text": "The caller is sent to the studio's email"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Voicemails are transcribed, and staff can call back from Momence. The number can also forward to another line.",
+   "review": "/training/JA1",
+   "source": "JA1 training"
+  },
+  {
+   "id": "JA1-E1",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Segments",
+   "prompt": "An owner wants to invite her regulars to a new workshop without emailing her whole list. What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A newsletter to everyone with a members-only code"
+    },
+    {
+     "id": "B",
+     "text": "A segment by recent visit count, then a message"
+    },
+    {
+     "id": "C",
+     "text": "Each class roster, contacted one class at a time"
+    },
+    {
+     "id": "D",
+     "text": "A referral link shared by her top few clients"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Segments filter the client list by visits, purchases or tags. Then one message goes to just that group.",
+   "review": "/training/JA1",
+   "source": "JA1 training"
+  },
+  {
+   "id": "JA1-E2",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Dashboard and permissions",
+   "prompt": "An owner asks if her instructors will see total sales when they log in. What's accurate?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Everyone sees the same dashboard as the owner"
+    },
+    {
+     "id": "B",
+     "text": "Instructors see sales for their classes only"
+    },
+    {
+     "id": "C",
+     "text": "Instructors only get a schedule, no dashboard"
+    },
+    {
+     "id": "D",
+     "text": "Dashboards and permissions are set by role"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Each staff type gets its own permissions, and each person can customize their dashboard. Class profit is visible to admins only.",
+   "review": "/training/JA1",
+   "source": "JA1 training"
+  },
+  {
+   "id": "JA1-E3",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Staff pay",
+   "prompt": "A prospect asks, “Will Momence pay my instructors?” What's the accurate answer?",
+   "options": [
+    {
+     "id": "A",
+     "text": "No. Reports show what's owed; pay is outside"
+    },
+    {
+     "id": "B",
+     "text": "Yes. Payroll is run and paid inside Momence"
+    },
+    {
+     "id": "C",
+     "text": "Yes, but only for instructors paid per class"
+    },
+    {
+     "id": "D",
+     "text": "No. Staff pay can't be tracked in Momence"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Pay rates and payroll reports show what each person is owed. The studio still pays staff outside Momence.",
+   "review": "/training/JA1",
+   "source": "JA1 training"
+  },
+  {
+   "id": "JA1-E4",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Free Momence app",
+   "prompt": "Which is true of the free Momence app?",
+   "options": [
+    {
+     "id": "A",
+     "text": "It lists nearby studios so clients find new ones"
+    },
+    {
+     "id": "B",
+     "text": "It costs the studio a fee for each download"
+    },
+    {
+     "id": "C",
+     "text": "Clients see only studios they're linked to"
+    },
+    {
+     "id": "D",
+     "text": "It's only included on the highest plan tier"
+    }
+   ],
+   "correct": "C",
+   "reveal": "It isn't a marketplace. No other studio can advertise to the studio's clients there.",
+   "review": "/training/JA1",
+   "source": "JA1 training"
+  }
+ ]
+}

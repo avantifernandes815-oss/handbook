@@ -1,0 +1,586 @@
+{
+ "cert": "JA4",
+ "version": 1,
+ "questions": [
+  {
+   "id": "JA4-A1",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "What comes over",
+   "prompt": "An Arketa studio owner says, “Honestly, I just want my client list. I'll collect cards fresh.” What do you tell her?",
+   "options": [
+    {
+     "id": "A",
+     "text": "That works. The team can bring over the contact list on its own"
+    },
+    {
+     "id": "B",
+     "text": "She'll need to migrate cards too, or the client list won't load"
+    },
+    {
+     "id": "C",
+     "text": "She should wait until the old provider releases the card file"
+    },
+    {
+     "id": "D",
+     "text": "She'll have to export and upload the client list herself first"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Some owners only want the list. Cards are a separate piece, and Momence's team handles the export.",
+   "review": "/training/JA4",
+   "source": "JA4 training"
+  },
+  {
+   "id": "JA4-A2",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Stored cards",
+   "prompt": "Which part of a migration is the slowest and least certain?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Bringing over the client list and contact details"
+    },
+    {
+     "id": "B",
+     "text": "Matching the old class schedule's times in Momence"
+    },
+    {
+     "id": "C",
+     "text": "Moving stored cards out of the old provider"
+    },
+    {
+     "id": "D",
+     "text": "Sending clients a link to the free Momence app"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Cards depend on the old provider releasing them, usually through a separate export file. That's why you never promise every card.",
+   "review": "/training/JA4",
+   "source": "JA4 training"
+  },
+  {
+   "id": "JA4-A3",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Stored cards",
+   "prompt": "A prospect asks what she'll need from her old provider for stored cards to come over. What's the most accurate answer?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Nothing. Momence's team pulls the cards straight from the system"
+    },
+    {
+     "id": "B",
+     "text": "A card export the provider releases, which onboarding helps with"
+    },
+    {
+     "id": "C",
+     "text": "A list of every member's card number, typed into a spreadsheet"
+    },
+    {
+     "id": "D",
+     "text": "Written permission from each member before any card can move"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Card data comes through the old provider's export. Some charge for it, and the fees are being confirmed, so don't quote one.",
+   "review": "/training/JA4",
+   "source": "JA4 training"
+  },
+  {
+   "id": "JA4-A4",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "What comes over",
+   "prompt": "A MindBody owner asks, “So on launch day, everything is just there?” What's the most honest answer?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Yes. Members, cards and history all move over in one step"
+    },
+    {
+     "id": "B",
+     "text": "Mostly. Only the class schedule needs rebuilding by hand"
+    },
+    {
+     "id": "C",
+     "text": "No. Each client has to sign up again on the new booking page"
+    },
+    {
+     "id": "D",
+     "text": "The client list will be there. Cards depend on MindBody's file"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Name what's certain and the one piece that depends on the old provider.",
+   "review": "/training/JA4",
+   "source": "JA4 training"
+  },
+  {
+   "id": "JA4-B1",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Who does the migration",
+   "prompt": "Who handles the data migration when a studio switches to Momence?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The owner, using an export guide from the help center"
+    },
+    {
+     "id": "B",
+     "text": "Momence's team, working from the old system's data"
+    },
+    {
+     "id": "C",
+     "text": "The old provider, as part of cancelling the contract"
+    },
+    {
+     "id": "D",
+     "text": "The AE who closed the deal, before onboarding starts"
+    }
+   ],
+   "correct": "B",
+   "reveal": "The team pulls the data. The owner's job is to build the business it lands in.",
+   "review": "/training/JA4",
+   "source": "JA4 training"
+  },
+  {
+   "id": "JA4-B2",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "What the owner builds",
+   "prompt": "Why should memberships be built in Momence before the migration?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Memberships can't be created once clients are in the system"
+    },
+    {
+     "id": "B",
+     "text": "The old system deletes them as soon as the switch is booked"
+    },
+    {
+     "id": "C",
+     "text": "Momence needs them to work out the studio's monthly price"
+    },
+    {
+     "id": "D",
+     "text": "So migrated clients have the right memberships to land in"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Build first, migrate second. Then each client lands in what they bought.",
+   "review": "/training/JA4",
+   "source": "JA4 training"
+  },
+  {
+   "id": "JA4-B3",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "What the owner builds",
+   "prompt": "A busy owner asks, “Can't your team just build everything for me?” What's the best answer?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Explain she builds with her specialist, who shows her each part"
+    },
+    {
+     "id": "B",
+     "text": "Say yes, the team builds the whole account while she runs the studio"
+    },
+    {
+     "id": "C",
+     "text": "Say no, she'll need to learn the system alone from help articles"
+    },
+    {
+     "id": "D",
+     "text": "Suggest she hires a consultant to set up the account for her"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Onboarding is done with the owner. The team moves the data, and the specialist teaches and builds alongside her.",
+   "review": "/training/JA4",
+   "source": "JA4 training"
+  },
+  {
+   "id": "JA4-B4",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Who does the migration",
+   "prompt": "An owner says, “I'm not techy. I don't want members asking me to move their data and not knowing how.” What do you tell her?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Show her the export screen so she can practise moving data"
+    },
+    {
+     "id": "B",
+     "text": "Tell her most owners pick it up within the first week or so"
+    },
+    {
+     "id": "C",
+     "text": "Explain the team moves the data, and her part is the setup"
+    },
+    {
+     "id": "D",
+     "text": "Suggest she waits until she feels more confident to switch"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Separate the two jobs clearly. Moving the data isn't her job.",
+   "review": "/training/JA4",
+   "source": "JA4 training"
+  },
+  {
+   "id": "JA4-C1",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Running both systems",
+   "prompt": "What happens to the studio's current system while Momence is being built?",
+   "options": [
+    {
+     "id": "A",
+     "text": "It's switched off the day the agreement is signed"
+    },
+    {
+     "id": "B",
+     "text": "It runs in read-only mode, with no new bookings"
+    },
+    {
+     "id": "C",
+     "text": "It keeps running as normal until the switch"
+    },
+    {
+     "id": "D",
+     "text": "It's cancelled by Momence on the owner's behalf"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Clients keep booking and paying there until the conversion date.",
+   "review": "/training/JA4",
+   "source": "JA4 training"
+  },
+  {
+   "id": "JA4-C2",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Running both systems",
+   "prompt": "When is the conversion date usually set?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Once the owner's setup in Momence is built and ready"
+    },
+    {
+     "id": "B",
+     "text": "On the day the agreement is signed, before any setup"
+    },
+    {
+     "id": "C",
+     "text": "On the first of the month after the owner signs up"
+    },
+    {
+     "id": "D",
+     "text": "Whenever the old provider sends over the card file"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Build first, then pick the date. The team pulls the data at the switch.",
+   "review": "/training/JA4",
+   "source": "JA4 training"
+  },
+  {
+   "id": "JA4-C3",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Renewal date",
+   "prompt": "In discovery, a MindBody owner mentions her contract renews in a few months. What's the best use of that?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Wait to pitch until a month before it renews, when she's ready"
+    },
+    {
+     "id": "B",
+     "text": "Tell her to cancel MindBody now so she isn't charged again"
+    },
+    {
+     "id": "C",
+     "text": "Note it for later and move on to showing the front end"
+    },
+    {
+     "id": "D",
+     "text": "Plan backwards: sign, build, and switch before it renews"
+    }
+   ],
+   "correct": "D",
+   "reveal": "The renewal date gives the plan a deadline and the close a reason.",
+   "review": "/training/JA4",
+   "source": "JA4 training"
+  },
+  {
+   "id": "JA4-C4",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Renewal date",
+   "prompt": "Near the end of a demo, the owner says she isn't sure she's even in a contract with her current provider. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Assume she isn't and book the conversion date for next month"
+    },
+    {
+     "id": "B",
+     "text": "Ask her to check before your next call so you can plan the switch"
+    },
+    {
+     "id": "C",
+     "text": "Skip it, since onboarding sorts out contract timing later on"
+    },
+    {
+     "id": "D",
+     "text": "Offer extra free months so the contract doesn't matter to her"
+    }
+   ],
+   "correct": "B",
+   "reveal": "You can't plan the switch without the date. Make finding it the next step, and ask earlier next time.",
+   "review": "/training/JA4",
+   "source": "JA4 training"
+  },
+  {
+   "id": "JA4-D1",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Setting expectations",
+   "prompt": "A prospect asks, “How many hours will this take me each week?” What's the best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Give her a firm number so she can block it in her calendar"
+    },
+    {
+     "id": "B",
+     "text": "Say it's quick and she'll barely notice it alongside the studio"
+    },
+    {
+     "id": "C",
+     "text": "Tell her you can't say anything until she has signed the contract"
+    },
+    {
+     "id": "D",
+     "text": "Say it depends on her pace, and onboarding sets the plan with her"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Owner hours aren't confirmed. Explain what drives the time and let onboarding set the plan.",
+   "review": "/training/JA4",
+   "source": "JA4 training"
+  },
+  {
+   "id": "JA4-D2",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "Setting expectations",
+   "prompt": "Which of these can you state as fact on a demo?",
+   "options": [
+    {
+     "id": "A",
+     "text": "How many weeks onboarding will take for this studio"
+    },
+    {
+     "id": "B",
+     "text": "That Momence's team does the data migration for the owner"
+    },
+    {
+     "id": "C",
+     "text": "Which old memberships will carry over unchanged"
+    },
+    {
+     "id": "D",
+     "text": "What the old provider will charge for its export"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Timelines, details of the data and old-provider fees are still being confirmed. Who does the migration is the same in every demo.",
+   "review": "/training/JA4",
+   "source": "JA4 training"
+  },
+  {
+   "id": "JA4-D3",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Setting expectations",
+   "prompt": "A prospect asks a detailed question about how her migrated data will look, and you're not sure. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Say yes, since that's how it worked on another AE's demo"
+    },
+    {
+     "id": "B",
+     "text": "Say no, so she isn't disappointed if it doesn't work later"
+    },
+    {
+     "id": "C",
+     "text": "Say onboarding will confirm it, and note it as a follow-up"
+    },
+    {
+     "id": "D",
+     "text": "Change the subject to the marketing suite and come back later"
+    }
+   ],
+   "correct": "C",
+   "reveal": "A guess sounds helpful until it's wrong. Flag it and follow up.",
+   "review": "/training/JA4",
+   "source": "JA4 training"
+  },
+  {
+   "id": "JA4-D4",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Setting expectations",
+   "prompt": "An owner opening in six weeks asks if onboarding will be done in time. What's the best answer?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Tie the plan to her date and be clear her build pace drives it"
+    },
+    {
+     "id": "B",
+     "text": "Promise it will be finished, since most onboardings are fast"
+    },
+    {
+     "id": "C",
+     "text": "Tell her to push the opening back to be safe with onboarding"
+    },
+    {
+     "id": "D",
+     "text": "Say you can't comment on timing until onboarding has started"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Use her date to plan, without promising a timeline that isn't confirmed.",
+   "review": "/training/JA4",
+   "source": "JA4 training"
+  },
+  {
+   "id": "JA4-E1",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Migration fear",
+   "prompt": "Which objection came up most often in our demos?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Fear of losing data, members or cards in the migration"
+    },
+    {
+     "id": "B",
+     "text": "Worry that clients will mind paying the card fees"
+    },
+    {
+     "id": "C",
+     "text": "Doubt that the free app is good enough for clients"
+    },
+    {
+     "id": "D",
+     "text": "Concern that the marketing suite is too complex"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Migration fear tops the list. Answer it early and specifically.",
+   "review": "/training/JA4",
+   "source": "JA4 training"
+  },
+  {
+   "id": "JA4-E2",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Migration fear",
+   "prompt": "Answering a question about stored cards, you're tempted to say the old provider makes switching hard on purpose. Why hold back?",
+   "options": [
+    {
+     "id": "A",
+     "text": "It's fine to say, as long as the prospect agrees with you"
+    },
+    {
+     "id": "B",
+     "text": "Prospects don't care how you talk about other vendors"
+    },
+    {
+     "id": "C",
+     "text": "It's unverified, and a knock costs trust in everything else"
+    },
+    {
+     "id": "D",
+     "text": "Only managers are allowed to talk about other providers"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Stay factual: cards depend on the old provider's export. Leave the commentary out.",
+   "review": "/training/JA4",
+   "source": "JA4 training"
+  },
+  {
+   "id": "JA4-E3",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Past bad onboarding",
+   "prompt": "A prospect sat through a long run of repetitive onboarding calls with MindBody. Late in your demo she brings it up again. What's the best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Say you're sorry to hear it and move on to wrapping up the call"
+    },
+    {
+     "id": "B",
+     "text": "Ask what she'd want different, and show how the plan answers it"
+    },
+    {
+     "id": "C",
+     "text": "Agree MindBody's onboarding is poor and promise far fewer calls"
+    },
+    {
+     "id": "D",
+     "text": "Tell her onboarding is out of your hands as the AE on the deal"
+    }
+   ],
+   "correct": "B",
+   "reveal": "A past bad setup is a clue to what she needs. Use it to shape the plan.",
+   "review": "/training/JA4",
+   "source": "JA4 training"
+  },
+  {
+   "id": "JA4-E4",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Migration fear",
+   "prompt": "Which answer to migration fear works best?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A general promise that Momence makes switching easy"
+    },
+    {
+     "id": "B",
+     "text": "A story about another studio that switched without issues"
+    },
+    {
+     "id": "C",
+     "text": "A reminder that the old provider is harder to work with"
+    },
+    {
+     "id": "D",
+     "text": "Specifics: who moves the data, what runs, what's not certain"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Specifics calm fear. Blanket promises and digs at the old vendor don't.",
+   "review": "/training/JA4",
+   "source": "JA4 training"
+  }
+ ]
+}

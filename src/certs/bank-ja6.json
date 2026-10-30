@@ -1,0 +1,586 @@
+{
+ "cert": "JA6",
+ "version": 1,
+ "questions": [
+  {
+   "id": "JA6-A1",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Contract timing",
+   "prompt": "In discovery, a MindBody studio owner says her contract “renews sometime in the fall.” What's your best next move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Ask her to check the exact date and notice period before you go on"
+    },
+    {
+     "id": "B",
+     "text": "Note it as fall and bring timing up again once pricing comes up"
+    },
+    {
+     "id": "C",
+     "text": "Tell her to cancel MindBody now so the renewal can't catch her out"
+    },
+    {
+     "id": "D",
+     "text": "Skip it, since timing only matters once she has picked her plan"
+    }
+   ],
+   "correct": "A",
+   "reveal": "“Sometime in the fall” can't anchor a close. The exact date and notice period can.",
+   "review": "/training/JA6",
+   "source": "JA6 training"
+  },
+  {
+   "id": "JA6-A2",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Contract timing",
+   "prompt": "Why ask about the current contract in discovery instead of at the close?",
+   "options": [
+    {
+     "id": "A",
+     "text": "It shows whether she can afford Momence before you share pricing"
+    },
+    {
+     "id": "B",
+     "text": "The renewal date sets the deadline you plan the whole switch around"
+    },
+    {
+     "id": "C",
+     "text": "Prospects only answer contract questions before they've seen price"
+    },
+    {
+     "id": "D",
+     "text": "It tells you which competitor she'll most likely compare you with"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Asked early, the date shapes the whole call. Found at the end, it's a surprise that stalls the deal.",
+   "review": "/training/JA6",
+   "source": "JA6 training"
+  },
+  {
+   "id": "JA6-A3",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Contract timing",
+   "prompt": "A prospect's contract renews soon and she'd pay for both systems while she onboards. She asks if you can cover the overlap. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Promise her free months to cover the overlap so she signs today"
+    },
+    {
+     "id": "B",
+     "text": "Tell her the overlap is normal and every new customer pays both"
+    },
+    {
+     "id": "C",
+     "text": "Ask your manager what you can offer, then put it in the agreement"
+    },
+    {
+     "id": "D",
+     "text": "Advise her to renew her old contract and switch next year instead"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Covering an overlap is a concession. It needs approval, and once approved it goes in writing.",
+   "review": "/training/JA6",
+   "source": "JA6 training"
+  },
+  {
+   "id": "JA6-A4",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Contract timing",
+   "prompt": "A prospect has no contract with her current system and says she'll “switch in the new year.” What's the strongest move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Accept the timeline and set a reminder to call her in late December"
+    },
+    {
+     "id": "B",
+     "text": "Offer a discount that only applies if she signs before the new year"
+    },
+    {
+     "id": "C",
+     "text": "Tell her a studio with no contract should always switch right away"
+    },
+    {
+     "id": "D",
+     "text": "Work back from her go-live date and agree when she needs to sign"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Her go-live date is the deadline. Onboarding and migration take time, so the signing date comes well before it.",
+   "review": "/training/JA6",
+   "source": "JA6 training"
+  },
+  {
+   "id": "JA6-B1",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Comparison shopping",
+   "prompt": "Near the end of a demo, the prospect says, “I'm seeing Arketa tomorrow.” What should you do before the call ends?",
+   "options": [
+    {
+     "id": "A",
+     "text": "List what Arketa can't do so she can ask them about each one"
+    },
+    {
+     "id": "B",
+     "text": "Book a follow-up for after Arketa and ask what she'll compare"
+    },
+    {
+     "id": "C",
+     "text": "Offer a price that only holds if she cancels the Arketa demo"
+    },
+    {
+     "id": "D",
+     "text": "Tell her to reach out after Arketa if she has more questions"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Know what she'll weigh and be the first call after the other demo.",
+   "review": "/training/JA6",
+   "source": "JA6 training"
+  },
+  {
+   "id": "JA6-B2",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Comparison shopping",
+   "prompt": "A prospect names a real strength of a competitor she's also seeing. What's the right stance?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Question the claim and ask where she heard it before you move on"
+    },
+    {
+     "id": "B",
+     "text": "Change the subject back to the features you planned to show next"
+    },
+    {
+     "id": "C",
+     "text": "Acknowledge the strength, then show where Momence is stronger for her"
+    },
+    {
+     "id": "D",
+     "text": "Agree, then offer a discount to make up for the gap in features"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Conceding a real strength builds trust. Then tie Momence's strengths to what she said matters.",
+   "review": "/training/JA6",
+   "source": "JA6 training"
+  },
+  {
+   "id": "JA6-B3",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Partner stall",
+   "prompt": "Forty minutes in, the owner mentions her husband “handles the money side” and hasn't seen anything yet. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Give her a pricing sheet she can walk him through on her own tonight"
+    },
+    {
+     "id": "B",
+     "text": "Ask her to sign now, since she's the one running the studio each day"
+    },
+    {
+     "id": "C",
+     "text": "Leave it with her and wait to hear back once the two of them talk"
+    },
+    {
+     "id": "D",
+     "text": "Offer a short call with both of them and send him the agreement too"
+    }
+   ],
+   "correct": "D",
+   "reveal": "The person who decides should hear it from you, and every signer should have the agreement.",
+   "review": "/training/JA6",
+   "source": "JA6 training"
+  },
+  {
+   "id": "JA6-B4",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Partner stall",
+   "prompt": "A studio has three owners who all sign. When the agreement goes out, who should get it?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Every owner who signs, along with the recap or the recording"
+    },
+    {
+     "id": "B",
+     "text": "Only your main contact, so the others hear it from her first"
+    },
+    {
+     "id": "C",
+     "text": "Only the owner who handles money, since that's who decides"
+    },
+    {
+     "id": "D",
+     "text": "Nobody yet; wait until all three have seen a demo with you"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Sending it to everyone who signs keeps the deal from waiting on one person to forward it.",
+   "review": "/training/JA6",
+   "source": "JA6 training"
+  },
+  {
+   "id": "JA6-C1",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Next step",
+   "prompt": "You ask to book a follow-up. The prospect says, “I'll check my calendar and email you a time.” What's best?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Send your booking link so she can pick a time when it suits her"
+    },
+    {
+     "id": "B",
+     "text": "Agree, and send a reminder email if you haven't heard in a week"
+    },
+    {
+     "id": "C",
+     "text": "Ask her to open her calendar now so you can pick the time together"
+    },
+    {
+     "id": "D",
+     "text": "Leave it with her, since pushing for a time can feel too pushy"
+    }
+   ],
+   "correct": "C",
+   "reveal": "A time picked together on the call is a next step. A promise to email one is a hope.",
+   "review": "/training/JA6",
+   "source": "JA6 training"
+  },
+  {
+   "id": "JA6-C2",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Next step",
+   "prompt": "Which of these is a real next step?",
+   "options": [
+    {
+     "id": "A",
+     "text": "I'll email the recap and touch base with you at the end of the week"
+    },
+    {
+     "id": "B",
+     "text": "Reach out whenever you've had a chance to look over the pricing"
+    },
+    {
+     "id": "C",
+     "text": "I'll send a calendar link so you can pick a time that suits you"
+    },
+    {
+     "id": "D",
+     "text": "Monday at 10:30 with both owners, to answer questions and decide"
+    }
+   ],
+   "correct": "D",
+   "reveal": "A date, a time, the right people and a purpose. Everything else depends on someone remembering.",
+   "review": "/training/JA6",
+   "source": "JA6 training"
+  },
+  {
+   "id": "JA6-C3",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Next step",
+   "prompt": "The decision-maker is a general manager who wasn't on the call. Your contact meets him tomorrow. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Book a call for after that meeting and invite the manager to join"
+    },
+    {
+     "id": "B",
+     "text": "Send a link so she can book time once the manager has decided"
+    },
+    {
+     "id": "C",
+     "text": "Ask her to forward your recap and let him reach out if he's keen"
+    },
+    {
+     "id": "D",
+     "text": "Push her to sign today so the manager doesn't need to be involved"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Tie the next step to the meeting that matters, and put the decision-maker on it.",
+   "review": "/training/JA6",
+   "source": "JA6 training"
+  },
+  {
+   "id": "JA6-C4",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Next step",
+   "prompt": "What makes a next step clear?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A recap email listing every feature you showed on the demo"
+    },
+    {
+     "id": "B",
+     "text": "A date, a time, who joins and what you'll decide on that call"
+    },
+    {
+     "id": "C",
+     "text": "A promise from the prospect to get back to you within a week"
+    },
+    {
+     "id": "D",
+     "text": "A pricing sheet and a link to your calendar to book a time"
+    }
+   ],
+   "correct": "B",
+   "reveal": "If both sides can say what happens and when, it's a next step.",
+   "review": "/training/JA6",
+   "source": "JA6 training"
+  },
+  {
+   "id": "JA6-D1",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Walking the agreement",
+   "prompt": "While you walk the agreement, the prospect asks what happens to her price after the first year. The agreement doesn't say. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Tell her prices never go up, since that's what you've heard on calls"
+    },
+    {
+     "id": "B",
+     "text": "Say it depends and move on so the question doesn't stall the close"
+    },
+    {
+     "id": "C",
+     "text": "Tell her she can renegotiate anything once her first year is done"
+    },
+    {
+     "id": "D",
+     "text": "Say you'll confirm with your manager and send the answer in writing"
+    }
+   ],
+   "correct": "D",
+   "reveal": "If it isn't written in the agreement, don't state it from memory. Confirm it and put it in writing.",
+   "review": "/training/JA6",
+   "source": "JA6 training"
+  },
+  {
+   "id": "JA6-D2",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Walking the agreement",
+   "prompt": "The prospect asks, “So how long am I committed for?” The agreement is on screen. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Show her the term as it's written in the agreement in front of her"
+    },
+    {
+     "id": "B",
+     "text": "Tell her the term other AEs usually quote on calls like this one"
+    },
+    {
+     "id": "C",
+     "text": "Say it's flexible, so the question doesn't slow down the signing"
+    },
+    {
+     "id": "D",
+     "text": "Tell her the term from the last agreement you sent to a studio"
+    }
+   ],
+   "correct": "A",
+   "reveal": "State only the terms written in her agreement. Terms change, and hers is the one she's signing.",
+   "review": "/training/JA6",
+   "source": "JA6 training"
+  },
+  {
+   "id": "JA6-D3",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Concessions",
+   "prompt": "A prospect asks you to push her first payment out by a couple of months. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Agree on the call, since a later payment won't change the total"
+    },
+    {
+     "id": "B",
+     "text": "Check with your manager, then add any approved change in writing"
+    },
+    {
+     "id": "C",
+     "text": "Refuse, since payment dates can never move once a quote is out"
+    },
+    {
+     "id": "D",
+     "text": "Agree now and tell your manager once she has signed the agreement"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Payment timing is a concession. Get it approved first, then write it into the agreement.",
+   "review": "/training/JA6",
+   "source": "JA6 training"
+  },
+  {
+   "id": "JA6-D4",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "Concessions",
+   "prompt": "Your manager approves a concession. Where should it end up?",
+   "options": [
+    {
+     "id": "A",
+     "text": "In the recap email, so she has a record of what you promised"
+    },
+    {
+     "id": "B",
+     "text": "In your CRM notes, so onboarding knows what you told the owner"
+    },
+    {
+     "id": "C",
+     "text": "Written into the agreement, so she sees it before she signs"
+    },
+    {
+     "id": "D",
+     "text": "Nowhere formal; you'll honor it when the account's billing starts"
+    }
+   ],
+   "correct": "C",
+   "reveal": "An approved concession belongs in the agreement as an addendum, where both sides can see it.",
+   "review": "/training/JA6",
+   "source": "JA6 training"
+  },
+  {
+   "id": "JA6-E1",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Sign-up steps",
+   "prompt": "The prospect says yes but wants to sign the agreement “later tonight.” You want onboarding booked. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Ask her to sign now while you're both on the call, so you can book"
+    },
+    {
+     "id": "B",
+     "text": "Book onboarding now and trust that she'll sign the agreement tonight"
+    },
+    {
+     "id": "C",
+     "text": "Thank her and wait for an email telling you the agreement is signed"
+    },
+    {
+     "id": "D",
+     "text": "Send a second copy of the agreement so it's at the top of her inbox"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Onboarding can't be booked until the agreement is signed. Signed live is signed.",
+   "review": "/training/JA6",
+   "source": "JA6 training"
+  },
+  {
+   "id": "JA6-E2",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Sign-up steps",
+   "prompt": "What has to be done before you can book a new customer's onboarding?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Signed agreement, a migration file and a launch date"
+    },
+    {
+     "id": "B",
+     "text": "Signed agreement, a host account and a card on file"
+    },
+    {
+     "id": "C",
+     "text": "A host account, a branded app and the first payment"
+    },
+    {
+     "id": "D",
+     "text": "A card on file and her old contract fully cancelled"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Agreement, host account and card on file come first. Onboarding gets booked after.",
+   "review": "/training/JA6",
+   "source": "JA6 training"
+  },
+  {
+   "id": "JA6-E3",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Retention call",
+   "prompt": "Before she signs, a prospect says, “My old system just offered me a big discount to stay.” What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Match the discount right away so price is no longer a factor"
+    },
+    {
+     "id": "B",
+     "text": "Tell her the discount will disappear when her year is up anyway"
+    },
+    {
+     "id": "C",
+     "text": "Ask what made her start looking, and whether a discount fixes that"
+    },
+    {
+     "id": "D",
+     "text": "Say she should take it if price is the only thing that matters"
+    }
+   ],
+   "correct": "C",
+   "reveal": "A retention discount changes the price, not the reasons she started looking. Bring her back to those.",
+   "review": "/training/JA6",
+   "source": "JA6 training"
+  },
+  {
+   "id": "JA6-E4",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Retention call",
+   "prompt": "Why does the old system keep running until the switch date?",
+   "options": [
+    {
+     "id": "A",
+     "text": "So the old vendor can migrate her data over to Momence for her"
+    },
+    {
+     "id": "B",
+     "text": "So she keeps a backup in case she decides to leave Momence later"
+    },
+    {
+     "id": "C",
+     "text": "So she avoids an early cancellation fee from the old vendor's side"
+    },
+    {
+     "id": "D",
+     "text": "So the studio keeps booking and taking payments while onboarding runs"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Both systems run until the switch, so cancelling the old one never puts her bookings at risk.",
+   "review": "/training/JA6",
+   "source": "JA6 training"
+  }
+ ]
+}

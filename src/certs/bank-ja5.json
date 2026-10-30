@@ -1,0 +1,586 @@
+{
+ "cert": "JA5",
+ "version": 1,
+ "questions": [
+  {
+   "id": "JA5-A1",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Acknowledge, then show",
+   "prompt": "A prospect says her current software’s support has been excellent. You’ve heard elsewhere that its support is weak. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Tell her what you’ve heard so she can weigh it before she renews"
+    },
+    {
+     "id": "B",
+     "text": "Agree it’s a strength, then show where Momence fits her needs better"
+    },
+    {
+     "id": "C",
+     "text": "Say Momence’s support is faster, without getting into specifics"
+    },
+    {
+     "id": "D",
+     "text": "Skip the topic of support and move the demo straight to pricing"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Several competitors out-rate us on day-to-day service. Grant what’s true and move to where Momence is stronger for her.",
+   "review": "/training/JA5",
+   "source": "JA5 training"
+  },
+  {
+   "id": "JA5-A2",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Acknowledge, then show",
+   "prompt": "Which kind of competitor claim is safe to make on a demo?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A line other AEs use that prospects tend to react well to hearing"
+    },
+    {
+     "id": "B",
+     "text": "Something a former customer of theirs told you on a past demo"
+    },
+    {
+     "id": "C",
+     "text": "A comparison you remember from a blog post or a review site"
+    },
+    {
+     "id": "D",
+     "text": "A fee taken from the competitor’s own published pricing or proposal"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Only first-party facts and what the prospect tells you about their own experience. Everything else stays out.",
+   "review": "/training/JA5",
+   "source": "JA5 training"
+  },
+  {
+   "id": "JA5-A3",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Mariana Tek",
+   "prompt": "An owner on Mariana Tek asks why she would switch to its sister company’s product. What’s your best move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Ask what isn’t working for her today, then show where Momence fits"
+    },
+    {
+     "id": "B",
+     "text": "Explain that Mariana Tek is built for big franchises, not her size"
+    },
+    {
+     "id": "C",
+     "text": "Tell her Momence is the newer and better product of the two brands"
+    },
+    {
+     "id": "D",
+     "text": "Say it’s much the same software, so switching over will be simple"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Don’t knock it and don’t lean on the franchise framing, which is still being confirmed. Let her pain drive the demo.",
+   "review": "/training/JA5",
+   "source": "JA5 training"
+  },
+  {
+   "id": "JA5-A4",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Mariana Tek",
+   "prompt": "A Mariana Tek studio has no schedule on its website; new clients have to book through the app. What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The branded app, so her clients can keep booking the same way"
+    },
+    {
+     "id": "B",
+     "text": "The AI agent, so app questions get answered around the clock"
+    },
+    {
+     "id": "C",
+     "text": "A schedule on her own site that shows classes and drop-in prices"
+    },
+    {
+     "id": "D",
+     "text": "The referral program, so members invite friends through the app"
+    }
+   ],
+   "correct": "C",
+   "reveal": "A new person can see classes, prices and instructors straight away and book without downloading anything first.",
+   "review": "/training/JA5",
+   "source": "JA5 training"
+  },
+  {
+   "id": "JA5-B1",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "MindBody",
+   "prompt": "A MindBody owner says, “I loved it as a client and a teacher. It’s the back end that drives me crazy.” What’s your next move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Show the client checkout first, since that’s where Momence wins"
+    },
+    {
+     "id": "B",
+     "text": "Agree MindBody is outdated, then run the full feature tour for her"
+    },
+    {
+     "id": "C",
+     "text": "Ask what in the back end costs her the most, then demo against it"
+    },
+    {
+     "id": "D",
+     "text": "Move to pricing, since back-end pain means she’s ready to switch"
+    }
+   ],
+   "correct": "C",
+   "reveal": "She told you the strength and the pain in one line. Dig into the pain before you share a screen.",
+   "review": "/training/JA5",
+   "source": "JA5 training"
+  },
+  {
+   "id": "JA5-B2",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "MindBody",
+   "prompt": "Per the CC5 battle card, which MindBody fee does Momence not charge?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A marketplace fee on new clients who find the studio via its app"
+    },
+    {
+     "id": "B",
+     "text": "A setup fee for each new staff account the studio adds to it"
+    },
+    {
+     "id": "C",
+     "text": "A monthly fee for every class the studio lists on its schedule"
+    },
+    {
+     "id": "D",
+     "text": "A per-message charge on the in-app notifications clients get"
+    }
+   ],
+   "correct": "A",
+   "reveal": "It’s on new clients who come through the MindBody app. Ask if they know what it adds up to in a year.",
+   "review": "/training/JA5",
+   "source": "JA5 training"
+  },
+  {
+   "id": "JA5-B3",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "MindBody",
+   "prompt": "A MindBody prospect says her booking widget feels like a window dropped into her site, and it takes clients off the page. What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The free Momence app, so clients book there instead of her site"
+    },
+    {
+     "id": "B",
+     "text": "The community page, so clients see posts before they book a class"
+    },
+    {
+     "id": "C",
+     "text": "The ads manager, so more traffic reaches the widget she has today"
+    },
+    {
+     "id": "D",
+     "text": "The schedule plugin styled to her brand, then the one-page checkout"
+    }
+   ],
+   "correct": "D",
+   "reveal": "The plugin can be styled to match the studio, and checkout is one page with no account to create.",
+   "review": "/training/JA5",
+   "source": "JA5 training"
+  },
+  {
+   "id": "JA5-B4",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "MindBody",
+   "prompt": "A MindBody prospect worries that clients who download the free Momence app will see other studios. What’s accurate?",
+   "options": [
+    {
+     "id": "A",
+     "text": "They’ll see nearby studios unless she pays for the branded app"
+    },
+    {
+     "id": "B",
+     "text": "It’s no marketplace; clients see only studios they’ve bought from"
+    },
+    {
+     "id": "C",
+     "text": "They’ll see other studios, but only ones in a different city"
+    },
+    {
+     "id": "D",
+     "text": "They’ll see other studios until she turns that off in settings"
+    }
+   ],
+   "correct": "B",
+   "reveal": "No other studio can advertise to her clients in the free app. That’s a real difference from a marketplace app.",
+   "review": "/training/JA5",
+   "source": "JA5 training"
+  },
+  {
+   "id": "JA5-C1",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "WellnessLiving",
+   "prompt": "A WellnessLiving prospect says she’s fairly sure she has no contract. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Tell her WellnessLiving often uses three-year contracts anyway"
+    },
+    {
+     "id": "B",
+     "text": "Assume she’s free to switch and plan the move for next month"
+    },
+    {
+     "id": "C",
+     "text": "Offer extra free months to cover any contract she might find"
+    },
+    {
+     "id": "D",
+     "text": "Ask her to check her agreement and renewal date before planning"
+    }
+   ],
+   "correct": "D",
+   "reveal": "You don’t know their contract terms, and guessing is a knock. Her own agreement is the source.",
+   "review": "/training/JA5",
+   "source": "JA5 training"
+  },
+  {
+   "id": "JA5-C2",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "WellnessLiving",
+   "prompt": "A WellnessLiving owner says her deciding need is booking private events online with a deposit, then the balance later. You haven’t seen it demoed. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Say yes, it’s standard, and move on to pricing and the contract"
+    },
+    {
+     "id": "B",
+     "text": "Confirm how Momence builds it, then demo it before you close"
+    },
+    {
+     "id": "C",
+     "text": "Tell her WellnessLiving can’t do it, so any switch is a step up"
+    },
+    {
+     "id": "D",
+     "text": "Suggest she keep invoicing those events by hand through Square"
+    }
+   ],
+   "correct": "B",
+   "reveal": "In one cycle this need was agreed to and never shown across four calls. Prove the deciding need on screen.",
+   "review": "/training/JA5",
+   "source": "JA5 training"
+  },
+  {
+   "id": "JA5-C3",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Glofox",
+   "prompt": "A Glofox owner says his price has gone up since he joined. Which question fits the stance?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Did you know Glofox has hidden fees that studios find out later?"
+    },
+    {
+     "id": "B",
+     "text": "Have you heard how many studios are leaving Glofox this year?"
+    },
+    {
+     "id": "C",
+     "text": "What did it move to, and how much notice did they give you?"
+    },
+    {
+     "id": "D",
+     "text": "Want to hear how our prices have held for every customer?"
+    }
+   ],
+   "correct": "C",
+   "reveal": "He answers it from his own experience. Hidden-fee hearsay and price promises are both unverified.",
+   "review": "/training/JA5",
+   "source": "JA5 training"
+  },
+  {
+   "id": "JA5-C4",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Glofox",
+   "prompt": "A Glofox owner says there’s no direct sign-up link; the booking widget has to be embedded on his site. What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Each class and offer has its own link that goes straight to payment"
+    },
+    {
+     "id": "B",
+     "text": "The embedded schedule, since it works the same way as his widget"
+    },
+    {
+     "id": "C",
+     "text": "The free app, since clients can’t book without downloading it"
+    },
+    {
+     "id": "D",
+     "text": "The community page, since posts there link to the full schedule"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Every class and offer has its own link, so a post, email or flyer can go straight to the purchase.",
+   "review": "/training/JA5",
+   "source": "JA5 training"
+  },
+  {
+   "id": "JA5-D1",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "Arketa",
+   "prompt": "Which of these is a real difference you can show against the Arketa checkout?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Booking with no account or password for a first-time client"
+    },
+    {
+     "id": "B",
+     "text": "Passing the card processing fee on to the client at checkout"
+    },
+    {
+     "id": "C",
+     "text": "Reserving a spot for a guest as part of the same booking flow"
+    },
+    {
+     "id": "D",
+     "text": "Showing packs and memberships to the client before checkout"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Arketa’s checkout made the client create an account with a password. It can pass fees on and book for a guest too.",
+   "review": "/training/JA5",
+   "source": "JA5 training"
+  },
+  {
+   "id": "JA5-D2",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Arketa",
+   "prompt": "A spa owner who tried Arketa says booking red light plus sauna took two separate checkouts. What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The class schedule widget and how it matches her site’s brand"
+    },
+    {
+     "id": "B",
+     "text": "The Spot Filler sequence for filling her quieter time slots"
+    },
+    {
+     "id": "C",
+     "text": "Multi-service appointment checkout that books both together"
+    },
+    {
+     "id": "D",
+     "text": "The ads manager and how it tracks the leads from her Meta ads"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Book both services in one checkout. That was the reason one prospect left Arketa.",
+   "review": "/training/JA5",
+   "source": "JA5 training"
+  },
+  {
+   "id": "JA5-D3",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Arketa",
+   "prompt": "A prospect says, “Arketa is the cheaper middle option, and it does sequences too.” What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Say Arketa is cheaper because it does about half of what we do"
+    },
+    {
+     "id": "B",
+     "text": "Grant what Arketa does well, then ask what it showed you haven’t"
+    },
+    {
+     "id": "C",
+     "text": "Match on price right away so the gap stops being an issue"
+    },
+    {
+     "id": "D",
+     "text": "List the bugs that other Arketa customers have told you about"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Conceding the basics and asking this surfaced the real deciding need in one cycle.",
+   "review": "/training/JA5",
+   "source": "JA5 training"
+  },
+  {
+   "id": "JA5-D4",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Arketa",
+   "prompt": "A current Arketa customer says what keeps her there is asking her reports questions in plain language. What’s the right move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Tell her it’s on the roadmap and should be live early next year"
+    },
+    {
+     "id": "B",
+     "text": "Show the reports library and say it does the same thing today"
+    },
+    {
+     "id": "C",
+     "text": "Say Arketa’s reporting is known to be off, so it won’t help her"
+    },
+    {
+     "id": "D",
+     "text": "Say honestly Momence has nothing equal to show; don’t promise a date"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Momence had no equivalent to show. Roadmap dates aren’t confirmed, so don’t name one.",
+   "review": "/training/JA5",
+   "source": "JA5 training"
+  },
+  {
+   "id": "JA5-E1",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Walla",
+   "prompt": "A Walla prospect asks why she’d use Momence’s pop-up instead of keeping booking on her site. What’s the strongest answer?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Nearly all clients prefer the pop-up, going by our own numbers"
+    },
+    {
+     "id": "B",
+     "text": "On-site booking is outdated, and Walla will move off it soon"
+    },
+    {
+     "id": "C",
+     "text": "Closing it returns them to the schedule, and each class has a link"
+    },
+    {
+     "id": "D",
+     "text": "There’s no real difference, so pick whichever one looks better"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Real reasons beat a made-up stat. And she can still embed the schedule if she prefers.",
+   "review": "/training/JA5",
+   "source": "JA5 training"
+  },
+  {
+   "id": "JA5-E2",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Walla",
+   "prompt": "Per the CC5 battle card, what’s the main angle against Walla?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Fees: Walla’s per-transaction charges on top of the subscription"
+    },
+    {
+     "id": "B",
+     "text": "Contracts: long Walla terms that are hard for studios to exit"
+    },
+    {
+     "id": "C",
+     "text": "Support: slow Walla replies when a studio needs help quickly"
+    },
+    {
+     "id": "D",
+     "text": "Consolidation: the other tools studios pay for alongside Walla"
+    }
+   ],
+   "correct": "D",
+   "reveal": "There’s no fee angle on Walla. Ask what else they pay for to run email, texts and reviews.",
+   "review": "/training/JA5",
+   "source": "JA5 training"
+  },
+  {
+   "id": "JA5-E3",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Across competitors",
+   "prompt": "A prospect has demoed MindBody, Arketa, WellnessLiving and Mariana Tek, and has used Walla. What’s the best use of that?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Ask what each did well and what ruled it out, then demo to that"
+    },
+    {
+     "id": "B",
+     "text": "Walk through each one’s weak spots so she can rule them out"
+    },
+    {
+     "id": "C",
+     "text": "Skip it, since comparing platforms always looks defensive"
+    },
+    {
+     "id": "D",
+     "text": "Ask which was cheapest so you know the price you need to beat"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Her own reasons tell you which strengths to acknowledge and what to show first.",
+   "review": "/training/JA5",
+   "source": "JA5 training"
+  },
+  {
+   "id": "JA5-E4",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Across competitors",
+   "prompt": "Which landmine question matches a Walla prospect?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Does your revenue report reconcile against Stripe?”"
+    },
+    {
+     "id": "B",
+     "text": "“What else do you pay for: email, SMS, reviews, forms?”"
+    },
+    {
+     "id": "C",
+     "text": "“If you cancelled tomorrow, would the charges stop?”"
+    },
+    {
+     "id": "D",
+     "text": "“What did your price move to at your last renewal?”"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Consolidation is the Walla angle. The others fit Arketa, WellnessLiving and Glofox.",
+   "review": "/training/JA5",
+   "source": "JA5 training"
+  }
+ ]
+}

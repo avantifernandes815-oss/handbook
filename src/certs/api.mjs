@@ -18,12 +18,27 @@ import bankCC5 from './bank-cc5.json' with {type: 'json'};
 import {CC5_TRAINING, CC5_ROLEPLAY} from './cc5-content.mjs';
 import bankCC6 from './bank-cc6.json' with {type: 'json'};
 import {CC6_TRAINING, CC6_ROLEPLAY} from './cc6-content.mjs';
+import bankJA1 from './bank-ja1.json' with {type: 'json'};
+import {JA1_TRAINING} from './ja1-content.mjs';
+import bankJA2 from './bank-ja2.json' with {type: 'json'};
+import {JA2_TRAINING} from './ja2-content.mjs';
+import bankJA3 from './bank-ja3.json' with {type: 'json'};
+import {JA3_TRAINING} from './ja3-content.mjs';
+import bankJA4 from './bank-ja4.json' with {type: 'json'};
+import {JA4_TRAINING} from './ja4-content.mjs';
+import bankJA5 from './bank-ja5.json' with {type: 'json'};
+import {JA5_TRAINING} from './ja5-content.mjs';
+import bankJA6 from './bank-ja6.json' with {type: 'json'};
+import {JA6_TRAINING} from './ja6-content.mjs';
+import bankJA7 from './bank-ja7.json' with {type: 'json'};
+import {JA7_TRAINING} from './ja7-content.mjs';
 import bankJA8 from './bank-ja8.json' with {type: 'json'};
 import {JA8_TRAINING} from './ja8-content.mjs';
 import {CC7_ROLEPLAY} from './cc7-content.mjs';
+import {JA9_ROLEPLAY} from './ja9-content.mjs';
 
-const BANKS = {F1: bankF1, F2: bankF2, F3: bankF3, F4: bankF4, CC1: bankCC1, CC2: bankCC2, CC3: bankCC3, CC4: bankCC4, CC5: bankCC5, CC6: bankCC6, JA8: bankJA8};
-export const TRAININGS = {CC1: CC1_TRAINING, CC2: CC2_TRAINING, CC3: CC3_TRAINING, CC4: CC4_TRAINING, CC5: CC5_TRAINING, CC6: CC6_TRAINING, JA8: JA8_TRAINING};
+const BANKS = {F1: bankF1, F2: bankF2, F3: bankF3, F4: bankF4, CC1: bankCC1, CC2: bankCC2, CC3: bankCC3, CC4: bankCC4, CC5: bankCC5, CC6: bankCC6, JA1: bankJA1, JA2: bankJA2, JA3: bankJA3, JA4: bankJA4, JA5: bankJA5, JA6: bankJA6, JA7: bankJA7, JA8: bankJA8};
+export const TRAININGS = {CC1: CC1_TRAINING, CC2: CC2_TRAINING, CC3: CC3_TRAINING, CC4: CC4_TRAINING, CC5: CC5_TRAINING, CC6: CC6_TRAINING, JA1: JA1_TRAINING, JA2: JA2_TRAINING, JA3: JA3_TRAINING, JA4: JA4_TRAINING, JA5: JA5_TRAINING, JA6: JA6_TRAINING, JA7: JA7_TRAINING, JA8: JA8_TRAINING};
 // Default entry fields for training applications and rapid roleplays (CC1 shape).
 const DEFAULT_FIELDS = [{key: 'business', label: 'Business', kind: 'input', required: true}, {key: 'note', label: 'SDR Additional Note', kind: 'input', required: true}, {key: 'opener', label: 'Your opener', kind: 'textarea', required: true, optionalFor: ['Cold']}];
 const cleanEntry = (fields, raw, type) => { const o = {type}; for (const f of fields) { let v = clip(raw?.[f.key], f.kind === 'textarea' ? 1200 : 600).trim(); if (f.kind === 'select' && v && !f.options.includes(v)) v = ''; o[f.key] = v; } return o; };
@@ -32,7 +47,7 @@ const GRACE_MS = 4000;          // network slack on top of each question's time 
 const LOCK_HOURS = 24;          // lockout after a second tab-leave
 const MAX_ATTEMPTS = 3;         // failed attempts before a performance conversation
 const NUM = {2: 'two', 3: 'three', 4: 'four', 5: 'five'};
-const REVIEW_LABELS = {'day-1': 'Day 1 · The SDR Job', 'day-2': 'Day 2 · Who We Sell To & Why', 'day-3': 'Day 3 · Owning Your Book of Business', 'day-4': 'Day 4 · Pre-Vetting Workshop', 'day-5': 'Day 5 · Cold Calling Fundamentals', 'day-6': 'Day 6 · Controlling the Conversation', 'day-7': 'Day 7 · Working Smarter at Scale', 'day-8': 'Day 8 · From Yes to Meeting Held', 'meetings': 'Meetings & AE Handoff', 'sal': 'Qualification & SALs', 'book': 'Book of Business', 'statuses': 'Lead Statuses & CRM', '/training/CC1': 'CC1 · Openers training', '/training/CC2': 'CC2 · Elevator Pitch training', '/training/JA8': 'JA8 · Sandler Selling training'};
+const REVIEW_LABELS = {'day-1': 'Day 1 · The SDR Job', 'day-2': 'Day 2 · Who We Sell To & Why', 'day-3': 'Day 3 · Owning Your Book of Business', 'day-4': 'Day 4 · Pre-Vetting Workshop', 'day-5': 'Day 5 · Cold Calling Fundamentals', 'day-6': 'Day 6 · Controlling the Conversation', 'day-7': 'Day 7 · Working Smarter at Scale', 'day-8': 'Day 8 · From Yes to Meeting Held', 'meetings': 'Meetings & AE Handoff', 'sal': 'Qualification & SALs', 'book': 'Book of Business', 'statuses': 'Lead Statuses & CRM', '/training/CC1': 'CC1 · Openers training', '/training/CC2': 'CC2 · Elevator Pitch training', '/training/JA1': 'JA1 · Core Product training', '/training/JA2': 'JA2 · Plans and Quoting training', '/training/JA3': 'JA3 · Payments and Card Fees training', '/training/JA4': 'JA4 · Migration and Onboarding training', '/training/JA5': 'JA5 · Main Competitors training', '/training/JA6': 'JA6 · Contract and Close training', '/training/JA7': 'JA7 · AI Agent training', '/training/JA8': 'JA8 · Sandler Selling training'};
 // Foundation certs allow three attempts; the self-paced tracks have no limit (a retake opens after coaching).
 // Junior AE track: no manager coaching gate. A failed quiz locks for 24 hours, then the rep retakes it on their own.
 const RETAKE_WAIT_HOURS = {junior_ae: 24};
@@ -77,6 +92,7 @@ export const ROLEPLAYS = {
   CC5: CC5_ROLEPLAY,
   CC6: CC6_ROLEPLAY,
   CC7: CC7_ROLEPLAY,
+  JA9: JA9_ROLEPLAY,
   F3: {
     mode: 'lead',
     criteria: [
@@ -529,7 +545,7 @@ async function roleplayState(env, email, certId, forManager) {
     cert: {id: cert.id, name: cert.name, day: cert.onboarding_day, components: parse(cert.components, [])},
     missingPrereqs: await missingFor(env, email, cert),
     rep: {email, name: user?.name || email.split('@')[0], codePrefix: codePrefix(email)},
-    def: {mode: def.mode || 'lead', business: def.business || null, setup: def.setup || null, slots: def.slots || null, leadFields: def.mode === 'rapid' ? (def.leadFields || DEFAULT_FIELDS) : null, prepNote: def.prepNote || null, distinct: def.distinct || null, distinctMin: def.distinctMin || null, callMust: def.callMust || null, maxDq: def.maxDq ?? null, callPrompt: def.callPrompt || null, callLabels: def.callLabels || null, callChips: def.callChips || null, minutes: def.minutes || 15, quickFacts: forManager ? (def.quickFacts || null) : null, factsKey: def.factsKey || null, criteria: def.criteria, musts: def.musts},
+    def: {mode: def.mode || 'lead', business: def.business || null, setup: def.setup || null, slots: def.slots || null, leadFields: def.mode === 'rapid' ? (def.leadFields || DEFAULT_FIELDS) : null, prepNote: def.prepNote || null, distinct: def.distinct || null, distinctMin: def.distinctMin || null, callMust: def.callMust || null, maxDq: def.maxDq ?? null, callPrompt: def.callPrompt || null, callLabels: def.callLabels || null, callChips: def.callChips || null, minutes: def.minutes || 15, copy: def.copy || null, quickFacts: forManager ? (def.quickFacts || null) : null, factsKey: def.factsKey || null, criteria: def.criteria, musts: def.musts},
     progress: {status: p.status, components: parse(p.components, {})},
     quiz: quiz ? {status: quiz.status, score: quiz.score} : null,
     current: view(cur), history: leads.slice(1).map(view),

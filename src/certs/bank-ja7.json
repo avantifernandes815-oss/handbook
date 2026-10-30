@@ -1,0 +1,586 @@
+{
+ "cert": "JA7",
+ "version": 1,
+ "questions": [
+  {
+   "id": "JA7-A1",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Support agent",
+   "prompt": "A gym owner says, “Half our texts are people trying to freeze or cancel. Can the AI deal with those?” What’s the most accurate answer?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Yes, it freezes memberships and cancels following your own policy"
+    },
+    {
+     "id": "B",
+     "text": "It can reply to those texts, but staff still make every change"
+    },
+    {
+     "id": "C",
+     "text": "Only if the client sends the request through the web chat box"
+    },
+    {
+     "id": "D",
+     "text": "Yes, and it waives any late-cancel fee so the client stays happy"
+    }
+   ],
+   "correct": "A",
+   "reveal": "The agent takes actions in the account, and cancellations follow the cancellation policy the studio set up.",
+   "review": "/training/JA7",
+   "source": "JA7 training"
+  },
+  {
+   "id": "JA7-A2",
+   "section": "A",
+   "kind": "knowledge",
+   "topic": "Support agent",
+   "prompt": "Which channels does the support agent answer from the inbox?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Text and email only, with web chat going straight to staff"
+    },
+    {
+     "id": "B",
+     "text": "Text, email and web chat, all in the one shared inbox"
+    },
+    {
+     "id": "C",
+     "text": "Web chat on the studio's website, and nothing else"
+    },
+    {
+     "id": "D",
+     "text": "Email only, while texts are handled by the sequences"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Text, email and web chat all land in the all-in-one inbox, and the agent can answer each of them.",
+   "review": "/training/JA7",
+   "source": "JA7 training"
+  },
+  {
+   "id": "JA7-A3",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Escalation",
+   "prompt": "An owner wants to personally call anyone asking about her premium membership. What do you show her?",
+   "options": [
+    {
+     "id": "A",
+     "text": "A sequence that emails her each time that membership is viewed"
+    },
+    {
+     "id": "B",
+     "text": "Turning off the sales agent so nobody discusses memberships"
+    },
+    {
+     "id": "C",
+     "text": "Setting that question to escalate to her instead of the agent"
+    },
+    {
+     "id": "D",
+     "text": "A report of who bought the premium membership in the last month"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Owners choose what goes to a person. Escalated conversations land in the inbox and staff get notified.",
+   "review": "/training/JA7",
+   "source": "JA7 training"
+  },
+  {
+   "id": "JA7-A4",
+   "section": "A",
+   "kind": "judgment",
+   "topic": "Request types",
+   "prompt": "An owner wants the AI to book classes but never touch payments or refunds. Can she do that?",
+   "options": [
+    {
+     "id": "A",
+     "text": "No. Payments and refunds come bundled with booking requests"
+    },
+    {
+     "id": "B",
+     "text": "Only by turning the AI off at night when the payments run"
+    },
+    {
+     "id": "C",
+     "text": "Only if a staff member approves every message it sends"
+    },
+    {
+     "id": "D",
+     "text": "Yes. Each request type is its own switch she controls"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Each request type can be switched on or off, so she turns on booking and leaves payments and refunds off.",
+   "review": "/training/JA7",
+   "source": "JA7 training"
+  },
+  {
+   "id": "JA7-B1",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Setup",
+   "prompt": "Which of these can an owner set in the agent's customization?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Brand voice, response length and style, and example messages"
+    },
+    {
+     "id": "B",
+     "text": "The exact script for every question it's allowed to answer"
+    },
+    {
+     "id": "C",
+     "text": "Which clients see the agent, sorted by their last visit date"
+    },
+    {
+     "id": "D",
+     "text": "The hours of the day when the agent is allowed to reply"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Owners set the name, brand voice, response length (concise, standard or detailed), response style and example messages.",
+   "review": "/training/JA7",
+   "source": "JA7 training"
+  },
+  {
+   "id": "JA7-B2",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Setup score",
+   "prompt": "An owner turned the agent on, and its setup score says “average.” What should she do first?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Switch off every request type until the score reaches high"
+    },
+    {
+     "id": "B",
+     "text": "Add the missing details it flags, like membership descriptions"
+    },
+    {
+     "id": "C",
+     "text": "Set the response length to detailed so it says more each time"
+    },
+    {
+     "id": "D",
+     "text": "Wait a few weeks for the agent to learn from her staff's replies"
+    }
+   ],
+   "correct": "B",
+   "reveal": "The setup score reads the account and lists what's missing. Filling those gaps moves it toward a high setup.",
+   "review": "/training/JA7",
+   "source": "JA7 training"
+  },
+  {
+   "id": "JA7-B3",
+   "section": "B",
+   "kind": "judgment",
+   "topic": "Setup",
+   "prompt": "A boutique owner says, “Our brand is warm and a bit cheeky. Will the AI sound like a robot?” What do you show?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The example clients who have already chatted with the agent"
+    },
+    {
+     "id": "B",
+     "text": "The escalation settings so staff can answer the fun questions"
+    },
+    {
+     "id": "C",
+     "text": "The brand voice setting, with options like friendly or playful"
+    },
+    {
+     "id": "D",
+     "text": "A sequence template she can copy for her welcome messages"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Brand voice is a setting. She can pick a tone and add example messages so replies sound like her studio.",
+   "review": "/training/JA7",
+   "source": "JA7 training"
+  },
+  {
+   "id": "JA7-B4",
+   "section": "B",
+   "kind": "knowledge",
+   "topic": "Setup",
+   "prompt": "An owner worries she has no time to teach an AI everything. What’s true about setup?",
+   "options": [
+    {
+     "id": "A",
+     "text": "It learns everything on its own once it's switched on"
+    },
+    {
+     "id": "B",
+     "text": "You'll need to write an answer for each possible question"
+    },
+    {
+     "id": "C",
+     "text": "Your front desk trains it by chatting with it each week"
+    },
+    {
+     "id": "D",
+     "text": "Onboarding sets it up with you; the score shows what's missing"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Onboarding walks through the setup with the owner, and the setup score points to exactly what to add.",
+   "review": "/training/JA7",
+   "source": "JA7 training"
+  },
+  {
+   "id": "JA7-C1",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Sales agent",
+   "prompt": "What does the sales agent's follow-up tone setting control?",
+   "options": [
+    {
+     "id": "A",
+     "text": "How pushy follow-ups are, from gentle reminder to high urgency"
+    },
+    {
+     "id": "B",
+     "text": "Which leads it contacts first, based on how recently they joined"
+    },
+    {
+     "id": "C",
+     "text": "Whether follow-ups go out by text, by email or by both channels"
+    },
+    {
+     "id": "D",
+     "text": "How many times it follows up before it hands a lead to staff"
+    }
+   ],
+   "correct": "A",
+   "reveal": "The tone options are gentle reminder, encouraging push and high urgency.",
+   "review": "/training/JA7",
+   "source": "JA7 training"
+  },
+  {
+   "id": "JA7-C2",
+   "section": "C",
+   "kind": "judgment",
+   "topic": "Sequences",
+   "prompt": "A studio wants the AI to convert more leads. Which sequence message sets it up best?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Our intro offer ends Friday. Book now at the link below.”"
+    },
+    {
+     "id": "B",
+     "text": "“Welcome! Here's our schedule and our full price list.”"
+    },
+    {
+     "id": "C",
+     "text": "“What made you curious about reformer? Any questions?”"
+    },
+    {
+     "id": "D",
+     "text": "“We'd love to see you. Follow us on Instagram for news.”"
+    }
+   ],
+   "correct": "C",
+   "reveal": "A message that ends in a question invites a reply, and a reply opens the conversation the agent picks up.",
+   "review": "/training/JA7",
+   "source": "JA7 training"
+  },
+  {
+   "id": "JA7-C3",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Sales agent",
+   "prompt": "Where does the sales agent pick up a lead's reply to a sequence?",
+   "options": [
+    {
+     "id": "A",
+     "text": "In a separate sales app the owner checks once a day"
+    },
+    {
+     "id": "B",
+     "text": "In the shared inbox, where the conversation opens"
+    },
+    {
+     "id": "C",
+     "text": "On the website chat box, the next time the lead visits"
+    },
+    {
+     "id": "D",
+     "text": "In a weekly email report sent to the studio's owner"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Replies land in the inbox as a conversation, and the agent takes it from there.",
+   "review": "/training/JA7",
+   "source": "JA7 training"
+  },
+  {
+   "id": "JA7-C4",
+   "section": "C",
+   "kind": "knowledge",
+   "topic": "Sales agent",
+   "prompt": "What does the sales agent screen track for the studio?",
+   "options": [
+    {
+     "id": "A",
+     "text": "The leads it has contacted and the revenue it has generated"
+    },
+    {
+     "id": "B",
+     "text": "Each lead's ad source and the cost of every lead it captured"
+    },
+    {
+     "id": "C",
+     "text": "The setup score for each sequence the studio has switched on"
+    },
+    {
+     "id": "D",
+     "text": "Which staff member closed each sale the agent handed over"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Leads contacted and revenue are on the screen. On a demo, point to the owner's own results once she's live, not another studio's numbers.",
+   "review": "/training/JA7",
+   "source": "JA7 training"
+  },
+  {
+   "id": "JA7-D1",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "AI as the reason",
+   "prompt": "A day spa owner says she'll switch only if she gets an AI chatbot tied to booking. What do you ask first?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Which AI tools she has already tried, and why they didn't work"
+    },
+    {
+     "id": "B",
+     "text": "Whether she'd sign today if you show her the chatbot right now"
+    },
+    {
+     "id": "C",
+     "text": "Whether her staff would be comfortable with an AI on the inbox"
+    },
+    {
+     "id": "D",
+     "text": "What she wants it to handle, and what she pays for that now"
+    }
+   ],
+   "correct": "D",
+   "reveal": "The job decides what you demo. Her spend across every tool doing that job gives you the comparison.",
+   "review": "/training/JA7",
+   "source": "JA7 training"
+  },
+  {
+   "id": "JA7-D2",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "AI as the reason",
+   "prompt": "A prospect loves her current software's AI because it writes her monthly KPI reports. What's the right move?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Show the agent anyway, since it does more than reporting AI does"
+    },
+    {
+     "id": "B",
+     "text": "Be clear our agent is customer-facing, then find what else matters"
+    },
+    {
+     "id": "C",
+     "text": "Tell her our reports library makes an AI report unnecessary"
+    },
+    {
+     "id": "D",
+     "text": "Say reporting AI is coming soon so it doesn't block the deal"
+    }
+   ],
+   "correct": "B",
+   "reveal": "Momence's AI handles customer conversations. Say so plainly, and don't promise a roadmap item.",
+   "review": "/training/JA7",
+   "source": "JA7 training"
+  },
+  {
+   "id": "JA7-D3",
+   "section": "D",
+   "kind": "judgment",
+   "topic": "Honest description",
+   "prompt": "A prospect says, “My current software has an AI chat on the website too.” What's the best response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“That's not really AI, it's just an FAQ dressed up as a chat.”"
+    },
+    {
+     "id": "B",
+     "text": "“Theirs only answers questions. Ours is the only one that books.”"
+    },
+    {
+     "id": "C",
+     "text": "“What does it handle for you today, and where does it fall short?”"
+    },
+    {
+     "id": "D",
+     "text": "“Most of those tools are a few years behind what we've built.”"
+    }
+   ],
+   "correct": "C",
+   "reveal": "Acknowledge it and ask. Don't make claims about a competitor's AI that you can't verify.",
+   "review": "/training/JA7",
+   "source": "JA7 training"
+  },
+  {
+   "id": "JA7-D4",
+   "section": "D",
+   "kind": "knowledge",
+   "topic": "Honest description",
+   "prompt": "Which statement about the agent is safe to make on a demo?",
+   "options": [
+    {
+     "id": "A",
+     "text": "It never gets an answer wrong, so staff needn't check it"
+    },
+    {
+     "id": "B",
+     "text": "It pays for itself within the first month for most studios"
+    },
+    {
+     "id": "C",
+     "text": "It runs your reports and tells you your churn each month"
+    },
+    {
+     "id": "D",
+     "text": "It escalates what it can't handle to a staff member"
+    }
+   ],
+   "correct": "D",
+   "reveal": "Escalation to staff was shown in several demos. Payback claims and \"never wrong\" are promises you can't back up.",
+   "review": "/training/JA7",
+   "source": "JA7 training"
+  },
+  {
+   "id": "JA7-E1",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Cost pushback",
+   "prompt": "After seeing the AI, a prospect says, “Who can even afford all this?” What's the strongest response?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Start with sequences, and add the AI once those bring replies"
+    },
+    {
+     "id": "B",
+     "text": "Show her another studio's revenue from the agent last month"
+    },
+    {
+     "id": "C",
+     "text": "Offer the agent free for a few months so the price stops mattering"
+    },
+    {
+     "id": "D",
+     "text": "Drop the marketing suite so the agent fits inside her budget"
+    }
+   ],
+   "correct": "A",
+   "reveal": "Sequences first is the cheaper start and the base the agent works on. Don't concede before you know the core need.",
+   "review": "/training/JA7",
+   "source": "JA7 training"
+  },
+  {
+   "id": "JA7-E2",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Price questions",
+   "prompt": "Mid-demo, a prospect asks what the AI costs, and you're not sure. What do you do?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Give a rough figure so the conversation keeps its momentum"
+    },
+    {
+     "id": "B",
+     "text": "Quote from the pricing calculator or confirm with your manager"
+    },
+    {
+     "id": "C",
+     "text": "Say it's included in the top plan so she doesn't worry about it"
+    },
+    {
+     "id": "D",
+     "text": "Tell her the price changes too often to give her a number"
+    }
+   ],
+   "correct": "B",
+   "reveal": "AI pricing is still being confirmed. A guessed number becomes the number she remembers.",
+   "review": "/training/JA7",
+   "source": "JA7 training"
+  },
+  {
+   "id": "JA7-E3",
+   "section": "E",
+   "kind": "knowledge",
+   "topic": "Cost pushback",
+   "prompt": "Why does starting with sequences set the AI up to work better later?",
+   "options": [
+    {
+     "id": "A",
+     "text": "Sequences train the agent's brand voice before it's switched on"
+    },
+    {
+     "id": "B",
+     "text": "The agent can only reply to clients who were in a sequence"
+    },
+    {
+     "id": "C",
+     "text": "Replies to sequences ending in a question hand leads to the agent"
+    },
+    {
+     "id": "D",
+     "text": "Sequences raise the setup score from average up to high"
+    }
+   ],
+   "correct": "C",
+   "reveal": "The agent works conversations. Sequences that end in a question create the replies it picks up.",
+   "review": "/training/JA7",
+   "source": "JA7 training"
+  },
+  {
+   "id": "JA7-E4",
+   "section": "E",
+   "kind": "judgment",
+   "topic": "Questions you can't answer",
+   "prompt": "A prospect asks if clients will be told they're talking to an AI. You're not certain. What do you say?",
+   "options": [
+    {
+     "id": "A",
+     "text": "“Yes, it always says it's an AI, so you don't need to worry.”"
+    },
+    {
+     "id": "B",
+     "text": "“No, clients can't tell the difference, which is the beauty of it.”"
+    },
+    {
+     "id": "C",
+     "text": "“It depends on the client's settings in the Momence app.”"
+    },
+    {
+     "id": "D",
+     "text": "“Good question. I'll confirm exactly how that works and follow up.”"
+    }
+   ],
+   "correct": "D",
+   "reveal": "When you're not sure, say so and follow up with the confirmed answer. Don't hedge your way into a guess.",
+   "review": "/training/JA7",
+   "source": "JA7 training"
+  }
+ ]
+}
