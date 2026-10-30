@@ -56,7 +56,7 @@
     }
    ],
    "correct": "D",
-   "reveal": "Processing fees come out of each transaction, as on every booking system. There’s no extra processing plan.",
+   "reveal": "Processing fees come out of each transaction, as on every booking system, and chargebacks, refunds and PCI compliance are included. There’s no extra processing plan.",
    "review": "/training/JAE3",
    "source": "JAE3 training"
   },
@@ -152,27 +152,27 @@
    "section": "B",
    "kind": "knowledge",
    "topic": "Passing on fees",
-   "prompt": "Which statement about passing on card fees is confirmed and safe to say on a demo?",
+   "prompt": "Which statement about passing on card fees is accurate to say on a demo?",
    "options": [
     {
      "id": "A",
-     "text": "It’s a setting the studio can turn on or leave off"
+     "text": "Studios can pass on all, part or none of it, on a sliding scale"
     },
     {
      "id": "B",
-     "text": "It can be set to any share of the fee the studio picks"
+     "text": "It’s all or nothing, so clients pay the full fee or none of it"
     },
     {
      "id": "C",
-     "text": "It applies to everyone, and members can’t be exempted"
+     "text": "It covers online card payments only, never ACH or in person"
     },
     {
      "id": "D",
-     "text": "It’s only available to studios on the Growth plan"
+     "text": "It’s only available once the studio adds the marketing suite"
     }
    ],
    "correct": "A",
-   "reveal": "On or off is confirmed. Partial pass-through and member exemptions are still being confirmed, so don’t promise either.",
+   "reveal": "Pass-through is flexible: all fees can go to clients on a sliding scale. Whether members can be exempted is still being confirmed.",
    "review": "/training/JAE3",
    "source": "JAE3 training"
   },
@@ -255,11 +255,11 @@
     },
     {
      "id": "D",
-     "text": "Ask what she pays now and send our current rates in writing"
+     "text": "Give our rates and what they include, then ask what she pays now"
     }
    ],
    "correct": "D",
-   "reveal": "Rates are being confirmed, and AEs have quoted several different numbers. Her current rate gives you something real to compare.",
+   "reveal": "Our rates are confirmed: 3.9% + $0.30 online, 3.7% + $0.05 in person and 1.8% ACH. Her current rate makes the comparison real.",
    "review": "/training/JAE3",
    "source": "JAE3 training"
   },
@@ -296,28 +296,28 @@
    "id": "JAE3-C3",
    "section": "C",
    "kind": "knowledge",
-   "topic": "Rate questions",
-   "prompt": "Why does this cert tell you not to quote a card or ACH rate from memory?",
+   "topic": "What the rates include",
+   "prompt": "A prospect asks what’s included in Momence’s card processing rates. What’s accurate?",
    "options": [
     {
      "id": "A",
-     "text": "Demos quoted different rates, and the rates are being confirmed"
+     "text": "Chargeback, refund and PCI fees, plus the automatic card updater"
     },
     {
      "id": "B",
-     "text": "Rates change daily with Stripe, so any number is already stale"
+     "text": "Only the Stripe fee; chargebacks and refunds are billed separately"
     },
     {
      "id": "C",
-     "text": "Rates are shared only by the onboarding team after signing"
+     "text": "The card reader, which Momence supplies free with every plan"
     },
     {
      "id": "D",
-     "text": "Quoting rates on a sales call breaks the card networks’ rules"
+     "text": "Chargebacks only; PCI compliance is billed as a yearly fee"
     }
    ],
    "correct": "A",
-   "reveal": "AEs quoted at least five different card rates across our demos. Until management confirms them, send rates in writing.",
+   "reveal": "Chargeback fees, refund fees, PCI compliance fees and the automatic card updater are all included in the rates.",
    "review": "/training/JAE3",
    "source": "JAE3 training"
   },
@@ -338,15 +338,15 @@
     },
     {
      "id": "C",
-     "text": "ACH costs less than a card; you’ll send the exact rate in writing"
+     "text": "ACH is 1.8%, less than a card’s 3.9% + $0.30 online"
     },
     {
      "id": "D",
-     "text": "ACH is cheaper, and quote the percentage the last AE gave her"
+     "text": "ACH is free for the studio, so steer every member onto it"
     }
    ],
    "correct": "C",
-   "reveal": "Demos agree ACH costs less than a card. The exact ACH rate is being confirmed.",
+   "reveal": "ACH (direct debit) is 1.8%. Online cards are 3.9% + $0.30, so ACH costs the studio less, and it still has a fee.",
    "review": "/training/JAE3",
    "source": "JAE3 training"
   },
@@ -520,7 +520,7 @@
     }
    ],
    "correct": "B",
-   "reveal": "MindBody charges for the exit file with payment profiles. The exact fee is being confirmed, so don’t quote it.",
+   "reveal": "MindBody charges for the exit file with payment profiles. The card-export fee depends on the software and is about $500.",
    "review": "/training/JAE3",
    "source": "JAE3 training"
   },
@@ -562,11 +562,11 @@
    "options": [
     {
      "id": "A",
-     "text": "Partial pass-through can apply to drop-ins and skip members"
+     "text": "Members can be exempted from pass-through with a setting"
     },
     {
      "id": "B",
-     "text": "The card reader is one set model at one set price from Stripe"
+     "text": "Failed cards are retried exactly three times, then stop"
     },
     {
      "id": "C",
@@ -574,11 +574,11 @@
     },
     {
      "id": "D",
-     "text": "Clients can pay by ACH, which costs the studio less than a card"
+     "text": "Clients can pay by ACH at 1.8%, less than a card costs"
     }
    ],
    "correct": "D",
-   "reveal": "The other three are still being confirmed. Say “let me confirm that” instead of guessing.",
+   "reveal": "ACH at 1.8% is confirmed. Member exemptions, the retry count and HSA cards are still being confirmed, so say “let me confirm that.”",
    "review": "/training/JAE3",
    "source": "JAE3 training"
   }

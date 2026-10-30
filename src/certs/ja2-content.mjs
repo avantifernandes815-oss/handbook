@@ -1,21 +1,21 @@
 // JAE2 · Plans and Quoting — step-by-step training content (Junior AE track).
-// Built from the Junior AE Knowledge Bank; unconfirmed numbers are held back until the co-manager answers.
+// Built from the Junior AE Knowledge Bank. Prices, discounts, sign-up offer and contract terms follow the co-manager's confirmed answers (Oct 30, 2026).
 
 export const JA2_TRAINING = {
   "title": "Plans and Quoting",
-  "summary": "How the plans fit together, how to build a quote in the calculator and anchor it to what the prospect pays now, and how to handle the common price moments. About 12 minutes.",
+  "summary": "How a custom plan is built and what it includes, how to quote it in the calculator and anchor it to what the prospect pays now, and how to handle discounts, the sign-up offer and contract terms. About 12 minutes.",
   "format": "steps",
   "minutes": 12,
   "quizNote": "10 scenario questions from real demo moments. You need 80% to pass.",
   "steps": [
     {
-      "title": "How the plans are built",
-      "why": "Prospects choose faster when they can see the plans as layers, each adding one kind of value.",
-      "idea": "Every quote starts with the core platform. AEs call it the Small Business Plan, Foundation or core, and it runs the business: class and appointment booking, memberships, checkout, point of sale, inbox, CRM, reports, newsletters and the free Momence app. Growth adds the marketing suite (lead collection, multi-step sequences, ads manager, web chat, referrals and reviews), Intelligence adds the AI agent, and other items are à la carte add-ons. Which simple sequences come with core, and where Spot Filler sits, are still being confirmed, so check the calculator before you answer.",
-      "say": "“Think of it in layers. Core runs your studio. Growth brings in new clients and follows up with them. The AI agent answers and books for you.”",
+      "title": "How a plan is built",
+      "why": "Prospects choose faster when they see one clear build: what runs the business, and what each add-on brings.",
+      "idea": "Momence has no set plans. Each plan is custom-built from the core platform plus the premium add-ons the studio needs. Names like Foundation, Growth, Intelligence or “small business plan” came from individual AEs, so don’t use them. The platform alone includes payments, scheduling, memberships, CRM, full reporting, customer segmentation, gift cards, retail products, unlimited teacher accounts, no limit on customers, multiple staff and phone, email and chat support. Premium add-ons sit on top at retail price, such as the marketing suite (lead collection, multi-step sequences, ads manager, web chat, referrals and reviews) and the AI agent. Most plans come to about $200 to $600+ a month, depending on the add-ons. Which simple sequences come with the platform, and where Spot Filler sits, are still being confirmed, so check the calculator before you answer.",
+      "say": "“There’s no fixed package. We start with the platform that runs your studio, then add only what you need. Most studios land between about $200 and $600 or more a month.”",
       "good": [
         {
-          "text": "The AE listed what core covers, then named the next layer: the marketing features, starting with automated sequences and lead collection. The prospect could see what each layer added.",
+          "text": "The AE listed what the platform covers, then named the add-ons that sit on top: the marketing features, starting with automated sequences and lead collection. The prospect could see what each add-on brought.",
           "source": "Sol Space demo",
           "clip": {
             "src": "/content/videos/ja2-1-good.mp4",
@@ -25,7 +25,7 @@ export const JA2_TRAINING = {
       ],
       "missed": [
         {
-          "text": "The prospect opened the second call trying to get the two plans straight. What sequences come with the core plan had been described differently across the calls, and no plan was chosen by the end.",
+          "text": "The prospect opened the second call trying to get two named plans straight. What sequences come with the base had been described differently across the calls, and nothing was chosen by the end. There are no set plans. One custom build, shown in the calculator, would have given her one clear picture.",
           "source": "105 Fever, second call",
           "clip": {
             "src": "/content/videos/ja2-1-missed.mp4",
@@ -33,38 +33,42 @@ export const JA2_TRAINING = {
           }
         },
         {
-          "text": "A reformer owner asked whether spot selection needs the Growth plan. The AE first said yes, mixing it up with Spot Filler, then corrected herself. The two names are close, so know which is which, and which plan each sits in, before the call.",
+          "text": "A reformer owner asked whether spot selection needed the marketing add-ons. The AE first said yes, mixing it up with Spot Filler, then corrected herself. Spot selection lets clients pick a spot on a room map. Spot Filler messages past attendees of that class type when a class isn’t full. Know which is which before the call.",
           "source": "Taylored Pilates demo",
           "clip": null
         }
       ],
       "check": {
-        "prompt": "A prospect asks which plan includes reviews and referrals. What’s the accurate answer?",
+        "prompt": "A prospect asks what she gets with the Momence platform before any add-ons. What’s accurate?",
         "options": [
-          "The core plan, since every studio needs a way to collect reviews",
-          "Intelligence only, since the AI agent runs reviews and referrals",
-          "Growth, as part of the marketing suite with leads and sequences",
-          "The free Momence app, which asks every client for a review"
+          "Scheduling and booking only, with payments and CRM as add-ons",
+          "Everything, the AI agent included, at one flat monthly price",
+          "Payments, scheduling, CRM, reports, gift cards, unlimited teachers",
+          "Booking for a set number of clients, then a higher tier above it"
         ],
         "answer": 2,
-        "why": "Reviews and referrals sit in the marketing suite that Growth adds, alongside lead collection and sequences."
+        "why": "The platform runs the whole business, with no limit on customers or teacher accounts. Add-ons like the marketing suite and the AI agent sit on top."
       },
       "points": [
         {
-          "label": "Start with core",
-          "text": "Every quote starts with the core platform."
+          "label": "No set plans",
+          "text": "Momence has no set plans. Each plan is custom-built from the core platform plus the premium add-ons the studio needs. Names like Foundation, Growth, Intelligence or “small business plan” came from individual AEs, so don’t use them."
         },
         {
-          "label": "What core includes",
-          "text": "AEs call it the Small Business Plan, Foundation or core, and it runs the business: class and appointment booking, memberships, checkout, point of sale, inbox, CRM, reports, newsletters and the free Momence app."
+          "label": "What the platform includes",
+          "text": "The platform alone includes payments, scheduling, memberships, CRM, full reporting, customer segmentation, gift cards, retail products, unlimited teacher accounts, no limit on customers, multiple staff and phone, email and chat support."
         },
         {
-          "label": "Growth and Intelligence",
-          "text": "Growth adds the marketing suite (lead collection, multi-step sequences, ads manager, web chat, referrals and reviews), Intelligence adds the AI agent, and other items are à la carte add-ons."
+          "label": "Add-ons on top",
+          "text": "Premium add-ons sit on top at retail price, such as the marketing suite (lead collection, multi-step sequences, ads manager, web chat, referrals and reviews) and the AI agent."
+        },
+        {
+          "label": "The price range",
+          "text": "Most plans come to about $200 to $600+ a month, depending on the add-ons."
         },
         {
           "label": "Check the calculator",
-          "text": "Which simple sequences come with core, and where Spot Filler sits, are still being confirmed, so check the calculator before you answer."
+          "text": "Which simple sequences come with the platform, and where Spot Filler sits, are still being confirmed, so check the calculator before you answer."
         }
       ],
       "voice": [
@@ -81,11 +85,11 @@ export const JA2_TRAINING = {
     {
       "title": "Build it in the calculator",
       "why": "Our demos quoted prices many different ways. The calculator keeps every quote consistent.",
-      "idea": "Build every quote live in the pricing calculator, feature by feature. It applies bundle discounts automatically when features are combined, and it downloads a comparison sheet of every feature in the chosen plan, which the prospect can show a partner. Never quote a price from memory or add numbers in your head. List prices are still being confirmed, so treat the calculator as your source and check with your manager if anything looks off.",
+      "idea": "Build every quote live in the pricing calculator, feature by feature. It applies bundle discounts automatically when features are combined, and it downloads a comparison sheet of every feature in the build, which the prospect can show a partner. Never quote a price from memory or add numbers in your head. You can give the range, about $200 to $600+ a month depending on add-ons, but the studio’s own number comes from the calculator. Check with your manager if anything looks off.",
       "say": "“Let me build this with you so you can see exactly what you’re paying for. I’ll send you the sheet after the call.”",
       "good": [
         {
-          "text": "The AE selected the plan in the builder, downloaded the comparison sheet and showed the prospect how to compare two plans feature by feature, so she had something to take away.",
+          "text": "The AE built the plan in the calculator, downloaded the comparison sheet and showed the prospect how to compare two builds feature by feature, so she had something to take away.",
           "source": "Her Zen Studio demo",
           "clip": {
             "src": "/content/videos/ja2-2-good.mp4",
@@ -117,7 +121,7 @@ export const JA2_TRAINING = {
           "Add it in the calculator now and show her the updated total",
           "Give your best estimate and say you’ll correct it if needed",
           "Tell her it’s usually affordable and move on with the demo",
-          "Say it comes with Growth so price doesn’t become a hurdle"
+          "Say it’s part of the platform so price doesn’t become a hurdle"
         ],
         "answer": 0,
         "why": "The calculator gives the real number in seconds. A guess becomes the number the prospect remembers."
@@ -129,15 +133,15 @@ export const JA2_TRAINING = {
         },
         {
           "label": "Bundle discounts and comparison",
-          "text": "It applies bundle discounts automatically when features are combined, and it downloads a comparison sheet of every feature in the chosen plan, which the prospect can show a partner."
+          "text": "It applies bundle discounts automatically when features are combined, and it downloads a comparison sheet of every feature in the build, which the prospect can show a partner."
         },
         {
           "label": "Never quote from memory",
           "text": "Never quote a price from memory or add numbers in your head."
         },
         {
-          "label": "Calculator is the source",
-          "text": "List prices are still being confirmed, so treat the calculator as your source and check with your manager if anything looks off."
+          "label": "Range versus quote",
+          "text": "You can give the range, about $200 to $600+ a month depending on add-ons, but the studio’s own number comes from the calculator. Check with your manager if anything looks off."
         }
       ],
       "voice": [
@@ -304,7 +308,7 @@ export const JA2_TRAINING = {
     {
       "title": "Quoting more than one location",
       "why": "Multi-location deals are bigger, and the math is easy to get wrong live.",
-      "idea": "Ask when the next location opens and whether it’s the same brand. Same-brand locations usually run from one dashboard with a location filter; different brands use separate dashboards. Add the locations in the calculator and let it apply the multi-location discount. Some items, like the branded app, have been shown as one charge across locations, but the exact discount and what’s charged per location are still being confirmed, so never multiply by hand or promise a number.",
+      "idea": "Ask when the next location opens and whether it’s the same brand. Same-brand locations usually run from one dashboard with a location filter; different brands use separate dashboards. Add the locations in the calculator and show the total it gives. Some items, like the branded app, have been shown as one charge across locations, but what’s charged per location is still being confirmed, so never multiply by hand. There’s no set multi-location discount beyond what the calculator shows. Any other discount goes to your manager, so never promise one yourself.",
       "say": "“Let’s add both locations in the calculator so you can see the exact total for each.”",
       "good": [
         {
@@ -326,7 +330,7 @@ export const JA2_TRAINING = {
       ],
       "missed": [
         {
-          "text": "Asked for two-location pricing, the AE said, “I’m not sure if that math is right,” took the second location back off, and moved to “we can negotiate this down.”",
+          "text": "Asked for two-location pricing, the AE said, “I’m not sure if that math is right,” took the second location back off, and moved to “we can negotiate this down.” Any discount is your manager’s call, so take the ask to your manager before you offer anything.",
           "source": "Sol Space demo",
           "clip": {
             "src": "/content/videos/ja2-5-missed.mp4",
@@ -347,11 +351,11 @@ export const JA2_TRAINING = {
         "options": [
           "Quote one location now and price the second once it opens",
           "Double the single-location price, then take a discount off",
-          "Add both in the calculator and let it apply the discount",
+          "Add both in the calculator and show her the total it gives",
           "Quote the second location at cost and confirm details later"
         ],
         "answer": 2,
-        "why": "The calculator applies the multi-location discount for you. Hand math is where the slips happen."
+        "why": "The calculator handles the multi-location math. Hand math is where the slips happen, and any extra discount goes to your manager."
       },
       "points": [
         {
@@ -363,12 +367,16 @@ export const JA2_TRAINING = {
           "text": "Same-brand locations usually run from one dashboard with a location filter; different brands use separate dashboards."
         },
         {
-          "label": "Multi-location discount",
-          "text": "Add the locations in the calculator and let it apply the multi-location discount."
+          "label": "Multi-location total",
+          "text": "Add the locations in the calculator and show the total it gives."
         },
         {
           "label": "Never multiply by hand",
-          "text": "Some items, like the branded app, have been shown as one charge across locations, but the exact discount and what’s charged per location are still being confirmed, so never multiply by hand or promise a number."
+          "text": "Some items, like the branded app, have been shown as one charge across locations, but what’s charged per location is still being confirmed, so never multiply by hand."
+        },
+        {
+          "label": "Discounts go to your manager",
+          "text": "There’s no set multi-location discount beyond what the calculator shows. Any other discount goes to your manager, so never promise one yourself."
         }
       ],
       "voice": [
@@ -383,13 +391,13 @@ export const JA2_TRAINING = {
       ]
     },
     {
-      "title": "“Do I really need Growth?”",
-      "why": "Growth is where most of the value is, but pushing it on someone who doesn’t need it costs trust.",
-      "idea": "Answer with questions. Are they trying to grow, or are they at capacity? Where do new clients come from today, and what happens to a lead who doesn’t book? If they want more clients, show how lead capture, sequences, reviews and referrals work together; if they don’t, build only what they need in the calculator and show what upgrading would add later.",
-      "say": "“Are you trying to fill more spots this year, or are you at capacity? That tells us whether Growth will pay for itself.”",
+      "title": "“Do I really need marketing?”",
+      "why": "The marketing add-ons are where much of the value is, but pushing them on someone who doesn’t need them costs trust.",
+      "idea": "Answer with questions. Are they trying to grow, or are they at capacity? Where do new clients come from today, and what happens to a lead who doesn’t book? If they want more clients, show how lead capture, sequences, reviews and referrals work together; if they don’t, build only what they need in the calculator and show what the marketing add-ons would bring later.",
+      "say": "“Are you trying to fill more spots this year, or are you at capacity? That tells us whether the marketing add-ons will pay for themselves.”",
       "good": [
         {
-          "text": "The AE described core as everything you need to run the business and Growth as the plan for studios ready to grow, then asked, “Are you trying to grow, or are you at capacity?”",
+          "text": "The AE described the platform as everything you need to run the business and the marketing add-ons as the layer for studios ready to grow, then asked, “Are you trying to grow, or are you at capacity?”",
           "source": "105 Fever, second call",
           "clip": {
             "src": "/content/videos/ja2-6-good.mp4",
@@ -399,7 +407,7 @@ export const JA2_TRAINING = {
       ],
       "missed": [
         {
-          "text": "The prospect came back for pricing, then said WellnessLiving had just started charging for the custom sequences she'd always built herself. That was the case for Growth, but the AE asked one question and moved on. The call stayed a price list.",
+          "text": "The prospect came back for pricing, then said WellnessLiving had just started charging for the custom sequences she'd always built herself. That was the case for the marketing add-ons, but the AE asked one question and moved on. The call stayed a price list.",
           "source": "NRG Pilates pricing call",
           "clip": {
             "src": "/content/videos/ja2-6-missed-o1.mp4",
@@ -407,7 +415,7 @@ export const JA2_TRAINING = {
           }
         },
         {
-          "text": "The owners had opened by saying renewal reminders and other admin should be automated, which is the case for Growth. The AE never showed marketing. He priced it as an add-on “we haven't covered at all” and told them the base plan could replace Mailchimp.",
+          "text": "The owners had opened by saying renewal reminders and other admin should be automated, which is the case for the marketing add-ons. The AE never showed marketing. He priced it as an add-on “we haven't covered at all” and told them the base plan could replace Mailchimp.",
           "source": "Skillz Sports Lab demo (Toronto)",
           "clip": {
             "src": "/content/videos/ja2-6-missed-a1.mp4",
@@ -426,13 +434,13 @@ export const JA2_TRAINING = {
       "check": {
         "prompt": "A prospect says, “I just need booking and payments.” What’s your best response?",
         "options": [
-          "Ask about her goals for new clients before you recommend a plan",
-          "Explain that most studios pick Growth, so it’s the safer choice",
-          "Quote Growth anyway and offer a discount if she pushes back",
-          "Agree, quote core only and skip the marketing suite entirely"
+          "Ask about her goals for new clients before you recommend a build",
+          "Explain that most studios add marketing, so it’s the safer choice",
+          "Quote marketing anyway and offer a discount if she pushes back",
+          "Agree, quote the platform only and skip marketing add-ons entirely"
         ],
         "answer": 0,
-        "why": "Her goals decide the plan. If she isn’t trying to grow, core may be right, and you’ll know it."
+        "why": "Her goals decide the build. If she isn’t trying to grow, the platform alone may be right, and you’ll know it."
       },
       "points": [
         {
@@ -449,7 +457,7 @@ export const JA2_TRAINING = {
         },
         {
           "label": "Build to their goal",
-          "text": "If they want more clients, show how lead capture, sequences, reviews and referrals work together; if they don’t, build only what they need in the calculator and show what upgrading would add later."
+          "text": "If they want more clients, show how lead capture, sequences, reviews and referrals work together; if they don’t, build only what they need in the calculator and show what the marketing add-ons would bring later."
         }
       ],
       "voice": [
@@ -474,7 +482,7 @@ export const JA2_TRAINING = {
     {
       "title": "“Arketa is cheaper”",
       "why": "Arketa came up in several demos, usually on price. How you answer decides whether you keep trust.",
-      "idea": "Acknowledge it plainly: Arketa handles classes, privates and billing. Then compare like for like, since a quote for core, marketing and an app should be set against the same items on their side. Then show where Momence is stronger for this prospect, such as one-page checkout with no account to create, multi-service appointments, or leads tracked from the ad into sequences. Never knock Arketa with claims you can’t back up.",
+      "idea": "Acknowledge it plainly: Arketa handles classes, privates and billing. Then compare like for like, since a quote for the platform, marketing and an app should be set against the same items on their side. Then show where Momence is stronger for this prospect, such as one-page checkout with no account to create, multi-service appointments, or leads tracked from the ad into sequences. Never knock Arketa with claims you can’t back up.",
       "say": "“Arketa can run your classes and billing well. Where we differ is what happens to a lead. Can I show you?”",
       "good": [
         {
@@ -488,7 +496,7 @@ export const JA2_TRAINING = {
       ],
       "missed": [
         {
-          "text": "When the prospect called Arketa the cheaper middle option, the AE said “they’re half the price because they are half the software.” That line is on the list to drop.",
+          "text": "When the prospect called Arketa the cheaper middle option, the AE said “they’re half the price because they are half the software.” Some AEs use that line. On its own it leaves the prospect to take your word for it. Follow it with what each price covers, so she can see the difference herself.",
           "source": "105 Fever, third call",
           "clip": {
             "src": "/content/videos/ja2-7-missed.mp4",
@@ -514,7 +522,7 @@ export const JA2_TRAINING = {
         },
         {
           "label": "Compare like for like",
-          "text": "Then compare like for like, since a quote for core, marketing and an app should be set against the same items on their side."
+          "text": "Then compare like for like, since a quote for the platform, marketing and an app should be set against the same items on their side."
         },
         {
           "label": "Show Momence's strengths",
@@ -537,9 +545,9 @@ export const JA2_TRAINING = {
       ]
     },
     {
-      "title": "When to bring in your manager",
-      "why": "A number you improvise becomes a promise. Changes to price go through your manager.",
-      "idea": "The calculator gives you the starting quote. Anything beyond it goes to your manager before you say it: a discount, a price below what the calculator allows, free months, a free add-on or a change to contract wording. In our demos, AEs got these approved during the call or wrote them into the contract after approval. If you don’t know an answer, say you’ll confirm and give a time.",
+      "title": "Discounts, offers and the contract",
+      "why": "A number you improvise becomes a promise. Know the standard terms, and take anything beyond them to your manager.",
+      "idea": "There’s no set discount. Any discount or concession goes to your sales manager before you say it: a price below the calculator, an extra free month, a free add-on or a change to contract wording. Never promise one yourself. In our demos, AEs got these approved during the call or wrote them into the contract after approval. The sign-up offer is usually the first month free, depending on that month’s promotion. Near year end there’s usually no free month if the first bill lands after January 1. Debit cards are accepted for billing. The agreement runs 12 months from the first bill date and auto-renews for another 12. There’s no early opt-out: leaving early means paying the remaining months. Prices have historically been grandfathered, and Momence hasn’t raised prices for current hosts. You can say that. If you don’t know an answer, say you’ll confirm and give a time.",
       "say": "“That’s a fair ask. I can’t promise it on my own. Let me check with my manager and get back to you today.”",
       "good": [
         {
@@ -574,16 +582,24 @@ export const JA2_TRAINING = {
       },
       "points": [
         {
-          "label": "Calculator starting quote",
-          "text": "The calculator gives you the starting quote."
-        },
-        {
-          "label": "Manager approves extras",
-          "text": "Anything beyond it goes to your manager before you say it: a discount, a price below what the calculator allows, free months, a free add-on or a change to contract wording."
+          "label": "No set discount",
+          "text": "There’s no set discount. Any discount or concession goes to your sales manager before you say it: a price below the calculator, an extra free month, a free add-on or a change to contract wording. Never promise one yourself."
         },
         {
           "label": "Approvals during the call",
           "text": "In our demos, AEs got these approved during the call or wrote them into the contract after approval."
+        },
+        {
+          "label": "Sign-up offer",
+          "text": "The sign-up offer is usually the first month free, depending on that month’s promotion. Near year end there’s usually no free month if the first bill lands after January 1. Debit cards are accepted for billing."
+        },
+        {
+          "label": "Contract terms",
+          "text": "The agreement runs 12 months from the first bill date and auto-renews for another 12. There’s no early opt-out: leaving early means paying the remaining months."
+        },
+        {
+          "label": "Renewal price",
+          "text": "Prices have historically been grandfathered, and Momence hasn’t raised prices for current hosts. You can say that."
         },
         {
           "label": "Confirm with a time",

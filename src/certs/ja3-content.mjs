@@ -1,9 +1,9 @@
 // JAE3 · Payments and Card Fees — step-by-step training content (Junior AE track).
-// Built from the Junior AE Knowledge Bank; unconfirmed numbers are held back until the co-manager answers.
+// Built from the Junior AE Knowledge Bank. Card and ACH rates, pass-through, the reader and the card-export fee follow the co-manager's confirmed answers (Oct 30, 2026).
 
 export const JA3_TRAINING = {
   "title": "Payments and Card Fees",
-  "summary": "How processing, saved cards, fee pass-through, failed payments and card readers work, and how to handle “what’s your rate?” while rates are being confirmed. About 12 minutes.",
+  "summary": "How processing works and what it costs, saved cards and ACH, passing fees on, failed payments, the card reader, and how to answer “what’s your rate?” with the confirmed rates. About 12 minutes.",
   "format": "steps",
   "minutes": 12,
   "quizNote": "10 scenario questions from real demo moments. You need 80% to pass.",
@@ -11,8 +11,8 @@ export const JA3_TRAINING = {
     {
       "title": "How processing works",
       "why": "Owners ask early whether processing is another bill, and a muddled answer makes the price feel bigger than it is.",
-      "idea": "Momence processes payments through Stripe. During onboarding the studio connects its own Stripe account, and connecting it early lets them start taking payments sooner. There's no separate processing plan on top of the software. Fees come out of each transaction, as they do on every booking system. Our exact card and ACH rates are being confirmed right now, so this cert teaches the setup and leaves the numbers out.",
-      "say": "“You pay the plan price, then a fee on each transaction, like any system. There’s no second bill for processing.”",
+      "idea": "Momence processes payments through Stripe. During onboarding the studio connects its own Stripe account, and connecting it early lets them start taking payments sooner. There's no separate processing plan on top of the software. Fees come out of each transaction, as they do on every booking system. Online card payments are 3.9% + $0.30, in-person card payments are 3.7% + $0.05, and ACH (direct debit) is 1.8%. Chargeback fees, refund fees, PCI compliance fees and the automatic card updater are all included in those rates.",
+      "say": "“You pay your plan price, then a fee on each transaction, like any system. Chargebacks, refunds and PCI compliance are already in that rate.”",
       "good": [
         {
           "text": "The prospect said MindBody took fees she was never told about. The AE said the only fees were the software and payment processing, and showed that passing the processing fee on is an on-or-off choice.",
@@ -42,7 +42,7 @@ export const JA3_TRAINING = {
           "It depends on the plan, so check the calculator before answering"
         ],
         "answer": 2,
-        "why": "Processing fees are taken per transaction. There’s no extra processing plan, and the rate itself is being confirmed."
+        "why": "Processing fees are taken per transaction, and chargebacks, refunds and PCI compliance are included. There’s no extra processing plan."
       },
       "points": [
         {
@@ -62,15 +62,19 @@ export const JA3_TRAINING = {
           "text": "Fees come out of each transaction, as they do on every booking system."
         },
         {
-          "label": "Rates being confirmed",
-          "text": "Our exact card and ACH rates are being confirmed right now, so this cert teaches the setup and leaves the numbers out."
+          "label": "Card and ACH rates",
+          "text": "Online card payments are 3.9% + $0.30, in-person card payments are 3.7% + $0.05, and ACH (direct debit) is 1.8%."
+        },
+        {
+          "label": "What the rates include",
+          "text": "Chargeback fees, refund fees, PCI compliance fees and the automatic card updater are all included in those rates."
         }
       ]
     },
     {
       "title": "Card on file and ACH",
       "why": "Saved cards make memberships, no-show fees and quick front-desk sales work, so owners want to see them.",
-      "idea": "Clients can save their card at checkout for future purchases, and a recurring membership charges that saved card automatically each billing date. For appointments, the studio can take card details without charging, to hold the spot and back up a late-cancel or no-show fee written into its terms. Clients can also pay by ACH from their bank account, which costs the studio less than a card. The ACH rate is being confirmed, so say it’s lower and don’t give a number.",
+      "idea": "Clients can save their card at checkout for future purchases, and a recurring membership charges that saved card automatically each billing date. For appointments, the studio can take card details without charging, to hold the spot and back up a late-cancel or no-show fee written into its terms. Clients can also pay by ACH from their bank account. ACH is 1.8%, which costs the studio less than a card.",
       "say": "“For privates, you can save their card at booking without charging it, so your no-show fee actually gets collected.”",
       "good": [
         {
@@ -84,7 +88,7 @@ export const JA3_TRAINING = {
       ],
       "missed": [
         {
-          "text": "Asked what ACH costs, the AE guessed a number on the spot (“I want to say like…”). Another demo quoted a different one. A guessed rate is the one the prospect remembers.",
+          "text": "Asked what ACH costs, the AE guessed a number on the spot (“I want to say like…”). Another demo quoted a different one. A guessed rate is the one the prospect remembers. The ACH rate is 1.8%.",
           "source": "Pure Yoga demo",
           "clip": {
             "src": "/content/videos/ja3-2-missed-o1.mp4",
@@ -92,7 +96,7 @@ export const JA3_TRAINING = {
           }
         },
         {
-          "text": "The AE told the prospect that paying by direct debit (ACH) carries no processing fee. Later in the call she found a fee on the quote, and he had to correct himself.",
+          "text": "The AE told the prospect that paying by direct debit (ACH) carries no processing fee. Later in the call she found a fee on the quote, and he had to correct himself. ACH is 1.8%. It’s cheaper than a card, and it still has a fee.",
           "source": "Jenn G. demo",
           "clip": {
             "src": "/content/videos/ja3-2-missed-a1.mp4",
@@ -121,12 +125,8 @@ export const JA3_TRAINING = {
           "text": "For appointments, the studio can take card details without charging, to hold the spot and back up a late-cancel or no-show fee written into its terms."
         },
         {
-          "label": "ACH bank payments",
-          "text": "Clients can also pay by ACH from their bank account, which costs the studio less than a card."
-        },
-        {
-          "label": "Don't give ACH rate",
-          "text": "The ACH rate is being confirmed, so say it’s lower and don’t give a number."
+          "label": "ACH at 1.8%",
+          "text": "Clients can also pay by ACH from their bank account. ACH is 1.8%, which costs the studio less than a card."
         }
       ],
       "voice": [
@@ -143,8 +143,8 @@ export const JA3_TRAINING = {
     {
       "title": "Passing on card fees",
       "why": "It’s one of the biggest money levers in a demo, and AEs have explained it several different ways.",
-      "idea": "The studio can turn on passing the card fee to the client. At checkout the client sees the fee as its own line, then the total. It’s a setting, so the studio can leave it off and pay the fee itself. Whether a studio can pass on only part of the fee, or exempt members, is still being confirmed, so don’t promise either. Arketa studios can pass fees on too, so present it as an option the owner controls and don’t pitch it as unique to Momence.",
-      "say": "“You can pass the card fee to clients or keep paying it yourself. It’s a setting you control.”",
+      "idea": "The studio can turn on passing fees to the client. At checkout the client sees the fee as its own line, then the total. It’s flexible: the studio can pass on all of the fees, part of them on a sliding scale, or none and pay them itself. Passing fees on saves studios $400 to $2,000 a month. Whether members can be exempted is still being confirmed, so don’t promise it. Arketa studios can pass fees on too, so present it as an option the owner controls and don’t pitch it as unique to Momence.",
+      "say": "“You can pass the card fee to clients, pass on part of it, or keep paying it yourself. It’s a setting you control.”",
       "good": [
         {
           "text": "The AE showed the card fee as a separate line before the total, said the studio could pay it or pass it on, and noted that some owners are against it and some are all for it.",
@@ -157,7 +157,7 @@ export const JA3_TRAINING = {
       ],
       "missed": [
         {
-          "text": "The AE pushed it hard (“I recommend doing this”) and quoted a monthly savings range that nobody has verified. Present it as an option and leave unverified numbers out.",
+          "text": "The AE pushed it hard (“I recommend doing this”) and quoted a monthly savings range. The confirmed figure is $400 to $2,000 a month, and it still belongs after you’ve asked how the owner feels about fees. Present it as an option.",
           "source": "Rabbithole demo",
           "clip": {
             "src": "/content/videos/ja3-3-missed.mp4",
@@ -166,32 +166,36 @@ export const JA3_TRAINING = {
         }
       ],
       "check": {
-        "prompt": "A prospect asks, “Can I pass on half the fee and keep members exempt?” What do you say?",
+        "prompt": "A prospect asks, “Can I pass on just part of the card fee?” What’s accurate?",
         "options": [
-          "Yes, you can set any share and exclude members from the fee",
-          "No, it’s all or nothing, and members pay the fee like anyone",
-          "Suggest leaving it off for now so the question doesn’t matter",
-          "Say that detail is being confirmed and you’ll get back to her"
+          "No, it’s all or nothing: clients pay the full fee or none of it",
+          "Only online; in-person card fees can’t be passed on to clients",
+          "Only if she turns ACH off, since that fee can’t be passed on",
+          "Yes, she can pass on all, part or none of it, on a sliding scale"
         ],
         "answer": 3,
-        "why": "Demos have answered this both ways. Confirm it before you promise anything."
+        "why": "Pass-through is flexible. Any share of the fees can go to clients on a sliding scale, or none at all."
       },
       "points": [
         {
-          "label": "Pass card fee on",
-          "text": "The studio can turn on passing the card fee to the client."
+          "label": "Pass fees on",
+          "text": "The studio can turn on passing fees to the client."
         },
         {
           "label": "Fee shown at checkout",
           "text": "At checkout the client sees the fee as its own line, then the total."
         },
         {
-          "label": "Optional setting",
-          "text": "It’s a setting, so the studio can leave it off and pay the fee itself."
+          "label": "Sliding scale",
+          "text": "It’s flexible: the studio can pass on all of the fees, part of them on a sliding scale, or none and pay them itself."
         },
         {
-          "label": "Partial pass-through unconfirmed",
-          "text": "Whether a studio can pass on only part of the fee, or exempt members, is still being confirmed, so don’t promise either."
+          "label": "What it saves",
+          "text": "Passing fees on saves studios $400 to $2,000 a month."
+        },
+        {
+          "label": "Member exemptions",
+          "text": "Whether members can be exempted is still being confirmed, so don’t promise it."
         },
         {
           "label": "Not unique to Momence",
@@ -278,9 +282,9 @@ export const JA3_TRAINING = {
     },
     {
       "title": "“What’s your rate?”",
-      "why": "Card rates were the last objection in several deals, and AEs have quoted at least five different numbers.",
-      "idea": "Our card and ACH rates are being confirmed with management, so don’t quote one from memory. Ask what they pay now and whether they pass it on, and get a statement if you can. Tell them you’ll send current rates in writing. If their rate is lower, take it to your manager before you promise a match. Then compare the total, software plus processing, against what they pay today.",
-      "say": "“Send me what you pay now. I’ll get you our rates in writing and see what we can do.”",
+      "why": "Card rates were the last objection in several deals, and AEs quoted at least five different numbers. Now there’s one set of rates to quote.",
+      "idea": "Quote the confirmed rates: 3.9% + $0.30 online, 3.7% + $0.05 in person and 1.8% for ACH. Say what’s included: chargebacks, refunds, PCI compliance and the automatic card updater. Ask what they pay now, what that covers and whether they pass it on, and get a statement if you can. If their rate is lower, take it to your manager before you promise a match. Then compare the total, software plus processing, against what they pay today.",
+      "say": "“Online cards are 3.9% plus 30 cents, in person it’s 3.7% plus 5 cents, and ACH is 1.8%. Chargebacks, refunds and PCI are included. What are you paying now?”",
       "good": [
         {
           "text": "The AE said she’d send the processing fees in writing, said they’re negotiable, and asked the prospect to send her current MindBody fees so she could try to get them matched.",
@@ -293,7 +297,7 @@ export const JA3_TRAINING = {
       ],
       "missed": [
         {
-          "text": "The prospect asked if processing was an extra charge. The AE cleared that up, then quoted card and ACH rates from memory. Other demos quoted different rates, which is why rates are being confirmed.",
+          "text": "The prospect asked if processing was an extra charge. The AE cleared that up, then quoted card and ACH rates from memory, and other demos quoted different ones. The rates are now confirmed: 3.9% + $0.30 online, 3.7% + $0.05 in person and 1.8% ACH. Quote those exactly.",
           "source": "105 Fever, first call",
           "clip": {
             "src": "/content/videos/ja3-5-missed.mp4",
@@ -304,26 +308,26 @@ export const JA3_TRAINING = {
       "check": {
         "prompt": "A prospect asks for your online card rate. What should you do?",
         "options": [
-          "Ask what she pays now and send current rates in writing",
-          "Give the rate you hear most in demos, and say it may drop",
-          "Say our rate matches whatever her provider charges today",
-          "Say rates depend on volume and come up once she’s signed"
+          "Give 3.9% + $0.30, say what’s included, and ask what she pays now",
+          "Give the rate you hear most in demos, and say it may drop later",
+          "Say our rate matches whatever her provider charges her today",
+          "Say rates depend on volume and come up once she’s signed up"
         ],
         "answer": 0,
-        "why": "Her current rate gives you a real comparison. Ours goes in writing once it’s confirmed."
+        "why": "Quote the confirmed rate and what it covers. Her current rate then gives you a real comparison."
       },
       "points": [
         {
-          "label": "Don't quote rates",
-          "text": "Our card and ACH rates are being confirmed with management, so don’t quote one from memory."
+          "label": "Quote the confirmed rates",
+          "text": "Quote the confirmed rates: 3.9% + $0.30 online, 3.7% + $0.05 in person and 1.8% for ACH."
+        },
+        {
+          "label": "Say what's included",
+          "text": "Say what’s included: chargebacks, refunds, PCI compliance and the automatic card updater."
         },
         {
           "label": "Ask current rate",
-          "text": "Ask what they pay now and whether they pass it on, and get a statement if you can."
-        },
-        {
-          "label": "Send rates in writing",
-          "text": "Tell them you’ll send current rates in writing."
+          "text": "Ask what they pay now, what that covers and whether they pass it on, and get a statement if you can."
         },
         {
           "label": "Escalate rate matches",
@@ -413,7 +417,7 @@ export const JA3_TRAINING = {
     {
       "title": "Point of sale and readers",
       "why": "Walk-ins, retail and front-desk sales happen every day, and owners need to see staff take money in person.",
-      "idea": "Point of sale is part of the core platform. From a class roster or an appointment, “take payment” opens the POS with the client and the item already in the cart. Staff can charge the card on file, take another payment method, or send a payment link the client pays on their phone. A card reader works through the studio’s Stripe account. The reader model, price and where to buy it are being confirmed, so don’t quote them.",
+      "idea": "Point of sale is part of the core platform. From a class roster or an appointment, “take payment” opens the POS with the client and the item already in the cart. Staff can charge the card on file, take another payment method, or send a payment link the client pays on their phone. A card reader works through the studio’s Stripe account. Momence POS works with Stripe’s BBPOS WisePOS E reader. It costs $249 one time, bought directly from Stripe.",
       "say": "“If someone’s at the desk, tap take payment, and their card on file is right there.”",
       "good": [
         {
@@ -472,15 +476,15 @@ export const JA3_TRAINING = {
           "text": "A card reader works through the studio’s Stripe account."
         },
         {
-          "label": "Reader details unconfirmed",
-          "text": "The reader model, price and where to buy it are being confirmed, so don’t quote them."
+          "label": "WisePOS E reader",
+          "text": "Momence POS works with Stripe’s BBPOS WisePOS E reader. It costs $249 one time, bought directly from Stripe."
         }
       ]
     },
     {
       "title": "Stored cards when switching",
       "why": "“Will my members’ cards come over?” often decides whether the switch feels safe.",
-      "idea": "Client data and stored cards are two different things. Momence’s team pulls the client data, but the old provider controls the card file, and some charge a fee to release it. Some providers make it hard, so never promise that every card will transfer. Ask how many members pay on recurring cards, because they’re the ones affected. JAE4 covers migration in depth, and fees and timing are being confirmed.",
+      "idea": "Client data and stored cards are two different things. Momence’s team pulls the client data, but the old provider controls the card file, and some charge a fee to release it. Some providers make it hard, so never promise that every card will transfer. Ask how many members pay on recurring cards, because they’re the ones affected. The card-export fee depends on the software and is about $500. MindBody, WellnessLiving and Glofox all charge for it. JAE4 covers migration in depth.",
       "say": "“Your client list comes over. Cards depend on your current provider, so let’s check what they’ll release.”",
       "good": [
         {
@@ -531,8 +535,8 @@ export const JA3_TRAINING = {
           "text": "Ask how many members pay on recurring cards, because they’re the ones affected."
         },
         {
-          "label": "Migration covered in JAE4",
-          "text": "JAE4 covers migration in depth, and fees and timing are being confirmed."
+          "label": "Card-export fee",
+          "text": "The card-export fee depends on the software and is about $500. MindBody, WellnessLiving and Glofox all charge for it. JAE4 covers migration in depth."
         }
       ],
       "voice": [

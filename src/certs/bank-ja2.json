@@ -7,27 +7,27 @@
    "section": "A",
    "kind": "knowledge",
    "topic": "Plan structure",
-   "prompt": "Which features does Growth add on top of the core platform?",
+   "prompt": "What does the Momence platform include before any add-ons?",
    "options": [
     {
      "id": "A",
-     "text": "Class booking, memberships, point of sale and reports"
+     "text": "Scheduling only; payments and CRM are paid add-ons"
     },
     {
      "id": "B",
-     "text": "Leads, sequences, ads manager, referrals and reviews"
+     "text": "Payments, scheduling, CRM, reports and unlimited teachers"
     },
     {
      "id": "C",
-     "text": "The AI agent that answers and books from the inbox"
+     "text": "Everything, the AI agent included, at one flat price"
     },
     {
      "id": "D",
-     "text": "The branded app and the library for on-demand video"
+     "text": "Booking for a set number of clients, then a higher tier"
     }
    ],
    "correct": "B",
-   "reveal": "Core runs the business. Growth adds the marketing suite. The AI agent and the add-ons sit on top.",
+   "reveal": "The platform runs the whole business, with no limit on customers or teacher accounts. Add-ons like the marketing suite and the AI agent sit on top.",
    "review": "/training/JAE2",
    "source": "JAE2 training"
   },
@@ -81,7 +81,7 @@
     },
     {
      "id": "D",
-     "text": "Give a range from the lowest to the highest plan for now"
+     "text": "Give a rough number from a similar studio’s last quote"
     }
    ],
    "correct": "A",
@@ -94,7 +94,7 @@
    "section": "A",
    "kind": "judgment",
    "topic": "The calculator",
-   "prompt": "The prospect’s co-owner missed the demo. She wants something to show him what’s in each plan. What’s best?",
+   "prompt": "The prospect’s co-owner missed the demo. She wants something to show him what’s in the plan you built. What’s best?",
    "options": [
     {
      "id": "A",
@@ -106,7 +106,7 @@
     },
     {
      "id": "C",
-     "text": "Download the calculator’s comparison sheet for both plans"
+     "text": "Download the calculator’s comparison sheet for her build"
     },
     {
      "id": "D",
@@ -114,7 +114,7 @@
     }
    ],
    "correct": "C",
-   "reveal": "The comparison sheet lists every feature in each plan side by side, and it matches the quote.",
+   "reveal": "The comparison sheet lists every feature in the build, and it matches the quote.",
    "review": "/training/JAE2",
    "source": "JAE2 training"
   },
@@ -313,7 +313,7 @@
     },
     {
      "id": "D",
-     "text": "That it comes with Growth, so it won’t matter for her"
+     "text": "That it’s part of the platform, so it won’t matter to her"
     }
    ],
    "correct": "B",
@@ -354,16 +354,16 @@
    "id": "JAE2-D1",
    "section": "D",
    "kind": "judgment",
-   "topic": "Do I need Growth?",
-   "prompt": "An owner says she’s at capacity with waitlists on most classes, and asks if she needs Growth. What do you do?",
+   "topic": "Do I need marketing?",
+   "prompt": "An owner says she’s at capacity with waitlists on most classes, and asks if she needs the marketing add-ons. What do you do?",
    "options": [
     {
      "id": "A",
-     "text": "Recommend Growth, since every studio benefits from more leads"
+     "text": "Recommend marketing, since every studio benefits from more leads"
     },
     {
      "id": "B",
-     "text": "Quote Growth and the AI agent so she has room to grow later"
+     "text": "Quote marketing and the AI agent so she has room to grow later"
     },
     {
      "id": "C",
@@ -383,8 +383,8 @@
    "id": "JAE2-D2",
    "section": "D",
    "kind": "judgment",
-   "topic": "Do I need Growth?",
-   "prompt": "A prospect asks, “Do I really need Growth?” Which question helps you most?",
+   "topic": "Do I need marketing?",
+   "prompt": "A prospect asks, “Do I really need the marketing add-ons?” Which question helps you most?",
    "options": [
     {
      "id": "A",
@@ -392,11 +392,11 @@
     },
     {
      "id": "B",
-     "text": "“Could you fit Growth into your monthly budget right now?”"
+     "text": "“Could you fit marketing into your monthly budget right now?”"
     },
     {
      "id": "C",
-     "text": "“Have studios you know picked Growth, or just the core?”"
+     "text": "“Have studios you know added marketing, or just the platform?”"
     },
     {
      "id": "D",
@@ -417,7 +417,7 @@
    "options": [
     {
      "id": "A",
-     "text": "“Arketa is cheaper because it has about half our software.”"
+     "text": "“Arketa charges extra for things we include as standard.”"
     },
     {
      "id": "B",
@@ -433,7 +433,7 @@
     }
    ],
    "correct": "C",
-   "reveal": "The other three are unverified knocks. A prospect who checks one will doubt everything else you said.",
+   "reveal": "The other three are claims she can’t check on the call. Concede what’s true, then show what each price covers.",
    "review": "/training/JAE2",
    "source": "JAE2 training"
   },
@@ -470,28 +470,28 @@
    "id": "JAE2-E1",
    "section": "E",
    "kind": "knowledge",
-   "topic": "Manager approval",
-   "prompt": "Which of these can you offer without your manager’s approval?",
+   "topic": "Contract terms",
+   "prompt": "A prospect asks, “If it isn’t working, can I leave after six months?” What’s accurate?",
    "options": [
     {
      "id": "A",
-     "text": "The package price the calculator shows"
+     "text": "No early opt-out; leaving early means paying the remaining months"
     },
     {
      "id": "B",
-     "text": "A small discount to close a deal this week"
+     "text": "Yes, with 30 days’ notice at any point after the first month"
     },
     {
      "id": "C",
-     "text": "An extra free month for a pre-open studio"
+     "text": "Yes, as long as she hasn’t used the free first month of the offer"
     },
     {
      "id": "D",
-     "text": "A free branded app for the first year"
+     "text": "Yes, the 12 months count from signing, so six months is the end"
     }
    ],
    "correct": "A",
-   "reveal": "The calculator quote is yours to give. Discounts, free months and free add-ons need approval.",
+   "reveal": "The agreement runs 12 months from the first bill date and auto-renews. Leaving early means paying the remaining months.",
    "review": "/training/JAE2",
    "source": "JAE2 training"
   },
@@ -499,28 +499,28 @@
    "id": "JAE2-E2",
    "section": "E",
    "kind": "judgment",
-   "topic": "Manager approval",
-   "prompt": "A prospect asks what her price will be when the contract renews. You don’t know the policy. What do you say?",
+   "topic": "Contract terms",
+   "prompt": "A prospect asks if her price will go up when the contract renews. What can you say?",
    "options": [
     {
      "id": "A",
-     "text": "That prices have never gone up, so she has nothing to worry about"
+     "text": "That it will rise with inflation, so she should budget for it"
     },
     {
      "id": "B",
-     "text": "That you’ll confirm with your manager and reply by a set time"
+     "text": "Prices are grandfathered, and current hosts haven’t had a raise"
     },
     {
      "id": "C",
-     "text": "That it renews at the same rate, since most contracts work that way"
+     "text": "That she can renegotiate at renewal if she’s unhappy with it"
     },
     {
      "id": "D",
-     "text": "That she can renegotiate at renewal if she’s unhappy with the rate"
+     "text": "That it’s locked forever, and you’ll write that into the contract"
     }
    ],
    "correct": "B",
-   "reveal": "Renewal terms are still being confirmed. A promise you can’t back up can follow you into the contract.",
+   "reveal": "Prices have historically been grandfathered, and Momence hasn’t raised them for current hosts. Writing a price lock into the contract is a change that goes to your manager.",
    "review": "/training/JAE2",
    "source": "JAE2 training"
   },
