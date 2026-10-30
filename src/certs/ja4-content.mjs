@@ -16,7 +16,11 @@ export const JA4_TRAINING = {
       "good": [
         {
           "text": "Moving from Acuity, the AE split it clearly: Momence's team pulls the client data, and stored cards need a separate encrypted export from Acuity.",
-          "source": "Wild Yoga demo"
+          "source": "Wild Yoga demo",
+          "clip": {
+            "src": "/content/videos/ja4-1-good-o1.mp4",
+            "seconds": 96
+          }
         },
         {
           "text": "The AE split it clearly: Momence's onboarding team pulls the data out of Arketa for her, while stored cards are the one thing she may have to collect again. The owner said she only wanted her client list anyway, and the AE confirmed that's a simple export and upload.",

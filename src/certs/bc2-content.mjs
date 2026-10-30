@@ -50,7 +50,7 @@ export const BC2_TRAINING = {
       "say": "“How does your mix look today: mostly members, or more packs and drop-ins?”",
       "good": [
         {
-          "text": "Jackie said she doesn't run trainings yet, keeps her prices on the low end to build a yoga culture in her neighborhood, and is starting private sessions around her two young kids. The AE suggested a private-session interest form that creates a lead, so Jackie can call back and book around her own schedule.",
+          "text": "Jackie said she doesn't run trainings yet, wants to build a daily yoga culture in her one-room studio, and is slowly adding private sessions around her two young kids. The AE suggested a private-session interest form that creates a lead, so Jackie can call back and book around her own schedule.",
           "source": "Sol Space demo",
           "clip": {
             "src": "/content/videos/bc2-1-good.mp4",
@@ -58,7 +58,7 @@ export const BC2_TRAINING = {
           }
         },
         {
-          "text": "Early in discovery the AE asked how many instructors and members the studio had: 21 instructors and 72 memberships, plus class passes and drop-ins. Six months in, that's a member base worth protecting in a switch.",
+          "text": "Early in discovery the AE asked how many instructors the studio had: 21. Alli added 72 memberships, plus class passes and drop-ins. Six months in, that's a member base worth protecting in a switch.",
           "source": "Alli F. demo",
           "clip": {
             "src": "/content/videos/bc2-1-good-b.mp4",
@@ -70,7 +70,10 @@ export const BC2_TRAINING = {
         {
           "text": "Ravinder had run her hot yoga studio for about 10 years. The AE never put a number on her pain or asked about her Walla contract and how she'd decide, so the offer was built without knowing what the business needed.",
           "source": "Hot For Yoga demo",
-          "clip": null
+          "clip": {
+            "src": "/content/videos/bc2-1-missed-o1.mp4",
+            "seconds": 106
+          }
         }
       ],
       "voice": [
@@ -146,7 +149,10 @@ export const BC2_TRAINING = {
         {
           "text": "Carla had almost no clients yet. The AE never asked how many classes she runs, what she needs to earn, or what her manual setup was costing her, so the call ran on features instead of her numbers.",
           "source": "Carla demo (Demo 37)",
-          "clip": null
+          "clip": {
+            "src": "/content/videos/bc2-2-missed-o1.mp4",
+            "seconds": 114
+          }
         }
       ],
       "voice": [
@@ -284,7 +290,7 @@ export const BC2_TRAINING = {
           "source": "105 Fever, second call",
           "clip": {
             "src": "/content/videos/bc2-4-good.mp4",
-            "seconds": 140
+            "seconds": 150
           }
         },
         {
@@ -352,7 +358,7 @@ export const BC2_TRAINING = {
           "source": "The Mill Yoga demo",
           "clip": {
             "src": "/content/videos/bc2-5-good.mp4",
-            "seconds": 145
+            "seconds": 150
           }
         },
         {
@@ -379,7 +385,7 @@ export const BC2_TRAINING = {
           "source": "105 Fever, second call",
           "clip": {
             "src": "/content/videos/bc2-5-voice.mp4",
-            "seconds": 70
+            "seconds": 80
           }
         }
       ],
@@ -450,7 +456,7 @@ export const BC2_TRAINING = {
           "source": "Hot For Yoga demo",
           "clip": {
             "src": "/content/videos/bc2-6-good-b.mp4",
-            "seconds": 115
+            "seconds": 125
           }
         },
         {
@@ -458,7 +464,7 @@ export const BC2_TRAINING = {
           "source": "Jenn G. demo",
           "clip": {
             "src": "/content/videos/bc2-6-good-c.mp4",
-            "seconds": 110
+            "seconds": 135
           }
         }
       ],
@@ -466,7 +472,10 @@ export const BC2_TRAINING = {
         {
           "text": "Daphne's deciding need was private aerial events with a deposit, then the balance. It surfaced in the third call and was never demoed.",
           "source": "105 Fever, third call",
-          "clip": null
+          "clip": {
+            "src": "/content/videos/bc2-6-missed-o1.mp4",
+            "seconds": 120
+          }
         }
       ],
       "voice": [
@@ -570,7 +579,7 @@ export const BC2_TRAINING = {
           "source": "105 Fever, first call",
           "clip": {
             "src": "/content/videos/bc2-7-voice-b.mp4",
-            "seconds": 100
+            "seconds": 107
           }
         }
       ],
@@ -617,14 +626,17 @@ export const BC2_TRAINING = {
         {
           "text": "The AE asked Alli's current spend and her renewal date in the first five minutes, which set up a close built around the overlap with her old system.",
           "source": "Alli F. demo",
-          "clip": null
+          "clip": {
+            "src": "/content/videos/bc2-8-good-o1.mp4",
+            "seconds": 75
+          }
         },
         {
           "text": "The AE asked when Brinn planned to decide with her partner, then offered a follow-up with the partner on Monday.",
           "source": "The Mill Yoga demo",
           "clip": {
             "src": "/content/videos/bc2-8-good-b.mp4",
-            "seconds": 60
+            "seconds": 64
           }
         },
         {
@@ -632,15 +644,18 @@ export const BC2_TRAINING = {
           "source": "Jenn G. demo",
           "clip": {
             "src": "/content/videos/bc2-8-good-c.mp4",
-            "seconds": 70
+            "seconds": 110
           }
         }
       ],
       "missed": [
         {
-          "text": "Lori said her older, small-town clients would mind paying card fees. The AE pushed passing fees on twice before he adapted.",
+          "text": "Lori kept pushing back on passing card fees. The AE kept pushing until she explained her town is small and her members are older. Only then did he adapt.",
           "source": "Pure Yoga demo",
-          "clip": null
+          "clip": {
+            "src": "/content/videos/bc2-8-missed-o1.mp4",
+            "seconds": 95
+          }
         }
       ],
       "check": {

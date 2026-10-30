@@ -149,8 +149,12 @@ export const JA6_TRAINING = {
       "say": "“Would it help if I walked your partner through it? Does Thursday at 10 work for both of you?”",
       "good": [
         {
-          "text": "With two co-owners, the AE sent the agreement during the call, said who needed to sign it and booked a short call for questions. When one owner couldn't join, she offered to meet that owner directly.",
-          "source": "Pilates & Co demo"
+          "text": "With two co-owners, the AE sent the agreement, said who needed to sign it and penciled in a short call for questions. When the other owner couldn't easily join, she offered to meet that owner directly.",
+          "source": "Pilates & Co demo",
+          "clip": {
+            "src": "/content/videos/ja6-3-good-o1.mp4",
+            "seconds": 120
+          }
         },
         {
           "text": "With both owners on the call, the AE asked what was really holding them back. The partner's concern was keeping her word to her franchisees on price. He proposed a way to honor that and then one combined onboarding session for all of them, which turned a stall into a plan.",
@@ -320,7 +324,11 @@ export const JA6_TRAINING = {
       "good": [
         {
           "text": "The AE walked the quote and contract terms before she signed and pointed out the contract end date and auto-renewal himself. He also offered two quotes, with and without video on demand, so she could choose.",
-          "source": "Suave Studio demo"
+          "source": "Suave Studio demo",
+          "clip": {
+            "src": "/content/videos/ja6-5-good-o1.mp4",
+            "seconds": 80
+          }
         },
         {
           "text": "Asked how the contract ends, the AE explained it plainly: a one-year term that auto-renews, 30 days' notice to cancel, and the price locked for the term. He also said the contract allows a price change at renewal. Note: his line that prices have never gone up is not confirmed; don't repeat it.",

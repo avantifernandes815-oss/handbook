@@ -54,21 +54,29 @@ export const BC1_TRAINING = {
       "say": "“Walk me through where your revenue comes from today: privates, classes, memberships, packs?”",
       "good": [
         {
-          "text": "The AE opened by asking about the studio and its frustrations, then let the owner talk. She laid out the business herself: a boutique, privates-heavy studio, about 60 active clients, seven teachers, room for about 20 more, and a fear of attracting people who fit a big chain better.",
+          "text": "The AE opened by asking about the studio and its frustrations, then let the owner talk. She laid out the business herself: a one-woman operation teaching 30 to 35 hours a week, seven teachers, about 60 active clients, and a worry that broad advertising brings people who fit a big chain better than a boutique studio.",
           "source": "Core Fluency Pilates demo",
           "clip": {
             "src": "/content/videos/bc1-1-good.mp4",
-            "seconds": 45
+            "seconds": 128
+          }
+        },
+        {
+          "text": "The owner asked whether memberships really earn Pilates studios more, since in her experience they don't. The AE answered with the math: a member may pay a little less per class, but if they come six times a month instead of two or three at full price, the monthly value of that client goes up, and memberships give the studio income it can count on.",
+          "source": "Core Fluency Pilates demo",
+          "clip": {
+            "src": "/content/videos/bc1-1-good-m.mp4",
+            "seconds": 84
           }
         }
       ],
       "missed": [
         {
-          "text": "The owner asked whether memberships really earn Pilates studios more, because in her experience they don't, and a friend's studio built on memberships had closed. The AE answered in general terms and said every studio is different. He didn't ask for her numbers (spots, private vs group mix, teacher pay), so the question stayed open.",
+          "text": "The owner told the AE how she wants to grow: not video, but more people in the door for her current teachers. She also said she guides new clients by phone partly to avoid MindBody's fee on online intro packages. The AE only asked whether she passes on card fees. He never asked how many open spots she has or what a new client is worth, and later still pitched on-demand video.",
           "source": "Core Fluency Pilates demo",
           "clip": {
-            "src": "/content/videos/bc1-1-missed.mp4",
-            "seconds": 80
+            "src": "/content/videos/bc1-1-missed-n.mp4",
+            "seconds": 118
           }
         }
       ],
@@ -153,16 +161,19 @@ export const BC1_TRAINING = {
           "source": "Lexi demo",
           "clip": {
             "src": "/content/videos/bc1-2-good.mp4",
-            "seconds": 52,
+            "seconds": 55,
             "audio": true
           }
         }
       ],
       "missed": [
         {
-          "text": "The founder said she'd rather never be on ClassPass. The AE agreed by calling ClassPass clients flaky and comparing it to Groupon. A better move: ask what she's worried about, then show how her own client list fills spots.",
+          "text": "While explaining Spot Filler, the AE compared ClassPass to Groupon. The founder said she'd rather never be on ClassPass, and he agreed, calling ClassPass clients flaky. A better move: ask what she's worried about, then show how her own client list fills spots.",
           "source": "Rabbithole demo",
-          "clip": null
+          "clip": {
+            "src": "/content/videos/bc1-2-missed-o1.mp4",
+            "seconds": 64
+          }
         }
       ],
       "voice": [
@@ -171,7 +182,7 @@ export const BC1_TRAINING = {
           "source": "Core Fluency Pilates demo",
           "clip": {
             "src": "/content/videos/bc1-2-voice.mp4",
-            "seconds": 99
+            "seconds": 107
           }
         }
       ],
@@ -234,18 +245,29 @@ export const BC1_TRAINING = {
       "say": "“Are your classes mostly reformer, mat, or a mix? And do you run privates or teacher trainings too?”",
       "good": [
         {
-          "text": "The owners were opening a mat Pilates studio. The AE showed a live Pilates studio's site first, so they saw their own kind of business, then tied each screen to what they would do: Instagram links, presales and birthday emails.",
+          "text": "The owners were opening a mat Pilates studio. The AE showed a live Pilates studio's booking site, then tied each screen to what they would do: a birthday field for automations and a unique booking link for Instagram stories.",
           "source": "Pilates & Co demo",
-          "clip": null
+          "clip": {
+            "src": "/content/videos/bc1-3-good-o1.mp4",
+            "seconds": 88
+          }
+        },
+        {
+          "text": "The founder described her pop-ups: 10 micro reformers, 30-minute power sessions, 10 tickets per time slot. Her nightclub venue had found it confusing. The AE told her plainly that this is standard and easy in Momence and offered to walk her through it, which settled the worry.",
+          "source": "Rabbithole demo",
+          "clip": {
+            "src": "/content/videos/bc1-3-good-m.mp4",
+            "seconds": 80
+          }
         }
       ],
       "missed": [
         {
-          "text": "The founder described her pop-ups in her own words: 10 micro reformers, 30-minute power sessions, 10 tickets per time slot. The AE said it all seemed pretty standard and that he might be missing something. That setup was never shown in the call.",
+          "text": "The founder had just said she isn't a typical boutique studio but an immersive wellness brand, events first, with retreats coming. The AE said he had enough to get started and opened with the standard pitch for “studios, gyms, spas, dance schools,” without using her words or starting from events.",
           "source": "Rabbithole demo",
           "clip": {
-            "src": "/content/videos/bc1-3-missed.mp4",
-            "seconds": 125
+            "src": "/content/videos/bc1-3-missed-n.mp4",
+            "seconds": 95
           }
         }
       ],
@@ -255,7 +277,7 @@ export const BC1_TRAINING = {
           "source": "Rabbithole demo",
           "clip": {
             "src": "/content/videos/bc1-3-voice.mp4",
-            "seconds": 100
+            "seconds": 106
           }
         },
         {
@@ -263,7 +285,7 @@ export const BC1_TRAINING = {
           "source": "Rabbithole demo",
           "clip": {
             "src": "/content/videos/bc1-3-voice-b.mp4",
-            "seconds": 42
+            "seconds": 45
           }
         }
       ],
@@ -312,7 +334,7 @@ export const BC1_TRAINING = {
           "source": "Core Fluency Pilates demo",
           "clip": {
             "src": "/content/videos/bc1-4-good.mp4",
-            "seconds": 50
+            "seconds": 56
           }
         },
         {
@@ -326,11 +348,11 @@ export const BC1_TRAINING = {
       ],
       "missed": [
         {
-          "text": "The owner said easier booking had two risks: less contact before a first visit, and new clients booking the wrong level. She'd just lost two people who called and didn't hear back in time. The AE said “okay, understood” and moved to card fees, without asking what those lost clients were worth or showing how leads get captured.",
+          "text": "The owner said easier booking had two risks: less contact before a first visit, and new clients booking the wrong level. She'd just lost two people who called and didn't hear back in time. The AE said “yeah, it makes sense” and asked what she pays in card fees, without asking what those lost clients were worth or showing how leads get captured.",
           "source": "Core Fluency Pilates demo",
           "clip": {
             "src": "/content/videos/bc1-4-missed.mp4",
-            "seconds": 108
+            "seconds": 112
           }
         }
       ],
@@ -340,7 +362,7 @@ export const BC1_TRAINING = {
           "source": "Core Fluency Pilates demo",
           "clip": {
             "src": "/content/videos/bc1-4-voice.mp4",
-            "seconds": 100
+            "seconds": 106
           }
         },
         {
@@ -411,11 +433,11 @@ export const BC1_TRAINING = {
       ],
       "voice": [
         {
-          "text": "She uses one booking tool at one venue for packages and handles the rest by personal message. Her twice-monthly events hold 65 people with at least 40 more on the waitlist, and she can't keep track.",
+          "text": "She uses one booking tool for packages at one of her locations and hates it. Her twice-monthly events hold 65 people with at least 40 more on the waitlist, and she can't keep track. She liked another Pilates studio's waitlist text that gives people 10 minutes to answer.",
           "source": "Lexi demo",
           "clip": {
             "src": "/content/videos/bc1-5-voice.mp4",
-            "seconds": 45,
+            "seconds": 47,
             "audio": true
           }
         }
@@ -469,7 +491,10 @@ export const BC1_TRAINING = {
         {
           "text": "The owners were selling founding memberships before their website was done. The AE showed that each membership has its own purchase page and link, ready for an Instagram story or link-in-bio.",
           "source": "Pilates & Co demo",
-          "clip": null
+          "clip": {
+            "src": "/content/videos/bc1-6-good-o1.mp4",
+            "seconds": 90
+          }
         },
         {
           "text": "The instructor asked how her clients' packages would move over from her old system. The AE explained that onboarding brings clients over with the same credits they had. She signed on the spot: “I'll do it.”",
@@ -485,7 +510,10 @@ export const BC1_TRAINING = {
         {
           "text": "The founder's most urgent need was ticketing for pop-ups six weeks away, and she asked to see the events hub. The call ran out of time before it was shown, and the next step was left to email with no meeting booked.",
           "source": "Rabbithole demo",
-          "clip": null
+          "clip": {
+            "src": "/content/videos/bc1-6-missed-o1.mp4",
+            "seconds": 75
+          }
         }
       ],
       "voice": [
@@ -565,13 +593,24 @@ export const BC1_TRAINING = {
             "src": "/content/videos/bc1-7-good-b.mp4",
             "seconds": 45
           }
+        },
+        {
+          "text": "The owner asked whether members could see their own progress photos and measurements. The AE said plainly that it isn't client-facing today, made no promise, and offered to find an integration partner that does it.",
+          "source": "Her Zen Studio demo",
+          "clip": {
+            "src": "/content/videos/bc1-7-good-x1.mp4",
+            "seconds": 105
+          }
         }
       ],
       "missed": [
         {
-          "text": "A 16-year Pilates owner came back for pricing the day after her current system moved custom sequences behind a paid add-on. That was her trigger to look, but the call stayed a price list and never came back to it.",
+          "text": "A 16-year Pilates owner came back for pricing and said she'd found the day before that her current system now charged extra for the custom sequences she'd always built herself. That was her reason to look, but the call stayed a price list and never built on it.",
           "source": "NRG Pilates demo",
-          "clip": null
+          "clip": {
+            "src": "/content/videos/bc1-7-missed-o1.mp4",
+            "seconds": 104
+          }
         }
       ],
       "voice": [

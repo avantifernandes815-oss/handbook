@@ -70,7 +70,7 @@ export const BC4_TRAINING = {
           "source": "Studio 33 (pole) follow-up",
           "clip": {
             "src": "/content/videos/bc4-1-voice-b.mp4",
-            "seconds": 100
+            "seconds": 122
           }
         }
       ],
@@ -78,7 +78,10 @@ export const BC4_TRAINING = {
         {
           "text": "The owner runs salsa one day a week alongside a full-time job. The AE was candid about which plan gave real value at his size instead of pushing the biggest package, which kept the conversation honest.",
           "source": "SALSAtlanta demo",
-          "clip": null
+          "clip": {
+            "src": "/content/videos/bc4-1-good-o1.mp4",
+            "seconds": 110
+          }
         }
       ],
       "missed": [],
@@ -145,7 +148,10 @@ export const BC4_TRAINING = {
         {
           "text": "The AE learned early that the prospect ran several levels of salsa at once on one day a week, then showed dance studio examples with spot booking and custom fields that matched that setup.",
           "source": "SALSAtlanta demo",
-          "clip": null
+          "clip": {
+            "src": "/content/videos/bc4-2-good-o1.mp4",
+            "seconds": 75
+          }
         },
         {
           "text": "The AE summed up her pain (the client journey), then asked whether she wanted to grow or just fix problems. That surfaced which side of the hybrid studio she wanted to grow.",
@@ -218,9 +224,12 @@ export const BC4_TRAINING = {
       ],
       "missed": [
         {
-          "text": "The owner said re-registration happens by email, but the AE never asked about tuition, recitals or when her season starts, so the biggest dates in her year never came up.",
+          "text": "Asked what else might change in the next six months, the owner said she wants more daytime options and mom-and-me classes. The AE said “Okay, great. Easy” and started the demo, without asking about tuition, recitals or when her season starts, so the biggest dates in her year never came up.",
           "source": "Hansing's School of Dance demo",
-          "clip": null
+          "clip": {
+            "src": "/content/videos/bc4-3-missed-o1.mp4",
+            "seconds": 67
+          }
         }
       ],
       "check": {
@@ -268,7 +277,7 @@ export const BC4_TRAINING = {
           "source": "Studio 33 (pole) follow-up",
           "clip": {
             "src": "/content/videos/bc4-4-voice.mp4",
-            "seconds": 67
+            "seconds": 70
           }
         }
       ],
@@ -284,9 +293,12 @@ export const BC4_TRAINING = {
       ],
       "missed": [
         {
-          "text": "The prospect said his priority was fast check-in at the door before class. The class page and check-in came about 20 minutes into the demo, after other features.",
+          "text": "The prospect said his priority was fast check-in at the door before class. The class page and check-in came about 20 minutes into the call, after other features.",
           "source": "SALSAtlanta demo",
-          "clip": null
+          "clip": {
+            "src": "/content/videos/bc4-4-missed-o1.mp4",
+            "seconds": 94
+          }
         }
       ],
       "check": {
@@ -354,9 +366,12 @@ export const BC4_TRAINING = {
       ],
       "good": [
         {
-          "text": "The AE ran honest discovery on why the owner had left MindBody and how Glofox was working. That surfaced the missing card terminal, credits that didn't always come back on cancellation, and the extra newsletter tool.",
+          "text": "The AE ran honest discovery on why the owner had left MindBody and how Glofox was working. That surfaced the missing card terminal and credits that didn't always come back on cancellation; a later question about newsletters surfaced the extra newsletter tool.",
           "source": "SALSAtlanta demo",
-          "clip": null
+          "clip": {
+            "src": "/content/videos/bc4-5-good-o1.mp4",
+            "seconds": 118
+          }
         },
         {
           "text": "The AE opened by asking what software they use and why they switched. The owner explained they left MindBody because it couldn't pass card fees on to clients.",
@@ -413,7 +428,7 @@ export const BC4_TRAINING = {
           "source": "Studio 33 (pole) follow-up",
           "clip": {
             "src": "/content/videos/bc4-6-voice.mp4",
-            "seconds": 100
+            "seconds": 116
           }
         }
       ],
@@ -439,7 +454,7 @@ export const BC4_TRAINING = {
           "source": "River Oaks Dancing demo",
           "clip": {
             "src": "/content/videos/bc4-6-good-c.mp4",
-            "seconds": 138
+            "seconds": 146
           }
         }
       ],
@@ -499,7 +514,7 @@ export const BC4_TRAINING = {
           "source": "Hansing's School of Dance demo",
           "clip": {
             "src": "/content/videos/bc4-7-good.mp4",
-            "seconds": 82
+            "seconds": 87
           }
         },
         {
@@ -515,15 +530,18 @@ export const BC4_TRAINING = {
           "source": "Hansing's School of Dance demo",
           "clip": {
             "src": "/content/videos/bc4-7-good-c.mp4",
-            "seconds": 70
+            "seconds": 80
           }
         }
       ],
       "missed": [
         {
-          "text": "The prospect's one deal-breaker was a parent booking herself and her children in one checkout. The AE didn't know and said she'd check, which left the prospect waiting.",
+          "text": "The prospect's biggest need was a mom booking herself and her kids into the same class in one checkout. The AE didn't know and said she'd check, which left the prospect waiting.",
           "source": "Kaylea C. demo",
-          "clip": null
+          "clip": {
+            "src": "/content/videos/bc4-7-missed-o1.mp4",
+            "seconds": 90
+          }
         }
       ],
       "check": {
@@ -569,7 +587,10 @@ export const BC4_TRAINING = {
         {
           "text": "The AE named his own dance background to build credibility, then ran honest discovery on why the owner left MindBody and what wasn't working on Glofox.",
           "source": "SALSAtlanta demo",
-          "clip": null
+          "clip": {
+            "src": "/content/videos/bc4-8-good-o1.mp4",
+            "seconds": 135
+          }
         },
         {
           "text": "The AE asked how long she'd used MindBody and what wasn't working, and let her talk: families couldn't book several kids, and the basic package felt expensive for what it did.",
@@ -584,7 +605,10 @@ export const BC4_TRAINING = {
         {
           "text": "The call ended with the owner comparing against Glofox on his own and no dated next step. Booking a follow-up tied to his priority (the door) would have kept it moving.",
           "source": "SALSAtlanta demo",
-          "clip": null
+          "clip": {
+            "src": "/content/videos/bc4-8-missed-o1.mp4",
+            "seconds": 76
+          }
         },
         {
           "text": "At the end the owner wanted to talk to her husband first. The AE accepted with no date set, and her husband had never been brought into the call.",

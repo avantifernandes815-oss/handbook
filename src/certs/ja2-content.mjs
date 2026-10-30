@@ -394,8 +394,12 @@ export const JA2_TRAINING = {
       ],
       "missed": [
         {
-          "text": "The prospect called because WellnessLiving had just moved sequences behind a paywall. That was the case for Growth, and the AE never built on it. The call stayed a price list.",
-          "source": "NRG Pilates pricing call"
+          "text": "The prospect came back for pricing, then said WellnessLiving had just started charging for the custom sequences she'd always built herself. That was the case for Growth, but the AE asked one question and moved on. The call stayed a price list.",
+          "source": "NRG Pilates pricing call",
+          "clip": {
+            "src": "/content/videos/ja2-6-missed-o1.mp4",
+            "seconds": 104
+          }
         },
         {
           "text": "The owners had opened by saying renewal reminders and other admin should be automated, which is the case for Growth. The AE never showed marketing. He priced it as an add-on “we haven't covered at all” and told them the base plan could replace Mailchimp.",

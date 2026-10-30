@@ -33,8 +33,12 @@ export const JA1_TRAINING = {
       ],
       "missed": [
         {
-          "text": "Explaining why he recommends the default pop-up checkout over an embedded one, the AE told the prospect three times that 98% of clients prefer it. No source backs that number.",
-          "source": "Greylock Yoga demo"
+          "text": "Explaining why he recommends the default pop-up checkout over an embedded one, the AE told the prospect four times in two minutes that 98% of studios prefer it. No source backs that number.",
+          "source": "Greylock Yoga demo",
+          "clip": {
+            "src": "/content/videos/ja1-1-missed-o1.mp4",
+            "seconds": 130
+          }
         },
         {
           "text": "After a spa owner watched the one-page checkout, the AE claimed that every extra click or page makes 14 percent of people stop booking. No source backs that number. The checkout's real advantages were enough.",
@@ -110,8 +114,12 @@ export const JA1_TRAINING = {
       ],
       "missed": [
         {
-          "text": "The prospect's one deal-breaker was a parent booking herself and her children in one checkout. The AE didn't know and said she'd check. Done well shows the right answer.",
-          "source": "Kaylea C. demo"
+          "text": "The prospect's biggest need was a mom booking herself and her kids into the same class in one checkout. The AE didn't know and said she'd check with her team. Done well shows the right answer.",
+          "source": "Kaylea C. demo",
+          "clip": {
+            "src": "/content/videos/ja1-2-missed-o1.mp4",
+            "seconds": 90
+          }
         },
         {
           "text": "The owner asked whether clients can get a receipt after they check out. The AE didn't know. He said they'd get a confirmation email and that he'd get back to her. Know the checkout basics owners ask about before the demo.",
@@ -188,7 +196,11 @@ export const JA1_TRAINING = {
       "missed": [
         {
           "text": "The prospect said his priority was fast check-in at the door before class. The class page and check-in came about 20 minutes in, after other features.",
-          "source": "SALSAtlanta demo"
+          "source": "SALSAtlanta demo",
+          "clip": {
+            "src": "/content/videos/ja1-3-missed-o1.mp4",
+            "seconds": 94
+          }
         },
         {
           "text": "About 34 minutes into a call booked for 30, the operations lead asked whether this was the demo. She wanted to see what happens once a client books. Only then did the AE open the class roster and show staff checking people in.",
@@ -338,7 +350,11 @@ export const JA1_TRAINING = {
       "missed": [
         {
           "text": "With more providers than rooms on weekends, the spa owner asked whether rooms could block and be prioritized. The AE couldn't say and committed to confirm. He didn't overpromise, but it's the kind of question to know before a spa demo. The answer is still being confirmed.",
-          "source": "Purity Day Spa demo"
+          "source": "Purity Day Spa demo",
+          "clip": {
+            "src": "/content/videos/ja1-5-missed-o1.mp4",
+            "seconds": 150
+          }
         },
         {
           "text": "The owner's spa location came up a few minutes in, unprompted, and the AE hadn't prepared for it. She said she wasn't aware of it and searched for a spa example to show. Find out about services and rooms before a spa demo.",

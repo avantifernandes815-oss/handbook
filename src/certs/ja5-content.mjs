@@ -230,8 +230,12 @@ export const JA5_TRAINING = {
       "say": "“How do you take payment from a walk-in today, and where does that sale end up?”",
       "good": [
         {
-          "text": "Before showing anything, the AE asked why the owner had left MindBody and how Glofox was working. That surfaced the Square workaround for walk-ins and the separate newsletter tool. Later he showed class-page check-in, the Stripe card reader, segments and newsletters.",
-          "source": "SALSAtlanta demo"
+          "text": "Before showing anything, the AE asked why the owner had left MindBody and how Glofox was working. That surfaced that he couldn't tap or swipe cards at the door and took walk-ins on Square instead. Later he showed class-page check-in and the Stripe card reader, and a question about newsletters surfaced the separate newsletter tool before he showed segments.",
+          "source": "SALSAtlanta demo",
+          "clip": {
+            "src": "/content/videos/ja5-4-good-o1.mp4",
+            "seconds": 150
+          }
         },
         {
           "text": "Before showing anything, the AE asked a MindBody studio what it pays and what that includes, when the contract renews and why they chose MindBody in the first place. She said the back end is the most frustrating part.",
@@ -396,8 +400,12 @@ export const JA5_TRAINING = {
       ],
       "missed": [
         {
-          "text": "The prospect asked whether booking leaves her website. The AE said “98%” of clients prefer the pop-up, three times in one call. He had made the number up. The real reasons (back to the schedule, a link for every class) were enough.",
-          "source": "Greylock Yoga demo"
+          "text": "The prospect asked whether booking leaves her website. The AE said “98%” of studios prefer the pop-up four times in two minutes, a number with no source behind it. The real reasons (clients land back on the schedule, a share link for every class) were enough.",
+          "source": "Greylock Yoga demo",
+          "clip": {
+            "src": "/content/videos/ja5-6-missed-o1.mp4",
+            "seconds": 150
+          }
         },
         {
           "text": "The founder said she'd probably have gone with Walla. Without asking what she liked about it, the AE called Momence “by far the best” and said checking out on Walla or Mariana Tek is “like a maze.” A knock isn't a reason. Showing her the checkout would have been.",

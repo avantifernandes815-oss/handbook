@@ -85,7 +85,11 @@ export const JA3_TRAINING = {
       "missed": [
         {
           "text": "Asked what ACH costs, the AE guessed a number on the spot (“I want to say like…”). Another demo quoted a different one. A guessed rate is the one the prospect remembers.",
-          "source": "Pure Yoga demo"
+          "source": "Pure Yoga demo",
+          "clip": {
+            "src": "/content/videos/ja3-2-missed-o1.mp4",
+            "seconds": 50
+          }
         },
         {
           "text": "The AE told the prospect that paying by direct debit (ACH) carries no processing fee. Later in the call she found a fee on the quote, and he had to correct himself.",
@@ -222,8 +226,12 @@ export const JA3_TRAINING = {
       ],
       "missed": [
         {
-          "text": "The prospect said her older, small-town clients would mind paying fees. The AE pushed passing fees on twice more before he adapted.",
-          "source": "Pure Yoga demo"
+          "text": "The prospect kept pushing back on passing card fees to her members. The AE kept pushing (squeaky wheels, monthly credits) until she explained her town is small and her members are older. Only then did he adapt.",
+          "source": "Pure Yoga demo",
+          "clip": {
+            "src": "/content/videos/ja3-4-missed-o1.mp4",
+            "seconds": 95
+          }
         },
         {
           "text": "For the second time in the call, the AE told a brand-new studio owner to pass card fees on, saying it would save at least $400 a month and pay for Momence. He never asked whether she passes fees on today or how her students would feel about it.",
@@ -420,7 +428,11 @@ export const JA3_TRAINING = {
       "missed": [
         {
           "text": "The prospect said fast check-in and payment at the door was his priority. The door-side flow with the card reader came 20 minutes in.",
-          "source": "SALSAtlanta demo"
+          "source": "SALSAtlanta demo",
+          "clip": {
+            "src": "/content/videos/ja3-7-missed-o1.mp4",
+            "seconds": 118
+          }
         },
         {
           "text": "The operations lead asked whether staff could record cash taken in person. The AE moved on to saved cards and passing fees on, then the dashboard and inbox. He came back to paying at the desk about a minute later.",

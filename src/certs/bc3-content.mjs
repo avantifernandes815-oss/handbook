@@ -56,7 +56,10 @@ export const BC3_TRAINING = {
         {
           "text": "The owner ran about 50 members on recurring card payments, plus InBody scans and nutrition consults. The AE showed those add-ons as appointments next to her classes, booked with pay now or card on file to pay later.",
           "source": "F.I.T. Warriors demo",
-          "clip": null
+          "clip": {
+            "src": "/content/videos/bc3-1-good-o1.mp4",
+            "seconds": 105
+          }
         }
       ],
       "missed": [],
@@ -220,7 +223,7 @@ export const BC3_TRAINING = {
           "source": "Skillz Sports Lab demo",
           "clip": {
             "src": "/content/videos/bc3-3-missed.mp4",
-            "seconds": 95
+            "seconds": 100
           }
         }
       ],
@@ -279,7 +282,7 @@ export const BC3_TRAINING = {
           "source": "Comova, first call",
           "clip": {
             "src": "/content/videos/bc3-4-good.mp4",
-            "seconds": 120
+            "seconds": 150
           }
         },
         {
@@ -353,7 +356,10 @@ export const BC3_TRAINING = {
         {
           "text": "The AE showed a spin studio's room map at checkout, then the Customer Milestones sequence that emails riders at 50, 100, 200, 300 and 500 visits so nobody gets missed.",
           "source": "The Grind Spin Studio 2.0 demo",
-          "clip": null
+          "clip": {
+            "src": "/content/videos/bc3-5-good-o1.mp4",
+            "seconds": 145
+          }
         },
         {
           "text": "The founder said she'd have two rooms, one for bikes and one for weight stations. The AE showed a live studio's spot map and explained it's a builder: circles, bikes or squares, in the studio's own fonts and colors.",
@@ -366,9 +372,12 @@ export const BC3_TRAINING = {
       ],
       "missed": [
         {
-          "text": "The AE pitched the AI agent as the highest-return add-on to a studio that hadn't opened and had no inbound messages yet. The automations she had asked about earlier fit her stage better, and the AI was later dropped.",
+          "text": "When she asked about following up abandoned checkouts, the AE rightly said the marketing automations handle it, then went straight into a long AI-agent demo for a studio that hadn't opened and had no inbound messages yet. He later called the AI the highest-return add-on; it was dropped at close.",
           "source": "Comova, first call",
-          "clip": null
+          "clip": {
+            "src": "/content/videos/bc3-5-missed-o1.mp4",
+            "seconds": 140
+          }
         }
       ],
       "voice": [
@@ -517,16 +526,22 @@ export const BC3_TRAINING = {
       "say": "“Walk me through what happens after someone takes their first class with you.”",
       "good": [
         {
-          "text": "Asking how people book and why Vagaro didn't stick surfaced a second business, health coaching, and a Facebook-group community. The AE showed a matching example for each.",
+          "text": "Asking how she booked privates surfaced a second business, health coaching, run on a separate system; later she asked about replacing her Facebook-group community. The AE showed a matching example for each: a health-coaching studio's booking page and Momence's built-in community feed.",
           "source": "F.I.T. Warriors demo",
-          "clip": null
+          "clip": {
+            "src": "/content/videos/bc3-7-good-o1.mp4",
+            "seconds": 115
+          }
         }
       ],
       "missed": [
         {
           "text": "In a 65-minute call booked for 30, a long company overview came before any demo, and budget and who decides were never asked.",
           "source": "Skillz Sports Lab demo",
-          "clip": null
+          "clip": {
+            "src": "/content/videos/bc3-7-missed-o1.mp4",
+            "seconds": 135
+          }
         }
       ],
       "check": {
@@ -590,7 +605,10 @@ export const BC3_TRAINING = {
         {
           "text": "She said Glofox had offered her discounts. The AE held his price, but answered with a long monologue that knocked other software instead of asking what she valued.",
           "source": "Comova, closing call",
-          "clip": null
+          "clip": {
+            "src": "/content/videos/bc3-8-missed-o1.mp4",
+            "seconds": 78
+          }
         }
       ],
       "check": {
