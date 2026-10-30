@@ -39,7 +39,25 @@ export const JA7_TRAINING = {
         ],
         "answer": 1,
         "why": "The difference is that it takes actions in the account, not only answers. And it follows the studio's own policies."
-      }
+      },
+      "points": [
+        {
+          "label": "Agent in inbox",
+          "text": "The support agent works inside the all-in-one inbox."
+        },
+        {
+          "label": "Answers across channels",
+          "text": "It answers clients by text, email and web chat."
+        },
+        {
+          "label": "Actions it takes",
+          "text": "It can book, cancel following the studio's own cancellation policy, freeze memberships, handle payments and refunds, manage waitlists, and escalate to staff."
+        },
+        {
+          "label": "Hands off to staff",
+          "text": "Anything it can't handle, like \"is class cancelled because of the weather?\", goes to a team member."
+        }
+      ]
     },
     {
       "title": "Switches and escalation",
@@ -72,7 +90,25 @@ export const JA7_TRAINING = {
         ],
         "answer": 3,
         "why": "Each request type can be switched off. Show her the control, then let her decide what it handles."
-      }
+      },
+      "points": [
+        {
+          "label": "Request type switches",
+          "text": "Each request type is its own switch: bookings, cancellations, freezes and so on."
+        },
+        {
+          "label": "Owner picks tasks",
+          "text": "The owner turns on only what they want the agent to handle."
+        },
+        {
+          "label": "Always to a person",
+          "text": "They also choose what always goes to a person, for example a question about a high-value membership the owner wants to close herself."
+        },
+        {
+          "label": "Escalation notifications",
+          "text": "Escalated conversations land in the inbox and staff get notified."
+        }
+      ]
     },
     {
       "title": "Setting it up",
@@ -105,7 +141,21 @@ export const JA7_TRAINING = {
         ],
         "answer": 0,
         "why": "The score reads the account and points to what's missing. Filling it in moves it toward a high setup."
-      }
+      },
+      "points": [
+        {
+          "label": "Name, voice and length",
+          "text": "In AI customization the owner sets the agent's name, brand voice (direct and professional, friendly, playful), response length (concise, standard or detailed), response style and example messages."
+        },
+        {
+          "label": "Setup score",
+          "text": "A setup score reads the account and says what's missing, such as fuller membership descriptions, and moves from average to high as the gaps are filled."
+        },
+        {
+          "label": "Onboarding helps setup",
+          "text": "Onboarding walks through this setup with the owner."
+        }
+      ]
     },
     {
       "title": "Sales agent and sequences",
@@ -138,7 +188,29 @@ export const JA7_TRAINING = {
         ],
         "answer": 2,
         "why": "The agent works conversations. A message that ends in a question invites the reply that hands the lead to it."
-      }
+      },
+      "points": [
+        {
+          "label": "Sales agent and sequences",
+          "text": "The sales agent works leads through sequences."
+        },
+        {
+          "label": "Follow-up tone",
+          "text": "The owner sets a follow-up tone (gentle reminder, encouraging push or high urgency), and the screen tracks leads contacted and revenue."
+        },
+        {
+          "label": "End with a question",
+          "text": "It works best when sequence messages end in a question."
+        },
+        {
+          "label": "Replies open in inbox",
+          "text": "When a lead replies, the conversation opens in the inbox and the agent takes it from there."
+        },
+        {
+          "label": "Stop on purchase",
+          "text": "A pre-purchase sequence can stop as soon as the lead buys any membership or pack."
+        }
+      ]
     },
     {
       "title": "When AI is the reason",
@@ -167,7 +239,29 @@ export const JA7_TRAINING = {
         ],
         "answer": 1,
         "why": "The job she wants done decides what you show. Her current spend gives you the comparison later."
-      }
+      },
+      "points": [
+        {
+          "label": "Ask what AI handles",
+          "text": "Ask what they want the AI to handle: after-hours messages, a busy front desk, lead follow-up, or something else."
+        },
+        {
+          "label": "Ask current spend",
+          "text": "Ask what they pay today across every tool doing that job."
+        },
+        {
+          "label": "Demo against answer",
+          "text": "Then demo the agent against their answer."
+        },
+        {
+          "label": "AI is customer-facing",
+          "text": "Momence's AI is customer-facing."
+        },
+        {
+          "label": "Flag mismatches early",
+          "text": "If the job they describe is something else, like reporting, find that out early and say so plainly."
+        }
+      ]
     },
     {
       "title": "Describing it honestly",
@@ -200,7 +294,25 @@ export const JA7_TRAINING = {
         ],
         "answer": 3,
         "why": "The others overpromise, knock competitors, or claim reporting the agent doesn't do."
-      }
+      },
+      "points": [
+        {
+          "label": "Describe owner control",
+          "text": "Describe what it does and how the owner controls it: it answers and takes actions in the inbox, within the permissions and policies they set."
+        },
+        {
+          "label": "Don't knock competitor AI",
+          "text": "Don't knock a competitor's AI as \"not really AI\"."
+        },
+        {
+          "label": "No unverified figures",
+          "text": "Don't quote time-saved or revenue figures from other studios, because they aren't verified."
+        },
+        {
+          "label": "Answer reporting questions",
+          "text": "If they ask about AI reporting or analytics, say what's true today: the agent is customer-facing."
+        }
+      ]
     },
     {
       "title": "Cost pushback: sequences first",
@@ -233,7 +345,33 @@ export const JA7_TRAINING = {
         ],
         "answer": 2,
         "why": "The agent works best on top of sequences that end in a question. Sequences first is the cheaper start and the better setup."
-      }
+      },
+      "points": [
+        {
+          "label": "Don't lead with AI",
+          "text": "If a prospect balks at the cost, don't lead with the AI."
+        },
+        {
+          "label": "Sequences first",
+          "text": "Get the sequences running first."
+        },
+        {
+          "label": "Sequences feed the agent",
+          "text": "That's where follow-up starts paying off, and it's the base the agent works on, since replies to sequences are what it picks up."
+        },
+        {
+          "label": "Add AI later",
+          "text": "Add the AI once they see results."
+        },
+        {
+          "label": "Quote from calculator",
+          "text": "The AI's price and any trial terms are being confirmed, so quote from the pricing calculator or check with your manager."
+        },
+        {
+          "label": "Know the core need",
+          "text": "Don't give away the AI before you know the prospect's core need."
+        }
+      ]
     },
     {
       "title": "Questions you can't answer",
@@ -266,7 +404,25 @@ export const JA7_TRAINING = {
         ],
         "answer": 0,
         "why": "Say what's true now and commit to find out. A guessed date becomes a promise."
-      }
+      },
+      "points": [
+        {
+          "label": "Items being confirmed",
+          "text": "Price, trial terms, and roadmap items like an AI analytics dashboard or natural-language reporting are all being confirmed."
+        },
+        {
+          "label": "Don't guess",
+          "text": "Don't guess."
+        },
+        {
+          "label": "Confirm with a date",
+          "text": "Say what's true today, say you'll confirm the rest, and give a date for the answer."
+        },
+        {
+          "label": "Price from calculator",
+          "text": "A price comes from the pricing calculator or your manager, never from memory."
+        }
+      ]
     }
   ],
   "sections": []

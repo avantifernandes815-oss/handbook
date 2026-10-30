@@ -39,7 +39,29 @@ export const JA3_TRAINING = {
         ],
         "answer": 2,
         "why": "Processing fees are taken per transaction. There’s no extra processing plan, and the rate itself is being confirmed."
-      }
+      },
+      "points": [
+        {
+          "label": "Payments through Stripe",
+          "text": "Momence processes payments through Stripe."
+        },
+        {
+          "label": "Connect Stripe early",
+          "text": "During onboarding the studio connects its own Stripe account, and connecting it early lets them start taking payments sooner."
+        },
+        {
+          "label": "No separate processing plan",
+          "text": "There's no separate processing plan on top of the software."
+        },
+        {
+          "label": "Fees per transaction",
+          "text": "Fees come out of each transaction, as they do on every booking system."
+        },
+        {
+          "label": "Rates being confirmed",
+          "text": "Our exact card and ACH rates are being confirmed right now, so this cert teaches the setup and leaves the numbers out."
+        }
+      ]
     },
     {
       "title": "Card on file and ACH",
@@ -68,7 +90,25 @@ export const JA3_TRAINING = {
         ],
         "answer": 0,
         "why": "A saved card holds the spot without a charge. With a no-show fee in her terms, she can actually collect it."
-      }
+      },
+      "points": [
+        {
+          "label": "Saved cards and memberships",
+          "text": "Clients can save their card at checkout for future purchases, and a recurring membership charges that saved card automatically each billing date."
+        },
+        {
+          "label": "Card holds for appointments",
+          "text": "For appointments, the studio can take card details without charging, to hold the spot and back up a late-cancel or no-show fee written into its terms."
+        },
+        {
+          "label": "ACH bank payments",
+          "text": "Clients can also pay by ACH from their bank account, which costs the studio less than a card."
+        },
+        {
+          "label": "Don't give ACH rate",
+          "text": "The ACH rate is being confirmed, so say it’s lower and don’t give a number."
+        }
+      ]
     },
     {
       "title": "Passing on card fees",
@@ -101,7 +141,29 @@ export const JA3_TRAINING = {
         ],
         "answer": 3,
         "why": "Demos have answered this both ways. Confirm it before you promise anything."
-      }
+      },
+      "points": [
+        {
+          "label": "Pass card fee on",
+          "text": "The studio can turn on passing the card fee to the client."
+        },
+        {
+          "label": "Fee shown at checkout",
+          "text": "At checkout the client sees the fee as its own line, then the total."
+        },
+        {
+          "label": "Optional setting",
+          "text": "It’s a setting, so the studio can leave it off and pay the fee itself."
+        },
+        {
+          "label": "Partial pass-through unconfirmed",
+          "text": "Whether a studio can pass on only part of the fee, or exempt members, is still being confirmed, so don’t promise either."
+        },
+        {
+          "label": "Not unique to Momence",
+          "text": "Arketa studios can pass fees on too, so present it as an option the owner controls and don’t pitch it as unique to Momence."
+        }
+      ]
     },
     {
       "title": "“My clients will mind fees”",
@@ -130,7 +192,29 @@ export const JA3_TRAINING = {
         ],
         "answer": 1,
         "why": "It’s her call and her clients. Respect it and compare costs the way she’ll actually run."
-      }
+      },
+      "points": [
+        {
+          "label": "Ask about fees today",
+          "text": "Ask first whether they pass fees on today and how their clients would react."
+        },
+        {
+          "label": "Accept client concerns",
+          "text": "If the owner says clients will mind, take that at face value."
+        },
+        {
+          "label": "Demo with fees off",
+          "text": "Pass-through is optional, so the rest of the demo works with it switched off."
+        },
+        {
+          "label": "Compare total cost",
+          "text": "Compare total cost against what they pay now, with fees off, and show passing them on only as a choice."
+        },
+        {
+          "label": "Then move on",
+          "text": "Then move on."
+        }
+      ]
     },
     {
       "title": "“What’s your rate?”",
@@ -163,7 +247,29 @@ export const JA3_TRAINING = {
         ],
         "answer": 0,
         "why": "Her current rate gives you a real comparison. Ours goes in writing once it’s confirmed."
-      }
+      },
+      "points": [
+        {
+          "label": "Don't quote rates",
+          "text": "Our card and ACH rates are being confirmed with management, so don’t quote one from memory."
+        },
+        {
+          "label": "Ask current rate",
+          "text": "Ask what they pay now and whether they pass it on, and get a statement if you can."
+        },
+        {
+          "label": "Send rates in writing",
+          "text": "Tell them you’ll send current rates in writing."
+        },
+        {
+          "label": "Escalate rate matches",
+          "text": "If their rate is lower, take it to your manager before you promise a match."
+        },
+        {
+          "label": "Compare full total",
+          "text": "Then compare the total, software plus processing, against what they pay today."
+        }
+      ]
     },
     {
       "title": "Failed payments",
@@ -196,7 +302,25 @@ export const JA3_TRAINING = {
         ],
         "answer": 3,
         "why": "That’s the exact pain the tile and reruns solve. Show it as soon as she names it."
-      }
+      },
+      "points": [
+        {
+          "label": "Failed payments tile",
+          "text": "Failed membership payments show as a tile on the dashboard, with a report behind it."
+        },
+        {
+          "label": "Failed payments report",
+          "text": "The report shows whose payments failed, which were paid later and which weren’t, and when the next automatic rerun is."
+        },
+        {
+          "label": "Editable payment emails",
+          "text": "Transactional email templates tell the client a payment failed or will be retried, and the studio can edit them."
+        },
+        {
+          "label": "Retry count unconfirmed",
+          "text": "How many times the system retries is being confirmed, so don’t give a number."
+        }
+      ]
     },
     {
       "title": "Point of sale and readers",
@@ -225,7 +349,29 @@ export const JA3_TRAINING = {
         ],
         "answer": 1,
         "why": "Take payment opens point of sale with the client and service already filled in."
-      }
+      },
+      "points": [
+        {
+          "label": "POS in core",
+          "text": "Point of sale is part of the core platform."
+        },
+        {
+          "label": "Take payment from roster",
+          "text": "From a class roster or an appointment, “take payment” opens the POS with the client and the item already in the cart."
+        },
+        {
+          "label": "Payment options",
+          "text": "Staff can charge the card on file, take another payment method, or send a payment link the client pays on their phone."
+        },
+        {
+          "label": "Card reader via Stripe",
+          "text": "A card reader works through the studio’s Stripe account."
+        },
+        {
+          "label": "Reader details unconfirmed",
+          "text": "The reader model, price and where to buy it are being confirmed, so don’t quote them."
+        }
+      ]
     },
     {
       "title": "Stored cards when switching",
@@ -258,7 +404,29 @@ export const JA3_TRAINING = {
         ],
         "answer": 2,
         "why": "The old provider controls the card file. Don’t promise every card, and don’t scare them either."
-      }
+      },
+      "points": [
+        {
+          "label": "Data versus stored cards",
+          "text": "Client data and stored cards are two different things."
+        },
+        {
+          "label": "Old provider controls cards",
+          "text": "Momence’s team pulls the client data, but the old provider controls the card file, and some charge a fee to release it."
+        },
+        {
+          "label": "Never promise every card",
+          "text": "Some providers make it hard, so never promise that every card will transfer."
+        },
+        {
+          "label": "Ask about recurring members",
+          "text": "Ask how many members pay on recurring cards, because they’re the ones affected."
+        },
+        {
+          "label": "Migration covered in JA4",
+          "text": "JA4 covers migration in depth, and fees and timing are being confirmed."
+        }
+      ]
     }
   ],
   "sections": []

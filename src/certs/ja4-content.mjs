@@ -35,7 +35,25 @@ export const JA4_TRAINING = {
         ],
         "answer": 2,
         "why": "Name what's certain and hand the detail to onboarding. A flat yes can turn into a broken promise."
-      }
+      },
+      "points": [
+        {
+          "label": "Client list and credits",
+          "text": "Momence's team brings over the studio's client list, and demos agree that remaining credits are matched too."
+        },
+        {
+          "label": "Detail depends on export",
+          "text": "How much detail comes with each client depends on the old system and what its export includes."
+        },
+        {
+          "label": "Unconfirmed migration details",
+          "text": "Visit history, client logins and tags on migrated clients are still being confirmed, so don't promise them."
+        },
+        {
+          "label": "Say what's certain",
+          "text": "Say what's certain, then say onboarding will confirm the rest."
+        }
+      ]
     },
     {
       "title": "Stored cards",
@@ -68,7 +86,29 @@ export const JA4_TRAINING = {
         ],
         "answer": 0,
         "why": "Cards rely on the old provider. Say so up front, and the owner trusts the rest of your answer."
-      }
+      },
+      "points": [
+        {
+          "label": "Cards not guaranteed",
+          "text": "Stored cards aren't guaranteed."
+        },
+        {
+          "label": "Old provider releases cards",
+          "text": "They depend on the old provider releasing the card data, usually through a separate export file the studio requests."
+        },
+        {
+          "label": "Some providers charge",
+          "text": "Some providers charge for that file."
+        },
+        {
+          "label": "Don't quote a fee",
+          "text": "The amounts are being confirmed, so don't quote a fee."
+        },
+        {
+          "label": "Cards are slowest",
+          "text": "Cards are also the slowest part of a migration, and some owners choose to bring over only the client list and collect cards again."
+        }
+      ]
     },
     {
       "title": "Who does what",
@@ -101,7 +141,29 @@ export const JA4_TRAINING = {
         ],
         "answer": 3,
         "why": "Momence's team moves the data. The owner builds the business it lands in."
-      }
+      },
+      "points": [
+        {
+          "label": "Momence migrates data",
+          "text": "Momence's team does the data migration."
+        },
+        {
+          "label": "Owner doesn't upload",
+          "text": "The owner doesn't export or upload clients."
+        },
+        {
+          "label": "Owner builds with specialist",
+          "text": "The owner's job is to build the business in Momence with an onboarding specialist: classes, memberships, packs and appointments."
+        },
+        {
+          "label": "Build before migration",
+          "text": "These get built before the migration, so migrated clients land in the right memberships."
+        },
+        {
+          "label": "Sessions and homework",
+          "text": "The specialist shows how, builds some with the owner, and gives homework between sessions."
+        }
+      ]
     },
     {
       "title": "Running both systems",
@@ -134,7 +196,29 @@ export const JA4_TRAINING = {
         ],
         "answer": 1,
         "why": "The old system runs until the conversion date. That answers the fear of a gap."
-      }
+      },
+      "points": [
+        {
+          "label": "Current system keeps running",
+          "text": "The studio keeps running on its current system while Momence is built."
+        },
+        {
+          "label": "Clients book as usual",
+          "text": "Clients book and pay there as usual."
+        },
+        {
+          "label": "Set a conversion date",
+          "text": "Once the setup is ready, the studio sets a conversion date with onboarding."
+        },
+        {
+          "label": "Final data pull",
+          "text": "The team pulls the latest data at the switch, checks it with the owner, and the studio moves over."
+        },
+        {
+          "label": "No double booking",
+          "text": "That way nobody books in two systems at once."
+        }
+      ]
     },
     {
       "title": "Plan around the renewal",
@@ -167,7 +251,25 @@ export const JA4_TRAINING = {
         ],
         "answer": 3,
         "why": "Knowing the date early lets you plan the build and the switch, and gives the close a real deadline."
-      }
+      },
+      "points": [
+        {
+          "label": "Ask about contract renewal",
+          "text": "Ask when the current contract renews or ends, early in discovery."
+        },
+        {
+          "label": "Plan backwards",
+          "text": "Then plan backwards from it: sign, build during the time left, and set the conversion date before the renewal."
+        },
+        {
+          "label": "Check the date next",
+          "text": "If the owner doesn't know the date, make checking it a next step."
+        },
+        {
+          "label": "Overlap offers need approval",
+          "text": "Offers to cover the overlap, like free months, are policy and change, so check with your manager before you offer anything."
+        }
+      ]
     },
     {
       "title": "Set expectations",
@@ -200,7 +302,29 @@ export const JA4_TRAINING = {
         ],
         "answer": 0,
         "why": "The number isn't confirmed. Explain how it works, flag what onboarding confirms, and move on."
-      }
+      },
+      "points": [
+        {
+          "label": "Demo numbers vary",
+          "text": "Demos have given different numbers of onboarding calls, weeks and owner hours."
+        },
+        {
+          "label": "Don't quote as fact",
+          "text": "Those are being confirmed, so don't quote one as fact."
+        },
+        {
+          "label": "Tell what's certain",
+          "text": "Tell the owner what's certain: a specialist works with them, Momence's team moves the data, and the pace depends mostly on how much time they give the build."
+        },
+        {
+          "label": "Tie to their date",
+          "text": "Tie the plan to their launch or renewal date."
+        },
+        {
+          "label": "Onboarding will confirm",
+          "text": "When you don't know something, say onboarding will confirm it and follow up."
+        }
+      ]
     },
     {
       "title": "Migration fear",
@@ -229,7 +353,29 @@ export const JA4_TRAINING = {
         ],
         "answer": 1,
         "why": "Find the exact fear, then answer it with what's certain. Blanket reassurance sounds like a sales line."
-      }
+      },
+      "points": [
+        {
+          "label": "Ask about their fear",
+          "text": "Ask what happened last time, or what they're most afraid of losing."
+        },
+        {
+          "label": "Answer specifically",
+          "text": "Then answer early and specifically: Momence's team moves the data, the old system runs until the switch, and the owner builds with a specialist."
+        },
+        {
+          "label": "Be honest on cards",
+          "text": "Be honest about what isn't guaranteed, like stored cards."
+        },
+        {
+          "label": "Don't knock the vendor",
+          "text": "Don't calm the fear by knocking the old vendor."
+        },
+        {
+          "label": "Specifics do more",
+          "text": "Specifics do more."
+        }
+      ]
     },
     {
       "title": "Past bad onboarding",
@@ -262,7 +408,29 @@ export const JA4_TRAINING = {
         ],
         "answer": 2,
         "why": "Her story is discovery. Use it to show what she'll do and how it's different."
-      }
+      },
+      "points": [
+        {
+          "label": "Rough past setups",
+          "text": "Many prospects come from a rough setup."
+        },
+        {
+          "label": "12 MindBody calls",
+          "text": "One sat through 12 MindBody Zoom calls, the last six repetitive, and still tracked leads on Post-its."
+        },
+        {
+          "label": "Show how onboarding helps",
+          "text": "Ask what went wrong, then show how Momence's onboarding answers that problem: the owner builds their own memberships and classes with a specialist, and the account has an onboarding checklist."
+        },
+        {
+          "label": "Shape the plan",
+          "text": "Use what they tell you to shape the plan."
+        },
+        {
+          "label": "Don't brush it off",
+          "text": "Don't let the story pass with a quick “sorry to hear that.”"
+        }
+      ]
     }
   ],
   "sections": []

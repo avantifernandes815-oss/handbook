@@ -39,7 +39,25 @@ export const JA6_TRAINING = {
         ],
         "answer": 1,
         "why": "The end date and notice period set the deadline. Everything else in the close works back from them."
-      }
+      },
+      "points": [
+        {
+          "label": "Ask about contract terms",
+          "text": "In discovery, ask whether they're in a contract, when it ends or renews, and how much notice they have to give."
+        },
+        {
+          "label": "Plan backwards",
+          "text": "Then plan backwards: they need time to sign, onboard and migrate while the old system keeps running."
+        },
+        {
+          "label": "Set a decision date",
+          "text": "Set a decision date that leaves room for all of that."
+        },
+        {
+          "label": "Overlap offers need approval",
+          "text": "If they'd pay for both systems during the overlap, any offer to cover it is a concession your manager approves, so don't promise one on the spot."
+        }
+      ]
     },
     {
       "title": "Comparison shopping",
@@ -72,7 +90,29 @@ export const JA6_TRAINING = {
         ],
         "answer": 3,
         "why": "Right after her last demo, the comparison is fresh and you hear her thinking before she decides alone."
-      }
+      },
+      "points": [
+        {
+          "label": "Don't fight it",
+          "text": "Don't fight it."
+        },
+        {
+          "label": "Ask about other demos",
+          "text": "Ask who else they're seeing and when, what they'll compare, and where Momence ranks right now."
+        },
+        {
+          "label": "Follow up after",
+          "text": "Book your follow-up for right after their last demo."
+        },
+        {
+          "label": "Acknowledge then show",
+          "text": "If they name a competitor's strength, acknowledge it, then show where Momence is stronger for what they told you matters."
+        },
+        {
+          "label": "Never knock competitors",
+          "text": "Never knock the other system or claim a win on something you haven't shown."
+        }
+      ]
     },
     {
       "title": "“I need to talk to my partner”",
@@ -101,7 +141,29 @@ export const JA6_TRAINING = {
         ],
         "answer": 0,
         "why": "The partner hears it from you, every signer has the agreement, and there's a date on both calendars."
-      }
+      },
+      "points": [
+        {
+          "label": "Ask who decides",
+          "text": "Ask early who decides with them."
+        },
+        {
+          "label": "Don't accept we'll talk",
+          "text": "If a partner, co-owner or manager comes up late, don't settle for “we'll talk.”"
+        },
+        {
+          "label": "Meet the partner",
+          "text": "Offer to meet the partner, even for a short call."
+        },
+        {
+          "label": "Send to every signer",
+          "text": "Send the agreement to every owner who has to sign, along with the recording or a recap."
+        },
+        {
+          "label": "Dated follow-up",
+          "text": "Then set a dated follow-up, with the partner on it if you can."
+        }
+      ]
     },
     {
       "title": "Get a dated next step",
@@ -134,7 +196,25 @@ export const JA6_TRAINING = {
         ],
         "answer": 2,
         "why": "Sending info is fine. Sending it instead of a booked call is how deals drift."
-      }
+      },
+      "points": [
+        {
+          "label": "Book the next meeting",
+          "text": "Before the call ends, book the next meeting on both calendars: the date, the time, who joins and what you'll decide."
+        },
+        {
+          "label": "Recap plus date",
+          "text": "If they want a recap or the recording, send it and still book the date."
+        },
+        {
+          "label": "Clear next step",
+          "text": "A next step is clear when both sides could say what happens and when."
+        },
+        {
+          "label": "Hopes aren't plans",
+          "text": "“I'll email you” and “let's touch base later this week” are hopes, not plans."
+        }
+      ]
     },
     {
       "title": "Walk the agreement",
@@ -163,7 +243,25 @@ export const JA6_TRAINING = {
         ],
         "answer": 1,
         "why": "Naming the end date and renewal before she signs means nothing in the agreement surprises her later."
-      }
+      },
+      "points": [
+        {
+          "label": "Walk the agreement",
+          "text": "Before they sign, go through the agreement with them on screen: the plan and add-ons, the price, when billing starts, the term, how renewal works and any addenda."
+        },
+        {
+          "label": "Point out renewal",
+          "text": "Point out the end date and the renewal language yourself."
+        },
+        {
+          "label": "State only what's written",
+          "text": "State only what's written in the agreement."
+        },
+        {
+          "label": "Confirm unclear terms",
+          "text": "Standard terms like free months, term length, renewal notice and leaving early are still being confirmed, so if the document doesn't answer a question, say you'll confirm and send the answer in writing."
+        }
+      ]
     },
     {
       "title": "Concessions need approval",
@@ -196,7 +294,25 @@ export const JA6_TRAINING = {
         ],
         "answer": 2,
         "why": "Anything that changes what she pays or when is a concession. Get it approved, then put it in writing."
-      }
+      },
+      "points": [
+        {
+          "label": "What counts as concessions",
+          "text": "Free months, delayed payments, discounts, lower rates and add-ons at no cost are all concessions."
+        },
+        {
+          "label": "Get manager approval",
+          "text": "The standard offers are still being confirmed, so get your manager's approval before you say any of them."
+        },
+        {
+          "label": "Trade for a decision",
+          "text": "Trade a concession for a decision, such as a signed agreement by a set date."
+        },
+        {
+          "label": "Write it as addendum",
+          "text": "Once it's approved, write it into the agreement as an addendum so the prospect sees it in writing."
+        }
+      ]
     },
     {
       "title": "The sign-up steps",
@@ -229,7 +345,29 @@ export const JA6_TRAINING = {
         ],
         "answer": 3,
         "why": "Steps done live get done. Steps left for later are where a yes stalls."
-      }
+      },
+      "points": [
+        {
+          "label": "Signing steps",
+          "text": "The prospect e-signs the agreement, creates a host account and puts a card on file under Billing in that account."
+        },
+        {
+          "label": "Then book onboarding",
+          "text": "Then you book onboarding."
+        },
+        {
+          "label": "HubSpot verification email",
+          "text": "In some demos the agreement also came with a verification email from HubSpot to complete."
+        },
+        {
+          "label": "Signed agreement first",
+          "text": "Onboarding can't be scheduled until the agreement is signed and the account exists."
+        },
+        {
+          "label": "Pick host account",
+          "text": "Do as much as you can live on the call, and when they create the account, remind them to pick host, not client."
+        }
+      ]
     },
     {
       "title": "Prepare for the retention call",
@@ -262,7 +400,29 @@ export const JA6_TRAINING = {
         ],
         "answer": 0,
         "why": "Naming the retention offer and her own reasons ahead of time takes the power out of the call."
-      }
+      },
+      "points": [
+        {
+          "label": "Expect a retention offer",
+          "text": "In our demos, prospects reported a request to get on a call before cancelling and a discount to stay."
+        },
+        {
+          "label": "Name it first",
+          "text": "Name it before it happens and ask how they'll answer."
+        },
+        {
+          "label": "Remind them why",
+          "text": "Remind them why they chose Momence, in their own words."
+        },
+        {
+          "label": "Keep old system running",
+          "text": "Keep the old system running until the switch date, so cancelling never puts their bookings at risk."
+        },
+        {
+          "label": "Don't predict vendors",
+          "text": "Don't predict what the old vendor will or won't do."
+        }
+      ]
     }
   ],
   "sections": []

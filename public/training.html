@@ -55,6 +55,12 @@
 .st-k{font-size:11px;letter-spacing:1px;font-weight:700;color:var(--purple);text-transform:uppercase}
 .st-card h2{font-family:Nunito,Arial,sans-serif;font-size:28px;line-height:1.15;margin:6px 0 10px}
 .st-why{font-size:15px;color:var(--sub);margin:0 0 22px;line-height:1.55;max-width:62ch}
+.st-whyb{border-left:3px solid var(--purple);padding:2px 0 2px 14px;margin:0 0 20px;font-size:15px;color:var(--body);line-height:1.55;max-width:64ch}
+.st-whyb b{display:block;font-size:11px;letter-spacing:.8px;color:var(--purple);text-transform:uppercase;margin-bottom:2px}
+.st-tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 20px}
+.st-tile{background:var(--page);border-radius:14px;padding:14px 16px;font-size:14px;color:var(--body);line-height:1.5;min-width:0}
+.st-tile.wide{grid-column:1/-1}
+.st-tile b{display:block;font-family:Nunito,Arial,sans-serif;font-size:15px;color:var(--ink);margin-bottom:4px}
 .st-idea{font-size:15px;color:var(--body);line-height:1.6;margin:0 0 18px;max-width:64ch}
 .st-say{border:1px dashed var(--purple);border-radius:14px;padding:14px 16px;margin:0 0 20px;font-size:14px;line-height:1.5}
 .st-say b{display:block;font-size:11px;letter-spacing:.8px;text-transform:uppercase;color:var(--purple);margin-bottom:4px}
@@ -83,7 +89,7 @@
 .st-grid div{background:var(--page);border-radius:12px;padding:12px;font-size:13px}.st-grid b{display:block;font-size:11px;color:var(--purple)}
 .st-facts{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--sub);margin-bottom:8px}.st-facts b{color:var(--ink)}
 .st-score{font-family:Nunito,Arial,sans-serif;font-size:44px;color:var(--purple);font-weight:800;margin:4px 0}
-@media (max-width:760px){.st-pills{display:none}.st-bar{display:block}.st-card{padding:22px}.st-card h2{font-size:23px}.st-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.st-pills{display:none}.st-bar{display:block}.st-card{padding:22px}.st-card h2{font-size:23px}.st-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.st-tiles{grid-template-columns:1fr}.st-tile.wide{grid-column:auto}}
 @media (max-width:760px){.tr-stats{grid-template-columns:1fr}.tr-slots{grid-template-columns:1fr 1fr}.tr-kill{grid-template-columns:1fr}.tr-row{grid-template-columns:1fr;gap:8px}}
 </style>
 </head>
@@ -285,7 +291,7 @@ function stepIntro() {
 function stepView(k) {
   const st = S.def.steps[k], N = S.def.steps.length, ans = ST.checks[k], tab = ST.tab[k] || 'good', ex = st[tab];
   const L = 'ABCD';
-  return '<div class="st-k">Step ' + (k + 1) + ' of ' + N + '</div><h2>' + esc(st.title) + '</h2><p class="st-why">' + esc(st.why) + '</p><p class="st-idea">' + esc(st.idea) + '</p>' +
+  return '<div class="st-k">Step ' + (k + 1) + ' of ' + N + '</div><h2>' + esc(st.title) + '</h2>' + (st.points ? '<div class="st-whyb"><b>Why it matters</b>' + esc(st.why) + '</div><div class="st-tiles">' + st.points.map((pt, j) => '<div class="st-tile' + (j === st.points.length - 1 && st.points.length % 2 ? ' wide' : '') + '"><b>' + esc(pt.label) + '</b>' + esc(pt.text) + '</div>').join('') + '</div>' : '<p class="st-why">' + esc(st.why) + '</p><p class="st-idea">' + esc(st.idea) + '</p>') +
     '<div class="st-say"><b>Try saying</b>' + esc(st.say) + '</div>' +
     '<div class="st-tabs" role="tablist"><button type="button" role="tab" aria-selected="' + (tab === 'good') + '" class="' + (tab === 'good' ? 'on' : '') + '" data-ex="good">Done well</button><button type="button" role="tab" aria-selected="' + (tab === 'missed') + '" class="' + (tab === 'missed' ? 'on' : '') + '" data-ex="missed">Missed</button></div>' +
     '<div class="st-ex ' + tab + '">' + esc(ex.text) + '<small>From our demos · ' + esc(ex.source) + '</small>' +

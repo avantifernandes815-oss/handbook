@@ -39,7 +39,25 @@ export const JA5_TRAINING = {
         ],
         "answer": 1,
         "why": "Their answer gives you the strength to acknowledge and the gap to demo against. Claims and feature sheets put them on the defensive."
-      }
+      },
+      "points": [
+        {
+          "label": "Name their strength first",
+          "text": "Name a real strength of their current software first."
+        },
+        {
+          "label": "Show Momence on screen",
+          "text": "Then show on screen where Momence handles their problem better."
+        },
+        {
+          "label": "Use only verified claims",
+          "text": "Use only what the prospect told you or what the CC5 battle cards state, and ask questions they answer from their own experience."
+        },
+        {
+          "label": "Prospects remember a bash",
+          "text": "Prospects remember a bash: one owner still brought up a rep who trashed MindBody on a demo a year earlier."
+        }
+      ]
     },
     {
       "title": "MindBody",
@@ -72,7 +90,25 @@ export const JA5_TRAINING = {
         ],
         "answer": 3,
         "why": "Demo against the pain they named. Show where a lead lands and what happens next before anything else."
-      }
+      },
+      "points": [
+        {
+          "label": "MindBody client side liked",
+          "text": "Prospects often like MindBody’s client side; one owner had used it for years as a client and teacher."
+        },
+        {
+          "label": "Back-end frustrations",
+          "text": "The frustration is usually the back end: leads sitting unseen because no notification came (one studio found leads 50 days old and tracked members on Post-its), features sold as separate tools (an AI marketing add-on paid for months and never set up), and a booking widget that takes clients off the studio’s site."
+        },
+        {
+          "label": "MindBody app fee",
+          "text": "The CC5 card adds the verified fee: 20%, capped at $30, on new clients who find the studio through the MindBody app."
+        },
+        {
+          "label": "What to show",
+          "text": "Show the one-page checkout with no account, the lead center and inbox where every new lead lands, and the free Momence app, which isn’t a marketplace, so no other studio can advertise to their clients."
+        }
+      ]
     },
     {
       "title": "WellnessLiving",
@@ -105,7 +141,29 @@ export const JA5_TRAINING = {
         ],
         "answer": 0,
         "why": "Both things she said are true. Grant them, then find the cost she hasn’t added up."
-      }
+      },
+      "points": [
+        {
+          "label": "Why prospects stay",
+          "text": "Prospects on it like the support, a low locked-in price, the app, the reports and knowing how to use it."
+        },
+        {
+          "label": "WellnessLiving frustrations",
+          "text": "Their frustrations: features moved behind add-ons (custom sequences became an extra charge), an interface that keeps moving things, a basic marketing suite with one-step automations, booking that redirects to WellnessLiving’s site and makes clients create an account, and a new cap on email sends."
+        },
+        {
+          "label": "BBB billing pattern",
+          "text": "The CC5 card adds a BBB pattern on billing and contract terms."
+        },
+        {
+          "label": "What to show",
+          "text": "Show the one-page checkout with no account, sequences and segments, and the email builder."
+        },
+        {
+          "label": "Confirm before promising",
+          "text": "If their deciding need is something you haven’t seen work in Momence, like private events with a deposit, confirm how it’s built before you promise it."
+        }
+      ]
     },
     {
       "title": "Glofox",
@@ -130,7 +188,25 @@ export const JA5_TRAINING = {
         ],
         "answer": 2,
         "why": "His pain is the door. Show the walk-in paying and checking in from the roster, all in one system."
-      }
+      },
+      "points": [
+        {
+          "label": "Glofox franchise depth",
+          "text": "The CC5 card credits Glofox with franchise depth, and one owner told us Glofox lets him go month to month."
+        },
+        {
+          "label": "Glofox studio pain",
+          "text": "Two current Glofox studios told us their pain: no card terminal, so one takes walk-in payments on Square and records them as cash; credits on cancellation that sometimes come back and sometimes don’t; a price that went up since he joined; no direct sign-up link, only an embedded widget; and a separate paid tool for newsletters."
+        },
+        {
+          "label": "Glofox verified fees",
+          "text": "The verified fees come from Glofox’s own proposal on the CC5 card: 3.80% per card transaction, $0.10 per text and $3 per e-agreement."
+        },
+        {
+          "label": "What to show",
+          "text": "Show check-in and point of sale from the class roster with the Stripe card reader, the direct link every class has, newsletters and segments, and native live and on-demand video with pick-a-spot booking."
+        }
+      ]
     },
     {
       "title": "Arketa",
@@ -163,7 +239,37 @@ export const JA5_TRAINING = {
         ],
         "answer": 1,
         "why": "Both platforms do it. Calling it a gap is the kind of claim a prospect can check and catch."
-      }
+      },
+      "points": [
+        {
+          "label": "What Arketa users like",
+          "text": "Prospects like that Arketa’s plan includes marketing and an app, the lower price, sequences and AI."
+        },
+        {
+          "label": "Natural-language reporting",
+          "text": "One current customer stays for its natural-language reporting through Claude, which Momence had no equivalent to show."
+        },
+        {
+          "label": "Arketa frustrations",
+          "text": "Her frustrations: a new fee per location, no add-ons at checkout so it couldn’t run a spa menu, a Meta ads integration that didn’t track leads, and months of bugs."
+        },
+        {
+          "label": "Multi-service gap",
+          "text": "Another prospect left Arketa because it couldn’t book several services in one appointment."
+        },
+        {
+          "label": "Arketa verified fee",
+          "text": "The CC5 card’s verified fee is 3% plus Stripe fees, from Arketa’s pricing page."
+        },
+        {
+          "label": "What to show",
+          "text": "Show the checkout side by side (the Arketa one we showed had a long pass list, a password, separate tick boxes and a visible processing fee), multi-service appointments with add-ons, and the ads manager and lead center."
+        },
+        {
+          "label": "Don't claim false gaps",
+          "text": "Don’t claim gaps that aren’t there: Arketa can also pass card fees on and book for a guest."
+        }
+      ]
     },
     {
       "title": "Walla",
@@ -192,7 +298,37 @@ export const JA5_TRAINING = {
         ],
         "answer": 0,
         "why": "Both options exist. Offer the choice, then explain why the default helps."
-      }
+      },
+      "points": [
+        {
+          "label": "Walla strengths and gaps",
+          "text": "The CC5 card credits Walla with being simple and built by studio owners; its weak spots are features still being built and limited automation."
+        },
+        {
+          "label": "Booking on studio site",
+          "text": "Walla’s pitch is that booking stays on the studio’s own website."
+        },
+        {
+          "label": "Reporting and AI liked",
+          "text": "A pre-open founder liked its reporting and AI."
+        },
+        {
+          "label": "Mixed prospect experience",
+          "text": "One prospect who had used it was “still unsure of it”; another hit a bug where an intro offer with a chosen start date wouldn’t let her pre-book."
+        },
+        {
+          "label": "Momence embeds too",
+          "text": "Momence can embed the schedule on the site too."
+        },
+        {
+          "label": "Pop-up and links",
+          "text": "The default pop-up has its own case: closing it returns the client to the schedule, and every class has its own shareable link."
+        },
+        {
+          "label": "Show consolidation",
+          "text": "Then show consolidation: inbox, sequences, reviews and ads in one login."
+        }
+      ]
     },
     {
       "title": "Mariana Tek",
@@ -225,7 +361,33 @@ export const JA5_TRAINING = {
         ],
         "answer": 3,
         "why": "Accurate, neutral and short. The franchise-size framing is still being confirmed, so don’t use it."
-      }
+      },
+      "points": [
+        {
+          "label": "Sister company under Xplor",
+          "text": "Mariana Tek is Momence’s sister company under the Xplor umbrella, run separately."
+        },
+        {
+          "label": "Never knock it",
+          "text": "Say that plainly when asked, and never knock it."
+        },
+        {
+          "label": "Positioning being confirmed",
+          "text": "AEs have framed it other ways (by franchise size, or “we compete every day”), and the official positioning is still being confirmed, so stick to those facts and let fit decide."
+        },
+        {
+          "label": "Use what they say",
+          "text": "When a prospect is on it, use what they tell you."
+        },
+        {
+          "label": "Mariana Tek pain points",
+          "text": "One Mariana Tek studio said package building was hard to learn, getting Android users onto the branded app was a process, support was hard to reach, and clients could only book through the app."
+        },
+        {
+          "label": "Show website schedule",
+          "text": "That last one you can show against: a schedule on the website lets a new client see classes and prices without downloading anything."
+        }
+      ]
     }
   ],
   "sections": []

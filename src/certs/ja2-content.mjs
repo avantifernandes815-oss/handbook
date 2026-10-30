@@ -39,7 +39,25 @@ export const JA2_TRAINING = {
         ],
         "answer": 2,
         "why": "Reviews and referrals sit in the marketing suite that Growth adds, alongside lead collection and sequences."
-      }
+      },
+      "points": [
+        {
+          "label": "Start with core",
+          "text": "Every quote starts with the core platform."
+        },
+        {
+          "label": "What core includes",
+          "text": "AEs call it the Small Business Plan, Foundation or core, and it runs the business: class and appointment booking, memberships, checkout, point of sale, inbox, CRM, reports, newsletters and the free Momence app."
+        },
+        {
+          "label": "Growth and Intelligence",
+          "text": "Growth adds the marketing suite (lead collection, multi-step sequences, ads manager, web chat, referrals and reviews), Intelligence adds the AI agent, and other items are à la carte add-ons."
+        },
+        {
+          "label": "Check the calculator",
+          "text": "Which simple sequences come with core, and where Spot Filler sits, are still being confirmed, so check the calculator before you answer."
+        }
+      ]
     },
     {
       "title": "Build it in the calculator",
@@ -72,7 +90,25 @@ export const JA2_TRAINING = {
         ],
         "answer": 0,
         "why": "The calculator gives the real number in seconds. A guess becomes the number the prospect remembers."
-      }
+      },
+      "points": [
+        {
+          "label": "Build quotes live",
+          "text": "Build every quote live in the pricing calculator, feature by feature."
+        },
+        {
+          "label": "Bundle discounts and comparison",
+          "text": "It applies bundle discounts automatically when features are combined, and it downloads a comparison sheet of every feature in the chosen plan, which the prospect can show a partner."
+        },
+        {
+          "label": "Never quote from memory",
+          "text": "Never quote a price from memory or add numbers in your head."
+        },
+        {
+          "label": "Calculator is the source",
+          "text": "List prices are still being confirmed, so treat the calculator as your source and check with your manager if anything looks off."
+        }
+      ]
     },
     {
       "title": "Anchor to their total spend",
@@ -105,7 +141,21 @@ export const JA2_TRAINING = {
         ],
         "answer": 3,
         "why": "You can only compare totals once you know what her number covers. Often it covers less than your quote."
-      }
+      },
+      "points": [
+        {
+          "label": "Ask current total spend",
+          "text": "Before you show any price, ask what they pay today in total: the software, add-ons like marketing or a branded app, and any separate tools for email, texting or reviews."
+        },
+        {
+          "label": "Ask what's included",
+          "text": "Ask what that spend includes, so you can compare like for like."
+        },
+        {
+          "label": "Totals side by side",
+          "text": "Then build the matching package in the calculator and put the two totals side by side."
+        }
+      ]
     },
     {
       "title": "App and video add-ons",
@@ -138,7 +188,25 @@ export const JA2_TRAINING = {
         ],
         "answer": 1,
         "why": "The free app isn’t a marketplace. Clients see only the studios their email is connected to."
-      }
+      },
+      "points": [
+        {
+          "label": "Free app included",
+          "text": "The free Momence app comes with every plan."
+        },
+        {
+          "label": "Not a marketplace",
+          "text": "Clients see only the studios they’ve bought from, and it isn’t a marketplace, so no other studio can advertise to them."
+        },
+        {
+          "label": "Branded app extra",
+          "text": "A branded app works the same way with the studio’s own name and logo in the App Store, for an extra cost."
+        },
+        {
+          "label": "Video on demand",
+          "text": "Video on demand is quoted as an add-on in most demos, but two demos called it included and per-location charging is still being confirmed, so add it in the calculator only when they want it and confirm anything you’re unsure of."
+        }
+      ]
     },
     {
       "title": "Quoting more than one location",
@@ -171,7 +239,25 @@ export const JA2_TRAINING = {
         ],
         "answer": 2,
         "why": "The calculator applies the multi-location discount for you. Hand math is where the slips happen."
-      }
+      },
+      "points": [
+        {
+          "label": "Ask about next location",
+          "text": "Ask when the next location opens and whether it’s the same brand."
+        },
+        {
+          "label": "One or separate dashboards",
+          "text": "Same-brand locations usually run from one dashboard with a location filter; different brands use separate dashboards."
+        },
+        {
+          "label": "Multi-location discount",
+          "text": "Add the locations in the calculator and let it apply the multi-location discount."
+        },
+        {
+          "label": "Never multiply by hand",
+          "text": "Some items, like the branded app, have been shown as one charge across locations, but the exact discount and what’s charged per location are still being confirmed, so never multiply by hand or promise a number."
+        }
+      ]
     },
     {
       "title": "“Do I really need Growth?”",
@@ -200,7 +286,25 @@ export const JA2_TRAINING = {
         ],
         "answer": 0,
         "why": "Her goals decide the plan. If she isn’t trying to grow, core may be right, and you’ll know it."
-      }
+      },
+      "points": [
+        {
+          "label": "Answer with questions",
+          "text": "Answer with questions."
+        },
+        {
+          "label": "Grow or at capacity",
+          "text": "Are they trying to grow, or are they at capacity?"
+        },
+        {
+          "label": "Where leads come from",
+          "text": "Where do new clients come from today, and what happens to a lead who doesn’t book?"
+        },
+        {
+          "label": "Build to their goal",
+          "text": "If they want more clients, show how lead capture, sequences, reviews and referrals work together; if they don’t, build only what they need in the calculator and show what upgrading would add later."
+        }
+      ]
     },
     {
       "title": "“Arketa is cheaper”",
@@ -233,7 +337,25 @@ export const JA2_TRAINING = {
         ],
         "answer": 3,
         "why": "Conceding what’s true earns trust. Then the comparison is about value, on her terms."
-      }
+      },
+      "points": [
+        {
+          "label": "Acknowledge Arketa's strengths",
+          "text": "Acknowledge it plainly: Arketa handles classes, privates and billing."
+        },
+        {
+          "label": "Compare like for like",
+          "text": "Then compare like for like, since a quote for core, marketing and an app should be set against the same items on their side."
+        },
+        {
+          "label": "Show Momence's strengths",
+          "text": "Then show where Momence is stronger for this prospect, such as one-page checkout with no account to create, multi-service appointments, or leads tracked from the ad into sequences."
+        },
+        {
+          "label": "Never knock Arketa",
+          "text": "Never knock Arketa with claims you can’t back up."
+        }
+      ]
     },
     {
       "title": "When to bring in your manager",
@@ -266,7 +388,25 @@ export const JA2_TRAINING = {
         ],
         "answer": 1,
         "why": "Discounts need approval. Saying when you’ll come back keeps momentum without making a promise."
-      }
+      },
+      "points": [
+        {
+          "label": "Calculator starting quote",
+          "text": "The calculator gives you the starting quote."
+        },
+        {
+          "label": "Manager approves extras",
+          "text": "Anything beyond it goes to your manager before you say it: a discount, a price below what the calculator allows, free months, a free add-on or a change to contract wording."
+        },
+        {
+          "label": "Approvals during the call",
+          "text": "In our demos, AEs got these approved during the call or wrote them into the contract after approval."
+        },
+        {
+          "label": "Confirm with a time",
+          "text": "If you don’t know an answer, say you’ll confirm and give a time."
+        }
+      ]
     }
   ],
   "sections": []

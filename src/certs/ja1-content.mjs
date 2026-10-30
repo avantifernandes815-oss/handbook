@@ -35,7 +35,25 @@ export const JA1_TRAINING = {
         ],
         "answer": 1,
         "why": "No account or password is needed to book. Momence creates the contact record for the studio in the background."
-      }
+      },
+      "points": [
+        {
+          "label": "One-page checkout",
+          "text": "A new client picks a class, sees memberships and packs above it, enters a few contact details, signs the waiver and pays on one page."
+        },
+        {
+          "label": "No account needed",
+          "text": "There's no account or password to create first."
+        },
+        {
+          "label": "Abandoned checkout captured",
+          "text": "Momence still builds a contact record behind the scenes, so even someone who leaves before paying is captured as an abandoned checkout."
+        },
+        {
+          "label": "Links and embedded schedule",
+          "text": "Every class and offer also has its own link, and the schedule can open Momence's checkout over the studio's site or sit embedded in the page."
+        }
+      ]
     },
     {
       "title": "Checkout options",
@@ -64,7 +82,25 @@ export const JA1_TRAINING = {
         ],
         "answer": 0,
         "why": "The studio sets its own checkout questions per class. Answers can become tags that show on the roster."
-      }
+      },
+      "points": [
+        {
+          "label": "Custom checkout questions",
+          "text": "Studios write their own checkout questions for each class, and an answer like an injury can tag the client so the instructor sees it on the roster."
+        },
+        {
+          "label": "Waivers in checkout",
+          "text": "Waivers are signed inside checkout."
+        },
+        {
+          "label": "Extra spots and upsells",
+          "text": "Clients can reserve extra spots for friends, who get their own contact record and booking email, and memberships and packs show above the class as upsells."
+        },
+        {
+          "label": "Waitlist options",
+          "text": "Full classes get a waitlist that either notifies everyone, so the first to claim gets the spot, or offers it to the first person in line."
+        }
+      ]
     },
     {
       "title": "Roster, check-in and subs",
@@ -93,7 +129,25 @@ export const JA1_TRAINING = {
         ],
         "answer": 3,
         "why": "The request goes to every instructor who can teach that class. Whoever accepts first replaces the original teacher automatically."
-      }
+      },
+      "points": [
+        {
+          "label": "Roster flags",
+          "text": "The roster flags who's in the room: new clients, injuries, birthdays, visit milestones, and the membership or pack each person used."
+        },
+        {
+          "label": "Phone or iPad check-in",
+          "text": "Staff check people in with a toggle on a phone, or clients self check-in on an iPad up front."
+        },
+        {
+          "label": "Message the class",
+          "text": "One click messages everyone in the class by email, text or in-app."
+        },
+        {
+          "label": "Substitute requests",
+          "text": "A teacher who can't make it sends a substitute request to every instructor who can teach that class, and the first to accept takes it."
+        }
+      ]
     },
     {
       "title": "Memberships and packs",
@@ -126,7 +180,25 @@ export const JA1_TRAINING = {
         ],
         "answer": 2,
         "why": "Guest passes live on the membership. Members use them when they book, with no call to the studio."
-      }
+      },
+      "points": [
+        {
+          "label": "Activate on first use",
+          "text": "A membership can activate on first use, with a deadline so it starts on its own if the client never comes in."
+        },
+        {
+          "label": "Founding memberships",
+          "text": "That's how pre-open studios sell founding memberships."
+        },
+        {
+          "label": "Coverage and usage limits",
+          "text": "You choose which classes and appointments it covers, set usage limits, include guest passes and tag buyers automatically."
+        },
+        {
+          "label": "Auto-refill and price rules",
+          "text": "Packs can auto-refill when the last credit is used, and price rules give a tagged group, like members, a lower price."
+        }
+      ]
     },
     {
       "title": "Appointments and multi-service",
@@ -155,7 +227,25 @@ export const JA1_TRAINING = {
         ],
         "answer": 1,
         "why": "Multi-service checkout books the services back to back in the order the client picks and blocks each room."
-      }
+      },
+      "points": [
+        {
+          "label": "Appointment booking flow",
+          "text": "Clients pick a service, add-ons that can add time or money, a practitioner or “any,” then a time, and the studio chooses whether time or practitioner comes first."
+        },
+        {
+          "label": "Card holds the booking",
+          "text": "A card on file can hold the booking, with payment taken at the visit."
+        },
+        {
+          "label": "Practitioner or room view",
+          "text": "Staff see the day by practitioner or by room (called venues) and can book for someone who calls."
+        },
+        {
+          "label": "Multi-service checkout",
+          "text": "A multi-service checkout books several services back to back and blocks each room."
+        }
+      ]
     },
     {
       "title": "Inbox and local number",
@@ -188,7 +278,25 @@ export const JA1_TRAINING = {
         ],
         "answer": 3,
         "why": "Momence supplies a local number. Texts and calls come into the inbox, and calls can forward to another line."
-      }
+      },
+      "points": [
+        {
+          "label": "One thread per client",
+          "text": "Email, text, calls and in-app messages from one client sit in one thread."
+        },
+        {
+          "label": "Local number for texts",
+          "text": "Momence gives the studio a local number for two-way texts and calls; voicemails are transcribed, and the number can forward to an existing line."
+        },
+        {
+          "label": "Client side panel",
+          "text": "A side panel shows the client's memberships, last and next visit, and tags while you reply."
+        },
+        {
+          "label": "Don't quote allowances",
+          "text": "Text and call allowances are being confirmed, so don't quote a number yet."
+        }
+      ]
     },
     {
       "title": "CRM, segments and reports",
@@ -221,7 +329,25 @@ export const JA1_TRAINING = {
         ],
         "answer": 0,
         "why": "Tags can be added by hand, but purchases and checkout answers add them automatically."
-      }
+      },
+      "points": [
+        {
+          "label": "Client profiles",
+          "text": "Every booking, lead and purchase builds a client profile."
+        },
+        {
+          "label": "Tags and segments",
+          "text": "Tags come from purchases, checkout answers or staff, and segments filter the list by things like recent visits or class type."
+        },
+        {
+          "label": "Send to any segment",
+          "text": "You can send a drag-and-drop newsletter, a text or an in-app message to any segment."
+        },
+        {
+          "label": "Dashboard and reports",
+          "text": "The dashboard is customizable by role, and reports go down to staff pay, which is paid outside Momence."
+        }
+      ]
     },
     {
       "title": "The free Momence app",
@@ -254,7 +380,25 @@ export const JA1_TRAINING = {
         ],
         "answer": 2,
         "why": "Momence is mobile-first. Staff add it to the home screen and check people in from the class page."
-      }
+      },
+      "points": [
+        {
+          "label": "Free Momence app",
+          "text": "Every plan includes the free Momence app, and clients see only the studios their email is linked to."
+        },
+        {
+          "label": "Not a marketplace",
+          "text": "It isn't a marketplace, so no other studio can advertise to them."
+        },
+        {
+          "label": "What clients can do",
+          "text": "Clients book, manage passes, buy retail and gift cards, message the studio and get its push notifications."
+        },
+        {
+          "label": "Mobile-first for staff",
+          "text": "For staff, Momence is mobile-first: they add it to their phone's home screen to check people in."
+        }
+      ]
     }
   ],
   "sections": []

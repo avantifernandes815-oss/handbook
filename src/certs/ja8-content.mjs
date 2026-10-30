@@ -39,7 +39,21 @@ export const JA8_TRAINING = {
         ],
         "answer": 1,
         "why": "Rapport is a bridge, not a destination. Use what they share to move into why they're here."
-      }
+      },
+      "points": [
+        {
+          "label": "Keep rapport brief",
+          "text": "Keep it genuine, brief and about their business: something you noticed on their site, how long they've been open, how they got started."
+        },
+        {
+          "label": "Then move on",
+          "text": "Then move on."
+        },
+        {
+          "label": "Long rapport costs time",
+          "text": "Rapport that runs five minutes eats the time you need for pain."
+        }
+      ]
     },
     {
       "title": "Up-front contract",
@@ -72,7 +86,13 @@ export const JA8_TRAINING = {
         ],
         "answer": 2,
         "why": "Most AEs set time and agenda. Few agree on the ending, which is why so many calls finish with \"send me info.\""
-      }
+      },
+      "points": [
+        {
+          "label": "Agree four things",
+          "text": "In the first two minutes, agree four things: how long the call is, what they want to get out of it, what you'll cover, and that at the end a clear yes, a clear no or a booked next step are all fine outcomes."
+        }
+      ]
     },
     {
       "title": "Pain",
@@ -105,7 +125,21 @@ export const JA8_TRAINING = {
         ],
         "answer": 3,
         "why": "Showing the fix now skips the cost. Ask what the problem causes, then demo against their answer."
-      }
+      },
+      "points": [
+        {
+          "label": "Go past surface",
+          "text": "Go past the surface problem."
+        },
+        {
+          "label": "Ask cost and impact",
+          "text": "Ask what it causes, what it costs and how they feel about it."
+        },
+        {
+          "label": "Dig before demo",
+          "text": "Dig before you demo, so every screen you show answers something they said."
+        }
+      ]
     },
     {
       "title": "Budget",
@@ -138,7 +172,17 @@ export const JA8_TRAINING = {
         ],
         "answer": 0,
         "why": "Asking early gives you the anchor. Asked after pricing, it sounds like a negotiation."
-      }
+      },
+      "points": [
+        {
+          "label": "Ask total spend",
+          "text": "Before pricing, ask what they spend today, including add-ons, third-party tools, card fees and staff time."
+        },
+        {
+          "label": "Price against total",
+          "text": "Then position the price against that total, not against zero."
+        }
+      ]
     },
     {
       "title": "Decision",
@@ -171,7 +215,17 @@ export const JA8_TRAINING = {
         ],
         "answer": 3,
         "why": "Find the decision-maker in discovery. Then the GM hears it from you, not secondhand."
-      }
+      },
+      "points": [
+        {
+          "label": "Ask who decides",
+          "text": "Ask who else is involved, how they'll decide, and by when."
+        },
+        {
+          "label": "Invite the decider",
+          "text": "If a partner, spouse or GM decides, invite them to the next call instead of hoping your champion re-pitches it well."
+        }
+      ]
     },
     {
       "title": "Fulfillment",
@@ -204,7 +258,21 @@ export const JA8_TRAINING = {
         ],
         "answer": 0,
         "why": "The standard order is for you. Their top need is for them, and it's what they'll remember."
-      }
+      },
+      "points": [
+        {
+          "label": "Demo the named pain",
+          "text": "Demo only what solves the pain they named, and tie each screen to their words."
+        },
+        {
+          "label": "Lead with must-have",
+          "text": "Lead with their top must-have."
+        },
+        {
+          "label": "Skip the rest",
+          "text": "Skip what doesn't matter to them."
+        }
+      ]
     },
     {
       "title": "Post-sell",
@@ -237,7 +305,13 @@ export const JA8_TRAINING = {
         ],
         "answer": 2,
         "why": "Naming the retention offer before it happens takes away its power."
-      }
+      },
+      "points": [
+        {
+          "label": "Lock in decision",
+          "text": "Lock in the decision: walk the agreement, set expectations for onboarding and prepare them for the retention call or buyer's remorse."
+        }
+      ]
     },
     {
       "title": "Negative reverse and clear next steps",
@@ -270,7 +344,21 @@ export const JA8_TRAINING = {
         ],
         "answer": 1,
         "why": "A date, a time, an agenda and the right people. Everything else is a hope."
-      }
+      },
+      "points": [
+        {
+          "label": "Negative reverse",
+          "text": "Negative reverse: say the thing they're afraid you'll avoid, such as \"this may not be the right fit,\" so they argue for it."
+        },
+        {
+          "label": "Don't end with info",
+          "text": "And never end with \"I'll send some info.\""
+        },
+        {
+          "label": "End with booked step",
+          "text": "End every call with a booked step both sides agreed to."
+        }
+      ]
     }
   ],
   "sections": []
