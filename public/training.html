@@ -63,6 +63,8 @@
 .st-tabs button.on{background:var(--ink);border-color:var(--ink);color:#fff}
 .st-ex{background:var(--page);border-radius:14px;padding:16px 18px;font-size:14px;line-height:1.55;margin-bottom:26px}
 .st-ex small{display:block;font-size:12px;color:var(--sub);margin-top:6px}
+.st-clip{margin-top:14px}.st-clip-k{font-size:11px;letter-spacing:.8px;font-weight:700;color:var(--purple);text-transform:uppercase;margin-bottom:6px}
+.st-clip video{display:block;width:100%;max-width:640px;aspect-ratio:16/9;background:#000;border-radius:12px}
 .st-ex.good{border-left:3px solid var(--ok)}.st-ex.missed{border-left:3px solid #b42318}
 .st-check{border-top:1px solid var(--line);padding-top:22px}
 .st-check h3{font-family:Nunito,Arial,sans-serif;font-size:17px;margin:0 0 4px}
@@ -286,7 +288,8 @@ function stepView(k) {
   return '<div class="st-k">Step ' + (k + 1) + ' of ' + N + '</div><h2>' + esc(st.title) + '</h2><p class="st-why">' + esc(st.why) + '</p><p class="st-idea">' + esc(st.idea) + '</p>' +
     '<div class="st-say"><b>Try saying</b>' + esc(st.say) + '</div>' +
     '<div class="st-tabs" role="tablist"><button type="button" role="tab" aria-selected="' + (tab === 'good') + '" class="' + (tab === 'good' ? 'on' : '') + '" data-ex="good">Done well</button><button type="button" role="tab" aria-selected="' + (tab === 'missed') + '" class="' + (tab === 'missed' ? 'on' : '') + '" data-ex="missed">Missed</button></div>' +
-    '<div class="st-ex ' + tab + '">' + esc(ex.text) + '<small>From our demos · ' + esc(ex.source) + '</small></div>' +
+    '<div class="st-ex ' + tab + '">' + esc(ex.text) + '<small>From our demos · ' + esc(ex.source) + '</small>' +
+    (ex.clip ? '<div class="st-clip"><div class="st-clip-k">Watch the moment · ' + Math.floor(ex.clip.seconds / 60) + ':' + String(ex.clip.seconds % 60).padStart(2, '0') + '</div><video controls preload="metadata" playsinline src="' + esc(ex.clip.src) + '"></video></div>' : '') + '</div>' +
     '<div class="st-check"><h3>Quick check</h3><p class="q">' + esc(st.check.prompt) + '</p><div class="st-opts">' +
     st.check.options.map((o, j) => '<button type="button" class="st-opt' + (ans === null ? '' : j === st.check.answer ? ' right' : j === ans ? ' wrong' : '') + '" data-opt="' + j + '"' + (ans === null ? '' : ' disabled') + '><span class="lt">' + L[j] + '</span><span>' + esc(o) + '</span></button>').join('') + '</div>' +
     (ans === null ? '' : '<div class="st-rev"><b>' + (ans === st.check.answer ? 'Right.' : 'Not quite.') + '</b> ' + esc(st.check.why) + '</div>') + '</div>' +

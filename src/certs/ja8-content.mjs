@@ -15,11 +15,19 @@ export const JA8_TRAINING = {
       "say": "\"Congrats on hitting two years. I saw you added aerial this spring. How's that going?\"",
       "good": {
         "text": "The AE opened by asking if the prospect preferred Spanish, then connected over a shared background before moving to business.",
-        "source": "House of Somos demo"
+        "source": "House of Somos demo",
+        "clip": {
+          "src": "/content/videos/ja8-1-good.mp4",
+          "seconds": 65
+        }
       },
       "missed": {
-        "text": "Rapport ran long and there was no agenda. The 30-minute call ran 66 minutes, and budget and the decision-maker came up only at the end.",
-        "source": "Her Zen Studio demo"
+        "text": "The AE planned for 30 minutes but never agreed how the call would end. The demo ran 66 minutes, and budget and the decision-maker came up only at the end.",
+        "source": "Her Zen Studio demo",
+        "clip": {
+          "src": "/content/videos/ja8-1-missed.mp4",
+          "seconds": 62
+        }
       },
       "check": {
         "prompt": "Your prospect wants to chat about their studio's history for the first ten minutes. What do you do?",
@@ -39,12 +47,20 @@ export const JA8_TRAINING = {
       "idea": "In the first two minutes, agree four things: how long the call is, what they want to get out of it, what you'll cover, and that at the end a clear yes, a clear no or a booked next step are all fine outcomes.",
       "say": "\"We have 45 minutes. I'd like to hear what's prompting the change, show you what fits, and at the end you tell me if it's a fit or not. Either answer is okay. Sound fair?\"",
       "good": {
-        "text": "The AE asked: \"Is there anything you might be teetering on the fence about?\" The prospect named a cheaper competitor right away, so the AE could address it head on.",
-        "source": "105 Fever, third call"
+        "text": "The AE opened by asking what else mattered to the prospect before going further. She named a cheaper competitor right away, so the AE could address it head on.",
+        "source": "105 Fever, third call",
+        "clip": {
+          "src": "/content/videos/ja8-2-good.mp4",
+          "seconds": 76
+        }
       },
       "missed": {
         "text": "No agenda and no agreed outcome. The demo became reactive Q&A and ended with two contracts sent and no plan chosen.",
-        "source": "105 Fever, second call"
+        "source": "105 Fever, second call",
+        "clip": {
+          "src": "/content/videos/ja8-2-missed.mp4",
+          "seconds": 128
+        }
       },
       "check": {
         "prompt": "Which part of an up-front contract do AEs skip most often in our demos?",
@@ -65,11 +81,19 @@ export const JA8_TRAINING = {
       "say": "\"You mentioned leads sat unnoticed. How long were they sitting? What do you think that cost you?\"",
       "good": {
         "text": "\"How much money has your current software helped your business make?\" That question surfaced the real need: private events with deposits, which drove the decision.",
-        "source": "105 Fever, third call"
+        "source": "105 Fever, third call",
+        "clip": {
+          "src": "/content/videos/ja8-3-good.mp4",
+          "seconds": 150
+        }
       },
       "missed": {
         "text": "The prospect said private events were a huge part of her business. Nobody asked about it again, and it was never demoed in four calls.",
-        "source": "105 Fever, first call"
+        "source": "105 Fever, first call",
+        "clip": {
+          "src": "/content/videos/ja8-3-missed.mp4",
+          "seconds": 60
+        }
       },
       "check": {
         "prompt": "A prospect says, \"Our current booking flow is clunky.\" What's the best next question?",
@@ -90,11 +114,19 @@ export const JA8_TRAINING = {
       "say": "\"Before we look at plans, what are you paying across your software today, including the marketing tool?\"",
       "good": {
         "text": "The AE asked current spend in the first five minutes ($500 on MindBody), then priced at $475 with no hidden fees against it.",
-        "source": "Alli F. demo"
+        "source": "Alli F. demo",
+        "clip": {
+          "src": "/content/videos/ja8-4-good.mp4",
+          "seconds": 72
+        }
       },
       "missed": {
         "text": "Pricing came first, then current spend. $225 vs $475 landed with nothing anchoring the gap.",
-        "source": "105 Fever, first call"
+        "source": "105 Fever, first call",
+        "clip": {
+          "src": "/content/videos/ja8-4-missed.mp4",
+          "seconds": 82
+        }
       },
       "check": {
         "prompt": "When is the best time to ask about current spend?",
@@ -115,11 +147,19 @@ export const JA8_TRAINING = {
       "say": "\"Besides you, who else weighs in on a change like this? Would it help to have them on our next call?\"",
       "good": {
         "text": "The AE asked the renewal date and why they originally chose their current software, which set up a clean close later.",
-        "source": "Alli F. demo"
+        "source": "Alli F. demo",
+        "clip": {
+          "src": "/content/videos/ja8-5-good.mp4",
+          "seconds": 58
+        }
       },
       "missed": {
         "text": "The prospect's husband used the trial, but his role in the decision was never asked about across four calls.",
-        "source": "105 Fever"
+        "source": "105 Fever, second call",
+        "clip": {
+          "src": "/content/videos/ja8-5-missed.mp4",
+          "seconds": 58
+        }
       },
       "check": {
         "prompt": "At minute 43 your prospect says, \"I need to run this by our general manager.\" What would have prevented this?",
@@ -139,12 +179,20 @@ export const JA8_TRAINING = {
       "idea": "Demo only what solves the pain they named, and tie each screen to their words. Lead with their top must-have. Skip what doesn't matter to them.",
       "say": "\"You said leads were getting lost. Here's where every new lead lands, and what happens automatically next.\"",
       "good": {
-        "text": "The AE answered the prospect's top must-have in the first minute, then demoed against her list.",
-        "source": "Demo 20"
+        "text": "When the prospect’s second location came up, the AE showed right then how booking would work for each location, instead of saving it for later.",
+        "source": "Her Zen Studio demo",
+        "clip": {
+          "src": "/content/videos/ja8-6-good.mp4",
+          "seconds": 70
+        }
       },
       "missed": {
         "text": "A long generic tour ran out of time before showing the prospect's #1 need: selling time-slot tickets for pop-ups.",
-        "source": "Rabbithole demo"
+        "source": "Rabbithole demo",
+        "clip": {
+          "src": "/content/videos/ja8-6-missed.mp4",
+          "seconds": 82
+        }
       },
       "check": {
         "prompt": "You have 20 minutes left and haven't shown the prospect's top need yet. What do you do?",
@@ -164,12 +212,20 @@ export const JA8_TRAINING = {
       "idea": "Lock in the decision: walk the agreement, set expectations for onboarding and prepare them for the retention call or buyer's remorse.",
       "say": "\"When you cancel, they'll probably offer a discount to keep you. How do you want to handle that?\"",
       "good": {
-        "text": "The AE pointed out the contract end date and auto-renew before she signed, so nothing surprised her later.",
-        "source": "Demo 14"
+        "text": "The AE walked the contract line by line with the prospect and fixed the dates and AI wording live, so nothing in it would surprise her later.",
+        "source": "105 Fever, fourth call",
+        "clip": {
+          "src": "/content/videos/ja8-7-good.mp4",
+          "seconds": 127
+        }
       },
       "missed": {
         "text": "The prospect said her old vendor wanted to get her on a call to cancel. Nobody prepared her for it, and the contract wasn't signed on the call.",
-        "source": "105 Fever, fourth call"
+        "source": "105 Fever, fourth call",
+        "clip": {
+          "src": "/content/videos/ja8-7-missed.mp4",
+          "seconds": 47
+        }
       },
       "check": {
         "prompt": "Your prospect agrees to sign. What's the strongest post-sell move?",
@@ -190,11 +246,19 @@ export const JA8_TRAINING = {
       "say": "\"Honestly, if your old system handles privates fine, it might not be worth switching. What would make it worth it?\"",
       "good": {
         "text": "\"If that's the only thing, Arketa can do that for you.\" Conceding the basics led the prospect to name what Momence did better.",
-        "source": "105 Fever, third call"
+        "source": "105 Fever, third call",
+        "clip": {
+          "src": "/content/videos/ja8-8-good.mp4",
+          "seconds": 80
+        }
       },
       "missed": {
         "text": "The prospect preferred to follow up by email, and the AE accepted. Her first event was six weeks away, and no next step was set.",
-        "source": "Rabbithole demo"
+        "source": "Rabbithole demo",
+        "clip": {
+          "src": "/content/videos/ja8-8-missed.mp4",
+          "seconds": 71
+        }
       },
       "check": {
         "prompt": "Which of these endings is the clearest next step?",
