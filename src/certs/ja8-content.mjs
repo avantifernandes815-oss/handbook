@@ -1,8 +1,8 @@
-// JA8 · Sandler in the demo — step-by-step training content.
+// JA8 · Sandler Selling — step-by-step training content.
 // Approved as the Junior AE step format (mockup approved Oct 29, 2026). Sandler ideas taught in our own words.
 
 export const JA8_TRAINING = {
-  "title": "Sandler in the demo",
+  "title": "Sandler Selling",
   "summary": "Eight ideas from the Sandler approach, applied to a Momence demo. One step per screen, each with a real example from our AE calls and a quick check. About 12 minutes.",
   "format": "steps",
   "minutes": 12,

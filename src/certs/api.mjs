@@ -32,8 +32,18 @@ const GRACE_MS = 4000;          // network slack on top of each question's time 
 const LOCK_HOURS = 24;          // lockout after a second tab-leave
 const MAX_ATTEMPTS = 3;         // failed attempts before a performance conversation
 const NUM = {2: 'two', 3: 'three', 4: 'four', 5: 'five'};
-const REVIEW_LABELS = {'day-1': 'Day 1 · The SDR Job', 'day-2': 'Day 2 · Who We Sell To & Why', 'day-3': 'Day 3 · Owning Your Book of Business', 'day-4': 'Day 4 · Pre-Vetting Workshop', 'day-5': 'Day 5 · Cold Calling Fundamentals', 'day-6': 'Day 6 · Controlling the Conversation', 'day-7': 'Day 7 · Working Smarter at Scale', 'day-8': 'Day 8 · From Yes to Meeting Held', 'meetings': 'Meetings & AE Handoff', 'sal': 'Qualification & SALs', 'book': 'Book of Business', 'statuses': 'Lead Statuses & CRM', '/training/CC1': 'CC1 · Openers training', '/training/CC2': 'CC2 · Elevator Pitch training'};
+const REVIEW_LABELS = {'day-1': 'Day 1 · The SDR Job', 'day-2': 'Day 2 · Who We Sell To & Why', 'day-3': 'Day 3 · Owning Your Book of Business', 'day-4': 'Day 4 · Pre-Vetting Workshop', 'day-5': 'Day 5 · Cold Calling Fundamentals', 'day-6': 'Day 6 · Controlling the Conversation', 'day-7': 'Day 7 · Working Smarter at Scale', 'day-8': 'Day 8 · From Yes to Meeting Held', 'meetings': 'Meetings & AE Handoff', 'sal': 'Qualification & SALs', 'book': 'Book of Business', 'statuses': 'Lead Statuses & CRM', '/training/CC1': 'CC1 · Openers training', '/training/CC2': 'CC2 · Elevator Pitch training', '/training/JA8': 'JA8 · Sandler Selling training'};
 // Foundation certs allow three attempts; the self-paced tracks have no limit (a retake opens after coaching).
+// Junior AE track: no manager coaching gate. A failed quiz locks for 24 hours, then the rep retakes it on their own.
+const RETAKE_WAIT_HOURS = {junior_ae: 24};
+async function retakeAt(env, email, cert) {
+  const h = RETAKE_WAIT_HOURS[cert?.track];
+  if (!h) return null;
+  const r = await env.DB.prepare("SELECT MAX(finished_at) f FROM quiz_attempts WHERE user_email=? AND cert_id=? AND status='failed'").bind(email, cert.id).first();
+  if (!r?.f) return null;
+  const at = new Date(Date.parse(r.f) + h * 3600e3).toISOString();
+  return at > nowIso() ? at : null;
+}
 const maxFor = (cert) => (cert?.track || 'foundation') === 'foundation' ? MAX_ATTEMPTS : 999;
 
 // Written practicals. Scored live by a manager, 1–4 per area; pass = average 3+ and the must-pass met.
@@ -242,6 +252,7 @@ async function myCerts(env, me) {
       status: p?.status || 'not_started', attemptsUsed: p?.attempts_used || 0, retakeUnlocked: p ? !!p.retake_unlocked : true,
       passedAt: p?.passed_at || null, lastScore: l ? l.score : null, inProgress: !!open.find(o => o.cert_id === c.id),
       lockedUntil: lock?.l && lock.l > nowIso() ? lock.l : null, maxAttempts: maxFor(c),
+      retakeAt: RETAKE_WAIT_HOURS[c.track] && p?.status === 'failed' ? await retakeAt(env, me.email, c) : null,
       training: (() => { const x = trains.find(r => r.cert_id === c.id); return x ? {completed: !!x.completed_at} : null; })(),
       components: parse(p?.components, {}),
       practical: (() => { const x = pracs.find(r => r.cert_id === c.id); return x ? {status: x.status, attemptNo: x.attempt_no} : null; })(),
@@ -303,7 +314,7 @@ async function finishAttempt(env, attempt, cert) {
   await env.DB.batch([
     env.DB.prepare("UPDATE quiz_attempts SET status=?, score=?, correct_count=?, finished_at=? WHERE id=?").bind(passed ? 'passed' : 'failed', score, r.c || 0, t, attempt.id),
     componentUpdate(env, cert, prog, attempt.user_email, {quiz: passed ? 'passed' : 'failed'}, t,
-      passed ? ', attempts_used=attempts_used+1' : ', attempts_used=attempts_used+1, retake_unlocked=0')
+      passed || RETAKE_WAIT_HOURS[cert.track] ? ', attempts_used=attempts_used+1' : ', attempts_used=attempts_used+1, retake_unlocked=0')
   ]);
   return {...attempt, status: passed ? 'passed' : 'failed', score};
 }
@@ -329,6 +340,8 @@ async function startQuiz(env, me, certId) {
   if (!p.retake_unlocked) return fail('needs_coaching', 'Your retake opens after a coaching session with your manager.', 409);
   const lock = await lockedUntil(env, me.email, certId);
   if (lock) return json({error: 'locked', message: 'This quiz is locked after leaving the tab twice.', lockedUntil: lock}, 409);
+  const wait = await retakeAt(env, me.email, cert);
+  if (wait) return json({error: 'locked', message: 'Your retake opens 24 hours after your last attempt. Review the training in the meantime.', lockedUntil: wait}, 409);
   const rows = await activeQuestions(env, certId);
   if (!rows.length) return fail('no_questions', 'This quiz has no questions yet.', 500);
   const plan = buildPlan(rows, cert.questions_per_attempt || 15, cert.min_per_section || 0);
@@ -345,12 +358,12 @@ async function startQuiz(env, me, certId) {
 
 async function result(env, attempt) {
   const answers = (await env.DB.prepare("SELECT a.position, a.is_correct, q.topic, q.prompt, q.reveal, q.review_link FROM quiz_answers a JOIN questions q ON q.id=a.question_id AND q.version=a.question_version WHERE a.attempt_id=? ORDER BY a.position").bind(attempt.id).all()).results;
-  const cert = await env.DB.prepare("SELECT name, pass_mark, components, track FROM certifications WHERE id=?").bind(attempt.cert_id).first();
+  const cert = await env.DB.prepare("SELECT id, name, pass_mark, components, track FROM certifications WHERE id=?").bind(attempt.cert_id).first();
   const p = await env.DB.prepare("SELECT attempts_used FROM cert_progress WHERE user_email=? AND cert_id=?").bind(attempt.user_email, attempt.cert_id).first();
   const missed = new Map();
   for (const a of answers.filter(a => !a.is_correct)) if (!missed.has(a.topic)) missed.set(a.topic, {topic: a.topic, review: a.review_link, label: REVIEW_LABELS[a.review_link] || a.review_link});
   return {
-    certId: attempt.cert_id, certName: cert.name, status: attempt.status, hasPractical: !!secondComponent(parse(cert.components, [])), next: secondComponent(parse(cert.components, [])), mode: ROLEPLAYS[attempt.cert_id]?.mode || null, attemptNo: attempt.attempt_no, attemptsUsed: p?.attempts_used || 0, maxAttempts: maxFor(cert),
+    certId: attempt.cert_id, certName: cert.name, status: attempt.status, hasPractical: !!secondComponent(parse(cert.components, [])), next: secondComponent(parse(cert.components, [])), mode: ROLEPLAYS[attempt.cert_id]?.mode || null, attemptNo: attempt.attempt_no, attemptsUsed: p?.attempts_used || 0, maxAttempts: maxFor(cert), selfRetake: !!RETAKE_WAIT_HOURS[cert.track], retakeAt: await retakeAt(env, attempt.user_email, cert),
     correct: attempt.correct_count, total: answers.length, score: attempt.score, passMark: cert.pass_mark,
     reveals: answers.filter(a => a.is_correct && a.reveal).map(a => ({topic: a.topic, question: a.prompt, text: a.reveal})),
     review: [...missed.values()]
@@ -903,8 +916,8 @@ export async function handleApi(request, env, user) {
     if (!cert) return fail('not_found', 'Unknown certification.', 404);
     const p = await getProgress(env, me.email, m[1]);
     return json({
-      cert: {id: cert.id, name: cert.name, summary: cert.summary, status: cert.status, questions: cert.questions_per_attempt, seconds: cert.seconds_per_question, passMark: cert.pass_mark},
-      progress: {status: p.status, quizPassed: parse(p.components, {}).quiz === 'passed', hasPractical: !!secondComponent(parse(cert.components, [])), next: secondComponent(parse(cert.components, [])), attemptsUsed: p.attempts_used, retakeUnlocked: !!p.retake_unlocked, maxAttempts: maxFor(cert), needsTraining: parse(cert.components, []).includes('training') && parse(p.components, {}).training !== 'passed', lockedUntil: await lockedUntil(env, me.email, m[1])},
+      cert: {id: cert.id, name: cert.name, summary: cert.summary, status: cert.status, track: cert.track, selfRetake: !!RETAKE_WAIT_HOURS[cert.track], questions: cert.questions_per_attempt, seconds: cert.seconds_per_question, passMark: cert.pass_mark},
+      progress: {status: p.status, quizPassed: parse(p.components, {}).quiz === 'passed', hasPractical: !!secondComponent(parse(cert.components, [])), next: secondComponent(parse(cert.components, [])), attemptsUsed: p.attempts_used, retakeUnlocked: !!p.retake_unlocked, maxAttempts: maxFor(cert), needsTraining: parse(cert.components, []).includes('training') && parse(p.components, {}).training !== 'passed', lockedUntil: await lockedUntil(env, me.email, m[1]), retakeAt: await retakeAt(env, me.email, cert)},
       openAttempt: open ? open.id : null
     });
   }

@@ -105,6 +105,7 @@ const ROLE_NAMES = {sdr: 'SDR', senior_sdr: 'Senior SDR', manager: 'Manager', ad
     if (p.inProgress) return {key: 'resume', chip: 'go', label: 'In progress', ico: 'go', action: 'Resume quiz'};
     if (p.status === 'failed') {
       if (p.attemptsUsed >= p.maxAttempts) return {key: 'max', chip: 'warn', label: 'Talk to your manager', ico: 'go'};
+      if (p.retakeAt) return {key: 'wait', chip: 'warn', label: 'Retake opens ' + new Date(p.retakeAt).toLocaleString([], {weekday: 'short', hour: 'numeric', minute: '2-digit'}) + ' · review the training', ico: 'go', action: 'Review the training', url: '/training/' + encodeURIComponent(c.id)};
       if (!p.retakeUnlocked) return {key: 'coaching', chip: 'go', label: 'Retake after coaching', ico: 'go'};
       return {key: 'retake', chip: 'go', label: 'Retake ready', ico: 'go', action: 'Start retake'};
     }
