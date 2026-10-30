@@ -294,7 +294,7 @@ export const JA8_TRAINING = {
           }
         },
         {
-          "text": "The product rep asked how many locations are franchised and who will own the rest. That answer led straight into the corporate dashboard: same marketing across sites, control over what each location can change, and royalty fees collected automatically. (Screen blurred: it shows a client's lead list.)",
+          "text": "The product rep asked how many locations are franchised and who will own the rest. That answer led straight into the corporate dashboard: same marketing across sites, control over what each location can change, and royalty fees collected automatically.",
           "source": "ReformX Pilates, first call (Australian franchise)",
           "clip": {
             "src": "/content/videos/ja8-6-good-b.mp4",
