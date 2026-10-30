@@ -471,27 +471,27 @@
    "section": "C",
    "kind": "judgment",
    "topic": "Software that doesn’t qualify",
-   "prompt": "Midway through, the prospect mentions they run on Mariana Tek. What do you do?",
+   "prompt": "Midway through, the prospect mentions they run on Mariana Tek and they’re happy with it. What do you do?",
    "options": [
     {
      "id": "A",
-     "text": "Thank them, close the call politely and don’t book it"
+     "text": "Thank them, close politely and don’t book the meeting"
     },
     {
      "id": "B",
-     "text": "Book it anyway and let the AE sort it out"
+     "text": "Book it anyway and let the AE sort it out later on"
     },
     {
      "id": "C",
-     "text": "Ask about their contract"
+     "text": "Pitch Momence as the better fit for their franchise"
     },
     {
      "id": "D",
-     "text": "Keep pitching"
+     "text": "Ask about their contract and book a call at renewal"
     }
    ],
    "correct": "A",
-   "reveal": "Mariana Tek, Gymmaster and ClubReady accounts don’t qualify. Booking one wastes the AE’s slot.",
+   "reveal": "Mariana Tek is Momence’s sister company and suits large franchises with a big brand. Don’t pursue it. Book only if they’re unhappy with it.",
    "review": "/training/CC3",
    "source": "CC3 training"
   },
@@ -789,7 +789,7 @@
    "id": "CC3-E4",
    "section": "E",
    "kind": "judgment",
-   "topic": "Growth plans",
+   "topic": "Expansion plans",
    "prompt": "The prospect mentions they’re opening a fourth location in the spring. Where does it go?",
    "options": [
     {
@@ -810,7 +810,7 @@
     }
    ],
    "correct": "D",
-   "reveal": "Growth plans change what the AE shows.",
+   "reveal": "Expansion plans change what the AE shows.",
    "review": "/training/CC3",
    "source": "CC3 training"
   },

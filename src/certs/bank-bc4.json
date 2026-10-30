@@ -98,7 +98,7 @@
    "options": [
     {
      "id": "A",
-     "text": "Pitch the largest plan so he can grow"
+     "text": "Pitch every add-on so he has room to grow"
     },
     {
      "id": "B",
@@ -114,7 +114,7 @@
     }
    ],
    "correct": "B",
-   "reveal": "In the SALSAtlanta demo the AE was candid about which plan gave value at his size. Fit beats the biggest package.",
+   "reveal": "In the SALSAtlanta demo the AE was candid about which add-ons gave value at his size. Each plan is custom-built, so fit beats loading it up.",
    "review": "/training/BC4",
    "source": "BC4 training"
   },

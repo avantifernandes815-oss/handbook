@@ -76,7 +76,7 @@ export const BC4_TRAINING = {
       ],
       "good": [
         {
-          "text": "The owner runs salsa one day a week alongside a full-time job. At that size only some plans give him real value, and the biggest package isn't one of them.",
+          "text": "The owner runs salsa one day a week alongside a full-time job. At that size only some add-ons give him real value, so his plan should hold just those.",
           "source": "SALSAtlanta demo",
           "clip": {
             "src": "/content/videos/bc4-1-good-o1.mp4",

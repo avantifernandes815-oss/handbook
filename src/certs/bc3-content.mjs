@@ -318,7 +318,7 @@ export const BC3_TRAINING = {
     },
     {
       "title": "Features that land",
-      "why": "Each kind of fitness business has one or two screens that sell it, and showing those first wins the demo.",
+      "why": "Each kind of fitness business runs on one or two daily jobs, like assigning bikes, logging lifts or enrolling a program, and that's where the owner feels her software most.",
       "idea": "The client picks a numbered bike or station on a room map at checkout. The map is built to match the studio's room. Workouts hold a library of exercises scored in pounds, reps or rounds, built into programs for a group or one person. Packs can auto-refill when the last credit is used. Classes and appointments live in one system, so scans, consults and personal training sit next to classes. A community page in the app can replace a Facebook group. Terms enroll a player in every session of a multi-week program at once. Courts can run as appointments, and tags by program let the owner email last year's campers. A win-back sequence reaches clients not seen in 30 or 60 days by email and text, and an abandoned checkout gets a text soon after.",
       "points": [
         {
@@ -522,7 +522,7 @@ export const BC3_TRAINING = {
     },
     {
       "title": "Current tools and objections",
-      "why": "Fitness owners compare systems hard, and how you handle their current tool decides whether they trust the rest of the demo.",
+      "why": "Most fitness owners already run on a system they chose with care, and they judge anything new against what it does for them today.",
       "idea": "Fitness prospects in our demos came from WellnessLiving, Mariana Tek, Glofox, MindBody and Vagaro, or from paper sign-up sheets. Name what their current tool does well, then show the one screen where Momence is better for them. Don't knock the competitor. When a prospect says a competitor offered a discount, ask what matters beyond price before you defend yours. Quote from the pricing calculator, never from memory. Get a decision date, send a recap for the other person, and invite them to the next call. Presales and founding memberships can start before the doors open, and a membership can activate on the client's first class.",
       "points": [
         {

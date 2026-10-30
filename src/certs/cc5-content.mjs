@@ -11,7 +11,7 @@ export const COMPETITORS = ['MindBody', 'WellnessLiving', 'Glofox', 'Arketa', 'W
 export const QUICK_FACTS = {
   MindBody: [['Our edge', 'Two-click booking, no marketplace fee on new clients'], ['Weak spot', 'Complexity, stacked fees, 60–90 day setup'], ['Verified fee', '20% marketplace fee, capped at $30, on new clients from the MindBody app'], ['Landmine', '“When a new client finds you through the MindBody app, do you know what you pay for that lead?”']],
   WellnessLiving: [['Our edge', 'Built for studios; terms are in the agreement you sign'], ['Weak spot', 'Billing and contract terms: add-ons without clear agreement, billing after cancellation (BBB)'], ['Verified fee', 'Processing “starting at 2.59%”, a floor, not a rate'], ['Landmine', '“If you cancelled tomorrow, how confident are you the charges would actually stop?”']],
-  Glofox: [['Our edge', 'Native live and on-demand video, pick-a-spot booking'], ['Weak spot', 'Cost structure and renewal increases with little notice'], ['Verified fee', '3.80% per card transaction, $0.10 per text, $3 per e-agreement (their own proposal)'], ['Landmine', '“What did your price move to at your last renewal, and how much notice did you get?”']],
+  Glofox: [['Our edge', 'Native live and on-demand video, pick-a-spot booking'], ['Weak spot', 'Renewal increases with little notice, plus per-text and per-e-agreement fees'], ['Verified fee', '3.80% per card transaction, $0.10 per text, $3 per e-agreement (their own proposal)'], ['Landmine', '“What did your price move to at your last renewal, and how much notice did you get?”']],
   Arketa: [['Our edge', 'Live and on-demand video too, with marketing, app and messaging in one platform'], ['Weak spot', 'Fees on top of Stripe, reporting accuracy, stability'], ['Verified fee', '3% transaction fee + Stripe fees (their pricing page)'], ['Landmine', '“When you pull a revenue report, does it reconcile against Stripe?”']],
   Walla: [['Our edge', 'Easy too, and replaces the 3–4 tools studios run alongside it'], ['Weak spot', 'Growth and consolidation: features still being built, limited automation'], ['Verified fee', 'No fee angle. Use consolidation'], ['Landmine', '“Besides Walla, what other tools are you paying for: email, SMS, reviews, forms?”']]
 };
@@ -50,7 +50,7 @@ export const CC5_TRAINING = {
       items: [
         {name: 'MindBody', rows: [['Acknowledge, then our edge', 'Breadth and brand. Momence gives you that breadth with two-click booking and no marketplace fee on new clients.'], ['The real weak spot', 'Complexity and stacked fees, including a 20% marketplace fee (capped at $30) on new clients who find the studio through the MindBody app. Setup takes 60–90 days.'], ['Your landmine', '“When a new client finds you through the MindBody app, do you know what you’re paying for that lead?”'], ['What their customers say', 'Too many clicks, price increases, contracts that are hard to exit.']]},
         {name: 'WellnessLiving', rows: [['Acknowledge, then our edge', 'Low entry price and broad coverage. Momence is built for studios specifically, and its terms are in the agreement you sign, not on a webpage.'], ['The real weak spot', 'Billing and contract terms. Their BBB pattern: add-ons charged without clear agreement and billing after cancellation.'], ['Your landmine', '“If you cancelled tomorrow, how confident are you the charges would actually stop?”'], ['What their customers say', 'A cluttered interface and migrations that didn’t fully transfer.']]},
-        {name: 'Glofox', rows: [['Acknowledge, then our edge', 'Franchise depth. Momence does that with native live and on-demand video and pick-a-spot booking, which Glofox doesn’t have.'], ['The real weak spot', 'Cost structure. Their own proposal quotes 3.80% per card transaction, $0.10 per text and $3 per e-agreement. Renewal increases with little notice.'], ['Your landmine', '“What did your price move to at your last renewal, and how much notice did you get?”'], ['What their customers say', 'Renewal jumps and an admin side that needs a laptop.']]},
+        {name: 'Glofox', rows: [['Acknowledge, then our edge', 'Franchise depth. Momence does that with native live and on-demand video and pick-a-spot booking, which Glofox doesn’t have.'], ['The real weak spot', 'Renewal increases with little notice. Their own proposal also adds $0.10 per text and $3 per e-agreement on top of 3.80% per card transaction. Lead with the renewal, not the card rate.'], ['Your landmine', '“What did your price move to at your last renewal, and how much notice did you get?”'], ['What their customers say', 'Renewal jumps and an admin side that needs a laptop.']]},
         {name: 'Arketa', rows: [['Acknowledge, then our edge', 'Video and brand. Momence streams live and on-demand too, with marketing, the branded app and messaging in one platform instead of up-charges.'], ['The real weak spot', 'Their own pricing page: “3% transaction fee + Stripe fees.” Reviewers question reporting accuracy and stability.'], ['Your landmine', '“When you pull a revenue report, does it reconcile against Stripe, or do you keep a spreadsheet alongside it?”'], ['What their customers say', 'Recurring bugs and slow support replies.']]},
         {name: 'Walla', rows: [['Acknowledge, then our edge', 'Simple and built by studio owners. Momence is easy to use too, and it replaces the 3–4 tools studios run alongside Walla.'], ['The real weak spot', 'Growth and consolidation. Features still being built and limited automation.'], ['Your landmine', '“Besides Walla, what other tools are you paying for: email, SMS, reviews, forms?”'], ['What their customers say', 'Few complaints. Mostly missing features and limited automation.']]}
       ]},
@@ -59,14 +59,14 @@ export const CC5_TRAINING = {
       rows: [
         ['Validate', 'Respect the question', '“Fair question. Glofox belongs on your list.”'],
         ['Acknowledge', 'Name their strength, tie it to ours', '“They do franchise well, and we do that with native video and pick-a-spot built in.”'],
-        ['Reframe', 'Name the real cost', '“Where it gets expensive is the structure: their own pricing runs 3.80% per transaction plus per-text fees.”'],
+        ['Reframe', 'Name the real cost', '“Where it gets expensive is the extras and the renewals: per-text fees, per-agreement fees, and price jumps at renewal.”'],
         ['Specify', 'Make it about them, then the meeting', '“That’s exactly what the AE can walk through with your numbers.”']
       ]},
     {type: 'pickup', label: '6 · THEIR OBJECTION, YOUR MOVE', title: 'Five scenarios', body: 'Pick the best response. One per competitor.', tryLabel: 'TRY IT · PICK THE RESPONSE',
       cards: [
         {setup: 'Fitness studio · owner · on Glofox', line: '“Glofox is cheaper than you.”',
-          options: ['“We’re actually cheaper.”', '“On the subscription, maybe. Their own pricing adds 3.80% per transaction and per-text fees. What’s your monthly card volume?”', '“Their support is bad, though.”', '“OK, no problem.”'],
-          answer: '“On the subscription, maybe. Their own pricing adds 3.80% per transaction and per-text fees. What’s your monthly card volume?”', why: 'Acknowledge the sticker price, reframe on the all-in cost, make it about their numbers.'},
+          options: ['“We’re actually cheaper.”', '“On the subscription, maybe. Their own pricing adds per-text and per-agreement fees, and renewals tend to jump. What did your price do at your last renewal?”', '“Their support is bad, though.”', '“OK, no problem.”'],
+          answer: '“On the subscription, maybe. Their own pricing adds per-text and per-agreement fees, and renewals tend to jump. What did your price do at your last renewal?”', why: 'Acknowledge the sticker price, reframe on the extras and renewals, make it about their numbers.'},
         {setup: 'Yoga studio · director · on WellnessLiving', line: '“WellnessLiving has great reviews.”',
           options: ['“Reviews are fake.”', '“Their support is terrible.”', '“They do, and day to day people like it. Worth asking how they’d handle a billing dispute before you sign an annual contract.”', '“Ours are better.”'],
           answer: '“They do, and day to day people like it. Worth asking how they’d handle a billing dispute before you sign an annual contract.”', why: 'Both are true: good day-to-day reviews, and a billing pattern on the BBB.'},
@@ -89,11 +89,11 @@ export const CC5_TRAINING = {
         ['WellnessLiving', 'Processing “starting at 2.59%” (a floor, not a rate)', 'Their pricing page'],
         ['Walla', 'No fee angle. Use consolidation', '—']
       ],
-      after: 'Internal notes sometimes carry a price one studio was quoted. Say “studios we’ve talked to were quoted around…” or skip it. Never present it as their published price.'},
+      after: 'Internal notes sometimes carry a price one studio was quoted. Say “studios we’ve talked to were quoted around…” or skip it. Never present it as their published price. Don’t compete on card rates: Momence’s own rates are in the same range, so card pricing stays with the AE.'},
     {type: 'killers', label: '8 · WATCH OUT', title: 'What loses the room',
       items: [
         ['The broad attack', '“Their support is awful”', 'Verified, specific weak spots only'],
-        ['The unverified number', '“Arketa costs $299”', '“Studios we’ve talked to were quoted around…” or skip it'],
+        ['The unverified number', 'One studio’s quote, stated as Arketa’s price', '“Studios we’ve talked to were quoted around…” or skip it'],
         ['The feature war', 'A comparison sheet read aloud', 'One gap that matters to them, then the meeting'],
         ['Knocking their choice', 'Now they’re defending it', 'Acknowledge it, then show where we’re stronger'],
         ['Quoting our price', 'It loses the meeting', 'The AE covers it'],

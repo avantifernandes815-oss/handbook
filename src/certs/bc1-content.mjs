@@ -531,7 +531,7 @@ export const BC1_TRAINING = {
       "say": "“What does your current system do well that you'd want to keep?”",
       "good": [
         {
-          "text": "A reformer owner asked when a reformer integration would be ready. It has no release date yet.",
+          "text": "A reformer owner asked when a reformer integration would be ready. It has no release date yet. If a feature shows on Productboard, quote only the quarter, never a month or day.",
           "source": "Taylored Pilates demo",
           "clip": null
         },

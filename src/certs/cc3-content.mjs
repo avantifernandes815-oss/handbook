@@ -55,7 +55,7 @@ export const CC3_TRAINING = {
       items: [
         {title: 'Size', sub: '8+ weekly classes or 2+ bookable staff. Ask when scheduling or staffing comes up.', quote: '“How many classes are you running a week right now?”'},
         {title: 'Contract', sub: 'Ends within 6 months. Ask when switching comes up.', quote: '“When does your agreement with them come up for renewal?”'},
-        {title: 'Current software', sub: 'Usually on the site, so confirm it. Mariana Tek, Gymmaster and ClubReady don’t qualify.', quote: '“You’re on Mindbody today, right?”'},
+        {title: 'Current software', sub: 'Usually on the site, so confirm it. Gymmaster and ClubReady don’t qualify. Mariana Tek is our sister company and suits large franchises with a big brand, so don’t pursue it unless they’re unhappy with it.', quote: '“You’re on Mindbody today, right?”'},
         {title: 'Title', sub: 'Owner, founder, director, studio manager or operations manager.', quote: '“Who else would want to be in the room when you look at options?”'}
       ],
       after: 'Rule of thumb: never two qualifying questions in a row without a reason in between.'},

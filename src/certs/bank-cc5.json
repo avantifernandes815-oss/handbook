@@ -359,15 +359,15 @@
    "options": [
     {
      "id": "A",
-     "text": "2.9% + $0.30 per transaction"
+     "text": "2.5% per card transaction, free texts, $1 per e-agreement"
     },
     {
      "id": "B",
-     "text": "Free texting on every plan"
+     "text": "Free texting on every plan and 1% per card transaction"
     },
     {
      "id": "C",
-     "text": "1.5% per card transaction"
+     "text": "1.5% per card transaction, $0.05 per text, no e-agreement fee"
     },
     {
      "id": "D",
@@ -703,11 +703,11 @@
    "section": "E",
    "kind": "judgment",
    "topic": "A quoted price",
-   "prompt": "Internal notes say “Arketa costs $299.” How do you use that?",
+   "prompt": "Internal notes say Arketa quoted one studio a monthly price. How do you use that?",
    "options": [
     {
      "id": "A",
-     "text": "Quote it"
+     "text": "Quote it as Arketa’s monthly price for every studio"
     },
     {
      "id": "B",
@@ -715,15 +715,15 @@
     },
     {
      "id": "C",
-     "text": "Round it up"
+     "text": "Round it up a little so the gap with Momence looks bigger"
     },
     {
      "id": "D",
-     "text": "Say it’s on their website"
+     "text": "Say it’s the price listed on Arketa’s own pricing page"
     }
    ],
    "correct": "B",
-   "reveal": "It isn’t their published price. If they’re on the $49 plan, you’ve lost credibility.",
+   "reveal": "One studio’s quote isn’t their published price. State it as fact, and one wrong number costs you the call.",
    "review": "/training/CC5",
    "source": "CC5 training"
   },
